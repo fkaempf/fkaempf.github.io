@@ -246,7 +246,7 @@ function loadPublications() {
         var overlap = 0;
         wordsA.forEach(function(w) { if (setB[w]) overlap++; });
         var smaller = Math.min(wordsA.length, wordsB.length);
-        return overlap / smaller > 0.5;
+        return overlap / smaller >= 0.5;
       }
 
       // Deduplicate: if a bioRxiv preprint has a published version, suppress the preprint

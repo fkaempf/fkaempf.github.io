@@ -32,6 +32,11 @@ Social behaviour in cichlids, experimental design
 
 ## Education
 
+2026
+[Neural Systems & Behavior Course](https://www.mbl.edu/education/advanced-research-training-courses/course-offerings/neural-systems-behavior)
+Marine Biological Laboratory, Woods Hole, USA
+Intensive summer course in experimental and computational systems neuroscience
+
 2024--present
 PhD, Biological Sciences
 MRC Laboratory of Molecular Biology, University of Cambridge

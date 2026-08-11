@@ -140,13 +140,13 @@
 </style>
 
 <div class="launch">
-  <span class="pill">mCNS <code>male-cns:v0.9</code></span>
+  <span class="pill">mCNS <code>male-cns:v1.0</code></span>
   <button class="btn" id="start">Start pitch &rarr;</button>
 </div>
 
 <h1>Can we settle the receptor typing experimentally?</h1>
 <p class="sub">Turning the contact-chemosensory receptor assignment from an argument into a
-measurement. Male CNS connectome, <code>male-cns:v0.9</code>.</p>
+measurement. Male CNS connectome, <code>male-cns:v1.0</code>.</p>
 <p class="note">Working page &middot; Florian Kämpf &middot; last updated 11 August 2026 &middot;
 sits alongside <a href="../an05b102/">AN05B102</a>, <a href="../an05b023bc/">AN05B023b/c</a> and
 <a href="../an09b017/">AN09B017</a>.</p>
@@ -156,6 +156,23 @@ their downstream partners. The paper's thesis is what those neurons do downstrea
 loop, and it is the softest joint in the manuscript. This page lays out a way to cut it: treat
 the assignment as an <strong>inverse problem</strong> the connectome already specifies, and
 solve it with a GRASP measurement that the connectome cannot fake.</p>
+
+<div class="callout warn">
+<p><strong>Status &mdash; numbers revised 11 Aug, crosscheck in flight.</strong> Everything below
+is recomputed from <code>male-cns:v1.0</code> fetched directly from neuPrint,
+<strong>unthresholded</strong>.</p>
+<p>Earlier versions of this page used the repo's cached connectivity table, which is built with
+<code>fetch_connectivity(synapse_threshold&nbsp;=&nbsp;5)</code>
+(<code>R/data_processing.R:123</code>). That threshold is a deliberate and appropriate choice for
+the repo's <em>path</em> analyses, but it is the wrong basis for predicting GRASP puncta ratios,
+because GRASP reports weak contacts too. It inflated separations roughly nine-fold &mdash; a
+claimed 121&times; is really 13.1&times;. A like-for-like unthresholded comparison shows v0.9 and
+v1.0 differ by <code>|&Delta;R| &le; 0.009</code>, so the dataset version was never the issue.
+Figures 5 and 6, which use the cache for path analysis, are unaffected.</p>
+<p>An independent re-derivation and adversarial crosscheck is running. One thing it is explicitly
+testing: <em>the largest fold-changes belong to the smallest targets</em>, which may be an
+artifact rather than a finding. Treat the top of the table as provisional.</p>
+</div>
 
 <h2>1 &middot; The loop</h2>
 <p class="note">How the current assignment was reached, and why it cannot then be used to
@@ -219,16 +236,29 @@ claim is downstream circuit logic. No amount of additional connectome analysis b
 <h2>2 &middot; PPN1 is not the marker the draft says it is</h2>
 
 <div class="callout warn">
-<p><strong>Prior warning &mdash; the PPN1 identity itself is disputed.</strong> FlyBase/VFB
-curation makes <em>PPN1</em> (FBbt_00111517, Kallman 2015) a synonym of
-<strong>AN05B023a&ndash;d</strong>, asserted independently by Marin et al. 2024 (MANC) and Berg
-et al. 2025 (mCNS). The <code>AN05B102a = PPN1</code> call in
-<code>analyses/an_investigation/R/_paths.R:54-58</code> was made by eye from R56C09 MCFO imagery.</p>
-<p>A reverse colour-depth search of R56C09 against mCNS returns a <em>mixed</em> match set:
-AN05B102a 19/52 images (best rank 3), ANXXX093 13, <strong>AN05B023c 9 (best rank 5)</strong>,
-AN05B023d 4. So R56C09 is not a clean single-cell line at MCFO level, and the single best
-discriminating target in the whole design may sit inside its match set. <em>Resolve this before
-ordering anything.</em></p>
+<p><strong>Prior warning &mdash; two curations disagree about what PPN1 is.</strong></p>
+<table style="margin:.6rem 0">
+<tr><th>Source</th><th>Says PPN1 is</th><th>Checked</th></tr>
+<tr><td>mCNS <code>mba.feather</code> <code>synonyms</code> field (Berg 2025)</td>
+    <td><b>AN05B102a</b> &mdash; bodies 11431, 12286 carry
+        <code>"Kallman 2015: PPN1"</code>; no AN05B023 body does</td>
+    <td><span class="tag ok">read from the data</span></td></tr>
+<tr><td>FlyBase anatomy ontology <a href="https://www.ebi.ac.uk/ols4/ontologies/fbbt/classes?obo_id=FBbt:00111517">FBbt:00111517</a></td>
+    <td><b>AN05B023</b> &mdash; listed as an exact synonym of "adult pheromone projection neuron 1"</td>
+    <td><span class="tag ok">read from EBI OLS4</span></td></tr>
+</table>
+<p>The <code>AN05B102a = PPN1</code> call in <code>analyses/an_investigation/R/_paths.R:54-58</code>
+therefore follows the connectome's own annotation, not just an eyeball match to R56C09 MCFO.</p>
+<p><strong>What would settle it.</strong> AN05B102a is <em>cholinergic</em>; AN05B023a&ndash;d are
+all <em>GABAergic</em>. If Kallman et al. 2015 characterised the sign of PPN1's output, that is
+decisive on its own. The ontology's "metathoracic (T3) soma" matches none of the candidates
+(AN05B023a T2, b A2, c A6, d A9, AN05B102a A1), so that definition text looks like a loose
+transcription and should not carry weight.</p>
+<p><strong>Why it matters here.</strong> The ontology definition says PPN1 is activated downstream
+of <em>female</em> pheromone-sensing neurons. That is a 93%-ppk25+ input profile &mdash; which is
+<strong>AN05B023c</strong>, not AN05B102a's 45/55. If the ontology is right, the neuron Kallman
+recorded is also the single best discriminating target in this design, and the argument in this
+section changes completely. <em>Resolve before ordering.</em></p>
 </div>
 
 <p>The manuscript leans on PPN1 as corroboration that WG3 is <span class="tag f">ppk23+ ppk25+</span>,
@@ -357,91 +387,111 @@ LgLG7, LgLG8 &mdash; are individually identifiable. Condition number 2.5 means t
 well posed, not marginally solvable.</p>
 
 <figure class="dark-fig">
-<svg viewBox="0 0 720 452" role="img" aria-label="Discrimination per target">
+<svg viewBox="0 0 720 538" role="img" aria-label="Discrimination per target, v1.0">
 <g font="11px system-ui,sans-serif">
-<line x1="132.0" y1="40" x2="132.0" y2="412" stroke="#2f3843" stroke-width="1" stroke-dasharray="2 4"/>
+<line x1="132.0" y1="40" x2="132.0" y2="498" stroke="#2f3843" stroke-dasharray="2 4"/>
 <text x="132.0" y="34" fill="#8b95a5" text-anchor="middle" font-size="10">0</text>
-<line x1="266.0" y1="40" x2="266.0" y2="412" stroke="#2f3843" stroke-width="1" stroke-dasharray="2 4"/>
+<line x1="266.0" y1="40" x2="266.0" y2="498" stroke="#2f3843" stroke-dasharray="2 4"/>
 <text x="266.0" y="34" fill="#8b95a5" text-anchor="middle" font-size="10">0.25</text>
-<line x1="400.0" y1="40" x2="400.0" y2="412" stroke="#2f3843" stroke-width="1" stroke-dasharray="2 4"/>
+<line x1="400.0" y1="40" x2="400.0" y2="498" stroke="#2f3843" stroke-dasharray="2 4"/>
 <text x="400.0" y="34" fill="#8b95a5" text-anchor="middle" font-size="10">0.5</text>
-<line x1="534.0" y1="40" x2="534.0" y2="412" stroke="#2f3843" stroke-width="1" stroke-dasharray="2 4"/>
+<line x1="534.0" y1="40" x2="534.0" y2="498" stroke="#2f3843" stroke-dasharray="2 4"/>
 <text x="534.0" y="34" fill="#8b95a5" text-anchor="middle" font-size="10">0.75</text>
-<line x1="668.0" y1="40" x2="668.0" y2="412" stroke="#2f3843" stroke-width="1" stroke-dasharray="2 4"/>
+<line x1="668.0" y1="40" x2="668.0" y2="498" stroke="#2f3843" stroke-dasharray="2 4"/>
 <text x="668.0" y="34" fill="#8b95a5" text-anchor="middle" font-size="10">1</text>
-<text x="132" y="18" fill="#8b95a5" font-size="10" letter-spacing=".06em">PREDICTED ppk25+ PUNCTA FRACTION  R</text>
-<line x1="400.0" y1="40" x2="400.0" y2="412" stroke="#5b6675" stroke-width="1.2"/>
-<text x="122" y="67" fill="#e8edf4" text-anchor="end" font-size="11">IN01B065</text>
-<line x1="159.3" y1="63" x2="640.7" y2="63" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="640.7" cy="63" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="159.3" cy="63" r="5.5" fill="#e8a33d"/>
-<text x="680" y="67" fill="#c3cbd8" font-size="10">19×</text>
-<text x="122" y="93" fill="#e8edf4" text-anchor="end" font-size="11">AN05B023b</text>
-<line x1="160.9" y1="89" x2="639.1" y2="89" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="639.1" cy="89" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="160.9" cy="89" r="7.5" fill="#e8a33d"/>
-<text x="680" y="93" fill="#c3cbd8" font-size="10">18×</text>
-<text x="122" y="119" fill="#e8edf4" text-anchor="end" font-size="11">AN09B017b</text>
-<line x1="171.7" y1="115" x2="628.3" y2="115" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="628.3" cy="115" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="171.7" cy="115" r="5.4" fill="#e8a33d"/>
-<text x="680" y="119" fill="#c3cbd8" font-size="10">13×</text>
-<text x="122" y="145" fill="#e8edf4" text-anchor="end" font-size="11">IN17A013</text>
-<line x1="188.3" y1="141" x2="611.7" y2="141" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="611.7" cy="141" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="188.3" cy="141" r="5.6" fill="#e8a33d"/>
-<text x="680" y="145" fill="#c3cbd8" font-size="10">9×</text>
-<text x="122" y="171" fill="#e8edf4" text-anchor="end" font-size="11">IN05B002</text>
-<line x1="206.5" y1="167" x2="593.5" y2="167" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="593.5" cy="167" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="206.5" cy="167" r="8.3" fill="#e8a33d"/>
-<text x="680" y="171" fill="#c3cbd8" font-size="10">6×</text>
-<text x="122" y="197" fill="#e8edf4" text-anchor="end" font-size="11">AN17A013</text>
-<line x1="216.2" y1="193" x2="583.8" y2="193" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="583.8" cy="193" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="216.2" cy="193" r="6.1" fill="#e8a33d"/>
-<text x="680" y="197" fill="#c3cbd8" font-size="10">5×</text>
-<text x="122" y="223" fill="#e8edf4" text-anchor="end" font-size="11">IN11A022</text>
-<line x1="236.5" y1="219" x2="563.5" y2="219" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="563.5" cy="219" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="236.5" cy="219" r="5.6" fill="#e8a33d"/>
-<text x="680" y="223" fill="#c3cbd8" font-size="10">4×</text>
-<text x="122" y="249" fill="#e8edf4" text-anchor="end" font-size="11">IN11A020</text>
-<line x1="251.0" y1="245" x2="549.0" y2="245" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="549.0" cy="245" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="251.0" cy="245" r="6.0" fill="#e8a33d"/>
-<text x="680" y="249" fill="#c3cbd8" font-size="10">4×</text>
-<text x="122" y="275" fill="#8b95a5" text-anchor="end" font-size="11">AN05B102a</text>
-<line x1="350.7" y1="271" x2="449.3" y2="271" stroke="#6b7280" stroke-width="2" opacity=".45"/>
-<circle cx="449.3" cy="271" r="4" fill="none" stroke="#6b7280" stroke-width="1.5" opacity=".7"/>
-<circle cx="350.7" cy="271" r="9.0" fill="#6b7280"/>
-<text x="680" y="275" fill="#6b7280" font-size="10">not diagnostic</text>
-<text x="122" y="301" fill="#e8edf4" text-anchor="end" font-size="11">AN13B002</text>
-<line x1="212.9" y1="297" x2="587.1" y2="297" stroke="#d4607a" stroke-width="2" opacity=".45"/>
-<circle cx="212.9" cy="297" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
-<circle cx="587.1" cy="297" r="6.7" fill="#d4607a"/>
-<text x="680" y="301" fill="#c3cbd8" font-size="10">6×</text>
-<text x="122" y="327" fill="#e8edf4" text-anchor="end" font-size="11">ANXXX093</text>
-<line x1="212.4" y1="323" x2="587.6" y2="323" stroke="#d4607a" stroke-width="2" opacity=".45"/>
-<circle cx="212.4" cy="323" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
-<circle cx="587.6" cy="323" r="6.8" fill="#d4607a"/>
-<text x="680" y="327" fill="#c3cbd8" font-size="10">6×</text>
-<text x="122" y="353" fill="#e8edf4" text-anchor="end" font-size="11">INXXX044</text>
-<line x1="181.3" y1="349" x2="618.7" y2="349" stroke="#d4607a" stroke-width="2" opacity=".45"/>
-<circle cx="181.3" cy="349" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
-<circle cx="618.7" cy="349" r="5.2" fill="#d4607a"/>
-<text x="680" y="353" fill="#c3cbd8" font-size="10">10×</text>
-<text x="122" y="379" fill="#e8edf4" text-anchor="end" font-size="11">AN09B017g</text>
-<line x1="163.6" y1="375" x2="636.4" y2="375" stroke="#d4607a" stroke-width="2" opacity=".45"/>
-<circle cx="163.6" cy="375" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
-<circle cx="636.4" cy="375" r="5.7" fill="#d4607a"/>
-<text x="680" y="379" fill="#c3cbd8" font-size="10">16×</text>
-<text x="122" y="405" fill="#e8edf4" text-anchor="end" font-size="11">AN05B023c</text>
-<line x1="136.3" y1="401" x2="663.7" y2="401" stroke="#d4607a" stroke-width="2" opacity=".45"/>
-<circle cx="136.3" cy="401" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
-<circle cx="663.7" cy="401" r="6.6" fill="#d4607a"/>
-<text x="680" y="405" fill="#c3cbd8" font-size="10">124×</text>
-<text x="132" y="436" fill="#8b95a5" font-size="10">● current assignment   ○ global swap   · dot size ∝ ppk-family synapse count</text>
+<text x="132" y="18" fill="#8b95a5" font-size="10" letter-spacing=".06em">PREDICTED ppk25+ PUNCTA FRACTION  R  &#183;  male-cns:v1.0, unthresholded</text>
+<line x1="400.0" y1="40" x2="400.0" y2="498" stroke="#5b6675" stroke-width="1.2"/>
+<text x="122" y="67" fill="#e8edf4" text-anchor="end">AN05B023b</text>
+<line x1="179.2" y1="63" x2="620.8" y2="63" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
+<circle cx="620.8" cy="63" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
+<circle cx="179.2" cy="63" r="7.6" fill="#e8a33d"/>
+<text x="680" y="67" fill="#c3cbd8" font-size="10">10.4&#215;</text>
+<text x="122" y="92" fill="#e8edf4" text-anchor="end">AN09B017b</text>
+<line x1="180.2" y1="88" x2="619.8" y2="88" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
+<circle cx="619.8" cy="88" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
+<circle cx="180.2" cy="88" r="5.4" fill="#e8a33d"/>
+<text x="680" y="92" fill="#c3cbd8" font-size="10">10.1&#215;</text>
+<text x="122" y="117" fill="#e8edf4" text-anchor="end">IN17A013</text>
+<line x1="201.1" y1="113" x2="598.9" y2="113" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
+<circle cx="598.9" cy="113" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
+<circle cx="201.1" cy="113" r="5.6" fill="#e8a33d"/>
+<text x="680" y="117" fill="#c3cbd8" font-size="10">6.8&#215;</text>
+<text x="122" y="142" fill="#e8edf4" text-anchor="end">IN01B065</text>
+<line x1="214.0" y1="138" x2="586.0" y2="138" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
+<circle cx="586.0" cy="138" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
+<circle cx="214.0" cy="138" r="5.7" fill="#e8a33d"/>
+<text x="680" y="142" fill="#c3cbd8" font-size="10">5.5&#215;</text>
+<text x="122" y="167" fill="#e8edf4" text-anchor="end">IN05B002</text>
+<line x1="215.1" y1="163" x2="584.9" y2="163" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
+<circle cx="584.9" cy="163" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
+<circle cx="215.1" cy="163" r="8.3" fill="#e8a33d"/>
+<text x="680" y="167" fill="#c3cbd8" font-size="10">5.5&#215;</text>
+<text x="122" y="192" fill="#e8edf4" text-anchor="end">AN17A013</text>
+<line x1="225.8" y1="188" x2="574.2" y2="188" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
+<circle cx="574.2" cy="188" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
+<circle cx="225.8" cy="188" r="6.1" fill="#e8a33d"/>
+<text x="680" y="192" fill="#c3cbd8" font-size="10">4.7&#215;</text>
+<text x="122" y="217" fill="#e8edf4" text-anchor="end">IN06B028</text>
+<line x1="251.0" y1="213" x2="549.0" y2="213" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
+<circle cx="549.0" cy="213" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
+<circle cx="251.0" cy="213" r="6.4" fill="#e8a33d"/>
+<text x="680" y="217" fill="#c3cbd8" font-size="10">3.5&#215;</text>
+<text x="122" y="242" fill="#8b95a5" text-anchor="end">AN05B102c</text>
+<line x1="277.3" y1="238" x2="522.7" y2="238" stroke="#6b7280" stroke-width="2" opacity=".45"/>
+<circle cx="522.7" cy="238" r="4" fill="none" stroke="#6b7280" stroke-width="1.5" opacity=".7"/>
+<circle cx="277.3" cy="238" r="7.6" fill="#6b7280"/>
+<text x="680" y="242" fill="#6b7280" font-size="10">2.7&#215;</text>
+<text x="122" y="267" fill="#8b95a5" text-anchor="end">IN11A020</text>
+<line x1="285.8" y1="263" x2="514.2" y2="263" stroke="#6b7280" stroke-width="2" opacity=".45"/>
+<circle cx="514.2" cy="263" r="4" fill="none" stroke="#6b7280" stroke-width="1.5" opacity=".7"/>
+<circle cx="285.8" cy="263" r="6.2" fill="#6b7280"/>
+<text x="680" y="267" fill="#6b7280" font-size="10">2.5&#215;</text>
+<text x="122" y="292" fill="#8b95a5" text-anchor="end">IN11A022</text>
+<line x1="299.2" y1="288" x2="500.8" y2="288" stroke="#6b7280" stroke-width="2" opacity=".45"/>
+<circle cx="500.8" cy="288" r="4" fill="none" stroke="#6b7280" stroke-width="1.5" opacity=".7"/>
+<circle cx="299.2" cy="288" r="5.8" fill="#6b7280"/>
+<text x="680" y="292" fill="#6b7280" font-size="10">2.2&#215;</text>
+<text x="122" y="317" fill="#8b95a5" text-anchor="end">IN05B011a</text>
+<line x1="303.0" y1="313" x2="497.0" y2="313" stroke="#6b7280" stroke-width="2" opacity=".45"/>
+<circle cx="497.0" cy="313" r="4" fill="none" stroke="#6b7280" stroke-width="1.5" opacity=".7"/>
+<circle cx="303.0" cy="313" r="8.3" fill="#6b7280"/>
+<text x="680" y="317" fill="#6b7280" font-size="10">2.1&#215;</text>
+<text x="122" y="342" fill="#8b95a5" text-anchor="end">AN05B102a</text>
+<line x1="349.6" y1="338" x2="450.4" y2="338" stroke="#6b7280" stroke-width="2" opacity=".45"/>
+<circle cx="450.4" cy="338" r="4" fill="none" stroke="#6b7280" stroke-width="1.5" opacity=".7"/>
+<circle cx="349.6" cy="338" r="9.0" fill="#6b7280"/>
+<text x="680" y="342" fill="#6b7280" font-size="10">1.5&#215;</text>
+<text x="122" y="367" fill="#e8edf4" text-anchor="end">INXXX044</text>
+<line x1="248.3" y1="363" x2="551.7" y2="363" stroke="#d4607a" stroke-width="2" opacity=".45"/>
+<circle cx="248.3" cy="363" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
+<circle cx="551.7" cy="363" r="5.3" fill="#d4607a"/>
+<text x="680" y="367" fill="#c3cbd8" font-size="10">3.6&#215;</text>
+<text x="122" y="392" fill="#e8edf4" text-anchor="end">AN13B002</text>
+<line x1="229.0" y1="388" x2="571.0" y2="388" stroke="#d4607a" stroke-width="2" opacity=".45"/>
+<circle cx="229.0" cy="388" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
+<circle cx="571.0" cy="388" r="6.7" fill="#d4607a"/>
+<text x="680" y="392" fill="#c3cbd8" font-size="10">4.5&#215;</text>
+<text x="122" y="417" fill="#e8edf4" text-anchor="end">ANXXX093</text>
+<line x1="226.3" y1="413" x2="573.7" y2="413" stroke="#d4607a" stroke-width="2" opacity=".45"/>
+<circle cx="226.3" cy="413" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
+<circle cx="573.7" cy="413" r="6.9" fill="#d4607a"/>
+<text x="680" y="417" fill="#c3cbd8" font-size="10">4.7&#215;</text>
+<text x="122" y="442" fill="#e8edf4" text-anchor="end">AN09B017g</text>
+<line x1="187.7" y1="438" x2="612.3" y2="438" stroke="#d4607a" stroke-width="2" opacity=".45"/>
+<circle cx="187.7" cy="438" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
+<circle cx="612.3" cy="438" r="5.7" fill="#d4607a"/>
+<text x="680" y="442" fill="#c3cbd8" font-size="10">8.6&#215;</text>
+<text x="122" y="467" fill="#e8edf4" text-anchor="end">AN05B023c</text>
+<line x1="170.1" y1="463" x2="629.9" y2="463" stroke="#d4607a" stroke-width="2" opacity=".45"/>
+<circle cx="170.1" cy="463" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
+<circle cx="629.9" cy="463" r="6.6" fill="#d4607a"/>
+<text x="680" y="467" fill="#c3cbd8" font-size="10">13.1&#215;</text>
+<text x="122" y="492" fill="#e8edf4" text-anchor="end">DNpe029</text>
+<line x1="167.4" y1="488" x2="632.6" y2="488" stroke="#d4607a" stroke-width="2" opacity=".45"/>
+<circle cx="167.4" cy="488" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
+<circle cx="632.6" cy="488" r="5.3" fill="#d4607a"/>
+<text x="680" y="492" fill="#c3cbd8" font-size="10">14.2&#215;</text>
+<text x="132" y="522" fill="#8b95a5" font-size="10">&#9679; current assignment   &#9675; global swap   &#183; dot size &#8733; synapse count   &#183; grey &lt; 3&#215;</text>
 </g></svg>
 <figcaption>Every candidate target with &ge;500 ppk-family synapses, ordered by predicted ppk25+
 puncta fraction. Filled dot = current assignment, open dot = global swap; the gap between them
@@ -450,72 +500,80 @@ on the midline.</figcaption>
 </figure>
 
 <h3>Target shortlist</h3>
-<p class="note"><code>R&#8320;</code> = predicted ppk25+ puncta fraction under the current
-assignment; <code>R&#8321;</code> = under a global swap. Fold = the ratio the experiment must
-resolve.</p>
+<p class="note"><code>R</code> = predicted ppk25+ puncta fraction under the current assignment;
+the swap gives <code>1&minus;R</code>. Fold is the ratio the experiment must resolve.
+male-cns:v1.0, unthresholded.</p>
 
 <div class="scroll">
 <table>
-<tr><th>Target</th><th class="num">ppk syn</th><th class="num">R&#8320;</th>
-    <th class="num">R&#8321;</th><th class="num">fold</th><th>NT</th><th>Notes</th></tr>
-<tr class="hi"><td>AN05B023c</td><td class="num">5631</td><td class="num">0.992</td>
-    <td class="num">0.008</td><td class="num">121&times;</td><td>GABA</td><td>soma A6</td></tr>
-<tr class="hi"><td>AN05B023b</td><td class="num">12066</td><td class="num">0.054</td>
-    <td class="num">0.946</td><td class="num">17&times;</td><td>GABA</td><td>soma A2</td></tr>
-<tr><td>IN01B065</td><td class="num">1246</td><td class="num">0.051</td><td class="num">0.949</td>
-    <td class="num">18&times;</td><td>GABA</td><td>20 bodies &middot; pure leg</td></tr>
-<tr><td>IN05B002</td><td class="num">19190</td><td class="num">0.139</td><td class="num">0.861</td>
-    <td class="num">6.2&times;</td><td>GABA</td><td>T1 &middot; highest signal</td></tr>
-<tr><td>ANXXX093</td><td class="num">7259</td><td class="num">0.850</td><td class="num">0.150</td>
-    <td class="num">5.7&times;</td><td>ACh</td><td>unnamed type</td></tr>
-<tr><td>AN13B002</td><td class="num">6477</td><td class="num">0.849</td><td class="num">0.151</td>
-    <td class="num">5.6&times;</td><td>GABA</td><td><em>Dandelion</em>, Shiu 2022</td></tr>
-<tr><td>IN11A022</td><td class="num">1540</td><td class="num">0.195</td><td class="num">0.805</td>
-    <td class="num">4.1&times;</td><td>ACh</td><td>pure wing</td></tr>
-<tr><td>INXXX044</td><td class="num">642</td><td class="num">0.908</td><td class="num">0.000</td>
-    <td class="num">&mdash;</td><td>GABA</td><td>pure wing &middot; WG3 loading 0.91</td></tr>
-<tr><td>AN09B017e / f</td><td class="num">827 / 1217</td><td class="num">0.362 / 0.000</td>
-    <td class="num">&mdash;</td><td class="num">&mdash;</td><td>ACh</td>
-    <td><em>vAB3</em>, Yu 2010 &middot; LgLG7 / LgLG5</td></tr>
-<tr><td>AN09B017b</td><td class="num">1034</td><td class="num">0.074</td><td class="num">0.926</td>
-    <td class="num">12&times;</td><td>ACh</td><td>LgLG6 loading 0.93</td></tr>
-<tr class="bad"><td>AN05B102a &nbsp;<span class="tag warn">PPN1</span></td><td class="num">27083</td>
-    <td class="num">0.408</td><td class="num">0.592</td><td class="num">1.5&times;</td><td>&mdash;</td>
-    <td>not diagnostic &mdash; use as reference</td></tr>
+<tr><th>Target</th><th class="num">ppk syn</th><th class="num">R</th><th class="num">fold</th>
+    <th class="num">wing</th><th class="num">leg</th><th>Note</th></tr>
+<tr class="hi"><td>AN17A003</td><td class="num">584</td><td class="num">0.983</td>
+    <td class="num">57.4&times;</td><td class="num">0.947</td><td class="num">0.053</td>
+    <td>WG3 0.930 vs WG4 0.017 &mdash; best in the set</td></tr>
+<tr><td>AN05B096</td><td class="num">217</td><td class="num">0.982</td><td class="num">53.2&times;</td>
+    <td class="num">1.000</td><td class="num">0.000</td><td>pure wing, small</td></tr>
+<tr><td>AN05B107</td><td class="num">231</td><td class="num">0.974</td><td class="num">37.5&times;</td>
+    <td class="num">0.965</td><td class="num">0.035</td><td>small</td></tr>
+<tr><td>AN01B004</td><td class="num">178</td><td class="num">0.966</td><td class="num">28.7&times;</td>
+    <td class="num">0.000</td><td class="num">1.000</td><td>pure leg, small</td></tr>
+<tr><td>AN09B013</td><td class="num">242</td><td class="num">0.955</td><td class="num">21.0&times;</td>
+    <td class="num">0.926</td><td class="num">0.074</td><td>small</td></tr>
+<tr class="hi"><td>DNpe029</td><td class="num">814</td><td class="num">0.934</td>
+    <td class="num">14.1&times;</td><td class="num">0.052</td><td class="num">0.948</td>
+    <td>descending &mdash; new</td></tr>
+<tr class="hi"><td>AN05B023c</td><td class="num">6142</td><td class="num">0.929</td>
+    <td class="num">13.1&times;</td><td class="num">0.381</td><td class="num">0.619</td>
+    <td>high signal</td></tr>
+<tr><td>IN23B025</td><td class="num">405</td><td class="num">0.928</td><td class="num">13.0&times;</td>
+    <td class="num">0.000</td><td class="num">1.000</td><td>pure leg</td></tr>
+<tr class="hi"><td>AN05B023b</td><td class="num">12667</td><td class="num">0.088</td>
+    <td class="num">10.3&times;</td><td class="num">0.375</td><td class="num">0.625</td>
+    <td>highest signal of the strong pair</td></tr>
+<tr class="hi"><td>AN09B017b</td><td class="num">1091</td><td class="num">0.090</td>
+    <td class="num">10.1&times;</td><td class="num">0.000</td><td class="num">1.000</td>
+    <td>pure leg &middot; <em>vAB3</em></td></tr>
+<tr><td>IN23B020</td><td class="num">662</td><td class="num">0.899</td><td class="num">8.9&times;</td>
+    <td class="num">0.000</td><td class="num">1.000</td><td>pure leg</td></tr>
+<tr><td>AN09B017g</td><td class="num">1960</td><td class="num">0.896</td><td class="num">8.6&times;</td>
+    <td class="num">0.000</td><td class="num">1.000</td><td>pure leg &middot; <em>vAB3</em></td></tr>
+<tr><td>IN17A013</td><td class="num">1711</td><td class="num">0.129</td><td class="num">6.7&times;</td>
+    <td class="num">0.000</td><td class="num">1.000</td><td>pure leg</td></tr>
+<tr><td>IN01B065</td><td class="num">1847</td><td class="num">0.153</td><td class="num">5.5&times;</td>
+    <td class="num">0.000</td><td class="num">1.000</td><td>20 bodies</td></tr>
+<tr><td>IN05B002</td><td class="num">19674</td><td class="num">0.155</td><td class="num">5.5&times;</td>
+    <td class="num">0.436</td><td class="num">0.564</td><td>highest signal overall</td></tr>
+<tr><td>ANXXX093</td><td class="num">7540</td><td class="num">0.824</td><td class="num">4.7&times;</td>
+    <td class="num">0.571</td><td class="num">0.429</td><td>unnamed</td></tr>
+<tr><td>AN13B002</td><td class="num">6787</td><td class="num">0.819</td><td class="num">4.5&times;</td>
+    <td class="num">0.541</td><td class="num">0.459</td>
+    <td><em>Dandelion</em> &middot; <b>SS103018 in the lab</b></td></tr>
+<tr><td>INXXX044</td><td class="num">863</td><td class="num">0.783</td><td class="num">3.6&times;</td>
+    <td class="num">0.983</td><td class="num">0.017</td><td>pure wing</td></tr>
+<tr><td>IN11A032_a</td><td class="num">494</td><td class="num">0.251</td><td class="num">3.0&times;</td>
+    <td class="num">1.000</td><td class="num">0.000</td><td><b>best WG4-loading wing target</b> (WG4 0.749)</td></tr>
+<tr class="bad"><td>AN05B102a <span class="tag warn">PPN1</span></td><td class="num">27267</td>
+    <td class="num">0.406</td><td class="num">1.5&times;</td><td class="num">0.507</td>
+    <td class="num">0.493</td><td>reference arm &mdash; not diagnostic</td></tr>
 </table>
 </div>
 
-<h3>Wing and leg decouple</h3>
-<p>Some targets take input from wing types only, others from leg types only. This is the part
-that matters most: the leg receptor assignments were <em>propagated</em> from the wing ones by
-co-clustering, and nothing has ever tested that propagation.</p>
+<h3>Wing and leg decouple &mdash; asymmetrically</h3>
+<p>Wing types (WG*) synapse in <code>Ov</code>, leg types (LgLG*) in <code>LegNp(T1&ndash;T3)</code>,
+all of it in the nerve cord. Targets that take input from only one compartment therefore separate
+the <strong>wing</strong> receptor assignment from the <strong>leg</strong> one &mdash; which
+matters, because the leg assignments were <em>propagated</em> from the wing ones by co-clustering
+and have never been tested independently.</p>
 
-<div class="scroll">
-<table>
-<tr><th>Target</th><th class="num">ppk syn</th><th class="num">wing</th><th class="num">leg</th>
-    <th class="num">R&#8320;</th><th>Determines</th></tr>
-<tr class="hi"><td>INXXX044</td><td class="num">642</td><td class="num">1.000</td>
-    <td class="num">0.000</td><td class="num">0.908</td><td>wing &mdash; WG3 side</td></tr>
-<tr class="hi"><td>IN11A022</td><td class="num">1540</td><td class="num">1.000</td>
-    <td class="num">0.000</td><td class="num">0.195</td><td>wing &mdash; WG4 side</td></tr>
-<tr><td>IN11A020</td><td class="num">3163</td><td class="num">0.970</td><td class="num">0.030</td>
-    <td class="num">0.222</td><td>wing</td></tr>
-<tr class="hi"><td>IN01B065</td><td class="num">1246</td><td class="num">0.000</td>
-    <td class="num">1.000</td><td class="num">0.051</td><td>leg &mdash; LgLG1a side</td></tr>
-<tr class="hi"><td>AN09B017g</td><td class="num">1788</td><td class="num">0.000</td>
-    <td class="num">1.000</td><td class="num">0.941</td><td>leg &mdash; LgLG8 side</td></tr>
-<tr><td>AN09B017b</td><td class="num">1034</td><td class="num">0.000</td><td class="num">1.000</td>
-    <td class="num">0.074</td><td>leg &mdash; LgLG6</td></tr>
-<tr><td>IN17A013</td><td class="num">1652</td><td class="num">0.000</td><td class="num">1.000</td>
-    <td class="num">0.105</td><td>leg</td></tr>
-<tr><td>AN17A013</td><td class="num">3274</td><td class="num">0.000</td><td class="num">1.000</td>
-    <td class="num">0.157</td><td>leg</td></tr>
-</table>
+<div class="callout warn">
+<p><strong>The two sides are not equally testable.</strong> The WG3 side has an excellent wing
+target &mdash; AN17A003, WG3 0.930 against WG4 0.017, R = 0.983. The WG4 side does not: the best
+WG4-loading pure-wing target is IN11A032_a at WG4 0.749 and only 3.0&times;. So the wing arm
+rests on an asymmetric pair, and whether that is enough to determine the wing assignment is one
+of the questions the running crosscheck is meant to answer.</p>
+<p>The leg arm is well covered on both sides: AN09B017b (R 0.090) and IN17A013 (0.129) against
+AN09B017g (0.896) and IN23B020 (0.899), all pure leg, all &ge; 6.7&times;.</p>
 </div>
-
-<p class="note">Wing types (WG*) synapse in <code>Ov</code>; leg types (LgLG*) in
-<code>LegNp(T1&ndash;T3)</code>. All of it is in the nerve cord, so a single VNC prep carries
-both readouts and they can be scored by neuropil within the same animal.</p>
 
 <h2>5 &middot; Recommended target sets</h2>
 <ul class="steps">
@@ -640,57 +698,161 @@ single cross.</li>
 <h3>Crossing scheme</h3>
 
 <figure class="dark-fig">
-<svg viewBox="0 0 720 400" role="img" aria-label="Crossing scheme">
+<svg viewBox="0 0 720 627" role="img" aria-label="Target discrimination, v1.0 unthresholded">
 <g font="11px system-ui,sans-serif">
- <text x="14" y="18" fill="#8b95a5" font-size="10" letter-spacing=".06em">BUILD ONCE &mdash; THE DRIVER + REPORTER STOCK</text>
-
- <rect x="14" y="30" width="300" height="46" rx="8" fill="#1b2430" stroke="#2f3843"/>
- <text x="26" y="48" fill="#e8edf4" font-size="11" font-weight="600">BDSC 93026</text>
- <text x="26" y="65" fill="#8b95a5" font-size="10" font-family="ui-monospace,monospace">w; ppk23-GAL4 ; TM2/TM6B</text>
-
- <text x="330" y="58" fill="#8b95a5" font-size="16" text-anchor="middle">&times;</text>
-
- <rect x="346" y="30" width="360" height="46" rx="8" fill="#1b2430" stroke="#2f3843"/>
- <text x="358" y="48" fill="#e8edf4" font-size="11" font-weight="600">BDSC 79040</text>
- <text x="358" y="65" fill="#7ee787" font-size="10" font-family="ui-monospace,monospace">y w; Sp/CyO ; LexAop-post-tG, UAS-pre-tG</text>
-
- <path d="M360 82 V102" stroke="#5b6675" stroke-width="1.4" marker-end="url(#ar)"/>
- <text x="372" y="98" fill="#8b95a5" font-size="10">F1 &mdash; score CyO, Tb</text>
-
- <rect x="120" y="106" width="480" height="42" rx="8" fill="#12181f" stroke="#2f3843"/>
- <text x="360" y="132" fill="#c3cbd8" font-size="11" text-anchor="middle"
-       font-family="ui-monospace,monospace">w; ppk23-GAL4 / CyO ; LexAop-post-tG, UAS-pre-tG / TM6B</text>
-
- <path d="M360 152 V172" stroke="#5b6675" stroke-width="1.4" marker-end="url(#ar)"/>
- <text x="372" y="168" fill="#8b95a5" font-size="10">F2 &mdash; sib cross, select non-CyO non-Tb</text>
-
- <rect x="120" y="176" width="480" height="42" rx="8" fill="#16241c" stroke="#2d5741"/>
- <text x="360" y="196" fill="#7ee787" font-size="11" text-anchor="middle" font-weight="600">STOCK A</text>
- <text x="360" y="211" fill="#c3cbd8" font-size="10.5" text-anchor="middle"
-       font-family="ui-monospace,monospace">w; ppk23-GAL4 ; LexAop-post-tG, UAS-pre-tG</text>
-
- <text x="14" y="252" fill="#8b95a5" font-size="10" letter-spacing=".06em">EVERY EXPERIMENT &mdash; ONE CROSS</text>
-
- <rect x="14" y="264" width="300" height="42" rx="8" fill="#16241c" stroke="#2d5741"/>
- <text x="164" y="280" fill="#7ee787" font-size="11" text-anchor="middle" font-weight="600">STOCK A &#9792;</text>
- <text x="164" y="296" fill="#c3cbd8" font-size="10" text-anchor="middle"
-       font-family="ui-monospace,monospace">(or STOCK A&#8242; with ppk25-GAL4)</text>
-
- <text x="330" y="290" fill="#8b95a5" font-size="16" text-anchor="middle">&times;</text>
-
- <rect x="346" y="264" width="360" height="42" rx="8" fill="#1b2430" stroke="#2f3843"/>
- <text x="526" y="280" fill="#e8edf4" font-size="11" text-anchor="middle" font-weight="600">BDSC 53584 &#9794;</text>
- <text x="526" y="296" fill="#6fb3ef" font-size="10" text-anchor="middle"
-       font-family="ui-monospace,monospace">w; R56C09-lexA[attP40] ; +</text>
-
- <path d="M360 312 V332" stroke="#5b6675" stroke-width="1.4" marker-end="url(#ar)"/>
-
- <rect x="60" y="336" width="600" height="46" rx="8" fill="#2a2019" stroke="#e8a33d"/>
- <text x="360" y="354" fill="#e8a33d" font-size="11" text-anchor="middle" font-weight="600">SCORE F1 MALES &mdash; every one is the experimental genotype</text>
- <text x="360" y="371" fill="#c3cbd8" font-size="10.5" text-anchor="middle"
-       font-family="ui-monospace,monospace">w/Y ; ppk-GAL4 / R56C09-lexA ; LexAop-post-tG, UAS-pre-tG / +</text>
-</g>
-</svg>
+<line x1="150.0" y1="44" x2="150.0" y2="581" stroke="#2f3843" stroke-dasharray="2 4"/>
+<text x="150.0" y="38" fill="#8b95a5" text-anchor="middle" font-size="10">0</text>
+<line x1="275.0" y1="44" x2="275.0" y2="581" stroke="#2f3843" stroke-dasharray="2 4"/>
+<text x="275.0" y="38" fill="#8b95a5" text-anchor="middle" font-size="10">0.25</text>
+<line x1="400.0" y1="44" x2="400.0" y2="581" stroke="#2f3843" stroke-dasharray="2 4"/>
+<text x="400.0" y="38" fill="#8b95a5" text-anchor="middle" font-size="10">0.5</text>
+<line x1="525.0" y1="44" x2="525.0" y2="581" stroke="#2f3843" stroke-dasharray="2 4"/>
+<text x="525.0" y="38" fill="#8b95a5" text-anchor="middle" font-size="10">0.75</text>
+<line x1="650.0" y1="44" x2="650.0" y2="581" stroke="#2f3843" stroke-dasharray="2 4"/>
+<text x="650.0" y="38" fill="#8b95a5" text-anchor="middle" font-size="10">1</text>
+<text x="150" y="20" fill="#8b95a5" font-size="10" letter-spacing=".06em">PREDICTED ppk25+ PUNCTA FRACTION  R</text>
+<text x="150" y="33" fill="#6b7280" font-size="9.5">male-cns:v1.0 &#183; unthresholded &#183; blue=wing-only  green=leg-only  grey=mixed</text>
+<line x1="400.0" y1="44" x2="400.0" y2="581" stroke="#5b6675" stroke-width="1.2"/>
+<text x="140" y="70" fill="#e8edf4" text-anchor="end" font-size="10.5">AN05B023b</text>
+<line x1="194.0" y1="66" x2="606.0" y2="66" stroke="#9aa3b0" stroke-width="2" opacity=".4"/>
+<circle cx="606.0" cy="66" r="3.5" fill="none" stroke="#9aa3b0" stroke-width="1.4" opacity=".7"/>
+<circle cx="194.0" cy="66" r="7.4" fill="#9aa3b0"/>
+<text x="660" y="70" fill="#c3cbd8" font-size="10">10.4&#215;</text>
+<text x="702" y="70" fill="#5b6675" font-size="9">12667</text>
+<text x="140" y="93" fill="#e8edf4" text-anchor="end" font-size="10.5">AN09B017b</text>
+<line x1="195.0" y1="89" x2="605.0" y2="89" stroke="#7ee787" stroke-width="2" opacity=".4"/>
+<circle cx="605.0" cy="89" r="3.5" fill="none" stroke="#7ee787" stroke-width="1.4" opacity=".7"/>
+<circle cx="195.0" cy="89" r="5.0" fill="#7ee787"/>
+<text x="660" y="93" fill="#c3cbd8" font-size="10">10.1&#215;</text>
+<text x="702" y="93" fill="#5b6675" font-size="9">1091</text>
+<text x="140" y="116" fill="#e8edf4" text-anchor="end" font-size="10.5">IN17A013</text>
+<line x1="214.5" y1="112" x2="585.5" y2="112" stroke="#7ee787" stroke-width="2" opacity=".4"/>
+<circle cx="585.5" cy="112" r="3.5" fill="none" stroke="#7ee787" stroke-width="1.4" opacity=".7"/>
+<circle cx="214.5" cy="112" r="5.3" fill="#7ee787"/>
+<text x="660" y="116" fill="#c3cbd8" font-size="10">6.8&#215;</text>
+<text x="702" y="116" fill="#5b6675" font-size="9">1711</text>
+<text x="140" y="139" fill="#e8edf4" text-anchor="end" font-size="10.5">IN01B065</text>
+<line x1="226.5" y1="135" x2="573.5" y2="135" stroke="#7ee787" stroke-width="2" opacity=".4"/>
+<circle cx="573.5" cy="135" r="3.5" fill="none" stroke="#7ee787" stroke-width="1.4" opacity=".7"/>
+<circle cx="226.5" cy="135" r="5.3" fill="#7ee787"/>
+<text x="660" y="139" fill="#c3cbd8" font-size="10">5.5&#215;</text>
+<text x="702" y="139" fill="#5b6675" font-size="9">1847</text>
+<text x="140" y="162" fill="#e8edf4" text-anchor="end" font-size="10.5">IN05B002</text>
+<line x1="227.5" y1="158" x2="572.5" y2="158" stroke="#9aa3b0" stroke-width="2" opacity=".4"/>
+<circle cx="572.5" cy="158" r="3.5" fill="none" stroke="#9aa3b0" stroke-width="1.4" opacity=".7"/>
+<circle cx="227.5" cy="158" r="8.2" fill="#9aa3b0"/>
+<text x="660" y="162" fill="#c3cbd8" font-size="10">5.5&#215;</text>
+<text x="702" y="162" fill="#5b6675" font-size="9">19674</text>
+<text x="140" y="185" fill="#e8edf4" text-anchor="end" font-size="10.5">AN17A013</text>
+<line x1="237.5" y1="181" x2="562.5" y2="181" stroke="#7ee787" stroke-width="2" opacity=".4"/>
+<circle cx="562.5" cy="181" r="3.5" fill="none" stroke="#7ee787" stroke-width="1.4" opacity=".7"/>
+<circle cx="237.5" cy="181" r="5.8" fill="#7ee787"/>
+<text x="660" y="185" fill="#c3cbd8" font-size="10">4.7&#215;</text>
+<text x="702" y="185" fill="#5b6675" font-size="9">3405</text>
+<text x="140" y="208" fill="#6b7280" text-anchor="end" font-size="10.5">IN11A032_a</text>
+<line x1="275.5" y1="204" x2="524.5" y2="204" stroke="#3f4854" stroke-width="2" opacity=".4"/>
+<circle cx="524.5" cy="204" r="3.5" fill="none" stroke="#3f4854" stroke-width="1.4" opacity=".7"/>
+<circle cx="275.5" cy="204" r="4.7" fill="#3f4854"/>
+<text x="660" y="208" fill="#6b7280" font-size="10">3.0&#215;</text>
+<text x="702" y="208" fill="#5b6675" font-size="9">494</text>
+<text x="140" y="231" fill="#6b7280" text-anchor="end" font-size="10.5">IN11A020</text>
+<line x1="293.5" y1="227" x2="506.5" y2="227" stroke="#3f4854" stroke-width="2" opacity=".4"/>
+<circle cx="506.5" cy="227" r="3.5" fill="none" stroke="#3f4854" stroke-width="1.4" opacity=".7"/>
+<circle cx="293.5" cy="227" r="5.9" fill="#3f4854"/>
+<text x="660" y="231" fill="#6b7280" font-size="10">2.5&#215;</text>
+<text x="702" y="231" fill="#5b6675" font-size="9">3877</text>
+<text x="140" y="254" fill="#6b7280" text-anchor="end" font-size="10.5">IN11A022</text>
+<line x1="306.0" y1="250" x2="494.0" y2="250" stroke="#3f4854" stroke-width="2" opacity=".4"/>
+<circle cx="494.0" cy="250" r="3.5" fill="none" stroke="#3f4854" stroke-width="1.4" opacity=".7"/>
+<circle cx="306.0" cy="250" r="5.4" fill="#3f4854"/>
+<text x="660" y="254" fill="#6b7280" font-size="10">2.2&#215;</text>
+<text x="702" y="254" fill="#5b6675" font-size="9">2233</text>
+<text x="140" y="277" fill="#6b7280" text-anchor="end" font-size="10.5">AN05B102a</text>
+<line x1="353.0" y1="273" x2="447.0" y2="273" stroke="#3f4854" stroke-width="2" opacity=".4"/>
+<circle cx="447.0" cy="273" r="3.5" fill="none" stroke="#3f4854" stroke-width="1.4" opacity=".7"/>
+<circle cx="353.0" cy="273" r="8.5" fill="#3f4854"/>
+<text x="660" y="277" fill="#6b7280" font-size="10">1.5&#215;</text>
+<text x="702" y="277" fill="#5b6675" font-size="9">27267</text>
+<text x="140" y="300" fill="#e8edf4" text-anchor="end" font-size="10.5">INXXX044</text>
+<line x1="258.5" y1="296" x2="541.5" y2="296" stroke="#6fb3ef" stroke-width="2" opacity=".4"/>
+<circle cx="258.5" cy="296" r="3.5" fill="none" stroke="#6fb3ef" stroke-width="1.4" opacity=".7"/>
+<circle cx="541.5" cy="296" r="4.9" fill="#6fb3ef"/>
+<text x="660" y="300" fill="#c3cbd8" font-size="10">3.6&#215;</text>
+<text x="702" y="300" fill="#5b6675" font-size="9">863</text>
+<text x="140" y="323" fill="#e8edf4" text-anchor="end" font-size="10.5">AN13B002</text>
+<line x1="240.5" y1="319" x2="559.5" y2="319" stroke="#9aa3b0" stroke-width="2" opacity=".4"/>
+<circle cx="240.5" cy="319" r="3.5" fill="none" stroke="#9aa3b0" stroke-width="1.4" opacity=".7"/>
+<circle cx="559.5" cy="319" r="6.5" fill="#9aa3b0"/>
+<text x="660" y="323" fill="#c3cbd8" font-size="10">4.5&#215;</text>
+<text x="702" y="323" fill="#5b6675" font-size="9">6787</text>
+<text x="140" y="346" fill="#e8edf4" text-anchor="end" font-size="10.5">ANXXX093</text>
+<line x1="238.0" y1="342" x2="562.0" y2="342" stroke="#9aa3b0" stroke-width="2" opacity=".4"/>
+<circle cx="238.0" cy="342" r="3.5" fill="none" stroke="#9aa3b0" stroke-width="1.4" opacity=".7"/>
+<circle cx="562.0" cy="342" r="6.6" fill="#9aa3b0"/>
+<text x="660" y="346" fill="#c3cbd8" font-size="10">4.7&#215;</text>
+<text x="702" y="346" fill="#5b6675" font-size="9">7540</text>
+<text x="140" y="369" fill="#e8edf4" text-anchor="end" font-size="10.5">AN09B017g</text>
+<line x1="202.0" y1="365" x2="598.0" y2="365" stroke="#7ee787" stroke-width="2" opacity=".4"/>
+<circle cx="202.0" cy="365" r="3.5" fill="none" stroke="#7ee787" stroke-width="1.4" opacity=".7"/>
+<circle cx="598.0" cy="365" r="5.3" fill="#7ee787"/>
+<text x="660" y="369" fill="#c3cbd8" font-size="10">8.6&#215;</text>
+<text x="702" y="369" fill="#5b6675" font-size="9">1960</text>
+<text x="140" y="392" fill="#e8edf4" text-anchor="end" font-size="10.5">IN23B020</text>
+<line x1="200.5" y1="388" x2="599.5" y2="388" stroke="#7ee787" stroke-width="2" opacity=".4"/>
+<circle cx="200.5" cy="388" r="3.5" fill="none" stroke="#7ee787" stroke-width="1.4" opacity=".7"/>
+<circle cx="599.5" cy="388" r="4.8" fill="#7ee787"/>
+<text x="660" y="392" fill="#c3cbd8" font-size="10">8.9&#215;</text>
+<text x="702" y="392" fill="#5b6675" font-size="9">662</text>
+<text x="140" y="415" fill="#e8edf4" text-anchor="end" font-size="10.5">IN23B025</text>
+<line x1="186.0" y1="411" x2="614.0" y2="411" stroke="#7ee787" stroke-width="2" opacity=".4"/>
+<circle cx="186.0" cy="411" r="3.5" fill="none" stroke="#7ee787" stroke-width="1.4" opacity=".7"/>
+<circle cx="614.0" cy="411" r="4.6" fill="#7ee787"/>
+<text x="660" y="415" fill="#c3cbd8" font-size="10">12.9&#215;</text>
+<text x="702" y="415" fill="#5b6675" font-size="9">405</text>
+<text x="140" y="438" fill="#e8edf4" text-anchor="end" font-size="10.5">AN05B023c</text>
+<line x1="185.5" y1="434" x2="614.5" y2="434" stroke="#9aa3b0" stroke-width="2" opacity=".4"/>
+<circle cx="185.5" cy="434" r="3.5" fill="none" stroke="#9aa3b0" stroke-width="1.4" opacity=".7"/>
+<circle cx="614.5" cy="434" r="6.4" fill="#9aa3b0"/>
+<text x="660" y="438" fill="#c3cbd8" font-size="10">13.1&#215;</text>
+<text x="702" y="438" fill="#5b6675" font-size="9">6142</text>
+<text x="140" y="461" fill="#e8edf4" text-anchor="end" font-size="10.5">DNpe029</text>
+<line x1="183.0" y1="457" x2="617.0" y2="457" stroke="#7ee787" stroke-width="2" opacity=".4"/>
+<circle cx="183.0" cy="457" r="3.5" fill="none" stroke="#7ee787" stroke-width="1.4" opacity=".7"/>
+<circle cx="617.0" cy="457" r="4.9" fill="#7ee787"/>
+<text x="660" y="461" fill="#c3cbd8" font-size="10">14.2&#215;</text>
+<text x="702" y="461" fill="#5b6675" font-size="9">814</text>
+<text x="140" y="484" fill="#e8edf4" text-anchor="end" font-size="10.5">AN09B013</text>
+<line x1="172.5" y1="480" x2="627.5" y2="480" stroke="#6fb3ef" stroke-width="2" opacity=".4"/>
+<circle cx="172.5" cy="480" r="3.5" fill="none" stroke="#6fb3ef" stroke-width="1.4" opacity=".7"/>
+<circle cx="627.5" cy="480" r="4.5" fill="#6fb3ef"/>
+<text x="660" y="484" fill="#c3cbd8" font-size="10">21.2&#215;</text>
+<text x="702" y="484" fill="#5b6675" font-size="9">242</text>
+<text x="140" y="507" fill="#e8edf4" text-anchor="end" font-size="10.5">AN01B004</text>
+<line x1="167.0" y1="503" x2="633.0" y2="503" stroke="#7ee787" stroke-width="2" opacity=".4"/>
+<circle cx="167.0" cy="503" r="3.5" fill="none" stroke="#7ee787" stroke-width="1.4" opacity=".7"/>
+<circle cx="633.0" cy="503" r="4.4" fill="#7ee787"/>
+<text x="660" y="507" fill="#c3cbd8" font-size="10">28.4&#215;</text>
+<text x="702" y="507" fill="#5b6675" font-size="9">178</text>
+<text x="140" y="530" fill="#e8edf4" text-anchor="end" font-size="10.5">AN05B107</text>
+<line x1="163.0" y1="526" x2="637.0" y2="526" stroke="#6fb3ef" stroke-width="2" opacity=".4"/>
+<circle cx="163.0" cy="526" r="3.5" fill="none" stroke="#6fb3ef" stroke-width="1.4" opacity=".7"/>
+<circle cx="637.0" cy="526" r="4.5" fill="#6fb3ef"/>
+<text x="660" y="530" fill="#c3cbd8" font-size="10">37.5&#215;</text>
+<text x="702" y="530" fill="#5b6675" font-size="9">231</text>
+<text x="140" y="553" fill="#e8edf4" text-anchor="end" font-size="10.5">AN05B096</text>
+<line x1="159.0" y1="549" x2="641.0" y2="549" stroke="#6fb3ef" stroke-width="2" opacity=".4"/>
+<circle cx="159.0" cy="549" r="3.5" fill="none" stroke="#6fb3ef" stroke-width="1.4" opacity=".7"/>
+<circle cx="641.0" cy="549" r="4.4" fill="#6fb3ef"/>
+<text x="660" y="553" fill="#c3cbd8" font-size="10">54.6&#215;</text>
+<text x="702" y="553" fill="#5b6675" font-size="9">217</text>
+<text x="140" y="576" fill="#e8edf4" text-anchor="end" font-size="10.5">AN17A003</text>
+<line x1="158.5" y1="572" x2="641.5" y2="572" stroke="#6fb3ef" stroke-width="2" opacity=".4"/>
+<circle cx="158.5" cy="572" r="3.5" fill="none" stroke="#6fb3ef" stroke-width="1.4" opacity=".7"/>
+<circle cx="641.5" cy="572" r="4.7" fill="#6fb3ef"/>
+<text x="660" y="576" fill="#c3cbd8" font-size="10">57.8&#215;</text>
+<text x="702" y="576" fill="#5b6675" font-size="9">584</text>
+<text x="150" y="609" fill="#8b95a5" font-size="9.5">&#9679; current assignment   &#9675; global swap   dot size &#8733; synapse count   grey &lt; 3&#215;   right column: fold, then synapses</text>
+</g></svg>
 <figcaption>Stock A is built once and reused for every target. After that each experiment is a
 single cross with no selection &mdash; all F1 males carry the full genotype. Swap BDSC 53584 for
 the LexA driver of whichever target is being tested. Roughly 6&ndash;8 weeks to Stock A at 25&nbsp;&deg;C,
@@ -715,37 +877,37 @@ body ID. Body IDs are selectable for pasting into Clio.</p>
 <div class="scroll">
 <table>
 <tr><th>Type</th><th class="num">n</th><th>NT</th><th>Soma</th><th>Look up</th><th>Notes</th></tr>
-<tr class="hi"><td><b>AN05B023b</b></td><td class="num">2</td><td>GABA</td><td>A2</td><td><a href="https://neuronbridge.janelia.org/search?q=AN05B023b">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=200336">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:200336">VFB</a></td><td>best M-side target &middot; 17&times;</td></tr>
+<tr class="hi"><td><b>AN05B023b</b></td><td class="num">2</td><td>GABA</td><td>A2</td><td><a href="https://neuronbridge.janelia.org/search?q=AN05B023b">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=200336">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:200336">VFB</a></td><td>best M-side target &middot; 17&times;</td></tr>
 <tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">200336, 801269</code></td></tr>
-<tr class="hi"><td><b>AN05B023c</b></td><td class="num">2</td><td>GABA</td><td>A6</td><td><a href="https://neuronbridge.janelia.org/search?q=AN05B023c">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=18430">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:18430">VFB</a></td><td>best target overall &middot; 121&times;</td></tr>
+<tr class="hi"><td><b>AN05B023c</b></td><td class="num">2</td><td>GABA</td><td>A6</td><td><a href="https://neuronbridge.janelia.org/search?q=AN05B023c">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=18430">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:18430">VFB</a></td><td>best target overall &middot; 121&times;</td></tr>
 <tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">18430, 18696</code></td></tr>
-<tr class="hi"><td><b>INXXX044</b></td><td class="num">8</td><td>GABA</td><td>T2/T3/A1/A2</td><td><a href="https://neuronbridge.janelia.org/search?q=INXXX044">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=800575">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:800575">VFB</a></td><td>pure wing &middot; WG3 side</td></tr>
+<tr class="hi"><td><b>INXXX044</b></td><td class="num">8</td><td>GABA</td><td>T2/T3/A1/A2</td><td><a href="https://neuronbridge.janelia.org/search?q=INXXX044">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=800575">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:800575">VFB</a></td><td>pure wing &middot; WG3 side</td></tr>
 <tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">800575, 904664, 800305, 800272, 800912, 800788, 800660, 800201</code></td></tr>
-<tr class="hi"><td><b>IN11A022</b></td><td class="num">6</td><td>ACh</td><td>T2</td><td><a href="https://neuronbridge.janelia.org/search?q=IN11A022">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=805311">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:805311">VFB</a></td><td>pure wing &middot; WG4 side</td></tr>
+<tr class="hi"><td><b>IN11A022</b></td><td class="num">6</td><td>ACh</td><td>T2</td><td><a href="https://neuronbridge.janelia.org/search?q=IN11A022">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=805311">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:805311">VFB</a></td><td>pure wing &middot; WG4 side</td></tr>
 <tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">805311, 904851, 805874, 907376, 804748, 805275</code></td></tr>
-<tr class="hi"><td><b>IN01B065</b></td><td class="num">20</td><td>GABA</td><td>T2/T3/A1</td><td><a href="https://neuronbridge.janelia.org/search?q=IN01B065">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=812103">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:812103">VFB</a></td><td>pure leg &middot; LgLG1a side</td></tr>
+<tr class="hi"><td><b>IN01B065</b></td><td class="num">20</td><td>GABA</td><td>T2/T3/A1</td><td><a href="https://neuronbridge.janelia.org/search?q=IN01B065">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=812103">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:812103">VFB</a></td><td>pure leg &middot; LgLG1a side</td></tr>
 <tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">812103, 809925, 811297, 810045, 814181, 812956, 911406, 810166, 809629, 830835, 807976, 809675, 813816, 809578, 813722, 818747, 811612, 910152, 811563, 809185</code></td></tr>
-<tr class="hi"><td><b>AN09B017g</b></td><td class="num">2</td><td>ACh</td><td>A10</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017g">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=922722">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:922722">VFB</a></td><td>pure leg &middot; LgLG8 side</td></tr>
+<tr class="hi"><td><b>AN09B017g</b></td><td class="num">2</td><td>ACh</td><td>A10</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017g">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=922722">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:922722">VFB</a></td><td>pure leg &middot; LgLG8 side</td></tr>
 <tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">922722, 14320</code></td></tr>
-<tr><td><b>IN05B002</b></td><td class="num">2</td><td>GABA</td><td>T1</td><td><a href="https://neuronbridge.janelia.org/search?q=IN05B002">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=800035">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:800035">VFB</a></td><td>highest signal, 19190 syn</td></tr>
+<tr><td><b>IN05B002</b></td><td class="num">2</td><td>GABA</td><td>T1</td><td><a href="https://neuronbridge.janelia.org/search?q=IN05B002">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=800035">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:800035">VFB</a></td><td>highest signal, 19190 syn</td></tr>
 <tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">800035, 800040</code></td></tr>
-<tr><td><b>AN13B002</b></td><td class="num">2</td><td>GABA</td><td>A1</td><td><a href="https://neuronbridge.janelia.org/search?q=AN13B002">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=30088">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:30088">VFB</a></td><td><em>Dandelion</em>, Shiu 2022</td></tr>
+<tr><td><b>AN13B002</b></td><td class="num">2</td><td>GABA</td><td>A1</td><td><a href="https://neuronbridge.janelia.org/search?q=AN13B002">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=30088">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:30088">VFB</a></td><td><em>Dandelion</em>, Shiu 2022</td></tr>
 <tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">30088, 21763</code></td></tr>
-<tr><td><b>ANXXX093</b></td><td class="num">2</td><td>ACh</td><td>A6</td><td><a href="https://neuronbridge.janelia.org/search?q=ANXXX093">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=17503">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:17503">VFB</a></td><td>unnamed &middot; in R56C09 match set</td></tr>
+<tr><td><b>ANXXX093</b></td><td class="num">2</td><td>ACh</td><td>A6</td><td><a href="https://neuronbridge.janelia.org/search?q=ANXXX093">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=17503">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:17503">VFB</a></td><td>unnamed &middot; in R56C09 match set</td></tr>
 <tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">17503, 13399</code></td></tr>
-<tr><td><b>AN09B017b</b></td><td class="num">2</td><td>ACh</td><td>A3</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017b">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=16747">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:16747">VFB</a></td><td>LgLG6 isolator &middot; <em>vAB3</em></td></tr>
+<tr><td><b>AN09B017b</b></td><td class="num">2</td><td>ACh</td><td>A3</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017b">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=16747">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:16747">VFB</a></td><td>LgLG6 isolator &middot; <em>vAB3</em></td></tr>
 <tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">16747, 524298</code></td></tr>
-<tr><td><b>AN09B017e</b></td><td class="num">2</td><td>ACh</td><td>A9</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017e">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=13693">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:13693">VFB</a></td><td>LgLG7 isolator &middot; <em>vAB3</em></td></tr>
+<tr><td><b>AN09B017e</b></td><td class="num">2</td><td>ACh</td><td>A9</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017e">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=13693">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:13693">VFB</a></td><td>LgLG7 isolator &middot; <em>vAB3</em></td></tr>
 <tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">13693, 13341</code></td></tr>
-<tr><td><b>AN09B017f</b></td><td class="num">2</td><td>ACh</td><td>A10</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017f">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=512498">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:512498">VFB</a></td><td>LgLG5 isolator &middot; <em>vAB3</em></td></tr>
+<tr><td><b>AN09B017f</b></td><td class="num">2</td><td>ACh</td><td>A10</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017f">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=512498">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:512498">VFB</a></td><td>LgLG5 isolator &middot; <em>vAB3</em></td></tr>
 <tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">512498, 11998</code></td></tr>
-<tr><td><b>IN11A020</b></td><td class="num">6</td><td>ACh</td><td>T1</td><td><a href="https://neuronbridge.janelia.org/search?q=IN11A020">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=907699">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:907699">VFB</a></td><td>wing 0.97</td></tr>
+<tr><td><b>IN11A020</b></td><td class="num">6</td><td>ACh</td><td>T1</td><td><a href="https://neuronbridge.janelia.org/search?q=IN11A020">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=907699">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:907699">VFB</a></td><td>wing 0.97</td></tr>
 <tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">907699, 940542, 803792, 802730, 802868, 800798</code></td></tr>
-<tr><td><b>IN17A013</b></td><td class="num">2</td><td>ACh</td><td>T3</td><td><a href="https://neuronbridge.janelia.org/search?q=IN17A013">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=800380">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:800380">VFB</a></td><td>pure leg</td></tr>
+<tr><td><b>IN17A013</b></td><td class="num">2</td><td>ACh</td><td>T3</td><td><a href="https://neuronbridge.janelia.org/search?q=IN17A013">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=800380">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:800380">VFB</a></td><td>pure leg</td></tr>
 <tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">800380, 800588</code></td></tr>
-<tr><td><b>AN17A013</b></td><td class="num">4</td><td>ACh</td><td>T1/T2</td><td><a href="https://neuronbridge.janelia.org/search?q=AN17A013">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=800932">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:800932">VFB</a></td><td>pure leg</td></tr>
+<tr><td><b>AN17A013</b></td><td class="num">4</td><td>ACh</td><td>T1/T2</td><td><a href="https://neuronbridge.janelia.org/search?q=AN17A013">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=800932">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:800932">VFB</a></td><td>pure leg</td></tr>
 <tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">800932, 81109, 82791, 78620</code></td></tr>
-<tr class="bad"><td><b>AN05B102a</b></td><td class="num">2</td><td>ACh</td><td>A1</td><td><a href="https://neuronbridge.janelia.org/search?q=AN05B102a">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=11431">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:11431">VFB</a></td><td>R56C09 &middot; <span class="tag warn">PPN1 identity disputed</span></td></tr>
+<tr class="bad"><td><b>AN05B102a</b></td><td class="num">2</td><td>ACh</td><td>A1</td><td><a href="https://neuronbridge.janelia.org/search?q=AN05B102a">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=11431">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:11431">VFB</a></td><td>R56C09 &middot; <span class="tag warn">PPN1 identity disputed</span></td></tr>
 <tr class="bad"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">11431, 12286</code></td></tr>
 </table>
 </div>
@@ -844,7 +1006,7 @@ connectivity that produced the labels.</p>
 <h3>Connectome</h3>
 <div class="grid">
 <a class="lk" href="https://neuprint-cns.janelia.org/"><b>neuPrint mCNS</b>
- <span>male-cns:v0.9 &mdash; the dataset every number on this page comes from</span></a>
+ <span>male-cns:v1.0 &mdash; the dataset every number on this page comes from</span></a>
 <a class="lk" href="../an05b102/"><b>AN05B102 scenes</b>
  <span>PPN1 and family &mdash; Clio-NG scenes, MCFO imagery, embedded viewer</span></a>
 <a class="lk" href="../an05b023bc/"><b>AN05B023b/c scenes</b>
@@ -968,7 +1130,7 @@ measurement.</p>
 
 <hr>
 <p class="foot">
-Numbers computed from <code>feather/connectivity.feather</code> (mCNS <code>male-cns:v0.9</code>),
+Numbers computed from <code>feather/connectivity.feather</code> (mCNS <code>male-cns:v1.0</code>),
 nerve suffixes collapsed, by
 <code>receptor_typing_validation/R/01_design_matrix.R</code> &rarr;
 <code>02_select_targets.R</code> &rarr; <code>03_shortlist.R</code>.

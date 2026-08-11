@@ -369,135 +369,81 @@ factor <code>k</code>, but <code>k</code> is common across targets and cancels i
 everything.</p>
 </div>
 
-<h2>4 &middot; Identifiability</h2>
+<h2>4 &middot; What the experiment can actually distinguish</h2>
 
-<p>Greedy D-optimal selection over every mCNS target with &ge;500 ppk-family synapses:</p>
-
-<div class="kpi-row" style="display:flex;gap:2.5rem;flex-wrap:wrap;margin:1rem 0 1.4rem">
- <div><b style="font-size:2.4rem;color:var(--link);display:block;line-height:1">8 / 8</b>
-      <span style="font-size:.78rem;color:var(--dim);text-transform:uppercase;letter-spacing:.05em">rank</span></div>
- <div><b style="font-size:2.4rem;color:var(--link);display:block;line-height:1">2.5</b>
-      <span style="font-size:.78rem;color:var(--dim);text-transform:uppercase;letter-spacing:.05em">condition number</span></div>
- <div><b style="font-size:2.4rem;color:var(--link);display:block;line-height:1">121&times;</b>
-      <span style="font-size:.78rem;color:var(--dim);text-transform:uppercase;letter-spacing:.05em">best separation</span></div>
+<div class="callout warn">
+<p><strong>Retracted: the eight-type identifiability claim.</strong> This section previously
+reported a greedy D-optimal target set with rank 8 of 8 and condition number 2.5, and concluded
+that all eight types were individually identifiable. <strong>That is invalid</strong> and has been
+removed. The linear-inverse argument assumes the GRASP efficiency factor <code>k</code> and the
+puncta&ndash;synapse saturation exponent <code>&gamma;</code> are known. Neither is. With both
+unknown the design matrix does not identify eight parameters, however well conditioned it looks.</p>
 </div>
 
-<p class="note">All eight ppk-family types &mdash; WG3, WG4, LgLG1a, LgLG1b, LgLG5, LgLG6,
-LgLG7, LgLG8 &mdash; are individually identifiable. Condition number 2.5 means the system is
-well posed, not marginally solvable.</p>
+<h3>The hypothesis space is four, not two</h3>
+<p>Framing this as "current assignment versus global swap" was a straw man. Nobody believes the
+whole assignment is inverted. The live alternatives are the ones where the
+<strong>wing&rarr;leg propagation</strong> fails:</p>
 
-<figure class="dark-fig">
-<svg viewBox="0 0 720 538" role="img" aria-label="Discrimination per target, v1.0">
-<g font="11px system-ui,sans-serif">
-<line x1="132.0" y1="40" x2="132.0" y2="498" stroke="#2f3843" stroke-dasharray="2 4"/>
-<text x="132.0" y="34" fill="#8b95a5" text-anchor="middle" font-size="10">0</text>
-<line x1="266.0" y1="40" x2="266.0" y2="498" stroke="#2f3843" stroke-dasharray="2 4"/>
-<text x="266.0" y="34" fill="#8b95a5" text-anchor="middle" font-size="10">0.25</text>
-<line x1="400.0" y1="40" x2="400.0" y2="498" stroke="#2f3843" stroke-dasharray="2 4"/>
-<text x="400.0" y="34" fill="#8b95a5" text-anchor="middle" font-size="10">0.5</text>
-<line x1="534.0" y1="40" x2="534.0" y2="498" stroke="#2f3843" stroke-dasharray="2 4"/>
-<text x="534.0" y="34" fill="#8b95a5" text-anchor="middle" font-size="10">0.75</text>
-<line x1="668.0" y1="40" x2="668.0" y2="498" stroke="#2f3843" stroke-dasharray="2 4"/>
-<text x="668.0" y="34" fill="#8b95a5" text-anchor="middle" font-size="10">1</text>
-<text x="132" y="18" fill="#8b95a5" font-size="10" letter-spacing=".06em">PREDICTED ppk25+ PUNCTA FRACTION  R  &#183;  male-cns:v1.0, unthresholded</text>
-<line x1="400.0" y1="40" x2="400.0" y2="498" stroke="#5b6675" stroke-width="1.2"/>
-<text x="122" y="67" fill="#e8edf4" text-anchor="end">AN05B023b</text>
-<line x1="179.2" y1="63" x2="620.8" y2="63" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="620.8" cy="63" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="179.2" cy="63" r="7.6" fill="#e8a33d"/>
-<text x="680" y="67" fill="#c3cbd8" font-size="10">10.4&#215;</text>
-<text x="122" y="92" fill="#e8edf4" text-anchor="end">AN09B017b</text>
-<line x1="180.2" y1="88" x2="619.8" y2="88" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="619.8" cy="88" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="180.2" cy="88" r="5.4" fill="#e8a33d"/>
-<text x="680" y="92" fill="#c3cbd8" font-size="10">10.1&#215;</text>
-<text x="122" y="117" fill="#e8edf4" text-anchor="end">IN17A013</text>
-<line x1="201.1" y1="113" x2="598.9" y2="113" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="598.9" cy="113" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="201.1" cy="113" r="5.6" fill="#e8a33d"/>
-<text x="680" y="117" fill="#c3cbd8" font-size="10">6.8&#215;</text>
-<text x="122" y="142" fill="#e8edf4" text-anchor="end">IN01B065</text>
-<line x1="214.0" y1="138" x2="586.0" y2="138" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="586.0" cy="138" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="214.0" cy="138" r="5.7" fill="#e8a33d"/>
-<text x="680" y="142" fill="#c3cbd8" font-size="10">5.5&#215;</text>
-<text x="122" y="167" fill="#e8edf4" text-anchor="end">IN05B002</text>
-<line x1="215.1" y1="163" x2="584.9" y2="163" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="584.9" cy="163" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="215.1" cy="163" r="8.3" fill="#e8a33d"/>
-<text x="680" y="167" fill="#c3cbd8" font-size="10">5.5&#215;</text>
-<text x="122" y="192" fill="#e8edf4" text-anchor="end">AN17A013</text>
-<line x1="225.8" y1="188" x2="574.2" y2="188" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="574.2" cy="188" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="225.8" cy="188" r="6.1" fill="#e8a33d"/>
-<text x="680" y="192" fill="#c3cbd8" font-size="10">4.7&#215;</text>
-<text x="122" y="217" fill="#e8edf4" text-anchor="end">IN06B028</text>
-<line x1="251.0" y1="213" x2="549.0" y2="213" stroke="#e8a33d" stroke-width="2" opacity=".45"/>
-<circle cx="549.0" cy="213" r="4" fill="none" stroke="#e8a33d" stroke-width="1.5" opacity=".7"/>
-<circle cx="251.0" cy="213" r="6.4" fill="#e8a33d"/>
-<text x="680" y="217" fill="#c3cbd8" font-size="10">3.5&#215;</text>
-<text x="122" y="242" fill="#8b95a5" text-anchor="end">AN05B102c</text>
-<line x1="277.3" y1="238" x2="522.7" y2="238" stroke="#6b7280" stroke-width="2" opacity=".45"/>
-<circle cx="522.7" cy="238" r="4" fill="none" stroke="#6b7280" stroke-width="1.5" opacity=".7"/>
-<circle cx="277.3" cy="238" r="7.6" fill="#6b7280"/>
-<text x="680" y="242" fill="#6b7280" font-size="10">2.7&#215;</text>
-<text x="122" y="267" fill="#8b95a5" text-anchor="end">IN11A020</text>
-<line x1="285.8" y1="263" x2="514.2" y2="263" stroke="#6b7280" stroke-width="2" opacity=".45"/>
-<circle cx="514.2" cy="263" r="4" fill="none" stroke="#6b7280" stroke-width="1.5" opacity=".7"/>
-<circle cx="285.8" cy="263" r="6.2" fill="#6b7280"/>
-<text x="680" y="267" fill="#6b7280" font-size="10">2.5&#215;</text>
-<text x="122" y="292" fill="#8b95a5" text-anchor="end">IN11A022</text>
-<line x1="299.2" y1="288" x2="500.8" y2="288" stroke="#6b7280" stroke-width="2" opacity=".45"/>
-<circle cx="500.8" cy="288" r="4" fill="none" stroke="#6b7280" stroke-width="1.5" opacity=".7"/>
-<circle cx="299.2" cy="288" r="5.8" fill="#6b7280"/>
-<text x="680" y="292" fill="#6b7280" font-size="10">2.2&#215;</text>
-<text x="122" y="317" fill="#8b95a5" text-anchor="end">IN05B011a</text>
-<line x1="303.0" y1="313" x2="497.0" y2="313" stroke="#6b7280" stroke-width="2" opacity=".45"/>
-<circle cx="497.0" cy="313" r="4" fill="none" stroke="#6b7280" stroke-width="1.5" opacity=".7"/>
-<circle cx="303.0" cy="313" r="8.3" fill="#6b7280"/>
-<text x="680" y="317" fill="#6b7280" font-size="10">2.1&#215;</text>
-<text x="122" y="342" fill="#8b95a5" text-anchor="end">AN05B102a</text>
-<line x1="349.6" y1="338" x2="450.4" y2="338" stroke="#6b7280" stroke-width="2" opacity=".45"/>
-<circle cx="450.4" cy="338" r="4" fill="none" stroke="#6b7280" stroke-width="1.5" opacity=".7"/>
-<circle cx="349.6" cy="338" r="9.0" fill="#6b7280"/>
-<text x="680" y="342" fill="#6b7280" font-size="10">1.5&#215;</text>
-<text x="122" y="367" fill="#e8edf4" text-anchor="end">INXXX044</text>
-<line x1="248.3" y1="363" x2="551.7" y2="363" stroke="#d4607a" stroke-width="2" opacity=".45"/>
-<circle cx="248.3" cy="363" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
-<circle cx="551.7" cy="363" r="5.3" fill="#d4607a"/>
-<text x="680" y="367" fill="#c3cbd8" font-size="10">3.6&#215;</text>
-<text x="122" y="392" fill="#e8edf4" text-anchor="end">AN13B002</text>
-<line x1="229.0" y1="388" x2="571.0" y2="388" stroke="#d4607a" stroke-width="2" opacity=".45"/>
-<circle cx="229.0" cy="388" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
-<circle cx="571.0" cy="388" r="6.7" fill="#d4607a"/>
-<text x="680" y="392" fill="#c3cbd8" font-size="10">4.5&#215;</text>
-<text x="122" y="417" fill="#e8edf4" text-anchor="end">ANXXX093</text>
-<line x1="226.3" y1="413" x2="573.7" y2="413" stroke="#d4607a" stroke-width="2" opacity=".45"/>
-<circle cx="226.3" cy="413" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
-<circle cx="573.7" cy="413" r="6.9" fill="#d4607a"/>
-<text x="680" y="417" fill="#c3cbd8" font-size="10">4.7&#215;</text>
-<text x="122" y="442" fill="#e8edf4" text-anchor="end">AN09B017g</text>
-<line x1="187.7" y1="438" x2="612.3" y2="438" stroke="#d4607a" stroke-width="2" opacity=".45"/>
-<circle cx="187.7" cy="438" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
-<circle cx="612.3" cy="438" r="5.7" fill="#d4607a"/>
-<text x="680" y="442" fill="#c3cbd8" font-size="10">8.6&#215;</text>
-<text x="122" y="467" fill="#e8edf4" text-anchor="end">AN05B023c</text>
-<line x1="170.1" y1="463" x2="629.9" y2="463" stroke="#d4607a" stroke-width="2" opacity=".45"/>
-<circle cx="170.1" cy="463" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
-<circle cx="629.9" cy="463" r="6.6" fill="#d4607a"/>
-<text x="680" y="467" fill="#c3cbd8" font-size="10">13.1&#215;</text>
-<text x="122" y="492" fill="#e8edf4" text-anchor="end">DNpe029</text>
-<line x1="167.4" y1="488" x2="632.6" y2="488" stroke="#d4607a" stroke-width="2" opacity=".45"/>
-<circle cx="167.4" cy="488" r="4" fill="none" stroke="#d4607a" stroke-width="1.5" opacity=".7"/>
-<circle cx="632.6" cy="488" r="5.3" fill="#d4607a"/>
-<text x="680" y="492" fill="#c3cbd8" font-size="10">14.2&#215;</text>
-<text x="132" y="522" fill="#8b95a5" font-size="10">&#9679; current assignment   &#9675; global swap   &#183; dot size &#8733; synapse count   &#183; grey &lt; 3&#215;</text>
-</g></svg>
-<figcaption>Every candidate target with &ge;500 ppk-family synapses, ordered by predicted ppk25+
-puncta fraction. Filled dot = current assignment, open dot = global swap; the gap between them
-is what the experiment has to resolve. Grey rows cannot discriminate. PPN1 sits almost exactly
-on the midline.</figcaption>
-</figure>
+<div class="scroll">
+<table>
+<tr><th>Hypothesis</th><th>Wing call (WG3/WG4)</th><th>Leg call (LgLG*)</th></tr>
+<tr class="hi"><td>H0 &mdash; as published</td><td>right</td><td>right</td></tr>
+<tr><td>H1 &mdash; global swap</td><td>wrong</td><td>wrong</td></tr>
+<tr class="hi"><td><b>H2</b></td><td>right</td><td><b>wrong</b> &mdash; propagation failed</td></tr>
+<tr class="hi"><td><b>H3</b></td><td><b>wrong</b></td><td>right</td></tr>
+</table>
+</div>
+
+<p>A contrast between two <em>different</em> targets is largely blind to H2 and H3. Against H3 the
+previously proposed primary contrast separates by only about 1.6&times;, against a detection floor
+near 2&times;.</p>
+
+<h3>The design that does work &mdash; one pair, two compartments</h3>
+
+<p>Take <strong>one</strong> target pair, AN05B023b and AN05B023c, and score each animal separately
+in <code>Ov</code> (wing input) and <code>LegNp T1&ndash;T3</code> (leg input). That yields two
+statistics:</p>
+
+<p style="font-family:ui-monospace,monospace;font-size:.86rem;background:rgba(11,95,165,.07);
+padding:.8rem 1rem;border-radius:8px;overflow-x:auto">
+W = [log Y(ppk25,c,Ov) &minus; log Y(ppk23,c,Ov)] &minus; [log Y(ppk25,b,Ov) &minus; log Y(ppk23,b,Ov)]<br>
+L = [log Y(ppk25,c,Leg) &minus; log Y(ppk23,c,Leg)] &minus; [log Y(ppk25,b,Leg) &minus; log Y(ppk23,b,Leg)]
+</p>
+
+<p>Each is a <em>within-compartment</em> ratio-of-ratios: same GRN population, same compartment,
+same two drivers. <strong><code>k</code> cancels exactly</strong> &mdash; not approximately, and
+without assuming it is common across targets. <code>W</code> and <code>L</code> are never compared
+to each other.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Statistic</th><th class="num">call right</th><th class="num">call wrong</th><th>Reads out</th></tr>
+<tr class="hi"><td><b>W</b></td><td class="num">+1.04</td><td class="num">&minus;1.06</td>
+    <td>the <b>wing</b> assignment</td></tr>
+<tr class="hi"><td><b>L</b></td><td class="num">+1.07</td><td class="num">&minus;1.15</td>
+    <td>the <b>leg</b> assignment</td></tr>
+</table>
+</div>
+
+<p>log<sub>10</sub> units. <code>sign(W)</code> and <code>sign(L)</code> are two independent binary
+readouts whose pair maps one-to-one onto {H0, H1, H2, H3} &mdash; so this design tests the
+wing&rarr;leg propagation directly, which is the thing that was never tested. It also avoids the
+small-target problem: the weakest predicted signal is ~400 synapses on a two-cell arbour, not a
+handful on a twenty-cell one.</p>
+
+<div class="callout warn">
+<p><strong>And one problem sits upstream of all of it.</strong> <code>R</code>'s denominator
+assumes the ppk drivers label exactly the eight assigned types and nothing else.
+<strong>417 GRN cells across five types have no receptor call at all</strong>, and four of the
+eight assigned types have no molecular support for being ppk23<sup>+</sup>. Until the drivers are
+mapped onto connectome types &mdash; by HCR-FISH or MCFO, cheaper than the GRASP &mdash; the
+GRASP is not interpretable. If ppk23-GAL4 labels more than 1.3&times; or fewer than 0.7&times; the
+assigned cell count, the denominator is wrong and the GRASP should not be built.</p>
+</div>
+
+<p class="note">Full synthesis, controls, gates and kill criteria:
+<code>receptor_typing_validation/CROSSING_REVIEW.md</code>.</p>
 
 <h3>Target shortlist</h3>
 <p class="note"><code>R</code> = predicted ppk25+ puncta fraction under the current assignment;
@@ -577,16 +523,22 @@ AN09B017g (0.896) and IN23B020 (0.899), all pure leg, all &ge; 6.7&times;.</p>
 
 <h2>5 &middot; Recommended target sets</h2>
 <ul class="steps">
-<li><strong>Two targets, maximum power.</strong> AN05B023b + AN05B023c. 17&times; and 121&times;.
-Settles the global M/F swap and nothing else.</li>
-<li><strong>Four targets, wing and leg decoupled.</strong> INXXX044 + IN11A022 for the wing;
-IN01B065 + AN09B017g for the leg. Kills the co-clustering propagation question.</li>
-<li><strong>Eight targets, full identifiability.</strong> The D-optimal set. Every type solved
-individually, condition number 2.5.</li>
-<li><strong>Reference arm in all cases.</strong> AN05B102a (PPN1) via
+<li><strong>The design.</strong> One target pair &mdash; AN05B023b + AN05B023c &mdash; scored
+separately in <code>Ov</code> and <code>LegNp</code>. Gives <code>W</code> (wing) and
+<code>L</code> (leg), each with <code>k</code> cancelling exactly, each flipping sign between
+hypotheses by more than a log&#8321;&#8320; unit. This is the whole experiment.</li>
+<li><strong>Do this first, before any flies.</strong> Map the ppk drivers onto connectome types
+by HCR-FISH or MCFO. Cheaper than the GRASP, and it may answer the question outright. If
+ppk23-GAL4 labels more than 1.3&times; or fewer than 0.7&times; the assigned cell count, the
+GRASP is not interpretable and should not be built.</li>
+<li><strong>Reference arm.</strong> AN05B102a (PPN1) via
 <a href="https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?line=R56C09">R56C09</a>
-&mdash; 27&thinsp;083 ppk synapses, both drivers guaranteed to give signal, expected
-<code>R &asymp; 0.41</code>. Without it a negative elsewhere is uninterpretable.</li>
+&mdash; 27&thinsp;267 ppk synapses, both drivers guaranteed to give signal, expected
+<code>R &asymp; 0.41</code>. If the ppk23 arm gives no unambiguous signal here, the assay does
+not work. Stop.</li>
+<li><strong>Everything else is exploratory.</strong> The wider target list below is useful for
+choosing follow-ups, not for the primary result. Its top rows are small targets whose large
+fold-changes may be artifacts &mdash; see the status note at the top.</li>
 </ul>
 
 <h2 id="crossing">6 &middot; Reagents and crossing scheme</h2>
@@ -1199,17 +1151,22 @@ every predicted <code>R</code> on this page is a connectome expectation, not a m
 </section>
 
 <section class="slide">
- <h3>Identifiability &mdash; already computed</h3>
- <h2>The system is well posed.</h2>
- <div class="kpi">
-  <div><b>8/8</b><span>rank</span></div>
-  <div><b>2.5</b><span>condition number</span></div>
-  <div><b>121&times;</b><span>best separation</span></div>
- </div>
- <p>Greedy D-optimal selection over every mCNS target with &ge;500 ppk-family synapses.
- All eight ppk-family types &mdash; WG3, WG4, LgLG1a/1b, LgLG5&ndash;8 &mdash; are
- <strong>individually identifiable</strong>.</p>
- <p><em>The wing&rarr;leg co-clustering propagation is not assumed. It is dissolved.</em></p>
+ <h3>What it can distinguish</h3>
+ <h2>Four hypotheses, two readouts.</h2>
+ <table>
+  <tr><th>Hypothesis</th><th>Wing call</th><th>Leg call</th></tr>
+  <tr class="hi"><td>H0 &mdash; as published</td><td>right</td><td>right</td></tr>
+  <tr><td>H1 &mdash; global swap</td><td>wrong</td><td>wrong</td></tr>
+  <tr class="hi"><td>H2</td><td>right</td><td><strong>wrong</strong> &mdash; propagation failed</td></tr>
+  <tr class="hi"><td>H3</td><td><strong>wrong</strong></td><td>right</td></tr>
+ </table>
+ <p>"Assignment versus global swap" was a <em>straw man</em> &mdash; nobody thinks the whole thing
+ is inverted. H2 and H3 are the live ones, and they are exactly where the wing&rarr;leg
+ propagation fails.</p>
+ <p><strong>One pair, two compartments.</strong> AN05B023b vs AN05B023c, scored separately in
+ Ov and LegNp. <code>W</code> = +1.04 / &minus;1.06 reads the wing call; <code>L</code> =
+ +1.07 / &minus;1.15 reads the leg call. Each is a within-compartment ratio-of-ratios, so
+ <em>k cancels exactly</em>. Their signs map one-to-one onto the four hypotheses.</p>
 </section>
 
 <section class="slide">

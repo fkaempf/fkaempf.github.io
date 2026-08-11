@@ -1,0 +1,881 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Receptor typing - settling it experimentally</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<style>
+ :root{
+  --bg:#fff; --fg:#1a1a1a; --dim:#555; --line:#ececec; --edge:#d8d8d8;
+  --link:#0b5fa5; --card:#f7fbff; --ink:#0b0e13;
+  --m:#e8a33d; --f:#d4607a; --warn:#c2410c; --ok:#15803d;
+ }
+ *{box-sizing:border-box}
+ body{font:15px/1.6 system-ui,sans-serif;margin:0;padding:2.5rem 1.25rem;
+      max-width:54rem;margin-inline:auto;color:var(--fg);background:var(--bg)}
+ h1{font-size:1.6rem;margin:0 0 .35rem;letter-spacing:-.01em}
+ h2{font-size:1.08rem;margin:3rem 0 .4rem;font-weight:600;letter-spacing:-.005em}
+ h3{font-size:.92rem;margin:1.6rem 0 .3rem;font-weight:600}
+ p.sub{color:var(--dim);margin:0 0 .4rem}
+ p.note{color:var(--dim);margin:0 0 1.1rem;font-size:.92rem}
+ a{color:var(--link)}
+ code{font:.86em ui-monospace,SFMono-Regular,Menlo,monospace;
+      background:rgba(11,95,165,.08);padding:.1em .35em;border-radius:4px}
+ table{border-collapse:collapse;width:100%;margin:.5rem 0 1rem;font-size:.87rem}
+ th,td{text-align:left;padding:.4rem .55rem;border-bottom:1px solid var(--line);
+       white-space:nowrap}
+ th{font-weight:600;color:var(--dim);font-size:.76rem;text-transform:uppercase;
+    letter-spacing:.04em}
+ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+ tr.hi td{background:rgba(11,95,165,.07);font-weight:600}
+ tr.bad td{background:rgba(194,65,12,.08)}
+ .tag{display:inline-block;padding:.05rem .4rem;border-radius:4px;font-size:.7rem;
+      font-weight:600;letter-spacing:.03em;text-transform:uppercase;vertical-align:1px}
+ .tag.m{background:var(--m);color:#3a2600}
+ .tag.f{background:var(--f);color:#fff}
+ .tag.warn{background:var(--warn);color:#fff}
+ .tag.ok{background:var(--ok);color:#fff}
+ .tag.q{background:#64748b;color:#fff}
+ .lead{font-size:1.05rem;line-height:1.65;margin:0 0 1.4rem}
+ .callout{border-left:3px solid var(--link);padding:.6rem 0 .6rem .9rem;
+          margin:1.2rem 0;background:var(--card);border-radius:0 7px 7px 0}
+ .callout.warn{border-left-color:var(--warn);background:rgba(194,65,12,.06)}
+ .callout p{margin:0}
+ .callout p + p{margin-top:.5rem}
+ figure{margin:1.4rem 0}
+ figure svg{display:block;width:100%;height:auto;overflow:visible}
+ figcaption{color:var(--dim);font-size:.78rem;margin-top:.5rem}
+ .dark-fig{background:var(--ink);border-radius:11px;padding:1.3rem 1.2rem}
+ .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));
+       gap:.7rem;margin:.8rem 0 1.2rem}
+ .lk{display:block;padding:.65rem .8rem;border:1px solid var(--edge);border-radius:9px;
+     text-decoration:none;color:inherit;transition:border-color .12s,background .12s}
+ .lk:hover{border-color:var(--link);background:var(--card)}
+ .lk b{display:block;color:var(--link);font-size:.9rem;margin-bottom:.1rem}
+ .lk span{display:block;color:var(--dim);font-size:.78rem;line-height:1.4;
+          white-space:normal}
+ .refs{list-style:none;padding:0;margin:.5rem 0 1rem;font-size:.86rem}
+ .refs li{padding:.3rem 0;border-bottom:1px solid var(--line);line-height:1.5}
+ .refs .yr{color:var(--dim);font-variant-numeric:tabular-nums}
+ .steps{counter-reset:s;list-style:none;padding:0;margin:.6rem 0 1.2rem}
+ .steps li{counter-increment:s;position:relative;padding:.5rem 0 .5rem 2.1rem;
+           border-bottom:1px solid var(--line);font-size:.9rem;line-height:1.55}
+ .steps li::before{content:counter(s);position:absolute;left:0;top:.55rem;
+   width:1.45rem;height:1.45rem;border-radius:50%;background:var(--link);color:#fff;
+   font-size:.72rem;font-weight:700;display:grid;place-items:center}
+ .pill{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--edge);
+       border-radius:999px;padding:.2rem .7rem;font-size:.78rem;color:var(--dim);
+       margin:0 .35rem .4rem 0}
+ .bar{height:.55rem;border-radius:3px;background:linear-gradient(90deg,var(--m) 0,var(--m) var(--p),var(--f) var(--p),var(--f) 100%);
+      min-width:5rem}
+ .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
+ .foot{color:var(--dim);font-size:.8rem;margin-top:2.5rem;line-height:1.6}
+
+ /* --- pitch launcher ---------------------------------------------------- */
+ .launch{position:sticky;top:0;z-index:20;display:flex;gap:.6rem;align-items:center;
+         justify-content:flex-end;padding:.5rem 0 .9rem;background:var(--bg);
+         margin:-2.5rem 0 1.2rem;padding-top:2.5rem}
+ .btn{appearance:none;border:1px solid var(--link);background:var(--link);color:#fff;
+      font:600 .85rem/1 system-ui,sans-serif;padding:.6rem 1rem;border-radius:8px;
+      cursor:pointer;letter-spacing:.01em}
+ .btn:hover{filter:brightness(1.1)}
+ .btn.ghost{background:transparent;color:var(--link)}
+
+ /* --- deck -------------------------------------------------------------- */
+ #deck{position:fixed;inset:0;z-index:100;background:var(--ink);color:#e8edf4;
+       display:none;flex-direction:column}
+ #deck.on{display:flex}
+ body.decked{overflow:hidden}
+ .slide{flex:1;display:none;flex-direction:column;justify-content:center;
+        padding:clamp(1.5rem,5vw,4rem);max-width:64rem;margin-inline:auto;width:100%}
+ .slide.on{display:flex}
+ .slide h2{font-size:clamp(1.5rem,3.6vw,2.5rem);margin:0 0 .8rem;color:#fff;
+           font-weight:650;letter-spacing:-.02em;line-height:1.15}
+ .slide h3{font-size:clamp(.85rem,1.5vw,1rem);margin:0 0 1.6rem;color:#8b95a5;
+           font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+ .slide p{font-size:clamp(1rem,1.7vw,1.2rem);line-height:1.6;color:#c3cbd8;
+          margin:0 0 1rem;max-width:46rem}
+ .slide ul{margin:0 0 1rem;padding-left:1.2rem;max-width:46rem}
+ .slide li{font-size:clamp(.95rem,1.6vw,1.12rem);line-height:1.65;color:#c3cbd8;
+           margin-bottom:.6rem}
+ .slide strong{color:#fff}
+ .slide em{color:#ffd166;font-style:normal;font-weight:600}
+ .slide table{font-size:clamp(.8rem,1.4vw,.98rem);color:#c3cbd8}
+ .slide th{color:#8b95a5;border-bottom-color:#2a323d}
+ .slide td{border-bottom-color:#232a33}
+ .slide tr.hi td{background:rgba(255,209,102,.12);color:#fff}
+ .slide tr.bad td{background:rgba(194,65,12,.18)}
+ .slide code{background:rgba(255,255,255,.1);color:#ffd166}
+ .slide .kpi{display:flex;gap:clamp(1rem,4vw,3rem);flex-wrap:wrap;margin:1.2rem 0}
+ .slide .kpi div{min-width:8rem}
+ .slide .kpi b{display:block;font-size:clamp(2rem,5.5vw,3.4rem);color:#ffd166;
+               line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+ .slide .kpi span{display:block;font-size:.82rem;color:#8b95a5;margin-top:.4rem;
+                  text-transform:uppercase;letter-spacing:.05em}
+ .slide figure{margin:.5rem 0}
+ .slide figcaption{color:#8b95a5}
+ .deckbar{display:flex;align-items:center;justify-content:space-between;
+          padding:.7rem clamp(1rem,4vw,2rem);border-top:1px solid #232a33;
+          font-size:.8rem;color:#8b95a5;gap:1rem}
+ .deckbar button{appearance:none;background:transparent;border:1px solid #2f3843;
+                 color:#c3cbd8;border-radius:7px;padding:.35rem .8rem;cursor:pointer;
+                 font:600 .78rem/1 system-ui,sans-serif}
+ .deckbar button:hover{border-color:#6fb3ef;color:#fff}
+ .prog{flex:1;height:3px;background:#232a33;border-radius:2px;overflow:hidden}
+ .prog i{display:block;height:100%;background:#6fb3ef;transition:width .2s}
+ .title-slide h2{font-size:clamp(2rem,5.5vw,3.6rem);margin-bottom:1.2rem}
+ .title-slide p{font-size:clamp(1.05rem,2vw,1.35rem);color:#8b95a5}
+
+ @media (prefers-color-scheme:dark){
+  :root{--bg:#141414;--fg:#e8e8e8;--dim:#a6a6a6;--line:#2a2a2a;--edge:#333;
+        --link:#6fb3ef;--card:#1b2430}
+  .lk:hover{background:#1b2430}
+  code{background:rgba(111,179,239,.12)}
+  .dark-fig{background:transparent;padding-left:0;padding-right:0}
+  .callout{background:rgba(111,179,239,.07)}
+  .callout.warn{background:rgba(194,65,12,.12)}
+  tr.hi td{background:rgba(111,179,239,.1)}
+ }
+ @media print{.launch,#deck{display:none!important}}
+</style>
+
+<div class="launch">
+  <span class="pill">mCNS <code>male-cns:v0.9</code></span>
+  <button class="btn" id="start">Start pitch &rarr;</button>
+</div>
+
+<h1>Can we settle the receptor typing experimentally?</h1>
+<p class="sub">Turning the contact-chemosensory receptor assignment from an argument into a
+measurement. Male CNS connectome, <code>male-cns:v0.9</code>.</p>
+<p class="note">Working page &middot; Florian Kämpf &middot; last updated 11 August 2026 &middot;
+sits alongside <a href="../an05b102/">AN05B102</a>, <a href="../an05b023bc/">AN05B023b/c</a> and
+<a href="../an09b017/">AN09B017</a>.</p>
+
+<p class="lead">The receptor identity of the contact chemosensory neurons was assigned from
+their downstream partners. The paper's thesis is what those neurons do downstream. That is a
+loop, and it is the softest joint in the manuscript. This page lays out a way to cut it: treat
+the assignment as an <strong>inverse problem</strong> the connectome already specifies, and
+solve it with a GRASP measurement that the connectome cannot fake.</p>
+
+<h2>1 &middot; The loop</h2>
+<p class="note">How the current assignment was reached, and why it cannot then be used to
+validate downstream circuit logic.</p>
+
+<figure class="dark-fig">
+<svg viewBox="0 0 720 220" role="img" aria-label="Circular reasoning diagram">
+ <defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+   <path d="M0,0 L10,5 L0,10 z" fill="#8b95a5"/></marker>
+  <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+   <path d="M0,0 L10,5 L0,10 z" fill="#e8a33d"/></marker>
+ </defs>
+ <g font="12px system-ui,sans-serif">
+  <rect x="20" y="80" width="150" height="58" rx="9" fill="#1b2430" stroke="#2f3843"/>
+  <text x="95" y="104" fill="#e8edf4" text-anchor="middle" font-weight="600">Downstream partners</text>
+  <text x="95" y="122" fill="#8b95a5" text-anchor="middle" font-size="10.5">PPN1, mAL</text>
+
+  <rect x="240" y="80" width="150" height="58" rx="9" fill="#1b2430" stroke="#2f3843"/>
+  <text x="315" y="104" fill="#e8edf4" text-anchor="middle" font-weight="600">Receptor labels</text>
+  <text x="315" y="122" fill="#8b95a5" text-anchor="middle" font-size="10.5">WG3 / WG4 / LgLG*</text>
+
+  <rect x="460" y="80" width="180" height="58" rx="9" fill="#1b2430" stroke="#2f3843"/>
+  <text x="550" y="104" fill="#e8edf4" text-anchor="middle" font-weight="600">Valence logic</text>
+  <text x="550" y="122" fill="#8b95a5" text-anchor="middle" font-size="10.5">the paper's claim</text>
+
+  <path d="M175 109 H233" stroke="#8b95a5" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+  <path d="M395 109 H453" stroke="#8b95a5" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+  <path d="M550 78 C550 30, 95 30, 95 76" stroke="#e8a33d" stroke-width="1.8" fill="none"
+        stroke-dasharray="5 4" marker-end="url(#arw)"/>
+  <text x="322" y="24" fill="#e8a33d" text-anchor="middle" font-size="11.5" font-weight="600">
+    the conclusion re-enters as the evidence</text>
+
+  <text x="330" y="182" fill="#8b95a5" text-anchor="middle" font-size="11.5">
+    Also feeding the labels: neurotransmitter prediction, morphology vs GAL4 images,</text>
+  <text x="330" y="199" fill="#8b95a5" text-anchor="middle" font-size="11.5">
+    and wing&rarr;leg co-clustering &mdash; the weakest link of all.</text>
+ </g>
+</svg>
+<figcaption>The assignment was derived from downstream connectivity; the manuscript's central
+claim is downstream circuit logic. No amount of additional connectome analysis breaks this.</figcaption>
+</figure>
+
+<h3>What is currently claimed</h3>
+<div class="scroll">
+<table>
+<tr><th>Receptor call</th><th>Tuning</th><th>Wing types</th><th>Leg types</th><th>Rests on</th></tr>
+<tr><td><span class="tag f">ppk23+ ppk25+</span></td><td>7,11-HD &mdash; "F" cells</td>
+    <td>WG3</td><td>LgLG1b, LgLG5, LgLG8</td><td>glutamate prediction; PPN1 downstream</td></tr>
+<tr><td><span class="tag m">ppk23+ ppk25&minus;</span></td><td>7-T, cVA &mdash; "M" cells</td>
+    <td>WG4</td><td>LgLG1a, LgLG6, LgLG7</td><td>ACh prediction; mAL downstream</td></tr>
+<tr><td><span class="tag q">Ir52a+ Ir52b+</span></td><td>Ir52 clade</td>
+    <td>WG1</td><td>&mdash;</td><td>morphology; relative position</td></tr>
+<tr class="bad"><td><span class="tag warn">unassigned</span></td><td>&mdash;</td>
+    <td>WG2</td><td>LgLG2</td><td>nothing</td></tr>
+</table>
+</div>
+<p class="note">Source of truth in the analysis code:
+<code>figures/fig5/setup.R:269-274</code>.</p>
+
+<h2>2 &middot; PPN1 is not the marker the draft says it is</h2>
+
+<p>The manuscript leans on PPN1 as corroboration that WG3 is <span class="tag f">ppk23+ ppk25+</span>,
+citing the functional connectivity of Kallman et al. 2015. The connectome disagrees. Pooled input
+synapses onto <a href="../an05b102/">AN05B102a = PPN1</a>:</p>
+
+<div class="scroll">
+<table>
+<tr><th>Target</th><th class="num">LgLG1a</th><th class="num">WG4</th><th class="num">LgLG1b</th>
+    <th class="num">WG3</th><th class="num">ppk25+ share</th></tr>
+<tr class="bad"><td>AN05B102a &nbsp;<span class="tag warn">PPN1</span></td>
+    <td class="num">5574</td><td class="num">524</td><td class="num">4650</td><td class="num">352</td>
+    <td class="num">45%</td></tr>
+<tr><td>AN05B102b</td><td class="num">1262</td><td class="num">70</td><td class="num">1019</td>
+    <td class="num">67</td><td class="num">45%</td></tr>
+<tr><td>AN05B102c</td><td class="num">3599</td><td class="num">259</td><td class="num">1482</td>
+    <td class="num">124</td><td class="num">29%</td></tr>
+<tr class="hi"><td>AN05B023b</td><td class="num">6744</td><td class="num">4346</td>
+    <td class="num">589</td><td class="num">398</td><td class="num">8%</td></tr>
+<tr class="hi"><td>AN05B023c</td><td class="num">246</td><td class="num">185</td>
+    <td class="num">3545</td><td class="num">2154</td><td class="num">93%</td></tr>
+</table>
+</div>
+
+<div class="callout warn">
+<p><strong>PPN1 receives near-equal input from both families.</strong> It is a convergent
+integrator, not a <span class="tag f">ppk25+</span> marker. The "corroborated by PPN1" sentence
+overstates the data and needs rewriting whatever else happens.</p>
+<p>Nor is there a spatial escape: on PPN1 the two families interdigitate across the whole
+dendrite. Kolmogorov&ndash;Smirnov <code>D &asymp; 0.11&ndash;0.26</code> between LgLG1a and
+LgLG1b synapse positions &mdash; significant only because <em>n</em> is 5574 vs 4650. The
+distributions almost completely overlap.</p>
+</div>
+
+<h2>3 &middot; The inversion</h2>
+
+<p>Stop treating the receptor call as an input to be defended. Treat it as an
+<strong>unknown to be solved for</strong>. The connectome supplies the design matrix; a GRASP
+experiment supplies the observations.</p>
+
+<figure class="dark-fig">
+<svg viewBox="0 0 720 250" role="img" aria-label="Inverse problem schematic">
+ <g font="12px system-ui,sans-serif">
+  <text x="14" y="26" fill="#8b95a5" font-size="11" letter-spacing=".06em">SENSORY TYPES &mdash; unknown x</text>
+  <g>
+   <rect x="14" y="40" width="92" height="26" rx="6" fill="#2a2019" stroke="#e8a33d"/>
+   <text x="60" y="57" fill="#e8a33d" text-anchor="middle" font-size="11.5" font-weight="600">WG4 / LgLG1a</text>
+   <rect x="14" y="74" width="92" height="26" rx="6" fill="#2b1a20" stroke="#d4607a"/>
+   <text x="60" y="91" fill="#d4607a" text-anchor="middle" font-size="11.5" font-weight="600">WG3 / LgLG1b</text>
+   <rect x="14" y="108" width="92" height="26" rx="6" fill="#1b2430" stroke="#2f3843"/>
+   <text x="60" y="125" fill="#8b95a5" text-anchor="middle" font-size="11.5">LgLG5&ndash;8</text>
+  </g>
+
+  <text x="250" y="26" fill="#8b95a5" font-size="11" letter-spacing=".06em">CONNECTOME C &mdash; known</text>
+  <rect x="250" y="40" width="118" height="94" rx="8" fill="#12181f" stroke="#2f3843"/>
+  <g font="10px ui-monospace,monospace" fill="#6fb3ef" text-anchor="middle">
+   <text x="279" y="60">6744</text><text x="309" y="60">4346</text><text x="339" y="60">589</text>
+   <text x="279" y="80">246</text><text x="309" y="80">185</text><text x="339" y="80">3545</text>
+   <text x="279" y="100">0</text><text x="309" y="100">1540</text><text x="339" y="100">0</text>
+   <text x="279" y="120">1246</text><text x="309" y="120">0</text><text x="339" y="120">642</text>
+  </g>
+
+  <text x="470" y="26" fill="#8b95a5" font-size="11" letter-spacing=".06em">TARGETS &mdash; measured R</text>
+  <g>
+   <rect x="470" y="40" width="132" height="24" rx="6" fill="#1b2430" stroke="#2f3843"/>
+   <text x="478" y="56" fill="#e8edf4" font-size="11">AN05B023b</text>
+   <text x="594" y="56" fill="#e8a33d" font-size="11" text-anchor="end" font-weight="600">0.05</text>
+   <rect x="470" y="70" width="132" height="24" rx="6" fill="#1b2430" stroke="#2f3843"/>
+   <text x="478" y="86" fill="#e8edf4" font-size="11">AN05B023c</text>
+   <text x="594" y="86" fill="#d4607a" font-size="11" text-anchor="end" font-weight="600">0.99</text>
+   <rect x="470" y="100" width="132" height="24" rx="6" fill="#1b2430" stroke="#2f3843"/>
+   <text x="478" y="116" fill="#e8edf4" font-size="11">IN11A022</text>
+   <text x="594" y="116" fill="#e8a33d" font-size="11" text-anchor="end" font-weight="600">0.20</text>
+  </g>
+
+  <path d="M110 87 H244" stroke="#8b95a5" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
+  <path d="M372 87 H464" stroke="#8b95a5" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
+
+  <rect x="90" y="176" width="540" height="46" rx="9" fill="#12181f" stroke="#2f3843"/>
+  <text x="360" y="196" fill="#e8edf4" text-anchor="middle" font-size="14"
+        font-family="ui-monospace,monospace">R&#8339; = &Sigma;&#7522; x&#7522;&middot;C[i,j] / &Sigma;&#7522; C[i,j]</text>
+  <text x="360" y="213" fill="#8b95a5" text-anchor="middle" font-size="10.5">
+    one equation per target &middot; solve for x &middot; scale factor k cancels in ratios</text>
+ </g>
+</svg>
+<figcaption>Each GRASP target contributes one linear equation in the unknown receptor labels.
+Enough targets with independent connectivity profiles, and every type is solved individually.</figcaption>
+</figure>
+
+<h3>Why this is not circular</h3>
+<ul class="steps">
+<li><strong>C is EM synapse counts</strong> &mdash; segmentation, not typing inference. It is the
+one thing in the chain nobody disputes.</li>
+<li><strong>x is the receptor label</strong> &mdash; the actual unknown.</li>
+<li><strong>The receptor driver is the independent variable.</strong> <code>ppk25-</code> driver
+expression defines the molecule directly. That is exactly the quantity in question.</li>
+<li><strong>Nothing downstream is assumed.</strong> The wing&rarr;leg co-clustering propagation
+is not used &mdash; it is dissolved, not tested.</li>
+</ul>
+
+<div class="callout">
+<p><strong>The subset trick.</strong> <span class="tag f">ppk25+</span> cells are a subset of
+<span class="tag m">ppk23+</span> cells, so the <code>ppk23</code> driver labels both families
+and the <code>ppk25</code> driver only one. The ratio of their puncta counts at a target
+<em>is</em> <code>R&#8339;</code>. GRASP efficiency differs between the two drivers by an unknown
+factor <code>k</code>, but <code>k</code> is common across targets and cancels in
+<code>R&#8339;/R&#8339;&#8242;</code>. Hence: one target tells you nothing, two tell you
+everything.</p>
+</div>
+
+<h2>4 &middot; Identifiability</h2>
+
+<p>Greedy D-optimal selection over every mCNS target with &ge;500 ppk-family synapses:</p>
+
+<div class="kpi-row" style="display:flex;gap:2.5rem;flex-wrap:wrap;margin:1rem 0 1.4rem">
+ <div><b style="font-size:2.4rem;color:var(--link);display:block;line-height:1">8 / 8</b>
+      <span style="font-size:.78rem;color:var(--dim);text-transform:uppercase;letter-spacing:.05em">rank</span></div>
+ <div><b style="font-size:2.4rem;color:var(--link);display:block;line-height:1">2.5</b>
+      <span style="font-size:.78rem;color:var(--dim);text-transform:uppercase;letter-spacing:.05em">condition number</span></div>
+ <div><b style="font-size:2.4rem;color:var(--link);display:block;line-height:1">121&times;</b>
+      <span style="font-size:.78rem;color:var(--dim);text-transform:uppercase;letter-spacing:.05em">best separation</span></div>
+</div>
+
+<p class="note">All eight ppk-family types &mdash; WG3, WG4, LgLG1a, LgLG1b, LgLG5, LgLG6,
+LgLG7, LgLG8 &mdash; are individually identifiable. Condition number 2.5 means the system is
+well posed, not marginally solvable.</p>
+
+<h3>Target shortlist</h3>
+<p class="note"><code>R&#8320;</code> = predicted ppk25+ puncta fraction under the current
+assignment; <code>R&#8321;</code> = under a global swap. Fold = the ratio the experiment must
+resolve.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Target</th><th class="num">ppk syn</th><th class="num">R&#8320;</th>
+    <th class="num">R&#8321;</th><th class="num">fold</th><th>NT</th><th>Notes</th></tr>
+<tr class="hi"><td>AN05B023c</td><td class="num">5631</td><td class="num">0.992</td>
+    <td class="num">0.008</td><td class="num">121&times;</td><td>GABA</td><td>soma A6</td></tr>
+<tr class="hi"><td>AN05B023b</td><td class="num">12066</td><td class="num">0.054</td>
+    <td class="num">0.946</td><td class="num">17&times;</td><td>GABA</td><td>soma A2</td></tr>
+<tr><td>IN01B065</td><td class="num">1246</td><td class="num">0.051</td><td class="num">0.949</td>
+    <td class="num">18&times;</td><td>GABA</td><td>20 bodies &middot; pure leg</td></tr>
+<tr><td>IN05B002</td><td class="num">19190</td><td class="num">0.139</td><td class="num">0.861</td>
+    <td class="num">6.2&times;</td><td>GABA</td><td>T1 &middot; highest signal</td></tr>
+<tr><td>ANXXX093</td><td class="num">7259</td><td class="num">0.850</td><td class="num">0.150</td>
+    <td class="num">5.7&times;</td><td>ACh</td><td>unnamed type</td></tr>
+<tr><td>AN13B002</td><td class="num">6477</td><td class="num">0.849</td><td class="num">0.151</td>
+    <td class="num">5.6&times;</td><td>GABA</td><td><em>Dandelion</em>, Shiu 2022</td></tr>
+<tr><td>IN11A022</td><td class="num">1540</td><td class="num">0.195</td><td class="num">0.805</td>
+    <td class="num">4.1&times;</td><td>ACh</td><td>pure wing</td></tr>
+<tr><td>INXXX044</td><td class="num">642</td><td class="num">0.908</td><td class="num">0.000</td>
+    <td class="num">&mdash;</td><td>GABA</td><td>pure wing &middot; WG3 loading 0.91</td></tr>
+<tr><td>AN09B017e / f</td><td class="num">827 / 1217</td><td class="num">0.362 / 0.000</td>
+    <td class="num">&mdash;</td><td class="num">&mdash;</td><td>ACh</td>
+    <td><em>vAB3</em>, Yu 2010 &middot; LgLG7 / LgLG5</td></tr>
+<tr><td>AN09B017b</td><td class="num">1034</td><td class="num">0.074</td><td class="num">0.926</td>
+    <td class="num">12&times;</td><td>ACh</td><td>LgLG6 loading 0.93</td></tr>
+<tr class="bad"><td>AN05B102a &nbsp;<span class="tag warn">PPN1</span></td><td class="num">27083</td>
+    <td class="num">0.408</td><td class="num">0.592</td><td class="num">1.5&times;</td><td>&mdash;</td>
+    <td>not diagnostic &mdash; use as reference</td></tr>
+</table>
+</div>
+
+<h3>Wing and leg decouple</h3>
+<p>Some targets take input from wing types only, others from leg types only. This is the part
+that matters most: the leg receptor assignments were <em>propagated</em> from the wing ones by
+co-clustering, and nothing has ever tested that propagation.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Target</th><th class="num">ppk syn</th><th class="num">wing</th><th class="num">leg</th>
+    <th class="num">R&#8320;</th><th>Determines</th></tr>
+<tr class="hi"><td>INXXX044</td><td class="num">642</td><td class="num">1.000</td>
+    <td class="num">0.000</td><td class="num">0.908</td><td>wing &mdash; WG3 side</td></tr>
+<tr class="hi"><td>IN11A022</td><td class="num">1540</td><td class="num">1.000</td>
+    <td class="num">0.000</td><td class="num">0.195</td><td>wing &mdash; WG4 side</td></tr>
+<tr><td>IN11A020</td><td class="num">3163</td><td class="num">0.970</td><td class="num">0.030</td>
+    <td class="num">0.222</td><td>wing</td></tr>
+<tr class="hi"><td>IN01B065</td><td class="num">1246</td><td class="num">0.000</td>
+    <td class="num">1.000</td><td class="num">0.051</td><td>leg &mdash; LgLG1a side</td></tr>
+<tr class="hi"><td>AN09B017g</td><td class="num">1788</td><td class="num">0.000</td>
+    <td class="num">1.000</td><td class="num">0.941</td><td>leg &mdash; LgLG8 side</td></tr>
+<tr><td>AN09B017b</td><td class="num">1034</td><td class="num">0.000</td><td class="num">1.000</td>
+    <td class="num">0.074</td><td>leg &mdash; LgLG6</td></tr>
+<tr><td>IN17A013</td><td class="num">1652</td><td class="num">0.000</td><td class="num">1.000</td>
+    <td class="num">0.105</td><td>leg</td></tr>
+<tr><td>AN17A013</td><td class="num">3274</td><td class="num">0.000</td><td class="num">1.000</td>
+    <td class="num">0.157</td><td>leg</td></tr>
+</table>
+</div>
+
+<p class="note">Wing types (WG*) synapse in <code>Ov</code>; leg types (LgLG*) in
+<code>LegNp(T1&ndash;T3)</code>. All of it is in the nerve cord, so a single VNC prep carries
+both readouts and they can be scored by neuropil within the same animal.</p>
+
+<h2>5 &middot; Recommended target sets</h2>
+<ul class="steps">
+<li><strong>Two targets, maximum power.</strong> AN05B023b + AN05B023c. 17&times; and 121&times;.
+Settles the global M/F swap and nothing else.</li>
+<li><strong>Four targets, wing and leg decoupled.</strong> INXXX044 + IN11A022 for the wing;
+IN01B065 + AN09B017g for the leg. Kills the co-clustering propagation question.</li>
+<li><strong>Eight targets, full identifiability.</strong> The D-optimal set. Every type solved
+individually, condition number 2.5.</li>
+<li><strong>Reference arm in all cases.</strong> AN05B102a (PPN1) via
+<a href="https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?line=R56C09">R56C09</a>
+&mdash; 27&thinsp;083 ppk synapses, both drivers guaranteed to give signal, expected
+<code>R &asymp; 0.41</code>. Without it a negative elsewhere is uninterpretable.</li>
+</ul>
+
+<h2 id="crossing">6 &middot; Crossing scheme</h2>
+<p class="note" id="crossing-status">An adversarial multi-agent pass is running: reagent hunt
+across Bloomington / FlyBase / FlyLight, three independent crossing schemes, four hostile
+reviews, then synthesis. This section is filled in when it lands.</p>
+
+<h2>7 &middot; Reference</h2>
+<p class="note">Body IDs for every shortlist target, mCNS <code>male-cns:v0.9</code>. Select and
+paste straight into neuPrint or Clio.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Type</th><th class="num">n</th><th>NT</th><th>Soma</th><th>Body IDs</th></tr>
+<tr class="hi"><td>AN05B023b</td><td class="num">2</td><td>GABA</td><td>A2</td>
+    <td><code>200336, 801269</code></td></tr>
+<tr class="hi"><td>AN05B023c</td><td class="num">2</td><td>GABA</td><td>A6</td>
+    <td><code>18430, 18696</code></td></tr>
+<tr class="hi"><td>INXXX044</td><td class="num">8</td><td>GABA</td><td>T2/T3/A1/A2</td>
+    <td><code>800575, 904664, 800305, 800272, 800912, 800788, 800660, 800201</code></td></tr>
+<tr class="hi"><td>IN11A022</td><td class="num">6</td><td>ACh</td><td>T2</td>
+    <td><code>805311, 904851, 805874, 907376, 804748, 805275</code></td></tr>
+<tr class="hi"><td>IN01B065</td><td class="num">20</td><td>GABA</td><td>T2/T3/A1</td>
+    <td><code>812103, 809925, 811297, 810045, 814181, 812956, 911406, 810166, 809629, 830835,
+    807976, 809675, 813816, 809578, 813722, 818747, 811612, 910152, 811563, 809185</code></td></tr>
+<tr class="hi"><td>AN09B017g</td><td class="num">2</td><td>ACh</td><td>A10</td>
+    <td><code>922722, 14320</code></td></tr>
+<tr><td>IN05B002</td><td class="num">2</td><td>GABA</td><td>T1</td>
+    <td><code>800035, 800040</code></td></tr>
+<tr><td>AN13B002 <em>Dandelion</em></td><td class="num">2</td><td>GABA</td><td>A1</td>
+    <td><code>30088, 21763</code></td></tr>
+<tr><td>ANXXX093</td><td class="num">2</td><td>ACh</td><td>A6</td>
+    <td><code>17503, 13399</code></td></tr>
+<tr><td>AN09B017b</td><td class="num">2</td><td>ACh</td><td>A3</td>
+    <td><code>16747, 524298</code></td></tr>
+<tr><td>AN09B017e <em>vAB3</em></td><td class="num">2</td><td>ACh</td><td>A9</td>
+    <td><code>13693, 13341</code></td></tr>
+<tr><td>AN09B017f <em>vAB3</em></td><td class="num">2</td><td>ACh</td><td>A10</td>
+    <td><code>512498, 11998</code></td></tr>
+<tr><td>IN11A020</td><td class="num">6</td><td>ACh</td><td>T1</td>
+    <td><code>907699, 940542, 803792, 802730, 802868, 800798</code></td></tr>
+<tr><td>IN17A013</td><td class="num">2</td><td>ACh</td><td>T3</td>
+    <td><code>800380, 800588</code></td></tr>
+<tr><td>AN17A013</td><td class="num">4</td><td>ACh</td><td>T1/T2</td>
+    <td><code>800932, 81109, 82791, 78620</code></td></tr>
+<tr class="bad"><td>AN05B102a <span class="tag warn">PPN1</span></td><td class="num">2</td>
+    <td>ACh</td><td>A1</td><td><code>11431, 12286</code></td></tr>
+</table>
+</div>
+
+<div class="callout warn">
+<p><strong>Multi-body types are harder.</strong> IN01B065 has 20 bodies and INXXX044 has 8. A
+driver line hitting only some of them shifts the measured <code>R</code> away from the connectome
+prediction, because the prediction is computed over the whole type. Two-body types
+(AN05B023b/c, AN09B017b/g, AN13B002, ANXXX093) are much safer targets.</p>
+</div>
+
+<h3>Scripts and how to regenerate</h3>
+<div class="scroll">
+<table>
+<tr><th>Path</th><th>Produces</th></tr>
+<tr><td><code>receptor_typing_validation/R/01_design_matrix.R</code></td>
+    <td>C matrix over all targets, <code>design_matrix_full.csv</code>, <code>.rds</code></td></tr>
+<tr><td><code>receptor_typing_validation/R/02_select_targets.R</code></td>
+    <td>greedy D-optimal target set, condition number, shortlist annotation</td></tr>
+<tr><td><code>receptor_typing_validation/R/03_shortlist.R</code></td>
+    <td>per-type isolators, core swap targets, wing/leg purity</td></tr>
+<tr><td><code>receptor_typing_validation/PLAN.md</code></td>
+    <td>full backlog of independent validation routes, tiered</td></tr>
+<tr><td><code>receptor_typing_validation/SHORTLIST.md</code></td>
+    <td>this page's tables in markdown</td></tr>
+<tr><td><code>analyses/an_investigation/</code></td>
+    <td>the AN05B023 / AN05B102 / AN09B017 case analyses feeding it</td></tr>
+<tr><td><code>figures/fig5/setup.R:269-274</code></td>
+    <td>where the current receptor assignment is hardcoded</td></tr>
+</table>
+</div>
+
+<p class="note">Rerun the whole chain from the repo root:</p>
+<p><code>Rscript receptor_typing_validation/R/01_design_matrix.R &amp;&amp;
+Rscript receptor_typing_validation/R/02_select_targets.R &amp;&amp;
+Rscript receptor_typing_validation/R/03_shortlist.R</code></p>
+<p class="note">Reads <code>feather/connectivity.feather</code> (617&thinsp;MB, cached) and
+<code>feather/mba.feather</code>. No neuPrint login needed.</p>
+
+<h2>8 &middot; State of play</h2>
+
+<h3>Fix in the draft now &mdash; independent of everything else</h3>
+<ul class="steps">
+<li><strong>WG4 pairs LgLG1a, not LgLG1b.</strong> Results text says WG4 co-clusters with
+LgLG1b, two sentences after WG3 already claimed LgLG1b. <code>setup.R:269</code> says LgLG1a.
+Typo in the load-bearing sentence, duplicated verbatim into Methods and the unedited draft.</li>
+<li><strong>WG1 / WG2 swap.</strong> Results says "positioning of WG1"; Methods says "WG2".
+Otherwise identical paragraph.</li>
+<li><strong>The PPN1 sentence.</strong> PPN1 takes 45% / 55% from the two families. It is not
+corroboration for the WG3 call.</li>
+<li><strong>Document <code>set_ppk25_glutamate = TRUE</code></strong>
+(<code>setup.R:95</code>) &mdash; an NT override on the group whose NT is the evidence. Reads as
+circular unless explained.</li>
+</ul>
+
+<h3>Validation backlog</h3>
+<p class="note">Full detail in <code>PLAN.md</code>. Independence = does it avoid the downstream
+connectivity that produced the labels.</p>
+<div class="scroll">
+<table>
+<tr><th>Route</th><th>Independence</th><th>Cost</th><th>Status</th></tr>
+<tr><td>Bristle-slot test &mdash; are WG1&ndash;4 the four neurons of one bristle?</td>
+    <td><span class="tag ok">total</span></td><td>low</td><td>not started</td></tr>
+<tr><td>NT classifier calibration on known-NT GRNs</td>
+    <td><span class="tag ok">total</span></td><td>low</td><td>not started</td></tr>
+<tr><td>Count matching vs light microscopy</td>
+    <td><span class="tag ok">total</span></td><td>low</td><td>not started</td></tr>
+<tr><td>Clustering stability / resampling</td>
+    <td><span class="tag q">partial</span></td><td>low</td><td>not started</td></tr>
+<tr><td>Measure the axon-terminal "hole" quantitatively</td>
+    <td><span class="tag ok">total</span></td><td>low</td><td>not started</td></tr>
+<tr><td>WG1 <em>and</em> WG2 = Ir52a and Ir52b separately (Luo 2024)</td>
+    <td><span class="tag ok">high</span></td><td>low</td><td>not started</td></tr>
+<tr><td>Is one of WG1&ndash;4 the bristle mechanoreceptor?</td>
+    <td><span class="tag ok">high</span></td><td>low</td><td>not started</td></tr>
+<tr><td>cVA convergence &mdash; M cells detect cVA, so must converge with DA1</td>
+    <td><span class="tag ok">high</span></td><td>low</td><td>not started</td></tr>
+<tr><td>Male-specific <em>fru</em>-dependent T1 midline crossing vs FANC/BANC</td>
+    <td><span class="tag ok">total</span></td><td>medium</td><td>not started</td></tr>
+<tr><td>Wing-margin topography vs He 2019</td>
+    <td><span class="tag ok">total</span></td><td>medium</td><td>not started</td></tr>
+<tr><td>Cross-connectome replication in BANC / FANC</td>
+    <td><span class="tag ok">high</span></td><td>high</td><td>not started</td></tr>
+<tr><td>Multi-hop retyping (coconatfly PR #59)</td>
+    <td><span class="tag warn">low</span></td><td>medium</td><td>deepens the same channel &mdash;
+    does <em>not</em> break circularity</td></tr>
+<tr class="hi"><td>Design matrix &amp; target shortlist</td>
+    <td><span class="tag ok">n/a</span></td><td>done</td><td><span class="tag ok">complete</span></td></tr>
+<tr class="hi"><td>GRASP experiment</td>
+    <td><span class="tag ok">total</span></td><td>high</td><td>crossing scheme in progress</td></tr>
+</table>
+</div>
+
+<h2>9 &middot; Resources</h2>
+
+<h3>Connectome</h3>
+<div class="grid">
+<a class="lk" href="https://neuprint-cns.janelia.org/"><b>neuPrint mCNS</b>
+ <span>male-cns:v0.9 &mdash; the dataset every number on this page comes from</span></a>
+<a class="lk" href="../an05b102/"><b>AN05B102 scenes</b>
+ <span>PPN1 and family &mdash; Clio-NG scenes, MCFO imagery, embedded viewer</span></a>
+<a class="lk" href="../an05b023bc/"><b>AN05B023b/c scenes</b>
+ <span>the 8% / 93% pair &mdash; the two best discriminating targets</span></a>
+<a class="lk" href="../an09b017/"><b>AN09B017 scenes</b>
+ <span>vAB3 and the LgLG5&ndash;8 isolators</span></a>
+<a class="lk" href="https://clio.janelia.org/"><b>Clio</b>
+ <span>annotation and neuroglancer front end for the Janelia datasets</span></a>
+<a class="lk" href="https://flywire.ai/"><b>FlyWire / FAFB</b>
+ <span>female whole-brain connectome &mdash; cross-sex comparison</span></a>
+<a class="lk" href="https://virtualflybrain.org/"><b>Virtual Fly Brain</b>
+ <span>bridges EM types to LM lines, expression patterns and literature</span></a>
+<a class="lk" href="https://www.biorxiv.org/content/10.1101/2025.10.09.680999"><b>Berg et al. 2025</b>
+ <span>the male CNS connectome preprint</span></a>
+</div>
+
+<h3>Driver lines and imagery</h3>
+<div class="grid">
+<a class="lk" href="https://neuronbridge.janelia.org/"><b>NeuronBridge</b>
+ <span>colour-depth MIP search from an EM body to candidate LM driver lines &mdash; the route
+ to a driver for AN05B023b/c</span></a>
+<a class="lk" href="https://bdsc.indiana.edu/"><b>Bloomington (BDSC)</b>
+ <span>stock ordering &mdash; ppk23 / ppk25 drivers, GRASP transgenes, balancers</span></a>
+<a class="lk" href="https://www.janelia.org/project-team/flylight"><b>Janelia FlyLight</b>
+ <span>Gen1 GAL4 and LexA collections, MCFO imagery, aligned stacks</span></a>
+<a class="lk" href="https://splitgal4.janelia.org/"><b>FlyLight Split-GAL4</b>
+ <span>cell-type-specific intersectional lines &mdash; the fix if a GAL4 hits more than one target</span></a>
+<a class="lk" href="https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?line=R56C09"><b>R56C09 MCFO</b>
+ <span>confirmed to label AN05B102a (PPN1) only &mdash; the reference arm's driver</span></a>
+<a class="lk" href="https://flybase.org/"><b>FlyBase</b>
+ <span>transgene records, insertion sites, chromosome assignments</span></a>
+<a class="lk" href="http://www.flycircuit.tw/"><b>FlyCircuit</b>
+ <span>single-neuron LM morphology &mdash; secondary route for morphology matching</span></a>
+<a class="lk" href="https://www.vdrc.at/"><b>VDRC</b>
+ <span>Vienna stock centre &mdash; second source for lines not at Bloomington</span></a>
+</div>
+
+<h3>Key literature</h3>
+<ul class="refs">
+<li><span class="yr">2015</span> &middot; Kallman, Kim &amp; Scott &mdash; excitation and
+inhibition onto central courtship neurons biases mate choice.
+<a href="https://doi.org/10.7554/eLife.11188">eLife 4:e11188</a>
+&mdash; the PPN1 driver, and the functional-connectivity claim this page revisits.</li>
+<li><span class="yr">2012</span> &middot; Thistle, Cameron, Ghorayshi, Dennison &amp; Scott &mdash;
+contact chemoreceptors mediate male-male repulsion and male-female attraction.
+<a href="https://doi.org/10.1016/j.cell.2012.03.045">Cell 149:1140</a> &mdash; M and F cells.</li>
+<li><span class="yr">2012</span> &middot; Toda, Zhao &amp; Dickson &mdash; the female aphrodisiac
+pheromone activates ppk23+ neurons.
+<a href="https://doi.org/10.1016/j.celrep.2012.05.007">Cell Rep 1:599</a></li>
+<li><span class="yr">2019</span> &middot; He, Luo, Shang, Sun &amp; Carlson &mdash; chemosensory
+sensilla of the wing express a candidate ionotropic pheromone receptor.
+<a href="https://doi.org/10.1371/journal.pbio.2006619">PLoS Biol 17:e2006619</a></li>
+<li><span class="yr">2024</span> &middot; Luo, Talross &amp; Carlson &mdash; function and evolution
+of Ir52 receptors in mate detection.
+<a href="https://doi.org/10.1016/j.cub.2024.10.005">Curr Biol 34:5395</a>
+&mdash; Ir52a and Ir52b are distinct populations; bears on WG1 vs WG2.</li>
+<li><span class="yr">2010</span> &middot; Mellert, Knapp, Manoli, Meissner &amp; Baker &mdash;
+midline crossing by gustatory receptor neuron axons is regulated by <em>fruitless</em>.
+<a href="https://doi.org/10.1242/dev.045047">Development 137:323</a>
+&mdash; the male-specific marker.</li>
+<li><span class="yr">2018</span> &middot; Shearin, Quinn, Mackin, Macdonald &amp; Stowers &mdash;
+t-GRASP, a targeted GRASP for assessing neuronal connectivity.
+<a href="https://doi.org/10.1016/j.jneumeth.2018.05.029">J Neurosci Methods 306:94</a></li>
+<li><span class="yr">2011</span> &middot; Wang, Han, Mehren, Hiroi, Billeter, Miyamoto, Amrein,
+Levine &amp; Anderson &mdash; hierarchical chemosensory regulation of male-male social interactions.
+<a href="https://doi.org/10.1038/nn.2800">Nat Neurosci 14:757</a>
+&mdash; gustatory dominant to olfactory; the receptor-label-independent headline.</li>
+<li><span class="yr">2010</span> &middot; Wang &amp; Anderson &mdash; an aggression-promoting
+pheromone and its receptor neurons.
+<a href="https://doi.org/10.1038/nature08678">Nature 463:227</a></li>
+<li><span class="yr">2015</span> &middot; Dweck et al. &mdash; pheromones mediating copulation and
+attraction. <a href="https://doi.org/10.1073/pnas.1504527112">PNAS 112:E2829</a>
+&mdash; Or47b / Or88a deorphanisation.</li>
+<li><span class="yr">2007</span> &middot; van der Goes van Naters &amp; Carlson &mdash; receptors
+and neurons for fly odors.
+<a href="https://doi.org/10.1016/j.cub.2007.02.043">Curr Biol 17:606</a>
+&mdash; Table 1, the channel-inventory template.</li>
+</ul>
+
+<h2>10 &middot; Where this leaves the paper</h2>
+<div class="callout">
+<p><strong>The headline does not depend on the answer.</strong> Wang et al. 2011 showed gustatory
+pheromone signals are hierarchically dominant to olfactory ones. Nobody has the anatomical
+substrate for that. The Fig 5 result &mdash; mAL subtypes preferentially relaying multimodal
+sensory information &mdash; plausibly <em>is</em> that substrate, and it survives a WG3&harr;WG4
+swap untouched.</p>
+<p>So: name types by their connectome names, carry receptor identity as a labelled overlay with
+explicit confidence tiers, run the swap-robustness pass, and the manuscript cannot be killed by
+killing the assignment. The GRASP experiment then upgrades the overlay from inference to
+measurement.</p>
+</div>
+
+<hr>
+<p class="foot">
+Numbers computed from <code>feather/connectivity.feather</code> (mCNS <code>male-cns:v0.9</code>),
+nerve suffixes collapsed, by
+<code>receptor_typing_validation/R/01_design_matrix.R</code> &rarr;
+<code>02_select_targets.R</code> &rarr; <code>03_shortlist.R</code>.
+Full backlog of independent validation routes in
+<code>receptor_typing_validation/PLAN.md</code>; target detail in <code>SHORTLIST.md</code>.
+<br><br>
+GRASP puncta are not synapses one-to-one. Only ratios across targets are interpretable, and
+every predicted <code>R</code> on this page is a connectome expectation, not a measurement.
+</p>
+
+<!-- ===================== DECK ===================== -->
+<div id="deck" aria-hidden="true">
+
+<section class="slide title-slide">
+ <h2>Can we settle the receptor typing experimentally?</h2>
+ <p>Turning the contact-chemosensory assignment from an argument into a measurement.<br>
+    Florian Kämpf &middot; August 2026</p>
+</section>
+
+<section class="slide">
+ <h3>The problem</h3>
+ <h2>We inferred the labels from the circuit, then used the labels to explain the circuit.</h2>
+ <ul>
+  <li>Receptor identity for WG3 / WG4 / LgLG* was assigned from <strong>downstream partners</strong>
+      &mdash; PPN1 for WG3, mAL for WG4.</li>
+  <li>The manuscript's thesis is <strong>downstream valence logic</strong>.</li>
+  <li>Supporting evidence: neurotransmitter prediction, morphology against GAL4 images, and
+      wing&rarr;leg co-clustering.</li>
+  <li><em>No further connectome analysis can break this loop.</em></li>
+ </ul>
+</section>
+
+<section class="slide">
+ <h3>And one leg of it is weaker than we thought</h3>
+ <h2>PPN1 is not a ppk25+ marker.</h2>
+ <table>
+  <tr><th>Target</th><th class="num">LgLG1a</th><th class="num">WG4</th><th class="num">LgLG1b</th>
+      <th class="num">WG3</th><th class="num">ppk25+ share</th></tr>
+  <tr class="bad"><td>AN05B102a = PPN1</td><td class="num">5574</td><td class="num">524</td>
+      <td class="num">4650</td><td class="num">352</td><td class="num">45%</td></tr>
+  <tr class="hi"><td>AN05B023b</td><td class="num">6744</td><td class="num">4346</td>
+      <td class="num">589</td><td class="num">398</td><td class="num">8%</td></tr>
+  <tr class="hi"><td>AN05B023c</td><td class="num">246</td><td class="num">185</td>
+      <td class="num">3545</td><td class="num">2154</td><td class="num">93%</td></tr>
+ </table>
+ <p>PPN1 takes near-equal input from both families &mdash; a convergent integrator, not a marker.
+ The two families also interdigitate across its whole dendrite (KS <code>D &asymp; 0.11</code>).
+ <em>That sentence in the draft needs rewriting regardless of everything else.</em></p>
+</section>
+
+<section class="slide">
+ <h3>The move</h3>
+ <h2>Stop defending the labels. Solve for them.</h2>
+ <p style="font-family:ui-monospace,monospace;font-size:clamp(1.1rem,2.4vw,1.7rem);color:#fff;
+    background:rgba(255,255,255,.06);padding:1rem 1.3rem;border-radius:9px;display:inline-block">
+   R<sub>j</sub> = &Sigma;<sub>i</sub> x<sub>i</sub>&middot;C[i,j] &frasl; &Sigma;<sub>i</sub> C[i,j]
+ </p>
+ <ul>
+  <li><strong>C</strong> = connectome synapse counts. EM segmentation &mdash; not typing inference.</li>
+  <li><strong>x</strong> = the receptor labels. The actual unknown.</li>
+  <li><strong>R</strong> = measured by GRASP, because ppk25+ cells are a <em>subset</em> of ppk23+
+      cells: the ppk23 driver labels both families, the ppk25 driver only one.</li>
+  <li>Unknown GRASP efficiency <code>k</code> is common across targets and
+      <strong>cancels in ratios</strong>. One target tells you nothing; two tell you everything.</li>
+ </ul>
+</section>
+
+<section class="slide">
+ <h3>Identifiability &mdash; already computed</h3>
+ <h2>The system is well posed.</h2>
+ <div class="kpi">
+  <div><b>8/8</b><span>rank</span></div>
+  <div><b>2.5</b><span>condition number</span></div>
+  <div><b>121&times;</b><span>best separation</span></div>
+ </div>
+ <p>Greedy D-optimal selection over every mCNS target with &ge;500 ppk-family synapses.
+ All eight ppk-family types &mdash; WG3, WG4, LgLG1a/1b, LgLG5&ndash;8 &mdash; are
+ <strong>individually identifiable</strong>.</p>
+ <p><em>The wing&rarr;leg co-clustering propagation is not assumed. It is dissolved.</em></p>
+</section>
+
+<section class="slide">
+ <h3>The targets</h3>
+ <h2>Two cells carry almost the whole answer.</h2>
+ <table>
+  <tr><th>Target</th><th class="num">ppk syn</th><th class="num">R&#8320;</th>
+      <th class="num">R&#8321; swap</th><th class="num">fold</th></tr>
+  <tr class="hi"><td>AN05B023c</td><td class="num">5631</td><td class="num">0.992</td>
+      <td class="num">0.008</td><td class="num">121&times;</td></tr>
+  <tr class="hi"><td>AN05B023b</td><td class="num">12066</td><td class="num">0.054</td>
+      <td class="num">0.946</td><td class="num">17&times;</td></tr>
+  <tr><td>IN01B065</td><td class="num">1246</td><td class="num">0.051</td>
+      <td class="num">0.949</td><td class="num">18&times;</td></tr>
+  <tr><td>IN05B002</td><td class="num">19190</td><td class="num">0.139</td>
+      <td class="num">0.861</td><td class="num">6.2&times;</td></tr>
+  <tr class="bad"><td>AN05B102a = PPN1</td><td class="num">27083</td><td class="num">0.408</td>
+      <td class="num">0.592</td><td class="num">1.5&times;</td></tr>
+ </table>
+ <p>PPN1 is <em>not</em> diagnostic at 1.5&times; &mdash; but it is the ideal reference arm.
+ 27&thinsp;083 ppk synapses, both drivers guaranteed to give signal, and R56C09 is confirmed
+ to label it alone.</p>
+</section>
+
+<section class="slide">
+ <h3>The part I care most about</h3>
+ <h2>Wing and leg come apart.</h2>
+ <table>
+  <tr><th>Target</th><th class="num">wing</th><th class="num">leg</th><th class="num">R&#8320;</th>
+      <th>Determines</th></tr>
+  <tr class="hi"><td>INXXX044</td><td class="num">1.00</td><td class="num">0.00</td>
+      <td class="num">0.908</td><td>wing &mdash; WG3 side</td></tr>
+  <tr class="hi"><td>IN11A022</td><td class="num">1.00</td><td class="num">0.00</td>
+      <td class="num">0.195</td><td>wing &mdash; WG4 side</td></tr>
+  <tr class="hi"><td>IN01B065</td><td class="num">0.00</td><td class="num">1.00</td>
+      <td class="num">0.051</td><td>leg &mdash; LgLG1a side</td></tr>
+  <tr class="hi"><td>AN09B017g</td><td class="num">0.00</td><td class="num">1.00</td>
+      <td class="num">0.941</td><td>leg &mdash; LgLG8 side</td></tr>
+ </table>
+ <p>The leg assignments were <strong>propagated</strong> from the wing ones by co-clustering.
+ Nothing has ever tested that. These four targets test it directly &mdash; and because wing
+ types synapse in <code>Ov</code> and leg types in <code>LegNp</code>, both readouts come from
+ <em>one VNC prep, scored by neuropil</em>.</p>
+</section>
+
+<section class="slide">
+ <h3>The ask</h3>
+ <h2>Three tiers, pick a stopping point.</h2>
+ <ul>
+  <li><strong>2 targets</strong> &mdash; AN05B023b + c. Settles the global M/F swap. 17&times; and 121&times;.</li>
+  <li><strong>4 targets</strong> &mdash; add INXXX044, IN11A022, IN01B065, AN09B017g. Decouples wing from leg.</li>
+  <li><strong>8 targets</strong> &mdash; the D-optimal set. Every type solved individually.</li>
+  <li><strong>Reference arm throughout</strong> &mdash; R56C09 / PPN1. Without it a negative is uninterpretable.</li>
+ </ul>
+ <p><em>Main unknown: driver lines.</em> R56C09 is confirmed. AN09B017e/f = vAB3 and AN13B002 =
+ Dandelion are named and may have reagents. The rest need a NeuronBridge hunt.</p>
+</section>
+
+<section class="slide">
+ <h3>Risk</h3>
+ <h2>The paper is safe either way.</h2>
+ <ul>
+  <li>Name types by <strong>connectome names</strong>; carry receptor identity as a labelled
+      overlay with explicit confidence tiers.</li>
+  <li>Run the <strong>WG3&harr;WG4 swap robustness pass</strong> and report which conclusions
+      depend on the call.</li>
+  <li>The headline &mdash; contact pheromone signals dominating volatile ones at mAL, the
+      anatomical substrate of the Wang 2011 hierarchy &mdash; <strong>survives a swap
+      untouched</strong>.</li>
+ </ul>
+ <p>So the experiment is an upgrade, not a dependency. It turns the overlay from inference into
+ measurement.</p>
+</section>
+
+<section class="slide">
+ <h3>Next</h3>
+ <h2>What I need decided.</h2>
+ <ul>
+  <li>Do we spend fly time on this, or ship with confidence tiers and the swap-robustness pass?</li>
+  <li>If yes: 2, 4 or 8 targets?</li>
+  <li>Who hunts driver lines &mdash; and do we have ppk23/ppk25 in a non-GAL4 binary system?</li>
+  <li>Either way: the PPN1 sentence in the draft needs rewriting now.</li>
+ </ul>
+</section>
+
+<div class="deckbar">
+ <button id="d-exit">Exit</button>
+ <button id="d-prev">&larr;</button>
+ <div class="prog"><i id="d-prog"></i></div>
+ <button id="d-next">&rarr;</button>
+ <span id="d-num" style="min-width:4.5rem;text-align:right;font-variant-numeric:tabular-nums"></span>
+</div>
+</div>
+
+<script>
+(function(){
+ var deck = document.getElementById('deck');
+ var slides = deck.querySelectorAll('.slide');
+ var i = 0;
+
+ function show(n){
+   i = Math.max(0, Math.min(slides.length - 1, n));
+   slides.forEach(function(s, k){ s.classList.toggle('on', k === i); });
+   document.getElementById('d-num').textContent = (i + 1) + ' / ' + slides.length;
+   document.getElementById('d-prog').style.width =
+     ((i + 1) / slides.length * 100).toFixed(1) + '%';
+ }
+ function open(){
+   deck.classList.add('on'); deck.setAttribute('aria-hidden', 'false');
+   document.body.classList.add('decked');
+   if (location.hash !== '#pitch') history.replaceState(null, '', '#pitch');
+   show(0);
+ }
+ function close(){
+   deck.classList.remove('on'); deck.setAttribute('aria-hidden', 'true');
+   document.body.classList.remove('decked');
+   if (location.hash === '#pitch') history.replaceState(null, '', location.pathname);
+ }
+
+ document.getElementById('start').addEventListener('click', open);
+ document.getElementById('d-exit').addEventListener('click', close);
+ document.getElementById('d-next').addEventListener('click', function(){ show(i + 1); });
+ document.getElementById('d-prev').addEventListener('click', function(){ show(i - 1); });
+
+ document.addEventListener('keydown', function(e){
+   if (!deck.classList.contains('on')) return;
+   if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown'){ e.preventDefault(); show(i + 1); }
+   else if (e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); show(i - 1); }
+   else if (e.key === 'Escape'){ close(); }
+   else if (e.key === 'Home'){ show(0); }
+   else if (e.key === 'End'){ show(slides.length - 1); }
+ });
+
+ // deep link straight into the deck
+ if (location.hash === '#pitch') open();
+})();
+</script>

@@ -497,9 +497,10 @@ other stock. This one fact controls all the crosses below.</p>
     <td>2 and 3</td><td>In the laboratory. Remove the insert on chromosome 3.</td></tr>
 <tr class="hi"><td>ppk23-LexA</td><td>Dickson laboratory, GJ1472</td><td>2</td>
     <td>In the laboratory. Remove the 22B10-GAL4 transgene.</td></tr>
-<tr><td>ppk23-LexA, second construct</td>
+<tr class="hi"><td>ppk23-LexA, FlyBase record</td>
     <td><a href="https://flybase.org/reports/FBtp0158874">FBtp0158874</a></td><td>Not reported</td>
-    <td>A different construct, from Vernier et al. 2023. No stock centre has it. Ask the authors.</td></tr>
+    <td>M{ppk23-lexA::p65.V}, 2.6 kb ppk23 promoter, Vernier et al. 2023. FlyBase shows 0 stocks.
+    This is possibly the same reagent as GJ1472. Compare the Janelia identifier DG78.</td></tr>
 <tr class="hi"><td>R56C09-lexA</td><td><a href="https://bdsc.indiana.edu/stocks/53584">BDSC 53584</a></td>
     <td>2</td><td>In the laboratory</td></tr>
 <tr class="hi"><td>t-GRASP, UAS pre and LexAop post</td>
@@ -507,7 +508,8 @@ other stock. This one fact controls all the crosses below.</p>
     <td>In the laboratory</td></tr>
 <tr class="hi"><td>t-GRASP, LexAop pre and UAS post</td><td><a href="https://bdsc.indiana.edu/stocks/79039">BDSC 79039</a></td><td>3</td>
     <td>In the laboratory</td></tr>
-<tr class="bad"><td>ppk25-LexA</td><td>&mdash;</td><td>&mdash;</td><td>Does not exist. FlyBase has no ppk25 LexA, QF or split-GAL4 driver. You must make it.</td></tr>
+<tr class="bad"><td>ppk25-LexA</td><td>&mdash;</td><td>&mdash;</td><td>No stock centre has one. FlyBase has no ppk25 LexA, QF or split-GAL4 record. Ask other
+    laboratories first. If nobody has one, make it.</td></tr>
 <tr class="bad"><td>R56C09-GAL4</td><td>BDSC 39145</td><td>3</td><td>Do not use. Chromosome 3 is full.</td></tr>
 </table>
 </div>
@@ -555,6 +557,13 @@ other stock. This one fact controls all the crosses below.</p>
 </g></svg>
 <figcaption>The positions of the transgenes. A cross marks an item that you cannot use, because the two t-GRASP halves already fill chromosome 3.</figcaption>
 </figure>
+
+<div class="callout">
+<p><strong>A FlyBase record with 0 stocks does not mean that the reagent does not exist.</strong>
+A stock centre holds only a part of the reagents that laboratories make. The ppk23-LexA in this
+laboratory is one example: FlyBase shows 0 stocks for the construct, but the stock is in the
+freezer. Ask other laboratories before you make a new reagent.</p>
+</div>
 
 <h3>Make the ppk23-LexA stock clean</h3>
 <p>The stock is <code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code>. Remove the 22B10-GAL4

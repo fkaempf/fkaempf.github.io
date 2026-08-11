@@ -239,9 +239,9 @@ AN05B102a. The connectome does not agree with the paper.</p>
 <tr><td>AN05B102c</td><td class="num">5236</td><td class="num">4166</td><td class="num">1820</td>
     <td class="num">1731</td><td class="num">27%</td></tr>
 <tr class="hi"><td>AN05B023b</td><td class="num">6744</td><td class="num">4346</td>
-    <td class="num">589</td><td class="num">398</td><td class="num">8%</td></tr>
+    <td class="num">589</td><td class="num">398</td><td class="num">8%</td><td><a href="https://neuronbridge.janelia.org/search?q=AN05B023b">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=200336">nP</a></td></tr>
 <tr class="hi"><td>AN05B023c</td><td class="num">246</td><td class="num">185</td>
-    <td class="num">3545</td><td class="num">2154</td><td class="num">93%</td></tr>
+    <td class="num">3545</td><td class="num">2154</td><td class="num">93%</td><td><a href="https://neuronbridge.janelia.org/search?q=AN05B023c">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=18430">nP</a></td></tr>
 </table>
 </div>
 
@@ -325,13 +325,7 @@ The GRASP test gives the ratio R.</figcaption>
 The factor k also changes with the target neuron, the neuropil and the dendrite. Thus you
 cannot compare two different target neurons directly.</p>
 
-<div class="callout warn">
-<p><strong>Do not use the cached connectivity table.</strong> The file
-<code>connectivity.feather</code> uses <code>fetch_connectivity(synapse_threshold = 5)</code>.
-This threshold removes 63% of the connections. The threshold is correct for path analysis. The
-threshold is not correct for this test, because GRASP also shows weak connections.</p>
-<p>Get the data from neuPrint directly. Use <code>male-cns:v1.0</code>. Do not use a threshold.</p>
-</div>
+
 
 <h2>4 &middot; What the test can show</h2>
 
@@ -356,8 +350,9 @@ leg step.</p>
 </div>
 
 <h3>Use one pair of neurons and two neuropils</h3>
-<p>Use the neurons AN05B023b and AN05B023c. Measure each animal two times. Measure first in the
-neuropil Ov. Then measure in the neuropil LegNp T1 to T3. This gives two values, W and L.</p>
+<p>Use one pair of target neurons. Measure each animal two times. Measure first in the neuropil
+Ov. Then measure in the neuropil LegNp T1 to T3. This gives two values, W and L. Section 5 gives
+the pairs that you can use. The numbers below are for the pair AN05B023b and AN05B023c.</p>
 <p style="font-family:ui-monospace,monospace;font-size:.86rem;background:rgba(11,95,165,.07);
 padding:.8rem 1rem;border-radius:8px;overflow-x:auto">
 W = [log Y(ppk25,c,Ov) &minus; log Y(ppk23,c,Ov)] &minus; [log Y(ppk25,b,Ov) &minus; log Y(ppk23,b,Ov)]<br>
@@ -396,30 +391,31 @@ work. The wing types are not the goal of the test.</p>
 <table>
 <tr><th>Target neuron</th><th>Hemilineage</th><th>Shows</th><th class="num">R</th>
     <th class="num">Ratio</th><th class="num">Leg synapses</th><th class="num">Bodies</th>
-    <th class="num">SD</th></tr>
+    <th class="num">SD</th><th>Links</th></tr>
 <tr class="hi"><td>IN23B025</td><td>23B</td><td>LgLG1b</td><td class="num">0.928</td>
-    <td class="num">13.0</td><td class="num">405</td><td class="num">6</td><td class="num">0.043</td></tr>
+    <td class="num">13.0</td><td class="num">405</td><td class="num">6</td><td class="num">0.043</td><td><a href="https://neuronbridge.janelia.org/search?q=IN23B025">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=804071">nP</a></td></tr>
 <tr class="hi"><td>IN23B011</td><td>23B</td><td>LgLG1a</td><td class="num">0.153</td>
-    <td class="num">5.5</td><td class="num">334</td><td class="num">2</td><td class="num">&mdash;</td></tr>
+    <td class="num">5.5</td><td class="num">334</td><td class="num">2</td><td class="num">&mdash;</td><td><a href="https://neuronbridge.janelia.org/search?q=IN23B011">NB</a></td></tr>
 <tr class="hi"><td>DNpe029</td><td>DN</td><td>LgLG1b</td><td class="num">0.935</td>
-    <td class="num">14.4</td><td class="num">772</td><td class="num">4</td><td class="num">0.043</td></tr>
+    <td class="num">14.4</td><td class="num">772</td><td class="num">4</td><td class="num">0.043</td><td><a href="https://neuronbridge.janelia.org/search?q=DNpe029">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=39565">nP</a></td></tr>
 <tr><td>IN07B010</td><td>07B</td><td>LgLG1a</td><td class="num">0.149</td>
-    <td class="num">5.7</td><td class="num">429</td><td class="num">2</td><td class="num">0.037</td></tr>
+    <td class="num">5.7</td><td class="num">429</td><td class="num">2</td><td class="num">0.037</td><td><a href="https://neuronbridge.janelia.org/search?q=IN07B010">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=800002">nP</a></td></tr>
 <tr><td>IN01B065</td><td>01B</td><td>LgLG1a</td><td class="num">0.153</td>
-    <td class="num">5.5</td><td class="num">1847</td><td class="num">20</td><td class="num">0.070</td></tr>
+    <td class="num">5.5</td><td class="num">1847</td><td class="num">20</td><td class="num">0.070</td><td><a href="https://neuronbridge.janelia.org/search?q=IN01B065">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=812103">nP</a></td></tr>
 <tr><td>AN05B023c</td><td>05B</td><td>LgLG1b</td><td class="num">0.934</td>
     <td class="num">13.1</td><td class="num">3803</td><td class="num">2</td><td class="num">0.008</td></tr>
 <tr><td>AN05B023b</td><td>05B</td><td>LgLG1a</td><td class="num">0.091</td>
     <td class="num">10.3</td><td class="num">7923</td><td class="num">2</td><td class="num">0.013</td></tr>
 <tr class="bad"><td>IN17A013</td><td>17A</td><td>LgLG1a</td><td class="num">0.129</td>
-    <td class="num">6.7</td><td class="num">1711</td><td class="num">2</td><td class="num">0.016</td></tr>
+    <td class="num">6.7</td><td class="num">1711</td><td class="num">2</td><td class="num">0.016</td><td><a href="https://neuronbridge.janelia.org/search?q=IN17A013">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=800380">nP</a></td></tr>
 <tr class="bad"><td>AN09B017g</td><td>09B</td><td>LgLG8</td><td class="num">0.896</td>
-    <td class="num">8.6</td><td class="num">1960</td><td class="num">2</td><td class="num">0.060</td></tr>
+    <td class="num">8.6</td><td class="num">1960</td><td class="num">2</td><td class="num">0.060</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017g">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=922722">nP</a></td></tr>
 <tr class="bad"><td>AN09B017b</td><td>09B</td><td>LgLG6</td><td class="num">0.090</td>
-    <td class="num">10.1</td><td class="num">1091</td><td class="num">2</td><td class="num">0.008</td></tr>
+    <td class="num">10.1</td><td class="num">1091</td><td class="num">2</td><td class="num">0.008</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017b">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=16747">nP</a></td></tr>
 </table>
 </div>
 
+<p class="note">NB opens NeuronBridge, which finds driver lines with a colour depth search. nP opens neuPrint.</p>
 <p>Every body of every neuron in this table gets ppk synapses. No single body controls the
 result. Two rules remove some of these neurons:</p>
 <ul class="steps">
@@ -566,36 +562,7 @@ test compares these two drivers. Thus the two stocks must have the same number o
 <p class="note"><strong>Warning.</strong> The two inserts have the same marker. Thus you must
 use PCR to show that you removed the insert on chromosome 3.</p>
 
-<h2>7 &middot; The neurons</h2>
-<p class="note">Use these links to see each neuron. NeuronBridge finds driver lines with a
-colour depth search. neuPrint shows the connectome data.</p>
-<div class="scroll">
-<table>
-<tr><th>Type</th><th class="num">Bodies</th><th>Transmitter</th><th>Links</th><th>Body IDs</th></tr>
-<tr class="hi"><td>IN23B025</td><td class="num">6</td><td>GABA</td>
- <td><a href="https://neuronbridge.janelia.org/search?q=IN23B025">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=804071">neuPrint</a></td>
- <td><code>804071, 904199, 803994, 903996, 905652, 804523</code></td></tr>
-<tr class="hi"><td>IN23B011</td><td class="num">2</td><td>GABA</td>
- <td><a href="https://neuronbridge.janelia.org/search?q=IN23B011">NeuronBridge</a></td><td><code>see neuPrint</code></td></tr>
-<tr class="hi"><td>DNpe029</td><td class="num">4</td><td>&mdash;</td>
- <td><a href="https://neuronbridge.janelia.org/search?q=DNpe029">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=39565">neuPrint</a></td>
- <td><code>39565, 97980, 38781, 178516</code></td></tr>
-<tr><td>IN07B010</td><td class="num">2</td><td>&mdash;</td>
- <td><a href="https://neuronbridge.janelia.org/search?q=IN07B010">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=800002">neuPrint</a></td>
- <td><code>800002, 802951</code></td></tr>
-<tr><td>AN05B023b</td><td class="num">2</td><td>GABA</td>
- <td><a href="https://neuronbridge.janelia.org/search?q=AN05B023b">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=200336">neuPrint</a></td>
- <td><code>200336, 801269</code></td></tr>
-<tr><td>AN05B023c</td><td class="num">2</td><td>GABA</td>
- <td><a href="https://neuronbridge.janelia.org/search?q=AN05B023c">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=18430">neuPrint</a></td>
- <td><code>18430, 18696</code></td></tr>
-<tr class="bad"><td>AN05B102a (PPN1)</td><td class="num">2</td><td>ACh</td>
- <td><a href="https://neuronbridge.janelia.org/search?q=AN05B102a">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=11431">neuPrint</a></td>
- <td><code>11431, 12286</code></td></tr>
-</table>
-</div>
-
-<h2>8 &middot; All the target neurons</h2>
+<h2>7 &middot; All the target neurons</h2>
 <p class="note">This graph shows all the target neurons. The full circle gives R for the
 receptor types in the paper. The empty circle gives R if all the types are wrong. Grey rows
 show a ratio less than 3. Do not use the grey rows.</p>
@@ -760,26 +727,23 @@ show a ratio less than 3. Do not use the grey rows.</p>
 synapses.</figcaption>
 </figure>
 
-<h2>9 &middot; Errors in the paper</h2>
+<h2>8 &middot; Errors in the paper</h2>
 <p>Correct these errors now. They do not depend on the test.</p>
 <ul class="steps">
 <li>The text says that WG4 groups with LgLG1b. This is wrong. WG4 groups with LgLG1a. See
 <code>setup.R:269</code>. WG3 groups with LgLG1b.</li>
 <li>The Results section says WG1. The Methods section says WG2. The two sections use the same
 words. Select one type.</li>
-<li>The text says that PPN1 gives evidence for WG3. PPN1 gets 41% of its synapses from the
-ppk25+ group. Thus PPN1 does not give this evidence.</li>
+<li>Change the sentence about PPN1. Section 2 gives the numbers.</li>
 <li>Write why the code sets <code>set_ppk25_glutamate = TRUE</code>
 (<code>setup.R:95</code>). This line changes the transmitter of the group that gives the
 evidence.</li>
 </ul>
 
-<h2>10 &middot; Other work that gives evidence</h2>
+<h2>9 &middot; Other work that gives evidence</h2>
 <div class="scroll">
 <table>
 <tr><th>Task</th><th>Independent?</th><th>Cost</th></tr>
-<tr><td>Show which neurons the ppk drivers label. Use HCR-FISH or MCFO.</td>
-    <td><span class="tag ok">Yes</span></td><td>Low</td></tr>
 <tr><td>Group the sensory axons by bristle. Test if each bristle holds one WG1, one WG2, one
     WG3 and one WG4.</td><td><span class="tag ok">Yes</span></td><td>Low</td></tr>
 <tr><td>Test the transmitter prediction on sensory neurons with a known transmitter.</td>
@@ -797,7 +761,7 @@ evidence.</li>
 </table>
 </div>
 
-<h2>11 &middot; The paper is safe</h2>
+<h2>10 &middot; The paper is safe</h2>
 <div class="callout">
 <p>Use the connectome names in the paper. Write WG3, WG4, LgLG1a and LgLG1b. Show the receptor
 types as an extra layer. Give a confidence level to each receptor type.</p>

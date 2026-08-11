@@ -25,6 +25,51 @@
  .legend .bi{color:#666;font-size:.85rem}
  h2{font-size:1.05rem;margin:2.75rem 0 .35rem;font-weight:600}
  p.note{color:#555;margin:0 0 1.25rem;font-size:.92rem}
+ p.reflink{margin-top:.5rem}
+ .mcfo{display:flex;gap:.7rem;align-items:flex-start;justify-content:center;
+        flex-wrap:wrap;margin:.5rem 0 1.3rem}
+ .mcfo figure{margin:0}
+ .mcfo img{display:block;height:190px;width:auto;max-width:100%;
+           background:#000;border:0;border-radius:7px}
+ .mcfo figcaption{color:#666;font-size:.72rem;margin-top:.3rem;line-height:1.3;
+                  max-width:22rem}
+ @media (prefers-color-scheme:dark){
+  .mcfo figcaption{color:#9aa3b0}
+ }
+ .ngrow{margin:0 0 1.6rem}
+ .ngrow figure{margin:0}
+ .ngrow .box{position:relative;width:100%;height:440px;overflow:hidden;
+             background:#000;border:0;border-radius:7px}
+ /* The frame is laid out at twice the visible size and scaled back down, so
+    neuroglancer renders into twice as many pixels and the result stays sharp.
+    It is also grown past the layer bar height and pulled up, letting the box
+    overflow clip the bar: Clio-NG keeps it whatever the state says, and a
+    cross-origin frame cannot be restyled from here. */
+ /* the frame also overhangs the box by 6px on the other three sides, so the
+    focus ring the browser draws on click falls outside the clipped area:
+    outline:none does not reach a ring drawn inside a cross-origin frame */
+ .ngrow .box iframe{position:absolute;left:-6px;top:-48px;
+                    width:calc(200% + 24px);height:calc(200% + 120px);
+                    transform:scale(.5);transform-origin:0 0;
+                    z-index:1;border:0;display:block;outline:none}
+ /* clicking an iframe focuses it and the browser draws a focus ring, which is
+    the pale outline that appears around the viewer on click or hover */
+ .ngrow .box iframe:focus,.ngrow .box iframe:focus-visible{outline:none}
+ .ngrow .box:focus-within{outline:none}
+ /* the axis letters and the panel toggle survive every state flag, so they are
+    covered by patches in matching black */
+ /* z-index is required: the transform on the iframe promotes it to its own
+    compositing layer, which otherwise paints over anything later in the DOM */
+ .ngrow .box .mask{position:absolute;z-index:2;background:#000;pointer-events:none}
+ .ngrow .box .mask.tl{left:0;top:0;width:30px;height:58px}
+ .ngrow .box .mask.tr{right:0;top:0;width:36px;height:32px}
+ .ngrow figcaption{color:#666;font-size:.75rem;margin-top:.35rem}
+ @media (prefers-color-scheme:dark){
+  .ngrow figcaption{color:#9aa3b0}
+ }
+ .reftag{display:inline-block;margin-right:.45rem;padding:0 .35rem;border-radius:4px;
+         background:#0b5fa5;color:#fff;font-size:.68rem;font-weight:600;
+         text-transform:uppercase;letter-spacing:.04em;vertical-align:1px}
  /* the plots keep their own dark ground in both colour schemes, to match the
     neuroglancer scenes they describe */
  .figs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
@@ -85,7 +130,7 @@
  }
 </style>
 <h1>AN05B023b/c sensory input</h1>
-<p class="sub">Clio-NG scenes for the male CNS (male-cns:v0.9). The neuron is red;
+<p class="sub">Clio-NG scenes for the male CNS (male-cns:v1.0). The neuron is red;
 input synapses are point annotations, one layer per presynaptic sensory type.
 All of this input lands in the nerve cord. Extra layers start hidden; toggle
 them in the layer bar.</p>
@@ -96,17 +141,17 @@ them in the layer bar.</p>
   types overlaid.
 </a>
 
-<p class="note">Every type here receives T1 input on both sides.</p>
+<p class="note">Every type here receives T1 input on both sides.</p><div class="ngrow"><figure><div class="box ngbox"><iframe src="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/an05b023bc_embed.json" loading="lazy" allowfullscreen title="AN05B023b 200336"></iframe><span class="mask tl"></span><span class="mask tr"></span></div><figcaption>AN05B023b 200336, interactive. Same view as the VNC panel above. <a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/an05b023bc_embed.json" rel="noopener">open full</a></figcaption></figure></div>
 
 <h2>Scenes</h2>
 
 <table id="scenes">
 <thead><tr><th>Neuron</th><th>Side</th><th>T1 contra</th><th>Input syn</th><th>Focus syn</th><th>WG3</th><th>WG4</th><th>LgLG1a</th><th>LgLG1b</th></tr></thead>
 <tbody>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN05B023b_200336.json">AN05B023b 200336</a></td><td>L</td><td>20%</td><td>8743</td><td>6304</td><td>215</td><td>2309</td><td>3487</td><td>293</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN05B023b_801269.json">AN05B023b 801269</a></td><td>R</td><td>30%</td><td>8583</td><td>5773</td><td>183</td><td>2037</td><td>3257</td><td>296</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN05B023c_18430.json">AN05B023c 18430</a></td><td>L</td><td>45%</td><td>5575</td><td>3170</td><td>1037</td><td>74</td><td>125</td><td>1934</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN05B023c_18696.json">AN05B023c 18696</a></td><td>R</td><td>25%</td><td>5349</td><td>2960</td><td>1117</td><td>111</td><td>121</td><td>1611</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN05B023b_200336.json">AN05B023b 200336</a></td><td>L</td><td>20%</td><td>8743</td><td>6308</td><td>215</td><td>2309</td><td>3503</td><td>281</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN05B023b_801269.json">AN05B023b 801269</a></td><td>R</td><td>30%</td><td>8583</td><td>5778</td><td>183</td><td>2037</td><td>3278</td><td>280</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN05B023c_18430.json">AN05B023c 18430</a></td><td>L</td><td>45%</td><td>5575</td><td>3177</td><td>1037</td><td>74</td><td>126</td><td>1940</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN05B023c_18696.json">AN05B023c 18696</a></td><td>R</td><td>25%</td><td>5349</td><td>2963</td><td>1117</td><td>111</td><td>124</td><td>1611</td></tr>
 </tbody>
 </table>
 <p class="note" style="margin-top:.5rem">Click a column header to sort.</p>

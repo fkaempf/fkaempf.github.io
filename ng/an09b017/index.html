@@ -25,6 +25,51 @@
  .legend .bi{color:#666;font-size:.85rem}
  h2{font-size:1.05rem;margin:2.75rem 0 .35rem;font-weight:600}
  p.note{color:#555;margin:0 0 1.25rem;font-size:.92rem}
+ p.reflink{margin-top:.5rem}
+ .mcfo{display:flex;gap:.7rem;align-items:flex-start;justify-content:center;
+        flex-wrap:wrap;margin:.5rem 0 1.3rem}
+ .mcfo figure{margin:0}
+ .mcfo img{display:block;height:190px;width:auto;max-width:100%;
+           background:#000;border:0;border-radius:7px}
+ .mcfo figcaption{color:#666;font-size:.72rem;margin-top:.3rem;line-height:1.3;
+                  max-width:22rem}
+ @media (prefers-color-scheme:dark){
+  .mcfo figcaption{color:#9aa3b0}
+ }
+ .ngrow{margin:0 0 1.6rem}
+ .ngrow figure{margin:0}
+ .ngrow .box{position:relative;width:100%;height:440px;overflow:hidden;
+             background:#000;border:0;border-radius:7px}
+ /* The frame is laid out at twice the visible size and scaled back down, so
+    neuroglancer renders into twice as many pixels and the result stays sharp.
+    It is also grown past the layer bar height and pulled up, letting the box
+    overflow clip the bar: Clio-NG keeps it whatever the state says, and a
+    cross-origin frame cannot be restyled from here. */
+ /* the frame also overhangs the box by 6px on the other three sides, so the
+    focus ring the browser draws on click falls outside the clipped area:
+    outline:none does not reach a ring drawn inside a cross-origin frame */
+ .ngrow .box iframe{position:absolute;left:-6px;top:-48px;
+                    width:calc(200% + 24px);height:calc(200% + 120px);
+                    transform:scale(.5);transform-origin:0 0;
+                    z-index:1;border:0;display:block;outline:none}
+ /* clicking an iframe focuses it and the browser draws a focus ring, which is
+    the pale outline that appears around the viewer on click or hover */
+ .ngrow .box iframe:focus,.ngrow .box iframe:focus-visible{outline:none}
+ .ngrow .box:focus-within{outline:none}
+ /* the axis letters and the panel toggle survive every state flag, so they are
+    covered by patches in matching black */
+ /* z-index is required: the transform on the iframe promotes it to its own
+    compositing layer, which otherwise paints over anything later in the DOM */
+ .ngrow .box .mask{position:absolute;z-index:2;background:#000;pointer-events:none}
+ .ngrow .box .mask.tl{left:0;top:0;width:30px;height:58px}
+ .ngrow .box .mask.tr{right:0;top:0;width:36px;height:32px}
+ .ngrow figcaption{color:#666;font-size:.75rem;margin-top:.35rem}
+ @media (prefers-color-scheme:dark){
+  .ngrow figcaption{color:#9aa3b0}
+ }
+ .reftag{display:inline-block;margin-right:.45rem;padding:0 .35rem;border-radius:4px;
+         background:#0b5fa5;color:#fff;font-size:.68rem;font-weight:600;
+         text-transform:uppercase;letter-spacing:.04em;vertical-align:1px}
  /* the plots keep their own dark ground in both colour schemes, to match the
     neuroglancer scenes they describe */
  .figs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
@@ -85,7 +130,7 @@
  }
 </style>
 <h1>AN09B017a-g sensory input</h1>
-<p class="sub">Clio-NG scenes for the male CNS (male-cns:v0.9). The neuron is red;
+<p class="sub">Clio-NG scenes for the male CNS (male-cns:v1.0). The neuron is red;
 input synapses are point annotations, one layer per presynaptic sensory type.
 All of this input lands in the nerve cord. Extra layers start hidden; toggle
 them in the layer bar.</p>
@@ -104,9 +149,9 @@ they share one dendrogram, and only the colour scale changes. Hover a cell for
 the exact value.</p>
 
 <div id="figs" class="figs"></div>
-<p class="note" style="margin-top:.6rem">Unilateral in T1: AN09B017c. All other types receive T1 input on both sides. <b>AN09B017f and AN09B017e</b> are recorded in the maleCNS <code>synonyms</code> annotation as vAB3 (Yu 2010).</p>
-<script id="figdata" type="application/json">{"rows":["LgLG5","LgLG6","LgLG7","LgLG8","LgLG1a","LgLG1b"],"cols":["e","g","d","b","c","a","f"],"family":"AN09B017","alias":["vAB3","","","","","","vAB3"],"tree":{"segs":[{"x1":4,"y1":0,"x2":4,"y2":0.014478},{"x1":5,"y1":0,"x2":5,"y2":0.014478},{"x1":4,"y1":0.014478,"x2":5,"y2":0.014478},{"x1":6,"y1":0,"x2":6,"y2":0.219424},{"x1":7,"y1":0,"x2":7,"y2":0.219424},{"x1":6,"y1":0.219424,"x2":7,"y2":0.219424},{"x1":4.5,"y1":0.014478,"x2":4.5,"y2":0.624103},{"x1":6.5,"y1":0.219424,"x2":6.5,"y2":0.624103},{"x1":4.5,"y1":0.624103,"x2":6.5,"y2":0.624103},{"x1":1,"y1":0,"x2":1,"y2":0.833489},{"x1":2,"y1":0,"x2":2,"y2":0.833489},{"x1":1,"y1":0.833489,"x2":2,"y2":0.833489},{"x1":3,"y1":0,"x2":3,"y2":1.056164},{"x1":5.5,"y1":0.624103,"x2":5.5,"y2":1.056164},{"x1":3,"y1":1.056164,"x2":5.5,"y2":1.056164},{"x1":1.5,"y1":0.833489,"x2":1.5,"y2":2.043553},{"x1":4.25,"y1":1.056164,"x2":4.25,"y2":2.043553},{"x1":1.5,"y1":2.043553,"x2":4.25,"y2":2.043553}],"maxh":2.043553},"panels":[{"key":"raw","title":"Raw synapse count","sub":"absolute wiring strength","unit":"syn","values":[[44,289,364,3,3,289,701],[14,42,531,968,624,447,534],[536,104,2,9,79,238,5],[230,1402,5,95,150,5,0],[34,52,833,15,4,5,2],[100,31,363,0,3,0,14]]},{"key":"norm","title":"Fraction of total input","sub":"counting every source, not just these","unit":"pct","values":[[0.009948,0.047362,0.06742,0.000624,0.001038,0.109304,0.196744],[0.003165,0.006883,0.098352,0.201331,0.215992,0.169062,0.149874],[0.121185,0.017044,0.00037,0.001872,0.027345,0.090015,0.001403],[0.052001,0.229761,0.000926,0.019759,0.051921,0.001891,0],[0.007687,0.008522,0.154288,0.00312,0.001385,0.001891,0.000561],[0.022609,0.00508,0.067235,0,0.001038,0,0.003929]]},{"key":"comp","title":"Composition","sub":"each column sums to 1","unit":"pct","values":[[0.045929,0.150521,0.173499,0.002752,0.003476,0.293699,0.558121],[0.014614,0.021875,0.253098,0.888073,0.723059,0.454268,0.425159],[0.559499,0.054167,0.000953,0.008257,0.091541,0.24187,0.003981],[0.240084,0.730208,0.002383,0.087156,0.173812,0.005081,0],[0.035491,0.027083,0.397045,0.013761,0.004635,0.005081,0.001592],[0.104384,0.016146,0.173022,0,0.003476,0,0.011146]]}]}</script>
-<h2>Receptor assignment</h2>
+<p class="note" style="margin-top:.6rem">Unilateral in T1: AN09B017c. All other types receive T1 input on both sides. <b>AN09B017g and AN09B017e and AN09B017f</b> are recorded in the maleCNS <code>synonyms</code> annotation as vAB3 (Yu 2010, von Phillipsborn 2011; Yu 2010).</p>
+<script id="figdata" type="application/json">{"rows":["LgLG5","LgLG6","LgLG7","LgLG8","LgLG1a","LgLG1b"],"cols":["e","g","d","b","c","a","f"],"family":"AN09B017","alias":["vAB3","vAB3","","","","","vAB3"],"tree":{"segs":[{"x1":4,"y1":0,"x2":4,"y2":0.013376},{"x1":5,"y1":0,"x2":5,"y2":0.013376},{"x1":4,"y1":0.013376,"x2":5,"y2":0.013376},{"x1":6,"y1":0,"x2":6,"y2":0.215497},{"x1":7,"y1":0,"x2":7,"y2":0.215497},{"x1":6,"y1":0.215497,"x2":7,"y2":0.215497},{"x1":4.5,"y1":0.013376,"x2":4.5,"y2":0.615164},{"x1":6.5,"y1":0.215497,"x2":6.5,"y2":0.615164},{"x1":4.5,"y1":0.615164,"x2":6.5,"y2":0.615164},{"x1":1,"y1":0,"x2":1,"y2":0.849999},{"x1":2,"y1":0,"x2":2,"y2":0.849999},{"x1":1,"y1":0.849999,"x2":2,"y2":0.849999},{"x1":3,"y1":0,"x2":3,"y2":1.04916},{"x1":5.5,"y1":0.615164,"x2":5.5,"y2":1.04916},{"x1":3,"y1":1.04916,"x2":5.5,"y2":1.04916},{"x1":1.5,"y1":0.849999,"x2":1.5,"y2":2.034777},{"x1":4.25,"y1":1.04916,"x2":4.25,"y2":2.034777},{"x1":1.5,"y1":2.034777,"x2":4.25,"y2":2.034777}],"maxh":2.034777},"panels":[{"key":"raw","title":"Raw synapse count","sub":"absolute wiring strength","unit":"syn","values":[[44,289,364,3,3,289,701],[20,43,533,971,631,450,539],[550,109,0,7,73,233,0],[226,1433,5,95,150,7,0],[34,52,833,15,4,5,2],[100,34,364,0,3,0,14]]},{"key":"norm","title":"Fraction of total input","sub":"counting every source, not just these","unit":"pct","values":[[0.009948,0.047362,0.06742,0.000624,0.001038,0.109304,0.196744],[0.004522,0.007047,0.098722,0.201955,0.218415,0.170197,0.151277],[0.12435,0.017863,0,0.001456,0.025268,0.088124,0],[0.051097,0.234841,0.000926,0.019759,0.051921,0.002648,0],[0.007687,0.008522,0.154288,0.00312,0.001385,0.001891,0.000561],[0.022609,0.005572,0.06742,0,0.001038,0,0.003929]]},{"key":"comp","title":"Composition","sub":"each column sums to 1","unit":"pct","values":[[0.045175,0.147449,0.173416,0.00275,0.003472,0.293699,0.558121],[0.020534,0.021939,0.25393,0.890009,0.730324,0.457317,0.42914],[0.564682,0.055612,0,0.006416,0.084491,0.236789,0],[0.232033,0.731122,0.002382,0.087076,0.173611,0.007114,0],[0.034908,0.026531,0.396856,0.013749,0.00463,0.005081,0.001592],[0.102669,0.017347,0.173416,0,0.003472,0,0.011146]]}]}</script>
+<div class="ngrow"><figure><div class="box ngbox"><iframe src="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/an09b017_embed.json" loading="lazy" allowfullscreen title="AN09B017g 922722"></iframe><span class="mask tl"></span><span class="mask tr"></span></div><figcaption>AN09B017g 922722, interactive. Same view as the VNC panel above. <a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/an09b017_embed.json" rel="noopener">open full</a></figcaption></figure></div><h2>Receptor assignment</h2>
 <p class="note"><b>Billy&rsquo;s assignment, reproduced here.</b> This is a
 light-level receptor-to-type call and is not derived from any of the
 connectivity on this page. Types outlined below are the ones used as focus
@@ -125,20 +170,20 @@ inputs here; the rest are shown for completeness.</p>
 <table id="scenes">
 <thead><tr><th>Neuron</th><th>Side</th><th>T1 contra</th><th>Input syn</th><th>Focus syn</th><th>LgLG5</th><th>LgLG6</th><th>LgLG7</th><th>LgLG8</th><th>LgLG1a</th><th>LgLG1b</th></tr></thead>
 <tbody>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017a_17103.json">AN09B017a 17103</a></td><td>R</td><td>28%</td><td>1191</td><td>479</td><td>145</td><td>246</td><td>84</td><td>1</td><td>3</td><td>0</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017a_17335.json">AN09B017a 17335</a></td><td>L</td><td>16%</td><td>1453</td><td>505</td><td>144</td><td>201</td><td>154</td><td>4</td><td>2</td><td>0</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017b_16747.json">AN09B017b 16747</a></td><td>L</td><td>43%</td><td>2258</td><td>501</td><td>0</td><td>453</td><td>1</td><td>42</td><td>5</td><td>0</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017b_524298.json">AN09B017b 524298</a></td><td>R</td><td>39%</td><td>2550</td><td>589</td><td>3</td><td>515</td><td>8</td><td>53</td><td>10</td><td>0</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017c_16535.json">AN09B017c 16535</a></td><td>R</td><td>0%</td><td>1519</td><td>424</td><td>2</td><td>284</td><td>37</td><td>98</td><td>2</td><td>1</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017c_16830.json">AN09B017c 16830</a></td><td>L</td><td>0%</td><td>1370</td><td>439</td><td>1</td><td>340</td><td>42</td><td>52</td><td>2</td><td>2</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017d_15645.json">AN09B017d 15645</a></td><td>R</td><td>18%</td><td>2627</td><td>961</td><td>192</td><td>190</td><td>2</td><td>3</td><td>410</td><td>164</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017d_16302.json">AN09B017d 16302</a></td><td>L</td><td>27%</td><td>2772</td><td>1137</td><td>172</td><td>341</td><td>0</td><td>2</td><td>423</td><td>199</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017e_13341.json">AN09B017e 13341</a> <span class="alias">vAB3</span></td><td>R</td><td>7%</td><td>2605</td><td>629</td><td>37</td><td>6</td><td>356</td><td>130</td><td>23</td><td>77</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017e_13693.json">AN09B017e 13693</a> <span class="alias">vAB3</span></td><td>L</td><td>14%</td><td>1818</td><td>329</td><td>7</td><td>8</td><td>180</td><td>100</td><td>11</td><td>23</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017f_11998.json">AN09B017f 11998</a> <span class="alias">vAB3</span></td><td>R</td><td>33%</td><td>1896</td><td>680</td><td>366</td><td>300</td><td>4</td><td>0</td><td>1</td><td>9</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017f_512498.json">AN09B017f 512498</a> <span class="alias">vAB3</span></td><td>L</td><td>33%</td><td>1667</td><td>576</td><td>335</td><td>234</td><td>1</td><td>0</td><td>1</td><td>5</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017g_14320.json">AN09B017g 14320</a></td><td>R</td><td>16%</td><td>2938</td><td>892</td><td>139</td><td>15</td><td>35</td><td>693</td><td>2</td><td>8</td></tr>
-<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017g_922722.json">AN09B017g 922722</a></td><td>L</td><td>24%</td><td>3164</td><td>1028</td><td>150</td><td>27</td><td>69</td><td>709</td><td>50</td><td>23</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017a_17103.json">AN09B017a 17103</a></td><td>R</td><td>28%</td><td>1191</td><td>479</td><td>145</td><td>246</td><td>83</td><td>2</td><td>3</td><td>0</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017a_17335.json">AN09B017a 17335</a></td><td>L</td><td>16%</td><td>1453</td><td>505</td><td>144</td><td>204</td><td>150</td><td>5</td><td>2</td><td>0</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017b_16747.json">AN09B017b 16747</a></td><td>L</td><td>43%</td><td>2258</td><td>502</td><td>0</td><td>454</td><td>1</td><td>42</td><td>5</td><td>0</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017b_524298.json">AN09B017b 524298</a></td><td>R</td><td>39%</td><td>2550</td><td>589</td><td>3</td><td>517</td><td>6</td><td>53</td><td>10</td><td>0</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017c_16535.json">AN09B017c 16535</a></td><td>R</td><td>0%</td><td>1519</td><td>424</td><td>2</td><td>291</td><td>30</td><td>98</td><td>2</td><td>1</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017c_16830.json">AN09B017c 16830</a></td><td>L</td><td>0%</td><td>1370</td><td>440</td><td>1</td><td>340</td><td>43</td><td>52</td><td>2</td><td>2</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017d_15645.json">AN09B017d 15645</a></td><td>R</td><td>18%</td><td>2627</td><td>961</td><td>192</td><td>192</td><td>0</td><td>3</td><td>410</td><td>164</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017d_16302.json">AN09B017d 16302</a></td><td>L</td><td>27%</td><td>2772</td><td>1138</td><td>172</td><td>341</td><td>0</td><td>2</td><td>423</td><td>200</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017e_13341.json">AN09B017e 13341</a> <span class="alias">vAB3</span></td><td>R</td><td>7%</td><td>2605</td><td>630</td><td>37</td><td>12</td><td>351</td><td>130</td><td>23</td><td>77</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017e_13693.json">AN09B017e 13693</a> <span class="alias">vAB3</span></td><td>L</td><td>14%</td><td>1818</td><td>344</td><td>7</td><td>8</td><td>199</td><td>96</td><td>11</td><td>23</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017f_11998.json">AN09B017f 11998</a> <span class="alias">vAB3</span></td><td>R</td><td>33%</td><td>1896</td><td>680</td><td>366</td><td>304</td><td>0</td><td>0</td><td>1</td><td>9</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017f_512498.json">AN09B017f 512498</a> <span class="alias">vAB3</span></td><td>L</td><td>33%</td><td>1667</td><td>576</td><td>335</td><td>235</td><td>0</td><td>0</td><td>1</td><td>5</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017g_14320.json">AN09B017g 14320</a> <span class="alias">vAB3</span></td><td>R</td><td>16%</td><td>2938</td><td>896</td><td>139</td><td>16</td><td>34</td><td>697</td><td>2</td><td>8</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AN09B017g_922722.json">AN09B017g 922722</a> <span class="alias">vAB3</span></td><td>L</td><td>24%</td><td>3164</td><td>1064</td><td>150</td><td>27</td><td>75</td><td>736</td><td>50</td><td>26</td></tr>
 </tbody>
 </table>
 <p class="note" style="margin-top:.5rem">Click a column header to sort.</p>

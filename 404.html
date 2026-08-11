@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Not found</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<script>
+// GitHub Pages serves files case-sensitively, so /ng/AN09B017/ 404s while
+// /ng/an09b017/ works. Every directory on this site is lowercase, so if the
+// requested path differs from its lowercase form, retry it lowercased.
+// The comparison guards against a redirect loop: an already-lowercase path
+// that 404s is a genuine miss and falls through to the message below.
+(function () {
+  var p = location.pathname;
+  var lower = p.toLowerCase();
+  if (lower !== p) {
+    location.replace(lower + location.search + location.hash);
+  }
+})();
+</script>
+<style>
+ body{font:15px/1.6 system-ui,sans-serif;margin:0;padding:4rem 1.25rem;
+      max-width:34rem;margin-inline:auto;color:#1a1a1a;background:#fff}
+ h1{font-size:1.5rem;margin:0 0 .5rem}
+ a{color:#0b5fa5}
+ code{background:#f2f2f2;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+ @media (prefers-color-scheme:dark){
+  body{background:#141414;color:#e8e8e8} a{color:#6fb3ef} code{background:#242424}
+ }
+</style>
+<h1>Not found</h1>
+<p>No page at <code id="path"></code>.</p>
+<p><a href="/">Back to the site</a></p>
+<script>document.getElementById("path").textContent = location.pathname;</script>

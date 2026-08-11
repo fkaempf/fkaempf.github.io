@@ -506,6 +506,44 @@ and the leg targets &mdash; the ones the biology needs &mdash; are the robust on
 <p class="note">Detail: <code>receptor_typing_validation/LEG_ARM.md</code>,
 <code>R/07_perbody_leg.R</code>.</p>
 
+<h3>Synapse scenes</h3>
+<p class="note">One Clio-NG scene per target: the neuron in red, every ppk-family input synapse
+plotted as a point layer coloured by presynaptic sensory type. Toggle layers in the annotations
+tab to see which sensory type lands where. Built by
+<code>receptor_typing_validation/R/08_scenes.R</code> against <code>male-cns:v1.0</code>;
+synapse counts reproduce the design matrix exactly.</p>
+<p class="note"><span class="sw" style="background:#FF4081"></span>LgLG1a
+<span class="sw" style="background:#00B0FF"></span>LgLG1b
+<span class="sw" style="background:#FFFF00"></span>LgLG5
+<span class="sw" style="background:#7C4DFF"></span>LgLG6
+<span class="sw" style="background:#FF6D00"></span>LgLG7
+<span class="sw" style="background:#18FFFF"></span>LgLG8
+<span class="sw" style="background:#00E676"></span>WG3
+<span class="sw" style="background:#FFAB00"></span>WG4</p>
+<div class="grid">
+<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/IN23B025.json"><b>IN23B025</b>
+ <span>6 bodies &middot; 405 ppk synapses<br>LgLG1a &middot; LgLG1b &middot; LgLG6 &middot; LgLG8<br>
+ <em>LgLG1b side of the 23B pair</em></span></a>
+<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/IN23B011.json"><b>IN23B011</b>
+ <span>2 bodies &middot; 334 ppk synapses<br>LgLG1a &middot; LgLG1b<br>
+ <em>LgLG1a side of the 23B pair</em></span></a>
+<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/DNpe029.json"><b>DNpe029</b>
+ <span>4 bodies &middot; 814 ppk synapses<br>LgLG1a &middot; LgLG1b &middot; LgLG6 &middot; LgLG7 &middot; LgLG8 &middot; WG3 &middot; WG4<br>
+ <em>descending &mdash; check the DN collection first</em></span></a>
+<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/IN07B010.json"><b>IN07B010</b>
+ <span>2 bodies &middot; 429 ppk synapses<br>LgLG1a &middot; LgLG1b<br>
+ <em>LgLG1a fallback outside 17A</em></span></a>
+<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/IN01B065.json"><b>IN01B065</b>
+ <span>20 bodies &middot; 1847 ppk synapses<br>LgLG1a &middot; LgLG1b &middot; LgLG5 &middot; LgLG6 &middot; LgLG7 &middot; LgLG8<br>
+ <em>LgLG1a, but twenty bodies</em></span></a>
+<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/AN05B023b.json"><b>AN05B023b</b>
+ <span>2 bodies &middot; 12667 ppk synapses<br>LgLG1a &middot; LgLG1b &middot; LgLG5 &middot; LgLG6 &middot; LgLG7 &middot; LgLG8 &middot; WG3 &middot; WG4<br>
+ <em>cleanest LgLG1a target &mdash; no driver</em></span></a>
+<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/AN05B023c.json"><b>AN05B023c</b>
+ <span>2 bodies &middot; 6142 ppk synapses<br>LgLG1a &middot; LgLG1b &middot; LgLG5 &middot; LgLG6 &middot; WG3 &middot; WG4<br>
+ <em>cleanest LgLG1b target &mdash; no driver</em></span></a>
+</div>
+
 <h2>5 &middot; Wider target list &mdash; exploratory</h2>
 <div class="callout warn">
 <p>Everything below is for <strong>choosing follow-ups</strong>, not for the primary result. The

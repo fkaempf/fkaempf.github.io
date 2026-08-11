@@ -218,6 +218,19 @@ claim is downstream circuit logic. No amount of additional connectome analysis b
 
 <h2>2 &middot; PPN1 is not the marker the draft says it is</h2>
 
+<div class="callout warn">
+<p><strong>Prior warning &mdash; the PPN1 identity itself is disputed.</strong> FlyBase/VFB
+curation makes <em>PPN1</em> (FBbt_00111517, Kallman 2015) a synonym of
+<strong>AN05B023a&ndash;d</strong>, asserted independently by Marin et al. 2024 (MANC) and Berg
+et al. 2025 (mCNS). The <code>AN05B102a = PPN1</code> call in
+<code>analyses/an_investigation/R/_paths.R:54-58</code> was made by eye from R56C09 MCFO imagery.</p>
+<p>A reverse colour-depth search of R56C09 against mCNS returns a <em>mixed</em> match set:
+AN05B102a 19/52 images (best rank 3), ANXXX093 13, <strong>AN05B023c 9 (best rank 5)</strong>,
+AN05B023d 4. So R56C09 is not a clean single-cell line at MCFO level, and the single best
+discriminating target in the whole design may sit inside its match set. <em>Resolve this before
+ordering anything.</em></p>
+</div>
+
 <p>The manuscript leans on PPN1 as corroboration that WG3 is <span class="tag f">ppk23+ ppk25+</span>,
 citing the functional connectivity of Kallman et al. 2015. The connectome disagrees. Pooled input
 synapses onto <a href="../an05b102/">AN05B102a = PPN1</a>:</p>
@@ -695,45 +708,45 @@ CNS.</p>
 </div>
 
 <h2>7 &middot; Reference</h2>
-<p class="note">Body IDs for every shortlist target, mCNS <code>male-cns:v0.9</code>. Select and
-paste straight into neuPrint or Clio.</p>
+<p class="note">Every shortlist target, with live lookups. NeuronBridge searches by type name and
+runs the colour-depth match to LM driver lines; neuPrint and Virtual Fly Brain resolve the first
+body ID. Body IDs are selectable for pasting into Clio.</p>
 
 <div class="scroll">
 <table>
-<tr><th>Type</th><th class="num">n</th><th>NT</th><th>Soma</th><th>Body IDs</th></tr>
-<tr class="hi"><td>AN05B023b</td><td class="num">2</td><td>GABA</td><td>A2</td>
-    <td><code>200336, 801269</code></td></tr>
-<tr class="hi"><td>AN05B023c</td><td class="num">2</td><td>GABA</td><td>A6</td>
-    <td><code>18430, 18696</code></td></tr>
-<tr class="hi"><td>INXXX044</td><td class="num">8</td><td>GABA</td><td>T2/T3/A1/A2</td>
-    <td><code>800575, 904664, 800305, 800272, 800912, 800788, 800660, 800201</code></td></tr>
-<tr class="hi"><td>IN11A022</td><td class="num">6</td><td>ACh</td><td>T2</td>
-    <td><code>805311, 904851, 805874, 907376, 804748, 805275</code></td></tr>
-<tr class="hi"><td>IN01B065</td><td class="num">20</td><td>GABA</td><td>T2/T3/A1</td>
-    <td><code>812103, 809925, 811297, 810045, 814181, 812956, 911406, 810166, 809629, 830835,
-    807976, 809675, 813816, 809578, 813722, 818747, 811612, 910152, 811563, 809185</code></td></tr>
-<tr class="hi"><td>AN09B017g</td><td class="num">2</td><td>ACh</td><td>A10</td>
-    <td><code>922722, 14320</code></td></tr>
-<tr><td>IN05B002</td><td class="num">2</td><td>GABA</td><td>T1</td>
-    <td><code>800035, 800040</code></td></tr>
-<tr><td>AN13B002 <em>Dandelion</em></td><td class="num">2</td><td>GABA</td><td>A1</td>
-    <td><code>30088, 21763</code></td></tr>
-<tr><td>ANXXX093</td><td class="num">2</td><td>ACh</td><td>A6</td>
-    <td><code>17503, 13399</code></td></tr>
-<tr><td>AN09B017b</td><td class="num">2</td><td>ACh</td><td>A3</td>
-    <td><code>16747, 524298</code></td></tr>
-<tr><td>AN09B017e <em>vAB3</em></td><td class="num">2</td><td>ACh</td><td>A9</td>
-    <td><code>13693, 13341</code></td></tr>
-<tr><td>AN09B017f <em>vAB3</em></td><td class="num">2</td><td>ACh</td><td>A10</td>
-    <td><code>512498, 11998</code></td></tr>
-<tr><td>IN11A020</td><td class="num">6</td><td>ACh</td><td>T1</td>
-    <td><code>907699, 940542, 803792, 802730, 802868, 800798</code></td></tr>
-<tr><td>IN17A013</td><td class="num">2</td><td>ACh</td><td>T3</td>
-    <td><code>800380, 800588</code></td></tr>
-<tr><td>AN17A013</td><td class="num">4</td><td>ACh</td><td>T1/T2</td>
-    <td><code>800932, 81109, 82791, 78620</code></td></tr>
-<tr class="bad"><td>AN05B102a <span class="tag warn">PPN1</span></td><td class="num">2</td>
-    <td>ACh</td><td>A1</td><td><code>11431, 12286</code></td></tr>
+<tr><th>Type</th><th class="num">n</th><th>NT</th><th>Soma</th><th>Look up</th><th>Notes</th></tr>
+<tr class="hi"><td><b>AN05B023b</b></td><td class="num">2</td><td>GABA</td><td>A2</td><td><a href="https://neuronbridge.janelia.org/search?q=AN05B023b">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=200336">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:200336">VFB</a></td><td>best M-side target &middot; 17&times;</td></tr>
+<tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">200336, 801269</code></td></tr>
+<tr class="hi"><td><b>AN05B023c</b></td><td class="num">2</td><td>GABA</td><td>A6</td><td><a href="https://neuronbridge.janelia.org/search?q=AN05B023c">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=18430">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:18430">VFB</a></td><td>best target overall &middot; 121&times;</td></tr>
+<tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">18430, 18696</code></td></tr>
+<tr class="hi"><td><b>INXXX044</b></td><td class="num">8</td><td>GABA</td><td>T2/T3/A1/A2</td><td><a href="https://neuronbridge.janelia.org/search?q=INXXX044">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=800575">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:800575">VFB</a></td><td>pure wing &middot; WG3 side</td></tr>
+<tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">800575, 904664, 800305, 800272, 800912, 800788, 800660, 800201</code></td></tr>
+<tr class="hi"><td><b>IN11A022</b></td><td class="num">6</td><td>ACh</td><td>T2</td><td><a href="https://neuronbridge.janelia.org/search?q=IN11A022">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=805311">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:805311">VFB</a></td><td>pure wing &middot; WG4 side</td></tr>
+<tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">805311, 904851, 805874, 907376, 804748, 805275</code></td></tr>
+<tr class="hi"><td><b>IN01B065</b></td><td class="num">20</td><td>GABA</td><td>T2/T3/A1</td><td><a href="https://neuronbridge.janelia.org/search?q=IN01B065">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=812103">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:812103">VFB</a></td><td>pure leg &middot; LgLG1a side</td></tr>
+<tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">812103, 809925, 811297, 810045, 814181, 812956, 911406, 810166, 809629, 830835, 807976, 809675, 813816, 809578, 813722, 818747, 811612, 910152, 811563, 809185</code></td></tr>
+<tr class="hi"><td><b>AN09B017g</b></td><td class="num">2</td><td>ACh</td><td>A10</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017g">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=922722">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:922722">VFB</a></td><td>pure leg &middot; LgLG8 side</td></tr>
+<tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">922722, 14320</code></td></tr>
+<tr><td><b>IN05B002</b></td><td class="num">2</td><td>GABA</td><td>T1</td><td><a href="https://neuronbridge.janelia.org/search?q=IN05B002">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=800035">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:800035">VFB</a></td><td>highest signal, 19190 syn</td></tr>
+<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">800035, 800040</code></td></tr>
+<tr><td><b>AN13B002</b></td><td class="num">2</td><td>GABA</td><td>A1</td><td><a href="https://neuronbridge.janelia.org/search?q=AN13B002">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=30088">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:30088">VFB</a></td><td><em>Dandelion</em>, Shiu 2022</td></tr>
+<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">30088, 21763</code></td></tr>
+<tr><td><b>ANXXX093</b></td><td class="num">2</td><td>ACh</td><td>A6</td><td><a href="https://neuronbridge.janelia.org/search?q=ANXXX093">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=17503">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:17503">VFB</a></td><td>unnamed &middot; in R56C09 match set</td></tr>
+<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">17503, 13399</code></td></tr>
+<tr><td><b>AN09B017b</b></td><td class="num">2</td><td>ACh</td><td>A3</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017b">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=16747">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:16747">VFB</a></td><td>LgLG6 isolator &middot; <em>vAB3</em></td></tr>
+<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">16747, 524298</code></td></tr>
+<tr><td><b>AN09B017e</b></td><td class="num">2</td><td>ACh</td><td>A9</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017e">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=13693">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:13693">VFB</a></td><td>LgLG7 isolator &middot; <em>vAB3</em></td></tr>
+<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">13693, 13341</code></td></tr>
+<tr><td><b>AN09B017f</b></td><td class="num">2</td><td>ACh</td><td>A10</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017f">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=512498">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:512498">VFB</a></td><td>LgLG5 isolator &middot; <em>vAB3</em></td></tr>
+<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">512498, 11998</code></td></tr>
+<tr><td><b>IN11A020</b></td><td class="num">6</td><td>ACh</td><td>T1</td><td><a href="https://neuronbridge.janelia.org/search?q=IN11A020">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=907699">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:907699">VFB</a></td><td>wing 0.97</td></tr>
+<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">907699, 940542, 803792, 802730, 802868, 800798</code></td></tr>
+<tr><td><b>IN17A013</b></td><td class="num">2</td><td>ACh</td><td>T3</td><td><a href="https://neuronbridge.janelia.org/search?q=IN17A013">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=800380">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:800380">VFB</a></td><td>pure leg</td></tr>
+<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">800380, 800588</code></td></tr>
+<tr><td><b>AN17A013</b></td><td class="num">4</td><td>ACh</td><td>T1/T2</td><td><a href="https://neuronbridge.janelia.org/search?q=AN17A013">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=800932">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:800932">VFB</a></td><td>pure leg</td></tr>
+<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">800932, 81109, 82791, 78620</code></td></tr>
+<tr class="bad"><td><b>AN05B102a</b></td><td class="num">2</td><td>ACh</td><td>A1</td><td><a href="https://neuronbridge.janelia.org/search?q=AN05B102a">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v0.9&bodyid=11431">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v0.9:11431">VFB</a></td><td>R56C09 &middot; <span class="tag warn">PPN1 identity disputed</span></td></tr>
+<tr class="bad"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">11431, 12286</code></td></tr>
 </table>
 </div>
 
@@ -848,7 +861,36 @@ connectivity that produced the labels.</p>
  <span>the male CNS connectome preprint</span></a>
 </div>
 
-<h3>Driver lines and imagery</h3>
+<h3>Driver-line hunt &mdash; the critical path</h3>
+<p class="note">Only R56C09 has a confirmed LexA driver, and it is the reference arm. Everything
+that can actually discriminate needs a line that does not yet exist. Route below, in order.</p>
+<div class="grid">
+<a class="lk" href="https://neuronbridge.janelia.org/"><b>NeuronBridge &mdash; start here</b>
+ <span>Colour-depth MIP search from an EM body to LM driver lines. Search by type name or body
+ ID; the per-neuron links in &sect;7 go straight there.</span></a>
+<a class="lk" href="https://splitgal4.janelia.org/"><b>FlyLight Split-GAL4</b>
+ <span>Cell-type-specific intersectional lines. <em>GAL4 &mdash; unusable in this design unless a
+ LexA half exists</em>, since both ppk drivers are GAL4.</span></a>
+<a class="lk" href="https://www.janelia.org/project-team/flylight/resources"><b>FlyLight resources</b>
+ <span>Gen1 GAL4 and the Gen1 <b>LexA</b> collection &mdash; the LexA collection covers only a
+ subset of the GAL4 lines, which is the whole bottleneck.</span></a>
+<a class="lk" href="https://gen1mcfo.janelia.org/"><b>Gen1 MCFO</b>
+ <span>Stochastic single-neuron imagery per line &mdash; how R56C09 was called, and how to check
+ whether a candidate line is clean.</span></a>
+<a class="lk" href="https://bdsc.indiana.edu/"><b>Bloomington (BDSC)</b>
+ <span>Stock records and ordering. Deep links per stock in &sect;6. Confirmed working:
+ <code>bdsc.indiana.edu/stocks/&lt;number&gt;</code></span></a>
+<a class="lk" href="https://virtualflybrain.org/"><b>Virtual Fly Brain</b>
+ <span>Bridges EM types to LM lines, synonyms and literature. The source of the PPN1 synonym
+ problem above.</span></a>
+<a class="lk" href="https://flybase.org/"><b>FlyBase</b>
+ <span>Transgene records, insertion sites, chromosome assignments, which stock centres hold what.</span></a>
+<a class="lk" href="https://www.vdrc.at/"><b>VDRC</b>
+ <span>Vienna &mdash; second source, and the Vienna Tiles library. Note VT063311/VT063314 overlap
+ ppk23 but are <em>not</em> validated ppk23 drivers.</span></a>
+</div>
+
+<h3>Other imagery</h3>
 <div class="grid">
 <a class="lk" href="https://neuronbridge.janelia.org/"><b>NeuronBridge</b>
  <span>colour-depth MIP search from an EM body to candidate LM driver lines &mdash; the route

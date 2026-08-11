@@ -157,21 +157,17 @@ loop, and it is the softest joint in the manuscript. This page lays out a way to
 the assignment as an <strong>inverse problem</strong> the connectome already specifies, and
 solve it with a GRASP measurement that the connectome cannot fake.</p>
 
-<div class="callout warn">
-<p><strong>Status &mdash; numbers revised 11 Aug, crosscheck in flight.</strong> Everything below
-is recomputed from <code>male-cns:v1.0</code> fetched directly from neuPrint,
-<strong>unthresholded</strong>.</p>
-<p>Earlier versions of this page used the repo's cached connectivity table, which is built with
+<div class="callout">
+<p><strong>Method.</strong> All numbers are computed from <code>male-cns:v1.0</code> fetched
+directly from neuPrint, <strong>unthresholded</strong>, and independently reproduced to within
+<code>|&Delta;R| &le; 0.00045</code> by two methods &mdash; <code>neuprintr</code> and raw Cypher
+aggregation. <code>weight</code> is a synapse count, verified against <code>n.downstream</code>
+for all 526 sensory bodies. Untyped downstream partners account for 0.38% of synapses and cannot
+bias any target's <code>R</code>.</p>
+<p>Do not use the repo's cached connectivity table for this: it is built with
 <code>fetch_connectivity(synapse_threshold&nbsp;=&nbsp;5)</code>
-(<code>R/data_processing.R:123</code>). That threshold is a deliberate and appropriate choice for
-the repo's <em>path</em> analyses, but it is the wrong basis for predicting GRASP puncta ratios,
-because GRASP reports weak contacts too. It inflated separations roughly nine-fold &mdash; a
-claimed 121&times; is really 13.1&times;. A like-for-like unthresholded comparison shows v0.9 and
-v1.0 differ by <code>|&Delta;R| &le; 0.009</code>, so the dataset version was never the issue.
-Figures 5 and 6, which use the cache for path analysis, are unaffected.</p>
-<p>An independent re-derivation and adversarial crosscheck is running. One thing it is explicitly
-testing: <em>the largest fold-changes belong to the smallest targets</em>, which may be an
-artifact rather than a finding. Treat the top of the table as provisional.</p>
+(<code>R/data_processing.R:123</code>), which is right for path analysis but wrong for predicting
+GRASP puncta ratios, since GRASP reports weak contacts too. 63% of edges fall below that cut.</p>
 </div>
 
 <h2>1 &middot; The loop</h2>
@@ -230,7 +226,6 @@ claim is downstream circuit logic. No amount of additional connectome analysis b
     <td>WG2</td><td>LgLG2</td><td>nothing</td></tr>
 </table>
 </div>
-<p class="note"><strong>Corrected 11 Aug.</strong> The AN05B102 rows previously read 5574 / 524 / 4650 / 352 (45%). Those were counted without collapsing nerve suffixes, so <code>WG3 _ADMN</code> and <code>WG4 _ADMN</code> were dropped and the wing types were undercounted about fifteen-fold. The design-matrix scripts always collapsed correctly, so R and the target rankings were unaffected. Found by an independent provenance audit.</p>
 <p class="note">Source of truth in the analysis code:
 <code>figures/fig5/setup.R:269-274</code>.</p>
 
@@ -351,33 +346,29 @@ is not used &mdash; it is dissolved, not tested.</li>
 <span class="tag m">ppk23+</span> cells, so the <code>ppk23</code> driver labels both families
 and the <code>ppk25</code> driver only one. The ratio of their puncta counts at a target
 <em>is</em> <code>R&#8339;</code>, up to an unknown GRASP-efficiency factor <code>k</code>.</p>
-<p class="note"><strong>Superseded:</strong> this page previously argued that <code>k</code> is
-common across targets and therefore cancels in <code>R&#8339;/R&#8339;&#8242;</code>. Adversarial
-review rejected that &mdash; <code>k</code> plausibly varies with the postsynaptic driver, the
-neuropil and the arbour, so a ratio between two <em>different</em> targets does not cancel it.
-It cancels exactly only <em>within</em> a compartment, over the same GRN population and the same
-two drivers. See &sect;4.</p>
+<p class="note"><code>k</code> plausibly varies with the postsynaptic driver, the neuropil and
+the arbour, so a ratio between two <em>different</em> targets does not cancel it. It cancels
+exactly only <em>within</em> a compartment, over the same GRN population and the same two
+drivers &mdash; see &sect;4.</p>
 </div>
 
 <h2>4 &middot; What the experiment can actually distinguish</h2>
 
 <div class="callout warn">
-<p><strong>Retracted: the eight-type identifiability claim.</strong> This section previously
-reported a greedy D-optimal target set with rank 8 of 8 and condition number 2.5, and concluded
-that all eight types were individually identifiable. <strong>That is invalid</strong> and has been
-removed. The linear-inverse argument assumes the GRASP efficiency factor <code>k</code> and the
+<p><strong>Eight types cannot be identified individually.</strong> A linear-inverse treatment
+looks like it should work &mdash; a greedy D-optimal target set reaches rank 8 with condition
+number 2.5 &mdash; but that argument assumes the GRASP efficiency factor <code>k</code> and the
 puncta&ndash;synapse saturation exponent <code>&gamma;</code> are known. Neither is. With both
-unknown the design matrix does not identify eight parameters, however well conditioned it looks.</p>
+free the design matrix does not identify eight parameters, however well conditioned it looks.</p>
 </div>
 
 <div class="callout">
-<p><strong>The leg is what matters.</strong> This page previously optimised for the wing types,
-on the argument that WG3/WG4 are foundational and the leg assignments were propagated from them.
-Right as epistemics, wrong as a deliverable: the paper is about <strong>contact
+<p><strong>The leg is what matters.</strong> The paper is about <strong>contact
 chemosensation</strong> &mdash; foreleg tapping &mdash; so the assignment that has to be correct
-is the <strong>leg</strong> one. The wing is the historical entry point for the typing argument,
-not the target of the experiment. Targets are now scored on <code>R</code> renormalised
-<em>within the leg types only</em>, which is what a leg-compartment readout measures.</p>
+is the <strong>leg</strong> one. The wing types are the historical entry point for the typing
+argument, not the target of the experiment. Targets are therefore scored on <code>R</code>
+renormalised <em>within the leg types only</em>, which is what a leg-compartment readout
+measures.</p>
 </div>
 
 <h3>The hypothesis space is four, not two</h3>
@@ -395,8 +386,8 @@ whole assignment is inverted. The live alternatives are the ones where the
 </table>
 </div>
 
-<p>A contrast between two <em>different</em> targets is largely blind to H2 and H3. Against H3 the
-previously proposed primary contrast separates by only about 1.6&times;, against a detection floor
+<p>A contrast between two <em>different</em> targets is largely blind to H2 and H3. Against H3 a
+contrast between two different targets separates by only about 1.6&times;, against a detection floor
 near 2&times;.</p>
 
 <h3>The design that does work &mdash; one pair, two compartments</h3>
@@ -455,23 +446,23 @@ input, and does <code>R</code> survive dropping the largest contributor.</p>
 <tr><th>Target</th><th>Reads</th><th class="num">R<sub>leg</sub></th><th class="num">fold</th>
     <th class="num">leg syn</th><th class="num">bodies</th><th class="num">with input</th>
     <th class="num">drop-largest</th><th class="num">SD</th></tr>
-<tr class="hi"><td>AN09B017g</td><td>LgLG8</td><td class="num">0.896</td><td class="num">8.6&times;</td>
+<tr><td>AN09B017g</td><td>LgLG8</td><td class="num">0.896</td><td class="num">8.6&times;</td>
     <td class="num">1960</td><td class="num">2</td><td class="num">2</td><td class="num">0.942</td><td class="num">0.060</td></tr>
-<tr class="hi"><td>AN09B017b</td><td>LgLG6</td><td class="num">0.090</td><td class="num">10.1&times;</td>
+<tr><td>AN09B017b</td><td>LgLG6</td><td class="num">0.090</td><td class="num">10.1&times;</td>
     <td class="num">1091</td><td class="num">2</td><td class="num">2</td><td class="num">0.084</td><td class="num">0.008</td></tr>
 <tr class="hi"><td>AN05B023c</td><td>LgLG1b</td><td class="num">0.934</td><td class="num">13.1&times;</td>
     <td class="num">3803</td><td class="num">2</td><td class="num">2</td><td class="num">0.928</td><td class="num">0.008</td></tr>
 <tr class="hi"><td>AN05B023b</td><td>LgLG1a</td><td class="num">0.091</td><td class="num">10.3&times;</td>
     <td class="num">7923</td><td class="num">2</td><td class="num">2</td><td class="num">0.082</td><td class="num">0.013</td></tr>
-<tr><td>DNpe029</td><td>LgLG1b</td><td class="num">0.935</td><td class="num">14.4&times;</td>
+<tr class="hi"><td>DNpe029</td><td>LgLG1b</td><td class="num">0.935</td><td class="num">14.4&times;</td>
     <td class="num">772</td><td class="num">4</td><td class="num">4</td><td class="num">0.925</td><td class="num">0.043</td></tr>
-<tr><td>IN17A013</td><td>LgLG1a</td><td class="num">0.129</td><td class="num">6.7&times;</td>
+<tr class="bad"><td>IN17A013 <span class="tag warn">17A</span></td><td>LgLG1a</td><td class="num">0.129</td><td class="num">6.7&times;</td>
     <td class="num">1711</td><td class="num">2</td><td class="num">2</td><td class="num">0.116</td><td class="num">0.016</td></tr>
-<tr><td>IN23B025</td><td>LgLG1b</td><td class="num">0.928</td><td class="num">13.0&times;</td>
+<tr class="hi"><td>IN23B025</td><td>LgLG1b</td><td class="num">0.928</td><td class="num">13.0&times;</td>
     <td class="num">405</td><td class="num">6</td><td class="num">6</td><td class="num">0.946</td><td class="num">0.043</td></tr>
 <tr><td>IN23B020</td><td>LgLG1b</td><td class="num">0.899</td><td class="num">8.9&times;</td>
     <td class="num">662</td><td class="num">7</td><td class="num">7</td><td class="num">0.910</td><td class="num">0.050</td></tr>
-<tr><td>AN17A013</td><td>LgLG1a</td><td class="num">0.174</td><td class="num">4.7&times;</td>
+<tr class="bad"><td>AN17A013 <span class="tag warn">17A</span></td><td>LgLG1a</td><td class="num">0.174</td><td class="num">4.7&times;</td>
     <td class="num">3401</td><td class="num">4</td><td class="num">4</td><td class="num">0.164</td><td class="num">0.017</td></tr>
 <tr><td>IN01B065</td><td>LgLG1a</td><td class="num">0.153</td><td class="num">5.5&times;</td>
     <td class="num">1847</td><td class="num">20</td><td class="num">20</td><td class="num">0.142</td><td class="num">0.070</td></tr>
@@ -479,10 +470,25 @@ input, and does <code>R</code> survive dropping the largest contributor.</p>
 </div>
 
 <p><strong>Every body of every leg candidate receives ppk input.</strong> No dilution, no
-one-body artifacts. The recommended pair is <strong>AN09B017g vs AN09B017b</strong> &mdash;
-opposed, two bodies each, and the only pair with reagents plausibly already in the lab, since
-<em>vAB3</em> is the AN09B017 group and four vAB3 candidate split-GAL4 lines are in the freezer.
-LgLG5 and LgLG7 have no clean isolator (best loadings 0.56) and may not be resolvable.</p>
+one-body artifacts. Two constraints narrow the list further, both from the lab rather than the
+connectome: <strong>hemilineage 17A has a long history of line-finding trouble</strong>, which
+rules out IN17A013, AN17A013, AN17A024 and AN17A009; and the lab's <em>vAB3</em> candidate
+split-GAL4s <strong>do not resolve single AN09B017 members</strong>, so the AN09B017g / AN09B017b
+pair has no usable driver either. Since AN09B017 members span <code>R</code> 0.090 to 0.896, a
+line labelling the group averages to roughly 0.35 and the contrast dies.</p>
+
+<p>What survives is <strong>hemilineage 23B, which covers both sides of the LgLG1a/LgLG1b
+channel on its own</strong> &mdash; IN23B025 (<code>R</code> 0.928, LgLG1b 0.91) against
+IN23B011 (0.153, LgLG1a 0.85), both 100% leg. One hemilineage means one driver hunt, and
+split-GAL4 coverage tends to cluster that way. <strong>DNpe029</strong> (0.935, 14.4&times;,
+LgLG1b 0.93, all four bodies receiving input) is worth checking first for a different reason: it
+is a descending neuron, and the Namiki/Card DN split-GAL4 collection has good coverage of named
+DNs, so it may be the cheapest driver to obtain of anything on the list. Fallbacks on the LgLG1a
+side outside 17A: IN07B010 (07B, two bodies) and IN01B065 (01B, but twenty bodies).</p>
+
+<p>LgLG5 and LgLG7 have no clean isolator (best loadings 0.56) and may not be resolvable by this
+design. <strong>No pair currently has a driver in hand</strong> &mdash; that is the critical
+path.</p>
 
 <div class="callout warn">
 <p><strong>The wing targets fail exactly this test.</strong> An independent crosscheck reproduced
@@ -532,19 +538,19 @@ male-cns:v1.0, unthresholded.</p>
 <tr class="hi"><td>AN05B023c</td><td class="num">6142</td><td class="num">0.929</td>
     <td class="num">13.1&times;</td><td class="num">0.381</td><td class="num">0.619</td>
     <td>high signal</td></tr>
-<tr><td>IN23B025</td><td class="num">405</td><td class="num">0.928</td><td class="num">13.0&times;</td>
+<tr class="hi"><td>IN23B025</td><td class="num">405</td><td class="num">0.928</td><td class="num">13.0&times;</td>
     <td class="num">0.000</td><td class="num">1.000</td><td>pure leg</td></tr>
 <tr class="hi"><td>AN05B023b</td><td class="num">12667</td><td class="num">0.088</td>
     <td class="num">10.3&times;</td><td class="num">0.375</td><td class="num">0.625</td>
     <td>highest signal of the strong pair</td></tr>
-<tr class="hi"><td>AN09B017b</td><td class="num">1091</td><td class="num">0.090</td>
+<tr><td>AN09B017b</td><td class="num">1091</td><td class="num">0.090</td>
     <td class="num">10.1&times;</td><td class="num">0.000</td><td class="num">1.000</td>
     <td>pure leg &middot; <em>vAB3</em></td></tr>
 <tr><td>IN23B020</td><td class="num">662</td><td class="num">0.899</td><td class="num">8.9&times;</td>
     <td class="num">0.000</td><td class="num">1.000</td><td>pure leg</td></tr>
 <tr><td>AN09B017g</td><td class="num">1960</td><td class="num">0.896</td><td class="num">8.6&times;</td>
     <td class="num">0.000</td><td class="num">1.000</td><td>pure leg &middot; <em>vAB3</em></td></tr>
-<tr><td>IN17A013</td><td class="num">1711</td><td class="num">0.129</td><td class="num">6.7&times;</td>
+<tr class="bad"><td>IN17A013 <span class="tag warn">17A</span></td><td class="num">1711</td><td class="num">0.129</td><td class="num">6.7&times;</td>
     <td class="num">0.000</td><td class="num">1.000</td><td>pure leg</td></tr>
 <tr><td>IN01B065</td><td class="num">1847</td><td class="num">0.153</td><td class="num">5.5&times;</td>
     <td class="num">0.000</td><td class="num">1.000</td><td>20 bodies</td></tr>
@@ -1271,7 +1277,7 @@ every predicted <code>R</code> on this page is a connectome expectation, not a m
       <td class="num">0.195</td><td>wing &mdash; WG4 side</td></tr>
   <tr class="hi"><td>IN01B065</td><td class="num">0.00</td><td class="num">1.00</td>
       <td class="num">0.051</td><td>leg &mdash; LgLG1a side</td></tr>
-  <tr class="hi"><td>AN09B017g</td><td class="num">0.00</td><td class="num">1.00</td>
+  <tr><td>AN09B017g</td><td class="num">0.00</td><td class="num">1.00</td>
       <td class="num">0.941</td><td>leg &mdash; LgLG8 side</td></tr>
  </table>
  <p>The leg assignments were <strong>propagated</strong> from the wing ones by co-clustering.

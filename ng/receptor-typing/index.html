@@ -230,10 +230,11 @@ claim is downstream circuit logic. No amount of additional connectome analysis b
     <td>WG2</td><td>LgLG2</td><td>nothing</td></tr>
 </table>
 </div>
+<p class="note"><strong>Corrected 11 Aug.</strong> The AN05B102 rows previously read 5574 / 524 / 4650 / 352 (45%). Those were counted without collapsing nerve suffixes, so <code>WG3 _ADMN</code> and <code>WG4 _ADMN</code> were dropped and the wing types were undercounted about fifteen-fold. The design-matrix scripts always collapsed correctly, so R and the target rankings were unaffected. Found by an independent provenance audit.</p>
 <p class="note">Source of truth in the analysis code:
 <code>figures/fig5/setup.R:269-274</code>.</p>
 
-<h2>2 &middot; PPN1 is not the marker the draft says it is</h2>
+<h2>2 &middot; The PPN1 evidence does not hold up</h2>
 
 <div class="callout warn">
 <p><strong>Prior warning &mdash; two curations disagree about what PPN1 is.</strong></p>
@@ -270,12 +271,12 @@ synapses onto <a href="../an05b102/">AN05B102a = PPN1</a>:</p>
 <tr><th>Target</th><th class="num">LgLG1a</th><th class="num">WG4</th><th class="num">LgLG1b</th>
     <th class="num">WG3</th><th class="num">ppk25+ share</th></tr>
 <tr class="bad"><td>AN05B102a &nbsp;<span class="tag warn">PPN1</span></td>
-    <td class="num">5574</td><td class="num">524</td><td class="num">4650</td><td class="num">352</td>
-    <td class="num">45%</td></tr>
-<tr><td>AN05B102b</td><td class="num">1262</td><td class="num">70</td><td class="num">1019</td>
-    <td class="num">67</td><td class="num">45%</td></tr>
-<tr><td>AN05B102c</td><td class="num">3599</td><td class="num">259</td><td class="num">1482</td>
-    <td class="num">124</td><td class="num">29%</td></tr>
+    <td class="num">7951</td><td class="num">8138</td><td class="num">5397</td><td class="num">5701</td>
+    <td class="num">41%</td></tr>
+<tr><td>AN05B102b</td><td class="num">1846</td><td class="num">1852</td><td class="num">1229</td>
+    <td class="num">829</td><td class="num">36%</td></tr>
+<tr><td>AN05B102c</td><td class="num">5236</td><td class="num">4166</td><td class="num">1820</td>
+    <td class="num">1731</td><td class="num">27%</td></tr>
 <tr class="hi"><td>AN05B023b</td><td class="num">6744</td><td class="num">4346</td>
     <td class="num">589</td><td class="num">398</td><td class="num">8%</td></tr>
 <tr class="hi"><td>AN05B023c</td><td class="num">246</td><td class="num">185</td>
@@ -284,13 +285,14 @@ synapses onto <a href="../an05b102/">AN05B102a = PPN1</a>:</p>
 </div>
 
 <div class="callout warn">
-<p><strong>PPN1 receives near-equal input from both families.</strong> It is a convergent
+<p><strong>PPN1 receives near-equal input from both families</strong> &mdash; 41% ppk25<sup>+</sup>. It is a convergent
 integrator, not a <span class="tag f">ppk25+</span> marker. The "corroborated by PPN1" sentence
 overstates the data and needs rewriting whatever else happens.</p>
 <p>Nor is there a spatial escape: on PPN1 the two families interdigitate across the whole
-dendrite. Kolmogorov&ndash;Smirnov <code>D &asymp; 0.11&ndash;0.26</code> between LgLG1a and
-LgLG1b synapse positions &mdash; significant only because <em>n</em> is 5574 vs 4650. The
-distributions almost completely overlap.</p>
+dendrite. Kolmogorov&ndash;Smirnov <code>D = 0.02&ndash;0.06</code> between LgLG1a and LgLG1b synapse
+positions across all three axes, maximum 0.08 on any principal axis; the z-decile ppk25<sup>+</sup>
+fraction stays within 0.35&ndash;0.48 with no monotone trend. The distributions are all but
+identical.</p>
 </div>
 
 <h2>3 &middot; The inversion</h2>
@@ -363,10 +365,13 @@ is not used &mdash; it is dissolved, not tested.</li>
 <p><strong>The subset trick.</strong> <span class="tag f">ppk25+</span> cells are a subset of
 <span class="tag m">ppk23+</span> cells, so the <code>ppk23</code> driver labels both families
 and the <code>ppk25</code> driver only one. The ratio of their puncta counts at a target
-<em>is</em> <code>R&#8339;</code>. GRASP efficiency differs between the two drivers by an unknown
-factor <code>k</code>, but <code>k</code> is common across targets and cancels in
-<code>R&#8339;/R&#8339;&#8242;</code>. Hence: one target tells you nothing, two tell you
-everything.</p>
+<em>is</em> <code>R&#8339;</code>, up to an unknown GRASP-efficiency factor <code>k</code>.</p>
+<p class="note"><strong>Superseded:</strong> this page previously argued that <code>k</code> is
+common across targets and therefore cancels in <code>R&#8339;/R&#8339;&#8242;</code>. Adversarial
+review rejected that &mdash; <code>k</code> plausibly varies with the postsynaptic driver, the
+neuropil and the arbour, so a ratio between two <em>different</em> targets does not cancel it.
+It cancels exactly only <em>within</em> a compartment, over the same GRN population and the same
+two drivers. See &sect;4.</p>
 </div>
 
 <h2>4 &middot; What the experiment can actually distinguish</h2>
@@ -445,7 +450,13 @@ assigned cell count, the denominator is wrong and the GRASP should not be built.
 <p class="note">Full synthesis, controls, gates and kill criteria:
 <code>receptor_typing_validation/CROSSING_REVIEW.md</code>.</p>
 
-<h3>Target shortlist</h3>
+<h2>5 &middot; Wider target list &mdash; exploratory</h2>
+<div class="callout warn">
+<p>Everything below is for <strong>choosing follow-ups</strong>, not for the primary result. The
+design in &sect;4 uses one target pair. These rankings also carry the small-target artifact
+flagged at the top of the page, and are still under crosscheck.</p>
+</div>
+<h3>Ranked by separation</h3>
 <p class="note"><code>R</code> = predicted ppk25+ puncta fraction under the current assignment;
 the swap gives <code>1&minus;R</code>. Fold is the ratio the experiment must resolve.
 male-cns:v1.0, unthresholded.</p>
@@ -521,7 +532,7 @@ of the questions the running crosscheck is meant to answer.</p>
 AN09B017g (0.896) and IN23B020 (0.899), all pure leg, all &ge; 6.7&times;.</p>
 </div>
 
-<h2>5 &middot; Recommended target sets</h2>
+<h3>What to actually run</h3>
 <ul class="steps">
 <li><strong>The design.</strong> One target pair &mdash; AN05B023b + AN05B023c &mdash; scored
 separately in <code>Ov</code> and <code>LegNp</code>. Gives <code>W</code> (wing) and
@@ -647,7 +658,14 @@ arms carry one copy.</li>
 single cross.</li>
 </ul>
 
-<h3>Crossing scheme</h3>
+<h3>Crossing scheme &mdash; reference arm</h3>
+<div class="callout warn">
+<p>This builds the <strong>PPN1 reference arm</strong> (ppk-GAL4 &times; R56C09-lexA), which
+validates the reagents but cannot discriminate. The primary design in &sect;4 needs
+AN05B023b and AN05B023c, and <strong>neither has a driver &mdash; not at Bloomington, and not in
+the lab</strong> (checked against the flomington inventory: zero hits). Building or finding those
+two drivers is the critical path, ahead of every cross below.</p>
+</div>
 
 <figure class="dark-fig">
 <svg viewBox="0 0 720 627" role="img" aria-label="Target discrimination, v1.0 unthresholded">
@@ -908,7 +926,7 @@ LgLG1b, two sentences after WG3 already claimed LgLG1b. <code>setup.R:269</code>
 Typo in the load-bearing sentence, duplicated verbatim into Methods and the unedited draft.</li>
 <li><strong>WG1 / WG2 swap.</strong> Results says "positioning of WG1"; Methods says "WG2".
 Otherwise identical paragraph.</li>
-<li><strong>The PPN1 sentence.</strong> PPN1 takes 45% / 55% from the two families. It is not
+<li><strong>The PPN1 sentence.</strong> PPN1 takes 41% / 59% from the two families. It is not
 corroboration for the WG3 call.</li>
 <li><strong>Document <code>set_ppk25_glutamate = TRUE</code></strong>
 (<code>setup.R:95</code>) &mdash; an NT override on the group whose NT is the evidence. Reads as
@@ -1121,15 +1139,15 @@ every predicted <code>R</code> on this page is a connectome expectation, not a m
  <table>
   <tr><th>Target</th><th class="num">LgLG1a</th><th class="num">WG4</th><th class="num">LgLG1b</th>
       <th class="num">WG3</th><th class="num">ppk25+ share</th></tr>
-  <tr class="bad"><td>AN05B102a = PPN1</td><td class="num">5574</td><td class="num">524</td>
-      <td class="num">4650</td><td class="num">352</td><td class="num">45%</td></tr>
+  <tr class="bad"><td>AN05B102a = PPN1</td><td class="num">7951</td><td class="num">8138</td>
+      <td class="num">5397</td><td class="num">5701</td><td class="num">41%</td></tr>
   <tr class="hi"><td>AN05B023b</td><td class="num">6744</td><td class="num">4346</td>
       <td class="num">589</td><td class="num">398</td><td class="num">8%</td></tr>
   <tr class="hi"><td>AN05B023c</td><td class="num">246</td><td class="num">185</td>
       <td class="num">3545</td><td class="num">2154</td><td class="num">93%</td></tr>
  </table>
  <p>PPN1 takes near-equal input from both families &mdash; a convergent integrator, not a marker.
- The two families also interdigitate across its whole dendrite (KS <code>D &asymp; 0.11</code>).
+ The two families also interdigitate across its whole dendrite (KS <code>D &le; 0.08</code>).
  <em>That sentence in the draft needs rewriting regardless of everything else.</em></p>
 </section>
 

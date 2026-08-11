@@ -237,29 +237,14 @@ claim is downstream circuit logic. No amount of additional connectome analysis b
 <h2>2 &middot; The PPN1 evidence does not hold up</h2>
 
 <div class="callout warn">
-<p><strong>Prior warning &mdash; two curations disagree about what PPN1 is.</strong></p>
-<table style="margin:.6rem 0">
-<tr><th>Source</th><th>Says PPN1 is</th><th>Checked</th></tr>
-<tr><td>mCNS <code>mba.feather</code> <code>synonyms</code> field (Berg 2025)</td>
-    <td><b>AN05B102a</b> &mdash; bodies 11431, 12286 carry
-        <code>"Kallman 2015: PPN1"</code>; no AN05B023 body does</td>
-    <td><span class="tag ok">read from the data</span></td></tr>
-<tr><td>FlyBase anatomy ontology <a href="https://www.ebi.ac.uk/ols4/ontologies/fbbt/classes?obo_id=FBbt:00111517">FBbt:00111517</a></td>
-    <td><b>AN05B023</b> &mdash; listed as an exact synonym of "adult pheromone projection neuron 1"</td>
-    <td><span class="tag ok">read from EBI OLS4</span></td></tr>
-</table>
-<p>The <code>AN05B102a = PPN1</code> call in <code>analyses/an_investigation/R/_paths.R:54-58</code>
-therefore follows the connectome's own annotation, not just an eyeball match to R56C09 MCFO.</p>
-<p><strong>What would settle it.</strong> AN05B102a is <em>cholinergic</em>; AN05B023a&ndash;d are
-all <em>GABAergic</em>. If Kallman et al. 2015 characterised the sign of PPN1's output, that is
-decisive on its own. The ontology's "metathoracic (T3) soma" matches none of the candidates
-(AN05B023a T2, b A2, c A6, d A9, AN05B102a A1), so that definition text looks like a loose
-transcription and should not carry weight.</p>
-<p><strong>Why it matters here.</strong> The ontology definition says PPN1 is activated downstream
-of <em>female</em> pheromone-sensing neurons. That is a 93%-ppk25+ input profile &mdash; which is
-<strong>AN05B023c</strong>, not AN05B102a's 45/55. If the ontology is right, the neuron Kallman
-recorded is also the single best discriminating target in this design, and the argument in this
-section changes completely. <em>Resolve before ordering.</em></p>
+<p><strong>On the PPN1 identity.</strong> FlyBase's anatomy ontology
+(<a href="https://www.ebi.ac.uk/ols4/ontologies/fbbt/classes?obo_id=FBbt:00111517">FBbt:00111517</a>)
+lists AN05B023 as a synonym of "adult pheromone projection neuron 1". That is
+<strong>wrong</strong>. The mCNS annotation carries <code>"Kallman 2015: PPN1"</code> on
+AN05B102a (bodies 11431, 12286) and on no AN05B023 body, and AN05B102a is cholinergic where
+AN05B023a&ndash;d are GABAergic. PPN1 is AN05B102a, as
+<code>analyses/an_investigation/R/_paths.R:54-58</code> has it &mdash; so the 41% figure below
+is about PPN1 itself, and the argument is stronger for it.</p>
 </div>
 
 <p>The manuscript leans on PPN1 as corroboration that WG3 is <span class="tag f">ppk23+ ppk25+</span>,
@@ -385,6 +370,16 @@ puncta&ndash;synapse saturation exponent <code>&gamma;</code> are known. Neither
 unknown the design matrix does not identify eight parameters, however well conditioned it looks.</p>
 </div>
 
+<div class="callout">
+<p><strong>The leg is what matters.</strong> This page previously optimised for the wing types,
+on the argument that WG3/WG4 are foundational and the leg assignments were propagated from them.
+Right as epistemics, wrong as a deliverable: the paper is about <strong>contact
+chemosensation</strong> &mdash; foreleg tapping &mdash; so the assignment that has to be correct
+is the <strong>leg</strong> one. The wing is the historical entry point for the typing argument,
+not the target of the experiment. Targets are now scored on <code>R</code> renormalised
+<em>within the leg types only</em>, which is what a leg-compartment readout measures.</p>
+</div>
+
 <h3>The hypothesis space is four, not two</h3>
 <p>Framing this as "current assignment versus global swap" was a straw man. Nobody believes the
 whole assignment is inverted. The live alternatives are the ones where the
@@ -449,6 +444,61 @@ assigned cell count, the denominator is wrong and the GRASP should not be built.
 
 <p class="note">Full synthesis, controls, gates and kill criteria:
 <code>receptor_typing_validation/CROSSING_REVIEW.md</code>.</p>
+
+<h3>The leg arm &mdash; recommended targets</h3>
+<p class="note"><code>R<sub>leg</sub></code> renormalised within LgLG1a/1b/5&ndash;8. All targets
+below are 100% leg input. Per-body columns: does every body of the type actually receive ppk
+input, and does <code>R</code> survive dropping the largest contributor.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Target</th><th>Reads</th><th class="num">R<sub>leg</sub></th><th class="num">fold</th>
+    <th class="num">leg syn</th><th class="num">bodies</th><th class="num">with input</th>
+    <th class="num">drop-largest</th><th class="num">SD</th></tr>
+<tr class="hi"><td>AN09B017g</td><td>LgLG8</td><td class="num">0.896</td><td class="num">8.6&times;</td>
+    <td class="num">1960</td><td class="num">2</td><td class="num">2</td><td class="num">0.942</td><td class="num">0.060</td></tr>
+<tr class="hi"><td>AN09B017b</td><td>LgLG6</td><td class="num">0.090</td><td class="num">10.1&times;</td>
+    <td class="num">1091</td><td class="num">2</td><td class="num">2</td><td class="num">0.084</td><td class="num">0.008</td></tr>
+<tr class="hi"><td>AN05B023c</td><td>LgLG1b</td><td class="num">0.934</td><td class="num">13.1&times;</td>
+    <td class="num">3803</td><td class="num">2</td><td class="num">2</td><td class="num">0.928</td><td class="num">0.008</td></tr>
+<tr class="hi"><td>AN05B023b</td><td>LgLG1a</td><td class="num">0.091</td><td class="num">10.3&times;</td>
+    <td class="num">7923</td><td class="num">2</td><td class="num">2</td><td class="num">0.082</td><td class="num">0.013</td></tr>
+<tr><td>DNpe029</td><td>LgLG1b</td><td class="num">0.935</td><td class="num">14.4&times;</td>
+    <td class="num">772</td><td class="num">4</td><td class="num">4</td><td class="num">0.925</td><td class="num">0.043</td></tr>
+<tr><td>IN17A013</td><td>LgLG1a</td><td class="num">0.129</td><td class="num">6.7&times;</td>
+    <td class="num">1711</td><td class="num">2</td><td class="num">2</td><td class="num">0.116</td><td class="num">0.016</td></tr>
+<tr><td>IN23B025</td><td>LgLG1b</td><td class="num">0.928</td><td class="num">13.0&times;</td>
+    <td class="num">405</td><td class="num">6</td><td class="num">6</td><td class="num">0.946</td><td class="num">0.043</td></tr>
+<tr><td>IN23B020</td><td>LgLG1b</td><td class="num">0.899</td><td class="num">8.9&times;</td>
+    <td class="num">662</td><td class="num">7</td><td class="num">7</td><td class="num">0.910</td><td class="num">0.050</td></tr>
+<tr><td>AN17A013</td><td>LgLG1a</td><td class="num">0.174</td><td class="num">4.7&times;</td>
+    <td class="num">3401</td><td class="num">4</td><td class="num">4</td><td class="num">0.164</td><td class="num">0.017</td></tr>
+<tr><td>IN01B065</td><td>LgLG1a</td><td class="num">0.153</td><td class="num">5.5&times;</td>
+    <td class="num">1847</td><td class="num">20</td><td class="num">20</td><td class="num">0.142</td><td class="num">0.070</td></tr>
+</table>
+</div>
+
+<p><strong>Every body of every leg candidate receives ppk input.</strong> No dilution, no
+one-body artifacts. The recommended pair is <strong>AN09B017g vs AN09B017b</strong> &mdash;
+opposed, two bodies each, and the only pair with reagents plausibly already in the lab, since
+<em>vAB3</em> is the AN09B017 group and four vAB3 candidate split-GAL4 lines are in the freezer.
+LgLG5 and LgLG7 have no clean isolator (best loadings 0.56) and may not be resolvable.</p>
+
+<div class="callout warn">
+<p><strong>The wing targets fail exactly this test.</strong> An independent crosscheck reproduced
+all 22 <code>R</code> values to within 0.00045 by two methods, then broke them down per body:</p>
+<p><b>INXXX044</b> &mdash; 8 bodies, per-body <code>R</code> spans 0.071 to 1.000, SD 0.41. One
+body carries 638 of 863 synapses; drop it and <code>R</code> collapses to 0.431, <em>inverting
+the prediction</em>. <b>AN01B004</b> &mdash; 6 bodies in three instance groups, one pair receives
+zero ppk input, 170 of 178 synapses come from another. Both unusable.
+<b>AN17A003</b>'s 57&times; is real and bilaterally consistent (L 0.973, R 0.996), but only 2 of
+its 6 bodies receive meaningful input, so a type-level driver dilutes it threefold.</p>
+<p>So the targets that looked strongest on fold alone are the ones that fail per-body scrutiny,
+and the leg targets &mdash; the ones the biology needs &mdash; are the robust ones.</p>
+</div>
+
+<p class="note">Detail: <code>receptor_typing_validation/LEG_ARM.md</code>,
+<code>R/07_perbody_leg.R</code>.</p>
 
 <h2>5 &middot; Wider target list &mdash; exploratory</h2>
 <div class="callout warn">

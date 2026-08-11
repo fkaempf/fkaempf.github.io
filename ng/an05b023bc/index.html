@@ -19,8 +19,9 @@
  th{font-weight:600;color:#555;font-size:.85rem;text-transform:uppercase;
     letter-spacing:.03em}
  th:nth-child(n+3),td:nth-child(n+3){text-align:right;font-variant-numeric:tabular-nums}
- .legend{margin:1.25rem 0 0;padding:0;list-style:none;font-size:.9rem}
- .legend li{margin:.15rem 0}
+ .legend{margin:1.25rem 0 0;padding:0;list-style:none;font-size:.85rem;
+         display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;align-items:center}
+ .legend li{margin:0;white-space:nowrap}
  .legend .bi{color:#666;font-size:.85rem}
  h2{font-size:1.05rem;margin:2.75rem 0 .35rem;font-weight:600}
  p.note{color:#555;margin:0 0 1.25rem;font-size:.92rem}
@@ -51,6 +52,24 @@
  #tip{position:fixed;pointer-events:none;background:#161b22;color:#e8edf4;
       border:1px solid #30363d;border-radius:6px;padding:.3rem .5rem;
       font:12px system-ui,sans-serif;opacity:0;transition:opacity .1s;z-index:9}
+ table.billy{border-collapse:collapse;width:auto;max-width:26rem;
+             margin:.25rem 0 .5rem;font-size:.8rem}
+ table.billy th{font-size:.68rem;padding:.2rem .55rem;letter-spacing:.02em}
+ table.billy td{padding:.3rem .55rem;border-bottom:1px solid rgba(0,0,0,.1);
+                vertical-align:middle;white-space:normal;line-height:1.35}
+ table.billy tr.m    td{background:#fbf6cf}
+ table.billy tr.both td{background:#f6efd6}
+ table.billy tr.f    td{background:#f7dfe3}
+ table.billy .rec,table.billy .det{color:#2b2b2b;text-align:left;font-size:.8rem}
+ .ty{display:block;font-size:.78rem;color:#2b2b2b;line-height:1.45;
+      padding-left:.4rem;box-shadow:inset 2px 0 0 transparent}
+ .ty.used{font-weight:700;box-shadow:inset 2px 0 0 #0b5fa5}
+ .grp{border:1px dashed #9a9a9a;border-radius:4px;padding:.12rem .3rem;
+      margin-bottom:.15rem;display:flex;align-items:center;gap:.4rem}
+ .grp-lbl{font-size:.7rem;color:#555;white-space:nowrap}
+ @media (prefers-color-scheme:dark){
+  table.billy td{border-bottom-color:rgba(255,255,255,.1)}
+ }
  .sw{display:inline-block;width:.7rem;height:.7rem;border-radius:2px;
      margin-right:.35rem;vertical-align:-1px}
  @media (prefers-color-scheme:dark){
@@ -58,6 +77,7 @@
   a{color:#6fb3ef} .big{border-color:#333} .big b{color:#6fb3ef}
   .big:hover{border-color:#6fb3ef;background:#1b2430}
   th,td{border-bottom-color:#2a2a2a} th,.legend,p.sub{color:#aaa}
+  p.note{color:#c2c8d2}
   /* the page is already dark, so the figures need no card of their own -
      without this the panel ground reads as a second, slightly different black */
   .figs{background:transparent;padding-left:0;padding-right:0}
@@ -87,6 +107,19 @@ the exact value.</p>
 <p class="note" style="margin-top:.6rem">Every type here receives T1 input on both sides.</p>
 <script id="figdata" type="application/json">{"rows":["WG3","WG4","LgLG1a","LgLG1b"],"cols":["b","c"],"family":"AN05B023","alias":["",""],"tree":{"segs":[{"x1":1,"y1":0,"x2":1,"y2":1.873984},{"x1":2,"y1":0,"x2":2,"y2":1.873984},{"x1":1,"y1":1.873984,"x2":2,"y2":1.873984}],"maxh":1.873984},"panels":[{"key":"raw","title":"Raw synapse count","sub":"absolute wiring strength","unit":"syn","values":[[398,2154],[4346,185],[6744,246],[589,3545]]},{"key":"norm","title":"Fraction of total input","sub":"counting every source, not just these","unit":"pct","values":[[0.022971,0.197181],[0.250837,0.016935],[0.389242,0.022519],[0.033995,0.324515]]},{"key":"comp","title":"Composition","sub":"each column sums to 1","unit":"pct","values":[[0.032955,0.351387],[0.359858,0.030179],[0.558417,0.040131],[0.04877,0.578303]]}]}</script>
 
+<h2>Receptor assignment</h2>
+<p class="note"><b>Billy&rsquo;s assignment, reproduced here.</b> This is a
+light-level receptor-to-type call and is not derived from any of the
+connectivity on this page. Types outlined below are the ones used as focus
+inputs here; the rest are shown for completeness.</p>
+
+<table class="billy">
+<tr><th>Receptor</th><th>Detects</th><th>mCNS type</th></tr>
+<tr class="m"><td class="rec"><i>ppk23+</i></td><td class="det">Males</td><td><div class="grp"><div class="grp-items"><span class="ty used">LgLG1a</span><span class="ty">LgLG6</span><span class="ty">LgLG7</span></div><div class="grp-lbl">M cells</div></div><span class="ty used">WG4</span></td></tr>
+<tr class="both"><td class="rec"><i>Ir52a+;Ir52b+<br>Gr33a+</i></td><td class="det">Both</td><td><span class="ty">LgLG2</span><span class="ty">WG1</span><span class="ty">LgAG1</span></td></tr>
+<tr class="f"><td class="rec"><i>ppk23+;ppk25+</i></td><td class="det">Females</td><td><div class="grp"><div class="grp-items"><span class="ty used">LgLG1b</span><span class="ty">LgLG5</span><span class="ty">LgLG8</span></div><div class="grp-lbl">F cells</div></div><span class="ty used">WG3</span></td></tr>
+</table>
+
 <h2>Scenes</h2>
 
 <table id="scenes">
@@ -112,7 +145,9 @@ the exact value.</p>
 (function () {
   var D = JSON.parse(document.getElementById("figdata").textContent);
   var NS = "http://www.w3.org/2000/svg";
-  var CW = 34, CH = 24, TREE = 30, PADL = 8, PADT = 4, LBLW = 46, LBLH = 28;
+  // CW == CH so the cells stay square at any rendered size: the viewBox scales
+  // uniformly, so a square here is a square on screen
+  var CW = 30, CH = 30, TREE = 30, PADL = 8, PADT = 4, LBLW = 46, LBLH = 28;
 
   // viridis, sampled - reads well on a dark ground at both ends
   var RAMP = ["#440154","#472d7b","#3b528b","#2c728e","#21918c",

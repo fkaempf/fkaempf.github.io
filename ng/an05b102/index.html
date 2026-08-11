@@ -25,6 +25,24 @@
  .legend .bi{color:#666;font-size:.85rem}
  h2{font-size:1.05rem;margin:2.75rem 0 .35rem;font-weight:600}
  p.note{color:#555;margin:0 0 1.25rem;font-size:.92rem}
+ p.reflink{margin-top:.5rem}
+ .mcfo{display:flex;gap:.7rem;align-items:flex-start;justify-content:center;
+        margin:.5rem 0 1.6rem}
+ .mcfo figure{margin:0;min-width:0}
+ .mcfo .box{display:block;position:relative;width:100%;overflow:hidden;
+            background:#000;border:1px solid #d8d8d8;border-radius:7px}
+ .mcfo .box img{display:block;width:100%;height:auto}
+ .mcfo .ngbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0;
+                     display:block}
+ .mcfo .box.rot img{position:absolute;top:50%;left:50%;height:auto;
+                    transform:translate(-50%,-50%) rotate(90deg)}
+ .mcfo figcaption{color:#666;font-size:.72rem;margin-top:.3rem;line-height:1.3}
+ @media (prefers-color-scheme:dark){
+  .mcfo .box{border-color:#333} .mcfo figcaption{color:#9aa3b0}
+ }
+ .reftag{display:inline-block;margin-right:.45rem;padding:0 .35rem;border-radius:4px;
+         background:#0b5fa5;color:#fff;font-size:.68rem;font-weight:600;
+         text-transform:uppercase;letter-spacing:.04em;vertical-align:1px}
  /* the plots keep their own dark ground in both colour schemes, to match the
     neuroglancer scenes they describe */
  .figs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
@@ -104,9 +122,9 @@ they share one dendrogram, and only the colour scale changes. Hover a cell for
 the exact value.</p>
 
 <div id="figs" class="figs"></div>
-<p class="note" style="margin-top:.6rem">Unilateral in T1: AN05B102b, AN05B102c. All other types receive T1 input on both sides. <b>AN05B102a</b> is recorded in the maleCNS <code>synonyms</code> annotation as PPN1 (Kallman 2015). <a href="https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?line=R56C09" rel="noopener">Gen1 MCFO: R56C09</a> &ndash; the line used for PPN1 in Kallman et al. 2015.</p>
+<p class="note" style="margin-top:.6rem">Unilateral in T1: AN05B102b, AN05B102c. All other types receive T1 input on both sides. <b>AN05B102a</b> is recorded in the maleCNS <code>synonyms</code> annotation as PPN1 (Kallman 2015).</p><p class="note reflink"><span class="reftag">ref</span><a href="https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?line=R56C09" rel="noopener">Gen1 MCFO: R56C09</a> &ndash; the line used for PPN1 in <a href="https://elifesciences.org/articles/11188" rel="noopener">Kallman et al. 2015</a>. The labelled morphology looks like <b>AN05B102a</b>.</p>
 <script id="figdata" type="application/json">{"rows":["WG3","WG4","LgLG1a","LgLG1b","WG1","LgLG2"],"cols":["d","c","a","b"],"family":"AN05B102","alias":["","","PPN1",""],"tree":{"segs":[{"x1":3,"y1":0,"x2":3,"y2":0.027263},{"x1":4,"y1":0,"x2":4,"y2":0.027263},{"x1":3,"y1":0.027263,"x2":4,"y2":0.027263},{"x1":2,"y1":0,"x2":2,"y2":0.074669},{"x1":3.5,"y1":0.027263,"x2":3.5,"y2":0.074669},{"x1":2,"y1":0.074669,"x2":3.5,"y2":0.074669},{"x1":1,"y1":0,"x2":1,"y2":2.311767},{"x1":2.75,"y1":0.074669,"x2":2.75,"y2":2.311767},{"x1":1,"y1":2.311767,"x2":2.75,"y2":2.311767}],"maxh":2.311767},"panels":[{"key":"raw","title":"Raw synapse count","sub":"absolute wiring strength","unit":"syn","values":[[170,1731,5701,829],[22,4166,8138,1852],[67,5236,7951,1846],[140,1820,5397,1229],[2327,119,184,11],[2296,70,44,18]]},{"key":"norm","title":"Fraction of total input","sub":"counting every source, not just these","unit":"pct","values":[[0.017276,0.090137,0.146052,0.090909],[0.002236,0.216934,0.208485,0.203092],[0.006809,0.272652,0.203694,0.202434],[0.014228,0.094772,0.138264,0.134774],[0.236484,0.006197,0.004714,0.001206],[0.233333,0.003645,0.001127,0.001974]]},{"key":"comp","title":"Composition","sub":"each column sums to 1","unit":"pct","values":[[0.033851,0.131715,0.207952,0.143302],[0.004381,0.316999,0.296845,0.320138],[0.013341,0.398417,0.290024,0.319101],[0.027877,0.138487,0.196863,0.212446],[0.463361,0.009055,0.006712,0.001901],[0.457188,0.005326,0.001605,0.003111]]}]}</script>
-<h2>Receptor assignment</h2>
+<div class="mcfo"><figure style="flex:1.001"><a class="box" style="aspect-ratio:1.001" href="https://s3.amazonaws.com/janelia-flylight-imagery/Gen1+MCFO/R56C09/R56C09-20190730_61_F1-m-40x-prothoracic-GAL4-multichannel_mip.png" rel="noopener"><img src="https://s3.amazonaws.com/janelia-flylight-imagery/Gen1+MCFO/R56C09/R56C09-20190730_61_F1-m-40x-prothoracic-GAL4-multichannel_mip.png" alt="Prothoracic, multichannel MIP" loading="lazy"></a><figcaption>Prothoracic, multichannel MIP</figcaption></figure><figure style="flex:1.953"><a class="box rot" style="aspect-ratio:1.953" href="https://s3.amazonaws.com/janelia-flylight-imagery/Gen1+MCFO/R56C09/R56C09-20190730_61_F1-m-40x-vnc-GAL4-JRC2018_VNC_Unisex-aligned_stack.png" rel="noopener"><img src="https://s3.amazonaws.com/janelia-flylight-imagery/Gen1+MCFO/R56C09/R56C09-20190730_61_F1-m-40x-vnc-GAL4-JRC2018_VNC_Unisex-aligned_stack.png" alt="VNC, aligned to JRC2018 VNC Unisex" loading="lazy" style="width:51.21%"></a><figcaption>VNC, aligned to JRC2018 VNC Unisex</figcaption></figure><figure style="flex:2.138"><a class="box" style="aspect-ratio:2.138" href="https://s3.amazonaws.com/janelia-flylight-imagery/Gen1+MCFO/R56C09/R56C09-20190730_61_F1-m-40x-central-GAL4-JRC2018_Unisex_20x_HR-aligned_stack.png" rel="noopener"><img src="https://s3.amazonaws.com/janelia-flylight-imagery/Gen1+MCFO/R56C09/R56C09-20190730_61_F1-m-40x-central-GAL4-JRC2018_Unisex_20x_HR-aligned_stack.png" alt="Central brain, aligned to JRC2018 Unisex 20x HR" loading="lazy"></a><figcaption>Central brain, aligned to JRC2018 Unisex 20x HR</figcaption></figure><figure style="flex:1.35"><div class="box ngbox" style="aspect-ratio:1.35"><iframe src="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/an05b102_embed.json" loading="lazy" allowfullscreen title="AN05B102a 11431"></iframe></div><figcaption>AN05B102a 11431, interactive. <a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/an05b102_embed.json" rel="noopener">open full</a></figcaption></figure></div><h2>Receptor assignment</h2>
 <p class="note"><b>Billy&rsquo;s assignment, reproduced here.</b> This is a
 light-level receptor-to-type call and is not derived from any of the
 connectivity on this page. Types outlined below are the ones used as focus

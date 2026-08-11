@@ -14,10 +14,11 @@
  .big:hover{border-color:#0b5fa5;background:#f7fbff}
  .big b{color:#0b5fa5}
  table{border-collapse:collapse;width:100%}
- th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid #ececec}
+ th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid #ececec;
+       white-space:nowrap}
  th{font-weight:600;color:#555;font-size:.85rem;text-transform:uppercase;
     letter-spacing:.03em}
- td:nth-child(n+3){text-align:right;font-variant-numeric:tabular-nums}
+ th:nth-child(n+3),td:nth-child(n+3){text-align:right;font-variant-numeric:tabular-nums}
  .legend{margin:1.25rem 0 0;padding:0;list-style:none;font-size:.9rem}
  .legend li{margin:.15rem 0}
  .legend .bi{color:#666;font-size:.85rem}
@@ -25,14 +26,15 @@
  p.note{color:#555;margin:0 0 1.25rem;font-size:.92rem}
  /* the plots keep their own dark ground in both colour schemes, to match the
     neuroglancer scenes they describe */
- .figs{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;
-       background:#0b0e13;border:1px solid #20262f;border-radius:11px;padding:1rem}
+ .figs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+       background:#0b0e13;border-radius:11px;padding:1.4rem 1.2rem;justify-items:center;
+       width:min(1180px,94vw);position:relative;left:50%;transform:translateX(-50%)}
  @media (max-width:820px){.figs{grid-template-columns:1fr}}
- .pnl h3{margin:0 0 .1rem;font-size:.82rem;font-weight:600;color:#e8edf4}
- .pnl p{margin:0 0 .5rem;font-size:.72rem;color:#8b95a5}
+ .pnl{width:100%}
+ .pnl h3{margin:0 0 .1rem;font-size:.9rem;font-weight:600;color:#e8edf4}
+ .pnl p{margin:0 0 .6rem;font-size:.76rem;color:#8b95a5}
  .pnl{display:flex;flex-direction:column;align-items:center;text-align:center}
- .pnl svg{display:block;width:100%;max-width:320px;height:auto;overflow:visible}
- .figs{justify-items:center}
+ .pnl svg{display:block;width:100%;height:auto;overflow:visible}
  #scenes th{cursor:pointer;user-select:none}
  #scenes th:hover{color:#0b5fa5}
  #scenes th.sorted::after{content:" \2195";font-size:.8em;opacity:.6}
@@ -40,6 +42,11 @@
  .pnl .cell:hover{stroke:#fff;stroke-width:1.5}
  .lbl{fill:#c3cbd8;font:10px system-ui,sans-serif}
  .lbl.dim{fill:#7d8798}
+ .lbl.alias-lbl{fill:#ffd166;font-weight:600}
+ .lbl.sm{font-size:8px;font-weight:400}
+ .alias{display:inline-block;margin-left:.35rem;padding:0 .3rem;border-radius:4px;
+        background:#ffd166;color:#3a2f00;font-size:.72rem;font-weight:600;
+        vertical-align:1px}
  .tree{stroke:#5b6675;fill:none;stroke-width:1}
  #tip{position:fixed;pointer-events:none;background:#161b22;color:#e8edf4;
       border:1px solid #30363d;border-radius:6px;padding:.3rem .5rem;
@@ -51,6 +58,10 @@
   a{color:#6fb3ef} .big{border-color:#333} .big b{color:#6fb3ef}
   .big:hover{border-color:#6fb3ef;background:#1b2430}
   th,td{border-bottom-color:#2a2a2a} th,.legend,p.sub{color:#aaa}
+  /* the page is already dark, so the figures need no card of their own -
+     without this the panel ground reads as a second, slightly different black */
+  .figs{background:transparent;padding-left:0;padding-right:0}
+  .pnl .cell{stroke:#141414}
  }
 </style>
 <h1>AN05B023b/c sensory input</h1>
@@ -74,7 +85,7 @@ the exact value.</p>
 
 <div id="figs" class="figs"></div>
 <p class="note" style="margin-top:.6rem">Every type here receives T1 input on both sides.</p>
-<script id="figdata" type="application/json">{"rows":["WG3","WG4","LgLG1a","LgLG1b"],"cols":["b","c"],"family":"AN05B023","tree":{"segs":[{"x1":1,"y1":0,"x2":1,"y2":1.873984},{"x1":2,"y1":0,"x2":2,"y2":1.873984},{"x1":1,"y1":1.873984,"x2":2,"y2":1.873984}],"maxh":1.873984},"panels":[{"key":"raw","title":"Raw synapse count","sub":"absolute wiring strength","unit":"syn","values":[[398,2154],[4346,185],[6744,246],[589,3545]]},{"key":"norm","title":"Fraction of total input","sub":"counting every source, not just these","unit":"pct","values":[[0.022971,0.197181],[0.250837,0.016935],[0.389242,0.022519],[0.033995,0.324515]]},{"key":"comp","title":"Composition","sub":"each column sums to 1","unit":"pct","values":[[0.032955,0.351387],[0.359858,0.030179],[0.558417,0.040131],[0.04877,0.578303]]}]}</script>
+<script id="figdata" type="application/json">{"rows":["WG3","WG4","LgLG1a","LgLG1b"],"cols":["b","c"],"family":"AN05B023","alias":["",""],"tree":{"segs":[{"x1":1,"y1":0,"x2":1,"y2":1.873984},{"x1":2,"y1":0,"x2":2,"y2":1.873984},{"x1":1,"y1":1.873984,"x2":2,"y2":1.873984}],"maxh":1.873984},"panels":[{"key":"raw","title":"Raw synapse count","sub":"absolute wiring strength","unit":"syn","values":[[398,2154],[4346,185],[6744,246],[589,3545]]},{"key":"norm","title":"Fraction of total input","sub":"counting every source, not just these","unit":"pct","values":[[0.022971,0.197181],[0.250837,0.016935],[0.389242,0.022519],[0.033995,0.324515]]},{"key":"comp","title":"Composition","sub":"each column sums to 1","unit":"pct","values":[[0.032955,0.351387],[0.359858,0.030179],[0.558417,0.040131],[0.04877,0.578303]]}]}</script>
 
 <h2>Scenes</h2>
 
@@ -101,7 +112,7 @@ the exact value.</p>
 (function () {
   var D = JSON.parse(document.getElementById("figdata").textContent);
   var NS = "http://www.w3.org/2000/svg";
-  var CW = 34, CH = 24, TREE = 30, PADL = 8, PADT = 4, LBLW = 46, LBLH = 16;
+  var CW = 34, CH = 24, TREE = 30, PADL = 8, PADT = 4, LBLW = 46, LBLH = 28;
 
   // viridis, sampled - reads well on a dark ground at both ends
   var RAMP = ["#440154","#472d7b","#3b528b","#2c728e","#21918c",
@@ -178,7 +189,8 @@ the exact value.</p>
         var c = el("rect", { x: LBLW + j * CW, y: TREE + PADT + i * CH,
                              width: CW, height: CH, "class": "cell", fill: colour(v / max) });
         c.addEventListener("mousemove", function (e) {
-          tip.textContent = D.rows[i] + " → " + D.family + D.cols[j] + "  " + fmt(v, P.unit);
+          var al = D.alias && D.alias[j] ? " (" + D.alias[j] + ")" : "";
+          tip.textContent = D.rows[i] + " → " + D.family + D.cols[j] + al + "  " + fmt(v, P.unit);
           tip.style.opacity = 1;
           tip.style.left = (e.clientX + 12) + "px";
           tip.style.top  = (e.clientY + 12) + "px";
@@ -193,8 +205,15 @@ the exact value.</p>
                                    "text-anchor": "end", "class": "lbl" })).textContent = r;
     });
     D.cols.forEach(function (c, j) {
+      var al = D.alias && D.alias[j];
       svg.appendChild(el("text", { x: LBLW + j * CW + CW / 2, y: TREE + PADT + nr * CH + 12,
-                                   "text-anchor": "middle", "class": "lbl dim" })).textContent = c;
+                                   "text-anchor": "middle",
+                                   "class": al ? "lbl alias-lbl" : "lbl dim" })).textContent = c;
+      if (al) {
+        svg.appendChild(el("text", { x: LBLW + j * CW + CW / 2, y: TREE + PADT + nr * CH + 22,
+                                     "text-anchor": "middle", "class": "lbl alias-lbl sm" }))
+           .textContent = al;
+      }
     });
 
     wrap.appendChild(svg);

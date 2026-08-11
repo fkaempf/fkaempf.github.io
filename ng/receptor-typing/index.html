@@ -277,13 +277,13 @@ GRASP test gives the measurements.</p>
    <text x="60" y="125" fill="#8b95a5" text-anchor="middle" font-size="11.5">LgLG5&ndash;8</text>
   </g>
 
-  <text x="250" y="26" fill="#8b95a5" font-size="11" letter-spacing=".06em">CONNECTOME C &mdash; known</text>
-  <rect x="250" y="40" width="118" height="94" rx="8" fill="#12181f" stroke="#2f3843"/>
+  <text x="248" y="26" fill="#8b95a5" font-size="11" letter-spacing=".06em">CONNECTOME C &mdash; known</text>
+  <rect x="248" y="40" width="164" height="94" rx="8" fill="#12181f" stroke="#2f3843"/>
   <g font="10px ui-monospace,monospace" fill="#6fb3ef" text-anchor="middle">
-   <text x="279" y="60">6744</text><text x="309" y="60">4346</text><text x="339" y="60">589</text>
-   <text x="279" y="80">246</text><text x="309" y="80">185</text><text x="339" y="80">3545</text>
-   <text x="279" y="100">0</text><text x="309" y="100">1540</text><text x="339" y="100">0</text>
-   <text x="279" y="120">1246</text><text x="309" y="120">0</text><text x="339" y="120">642</text>
+   <text x="288" y="60">6744</text><text x="330" y="60">4346</text><text x="372" y="60">589</text>
+   <text x="288" y="80">246</text><text x="330" y="80">185</text><text x="372" y="80">3545</text>
+   <text x="288" y="100">0</text><text x="330" y="100">1540</text><text x="372" y="100">0</text>
+   <text x="288" y="120">1246</text><text x="330" y="120">0</text><text x="372" y="120">642</text>
   </g>
 
   <text x="470" y="26" fill="#8b95a5" font-size="11" letter-spacing=".06em">TARGETS &mdash; measured R</text>
@@ -300,7 +300,7 @@ GRASP test gives the measurements.</p>
   </g>
 
   <path d="M110 87 H244" stroke="#8b95a5" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
-  <path d="M372 87 H464" stroke="#8b95a5" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
+  <path d="M416 87 H464" stroke="#8b95a5" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
 
   <rect x="90" y="176" width="540" height="46" rx="9" fill="#12181f" stroke="#2f3843"/>
   <text x="360" y="196" fill="#e8edf4" text-anchor="middle" font-size="14"
@@ -330,10 +330,16 @@ cannot compare two different target neurons directly.</p>
 <h2>4 &middot; What the test can show</h2>
 
 <div class="callout warn">
-<p><strong>You cannot find all eight receptor types one by one.</strong> A linear method looks
-correct. It gives rank 8 and a condition number of 2.5. But the method needs the factor k and
-the saturation exponent. You do not know these two values. Thus the method does not give eight
-independent answers.</p>
+<p><strong>The test cannot give you all eight receptor types one by one.</strong></p>
+<p>You can write one equation for each target neuron. With eight target neurons you get eight
+equations. Eight equations and eight unknown receptor types look sufficient. The mathematics
+agrees: the equations are independent, and the condition number is 2.5, which is good.</p>
+<p>But each equation has two more unknown values in it. The first is the factor k. The second
+tells you how the puncta count changes when the number of synapses is very high. You do not know
+either value. Thus you have eight equations and ten unknown values. Eight equations cannot give
+ten answers.</p>
+<p>Therefore ask a smaller question. Ask if the wing types are correct, and ask if the leg types
+are correct. Two questions need only two measurements.</p>
 </div>
 
 <h3>There are four possible answers, not two</h3>
@@ -408,9 +414,9 @@ work. The wing types are not the goal of the test.</p>
     <td class="num">10.3</td><td class="num">7923</td><td class="num">2</td><td class="num">0.013</td></tr>
 <tr class="hi"><td>IN17A013</td><td>17A</td><td>LgLG1a</td><td class="num">0.129</td>
     <td class="num">6.7</td><td class="num">1711</td><td class="num">2</td><td class="num">0.016</td><td><a href="https://neuronbridge.janelia.org/search?q=IN17A013">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=800380">nP</a></td></tr>
-<tr class="bad"><td>AN09B017g <span class="tag warn">no line</span></td><td>09B</td><td>LgLG8</td><td class="num">0.896</td>
+<tr class="bad"><td>AN09B017g <span class="tag warn">needs MCFO</span></td><td>09B</td><td>LgLG8</td><td class="num">0.896</td>
     <td class="num">8.6</td><td class="num">1960</td><td class="num">2</td><td class="num">0.060</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017g">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=922722">nP</a></td></tr>
-<tr class="bad"><td>AN09B017b <span class="tag warn">no line</span></td><td>09B</td><td>LgLG6</td><td class="num">0.090</td>
+<tr class="bad"><td>AN09B017b <span class="tag warn">needs MCFO</span></td><td>09B</td><td>LgLG6</td><td class="num">0.090</td>
     <td class="num">10.1</td><td class="num">1091</td><td class="num">2</td><td class="num">0.008</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017b">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=16747">nP</a></td></tr>
 </table>
 </div>
@@ -419,11 +425,13 @@ work. The wing types are not the goal of the test.</p>
 <p>Every body of every neuron in this table gets ppk synapses. No single body controls the
 result. Two rules remove some of these neurons:</p>
 <ul class="steps">
-<li>It is difficult to find a driver line for the AN09B017 neurons. The vAB3 split-GAL4 lines
-in the laboratory do not show one AN09B017 neuron alone.</li>
-<li>This is worse than no line. The AN09B017 neurons have R values from 0.090 to 0.896. A line
-that shows the full group gives an R value near 0.35. Then the test does not work.</li>
-<li>Do not use AN09B017b or AN09B017g.</li>
+<li>The laboratory has four vAB3 split-GAL4 lines. These lines possibly show the AN09B017
+neurons. But there is no MCFO imagery for them. Thus nobody knows which neuron each line
+shows.</li>
+<li>You must make the MCFO imagery yourself. Do this before you use these lines.</li>
+<li>The risk is high. The AN09B017 neurons have R values from 0.090 to 0.896. A line that shows
+more than one of these neurons gives an R value near 0.35. This result looks like a true
+negative. Thus a line that you do not characterise is worse than no line.</li>
 </ul>
 
 <div class="callout">
@@ -432,6 +440,9 @@ the LgLG1a and LgLG1b pair. Use IN23B025 and IN23B011. One hemilineage makes the
 driver lines more easy.</p>
 <p><strong>IN17A013 is also good for the LgLG1a side.</strong> It has an R value of 0.129 and
 1711 leg synapses in two bodies.</p>
+<p><strong>The AN09B017 pair stays possible.</strong> AN09B017b and AN09B017g give R values of
+0.090 and 0.896. The four vAB3 lines in the laboratory possibly show them. First make the MCFO
+imagery. Then you know if one line shows one neuron.</p>
 <p><strong>Look at DNpe029 first.</strong> DNpe029 is a descending neuron. The Namiki and Card
 split-GAL4 collection has many descending neurons. Thus you can possibly find this driver line
 more quickly.</p>
@@ -486,56 +497,63 @@ other stock. This one fact controls all the crosses below.</p>
     <td>2 and 3</td><td>In the laboratory. Remove the insert on chromosome 3.</td></tr>
 <tr class="hi"><td>ppk23-LexA</td><td>Dickson laboratory, GJ1472</td><td>2</td>
     <td>In the laboratory. Remove the 22B10-GAL4 transgene.</td></tr>
+<tr><td>ppk23-LexA, second construct</td>
+    <td><a href="https://flybase.org/reports/FBtp0158874">FBtp0158874</a></td><td>Not reported</td>
+    <td>A different construct, from Vernier et al. 2023. No stock centre has it. Ask the authors.</td></tr>
 <tr class="hi"><td>R56C09-lexA</td><td><a href="https://bdsc.indiana.edu/stocks/53584">BDSC 53584</a></td>
     <td>2</td><td>In the laboratory</td></tr>
 <tr class="hi"><td>t-GRASP, UAS pre and LexAop post</td>
     <td><a href="https://bdsc.indiana.edu/stocks/79040">BDSC 79040</a></td><td>3</td>
     <td>In the laboratory</td></tr>
-<tr class="hi"><td>t-GRASP, LexAop pre and UAS post</td><td>BDSC 79039</td><td>3</td>
+<tr class="hi"><td>t-GRASP, LexAop pre and UAS post</td><td><a href="https://bdsc.indiana.edu/stocks/79039">BDSC 79039</a></td><td>3</td>
     <td>In the laboratory</td></tr>
-<tr class="bad"><td>ppk25-LexA</td><td>&mdash;</td><td>&mdash;</td><td>Does not exist. You must make it.</td></tr>
+<tr class="bad"><td>ppk25-LexA</td><td>&mdash;</td><td>&mdash;</td><td>Does not exist. FlyBase has no ppk25 LexA, QF or split-GAL4 driver. You must make it.</td></tr>
 <tr class="bad"><td>R56C09-GAL4</td><td>BDSC 39145</td><td>3</td><td>Do not use. Chromosome 3 is full.</td></tr>
 </table>
 </div>
 
 <figure class="dark-fig">
-<svg viewBox="0 0 720 250" role="img" aria-label="Chromosome landing sites">
+<svg viewBox="0 0 720 302" role="img" aria-label="Chromosome landing sites">
 <g font="11px system-ui,sans-serif">
-<text x="136" y="76" fill="#e8edf4" text-anchor="end" font-size="12" font-weight="600">chr 2</text>
-<rect x="150" y="67" width="470" height="10" rx="5" fill="#1b2430" stroke="#2f3843"/>
-<line x1="282" y1="77" x2="282" y2="90" stroke="#6fb3ef" stroke-width="1.4"/>
-<circle cx="282" cy="72" r="4" fill="#6fb3ef"/>
-<text x="289" y="102" fill="#6fb3ef" text-anchor="start" font-size="11">R56C09-lexA  BDSC 53584</text>
-<text x="289" y="115" fill="#6b7280" text-anchor="start" font-size="9.5">attP40 25C6</text>
-<line x1="423" y1="77" x2="423" y2="90" stroke="#e8a33d" stroke-width="1.4"/>
-<circle cx="423" cy="72" r="4" fill="#e8a33d"/>
-<text x="430" y="102" fill="#e8a33d" text-anchor="start" font-size="11">ppk23-GAL4  BDSC 93026</text>
-<text x="430" y="115" fill="#6b7280" text-anchor="start" font-size="9.5">random P</text>
-<line x1="526" y1="77" x2="526" y2="90" stroke="#d4607a" stroke-width="1.4"/>
-<circle cx="526" cy="72" r="4" fill="#d4607a"/>
-<text x="519" y="102" fill="#d4607a" text-anchor="end" font-size="11">ppk25-GAL4 }2  BDSC 93028</text>
-<text x="519" y="115" fill="#6b7280" text-anchor="end" font-size="9.5">random P</text>
-<text x="136" y="200" fill="#e8edf4" text-anchor="end" font-size="12" font-weight="600">chr 3</text>
-<rect x="150" y="191" width="470" height="10" rx="5" fill="#1b2430" stroke="#2f3843"/>
-<line x1="291" y1="191" x2="291" y2="178" stroke="#7ee787" stroke-width="1.4"/>
-<circle cx="291" cy="196" r="4" fill="#7ee787"/>
-<text x="298" y="174" fill="#7ee787" text-anchor="start" font-size="11">LexAop-post-t-GRASP  BDSC 79040</text>
-<text x="298" y="187" fill="#6b7280" text-anchor="start" font-size="9.5">attP2 68A4</text>
-<line x1="291" y1="191" x2="291" y2="159" stroke="#ff7b72" stroke-width="1.4"/>
-<circle cx="291" cy="196" r="4" fill="#ff7b72"/>
-<text x="298" y="155" fill="#ff7b72" text-anchor="start" font-size="11">R56C09-GAL4  BDSC 39145</text>
-<text x="298" y="168" fill="#6b7280" text-anchor="start" font-size="9.5">attP2 68A4</text>
-<line x1="488" y1="191" x2="488" y2="178" stroke="#7ee787" stroke-width="1.4"/>
-<circle cx="488" cy="196" r="4" fill="#7ee787"/>
-<text x="481" y="174" fill="#7ee787" text-anchor="end" font-size="11">UAS-pre-t-GRASP  BDSC 79040</text>
-<text x="481" y="187" fill="#6b7280" text-anchor="end" font-size="9.5">VK00027 89E11</text>
-<line x1="394" y1="191" x2="394" y2="178" stroke="#ff7b72" stroke-width="1.4"/>
-<circle cx="394" cy="196" r="4" fill="#ff7b72"/>
-<text x="401" y="174" fill="#ff7b72" text-anchor="start" font-size="11">ppk25-GAL4 }3  BDSC 93028</text>
-<text x="401" y="187" fill="#6b7280" text-anchor="start" font-size="9.5">random P</text>
-<text x="150" y="240" fill="#ff7b72" font-size="11">▲ both t-GRASP halves occupy chr 3 — R56C09-GAL4 and ppk25-GAL4}3 collide with them</text>
+<text x="98" y="48" fill="#e8edf4" text-anchor="end" font-size="12" font-weight="600">chr 2</text>
+<rect x="112" y="38" width="560" height="12" rx="6" fill="#1b2430" stroke="#2f3843"/>
+<circle cx="269" cy="44" r="5" fill="#6fb3ef"/>
+<circle cx="437" cy="44" r="5" fill="#e8a33d"/>
+<circle cx="560" cy="44" r="5" fill="#d4607a"/>
+<text x="98" y="108" fill="#e8edf4" text-anchor="end" font-size="12" font-weight="600">chr 3</text>
+<rect x="112" y="98" width="560" height="12" rx="6" fill="#1b2430" stroke="#2f3843"/>
+<circle cx="280" cy="104" r="5" fill="#7ee787"/>
+<circle cx="515" cy="104" r="5" fill="#7ee787"/>
+<circle cx="280" cy="104" r="5" fill="#ff7b72"/>
+<path d="M277 101 l6.4 6.4 M283 101 l-6.4 6.4" stroke="#0b0e13" stroke-width="1.4"/>
+<circle cx="403" cy="104" r="5" fill="#ff7b72"/>
+<path d="M400 101 l6.4 6.4 M406 101 l-6.4 6.4" stroke="#0b0e13" stroke-width="1.4"/>
+<text x="98" y="144" fill="#6b7280" text-anchor="end" font-size="9" letter-spacing=".06em">KEY</text>
+<rect x="112" y="136" width="10" height="10" rx="2.5" fill="#6fb3ef"/>
+<text x="130" y="144" fill="#e8edf4" font-size="11">R56C09-lexA &middot; BDSC 53584</text>
+<text x="672" y="144" fill="#6b7280" font-size="10" text-anchor="end">attP40, 25C6</text>
+<rect x="112" y="156" width="10" height="10" rx="2.5" fill="#e8a33d"/>
+<text x="130" y="164" fill="#e8edf4" font-size="11">ppk23-GAL4 &middot; BDSC 93026</text>
+<text x="672" y="164" fill="#6b7280" font-size="10" text-anchor="end">random insert</text>
+<rect x="112" y="176" width="10" height="10" rx="2.5" fill="#d4607a"/>
+<text x="130" y="184" fill="#e8edf4" font-size="11">ppk25-GAL4 &middot; BDSC 93028, chr 2 copy</text>
+<text x="672" y="184" fill="#6b7280" font-size="10" text-anchor="end">random insert</text>
+<rect x="112" y="196" width="10" height="10" rx="2.5" fill="#7ee787"/>
+<text x="130" y="204" fill="#e8edf4" font-size="11">LexAop-post-t-GRASP &middot; BDSC 79040</text>
+<text x="672" y="204" fill="#6b7280" font-size="10" text-anchor="end">attP2, 68A4</text>
+<rect x="112" y="216" width="10" height="10" rx="2.5" fill="#7ee787"/>
+<text x="130" y="224" fill="#e8edf4" font-size="11">UAS-pre-t-GRASP &middot; BDSC 79040</text>
+<text x="672" y="224" fill="#6b7280" font-size="10" text-anchor="end">VK00027, 89E11</text>
+<rect x="112" y="236" width="10" height="10" rx="2.5" fill="#ff7b72"/>
+<path d="M114.4 238.4 l5.2 5.2 M119.6 238.4 l-5.2 5.2" stroke="#0b0e13" stroke-width="1.3"/>
+<text x="130" y="244" fill="#8b95a5" font-size="11">R56C09-GAL4 &middot; BDSC 39145</text>
+<text x="672" y="244" fill="#6b7280" font-size="10" text-anchor="end">attP2, 68A4 &mdash; occupied</text>
+<rect x="112" y="256" width="10" height="10" rx="2.5" fill="#ff7b72"/>
+<path d="M114.4 258.4 l5.2 5.2 M119.6 258.4 l-5.2 5.2" stroke="#0b0e13" stroke-width="1.3"/>
+<text x="130" y="264" fill="#8b95a5" font-size="11">ppk25-GAL4 &middot; BDSC 93028, chr 3 copy</text>
+<text x="672" y="264" fill="#6b7280" font-size="10" text-anchor="end">random insert &mdash; must go</text>
 </g></svg>
-<figcaption>The positions of the transgenes.</figcaption>
+<figcaption>The positions of the transgenes. A cross marks an item that you cannot use, because the two t-GRASP halves already fill chromosome 3.</figcaption>
 </figure>
 
 <h3>Make the ppk23-LexA stock clean</h3>
@@ -558,11 +576,7 @@ Thus the two stocks must have the same number of inserts.</p>
 <p class="note"><strong>Warning.</strong> The two inserts have the same marker. Thus you must use
 PCR to show that you removed the insert on chromosome 3.</p>
 
-<div class="callout warn">
-<p><strong>Do not use vGlut-LexA in place of ppk25-LexA.</strong> Other groups did this, because
-ppk25-LexA does not exist. But glutamate is the evidence that this test must examine. Thus
-vGlut-LexA makes a new loop.</p>
-</div>
+
 
 <h2>7 &middot; All the target neurons</h2>
 <p class="note">This graph shows all the target neurons. The full circle gives R for the

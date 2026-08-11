@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset="utf-8">
-<title>Receptor typing - settling it experimentally</title>
+<title>Receptor types of contact chemosensory neurons</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <style>
@@ -141,38 +141,34 @@
 
 <div class="launch">
   <span class="pill">mCNS <code>male-cns:v1.0</code></span>
-  <button class="btn" id="start">Start pitch &rarr;</button>
+  <span class="pill">ASD-STE100</span>
 </div>
 
-<h1>Can we settle the receptor typing experimentally?</h1>
-<p class="sub">Turning the contact-chemosensory receptor assignment from an argument into a
-measurement. Male CNS connectome, <code>male-cns:v1.0</code>.</p>
-<p class="note">Working page &middot; Florian Kämpf &middot; last updated 11 August 2026 &middot;
-sits alongside <a href="../an05b102/">AN05B102</a>, <a href="../an05b023bc/">AN05B023b/c</a> and
+<h1>Receptor types of contact chemosensory neurons</h1>
+<p class="sub">A test to find the receptor type of each sensory neuron type.
+Male CNS connectome, <code>male-cns:v1.0</code>.</p>
+<p class="note">Working page &middot; Florian K&auml;mpf &middot; 11 August 2026 &middot;
+Related pages: <a href="../an05b102/">AN05B102</a>, <a href="../an05b023bc/">AN05B023b/c</a>,
 <a href="../an09b017/">AN09B017</a>.</p>
 
-<p class="lead">The receptor identity of the contact chemosensory neurons was assigned from
-their downstream partners. The paper's thesis is what those neurons do downstream. That is a
-loop, and it is the softest joint in the manuscript. This page lays out a way to cut it: treat
-the assignment as an <strong>inverse problem</strong> the connectome already specifies, and
-solve it with a GRASP measurement that the connectome cannot fake.</p>
-
 <div class="callout">
-<p><strong>Method.</strong> All numbers are computed from <code>male-cns:v1.0</code> fetched
-directly from neuPrint, <strong>unthresholded</strong>, and independently reproduced to within
-<code>|&Delta;R| &le; 0.00045</code> by two methods &mdash; <code>neuprintr</code> and raw Cypher
-aggregation. <code>weight</code> is a synapse count, verified against <code>n.downstream</code>
-for all 526 sensory bodies. Untyped downstream partners account for 0.38% of synapses and cannot
-bias any target's <code>R</code>.</p>
-<p>Do not use the repo's cached connectivity table for this: it is built with
-<code>fetch_connectivity(synapse_threshold&nbsp;=&nbsp;5)</code>
-(<code>R/data_processing.R:123</code>), which is right for path analysis but wrong for predicting
-GRASP puncta ratios, since GRASP reports weak contacts too. 63% of edges fall below that cut.</p>
+<p>This page uses ASD-STE100 Simplified Technical English. Sentences are short. The voice is
+active. Each term has one meaning.</p>
+<p>These Technical Names keep their usual meaning: neuron, synapse, connectome, receptor,
+sensory neuron, gustatory receptor neuron, ventral nerve cord, neuropil, hemilineage, GAL4,
+LexA, split-GAL4, GRASP, t-GRASP, puncta, ppk23, ppk25, and the cell type names
+(WG1 to WG4, LgLG1a to LgLG8, AN, IN and DN types).</p>
 </div>
 
-<h2>1 &middot; The loop</h2>
-<p class="note">How the current assignment was reached, and why it cannot then be used to
-validate downstream circuit logic.</p>
+<h2>1 &middot; The problem</h2>
+
+<p class="lead">A collaborator gave a receptor type to each sensory neuron type. He used the
+downstream partners of these neurons to do this. But the paper makes a claim about the same
+downstream partners. This is a loop.</p>
+
+<p>You cannot use the downstream partners two times. You cannot use them first to find the
+receptor type, and then again to show what the receptor type does. More connectome analysis
+does not break this loop. Only a measurement outside the connectome breaks it.</p>
 
 <figure class="dark-fig">
 <svg viewBox="0 0 720 220" role="img" aria-label="Circular reasoning diagram">
@@ -208,51 +204,36 @@ validate downstream circuit logic.</p>
     and wing&rarr;leg co-clustering &mdash; the weakest link of all.</text>
  </g>
 </svg>
-<figcaption>The assignment was derived from downstream connectivity; the manuscript's central
-claim is downstream circuit logic. No amount of additional connectome analysis breaks this.</figcaption>
+<figcaption>The loop. The receptor types come from the downstream partners. The paper then uses
+the same downstream partners to show the function.</figcaption>
 </figure>
 
-<h3>What is currently claimed</h3>
+<h3>The receptor types that we must test</h3>
 <div class="scroll">
 <table>
-<tr><th>Receptor call</th><th>Tuning</th><th>Wing types</th><th>Leg types</th><th>Rests on</th></tr>
-<tr><td><span class="tag f">ppk23+ ppk25+</span></td><td>7,11-HD &mdash; "F" cells</td>
-    <td>WG3</td><td>LgLG1b, LgLG5, LgLG8</td><td>glutamate prediction; PPN1 downstream</td></tr>
-<tr><td><span class="tag m">ppk23+ ppk25&minus;</span></td><td>7-T, cVA &mdash; "M" cells</td>
-    <td>WG4</td><td>LgLG1a, LgLG6, LgLG7</td><td>ACh prediction; mAL downstream</td></tr>
-<tr><td><span class="tag q">Ir52a+ Ir52b+</span></td><td>Ir52 clade</td>
-    <td>WG1</td><td>&mdash;</td><td>morphology; relative position</td></tr>
-<tr class="bad"><td><span class="tag warn">unassigned</span></td><td>&mdash;</td>
-    <td>WG2</td><td>LgLG2</td><td>nothing</td></tr>
+<tr><th>Receptor type</th><th>Pheromone</th><th>Wing types</th><th>Leg types</th></tr>
+<tr><td><span class="tag f">ppk23+ ppk25+</span></td><td>7,11-HD. The "F" cells.</td>
+    <td>WG3</td><td>LgLG1b, LgLG5, LgLG8</td></tr>
+<tr><td><span class="tag m">ppk23+ ppk25&minus;</span></td><td>7-T and cVA. The "M" cells.</td>
+    <td>WG4</td><td>LgLG1a, LgLG6, LgLG7</td></tr>
+<tr><td><span class="tag q">Ir52a+ Ir52b+</span></td><td>Not known</td><td>WG1</td><td>&mdash;</td></tr>
+<tr class="bad"><td><span class="tag warn">No receptor type</span></td><td>&mdash;</td>
+    <td>WG2</td><td>LgLG2</td></tr>
 </table>
 </div>
-<p class="note">Source of truth in the analysis code:
-<code>figures/fig5/setup.R:269-274</code>.</p>
+<p class="note">The code keeps these types in <code>figures/fig5/setup.R:269-274</code>.</p>
 
-<h2>2 &middot; The PPN1 evidence does not hold up</h2>
+<h2>2 &middot; PPN1 does not give good evidence</h2>
 
-<div class="callout warn">
-<p><strong>On the PPN1 identity.</strong> FlyBase's anatomy ontology
-(<a href="https://www.ebi.ac.uk/ols4/ontologies/fbbt/classes?obo_id=FBbt:00111517">FBbt:00111517</a>)
-lists AN05B023 as a synonym of "adult pheromone projection neuron 1". That is
-<strong>wrong</strong>. The mCNS annotation carries <code>"Kallman 2015: PPN1"</code> on
-AN05B102a (bodies 11431, 12286) and on no AN05B023 body, and AN05B102a is cholinergic where
-AN05B023a&ndash;d are GABAergic. PPN1 is AN05B102a, as
-<code>analyses/an_investigation/R/_paths.R:54-58</code> has it &mdash; so the 41% figure below
-is about PPN1 itself, and the argument is stronger for it.</p>
-</div>
-
-<p>The manuscript leans on PPN1 as corroboration that WG3 is <span class="tag f">ppk23+ ppk25+</span>,
-citing the functional connectivity of Kallman et al. 2015. The connectome disagrees. Pooled input
-synapses onto <a href="../an05b102/">AN05B102a = PPN1</a>:</p>
+<p>The paper says that PPN1 gives evidence for the receptor type of WG3. PPN1 is the neuron
+AN05B102a. The connectome does not agree with the paper.</p>
 
 <div class="scroll">
 <table>
-<tr><th>Target</th><th class="num">LgLG1a</th><th class="num">WG4</th><th class="num">LgLG1b</th>
-    <th class="num">WG3</th><th class="num">ppk25+ share</th></tr>
-<tr class="bad"><td>AN05B102a &nbsp;<span class="tag warn">PPN1</span></td>
-    <td class="num">7951</td><td class="num">8138</td><td class="num">5397</td><td class="num">5701</td>
-    <td class="num">41%</td></tr>
+<tr><th>Target neuron</th><th class="num">LgLG1a</th><th class="num">WG4</th>
+    <th class="num">LgLG1b</th><th class="num">WG3</th><th class="num">ppk25+ part</th></tr>
+<tr class="bad"><td>AN05B102a (PPN1)</td><td class="num">7951</td><td class="num">8138</td>
+    <td class="num">5397</td><td class="num">5701</td><td class="num">41%</td></tr>
 <tr><td>AN05B102b</td><td class="num">1846</td><td class="num">1852</td><td class="num">1229</td>
     <td class="num">829</td><td class="num">36%</td></tr>
 <tr><td>AN05B102c</td><td class="num">5236</td><td class="num">4166</td><td class="num">1820</td>
@@ -265,21 +246,23 @@ synapses onto <a href="../an05b102/">AN05B102a = PPN1</a>:</p>
 </div>
 
 <div class="callout warn">
-<p><strong>PPN1 receives near-equal input from both families</strong> &mdash; 41% ppk25<sup>+</sup>. It is a convergent
-integrator, not a <span class="tag f">ppk25+</span> marker. The "corroborated by PPN1" sentence
-overstates the data and needs rewriting whatever else happens.</p>
-<p>Nor is there a spatial escape: on PPN1 the two families interdigitate across the whole
-dendrite. Kolmogorov&ndash;Smirnov <code>D = 0.02&ndash;0.06</code> between LgLG1a and LgLG1b synapse
-positions across all three axes, maximum 0.08 on any principal axis; the z-decile ppk25<sup>+</sup>
-fraction stays within 0.35&ndash;0.48 with no monotone trend. The distributions are all but
-identical.</p>
+<p><strong>PPN1 gets almost the same number of synapses from the two groups.</strong> The
+ppk25+ part is 41%. Thus PPN1 mixes the two groups. PPN1 is not a marker for one group.</p>
+<p>The positions of the synapses do not help. On PPN1, the two groups mix along the full
+dendrite. The Kolmogorov-Smirnov D value is 0.02 to 0.06 on the three axes. The maximum value
+on any principal axis is 0.08.</p>
+<p>You must change this sentence in the paper.</p>
 </div>
 
-<h2>3 &middot; The inversion</h2>
+<p class="note">FlyBase gives the name PPN1 to AN05B023 in
+<a href="https://www.ebi.ac.uk/ols4/ontologies/fbbt/classes?obo_id=FBbt:00111517">FBbt:00111517</a>.
+This is not correct. The connectome gives the name <code>"Kallman 2015: PPN1"</code> to
+AN05B102a. Also, AN05B102a is cholinergic, but AN05B023a to AN05B023d are GABAergic.</p>
 
-<p>Stop treating the receptor call as an input to be defended. Treat it as an
-<strong>unknown to be solved for</strong>. The connectome supplies the design matrix; a GRASP
-experiment supplies the observations.</p>
+<h2>3 &middot; The method</h2>
+
+<p>Do not defend the receptor types. Calculate them. The connectome gives the equations. A
+GRASP test gives the measurements.</p>
 
 <figure class="dark-fig">
 <svg viewBox="0 0 720 250" role="img" aria-label="Inverse problem schematic">
@@ -326,192 +309,152 @@ experiment supplies the observations.</p>
     one equation per target &middot; solve for x &middot; scale factor k cancels in ratios</text>
  </g>
 </svg>
-<figcaption>Each GRASP target contributes one linear equation in the unknown receptor labels.
-Enough targets with independent connectivity profiles, and every type is solved individually.</figcaption>
+<figcaption>Each target neuron gives one equation. The connectome gives the synapse counts.
+The GRASP test gives the ratio R.</figcaption>
 </figure>
 
-<h3>Why this is not circular</h3>
+<p>The method uses one fact about the two drivers:</p>
 <ul class="steps">
-<li><strong>C is EM synapse counts</strong> &mdash; segmentation, not typing inference. It is the
-one thing in the chain nobody disputes.</li>
-<li><strong>x is the receptor label</strong> &mdash; the actual unknown.</li>
-<li><strong>The receptor driver is the independent variable.</strong> <code>ppk25-</code> driver
-expression defines the molecule directly. That is exactly the quantity in question.</li>
-<li><strong>Nothing downstream is assumed.</strong> The wing&rarr;leg co-clustering propagation
-is not used &mdash; it is dissolved, not tested.</li>
+<li>The ppk25 cells are a part of the ppk23 cells.</li>
+<li>Thus the ppk23 driver shows both groups.</li>
+<li>The ppk25 driver shows only one group.</li>
+<li>The ratio of the two puncta counts gives R.</li>
 </ul>
 
-<div class="callout">
-<p><strong>The subset trick.</strong> <span class="tag f">ppk25+</span> cells are a subset of
-<span class="tag m">ppk23+</span> cells, so the <code>ppk23</code> driver labels both families
-and the <code>ppk25</code> driver only one. The ratio of their puncta counts at a target
-<em>is</em> <code>R&#8339;</code>, up to an unknown GRASP-efficiency factor <code>k</code>.</p>
-<p class="note"><code>k</code> plausibly varies with the postsynaptic driver, the neuropil and
-the arbour, so a ratio between two <em>different</em> targets does not cancel it. It cancels
-exactly only <em>within</em> a compartment, over the same GRN population and the same two
-drivers &mdash; see &sect;4.</p>
-</div>
-
-<h2>4 &middot; What the experiment can actually distinguish</h2>
+<p>An unknown factor k changes the puncta count. The factor k is different for each driver.
+The factor k also changes with the target neuron, the neuropil and the dendrite. Thus you
+cannot compare two different target neurons directly.</p>
 
 <div class="callout warn">
-<p><strong>Eight types cannot be identified individually.</strong> A linear-inverse treatment
-looks like it should work &mdash; a greedy D-optimal target set reaches rank 8 with condition
-number 2.5 &mdash; but that argument assumes the GRASP efficiency factor <code>k</code> and the
-puncta&ndash;synapse saturation exponent <code>&gamma;</code> are known. Neither is. With both
-free the design matrix does not identify eight parameters, however well conditioned it looks.</p>
+<p><strong>Do not use the cached connectivity table.</strong> The file
+<code>connectivity.feather</code> uses <code>fetch_connectivity(synapse_threshold = 5)</code>.
+This threshold removes 63% of the connections. The threshold is correct for path analysis. The
+threshold is not correct for this test, because GRASP also shows weak connections.</p>
+<p>Get the data from neuPrint directly. Use <code>male-cns:v1.0</code>. Do not use a threshold.</p>
 </div>
 
-<div class="callout">
-<p><strong>The leg is what matters.</strong> The paper is about <strong>contact
-chemosensation</strong> &mdash; foreleg tapping &mdash; so the assignment that has to be correct
-is the <strong>leg</strong> one. The wing types are the historical entry point for the typing
-argument, not the target of the experiment. Targets are therefore scored on <code>R</code>
-renormalised <em>within the leg types only</em>, which is what a leg-compartment readout
-measures.</p>
+<h2>4 &middot; What the test can show</h2>
+
+<div class="callout warn">
+<p><strong>You cannot find all eight receptor types one by one.</strong> A linear method looks
+correct. It gives rank 8 and a condition number of 2.5. But the method needs the factor k and
+the saturation exponent. You do not know these two values. Thus the method does not give eight
+independent answers.</p>
 </div>
 
-<h3>The hypothesis space is four, not two</h3>
-<p>Framing this as "current assignment versus global swap" was a straw man. Nobody believes the
-whole assignment is inverted. The live alternatives are the ones where the
-<strong>wing&rarr;leg propagation</strong> fails:</p>
-
+<h3>There are four possible answers, not two</h3>
+<p>Nobody thinks that all the receptor types are wrong. The important errors are in the wing to
+leg step.</p>
 <div class="scroll">
 <table>
-<tr><th>Hypothesis</th><th>Wing call (WG3/WG4)</th><th>Leg call (LgLG*)</th></tr>
-<tr class="hi"><td>H0 &mdash; as published</td><td>right</td><td>right</td></tr>
-<tr><td>H1 &mdash; global swap</td><td>wrong</td><td>wrong</td></tr>
-<tr class="hi"><td><b>H2</b></td><td>right</td><td><b>wrong</b> &mdash; propagation failed</td></tr>
-<tr class="hi"><td><b>H3</b></td><td><b>wrong</b></td><td>right</td></tr>
+<tr><th>Answer</th><th>Wing types</th><th>Leg types</th></tr>
+<tr class="hi"><td>H0. The paper is correct.</td><td>correct</td><td>correct</td></tr>
+<tr><td>H1. All types are wrong.</td><td>wrong</td><td>wrong</td></tr>
+<tr class="hi"><td><b>H2</b></td><td>correct</td><td><b>wrong</b></td></tr>
+<tr class="hi"><td><b>H3</b></td><td><b>wrong</b></td><td>correct</td></tr>
 </table>
 </div>
 
-<p>A contrast between two <em>different</em> targets is largely blind to H2 and H3. Against H3 a
-contrast between two different targets separates by only about 1.6&times;, against a detection floor
-near 2&times;.</p>
-
-<h3>The design that does work &mdash; one pair, two compartments</h3>
-
-<p>Take <strong>one</strong> target pair, AN05B023b and AN05B023c, and score each animal separately
-in <code>Ov</code> (wing input) and <code>LegNp T1&ndash;T3</code> (leg input). That yields two
-statistics:</p>
-
+<h3>Use one pair of neurons and two neuropils</h3>
+<p>Use the neurons AN05B023b and AN05B023c. Measure each animal two times. Measure first in the
+neuropil Ov. Then measure in the neuropil LegNp T1 to T3. This gives two values, W and L.</p>
 <p style="font-family:ui-monospace,monospace;font-size:.86rem;background:rgba(11,95,165,.07);
 padding:.8rem 1rem;border-radius:8px;overflow-x:auto">
 W = [log Y(ppk25,c,Ov) &minus; log Y(ppk23,c,Ov)] &minus; [log Y(ppk25,b,Ov) &minus; log Y(ppk23,b,Ov)]<br>
 L = [log Y(ppk25,c,Leg) &minus; log Y(ppk23,c,Leg)] &minus; [log Y(ppk25,b,Leg) &minus; log Y(ppk23,b,Leg)]
 </p>
-
-<p>Each is a <em>within-compartment</em> ratio-of-ratios: same GRN population, same compartment,
-same two drivers. <strong><code>k</code> cancels exactly</strong> &mdash; not approximately, and
-without assuming it is common across targets. <code>W</code> and <code>L</code> are never compared
-to each other.</p>
-
+<p>Each value uses one neuropil, the same sensory neurons and the same two drivers. Thus the
+factor k goes away fully. Do not compare W with L.</p>
 <div class="scroll">
 <table>
-<tr><th>Statistic</th><th class="num">call right</th><th class="num">call wrong</th><th>Reads out</th></tr>
+<tr><th>Value</th><th class="num">If correct</th><th class="num">If wrong</th><th>Shows</th></tr>
 <tr class="hi"><td><b>W</b></td><td class="num">+1.04</td><td class="num">&minus;1.06</td>
-    <td>the <b>wing</b> assignment</td></tr>
+    <td>the wing types</td></tr>
 <tr class="hi"><td><b>L</b></td><td class="num">+1.07</td><td class="num">&minus;1.15</td>
-    <td>the <b>leg</b> assignment</td></tr>
+    <td>the leg types</td></tr>
 </table>
 </div>
-
-<p>log<sub>10</sub> units. <code>sign(W)</code> and <code>sign(L)</code> are two independent binary
-readouts whose pair maps one-to-one onto {H0, H1, H2, H3} &mdash; so this design tests the
-wing&rarr;leg propagation directly, which is the thing that was never tested. It also avoids the
-small-target problem: the weakest predicted signal is ~400 synapses on a two-cell arbour, not a
-handful on a twenty-cell one.</p>
+<p>The values are log10 units. The signs of W and L give one of the four answers.</p>
 
 <div class="callout warn">
-<p><strong>And one problem sits upstream of all of it.</strong> <code>R</code>'s denominator
-assumes the ppk drivers label exactly the eight assigned types and nothing else.
-<strong>417 GRN cells across five types have no receptor call at all</strong>, and four of the
-eight assigned types have no molecular support for being ppk23<sup>+</sup>. Until the drivers are
-mapped onto connectome types &mdash; by HCR-FISH or MCFO, cheaper than the GRASP &mdash; the
-GRASP is not interpretable. If ppk23-GAL4 labels more than 1.3&times; or fewer than 0.7&times; the
-assigned cell count, the denominator is wrong and the GRASP should not be built.</p>
+<p><strong>Do this first.</strong> The equation for R is correct only if the two drivers show
+exactly the eight sensory neuron types. But 417 sensory neurons in five types have no receptor
+type. Also, four of the eight types have no molecular evidence.</p>
+<p>Find which neurons the drivers show. Use HCR-FISH or MCFO. This work costs less than the
+GRASP test. If the ppk23 driver shows more than 1.3 times or less than 0.7 times the correct
+number of cells, stop. Do not build the GRASP flies.</p>
 </div>
 
-<p class="note">Full synthesis, controls, gates and kill criteria:
-<code>receptor_typing_validation/CROSSING_REVIEW.md</code>.</p>
+<h2>5 &middot; The leg is the important part</h2>
 
-<h3>The leg arm &mdash; recommended targets</h3>
-<p class="note"><code>R<sub>leg</sub></code> renormalised within LgLG1a/1b/5&ndash;8. All targets
-below are 100% leg input. Per-body columns: does every body of the type actually receive ppk
-input, and does <code>R</code> survive dropping the largest contributor.</p>
+<p>The paper is about contact chemosensation. The male fly taps the female with the front leg.
+Thus the leg types must be correct. The wing types are only the start of the receptor type
+work. The wing types are not the goal of the test.</p>
+<p>Therefore the table below uses R calculated only from the leg types.</p>
 
 <div class="scroll">
 <table>
-<tr><th>Target</th><th>Reads</th><th class="num">R<sub>leg</sub></th><th class="num">fold</th>
-    <th class="num">leg syn</th><th class="num">bodies</th><th class="num">with input</th>
-    <th class="num">drop-largest</th><th class="num">SD</th></tr>
-<tr><td>AN09B017g</td><td>LgLG8</td><td class="num">0.896</td><td class="num">8.6&times;</td>
-    <td class="num">1960</td><td class="num">2</td><td class="num">2</td><td class="num">0.942</td><td class="num">0.060</td></tr>
-<tr><td>AN09B017b</td><td>LgLG6</td><td class="num">0.090</td><td class="num">10.1&times;</td>
-    <td class="num">1091</td><td class="num">2</td><td class="num">2</td><td class="num">0.084</td><td class="num">0.008</td></tr>
-<tr class="hi"><td>AN05B023c</td><td>LgLG1b</td><td class="num">0.934</td><td class="num">13.1&times;</td>
-    <td class="num">3803</td><td class="num">2</td><td class="num">2</td><td class="num">0.928</td><td class="num">0.008</td></tr>
-<tr class="hi"><td>AN05B023b</td><td>LgLG1a</td><td class="num">0.091</td><td class="num">10.3&times;</td>
-    <td class="num">7923</td><td class="num">2</td><td class="num">2</td><td class="num">0.082</td><td class="num">0.013</td></tr>
-<tr class="hi"><td>DNpe029</td><td>LgLG1b</td><td class="num">0.935</td><td class="num">14.4&times;</td>
-    <td class="num">772</td><td class="num">4</td><td class="num">4</td><td class="num">0.925</td><td class="num">0.043</td></tr>
-<tr class="bad"><td>IN17A013 <span class="tag warn">17A</span></td><td>LgLG1a</td><td class="num">0.129</td><td class="num">6.7&times;</td>
-    <td class="num">1711</td><td class="num">2</td><td class="num">2</td><td class="num">0.116</td><td class="num">0.016</td></tr>
-<tr class="hi"><td>IN23B025</td><td>LgLG1b</td><td class="num">0.928</td><td class="num">13.0&times;</td>
-    <td class="num">405</td><td class="num">6</td><td class="num">6</td><td class="num">0.946</td><td class="num">0.043</td></tr>
-<tr><td>IN23B020</td><td>LgLG1b</td><td class="num">0.899</td><td class="num">8.9&times;</td>
-    <td class="num">662</td><td class="num">7</td><td class="num">7</td><td class="num">0.910</td><td class="num">0.050</td></tr>
-<tr class="bad"><td>AN17A013 <span class="tag warn">17A</span></td><td>LgLG1a</td><td class="num">0.174</td><td class="num">4.7&times;</td>
-    <td class="num">3401</td><td class="num">4</td><td class="num">4</td><td class="num">0.164</td><td class="num">0.017</td></tr>
-<tr><td>IN01B065</td><td>LgLG1a</td><td class="num">0.153</td><td class="num">5.5&times;</td>
-    <td class="num">1847</td><td class="num">20</td><td class="num">20</td><td class="num">0.142</td><td class="num">0.070</td></tr>
+<tr><th>Target neuron</th><th>Hemilineage</th><th>Shows</th><th class="num">R</th>
+    <th class="num">Ratio</th><th class="num">Leg synapses</th><th class="num">Bodies</th>
+    <th class="num">SD</th></tr>
+<tr class="hi"><td>IN23B025</td><td>23B</td><td>LgLG1b</td><td class="num">0.928</td>
+    <td class="num">13.0</td><td class="num">405</td><td class="num">6</td><td class="num">0.043</td></tr>
+<tr class="hi"><td>IN23B011</td><td>23B</td><td>LgLG1a</td><td class="num">0.153</td>
+    <td class="num">5.5</td><td class="num">334</td><td class="num">2</td><td class="num">&mdash;</td></tr>
+<tr class="hi"><td>DNpe029</td><td>DN</td><td>LgLG1b</td><td class="num">0.935</td>
+    <td class="num">14.4</td><td class="num">772</td><td class="num">4</td><td class="num">0.043</td></tr>
+<tr><td>IN07B010</td><td>07B</td><td>LgLG1a</td><td class="num">0.149</td>
+    <td class="num">5.7</td><td class="num">429</td><td class="num">2</td><td class="num">0.037</td></tr>
+<tr><td>IN01B065</td><td>01B</td><td>LgLG1a</td><td class="num">0.153</td>
+    <td class="num">5.5</td><td class="num">1847</td><td class="num">20</td><td class="num">0.070</td></tr>
+<tr><td>AN05B023c</td><td>05B</td><td>LgLG1b</td><td class="num">0.934</td>
+    <td class="num">13.1</td><td class="num">3803</td><td class="num">2</td><td class="num">0.008</td></tr>
+<tr><td>AN05B023b</td><td>05B</td><td>LgLG1a</td><td class="num">0.091</td>
+    <td class="num">10.3</td><td class="num">7923</td><td class="num">2</td><td class="num">0.013</td></tr>
+<tr class="bad"><td>IN17A013</td><td>17A</td><td>LgLG1a</td><td class="num">0.129</td>
+    <td class="num">6.7</td><td class="num">1711</td><td class="num">2</td><td class="num">0.016</td></tr>
+<tr class="bad"><td>AN09B017g</td><td>09B</td><td>LgLG8</td><td class="num">0.896</td>
+    <td class="num">8.6</td><td class="num">1960</td><td class="num">2</td><td class="num">0.060</td></tr>
+<tr class="bad"><td>AN09B017b</td><td>09B</td><td>LgLG6</td><td class="num">0.090</td>
+    <td class="num">10.1</td><td class="num">1091</td><td class="num">2</td><td class="num">0.008</td></tr>
 </table>
 </div>
 
-<p><strong>Every body of every leg candidate receives ppk input.</strong> No dilution, no
-one-body artifacts. Two constraints narrow the list further, both from the lab rather than the
-connectome: <strong>hemilineage 17A has a long history of line-finding trouble</strong>, which
-rules out IN17A013, AN17A013, AN17A024 and AN17A009; and the lab's <em>vAB3</em> candidate
-split-GAL4s <strong>do not resolve single AN09B017 members</strong>, so the AN09B017g / AN09B017b
-pair has no usable driver either. Since AN09B017 members span <code>R</code> 0.090 to 0.896, a
-line labelling the group averages to roughly 0.35 and the contrast dies.</p>
+<p>Every body of every neuron in this table gets ppk synapses. No single body controls the
+result. Two rules remove some of these neurons:</p>
+<ul class="steps">
+<li>It is difficult to find a driver line for the hemilineage 17A. Do not use IN17A013,
+AN17A013, AN17A024 or AN17A009.</li>
+<li>The vAB3 split-GAL4 lines do not show one AN09B017 neuron alone. The AN09B017 neurons have
+R values from 0.090 to 0.896. A line that shows the full group gives an R value near 0.35.
+Then the test does not work.</li>
+</ul>
 
-<p>What survives is <strong>hemilineage 23B, which covers both sides of the LgLG1a/LgLG1b
-channel on its own</strong> &mdash; IN23B025 (<code>R</code> 0.928, LgLG1b 0.91) against
-IN23B011 (0.153, LgLG1a 0.85), both 100% leg. One hemilineage means one driver hunt, and
-split-GAL4 coverage tends to cluster that way. <strong>DNpe029</strong> (0.935, 14.4&times;,
-LgLG1b 0.93, all four bodies receiving input) is worth checking first for a different reason: it
-is a descending neuron, and the Namiki/Card DN split-GAL4 collection has good coverage of named
-DNs, so it may be the cheapest driver to obtain of anything on the list. Fallbacks on the LgLG1a
-side outside 17A: IN07B010 (07B, two bodies) and IN01B065 (01B, but twenty bodies).</p>
-
-<p>LgLG5 and LgLG7 have no clean isolator (best loadings 0.56) and may not be resolvable by this
-design. <strong>No pair currently has a driver in hand</strong> &mdash; that is the critical
-path.</p>
-
-<div class="callout warn">
-<p><strong>The wing targets fail exactly this test.</strong> An independent crosscheck reproduced
-all 22 <code>R</code> values to within 0.00045 by two methods, then broke them down per body:</p>
-<p><b>INXXX044</b> &mdash; 8 bodies, per-body <code>R</code> spans 0.071 to 1.000, SD 0.41. One
-body carries 638 of 863 synapses; drop it and <code>R</code> collapses to 0.431, <em>inverting
-the prediction</em>. <b>AN01B004</b> &mdash; 6 bodies in three instance groups, one pair receives
-zero ppk input, 170 of 178 synapses come from another. Both unusable.
-<b>AN17A003</b>'s 57&times; is real and bilaterally consistent (L 0.973, R 0.996), but only 2 of
-its 6 bodies receive meaningful input, so a type-level driver dilutes it threefold.</p>
-<p>So the targets that looked strongest on fold alone are the ones that fail per-body scrutiny,
-and the leg targets &mdash; the ones the biology needs &mdash; are the robust ones.</p>
+<div class="callout">
+<p><strong>Use the hemilineage 23B.</strong> This hemilineage has neurons on the two sides of
+the LgLG1a and LgLG1b pair. Use IN23B025 and IN23B011. One hemilineage makes the search for
+driver lines more easy.</p>
+<p><strong>Look at DNpe029 first.</strong> DNpe029 is a descending neuron. The Namiki and Card
+split-GAL4 collection has many descending neurons. Thus you can possibly find this driver line
+more quickly.</p>
+<p><strong>No pair has a driver line now.</strong> This is the most important task.</p>
 </div>
 
-<p class="note">Detail: <code>receptor_typing_validation/LEG_ARM.md</code>,
-<code>R/07_perbody_leg.R</code>.</p>
+<div class="callout warn">
+<p><strong>Do not use these wing neurons.</strong> An independent check calculated all the R
+values again. The check then examined each body.</p>
+<p>INXXX044 has 8 bodies. The R values go from 0.071 to 1.000. One body has 638 of the 863
+synapses. If you remove this body, R becomes 0.431. Then the result is opposite.</p>
+<p>AN01B004 has 6 bodies. Two bodies get no ppk synapses. One pair of bodies gives 170 of the
+178 synapses.</p>
+<p>AN17A003 has a true R value of 0.983. But only 2 of its 6 bodies get many synapses. A driver
+line shows all 6 bodies. Thus the signal becomes three times more weak.</p>
+</div>
 
 <h3>Synapse scenes</h3>
-<p class="note">One Clio-NG scene per target: the neuron in red, every ppk-family input synapse
-plotted as a point layer coloured by presynaptic sensory type. Toggle layers in the annotations
-tab to see which sensory type lands where. Built by
-<code>receptor_typing_validation/R/08_scenes.R</code> against <code>male-cns:v1.0</code>;
-synapse counts reproduce the design matrix exactly.</p>
+<p class="note">Each scene shows one target neuron in red. Each scene also shows the ppk
+synapses as points. The colour of each point gives the sensory neuron type. Use the annotations
+tab to show or hide each type.</p>
 <p class="note"><span class="sw" style="background:#FF4081"></span>LgLG1a
 <span class="sw" style="background:#00B0FF"></span>LgLG1b
 <span class="sw" style="background:#FFFF00"></span>LgLG5
@@ -521,180 +464,37 @@ synapse counts reproduce the design matrix exactly.</p>
 <span class="sw" style="background:#00E676"></span>WG3
 <span class="sw" style="background:#FFAB00"></span>WG4</p>
 <div class="grid">
-<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/IN23B025.json"><b>IN23B025</b>
- <span>6 bodies &middot; 405 ppk synapses<br>LgLG1a &middot; LgLG1b &middot; LgLG6 &middot; LgLG8<br>
- <em>LgLG1b side of the 23B pair</em></span></a>
-<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/IN23B011.json"><b>IN23B011</b>
- <span>2 bodies &middot; 334 ppk synapses<br>LgLG1a &middot; LgLG1b<br>
- <em>LgLG1a side of the 23B pair</em></span></a>
-<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/DNpe029.json"><b>DNpe029</b>
- <span>4 bodies &middot; 814 ppk synapses<br>LgLG1a &middot; LgLG1b &middot; LgLG6 &middot; LgLG7 &middot; LgLG8 &middot; WG3 &middot; WG4<br>
- <em>descending &mdash; check the DN collection first</em></span></a>
-<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/IN07B010.json"><b>IN07B010</b>
- <span>2 bodies &middot; 429 ppk synapses<br>LgLG1a &middot; LgLG1b<br>
- <em>LgLG1a fallback outside 17A</em></span></a>
-<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/IN01B065.json"><b>IN01B065</b>
- <span>20 bodies &middot; 1847 ppk synapses<br>LgLG1a &middot; LgLG1b &middot; LgLG5 &middot; LgLG6 &middot; LgLG7 &middot; LgLG8<br>
- <em>LgLG1a, but twenty bodies</em></span></a>
-<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/AN05B023b.json"><b>AN05B023b</b>
- <span>2 bodies &middot; 12667 ppk synapses<br>LgLG1a &middot; LgLG1b &middot; LgLG5 &middot; LgLG6 &middot; LgLG7 &middot; LgLG8 &middot; WG3 &middot; WG4<br>
- <em>cleanest LgLG1a target &mdash; no driver</em></span></a>
-<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/AN05B023c.json"><b>AN05B023c</b>
- <span>2 bodies &middot; 6142 ppk synapses<br>LgLG1a &middot; LgLG1b &middot; LgLG5 &middot; LgLG6 &middot; WG3 &middot; WG4<br>
- <em>cleanest LgLG1b target &mdash; no driver</em></span></a>
+<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/IN23B025.json"><b>IN23B025</b><span>6 bodies &middot; 405 ppk synapses<br>LgLG1b side of the 23B pair</span></a>
+<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/IN23B011.json"><b>IN23B011</b><span>2 bodies &middot; 334 ppk synapses<br>LgLG1a side of the 23B pair</span></a>
+<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/DNpe029.json"><b>DNpe029</b><span>4 bodies &middot; 814 ppk synapses<br>Descending neuron. Look here first.</span></a>
+<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/IN07B010.json"><b>IN07B010</b><span>2 bodies &middot; 429 ppk synapses<br>LgLG1a, not hemilineage 17A</span></a>
+<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/IN01B065.json"><b>IN01B065</b><span>20 bodies &middot; 1847 ppk synapses<br>LgLG1a, but many bodies</span></a>
+<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/AN05B023b.json"><b>AN05B023b</b><span>2 bodies &middot; 12667 ppk synapses<br>Best LgLG1a neuron. No driver line.</span></a>
+<a class="lk" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/receptor-typing/AN05B023c.json"><b>AN05B023c</b><span>2 bodies &middot; 6142 ppk synapses<br>Best LgLG1b neuron. No driver line.</span></a>
 </div>
 
-<h2>5 &middot; Wider target list &mdash; exploratory</h2>
-<div class="callout warn">
-<p>Everything below is for <strong>choosing follow-ups</strong>, not for the primary result. The
-design in &sect;4 uses one target pair. These rankings also carry the small-target artifact
-flagged at the top of the page, and are still under crosscheck.</p>
-</div>
-<h3>Ranked by separation</h3>
-<p class="note"><code>R</code> = predicted ppk25+ puncta fraction under the current assignment;
-the swap gives <code>1&minus;R</code>. Fold is the ratio the experiment must resolve.
-male-cns:v1.0, unthresholded.</p>
+<h2>6 &middot; The flies</h2>
+
+<p>The two ppk drivers are GAL4 only. Thus the target neuron driver must be LexA.</p>
 
 <div class="scroll">
 <table>
-<tr><th>Target</th><th class="num">ppk syn</th><th class="num">R</th><th class="num">fold</th>
-    <th class="num">wing</th><th class="num">leg</th><th>Note</th></tr>
-<tr class="hi"><td>AN17A003</td><td class="num">584</td><td class="num">0.983</td>
-    <td class="num">57.4&times;</td><td class="num">0.947</td><td class="num">0.053</td>
-    <td>WG3 0.930 vs WG4 0.017 &mdash; best in the set</td></tr>
-<tr><td>AN05B096</td><td class="num">217</td><td class="num">0.982</td><td class="num">53.2&times;</td>
-    <td class="num">1.000</td><td class="num">0.000</td><td>pure wing, small</td></tr>
-<tr><td>AN05B107</td><td class="num">231</td><td class="num">0.974</td><td class="num">37.5&times;</td>
-    <td class="num">0.965</td><td class="num">0.035</td><td>small</td></tr>
-<tr><td>AN01B004</td><td class="num">178</td><td class="num">0.966</td><td class="num">28.7&times;</td>
-    <td class="num">0.000</td><td class="num">1.000</td><td>pure leg, small</td></tr>
-<tr><td>AN09B013</td><td class="num">242</td><td class="num">0.955</td><td class="num">21.0&times;</td>
-    <td class="num">0.926</td><td class="num">0.074</td><td>small</td></tr>
-<tr class="hi"><td>DNpe029</td><td class="num">814</td><td class="num">0.934</td>
-    <td class="num">14.1&times;</td><td class="num">0.052</td><td class="num">0.948</td>
-    <td>descending &mdash; new</td></tr>
-<tr class="hi"><td>AN05B023c</td><td class="num">6142</td><td class="num">0.929</td>
-    <td class="num">13.1&times;</td><td class="num">0.381</td><td class="num">0.619</td>
-    <td>high signal</td></tr>
-<tr class="hi"><td>IN23B025</td><td class="num">405</td><td class="num">0.928</td><td class="num">13.0&times;</td>
-    <td class="num">0.000</td><td class="num">1.000</td><td>pure leg</td></tr>
-<tr class="hi"><td>AN05B023b</td><td class="num">12667</td><td class="num">0.088</td>
-    <td class="num">10.3&times;</td><td class="num">0.375</td><td class="num">0.625</td>
-    <td>highest signal of the strong pair</td></tr>
-<tr><td>AN09B017b</td><td class="num">1091</td><td class="num">0.090</td>
-    <td class="num">10.1&times;</td><td class="num">0.000</td><td class="num">1.000</td>
-    <td>pure leg &middot; <em>vAB3</em></td></tr>
-<tr><td>IN23B020</td><td class="num">662</td><td class="num">0.899</td><td class="num">8.9&times;</td>
-    <td class="num">0.000</td><td class="num">1.000</td><td>pure leg</td></tr>
-<tr><td>AN09B017g</td><td class="num">1960</td><td class="num">0.896</td><td class="num">8.6&times;</td>
-    <td class="num">0.000</td><td class="num">1.000</td><td>pure leg &middot; <em>vAB3</em></td></tr>
-<tr class="bad"><td>IN17A013 <span class="tag warn">17A</span></td><td class="num">1711</td><td class="num">0.129</td><td class="num">6.7&times;</td>
-    <td class="num">0.000</td><td class="num">1.000</td><td>pure leg</td></tr>
-<tr><td>IN01B065</td><td class="num">1847</td><td class="num">0.153</td><td class="num">5.5&times;</td>
-    <td class="num">0.000</td><td class="num">1.000</td><td>20 bodies</td></tr>
-<tr><td>IN05B002</td><td class="num">19674</td><td class="num">0.155</td><td class="num">5.5&times;</td>
-    <td class="num">0.436</td><td class="num">0.564</td><td>highest signal overall</td></tr>
-<tr><td>ANXXX093</td><td class="num">7540</td><td class="num">0.824</td><td class="num">4.7&times;</td>
-    <td class="num">0.571</td><td class="num">0.429</td><td>unnamed</td></tr>
-<tr><td>AN13B002</td><td class="num">6787</td><td class="num">0.819</td><td class="num">4.5&times;</td>
-    <td class="num">0.541</td><td class="num">0.459</td>
-    <td><em>Dandelion</em> &middot; <b>SS103018 in the lab</b></td></tr>
-<tr><td>INXXX044</td><td class="num">863</td><td class="num">0.783</td><td class="num">3.6&times;</td>
-    <td class="num">0.983</td><td class="num">0.017</td><td>pure wing</td></tr>
-<tr><td>IN11A032_a</td><td class="num">494</td><td class="num">0.251</td><td class="num">3.0&times;</td>
-    <td class="num">1.000</td><td class="num">0.000</td><td><b>best WG4-loading wing target</b> (WG4 0.749)</td></tr>
-<tr class="bad"><td>AN05B102a <span class="tag warn">PPN1</span></td><td class="num">27267</td>
-    <td class="num">0.406</td><td class="num">1.5&times;</td><td class="num">0.507</td>
-    <td class="num">0.493</td><td>reference arm &mdash; not diagnostic</td></tr>
+<tr><th>Item</th><th>Stock</th><th>Chromosome</th><th>In the laboratory</th></tr>
+<tr class="hi"><td>ppk23-GAL4</td><td><a href="https://bdsc.indiana.edu/stocks/93026">BDSC 93026</a></td>
+    <td>2</td><td>Yes</td></tr>
+<tr class="hi"><td>ppk25-GAL4</td><td><a href="https://bdsc.indiana.edu/stocks/93028">BDSC 93028</a></td>
+    <td>2 and 3</td><td>Yes</td></tr>
+<tr class="hi"><td>R56C09-lexA</td><td><a href="https://bdsc.indiana.edu/stocks/53584">BDSC 53584</a></td>
+    <td>2</td><td>Yes</td></tr>
+<tr class="hi"><td>t-GRASP, UAS pre and LexAop post</td>
+    <td><a href="https://bdsc.indiana.edu/stocks/79040">BDSC 79040</a></td><td>3</td><td>Yes</td></tr>
+<tr class="hi"><td>t-GRASP, LexAop pre and UAS post</td>
+    <td>BDSC 79039</td><td>3</td><td>Yes</td></tr>
+<tr class="hi"><td>ppk23-LexA</td><td>Dickson laboratory, GJ1472</td><td>2</td><td>Yes</td></tr>
+<tr class="bad"><td>ppk25-LexA</td><td>Does not exist</td><td>&mdash;</td><td>No</td></tr>
+<tr class="bad"><td>R56C09-GAL4</td><td>BDSC 39145</td><td>3, attP2</td><td>Yes, but attP2 is full</td></tr>
 </table>
 </div>
-
-<h3>Wing and leg decouple &mdash; asymmetrically</h3>
-<p>Wing types (WG*) synapse in <code>Ov</code>, leg types (LgLG*) in <code>LegNp(T1&ndash;T3)</code>,
-all of it in the nerve cord. Targets that take input from only one compartment therefore separate
-the <strong>wing</strong> receptor assignment from the <strong>leg</strong> one &mdash; which
-matters, because the leg assignments were <em>propagated</em> from the wing ones by co-clustering
-and have never been tested independently.</p>
-
-<div class="callout warn">
-<p><strong>The two sides are not equally testable.</strong> The WG3 side has an excellent wing
-target &mdash; AN17A003, WG3 0.930 against WG4 0.017, R = 0.983. The WG4 side does not: the best
-WG4-loading pure-wing target is IN11A032_a at WG4 0.749 and only 3.0&times;. So the wing arm
-rests on an asymmetric pair, and whether that is enough to determine the wing assignment is one
-of the questions the running crosscheck is meant to answer.</p>
-<p>The leg arm is well covered on both sides: AN09B017b (R 0.090) and IN17A013 (0.129) against
-AN09B017g (0.896) and IN23B020 (0.899), all pure leg, all &ge; 6.7&times;.</p>
-</div>
-
-<h3>What to actually run</h3>
-<ul class="steps">
-<li><strong>The design.</strong> One target pair &mdash; AN05B023b + AN05B023c &mdash; scored
-separately in <code>Ov</code> and <code>LegNp</code>. Gives <code>W</code> (wing) and
-<code>L</code> (leg), each with <code>k</code> cancelling exactly, each flipping sign between
-hypotheses by more than a log&#8321;&#8320; unit. This is the whole experiment.</li>
-<li><strong>Do this first, before any flies.</strong> Map the ppk drivers onto connectome types
-by HCR-FISH or MCFO. Cheaper than the GRASP, and it may answer the question outright. If
-ppk23-GAL4 labels more than 1.3&times; or fewer than 0.7&times; the assigned cell count, the
-GRASP is not interpretable and should not be built.</li>
-<li><strong>Reference arm.</strong> AN05B102a (PPN1) via
-<a href="https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?line=R56C09">R56C09</a>
-&mdash; 27&thinsp;267 ppk synapses, both drivers guaranteed to give signal, expected
-<code>R &asymp; 0.41</code>. If the ppk23 arm gives no unambiguous signal here, the assay does
-not work. Stop.</li>
-<li><strong>Everything else is exploratory.</strong> The wider target list below is useful for
-choosing follow-ups, not for the primary result. Its top rows are small targets whose large
-fold-changes may be artifacts &mdash; see the status note at the top.</li>
-</ul>
-
-<h2 id="crossing">6 &middot; Reagents and crossing scheme</h2>
-<p class="note">Searched directly against Bloomington on 11 August 2026, and independently
-confirmed by a second pass over FlyBase and BDSC. Stock numbers below were read off stock
-records, not inferred.</p>
-
-<h3>The binary-system problem, and why it is solved</h3>
-<p>GRNs are presynaptic and the connectome target is postsynaptic, so the two GRASP halves must
-be driven by two different binary systems. Both ppk drivers exist <em>only</em> as GAL4 &mdash;
-so the target must be LexA.</p>
-
-<div class="scroll">
-<table>
-<tr><th>Reagent</th><th>Exists?</th><th>Stock</th><th>Chr / site</th><th>Source</th></tr>
-<tr class="hi"><td>ppk23-GAL4 <code>2.695</code></td><td><span class="tag ok">yes</span></td>
-    <td><a href="https://bdsc.indiana.edu/stocks/93026">BDSC 93026</a></td><td>chr 2</td>
-    <td>Thistle 2012 &middot; used in Kallman 2015</td></tr>
-<tr class="hi"><td>ppk25-GAL4</td><td><span class="tag ok">yes</span></td>
-    <td><a href="https://bdsc.indiana.edu/stocks/93028">BDSC 93028</a></td>
-    <td>chr 2 <em>and</em> chr 3</td><td>Starostina 2012</td></tr>
-<tr class="hi"><td>R56C09-lexA</td><td><span class="tag ok">yes</span></td>
-    <td><a href="https://bdsc.indiana.edu/stocks/53584">BDSC 53584</a></td>
-    <td>chr 2, attP40</td><td>Pfeiffer 2013 &middot; the PPN1-LexA of Kallman 2015</td></tr>
-<tr class="hi"><td>t-GRASP, UAS-pre + LexAop-post</td><td><span class="tag ok">yes</span></td>
-    <td><a href="https://bdsc.indiana.edu/stocks/79040">BDSC 79040</a></td>
-    <td>chr 3, attP2 + VK00027</td><td>Shearin 2018 &mdash; both halves pre-recombined</td></tr>
-<tr><td>R56C09-GAL4</td><td><span class="tag ok">yes</span></td>
-    <td><a href="https://bdsc.indiana.edu/stocks/39145">BDSC 39145</a></td><td>chr 3, attP2</td>
-    <td><span class="tag warn">collides with t-GRASP</span></td></tr>
-<tr class="bad"><td>ppk23-LexA</td><td><span class="tag warn">exists, unstocked</span></td>
-    <td>none</td><td>not reported</td>
-    <td>Pool 2014 (Dickson) &mdash; request from Dickson or Scott</td></tr>
-<tr class="bad"><td>ppk25-LexA</td><td><span class="tag warn">does not exist</span></td>
-    <td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-<tr class="bad"><td>ppk23/ppk25-QF</td><td><span class="tag warn">do not exist</span></td>
-    <td>&mdash;</td><td>&mdash;</td><td>no MiMIC/CRIMIC either, so no Trojan route</td></tr>
-</table>
-</div>
-
-<div class="callout warn">
-<p><strong>Do not use vGlut-LexA as an F-cell proxy.</strong> Because ppk25-LexA does not exist,
-Kallman/Scott used <code>vGlut-LexA</code> and <code>vGlut-QF2</code> to stand in for the F-cell
-population. For this experiment that is <em>circular</em> &mdash; "glutamate implies ppk25+" is
-precisely the neurotransmitter prediction under test. The whole point is to drive off the
-receptor promoter.</p>
-</div>
-
-<h3>Chromosome arithmetic</h3>
-<p>Both t-GRASP halves in BDSC 79040 sit on chromosome 3 (attP2 and VK00027). That rules out two
-otherwise-obvious reagents.</p>
 
 <figure class="dark-fig">
 <svg viewBox="0 0 720 250" role="img" aria-label="Chromosome landing sites">
@@ -733,33 +533,72 @@ otherwise-obvious reagents.</p>
 <text x="401" y="187" fill="#6b7280" text-anchor="start" font-size="9.5">random P</text>
 <text x="150" y="240" fill="#ff7b72" font-size="11">▲ both t-GRASP halves occupy chr 3 — R56C09-GAL4 and ppk25-GAL4}3 collide with them</text>
 </g></svg>
-<figcaption>Landing sites for every reagent in play. Green = the t-GRASP pair. Red = blocked by
-it: R56C09-GAL4 sits at the same attP2 docking site, and the second ppk25-GAL4 insertion is also
-on chr 3. Blue and amber sit on chr 2 and are free.</figcaption>
+<figcaption>The positions of the transgenes. The two t-GRASP parts use all of chromosome 3.
+Thus you cannot use R56C09-GAL4 or the second ppk25-GAL4 insert.</figcaption>
 </figure>
 
+<h3>Make the ppk23-LexA stock clean</h3>
+<p>The stock is <code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code>. You must remove the
+22B10-GAL4 transgene, because chromosome 3 must hold the t-GRASP transgenes.</p>
 <ul class="steps">
-<li><strong>R56C09-GAL4 is out</strong> &mdash; attP2 is occupied by the LexAop half. Second
-independent reason to use the LexA version.</li>
-<li><strong>Segregate ppk25-GAL4.</strong> BDSC 93028 carries insertions on both chr 2 and chr 3.
-The chr 3 copy collides with t-GRASP, so cross it away and keep the chr 2 insertion alone.</li>
-<li><strong>This also fixes a dosage confound.</strong> Two copies of ppk25-GAL4 against one copy
-of ppk23-GAL4 would differ in driver strength between the two arms &mdash; which directly fakes
-the readout, since the readout <em>is</em> the ratio between those arms. After segregation both
-arms carry one copy.</li>
-<li><strong>No recombination is needed on chr 2.</strong> ppk-GAL4 and R56C09-lexA can sit
-<em>in trans</em>, one on each homolog, and both express normally. Bringing them together is a
-single cross.</li>
+<li>Cross the stock to a stock with two balancers.</li>
+<li>Select the flies that have Ser. These flies have TM3,Ser and not 22B10-GAL4.</li>
+<li>Also select the flies that have CyO but not Sp. These flies have ppk23-LexA.</li>
+<li>Cross the brothers and sisters. Keep the new stock.</li>
 </ul>
+<p class="note">Ser is dominant. Thus you can do this step with your eyes. You do not need PCR.
+Keep the first stock. Do not change it.</p>
 
-<h3>Crossing scheme &mdash; reference arm</h3>
 <div class="callout warn">
-<p>This builds the <strong>PPN1 reference arm</strong> (ppk-GAL4 &times; R56C09-lexA), which
-validates the reagents but cannot discriminate. The primary design in &sect;4 needs
-AN05B023b and AN05B023c, and <strong>neither has a driver &mdash; not at Bloomington, and not in
-the lab</strong> (checked against the flomington inventory: zero hits). Building or finding those
-two drivers is the critical path, ahead of every cross below.</p>
+<p><strong>Do not use vGlut-LexA in place of ppk25-LexA.</strong> Other groups did this because
+ppk25-LexA does not exist. But glutamate is the evidence that this test must examine. Thus
+vGlut-LexA makes a new loop.</p>
 </div>
+
+<h3>Make the ppk25-GAL4 stock clean</h3>
+<p>The stock BDSC 93028 has one insert on chromosome 2 and one insert on chromosome 3. You must
+remove the insert on chromosome 3 for two reasons:</p>
+<ul class="steps">
+<li>Chromosome 3 must hold the t-GRASP transgenes.</li>
+<li>Two inserts make a stronger driver than one insert. The ppk23 stock has one insert. The
+test compares these two drivers. Thus the two stocks must have the same number of inserts.</li>
+</ul>
+<p class="note"><strong>Warning.</strong> The two inserts have the same marker. Thus you must
+use PCR to show that you removed the insert on chromosome 3.</p>
+
+<h2>7 &middot; The neurons</h2>
+<p class="note">Use these links to see each neuron. NeuronBridge finds driver lines with a
+colour depth search. neuPrint shows the connectome data.</p>
+<div class="scroll">
+<table>
+<tr><th>Type</th><th class="num">Bodies</th><th>Transmitter</th><th>Links</th><th>Body IDs</th></tr>
+<tr class="hi"><td>IN23B025</td><td class="num">6</td><td>GABA</td>
+ <td><a href="https://neuronbridge.janelia.org/search?q=IN23B025">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=804071">neuPrint</a></td>
+ <td><code>804071, 904199, 803994, 903996, 905652, 804523</code></td></tr>
+<tr class="hi"><td>IN23B011</td><td class="num">2</td><td>GABA</td>
+ <td><a href="https://neuronbridge.janelia.org/search?q=IN23B011">NeuronBridge</a></td><td><code>see neuPrint</code></td></tr>
+<tr class="hi"><td>DNpe029</td><td class="num">4</td><td>&mdash;</td>
+ <td><a href="https://neuronbridge.janelia.org/search?q=DNpe029">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=39565">neuPrint</a></td>
+ <td><code>39565, 97980, 38781, 178516</code></td></tr>
+<tr><td>IN07B010</td><td class="num">2</td><td>&mdash;</td>
+ <td><a href="https://neuronbridge.janelia.org/search?q=IN07B010">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=800002">neuPrint</a></td>
+ <td><code>800002, 802951</code></td></tr>
+<tr><td>AN05B023b</td><td class="num">2</td><td>GABA</td>
+ <td><a href="https://neuronbridge.janelia.org/search?q=AN05B023b">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=200336">neuPrint</a></td>
+ <td><code>200336, 801269</code></td></tr>
+<tr><td>AN05B023c</td><td class="num">2</td><td>GABA</td>
+ <td><a href="https://neuronbridge.janelia.org/search?q=AN05B023c">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=18430">neuPrint</a></td>
+ <td><code>18430, 18696</code></td></tr>
+<tr class="bad"><td>AN05B102a (PPN1)</td><td class="num">2</td><td>ACh</td>
+ <td><a href="https://neuronbridge.janelia.org/search?q=AN05B102a">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=11431">neuPrint</a></td>
+ <td><code>11431, 12286</code></td></tr>
+</table>
+</div>
+
+<h2>8 &middot; All the target neurons</h2>
+<p class="note">This graph shows all the target neurons. The full circle gives R for the
+receptor types in the paper. The empty circle gives R if all the types are wrong. Grey rows
+show a ratio less than 3. Do not use the grey rows.</p>
 
 <figure class="dark-fig">
 <svg viewBox="0 0 720 627" role="img" aria-label="Target discrimination, v1.0 unthresholded">
@@ -917,547 +756,65 @@ two drivers is the critical path, ahead of every cross below.</p>
 <text x="702" y="576" fill="#5b6675" font-size="9">584</text>
 <text x="150" y="609" fill="#8b95a5" font-size="9.5">&#9679; current assignment   &#9675; global swap   dot size &#8733; synapse count   grey &lt; 3&#215;   right column: fold, then synapses</text>
 </g></svg>
-<figcaption>Stock A is built once and reused for every target. After that each experiment is a
-single cross with no selection &mdash; all F1 males carry the full genotype. Swap BDSC 53584 for
-the LexA driver of whichever target is being tested. Roughly 6&ndash;8 weeks to Stock A at 25&nbsp;&deg;C,
-then 2&ndash;3 weeks per experiment.</figcaption>
+<figcaption>The value R for each target neuron. The size of each circle gives the number of
+synapses.</figcaption>
 </figure>
 
-<div class="callout warn">
-<p><strong>Still open.</strong> Only R56C09 has a confirmed LexA driver, so only the PPN1
-reference arm is currently buildable. AN05B023b/c and the other discriminating targets need LexA
-lines that do not yet exist &mdash; a NeuronBridge hunt, then either an existing Gen1 LexA or a
-split-LexA build. That is the critical path, not the crossing.</p>
-<p>Experimental animals must be <strong>male</strong>: the ppk23 T1 midline crossing is
-male-specific and <em>fru</em>-dependent, and all the connectome predictions come from the male
-CNS.</p>
-</div>
-
-<h2>7 &middot; Reference</h2>
-<p class="note">Every shortlist target, with live lookups. NeuronBridge searches by type name and
-runs the colour-depth match to LM driver lines; neuPrint and Virtual Fly Brain resolve the first
-body ID. Body IDs are selectable for pasting into Clio.</p>
-
-<div class="scroll">
-<table>
-<tr><th>Type</th><th class="num">n</th><th>NT</th><th>Soma</th><th>Look up</th><th>Notes</th></tr>
-<tr class="hi"><td><b>AN05B023b</b></td><td class="num">2</td><td>GABA</td><td>A2</td><td><a href="https://neuronbridge.janelia.org/search?q=AN05B023b">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=200336">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:200336">VFB</a></td><td>best M-side target &middot; 17&times;</td></tr>
-<tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">200336, 801269</code></td></tr>
-<tr class="hi"><td><b>AN05B023c</b></td><td class="num">2</td><td>GABA</td><td>A6</td><td><a href="https://neuronbridge.janelia.org/search?q=AN05B023c">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=18430">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:18430">VFB</a></td><td>best target overall &middot; 121&times;</td></tr>
-<tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">18430, 18696</code></td></tr>
-<tr class="hi"><td><b>INXXX044</b></td><td class="num">8</td><td>GABA</td><td>T2/T3/A1/A2</td><td><a href="https://neuronbridge.janelia.org/search?q=INXXX044">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=800575">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:800575">VFB</a></td><td>pure wing &middot; WG3 side</td></tr>
-<tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">800575, 904664, 800305, 800272, 800912, 800788, 800660, 800201</code></td></tr>
-<tr class="hi"><td><b>IN11A022</b></td><td class="num">6</td><td>ACh</td><td>T2</td><td><a href="https://neuronbridge.janelia.org/search?q=IN11A022">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=805311">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:805311">VFB</a></td><td>pure wing &middot; WG4 side</td></tr>
-<tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">805311, 904851, 805874, 907376, 804748, 805275</code></td></tr>
-<tr class="hi"><td><b>IN01B065</b></td><td class="num">20</td><td>GABA</td><td>T2/T3/A1</td><td><a href="https://neuronbridge.janelia.org/search?q=IN01B065">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=812103">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:812103">VFB</a></td><td>pure leg &middot; LgLG1a side</td></tr>
-<tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">812103, 809925, 811297, 810045, 814181, 812956, 911406, 810166, 809629, 830835, 807976, 809675, 813816, 809578, 813722, 818747, 811612, 910152, 811563, 809185</code></td></tr>
-<tr class="hi"><td><b>AN09B017g</b></td><td class="num">2</td><td>ACh</td><td>A10</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017g">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=922722">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:922722">VFB</a></td><td>pure leg &middot; LgLG8 side</td></tr>
-<tr class="hi"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">922722, 14320</code></td></tr>
-<tr><td><b>IN05B002</b></td><td class="num">2</td><td>GABA</td><td>T1</td><td><a href="https://neuronbridge.janelia.org/search?q=IN05B002">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=800035">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:800035">VFB</a></td><td>highest signal, 19190 syn</td></tr>
-<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">800035, 800040</code></td></tr>
-<tr><td><b>AN13B002</b></td><td class="num">2</td><td>GABA</td><td>A1</td><td><a href="https://neuronbridge.janelia.org/search?q=AN13B002">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=30088">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:30088">VFB</a></td><td><em>Dandelion</em>, Shiu 2022</td></tr>
-<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">30088, 21763</code></td></tr>
-<tr><td><b>ANXXX093</b></td><td class="num">2</td><td>ACh</td><td>A6</td><td><a href="https://neuronbridge.janelia.org/search?q=ANXXX093">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=17503">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:17503">VFB</a></td><td>unnamed &middot; in R56C09 match set</td></tr>
-<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">17503, 13399</code></td></tr>
-<tr><td><b>AN09B017b</b></td><td class="num">2</td><td>ACh</td><td>A3</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017b">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=16747">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:16747">VFB</a></td><td>LgLG6 isolator &middot; <em>vAB3</em></td></tr>
-<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">16747, 524298</code></td></tr>
-<tr><td><b>AN09B017e</b></td><td class="num">2</td><td>ACh</td><td>A9</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017e">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=13693">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:13693">VFB</a></td><td>LgLG7 isolator &middot; <em>vAB3</em></td></tr>
-<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">13693, 13341</code></td></tr>
-<tr><td><b>AN09B017f</b></td><td class="num">2</td><td>ACh</td><td>A10</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017f">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=512498">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:512498">VFB</a></td><td>LgLG5 isolator &middot; <em>vAB3</em></td></tr>
-<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">512498, 11998</code></td></tr>
-<tr><td><b>IN11A020</b></td><td class="num">6</td><td>ACh</td><td>T1</td><td><a href="https://neuronbridge.janelia.org/search?q=IN11A020">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=907699">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:907699">VFB</a></td><td>wing 0.97</td></tr>
-<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">907699, 940542, 803792, 802730, 802868, 800798</code></td></tr>
-<tr><td><b>IN17A013</b></td><td class="num">2</td><td>ACh</td><td>T3</td><td><a href="https://neuronbridge.janelia.org/search?q=IN17A013">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=800380">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:800380">VFB</a></td><td>pure leg</td></tr>
-<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">800380, 800588</code></td></tr>
-<tr><td><b>AN17A013</b></td><td class="num">4</td><td>ACh</td><td>T1/T2</td><td><a href="https://neuronbridge.janelia.org/search?q=AN17A013">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=800932">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:800932">VFB</a></td><td>pure leg</td></tr>
-<tr><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">800932, 81109, 82791, 78620</code></td></tr>
-<tr class="bad"><td><b>AN05B102a</b></td><td class="num">2</td><td>ACh</td><td>A1</td><td><a href="https://neuronbridge.janelia.org/search?q=AN05B102a">NeuronBridge</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=11431">neuPrint</a> &middot; <a href="http://virtualflybrain.org/xref/neuronbridge/male-cns:v1.0:11431">VFB</a></td><td>R56C09 &middot; <span class="tag warn">PPN1 identity disputed</span></td></tr>
-<tr class="bad"><td colspan="6" style="white-space:normal;padding-top:0;border-bottom:1px solid var(--line)"><code style="font-size:.78rem">11431, 12286</code></td></tr>
-</table>
-</div>
-
-<div class="callout warn">
-<p><strong>Multi-body types are harder.</strong> IN01B065 has 20 bodies and INXXX044 has 8. A
-driver line hitting only some of them shifts the measured <code>R</code> away from the connectome
-prediction, because the prediction is computed over the whole type. Two-body types
-(AN05B023b/c, AN09B017b/g, AN13B002, ANXXX093) are much safer targets.</p>
-</div>
-
-<h3>Scripts and how to regenerate</h3>
-<div class="scroll">
-<table>
-<tr><th>Path</th><th>Produces</th></tr>
-<tr><td><code>receptor_typing_validation/R/01_design_matrix.R</code></td>
-    <td>C matrix over all targets, <code>design_matrix_full.csv</code>, <code>.rds</code></td></tr>
-<tr><td><code>receptor_typing_validation/R/02_select_targets.R</code></td>
-    <td>greedy D-optimal target set, condition number, shortlist annotation</td></tr>
-<tr><td><code>receptor_typing_validation/R/03_shortlist.R</code></td>
-    <td>per-type isolators, core swap targets, wing/leg purity</td></tr>
-<tr><td><code>receptor_typing_validation/PLAN.md</code></td>
-    <td>full backlog of independent validation routes, tiered</td></tr>
-<tr><td><code>receptor_typing_validation/SHORTLIST.md</code></td>
-    <td>this page's tables in markdown</td></tr>
-<tr><td><code>analyses/an_investigation/</code></td>
-    <td>the AN05B023 / AN05B102 / AN09B017 case analyses feeding it</td></tr>
-<tr><td><code>figures/fig5/setup.R:269-274</code></td>
-    <td>where the current receptor assignment is hardcoded</td></tr>
-</table>
-</div>
-
-<p class="note">Rerun the whole chain from the repo root:</p>
-<p><code>Rscript receptor_typing_validation/R/01_design_matrix.R &amp;&amp;
-Rscript receptor_typing_validation/R/02_select_targets.R &amp;&amp;
-Rscript receptor_typing_validation/R/03_shortlist.R</code></p>
-<p class="note">Reads <code>feather/connectivity.feather</code> (617&thinsp;MB, cached) and
-<code>feather/mba.feather</code>. No neuPrint login needed.</p>
-
-<h2>8 &middot; State of play</h2>
-
-<h3>Fix in the draft now &mdash; independent of everything else</h3>
+<h2>9 &middot; Errors in the paper</h2>
+<p>Correct these errors now. They do not depend on the test.</p>
 <ul class="steps">
-<li><strong>WG4 pairs LgLG1a, not LgLG1b.</strong> Results text says WG4 co-clusters with
-LgLG1b, two sentences after WG3 already claimed LgLG1b. <code>setup.R:269</code> says LgLG1a.
-Typo in the load-bearing sentence, duplicated verbatim into Methods and the unedited draft.</li>
-<li><strong>WG1 / WG2 swap.</strong> Results says "positioning of WG1"; Methods says "WG2".
-Otherwise identical paragraph.</li>
-<li><strong>The PPN1 sentence.</strong> PPN1 takes 41% / 59% from the two families. It is not
-corroboration for the WG3 call.</li>
-<li><strong>Document <code>set_ppk25_glutamate = TRUE</code></strong>
-(<code>setup.R:95</code>) &mdash; an NT override on the group whose NT is the evidence. Reads as
-circular unless explained.</li>
+<li>The text says that WG4 groups with LgLG1b. This is wrong. WG4 groups with LgLG1a. See
+<code>setup.R:269</code>. WG3 groups with LgLG1b.</li>
+<li>The Results section says WG1. The Methods section says WG2. The two sections use the same
+words. Select one type.</li>
+<li>The text says that PPN1 gives evidence for WG3. PPN1 gets 41% of its synapses from the
+ppk25+ group. Thus PPN1 does not give this evidence.</li>
+<li>Write why the code sets <code>set_ppk25_glutamate = TRUE</code>
+(<code>setup.R:95</code>). This line changes the transmitter of the group that gives the
+evidence.</li>
 </ul>
 
-<h3>Validation backlog</h3>
-<p class="note">Full detail in <code>PLAN.md</code>. Independence = does it avoid the downstream
-connectivity that produced the labels.</p>
+<h2>10 &middot; Other work that gives evidence</h2>
 <div class="scroll">
 <table>
-<tr><th>Route</th><th>Independence</th><th>Cost</th><th>Status</th></tr>
-<tr><td>Bristle-slot test &mdash; are WG1&ndash;4 the four neurons of one bristle?</td>
-    <td><span class="tag ok">total</span></td><td>low</td><td>not started</td></tr>
-<tr><td>NT classifier calibration on known-NT GRNs</td>
-    <td><span class="tag ok">total</span></td><td>low</td><td>not started</td></tr>
-<tr><td>Count matching vs light microscopy</td>
-    <td><span class="tag ok">total</span></td><td>low</td><td>not started</td></tr>
-<tr><td>Clustering stability / resampling</td>
-    <td><span class="tag q">partial</span></td><td>low</td><td>not started</td></tr>
-<tr><td>Measure the axon-terminal "hole" quantitatively</td>
-    <td><span class="tag ok">total</span></td><td>low</td><td>not started</td></tr>
-<tr><td>WG1 <em>and</em> WG2 = Ir52a and Ir52b separately (Luo 2024)</td>
-    <td><span class="tag ok">high</span></td><td>low</td><td>not started</td></tr>
-<tr><td>Is one of WG1&ndash;4 the bristle mechanoreceptor?</td>
-    <td><span class="tag ok">high</span></td><td>low</td><td>not started</td></tr>
-<tr><td>cVA convergence &mdash; M cells detect cVA, so must converge with DA1</td>
-    <td><span class="tag ok">high</span></td><td>low</td><td>not started</td></tr>
-<tr><td>Male-specific <em>fru</em>-dependent T1 midline crossing vs FANC/BANC</td>
-    <td><span class="tag ok">total</span></td><td>medium</td><td>not started</td></tr>
-<tr><td>Wing-margin topography vs He 2019</td>
-    <td><span class="tag ok">total</span></td><td>medium</td><td>not started</td></tr>
-<tr><td>Cross-connectome replication in BANC / FANC</td>
-    <td><span class="tag ok">high</span></td><td>high</td><td>not started</td></tr>
-<tr><td>Multi-hop retyping (coconatfly PR #59)</td>
-    <td><span class="tag warn">low</span></td><td>medium</td><td>deepens the same channel &mdash;
-    does <em>not</em> break circularity</td></tr>
-<tr class="hi"><td>Design matrix &amp; target shortlist</td>
-    <td><span class="tag ok">n/a</span></td><td>done</td><td><span class="tag ok">complete</span></td></tr>
-<tr class="hi"><td>GRASP experiment</td>
-    <td><span class="tag ok">total</span></td><td>high</td><td>crossing scheme in progress</td></tr>
+<tr><th>Task</th><th>Independent?</th><th>Cost</th></tr>
+<tr><td>Show which neurons the ppk drivers label. Use HCR-FISH or MCFO.</td>
+    <td><span class="tag ok">Yes</span></td><td>Low</td></tr>
+<tr><td>Group the sensory axons by bristle. Test if each bristle holds one WG1, one WG2, one
+    WG3 and one WG4.</td><td><span class="tag ok">Yes</span></td><td>Low</td></tr>
+<tr><td>Test the transmitter prediction on sensory neurons with a known transmitter.</td>
+    <td><span class="tag ok">Yes</span></td><td>Low</td></tr>
+<tr><td>Count the cells in the light microscope images. Compare with the connectome counts.</td>
+    <td><span class="tag ok">Yes</span></td><td>Low</td></tr>
+<tr><td>Test if WG1 and WG2 are Ir52a and Ir52b, and not one type.</td>
+    <td><span class="tag ok">Yes</span></td><td>Low</td></tr>
+<tr><td>Test if one of WG1 to WG4 is a mechanosensory neuron.</td>
+    <td><span class="tag ok">Yes</span></td><td>Low</td></tr>
+<tr><td>Compare the male connectome with FANC and BANC. The T1 midline crossing is male only.</td>
+    <td><span class="tag ok">Yes</span></td><td>Medium</td></tr>
+<tr class="bad"><td>Use more connectome analysis with more steps.</td>
+    <td><span class="tag warn">No</span></td><td>Medium</td></tr>
 </table>
 </div>
 
-<h2>9 &middot; Resources</h2>
-
-<h3>Connectome</h3>
-<div class="grid">
-<a class="lk" href="https://neuprint-cns.janelia.org/"><b>neuPrint mCNS</b>
- <span>male-cns:v1.0 &mdash; the dataset every number on this page comes from</span></a>
-<a class="lk" href="../an05b102/"><b>AN05B102 scenes</b>
- <span>PPN1 and family &mdash; Clio-NG scenes, MCFO imagery, embedded viewer</span></a>
-<a class="lk" href="../an05b023bc/"><b>AN05B023b/c scenes</b>
- <span>the 8% / 93% pair &mdash; the two best discriminating targets</span></a>
-<a class="lk" href="../an09b017/"><b>AN09B017 scenes</b>
- <span>vAB3 and the LgLG5&ndash;8 isolators</span></a>
-<a class="lk" href="https://clio.janelia.org/"><b>Clio</b>
- <span>annotation and neuroglancer front end for the Janelia datasets</span></a>
-<a class="lk" href="https://flywire.ai/"><b>FlyWire / FAFB</b>
- <span>female whole-brain connectome &mdash; cross-sex comparison</span></a>
-<a class="lk" href="https://virtualflybrain.org/"><b>Virtual Fly Brain</b>
- <span>bridges EM types to LM lines, expression patterns and literature</span></a>
-<a class="lk" href="https://www.biorxiv.org/content/10.1101/2025.10.09.680999"><b>Berg et al. 2025</b>
- <span>the male CNS connectome preprint</span></a>
-</div>
-
-<h3>Driver-line hunt &mdash; the critical path</h3>
-<p class="note">Only R56C09 has a confirmed LexA driver, and it is the reference arm. Everything
-that can actually discriminate needs a line that does not yet exist. Route below, in order.</p>
-<div class="grid">
-<a class="lk" href="https://neuronbridge.janelia.org/"><b>NeuronBridge &mdash; start here</b>
- <span>Colour-depth MIP search from an EM body to LM driver lines. Search by type name or body
- ID; the per-neuron links in &sect;7 go straight there.</span></a>
-<a class="lk" href="https://splitgal4.janelia.org/"><b>FlyLight Split-GAL4</b>
- <span>Cell-type-specific intersectional lines. <em>GAL4 &mdash; unusable in this design unless a
- LexA half exists</em>, since both ppk drivers are GAL4.</span></a>
-<a class="lk" href="https://www.janelia.org/project-team/flylight/resources"><b>FlyLight resources</b>
- <span>Gen1 GAL4 and the Gen1 <b>LexA</b> collection &mdash; the LexA collection covers only a
- subset of the GAL4 lines, which is the whole bottleneck.</span></a>
-<a class="lk" href="https://gen1mcfo.janelia.org/"><b>Gen1 MCFO</b>
- <span>Stochastic single-neuron imagery per line &mdash; how R56C09 was called, and how to check
- whether a candidate line is clean.</span></a>
-<a class="lk" href="https://bdsc.indiana.edu/"><b>Bloomington (BDSC)</b>
- <span>Stock records and ordering. Deep links per stock in &sect;6. Confirmed working:
- <code>bdsc.indiana.edu/stocks/&lt;number&gt;</code></span></a>
-<a class="lk" href="https://virtualflybrain.org/"><b>Virtual Fly Brain</b>
- <span>Bridges EM types to LM lines, synonyms and literature. The source of the PPN1 synonym
- problem above.</span></a>
-<a class="lk" href="https://flybase.org/"><b>FlyBase</b>
- <span>Transgene records, insertion sites, chromosome assignments, which stock centres hold what.</span></a>
-<a class="lk" href="https://www.vdrc.at/"><b>VDRC</b>
- <span>Vienna &mdash; second source, and the Vienna Tiles library. Note VT063311/VT063314 overlap
- ppk23 but are <em>not</em> validated ppk23 drivers.</span></a>
-</div>
-
-<h3>Other imagery</h3>
-<div class="grid">
-<a class="lk" href="https://neuronbridge.janelia.org/"><b>NeuronBridge</b>
- <span>colour-depth MIP search from an EM body to candidate LM driver lines &mdash; the route
- to a driver for AN05B023b/c</span></a>
-<a class="lk" href="https://bdsc.indiana.edu/"><b>Bloomington (BDSC)</b>
- <span>stock ordering &mdash; ppk23 / ppk25 drivers, GRASP transgenes, balancers</span></a>
-<a class="lk" href="https://www.janelia.org/project-team/flylight"><b>Janelia FlyLight</b>
- <span>Gen1 GAL4 and LexA collections, MCFO imagery, aligned stacks</span></a>
-<a class="lk" href="https://splitgal4.janelia.org/"><b>FlyLight Split-GAL4</b>
- <span>cell-type-specific intersectional lines &mdash; the fix if a GAL4 hits more than one target</span></a>
-<a class="lk" href="https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?line=R56C09"><b>R56C09 MCFO</b>
- <span>confirmed to label AN05B102a (PPN1) only &mdash; the reference arm's driver</span></a>
-<a class="lk" href="https://flybase.org/"><b>FlyBase</b>
- <span>transgene records, insertion sites, chromosome assignments</span></a>
-<a class="lk" href="http://www.flycircuit.tw/"><b>FlyCircuit</b>
- <span>single-neuron LM morphology &mdash; secondary route for morphology matching</span></a>
-<a class="lk" href="https://www.vdrc.at/"><b>VDRC</b>
- <span>Vienna stock centre &mdash; second source for lines not at Bloomington</span></a>
-</div>
-
-<h3>Key literature</h3>
-<ul class="refs">
-<li><span class="yr">2015</span> &middot; Kallman, Kim &amp; Scott &mdash; excitation and
-inhibition onto central courtship neurons biases mate choice.
-<a href="https://doi.org/10.7554/eLife.11188">eLife 4:e11188</a>
-&mdash; the PPN1 driver, and the functional-connectivity claim this page revisits.</li>
-<li><span class="yr">2012</span> &middot; Thistle, Cameron, Ghorayshi, Dennison &amp; Scott &mdash;
-contact chemoreceptors mediate male-male repulsion and male-female attraction.
-<a href="https://doi.org/10.1016/j.cell.2012.03.045">Cell 149:1140</a> &mdash; M and F cells.</li>
-<li><span class="yr">2012</span> &middot; Toda, Zhao &amp; Dickson &mdash; the female aphrodisiac
-pheromone activates ppk23+ neurons.
-<a href="https://doi.org/10.1016/j.celrep.2012.05.007">Cell Rep 1:599</a></li>
-<li><span class="yr">2019</span> &middot; He, Luo, Shang, Sun &amp; Carlson &mdash; chemosensory
-sensilla of the wing express a candidate ionotropic pheromone receptor.
-<a href="https://doi.org/10.1371/journal.pbio.2006619">PLoS Biol 17:e2006619</a></li>
-<li><span class="yr">2024</span> &middot; Luo, Talross &amp; Carlson &mdash; function and evolution
-of Ir52 receptors in mate detection.
-<a href="https://doi.org/10.1016/j.cub.2024.10.005">Curr Biol 34:5395</a>
-&mdash; Ir52a and Ir52b are distinct populations; bears on WG1 vs WG2.</li>
-<li><span class="yr">2010</span> &middot; Mellert, Knapp, Manoli, Meissner &amp; Baker &mdash;
-midline crossing by gustatory receptor neuron axons is regulated by <em>fruitless</em>.
-<a href="https://doi.org/10.1242/dev.045047">Development 137:323</a>
-&mdash; the male-specific marker.</li>
-<li><span class="yr">2018</span> &middot; Shearin, Quinn, Mackin, Macdonald &amp; Stowers &mdash;
-t-GRASP, a targeted GRASP for assessing neuronal connectivity.
-<a href="https://doi.org/10.1016/j.jneumeth.2018.05.029">J Neurosci Methods 306:94</a></li>
-<li><span class="yr">2011</span> &middot; Wang, Han, Mehren, Hiroi, Billeter, Miyamoto, Amrein,
-Levine &amp; Anderson &mdash; hierarchical chemosensory regulation of male-male social interactions.
-<a href="https://doi.org/10.1038/nn.2800">Nat Neurosci 14:757</a>
-&mdash; gustatory dominant to olfactory; the receptor-label-independent headline.</li>
-<li><span class="yr">2010</span> &middot; Wang &amp; Anderson &mdash; an aggression-promoting
-pheromone and its receptor neurons.
-<a href="https://doi.org/10.1038/nature08678">Nature 463:227</a></li>
-<li><span class="yr">2015</span> &middot; Dweck et al. &mdash; pheromones mediating copulation and
-attraction. <a href="https://doi.org/10.1073/pnas.1504527112">PNAS 112:E2829</a>
-&mdash; Or47b / Or88a deorphanisation.</li>
-<li><span class="yr">2007</span> &middot; van der Goes van Naters &amp; Carlson &mdash; receptors
-and neurons for fly odors.
-<a href="https://doi.org/10.1016/j.cub.2007.02.043">Curr Biol 17:606</a>
-&mdash; Table 1, the channel-inventory template.</li>
-</ul>
-
-<h2>10 &middot; Where this leaves the paper</h2>
+<h2>11 &middot; The paper is safe</h2>
 <div class="callout">
-<p><strong>The headline does not depend on the answer.</strong> Wang et al. 2011 showed gustatory
-pheromone signals are hierarchically dominant to olfactory ones. Nobody has the anatomical
-substrate for that. The Fig 5 result &mdash; mAL subtypes preferentially relaying multimodal
-sensory information &mdash; plausibly <em>is</em> that substrate, and it survives a WG3&harr;WG4
-swap untouched.</p>
-<p>So: name types by their connectome names, carry receptor identity as a labelled overlay with
-explicit confidence tiers, run the swap-robustness pass, and the manuscript cannot be killed by
-killing the assignment. The GRASP experiment then upgrades the overlay from inference to
-measurement.</p>
+<p>Use the connectome names in the paper. Write WG3, WG4, LgLG1a and LgLG1b. Show the receptor
+types as an extra layer. Give a confidence level to each receptor type.</p>
+<p>Then change WG3 and WG4 and calculate the results again. Show which results change. Wang and
+his group showed in 2011 that contact pheromones control the fly more than volatile pheromones.
+The mAL result in Figure 5 possibly shows how the brain does this. This result does not change
+if WG3 and WG4 change.</p>
 </div>
 
 <hr>
 <p class="foot">
-Numbers computed from <code>feather/connectivity.feather</code> (mCNS <code>male-cns:v1.0</code>),
-nerve suffixes collapsed, by
-<code>receptor_typing_validation/R/01_design_matrix.R</code> &rarr;
-<code>02_select_targets.R</code> &rarr; <code>03_shortlist.R</code>.
-Full backlog of independent validation routes in
-<code>receptor_typing_validation/PLAN.md</code>; target detail in <code>SHORTLIST.md</code>.
+Data: <code>male-cns:v1.0</code> from neuPrint. No threshold. Two independent methods gave the same
+values. Scripts: <code>receptor_typing_validation/R/05_design_matrix_v1.R</code>,
+<code>06_final_targets.R</code>, <code>07_perbody_leg.R</code>, <code>08_scenes.R</code>.
+Documents: <code>PLAN.md</code>, <code>LEG_ARM.md</code>, <code>REAGENTS.md</code>,
+<code>CROSSES.md</code>, <code>CROSSING_REVIEW.md</code>.
 <br><br>
-GRASP puncta are not synapses one-to-one. Only ratios across targets are interpretable, and
-every predicted <code>R</code> on this page is a connectome expectation, not a measurement.
+GRASP puncta are not the same as synapses. Only compare ratios. Each R value on this page is a
+prediction from the connectome. It is not a measurement.
 </p>
-
-<!-- ===================== DECK ===================== -->
-<div id="deck" aria-hidden="true">
-
-<section class="slide title-slide">
- <h2>Can we settle the receptor typing experimentally?</h2>
- <p>Turning the contact-chemosensory assignment from an argument into a measurement.<br>
-    Florian Kämpf &middot; August 2026</p>
-</section>
-
-<section class="slide">
- <h3>The problem</h3>
- <h2>We inferred the labels from the circuit, then used the labels to explain the circuit.</h2>
- <ul>
-  <li>Receptor identity for WG3 / WG4 / LgLG* was assigned from <strong>downstream partners</strong>
-      &mdash; PPN1 for WG3, mAL for WG4.</li>
-  <li>The manuscript's thesis is <strong>downstream valence logic</strong>.</li>
-  <li>Supporting evidence: neurotransmitter prediction, morphology against GAL4 images, and
-      wing&rarr;leg co-clustering.</li>
-  <li><em>No further connectome analysis can break this loop.</em></li>
- </ul>
-</section>
-
-<section class="slide">
- <h3>And one leg of it is weaker than we thought</h3>
- <h2>PPN1 is not a ppk25+ marker.</h2>
- <table>
-  <tr><th>Target</th><th class="num">LgLG1a</th><th class="num">WG4</th><th class="num">LgLG1b</th>
-      <th class="num">WG3</th><th class="num">ppk25+ share</th></tr>
-  <tr class="bad"><td>AN05B102a = PPN1</td><td class="num">7951</td><td class="num">8138</td>
-      <td class="num">5397</td><td class="num">5701</td><td class="num">41%</td></tr>
-  <tr class="hi"><td>AN05B023b</td><td class="num">6744</td><td class="num">4346</td>
-      <td class="num">589</td><td class="num">398</td><td class="num">8%</td></tr>
-  <tr class="hi"><td>AN05B023c</td><td class="num">246</td><td class="num">185</td>
-      <td class="num">3545</td><td class="num">2154</td><td class="num">93%</td></tr>
- </table>
- <p>PPN1 takes near-equal input from both families &mdash; a convergent integrator, not a marker.
- The two families also interdigitate across its whole dendrite (KS <code>D &le; 0.08</code>).
- <em>That sentence in the draft needs rewriting regardless of everything else.</em></p>
-</section>
-
-<section class="slide">
- <h3>The move</h3>
- <h2>Stop defending the labels. Solve for them.</h2>
- <p style="font-family:ui-monospace,monospace;font-size:clamp(1.1rem,2.4vw,1.7rem);color:#fff;
-    background:rgba(255,255,255,.06);padding:1rem 1.3rem;border-radius:9px;display:inline-block">
-   R<sub>j</sub> = &Sigma;<sub>i</sub> x<sub>i</sub>&middot;C[i,j] &frasl; &Sigma;<sub>i</sub> C[i,j]
- </p>
- <ul>
-  <li><strong>C</strong> = connectome synapse counts. EM segmentation &mdash; not typing inference.</li>
-  <li><strong>x</strong> = the receptor labels. The actual unknown.</li>
-  <li><strong>R</strong> = measured by GRASP, because ppk25+ cells are a <em>subset</em> of ppk23+
-      cells: the ppk23 driver labels both families, the ppk25 driver only one.</li>
-  <li>Unknown GRASP efficiency <code>k</code> is common across targets and
-      <strong>cancels in ratios</strong>. One target tells you nothing; two tell you everything.</li>
- </ul>
-</section>
-
-<section class="slide">
- <h3>What it can distinguish</h3>
- <h2>Four hypotheses, two readouts.</h2>
- <table>
-  <tr><th>Hypothesis</th><th>Wing call</th><th>Leg call</th></tr>
-  <tr class="hi"><td>H0 &mdash; as published</td><td>right</td><td>right</td></tr>
-  <tr><td>H1 &mdash; global swap</td><td>wrong</td><td>wrong</td></tr>
-  <tr class="hi"><td>H2</td><td>right</td><td><strong>wrong</strong> &mdash; propagation failed</td></tr>
-  <tr class="hi"><td>H3</td><td><strong>wrong</strong></td><td>right</td></tr>
- </table>
- <p>"Assignment versus global swap" was a <em>straw man</em> &mdash; nobody thinks the whole thing
- is inverted. H2 and H3 are the live ones, and they are exactly where the wing&rarr;leg
- propagation fails.</p>
- <p><strong>One pair, two compartments.</strong> AN05B023b vs AN05B023c, scored separately in
- Ov and LegNp. <code>W</code> = +1.04 / &minus;1.06 reads the wing call; <code>L</code> =
- +1.07 / &minus;1.15 reads the leg call. Each is a within-compartment ratio-of-ratios, so
- <em>k cancels exactly</em>. Their signs map one-to-one onto the four hypotheses.</p>
-</section>
-
-<section class="slide">
- <h3>The targets</h3>
- <h2>Two cells carry almost the whole answer.</h2>
- <table>
-  <tr><th>Target</th><th class="num">ppk syn</th><th class="num">R&#8320;</th>
-      <th class="num">R&#8321; swap</th><th class="num">fold</th></tr>
-  <tr class="hi"><td>AN05B023c</td><td class="num">5631</td><td class="num">0.992</td>
-      <td class="num">0.008</td><td class="num">121&times;</td></tr>
-  <tr class="hi"><td>AN05B023b</td><td class="num">12066</td><td class="num">0.054</td>
-      <td class="num">0.946</td><td class="num">17&times;</td></tr>
-  <tr><td>IN01B065</td><td class="num">1246</td><td class="num">0.051</td>
-      <td class="num">0.949</td><td class="num">18&times;</td></tr>
-  <tr><td>IN05B002</td><td class="num">19190</td><td class="num">0.139</td>
-      <td class="num">0.861</td><td class="num">6.2&times;</td></tr>
-  <tr class="bad"><td>AN05B102a = PPN1</td><td class="num">27083</td><td class="num">0.408</td>
-      <td class="num">0.592</td><td class="num">1.5&times;</td></tr>
- </table>
- <p>PPN1 is <em>not</em> diagnostic at 1.5&times; &mdash; but it is the ideal reference arm.
- 27&thinsp;083 ppk synapses, both drivers guaranteed to give signal, and R56C09 is confirmed
- to label it alone.</p>
-</section>
-
-<section class="slide">
- <h3>The part I care most about</h3>
- <h2>Wing and leg come apart.</h2>
- <table>
-  <tr><th>Target</th><th class="num">wing</th><th class="num">leg</th><th class="num">R&#8320;</th>
-      <th>Determines</th></tr>
-  <tr class="hi"><td>INXXX044</td><td class="num">1.00</td><td class="num">0.00</td>
-      <td class="num">0.908</td><td>wing &mdash; WG3 side</td></tr>
-  <tr class="hi"><td>IN11A022</td><td class="num">1.00</td><td class="num">0.00</td>
-      <td class="num">0.195</td><td>wing &mdash; WG4 side</td></tr>
-  <tr class="hi"><td>IN01B065</td><td class="num">0.00</td><td class="num">1.00</td>
-      <td class="num">0.051</td><td>leg &mdash; LgLG1a side</td></tr>
-  <tr><td>AN09B017g</td><td class="num">0.00</td><td class="num">1.00</td>
-      <td class="num">0.941</td><td>leg &mdash; LgLG8 side</td></tr>
- </table>
- <p>The leg assignments were <strong>propagated</strong> from the wing ones by co-clustering.
- Nothing has ever tested that. These four targets test it directly &mdash; and because wing
- types synapse in <code>Ov</code> and leg types in <code>LegNp</code>, both readouts come from
- <em>one VNC prep, scored by neuropil</em>.</p>
-</section>
-
-<section class="slide">
- <h3>The ask</h3>
- <h2>Three tiers, pick a stopping point.</h2>
- <ul>
-  <li><strong>2 targets</strong> &mdash; AN05B023b + c. Settles the global M/F swap. 17&times; and 121&times;.</li>
-  <li><strong>4 targets</strong> &mdash; add INXXX044, IN11A022, IN01B065, AN09B017g. Decouples wing from leg.</li>
-  <li><strong>8 targets</strong> &mdash; the D-optimal set. Every type solved individually.</li>
-  <li><strong>Reference arm throughout</strong> &mdash; R56C09 / PPN1. Without it a negative is uninterpretable.</li>
- </ul>
- <p><em>Main unknown: driver lines.</em> R56C09 is confirmed. AN09B017e/f = vAB3 and AN13B002 =
- Dandelion are named and may have reagents. The rest need a NeuronBridge hunt.</p>
-</section>
-
-<section class="slide">
- <h3>Reagents &mdash; searched Bloomington directly</h3>
- <h2>The binary-system problem is solved.</h2>
- <table>
-  <tr><th>Reagent</th><th>Stock</th><th>Chr</th></tr>
-  <tr class="hi"><td>ppk23-GAL4</td><td>BDSC 93026</td><td>2</td></tr>
-  <tr class="hi"><td>ppk25-GAL4</td><td>BDSC 93028</td><td>2 <em>and</em> 3</td></tr>
-  <tr class="hi"><td>R56C09-lexA</td><td>BDSC 53584</td><td>2, attP40</td></tr>
-  <tr class="hi"><td>UAS-pre + LexAop-post t-GRASP</td><td>BDSC 79040</td><td>3, pre-recombined</td></tr>
-  <tr class="bad"><td>ppk23-LexA</td><td>exists, unstocked (Dickson)</td><td>&mdash;</td></tr>
-  <tr class="bad"><td>ppk25-LexA / any ppk-QF</td><td>do not exist</td><td>&mdash;</td></tr>
- </table>
- <p>Both ppk drivers are GAL4-only, so the target goes LexA. <em>Do not substitute vGlut-LexA as
- an F-cell proxy</em> &mdash; "glutamate implies ppk25+" is the very prediction under test.</p>
-</section>
-
-<section class="slide">
- <h3>Crossing</h3>
- <h2>Build one stock, then one cross per target.</h2>
- <ul>
-  <li><strong>Stock A</strong> = <code>w; ppk-GAL4 ; LexAop-post-tG, UAS-pre-tG</code>.
-      Two generations, ~6&ndash;8 weeks. Reused for every target.</li>
-  <li><strong>Each experiment</strong> = Stock A &#9792; &times; target-LexA &#9794;.
-      <em>All F1 males are the experimental genotype</em> &mdash; no selection.</li>
-  <li>ppk-GAL4 and R56C09-lexA sit <strong>in trans on chr 2</strong>. No recombination needed.</li>
-  <li>Segregate the chr 3 copy of ppk25-GAL4 &mdash; it collides with t-GRASP, <em>and</em> two
-      copies vs one would fake the ratio that is the whole readout.</li>
- </ul>
- <p>Males only: ppk23 T1 midline crossing is male-specific and <em>fru</em>-dependent.</p>
-</section>
-
-<section class="slide">
- <h3>The actual bottleneck</h3>
- <h2>Driver lines for the targets, not the genetics.</h2>
- <p>Only <strong>R56C09</strong> has a confirmed LexA driver &mdash; and that is the
- <em>reference</em> arm, the one that cannot discriminate.</p>
- <p>AN05B023b/c and the other discriminating targets need LexA lines that <strong>do not yet
- exist</strong>. Route: NeuronBridge colour-depth search from the EM body, then an existing Gen1
- LexA if one matches, otherwise a split build.</p>
- <div class="kpi">
-  <div><b>1</b><span>targets with a driver</span></div>
-  <div><b>13</b><span>needing a hunt</span></div>
- </div>
-</section>
-
-<section class="slide">
- <h3>Risk</h3>
- <h2>The paper is safe either way.</h2>
- <ul>
-  <li>Name types by <strong>connectome names</strong>; carry receptor identity as a labelled
-      overlay with explicit confidence tiers.</li>
-  <li>Run the <strong>WG3&harr;WG4 swap robustness pass</strong> and report which conclusions
-      depend on the call.</li>
-  <li>The headline &mdash; contact pheromone signals dominating volatile ones at mAL, the
-      anatomical substrate of the Wang 2011 hierarchy &mdash; <strong>survives a swap
-      untouched</strong>.</li>
- </ul>
- <p>So the experiment is an upgrade, not a dependency. It turns the overlay from inference into
- measurement.</p>
-</section>
-
-<section class="slide">
- <h3>Next</h3>
- <h2>What I need decided.</h2>
- <ul>
-  <li>Do we spend fly time on this, or ship with confidence tiers and the swap-robustness pass?</li>
-  <li>If yes: 2, 4 or 8 targets?</li>
-  <li>Who hunts driver lines &mdash; and do we have ppk23/ppk25 in a non-GAL4 binary system?</li>
-  <li>Either way: the PPN1 sentence in the draft needs rewriting now.</li>
- </ul>
-</section>
-
-<div class="deckbar">
- <button id="d-exit">Exit</button>
- <button id="d-prev">&larr;</button>
- <div class="prog"><i id="d-prog"></i></div>
- <button id="d-next">&rarr;</button>
- <span id="d-num" style="min-width:4.5rem;text-align:right;font-variant-numeric:tabular-nums"></span>
-</div>
-</div>
-
-<script>
-(function(){
- var deck = document.getElementById('deck');
- var slides = deck.querySelectorAll('.slide');
- var i = 0;
-
- function show(n){
-   i = Math.max(0, Math.min(slides.length - 1, n));
-   slides.forEach(function(s, k){ s.classList.toggle('on', k === i); });
-   document.getElementById('d-num').textContent = (i + 1) + ' / ' + slides.length;
-   document.getElementById('d-prog').style.width =
-     ((i + 1) / slides.length * 100).toFixed(1) + '%';
- }
- function open(){
-   deck.classList.add('on'); deck.setAttribute('aria-hidden', 'false');
-   document.body.classList.add('decked');
-   if (location.hash !== '#pitch') history.replaceState(null, '', '#pitch');
-   show(0);
- }
- function close(){
-   deck.classList.remove('on'); deck.setAttribute('aria-hidden', 'true');
-   document.body.classList.remove('decked');
-   if (location.hash === '#pitch') history.replaceState(null, '', location.pathname);
- }
-
- document.getElementById('start').addEventListener('click', open);
- document.getElementById('d-exit').addEventListener('click', close);
- document.getElementById('d-next').addEventListener('click', function(){ show(i + 1); });
- document.getElementById('d-prev').addEventListener('click', function(){ show(i - 1); });
-
- document.addEventListener('keydown', function(e){
-   if (!deck.classList.contains('on')) return;
-   if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown'){ e.preventDefault(); show(i + 1); }
-   else if (e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); show(i - 1); }
-   else if (e.key === 'Escape'){ close(); }
-   else if (e.key === 'Home'){ show(0); }
-   else if (e.key === 'End'){ show(slides.length - 1); }
- });
-
- // deep link straight into the deck
- if (location.hash === '#pitch') open();
-})();
-</script>

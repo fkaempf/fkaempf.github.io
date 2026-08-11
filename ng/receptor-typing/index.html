@@ -406,11 +406,11 @@ work. The wing types are not the goal of the test.</p>
     <td class="num">13.1</td><td class="num">3803</td><td class="num">2</td><td class="num">0.008</td></tr>
 <tr><td>AN05B023b</td><td>05B</td><td>LgLG1a</td><td class="num">0.091</td>
     <td class="num">10.3</td><td class="num">7923</td><td class="num">2</td><td class="num">0.013</td></tr>
-<tr class="bad"><td>IN17A013</td><td>17A</td><td>LgLG1a</td><td class="num">0.129</td>
+<tr class="hi"><td>IN17A013</td><td>17A</td><td>LgLG1a</td><td class="num">0.129</td>
     <td class="num">6.7</td><td class="num">1711</td><td class="num">2</td><td class="num">0.016</td><td><a href="https://neuronbridge.janelia.org/search?q=IN17A013">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=800380">nP</a></td></tr>
-<tr class="bad"><td>AN09B017g</td><td>09B</td><td>LgLG8</td><td class="num">0.896</td>
+<tr class="bad"><td>AN09B017g <span class="tag warn">no line</span></td><td>09B</td><td>LgLG8</td><td class="num">0.896</td>
     <td class="num">8.6</td><td class="num">1960</td><td class="num">2</td><td class="num">0.060</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017g">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=922722">nP</a></td></tr>
-<tr class="bad"><td>AN09B017b</td><td>09B</td><td>LgLG6</td><td class="num">0.090</td>
+<tr class="bad"><td>AN09B017b <span class="tag warn">no line</span></td><td>09B</td><td>LgLG6</td><td class="num">0.090</td>
     <td class="num">10.1</td><td class="num">1091</td><td class="num">2</td><td class="num">0.008</td><td><a href="https://neuronbridge.janelia.org/search?q=AN09B017b">NB</a> &middot; <a href="https://neuprint.janelia.org/view?dataset=male-cns:v1.0&bodyid=16747">nP</a></td></tr>
 </table>
 </div>
@@ -419,17 +419,19 @@ work. The wing types are not the goal of the test.</p>
 <p>Every body of every neuron in this table gets ppk synapses. No single body controls the
 result. Two rules remove some of these neurons:</p>
 <ul class="steps">
-<li>It is difficult to find a driver line for the hemilineage 17A. Do not use IN17A013,
-AN17A013, AN17A024 or AN17A009.</li>
-<li>The vAB3 split-GAL4 lines do not show one AN09B017 neuron alone. The AN09B017 neurons have
-R values from 0.090 to 0.896. A line that shows the full group gives an R value near 0.35.
-Then the test does not work.</li>
+<li>It is difficult to find a driver line for the AN09B017 neurons. The vAB3 split-GAL4 lines
+in the laboratory do not show one AN09B017 neuron alone.</li>
+<li>This is worse than no line. The AN09B017 neurons have R values from 0.090 to 0.896. A line
+that shows the full group gives an R value near 0.35. Then the test does not work.</li>
+<li>Do not use AN09B017b or AN09B017g.</li>
 </ul>
 
 <div class="callout">
 <p><strong>Use the hemilineage 23B.</strong> This hemilineage has neurons on the two sides of
 the LgLG1a and LgLG1b pair. Use IN23B025 and IN23B011. One hemilineage makes the search for
 driver lines more easy.</p>
+<p><strong>IN17A013 is also good for the LgLG1a side.</strong> It has an R value of 0.129 and
+1711 leg synapses in two bodies.</p>
 <p><strong>Look at DNpe029 first.</strong> DNpe029 is a descending neuron. The Namiki and Card
 split-GAL4 collection has many descending neurons. Thus you can possibly find this driver line
 more quickly.</p>
@@ -471,24 +473,28 @@ tab to show or hide each type.</p>
 
 <h2>6 &middot; The flies</h2>
 
-<p>The two ppk drivers are GAL4 only. Thus the target neuron driver must be LexA.</p>
+<p>The two ppk drivers are GAL4 only. Thus the driver for the target neuron must be LexA.</p>
+<p>The two t-GRASP transgenes fill chromosome 3. Thus chromosome 3 must stay empty in every
+other stock. This one fact controls all the crosses below.</p>
 
 <div class="scroll">
 <table>
-<tr><th>Item</th><th>Stock</th><th>Chromosome</th><th>In the laboratory</th></tr>
+<tr><th>Item</th><th>Stock</th><th>Chromosome</th><th>Status</th></tr>
 <tr class="hi"><td>ppk23-GAL4</td><td><a href="https://bdsc.indiana.edu/stocks/93026">BDSC 93026</a></td>
-    <td>2</td><td>Yes</td></tr>
+    <td>2</td><td>In the laboratory</td></tr>
 <tr class="hi"><td>ppk25-GAL4</td><td><a href="https://bdsc.indiana.edu/stocks/93028">BDSC 93028</a></td>
-    <td>2 and 3</td><td>Yes</td></tr>
+    <td>2 and 3</td><td>In the laboratory. Remove the insert on chromosome 3.</td></tr>
+<tr class="hi"><td>ppk23-LexA</td><td>Dickson laboratory, GJ1472</td><td>2</td>
+    <td>In the laboratory. Remove the 22B10-GAL4 transgene.</td></tr>
 <tr class="hi"><td>R56C09-lexA</td><td><a href="https://bdsc.indiana.edu/stocks/53584">BDSC 53584</a></td>
-    <td>2</td><td>Yes</td></tr>
+    <td>2</td><td>In the laboratory</td></tr>
 <tr class="hi"><td>t-GRASP, UAS pre and LexAop post</td>
-    <td><a href="https://bdsc.indiana.edu/stocks/79040">BDSC 79040</a></td><td>3</td><td>Yes</td></tr>
-<tr class="hi"><td>t-GRASP, LexAop pre and UAS post</td>
-    <td>BDSC 79039</td><td>3</td><td>Yes</td></tr>
-<tr class="hi"><td>ppk23-LexA</td><td>Dickson laboratory, GJ1472</td><td>2</td><td>Yes</td></tr>
-<tr class="bad"><td>ppk25-LexA</td><td>Does not exist</td><td>&mdash;</td><td>No</td></tr>
-<tr class="bad"><td>R56C09-GAL4</td><td>BDSC 39145</td><td>3, attP2</td><td>Yes, but attP2 is full</td></tr>
+    <td><a href="https://bdsc.indiana.edu/stocks/79040">BDSC 79040</a></td><td>3</td>
+    <td>In the laboratory</td></tr>
+<tr class="hi"><td>t-GRASP, LexAop pre and UAS post</td><td>BDSC 79039</td><td>3</td>
+    <td>In the laboratory</td></tr>
+<tr class="bad"><td>ppk25-LexA</td><td>&mdash;</td><td>&mdash;</td><td>Does not exist. You must make it.</td></tr>
+<tr class="bad"><td>R56C09-GAL4</td><td>BDSC 39145</td><td>3</td><td>Do not use. Chromosome 3 is full.</td></tr>
 </table>
 </div>
 
@@ -529,13 +535,12 @@ tab to show or hide each type.</p>
 <text x="401" y="187" fill="#6b7280" text-anchor="start" font-size="9.5">random P</text>
 <text x="150" y="240" fill="#ff7b72" font-size="11">▲ both t-GRASP halves occupy chr 3 — R56C09-GAL4 and ppk25-GAL4}3 collide with them</text>
 </g></svg>
-<figcaption>The positions of the transgenes. The two t-GRASP parts use all of chromosome 3.
-Thus you cannot use R56C09-GAL4 or the second ppk25-GAL4 insert.</figcaption>
+<figcaption>The positions of the transgenes.</figcaption>
 </figure>
 
 <h3>Make the ppk23-LexA stock clean</h3>
-<p>The stock is <code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code>. You must remove the
-22B10-GAL4 transgene, because chromosome 3 must hold the t-GRASP transgenes.</p>
+<p>The stock is <code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code>. Remove the 22B10-GAL4
+transgene.</p>
 <ul class="steps">
 <li>Cross the stock to a stock with two balancers.</li>
 <li>Select the flies that have Ser. These flies have TM3,Ser and not 22B10-GAL4.</li>
@@ -545,22 +550,19 @@ Thus you cannot use R56C09-GAL4 or the second ppk25-GAL4 insert.</figcaption>
 <p class="note">Ser is dominant. Thus you can do this step with your eyes. You do not need PCR.
 Keep the first stock. Do not change it.</p>
 
+<h3>Make the ppk25-GAL4 stock clean</h3>
+<p>The stock BDSC 93028 has one insert on chromosome 2 and one insert on chromosome 3. Remove
+the insert on chromosome 3. There is a second reason to do this. Two inserts make a stronger
+driver than one insert. The ppk23 stock has one insert. The test compares these two drivers.
+Thus the two stocks must have the same number of inserts.</p>
+<p class="note"><strong>Warning.</strong> The two inserts have the same marker. Thus you must use
+PCR to show that you removed the insert on chromosome 3.</p>
+
 <div class="callout warn">
-<p><strong>Do not use vGlut-LexA in place of ppk25-LexA.</strong> Other groups did this because
+<p><strong>Do not use vGlut-LexA in place of ppk25-LexA.</strong> Other groups did this, because
 ppk25-LexA does not exist. But glutamate is the evidence that this test must examine. Thus
 vGlut-LexA makes a new loop.</p>
 </div>
-
-<h3>Make the ppk25-GAL4 stock clean</h3>
-<p>The stock BDSC 93028 has one insert on chromosome 2 and one insert on chromosome 3. You must
-remove the insert on chromosome 3 for two reasons:</p>
-<ul class="steps">
-<li>Chromosome 3 must hold the t-GRASP transgenes.</li>
-<li>Two inserts make a stronger driver than one insert. The ppk23 stock has one insert. The
-test compares these two drivers. Thus the two stocks must have the same number of inserts.</li>
-</ul>
-<p class="note"><strong>Warning.</strong> The two inserts have the same marker. Thus you must
-use PCR to show that you removed the insert on chromosome 3.</p>
 
 <h2>7 &middot; All the target neurons</h2>
 <p class="note">This graph shows all the target neurons. The full circle gives R for the

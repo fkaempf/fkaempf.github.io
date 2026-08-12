@@ -314,6 +314,73 @@ GRASP test gives the measurements.</p>
 The GRASP test gives the ratio R.</figcaption>
 </figure>
 
+<h3>What the equation says</h3>
+
+<p style="font-family:ui-monospace,monospace;font-size:1rem;background:rgba(11,95,165,.07);
+padding:.9rem 1.1rem;border-radius:8px;display:inline-block">
+R<sub>j</sub> &nbsp;=&nbsp; &Sigma;<sub>i</sub> x<sub>i</sub> &middot; C[i,j] &nbsp;&frasl;&nbsp;
+&Sigma;<sub>i</sub> C[i,j]</p>
+
+<div class="scroll">
+<table>
+<tr><th>Term</th><th>Meaning</th><th>Known?</th><th>Example</th></tr>
+<tr><td><code>j</code></td><td>One target neuron. You pick it.</td><td>You choose it</td>
+    <td>PPN1</td></tr>
+<tr><td><code>i</code></td><td>One sensory neuron type. There are eight in the ppk family.</td>
+    <td>Fixed list</td><td>WG3, WG4, LgLG1a, LgLG1b, LgLG5, LgLG6, LgLG7, LgLG8</td></tr>
+<tr><td><code>C[i,j]</code></td><td>How many synapses type <code>i</code> makes onto target
+    <code>j</code>.</td><td><span class="tag ok">Known</span>, from the connectome</td>
+    <td>WG3 makes 5701 synapses onto PPN1</td></tr>
+<tr class="bad"><td><code>x<sub>i</sub></code></td><td>Is type <code>i</code> ppk25 positive?
+    Write 1 for yes and 0 for no.</td><td><span class="tag warn">Unknown</span>. This is the
+    receptor assignment.</td><td>The paper says WG3 is 1 and WG4 is 0</td></tr>
+<tr><td><code>&Sigma;<sub>i</sub></code></td><td>Add up over all eight types.</td>
+    <td>&mdash;</td><td>&mdash;</td></tr>
+<tr class="hi"><td><code>R<sub>j</sub></code></td><td>The share of the input to target
+    <code>j</code> that comes from ppk25 positive cells.</td>
+    <td>Predicted here, measured by the test</td><td>0.41 for PPN1</td></tr>
+</table>
+</div>
+
+<p>In words: <strong>the top line adds up the synapses that come from ppk25 positive types
+only. The bottom line adds up the synapses from all eight types. Divide one by the other and
+you get a share.</strong></p>
+
+<p>The multiplication by <code>x<sub>i</sub></code> is a switch. When
+<code>x<sub>i</sub></code> is 1, that type counts in the top line. When it is 0, that type
+gives zero and drops out. So the top line keeps only the ppk25 positive types.</p>
+
+<h4>Worked example: PPN1</h4>
+<div class="scroll">
+<table>
+<tr><th>Type <code>i</code></th><th class="num">C[i,j], synapses onto PPN1</th>
+    <th class="num">x<sub>i</sub></th><th class="num">Counts in the top line</th></tr>
+<tr><td>WG3</td><td class="num">5701</td><td class="num">1</td><td class="num">5701</td></tr>
+<tr><td>LgLG1b</td><td class="num">5397</td><td class="num">1</td><td class="num">5397</td></tr>
+<tr><td>WG4</td><td class="num">8138</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>LgLG1a</td><td class="num">7951</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>LgLG5, 6, 7, 8</td><td class="num">80</td><td class="num">mixed</td><td class="num">small</td></tr>
+<tr class="hi"><td><b>Total</b></td><td class="num"><b>27267</b></td><td class="num">&mdash;</td>
+    <td class="num"><b>11075</b></td></tr>
+</table>
+</div>
+
+<p>11075 divided by 27267 is <strong>0.41</strong>. That is R for PPN1.</p>
+
+<div class="callout">
+<p><strong>Read the equation in two directions.</strong></p>
+<p>Forward: you assume the receptor types, and you get a prediction for every target. That is
+what the tables on this page give you.</p>
+<p>Backward: you measure R, and you ask which receptor types could produce it. One target does
+not give one answer, because many different sets of <code>x</code> give the same R.</p>
+</div>
+
+<div class="callout warn">
+<p><strong>Why the error bar is large.</strong> <code>C</code> is known and firm.
+<code>x</code> is the assumption. Change one <code>x<sub>i</sub></code> and R moves. For PPN1,
+setting WG4 to 1 moves R from 0.41 to 0.71. Section 9 gives the full range for every target.</p>
+</div>
+
 <p>The method uses one fact about the two drivers:</p>
 <ul class="steps">
 <li>The ppk25 cells are a part of the ppk23 cells.</li>

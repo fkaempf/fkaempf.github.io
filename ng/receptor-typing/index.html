@@ -907,54 +907,104 @@ synapses.</figcaption>
 </table>
 </div>
 
-<h2>9 &middot; What an adversarial review says</h2>
+<h2>9 &middot; What to do</h2>
 
-<p>Five reviewers attacked this proposal. Each reviewer used a different view: the biology, the
-fly genetics, the imaging, the statistics, and the cost. The verdict was <strong>do not do the
-fly experiment now</strong>. Three reasons were given, and each one is sufficient.</p>
+<h3>Every R value carries a large error bar already</h3>
 
-<ul class="steps">
-<li><strong>You cannot build it.</strong> No target neuron has a driver line. AN05B023b and
-AN05B023c are sister types of one hemilineage. A split-GAL4 line separates a type from its
-neighbours only when two enhancers differ between them. Sister types share their transcription
-factor code. Thus this pair is the most difficult case.</li>
-<li><strong>A cheaper experiment comes first.</strong> The denominator of R is the set of types
-that the ppk drivers label. Nobody knows this set. If you map the drivers, you possibly have the
-answer already. If you do not map them, the GRASP number has no prediction to compare against.</li>
-<li><strong>The answer changes little.</strong> For the AN05B023b and AN05B023c pair, LgLG1a and
-LgLG1b give 93 and 99.9 percent of the leg input. Thus L tests one thing only: is LgLG1b the
-ppk25+ type. It cannot see LgLG5 to LgLG8. And a change of that one bit renames F and M. It does
-not change a structural claim in the paper.</li>
-</ul>
+<p>The receptor assignment is an assumption. If you change the receptor type of one sensory type,
+every R value moves. The table gives R, and the range that one such change produces. The range is
+the honest error bar on the connectome prediction.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Target</th><th class="num">syn</th><th class="num">R</th><th class="num">low</th>
+    <th class="num">high</th><th class="num">range</th><th>Most sensitive to</th></tr>
+<tr class="hi"><td>AN05B102a (PPN1)</td><td class="num">27267</td><td class="num">0.406</td>
+    <td class="num">0.197</td><td class="num">0.705</td><td class="num">0.508</td><td>WG4</td></tr>
+<tr><td>AN05B023b</td><td class="num">12667</td><td class="num">0.088</td><td class="num">0.044</td>
+    <td class="num">0.624</td><td class="num">0.580</td><td>LgLG1a</td></tr>
+<tr><td>IN05B002</td><td class="num">19674</td><td class="num">0.155</td><td class="num">0.077</td>
+    <td class="num">0.632</td><td class="num">0.555</td><td>LgLG1a</td></tr>
+<tr class="bad"><td>IN17A013</td><td class="num">1711</td><td class="num">0.129</td>
+    <td class="num">0.000</td><td class="num">1.000</td><td class="num">1.000</td><td>LgLG1a</td></tr>
+<tr class="bad"><td>IN23B007</td><td class="num">1643</td><td class="num">0.239</td>
+    <td class="num">0.000</td><td class="num">1.000</td><td class="num">1.000</td><td>LgLG1a</td></tr>
+<tr class="bad"><td>IN11A022</td><td class="num">2233</td><td class="num">0.312</td>
+    <td class="num">0.000</td><td class="num">1.000</td><td class="num">1.000</td><td>WG4</td></tr>
+<tr class="bad"><td>AN09B017b</td><td class="num">1091</td><td class="num">0.090</td>
+    <td class="num">0.003</td><td class="num">0.980</td><td class="num">0.977</td><td>LgLG6</td></tr>
+<tr><td>AN17A013</td><td class="num">3405</td><td class="num">0.175</td><td class="num">0.004</td>
+    <td class="num">0.977</td><td class="num">0.973</td><td>LgLG1a</td></tr>
+<tr><td>IN01B065</td><td class="num">1847</td><td class="num">0.153</td><td class="num">0.005</td>
+    <td class="num">0.968</td><td class="num">0.963</td><td>LgLG1a</td></tr>
+<tr><td>AN05B102c</td><td class="num">12975</td><td class="num">0.271</td><td class="num">0.134</td>
+    <td class="num">0.678</td><td class="num">0.544</td><td>LgLG1a</td></tr>
+</table>
+</div>
+
+<p><strong>PPN1 has the smallest range in the set.</strong> Its 27267 synapses come from many
+sensory types, so no single type controls it. The targets with a range of 1.000 take almost all
+of their input from one type, so one change moves them from one end of the scale to the other.
+A large number of synapses does not make a target good. A mix of sources does.</p>
+
+<p class="note">Full table: <code>receptor_typing_validation/data/label_sensitivity.csv</code>,
+made by <code>R/09_label_sensitivity.R</code>.</p>
+
+<div class="callout">
+<p><strong>Publish this table now.</strong> It costs nothing. Give the receptor assignment as an
+assumption, and give this range as the error bar on each row. This is more useful than one
+measured number, because it tells the reader which rows depend on which assumption.</p>
+</div>
+
+<h3>Only one target can be built</h3>
 
 <div class="callout warn">
-<p><strong>One more problem is upstream of the method.</strong> Hopkins, Barmina and Kopp 2023
-find <strong>four</strong> classes of gustatory neuron in the first tarsal segment of the male
-foreleg
-(<a href="https://doi.org/10.1371/journal.pbio.3002148">PLoS Biol 21:e3002148</a>). This page
-gives six leg types their own receptor type. If the six connectome types are position variants
-of a smaller number of molecular classes, then the question has no answer of this shape.</p>
-<p class="note">Two limits on this argument. The study covers one tarsal segment of one leg, at
-the pupal stage, and the connectome types cover three legs. Also, the count of ppk23+ classes
-inside those four is not in the abstract, and this page has not checked it. Read the figures of
-that paper for ppk23 and ppk25 before you act on this. That work costs one hour.</p>
+<p>Both ppk drivers are GAL4. Thus the target driver must be LexA. The laboratory holds one
+target LexA: R56C09-lexA for PPN1.</p>
+<p><strong>SS103018 for AN13B002 does not help.</strong> It is a split-GAL4, so it uses the same
+binary system as the ppk drivers. It gives a target with no sensory driver left to pair with it.
+The same is true of the four vAB3 lines.</p>
+<p>Thus the panel has one point, and this follows from the reagents, not from the choice of
+targets. A second point needs ppk25 in a second binary system, and that reagent does not
+exist.</p>
+</div>
+
+<h3>The measurement gets harder under this goal, not easier</h3>
+
+<p>The old design compared two targets and took a ratio of ratios, so the unknown detection
+factor cancelled. A reference point is one number for one target, so nothing cancels. Targets
+differ in R because they take input from different sensory types, and those same types set the
+detection factor. A spread of two in that factor reorders the list, because most neighbouring
+pairs in the list differ by less than 1.5-fold.</p>
+
+<h3>Do these two crosses first</h3>
+
+<ul class="steps">
+<li>Cross MCFO into ppk23-GAL4 and into ppk25-GAL4. Register the result to a male VNC template.
+Then ask two questions. Is every ppk25 cell also a ppk23 cell? And which sensory types does each
+driver reach?</li>
+<li>Cross MCFO into R56C09-lexA and into the four vAB3 lines, so that any number you publish
+later has a known referent.</li>
+</ul>
+
+<p>These crosses need no new transgene. They give every R value at one time, with no detection
+factor, no background and no false contacts. Nobody has done them.</p>
+
+<div class="callout warn">
+<p><strong>One assumption under everything has never been checked.</strong> R is a share only if
+every ppk25 cell is also a ppk23 cell. The two drivers are different constructs: ppk23-GAL4 uses
+a 2.695 kb fragment, and ppk25-GAL4 uses a genomic fusion. If the ppk25 set is not inside the
+ppk23 set, the share is not a share, and the sentence in the paper is wrong rather than
+imprecise. The first cross above answers this.</p>
 </div>
 
 <div class="callout">
-<p><strong>Do these first. The cheapest is at the top.</strong></p>
+<p><strong>What PPN1 can and cannot tell you.</strong> PPN1 is the best conditioned target: many
+synapses, a clean pair of bodies, a middle value, and the only driver. But its R value is almost
+exactly the sum of WG3 and LgLG1b. It cannot see the other four sensory types at all. Measured to
+plus or minus 0.20, it rules out 112 of the 256 possible receptor assignments. That is under one
+bit. Run it to test the method, not to answer the question.</p>
 </div>
-<ul class="steps">
-<li>Read Hopkins 2023 for ppk23 and ppk25 co-expression. One hour.</li>
-<li>Get the synapse table with neuropil regions for AN05B023b and AN05B023c. Confirm that the
-wing types give their synapses in Ov, and the leg types in LegNp. One afternoon. This test can
-end the two-neuropil design.</li>
-<li>Check PPN1 against Kallman 2015. Can R = 0.406 agree with the physiology under any single
-change of one receptor type? One day.</li>
-<li>Make the MCFO imagery for the four vAB3 lines. Three to four weeks. Do this in any case,
-because you must know what the laboratory owns.</li>
-<li>Do HCR-FISH on male foreleg tarsi for ppk23, ppk25, Ir52a, Ir52b and Gr32a. Three to four
-months. This experiment answers the question that the GRASP test was to answer.</li>
-</ul>
 
 <h2>10 &middot; The Ir52 arm</h2>
 

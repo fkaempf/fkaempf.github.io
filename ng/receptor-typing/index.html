@@ -652,14 +652,23 @@ opens, the strand has nothing to hold it, and it leaves.</strong></p>
 </div>
 
 <div class="callout warn">
-<p><strong>The antibody is the real problem.</strong> Most anti-GFP antibodies come from
+<p><strong>Choose the antibody with care.</strong> Most anti-GFP antibodies come from
 full-length GFP. They bind the first ten strands. Thus they also bind the half that has not
-joined a partner. If you stain with such an antibody, you image where that half is expressed.
-You do not image the contacts. The split system then gives you nothing.</p>
+joined a partner. If you stain with such an antibody, you image where that half is expressed,
+and not the contacts.</p>
+<p>Other groups solved this by choice of reagent. Macpherson et al. 2015 stain GRASP with
+<strong>mouse anti-GFP, Sigma G6539</strong>, at 1:100, and they call it anti-GRASP. The same
+paper reports that <strong>chicken anti-GFP, Abcam ab13970</strong>, prefers the free spGFP1-10
+half. Thus the second antibody is the counter-stain that shows you the expression pattern.</p>
+<p class="note">The paper does not claim that Sigma G6539 sees only the joined complex. The
+practice is established, but the proof is not published. Test it yourself.</p>
 <p>Run this control before anything else. Take a line that carries the spGFP1-10 half and no
 partner. Stain it and image it in the same way. <strong>If it gives a signal, the antibody does
-not report contacts.</strong> This control is cheap, and it decides whether the expansion route
-is possible.</p>
+not report contacts.</strong> Macpherson et al. ran this control and did see extra signal with
+the CD4 form of the half, and much less with the synaptobrevin form.</p>
+<p class="note">Macpherson, Zaharieva, Kearney, Alpert, Lin, Turan, Lee &amp; Gallio 2015,
+Nat Commun 6:10024.
+<a href="https://doi.org/10.1038/ncomms10024">10.1038/ncomms10024</a></p>
 </div>
 
 <div class="callout warn">
@@ -862,20 +871,7 @@ show a ratio less than 3. Do not use the grey rows.</p>
 synapses.</figcaption>
 </figure>
 
-<h2>8 &middot; Errors in the paper</h2>
-<p>Correct these errors now. They do not depend on the test.</p>
-<ul class="steps">
-<li>The text says that WG4 groups with LgLG1b. This is wrong. WG4 groups with LgLG1a. See
-<code>setup.R:269</code>. WG3 groups with LgLG1b.</li>
-<li>The Results section says WG1. The Methods section says WG2. The two sections use the same
-words. Select one type.</li>
-<li>Change the sentence about PPN1. Section 2 gives the numbers.</li>
-<li>Write why the code sets <code>set_ppk25_glutamate = TRUE</code>
-(<code>setup.R:95</code>). This line changes the transmitter of the group that gives the
-evidence.</li>
-</ul>
-
-<h2>9 &middot; Other work that gives evidence</h2>
+<h2>8 &middot; Other work that gives evidence</h2>
 <div class="scroll">
 <table>
 <tr><th>Task</th><th>Independent?</th><th>Cost</th></tr>
@@ -896,7 +892,7 @@ evidence.</li>
 </table>
 </div>
 
-<h2>10 &middot; What an adversarial review says</h2>
+<h2>9 &middot; What an adversarial review says</h2>
 
 <p>Five reviewers attacked this proposal. Each reviewer used a different view: the biology, the
 fly genetics, the imaging, the statistics, and the cost. The verdict was <strong>do not do the
@@ -945,7 +941,7 @@ because you must know what the laboratory owns.</li>
 months. This experiment answers the question that the GRASP test was to answer.</li>
 </ul>
 
-<h2>11 &middot; The paper is safe</h2>
+<h2>10 &middot; The paper is safe</h2>
 <div class="callout">
 <p>Use the connectome names in the paper. Write WG3, WG4, LgLG1a and LgLG1b. Show the receptor
 types as an extra layer. Give a confidence level to each receptor type.</p>
@@ -967,7 +963,7 @@ GRASP puncta are not the same as synapses. Only compare ratios. Each R value on 
 prediction from the connectome. It is not a measurement.
 </p>
 
-<h2>12 &middot; The Ir52 arm</h2>
+<h2>11 &middot; The Ir52 arm</h2>
 
 <p>The pages above examine the ppk types. There is a second question, and the connectome
 separates it more cleanly. WG1 has the receptor type Ir52a and Ir52b on this page. WG2 has no

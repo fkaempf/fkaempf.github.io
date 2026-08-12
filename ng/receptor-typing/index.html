@@ -909,6 +909,64 @@ synapses.</figcaption>
 
 <h2>9 &middot; What to do</h2>
 
+<h3>The experiment: three groups of animals</h3>
+
+<p>Use one target, PPN1. Use one reporter. Change only the driver. Each group is a separate set
+of animals.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Group</th><th>Cross</th><th>Gives</th><th class="num">Predicted share of PPN1 input</th></tr>
+<tr class="hi"><td>A</td><td>ppk23-GAL4 &times; R56C09-lexA</td><td>Input from ppk23 cells</td>
+    <td class="num">0.81</td></tr>
+<tr class="hi"><td>B</td><td>ppk25-GAL4 &times; R56C09-lexA</td><td>Input from ppk25 cells</td>
+    <td class="num">0.33</td></tr>
+<tr class="hi"><td>C</td><td>elav-GAL4 &times; R56C09-lexA</td><td>Input from all neurons</td>
+    <td class="num">1.00</td></tr>
+</table>
+</div>
+
+<p>Group C is the denominator. It needs no second colour and no second reporter. Divide group B
+by group A and you get <strong>0.41</strong>, which is the value that this page calls R for PPN1.
+Divide A or B by C and you get the share of all input.</p>
+
+<p>Group C also makes the number comparable between targets. Each target gets its own total, in
+the same assay, on the same day.</p>
+
+<p class="note">The counts behind the predictions, from male-cns:v1.0. PPN1 receives 33476 input
+synapses. 27267 of them come from the ppk family, which is 81 percent. 11075 come from the ppk25+
+group, which is 33 percent of the total.</p>
+
+<h4>Reagents, all in the laboratory</h4>
+<div class="scroll">
+<table>
+<tr><th>Item</th><th>Stock</th><th>Note</th></tr>
+<tr class="hi"><td>ppk23-GAL4</td><td><a href="https://bdsc.indiana.edu/stocks/93026">BDSC 93026</a></td><td>Chromosome 2</td></tr>
+<tr class="hi"><td>ppk25-GAL4</td><td><a href="https://bdsc.indiana.edu/stocks/93028">BDSC 93028</a></td><td>Remove the chromosome 3 insert</td></tr>
+<tr class="hi"><td>R56C09-lexA</td><td><a href="https://bdsc.indiana.edu/stocks/53584">BDSC 53584</a></td><td>Chromosome 2, drives PPN1</td></tr>
+<tr class="hi"><td>t-GRASP, UAS pre and LexAop post</td><td><a href="https://bdsc.indiana.edu/stocks/79040">BDSC 79040</a></td><td>Chromosome 3</td></tr>
+<tr><td>elav-GAL4</td><td>Check the line you hold</td><td>Check the chromosome. Chromosome 3 is full.</td></tr>
+</table>
+</div>
+
+<div class="callout warn">
+<p><strong>Group C will saturate.</strong> elav labels every neuron, so PPN1 receives 33476
+synapses of signal on one arbour. That is a solid block, and you cannot count puncta in it. Thus
+group C works as an intensity, not as a count. Then groups A and B must also be read as
+intensity, or the three do not compare.</p>
+<p><strong>elav also labels the target.</strong> PPN1 is a neuron. Thus elav puts the pre half
+inside PPN1, and PPN1 already carries the post half from the LexA side. The neuron can then make
+a signal with itself. Test this before you run the group. A driver that misses the target avoids
+it.</p>
+</div>
+
+<div class="callout">
+<p><strong>Why this design and not the earlier one.</strong> The earlier design compared two
+targets to cancel the unknown detection factor. It also needed every ppk25 cell to be a ppk23
+cell, and nobody has checked that. This design compares three groups at one target. The subset
+question does not enter, because each group is divided by the total and not by the other group.</p>
+</div>
+
 <h3>Every R value carries a large error bar already</h3>
 
 <p>The receptor assignment is an assumption. If you change the receptor type of one sensory type,

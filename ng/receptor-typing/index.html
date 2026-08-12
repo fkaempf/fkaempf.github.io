@@ -240,6 +240,16 @@ morphology, and morphology is what could not do the job in the first place.</p>
 </div>
 <p class="note">The analysis code holds these types at <code>figures/fig5/setup.R</code>, lines 270 to 275. That block defines the ppk23 and ppk25 groups only. It holds no entry for Ir52a, Ir52b, WG1, WG2 or LgLG2.</p>
 
+<div class="callout warn">
+<p><strong>Read this before the tables below.</strong> This document lists many target neurons.
+Only <strong>one</strong> of them can be built today, which is PPN1. Every other row is a target
+without a driver line. The reason is in document 3: ppk25 exists only as GAL4, so the target
+driver must be LexA, and the laboratory holds one target LexA.</p>
+<p>Treat the tables as a ranked wish list and not as a menu. A route to the other targets exists,
+but it rests on an unpublished meeting abstract and on a conversation reported second hand. See
+document 2.</p>
+</div>
+
 <h2>2 &middot; What we ask instead</h2>
 
 <p>The goal is NOT to assign receptor types to sensory neuron types. That question stays open.</p>
@@ -258,8 +268,8 @@ measurement methods and the collaboration live in the other two documents.</p>
 
 <h2>3 &middot; The equation</h2>
 
-<p>Each target neuron gives one equation. The connectome gives the synapse counts. The experiment
-gives the ratio.</p>
+<p>Each target neuron gives one equation. The connectome gives the synapse counts. The experiment gives the ratio.</p>
+<p class="note">The figure below is a schematic. Its target names are real but its numbers are illustrative and do not match the tables in this document. The letter k in its legend is the unknown detection factor, which document 2 explains.</p>
 
 <figure class="dark-fig">
 <svg viewBox="0 0 720 250" role="img" aria-label="Inverse problem schematic">
@@ -586,7 +596,7 @@ synapses.</figcaption>
 </figure>
 
 <h3>The leg targets</h3>
-<p>Each of these targets receives 100 percent of its ppk input from the leg types. R is
+<p>R here is renormalised within the leg types. Most of these targets take all of their ppk input from leg types, but not all of them do. AN05B023b and AN05B023c also take wing input. R is
 renormalised within the leg types. The per body standard deviation is in the last column.</p>
 
 <div class="scroll">
@@ -782,7 +792,7 @@ says so. Where a check has not been done, the sentence says that the check has n
 
 <p>The connectome prediction is 27267 sites for ppk23 and 11075 sites for ppk25, before the undercount. This configuration needs the two binary expression systems that the laboratory already holds. It needs no new reagent class.</p>
 
-<p class="note">Both ppk drivers are GAL4. So the target driver must be LexA. That constraint applies to every design in this document and it limits the panel to one target, PPN1. It follows from the reagents, not from a choice of target.</p>
+<p class="note">ppk25 exists only as GAL4. The two arms compare only if both sensory drivers use the same system, so both must be GAL4. Therefore the target driver must be LexA. A ppk23-LexA does exist in the laboratory, but it has no ppk25 partner, so it cannot form a matched pair. That constraint applies to every design in this document and it limits the panel to one target, PPN1. It follows from the reagents, not from a choice of target.</p>
 
 <h2>2 &middot; The current chemistry</h2>
 
@@ -833,7 +843,7 @@ says so. Where a check has not been done, the sentence says that the check has n
 </table>
 </div>
 
-<p>B over A gives 0.41. A over C or B over C gives the share of all input. Group C is the denominator. It needs no second colour and no second reporter. It makes numbers comparable between targets, because each target gets its own total in the same assay.</p>
+<p>B over A gives 0.41. A over C or B over C gives the share of all input. Group A predicts 0.81 only if all eight ppk-family types are ppk23 positive. Nobody has checked that. Group C is the denominator. It needs no second colour and no second reporter. It makes numbers comparable between targets, because each target gets its own total in the same assay.</p>
 
 <p>Divide A or B by C and this design does not need the assumption that every ppk25 cell is a ppk23 cell, because each is divided by the total. Divide B by A and the assumption does enter, because that is one group over another. So report A over C and B over C as the primary numbers, and treat B over A as a derived figure that carries the assumption. That assumption has never been checked. The two drivers are different construct classes.</p>
 
@@ -1059,7 +1069,7 @@ opposite of the usual worry, so state it before you plan a cross.</p>
 target. The chain is short.</p>
 
 <ul class="steps">
-<li>Both ppk drivers are GAL4. ppk23-GAL4 is BDSC 93026 and ppk25-GAL4 is BDSC 93028.</li>
+<li>ppk25 exists only as GAL4, BDSC 93028. So the ppk23 arm must also be GAL4, BDSC 93026, for the two to compare. The ppk23-LexA in the freezer has no ppk25 partner.</li>
 <li>Thus the driver for the target neuron must be LexA. Two GAL4 lines in one animal label both
 sets of cells together.</li>
 <li>R56C09-lexA, BDSC 53584, is the only target driver in the laboratory that is LexA. It drives
@@ -1187,7 +1197,7 @@ for ppk25 itself.</p>
 
 <h2>8 &middot; GRASP reagents and their chromosomes</h2>
 
-<p>Use t-GRASP. Both t-GRASP stocks put both halves on chromosome 3, which is exactly the free
+<p>Use t-GRASP for the fallback design. Document 2 recommends a different primary route, which is to tag a real synaptic protein rather than reconstitute a fluorescent protein. The chromosome rule in this document applies to the GRASP design. Both t-GRASP stocks put both halves on chromosome 3, which is exactly the free
 chromosome in this design. The syb-GRASP and CD4-GRASP stocks put their halves on chromosome 2,
 which already carries the two drivers.</p>
 

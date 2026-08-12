@@ -13,6 +13,14 @@
       margin-bottom:1.75rem;text-decoration:none;color:inherit}
  .big:hover{border-color:#0b5fa5;background:#f7fbff}
  .big b{color:#0b5fa5}
+ .rel{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1.6rem;padding:0;list-style:none}
+ .rel li{margin:0}
+ .rel a{display:inline-block;padding:.28rem .7rem;border:1px solid #d8d8d8;
+        border-radius:999px;text-decoration:none;font-size:.85rem;color:#0b5fa5;
+        white-space:nowrap}
+ .rel a:hover{border-color:#0b5fa5;background:#f7fbff}
+ .rel a.nb{background:#0b5fa5;border-color:#0b5fa5;color:#fff;font-weight:600}
+ .rel a.nb:hover{background:#0a5490}
  table{border-collapse:collapse;width:100%}
  th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid #ececec;
        white-space:nowrap}
@@ -124,6 +132,10 @@
   body{background:#141414;color:#e8e8e8}
   a{color:#6fb3ef} .big{border-color:#333} .big b{color:#6fb3ef}
   .big:hover{border-color:#6fb3ef;background:#1b2430}
+  .rel a{border-color:#333;color:#6fb3ef}
+  .rel a:hover{border-color:#6fb3ef;background:#1b2430}
+  .rel a.nb{background:#1d5c96;border-color:#1d5c96;color:#fff}
+  .rel a.nb:hover{background:#246bad}
   th,td{border-bottom-color:#2a2a2a} th,.legend,p.sub{color:#aaa}
   p.note{color:#c2c8d2}
   /* the page is already dark, so the figures need no card of their own -
@@ -137,6 +149,8 @@
 input synapses are point annotations, one layer per presynaptic sensory type.
 All of this input lands in the nerve cord. Extra layers start hidden; toggle
 them in the layer bar.</p>
+
+<ul class="rel"><li><a class="" href="../an05b023/">AN05B023a-d</a></li><li><a class="" href="../an05b023bc/">AN05B023b/c</a></li><li><a class="nb" href="../an05b023cd-partners/">partners</a></li></ul>
 
 <a class="big" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/an05b023cd_overview.json">
   <b>Overview: all 4 bodies</b><br>
@@ -152,7 +166,7 @@ they share one dendrogram, and only the colour scale changes. Hover a cell for
 the exact value.</p>
 
 <div id="figs" class="figs"></div>
-<p class="note" style="margin-top:.6rem">Every type here receives T1 input on both sides.</p><p class="note reflink">Related pages: <a href="../an05b023/">AN05B023a-d</a>, <a href="../an05b023bc/">AN05B023b/c</a>, <a href="../an05b023cd-partners/">notebook: partners</a>.</p>
+<p class="note" style="margin-top:.6rem">Every type here receives T1 input on both sides.</p>
 <script id="figdata" type="application/json">{"rows":["WG3","WG4","LgLG1a","LgLG1b","WG2","LgLG3"],"cols":["c L","c R","d L","d R"],"family":"AN05B023","alias":["","","",""],"tree":{"segs":[{"x1":1,"y1":0,"x2":1,"y2":0.010567},{"x1":2,"y1":0,"x2":2,"y2":0.010567},{"x1":1,"y1":0.010567,"x2":2,"y2":0.010567},{"x1":3,"y1":0,"x2":3,"y2":0.043679},{"x1":4,"y1":0,"x2":4,"y2":0.043679},{"x1":3,"y1":0.043679,"x2":4,"y2":0.043679},{"x1":1.5,"y1":0.010567,"x2":1.5,"y2":2.001976},{"x1":3.5,"y1":0.043679,"x2":3.5,"y2":2.001976},{"x1":1.5,"y1":2.001976,"x2":3.5,"y2":2.001976}],"maxh":2.001976},"panels":[{"key":"raw","title":"Raw synapse count","sub":"absolute wiring strength","unit":"syn","values":[[1037,1117,166,216],[74,111,51,84],[126,124,296,327],[1940,1611,481,408],[25,28,1380,2089],[66,34,2620,2467]]},{"key":"norm","title":"Fraction of total input","sub":"counting every source, not just these","unit":"pct","values":[[0.186009,0.208824,0.019895,0.023011],[0.013274,0.020752,0.006112,0.008949],[0.022601,0.023182,0.035475,0.034835],[0.347982,0.301178,0.057646,0.043464],[0.004484,0.005235,0.165388,0.222542],[0.011839,0.006356,0.313998,0.26281]]},{"key":"comp","title":"Composition","sub":"each column sums to 1","unit":"pct","values":[[0.317319,0.369256,0.03324,0.038634],[0.022644,0.036694,0.010212,0.015024],[0.038556,0.040992,0.059271,0.058487],[0.593635,0.532562,0.096316,0.072974],[0.00765,0.009256,0.276332,0.373636],[0.020196,0.01124,0.52463,0.441245]]}]}</script>
 <div class="ngrow"><figure><div class="box ngbox"><iframe src="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/an05b023cd_embed.json" loading="lazy" allowfullscreen title="AN05B023c 18430 + AN05B023d 520195"></iframe><span class="mask tl"></span><span class="mask tr"></span></div><figcaption><span class="sw" style="background:#E16A86"></span>AN05B023c 18430, <span class="sw" style="background:#00AD9A"></span>AN05B023d 520195, interactive. Drag to turn the neurons. <a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/an05b023cd_embed.json" rel="noopener">open full</a></figcaption></figure></div>
 

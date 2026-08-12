@@ -13,6 +13,14 @@
       margin-bottom:1.75rem;text-decoration:none;color:inherit}
  .big:hover{border-color:#0b5fa5;background:#f7fbff}
  .big b{color:#0b5fa5}
+ .rel{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1.6rem;padding:0;list-style:none}
+ .rel li{margin:0}
+ .rel a{display:inline-block;padding:.28rem .7rem;border:1px solid #d8d8d8;
+        border-radius:999px;text-decoration:none;font-size:.85rem;color:#0b5fa5;
+        white-space:nowrap}
+ .rel a:hover{border-color:#0b5fa5;background:#f7fbff}
+ .rel a.nb{background:#0b5fa5;border-color:#0b5fa5;color:#fff;font-weight:600}
+ .rel a.nb:hover{background:#0a5490}
  table{border-collapse:collapse;width:100%}
  th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid #ececec;
        white-space:nowrap}
@@ -124,6 +132,10 @@
   body{background:#141414;color:#e8e8e8}
   a{color:#6fb3ef} .big{border-color:#333} .big b{color:#6fb3ef}
   .big:hover{border-color:#6fb3ef;background:#1b2430}
+  .rel a{border-color:#333;color:#6fb3ef}
+  .rel a:hover{border-color:#6fb3ef;background:#1b2430}
+  .rel a.nb{background:#1d5c96;border-color:#1d5c96;color:#fff}
+  .rel a.nb:hover{background:#246bad}
   th,td{border-bottom-color:#2a2a2a} th,.legend,p.sub{color:#aaa}
   p.note{color:#c2c8d2}
   /* the page is already dark, so the figures need no card of their own -
@@ -137,6 +149,8 @@
 input synapses are point annotations, one layer per presynaptic sensory type.
 All of this input lands in the nerve cord. Extra layers start hidden; toggle
 them in the layer bar.</p>
+
+
 
 <a class="big" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/an05b102_overview.json">
   <b>Overview: all 8 bodies</b><br>

@@ -635,13 +635,38 @@ arm.</p>
 
 <div class="callout warn">
 <p><strong>Nobody has imaged GRASP puncta after expansion microscopy.</strong> This is true for
-every organism. A literature search gives zero reports. Read this as untested. Do not read it as
-tested and failed.</p>
-<p>One risk has no published test. The spGFP11 strand is <code>RDHMVLHEYVNAAGIT</code>. It
-contains no lysine. The anchor chemistry holds proteins by their primary amines. Thus this strand
-has no anchor of its own. The other half holds the colour, and that half anchors correctly. After
-the enzyme cuts the linkers, only the grip of the barrel holds the strand. Nobody has measured
-this grip.</p>
+every organism. A literature search gives zero reports, and a colleague who does expansion
+microscopy confirms this. Read this as untested. Do not read it as tested and failed.</p>
+<p>The two halves hold each other by a non-covalent bond. The spGFP11 strand is
+<code>RDHMVLHEYVNAAGIT</code>, which is 16 residues, and it is the last of the eleven strands of
+the barrel. The other half holds the colour. The strand closes the barrel and keeps the solvent
+out. The covalent chemistry happens inside the other half, not between the halves. Thus the gel
+can pull the two halves apart.</p>
+<p>The strand contains no lysine, and the anchor chemistry holds proteins by their amines. But
+the strand does not carry the anchor. Its carrier protein carries the anchor, and the force
+travels along the linker. In t-GRASP the carrier is cacophony on one side and mouse ICAM-5 on
+the other. Aldehyde fixation also reacts with arginine, histidine and tyrosine, and the strand
+has all three, so fixation probably ties the strand to its neighbours first.</p>
+<p><strong>The risk is not only a loss of light. The other half anchors well. If the barrel
+opens, the strand has nothing to hold it, and it leaves.</strong></p>
+</div>
+
+<div class="callout warn">
+<p><strong>The antibody is the real problem.</strong> Most anti-GFP antibodies come from
+full-length GFP. They bind the first ten strands. Thus they also bind the half that has not
+joined a partner. If you stain with such an antibody, you image where that half is expressed.
+You do not image the contacts. The split system then gives you nothing.</p>
+<p>Run this control before anything else. Take a line that carries the spGFP1-10 half and no
+partner. Stain it and image it in the same way. <strong>If it gives a signal, the antibody does
+not report contacts.</strong> This control is cheap, and it decides whether the expansion route
+is possible.</p>
+</div>
+
+<div class="callout warn">
+<p><strong>GRASP adds up over time.</strong> The bond between the halves is not covalent, but it
+comes apart very slowly, and the colour forms once and stays. Thus a signal tells you that the
+two neurites touched at some time while the drivers were on. It does not tell you that they
+touch now.</p>
 </div>
 
 <div class="scroll">
@@ -657,7 +682,10 @@ this grip.</p>
 </div>
 
 <ul class="steps">
-<li>Stain before you make the gel. A denaturing protocol destroys the signal.</li>
+<li>Stain with the primary antibody first. Then anchor. Then make the gel and expand. This
+order keeps the gel chemistry away from the split GFP.</li>
+<li>Always include a line that carries the spGFP1-10 half alone. This line must stay blank.</li>
+<li>A denaturing protocol destroys the signal. Do not use one.</li>
 <li>Do not use Cy3, Cy5 or Alexa Fluor 647. The gel chemistry destroys these dyes. Use Alexa
 Fluor 488, CF568 or Atto 647N.</li>
 <li>Run a pilot on a strong t-GRASP positive first. Image it, expand it, then image it again.

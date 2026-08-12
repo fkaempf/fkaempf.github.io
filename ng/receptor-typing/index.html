@@ -587,51 +587,105 @@ PCR to show that you removed the insert on chromosome 3.</p>
 
 
 
-<h3>Other GRASP reagents</h3>
+<h3>Which GRASP reagent</h3>
 
-<p>The t-GRASP stocks put both halves on chromosome 3. This fills the chromosome. Other GRASP
-reagents put both halves on chromosome 2. These reagents make chromosome 3 free again.</p>
+<p>Use t-GRASP. Use BDSC 79040 or BDSC 79039. Chromosome 3 is free in this design, so a reagent
+on chromosome 3 costs nothing.</p>
+
+<div class="callout">
+<p>Chromosome 2 carries the ppk driver and R56C09-lexA. Chromosome 3 carries nothing else,
+because both ppk drivers are GAL4 and the target driver must therefore be LexA. R56C09-GAL4 has
+no function in this design. The GRASP reagents on chromosome 2 are the reagents with a true
+collision: they need a chromosome 2 that also carries a driver.</p>
+</div>
 
 <div class="scroll">
 <table>
-<tr><th>Stock</th><th>Pre half</th><th>Post half</th><th>Chromosome</th><th>Type</th></tr>
-<tr class="hi"><td><a href="https://bdsc.indiana.edu/stocks/79040">BDSC 79040</a></td>
-    <td>UAS</td><td>LexAop</td><td>3 and 3</td><td>t-GRASP</td></tr>
-<tr class="hi"><td><a href="https://bdsc.indiana.edu/stocks/79039">BDSC 79039</a></td>
-    <td>LexAop</td><td>UAS</td><td>3 and 3</td><td>t-GRASP</td></tr>
-<tr><td><a href="https://bdsc.indiana.edu/stocks/64314">BDSC 64314</a></td>
-    <td>UAS, nSyb</td><td>LexAop, CD4</td><td>2 and 2</td><td>syb-GRASP</td></tr>
-<tr><td><a href="https://bdsc.indiana.edu/stocks/64315">BDSC 64315</a></td>
-    <td>LexAop, nSyb</td><td>UAS, CD4</td><td>2 and 2</td><td>syb-GRASP</td></tr>
-<tr><td><a href="https://bdsc.indiana.edu/stocks/93017">BDSC 93017</a></td>
-    <td>&mdash;</td><td>UAS, CD4</td><td>2</td><td>One half only</td></tr>
-<tr><td><a href="https://bdsc.indiana.edu/stocks/93019">BDSC 93019</a></td>
-    <td>&mdash;</td><td>LexAop, CD4</td><td>2</td><td>One half only</td></tr>
-<tr><td><a href="https://bdsc.indiana.edu/stocks/80705">BDSC 80705</a></td>
-    <td>&mdash;</td><td>QUAS</td><td>2</td><td>Third binary system</td></tr>
+<tr><th>Stock</th><th>Variant</th><th>Pre half</th><th>Post half</th><th>Chromosome</th></tr>
+<tr class="hi"><td><a href="https://bdsc.indiana.edu/stocks/79040">BDSC 79040</a></td><td>t-GRASP</td>
+    <td>UAS &middot; spGFP11 &middot; cacophony, active zone</td>
+    <td>LexAop &middot; spGFP1-10 &middot; mouse ICAM-5, dendrite</td><td>3 and 3</td></tr>
+<tr class="hi"><td><a href="https://bdsc.indiana.edu/stocks/79039">BDSC 79039</a></td><td>t-GRASP</td>
+    <td>LexAop &middot; spGFP11 &middot; cacophony, active zone</td>
+    <td>UAS &middot; spGFP1-10 &middot; mouse ICAM-5, dendrite</td><td>3 and 3</td></tr>
+<tr><td><a href="https://bdsc.indiana.edu/stocks/64314">BDSC 64314</a></td><td>syb-GRASP</td>
+    <td>UAS &middot; spGFP1-10 &middot; nSyb, vesicle</td>
+    <td>LexAop &middot; spGFP11 &middot; CD4, full membrane</td><td>2 and 2</td></tr>
+<tr><td><a href="https://bdsc.indiana.edu/stocks/64315">BDSC 64315</a></td><td>syb-GRASP</td>
+    <td>LexAop &middot; spGFP1-10 &middot; nSyb, vesicle</td>
+    <td>UAS &middot; spGFP11 &middot; CD4, full membrane</td><td>2 and 2</td></tr>
+<tr class="bad"><td><a href="https://bdsc.indiana.edu/stocks/80705">BDSC 80705</a></td><td>CD4-GRASP</td>
+    <td>&mdash;</td><td>QUAS &middot; spGFP11 &middot; CD4, full membrane</td><td>2</td></tr>
 </table>
 </div>
 
-<p>The laboratory has BDSC 79039 and BDSC 79040. It does not have the other stocks.</p>
-
 <div class="callout warn">
-<p><strong>Do not change to syb-GRASP only to make chromosome 3 free.</strong> The t-GRASP
-reagent puts each half at the correct part of the neuron. The pre half goes to the active zone.
-The post half goes to the dendrite. Thus two neurons that only touch each other do not make a
-signal.</p>
-<p>The syb-GRASP reagent puts the post half on the full membrane. Thus two neurons that touch
-each other can make a signal. This test compares LgLG1a with LgLG1b, and these two sensory types
-put their synapses in almost the same place. Thus a false signal is a large risk here.</p>
-<p>Use the reagents on chromosome 2 only if chromosome 3 blocks the experiment.</p>
+<p><strong>The two systems have opposite polarity. Do not mix the halves.</strong> t-GRASP puts
+spGFP11 on the pre half. syb-GRASP and CD4-GRASP put spGFP1-10 on the pre half.</p>
 </div>
 
-<p>There are two other methods. Each one answers a different question:</p>
+<p>t-GRASP puts the pre half at the active zone. It puts the post half on mouse ICAM-5. ICAM-5 is
+a dendritic adhesion molecule, and it fills the full dendrite. Thus t-GRASP compares an active
+zone with a full dendrite. It does not compare an active zone with one postsynaptic site.</p>
+
+<div class="callout warn">
+<p><strong>t-GRASP gives false signals.</strong> In the control of Shearin et al. 2018 the false
+signal fell to the limit of detection. It did not fall to zero. The same paper gives two false
+positives. The authors write that t-GRASP is not infallible, and that a positive result needs a
+second method. Plan a second method from the start.</p>
+</div>
+
+<p class="note">Shearin, Quinn, Mackin, Macdonald &amp; Stowers 2018, J Neurosci Methods 306:94.
+<a href="https://doi.org/10.1016/j.jneumeth.2018.05.014">10.1016/j.jneumeth.2018.05.014</a></p>
+
+<h3>Expansion microscopy</h3>
+
+<p>A confocal joins puncta that sit close together. This is a real problem here. On AN05B023c the
+median distance to the nearest synapse is 0.37 to 0.41&nbsp;&micro;m. A confocal resolves
+0.25&nbsp;&micro;m across and 0.70&nbsp;&micro;m along the axis. Thus 35 to 38 percent of the
+synapses sit closer than the lateral resolution. And 71 to 74 percent sit closer than the axial
+resolution.</p>
+
+<p class="note">The overlap between LgLG1a and LgLG1b is not the reason to expand. There is one
+spGFP pair, so the two arms are two different animals. You never separate an LgLG1a punctum from
+an LgLG1b punctum in one tissue. The reason to expand is the distance between puncta inside one
+arm.</p>
+
+<div class="callout warn">
+<p><strong>Nobody has imaged GRASP puncta after expansion microscopy.</strong> This is true for
+every organism. A literature search gives zero reports. Read this as untested. Do not read it as
+tested and failed.</p>
+<p>One risk has no published test. The spGFP11 strand is <code>RDHMVLHEYVNAAGIT</code>. It
+contains no lysine. The anchor chemistry holds proteins by their primary amines. Thus this strand
+has no anchor of its own. The other half holds the colour, and that half anchors correctly. After
+the enzyme cuts the linkers, only the grip of the barrel holds the strand. Nobody has measured
+this grip.</p>
+</div>
+
+<div class="scroll">
+<table>
+<tr><th>Protocol</th><th>Factor</th><th>Staining</th><th>Shown in fly CNS</th><th>Verdict</th></tr>
+<tr class="hi"><td>proExM, fly parameters</td><td>4&times;</td><td>Before the gel</td>
+    <td>Larval brain, VNC, body wall</td><td>Use this one. Distortion is below 3 percent.</td></tr>
+<tr><td>proExM, standard</td><td>4&times;</td><td>Before the gel</td><td>Adult brain</td>
+    <td>Also good. Keeps 65 percent of the signal.</td></tr>
+<tr class="bad"><td>MAP, Magnify, U-ExM</td><td>4 to 11&times;</td><td>After the gel, denaturing</td>
+    <td>No</td><td>Do not use. The denaturing step releases spGFP11.</td></tr>
+</table>
+</div>
+
 <ul class="steps">
-<li>The syb-GRASP reagent shows synapses that are active. It does not show all synapses. Thus it
-gives a second, different result.</li>
-<li>The QUAS reagent gives a third binary system. Use it if you must show three neuron groups in
-one animal.</li>
+<li>Stain before you make the gel. A denaturing protocol destroys the signal.</li>
+<li>Do not use Cy3, Cy5 or Alexa Fluor 647. The gel chemistry destroys these dyes. Use Alexa
+Fluor 488, CF568 or Atto 647N.</li>
+<li>Run a pilot on a strong t-GRASP positive first. Image it, expand it, then image it again.
+Count the puncta before and after.</li>
+<li>Go if 40 percent or more of the puncta survive and the half-reporter controls stay blank.
+Stop if less than 20 percent survive.</li>
 </ul>
+
+<p class="note">There is also no published expansion microscopy of the adult ventral nerve cord.
+Thus you would develop two new steps at the same time.</p>
 
 <h2>7 &middot; All the target neurons</h2>
 <p class="note">This graph shows all the target neurons. The full circle gives R for the
@@ -832,7 +886,56 @@ evidence.</li>
 </table>
 </div>
 
-<h2>10 &middot; The paper is safe</h2>
+<h2>10 &middot; What an adversarial review says</h2>
+
+<p>Five reviewers attacked this proposal. Each reviewer used a different view: the biology, the
+fly genetics, the imaging, the statistics, and the cost. The verdict was <strong>do not do the
+fly experiment now</strong>. Three reasons were given, and each one is sufficient.</p>
+
+<ul class="steps">
+<li><strong>You cannot build it.</strong> No target neuron has a driver line. AN05B023b and
+AN05B023c are sister types of one hemilineage. A split-GAL4 line separates a type from its
+neighbours only when two enhancers differ between them. Sister types share their transcription
+factor code. Thus this pair is the most difficult case.</li>
+<li><strong>A cheaper experiment comes first.</strong> The denominator of R is the set of types
+that the ppk drivers label. Nobody knows this set. If you map the drivers, you possibly have the
+answer already. If you do not map them, the GRASP number has no prediction to compare against.</li>
+<li><strong>The answer changes little.</strong> For the AN05B023b and AN05B023c pair, LgLG1a and
+LgLG1b give 93 and 99.9 percent of the leg input. Thus L tests one thing only: is LgLG1b the
+ppk25+ type. It cannot see LgLG5 to LgLG8. And a change of that one bit renames F and M. It does
+not change a structural claim in the paper.</li>
+</ul>
+
+<div class="callout warn">
+<p><strong>One more problem is upstream of the method.</strong> Hopkins, Barmina and Kopp 2023
+find <strong>four</strong> classes of gustatory neuron in the first tarsal segment of the male
+foreleg
+(<a href="https://doi.org/10.1371/journal.pbio.3002148">PLoS Biol 21:e3002148</a>). This page
+gives six leg types their own receptor type. If the six connectome types are position variants
+of a smaller number of molecular classes, then the question has no answer of this shape.</p>
+<p class="note">Two limits on this argument. The study covers one tarsal segment of one leg, at
+the pupal stage, and the connectome types cover three legs. Also, the count of ppk23+ classes
+inside those four is not in the abstract, and this page has not checked it. Read the figures of
+that paper for ppk23 and ppk25 before you act on this. That work costs one hour.</p>
+</div>
+
+<div class="callout">
+<p><strong>Do these first. The cheapest is at the top.</strong></p>
+</div>
+<ul class="steps">
+<li>Read Hopkins 2023 for ppk23 and ppk25 co-expression. One hour.</li>
+<li>Get the synapse table with neuropil regions for AN05B023b and AN05B023c. Confirm that the
+wing types give their synapses in Ov, and the leg types in LegNp. One afternoon. This test can
+end the two-neuropil design.</li>
+<li>Check PPN1 against Kallman 2015. Can R = 0.406 agree with the physiology under any single
+change of one receptor type? One day.</li>
+<li>Make the MCFO imagery for the four vAB3 lines. Three to four weeks. Do this in any case,
+because you must know what the laboratory owns.</li>
+<li>Do HCR-FISH on male foreleg tarsi for ppk23, ppk25, Ir52a, Ir52b and Gr32a. Three to four
+months. This experiment answers the question that the GRASP test was to answer.</li>
+</ul>
+
+<h2>11 &middot; The paper is safe</h2>
 <div class="callout">
 <p>Use the connectome names in the paper. Write WG3, WG4, LgLG1a and LgLG1b. Show the receptor
 types as an extra layer. Give a confidence level to each receptor type.</p>

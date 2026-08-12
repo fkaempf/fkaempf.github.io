@@ -788,6 +788,79 @@ Stop if less than 20 percent survive.</li>
 <p class="note">There is also no published expansion microscopy of the adult ventral nerve cord.
 Thus you would develop two new steps at the same time.</p>
 
+<h3>A better method than GRASP: count real synapses</h3>
+
+<p>GRASP puts half a fluorescent protein in each of two neurons. It shows where they touch. The
+signal is not a synapse. Every problem on this page about the unknown factor, about saturation
+and about merged puncta comes from that one fact.</p>
+
+<p>Lillvis et al. 2022 do not use GRASP. They label real synaptic proteins and read out the
+geometry. They mark BRP, which is a true presynaptic protein, and they mark the membrane of the
+partner neuron. Then they ask which BRP sites touch that membrane. Resolution does the work.</p>
+
+<p class="note">Lillvis, Otsuna, Ding, Pisarev, Kawase, Colonell, Rokicki, Goina, Gao, Hu, Wang,
+Bogovic, Milkie, Meienberg, Mensh, Boyden, Saalfeld, Tillberg &amp; Dickson 2022, eLife 11:e81248.
+<a href="https://elifesciences.org/articles/81248">elifesciences.org/articles/81248</a></p>
+
+<h4>Their counts match electron microscopy</h4>
+<div class="scroll">
+<table>
+<tr><th>Neuron</th><th class="num">Light microscopy</th><th class="num">Electron microscopy</th></tr>
+<tr class="hi"><td>L2, all BRP</td><td class="num">210</td><td class="num">207</td></tr>
+<tr class="hi"><td>L2, BRP in chosen cells</td><td class="num">195</td><td class="num">207</td></tr>
+<tr class="hi"><td>DA1-IPN</td><td class="num">2251</td><td class="num">2274</td></tr>
+<tr><td>SAG</td><td class="num">1440</td><td class="num">1198</td></tr>
+</table>
+</div>
+
+<p>They also found 28 percent fewer SAG to pC1 connections in mated females than in virgin
+females. Thus the method sees a real difference of that size. And the number of contacts followed
+the strength of the functional connection across single animals, with a correlation of 0.88.</p>
+
+<h4>How you would run it</h4>
+<ul class="steps">
+<li>ppk23-GAL4 tags BRP in the ppk23 cells. Use the STaR method.</li>
+<li>R56C09-lexA marks the membrane of PPN1.</li>
+<li>Count the tagged BRP sites that touch that membrane.</li>
+<li>Repeat with ppk25-GAL4.</li>
+</ul>
+<p>This needs two binary systems, and you hold both. The predicted counts are 27267 and 11075.</p>
+
+<div class="callout">
+<p><strong>What you gain.</strong> The result is a synapse count, which is the same quantity as
+the connectome number. Thus you compare counts, not ratios. There is no split GFP, so the
+anchoring problem, the antibody problem and the integration over time all go away.</p>
+</div>
+
+<div class="callout warn">
+<p><strong>What it costs.</strong></p>
+<p>The membrane method undercounts. For SAG to pC1 they counted 501 against 938 by electron
+microscopy. A method with a postsynaptic marker reached 729. The undercount should be the same in
+both arms, so the comparison holds, but the absolute number will sit below the connectome.</p>
+<p>They use a lattice light sheet at 8 times expansion, and reach 30 by 30 by 100 nm. A confocal
+cannot do this. The image volumes reach terabytes.</p>
+<p>It is slow. One sample takes about one week to prepare and analyse. A central brain takes
+about five days to image. This sets your sample number and it is the main cost.</p>
+</div>
+
+<h4>Ask about a collaboration</h4>
+<p>Two laboratories at Janelia work on this. Ask Greg whether either is open to a collaboration.</p>
+<div class="scroll">
+<table>
+<tr><th>Laboratory</th><th>Method</th><th>Microscope</th><th>Shown in</th></tr>
+<tr class="hi"><td>Lillvis, Tillberg and Dickson</td><td>ExLLSM, 8 times expansion</td>
+    <td>Lattice light sheet</td><td>Drosophila, checked against electron microscopy</td></tr>
+<tr><td><a href="https://www.janelia.org/lab/tavakoli-lab">Tavakoli</a></td>
+    <td>LICONN, hydrogel and machine learning</td><td><strong>Spinning disc confocal</strong></td>
+    <td>Mammalian brain</td></tr>
+</table>
+</div>
+<p>The second row is worth a question. LICONN uses a spinning disc confocal, not a light sheet,
+and that laboratory states a goal of lower cost and wider use. Ask whether LICONN works in
+Drosophila. If it does, the microscope stops being a barrier.</p>
+<p class="note">Your laboratory already holds stocks from the Dickson laboratory, including the
+ppk23-LexA, GJ1472, Janelia DG78. Barry Dickson is the last author of the ExLLSM paper.</p>
+
 <h2>7 &middot; All the target neurons</h2>
 <p class="note">Every target neuron, ordered by R. Do not use the grey rows.</p>
 

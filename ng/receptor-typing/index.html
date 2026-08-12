@@ -209,10 +209,11 @@ the same downstream partners to show the function.</figcaption>
 </div>
 <p class="note">The code keeps these types in <code>figures/fig5/setup.R:269-274</code>.</p>
 
-<h2>2 &middot; PPN1 does not give good evidence</h2>
+<h2>2 &middot; PPN1 is the first anchor</h2>
 
-<p>The paper says that PPN1 gives evidence for the receptor type of WG3. PPN1 is the neuron
-AN05B102a. The connectome does not agree with the paper.</p>
+<p>PPN1 is the neuron AN05B102a. It takes 41 percent of its contact chemosensory input from the
+ppk25+ group, and 59 percent from the ppk23+ ppk25- group. Thus PPN1 sits near the middle of the
+range.</p>
 
 <div class="scroll">
 <table>
@@ -231,13 +232,27 @@ AN05B102a. The connectome does not agree with the paper.</p>
 </table>
 </div>
 
+<div class="callout">
+<p><strong>A neuron near the middle is the most useful anchor.</strong> The goal is to measure
+what split of ppk23 and ppk25 input each ascending neuron receives. A scale needs points along
+its whole length. A neuron at 41 percent fixes the middle. AN05B023b at 8 percent and AN05B023c
+at 93 percent fix the two ends.</p>
+<p><strong>PPN1 is also the only target with a driver line that is confirmed and in the
+laboratory.</strong> That line is R56C09-lexA, BDSC 53584. Thus PPN1 is both the best placed
+anchor and the only one you can build today. Start here.</p>
+</div>
+
+<p>The two groups mix along the whole dendrite of PPN1. The Kolmogorov-Smirnov D value between
+the positions of the two groups is 0.02 to 0.06 on the three axes, and 0.08 at most on any
+principal axis. Thus you cannot separate the groups by position. You must separate them by
+driver, which is what this test does.</p>
+
 <div class="callout warn">
-<p><strong>PPN1 gets almost the same number of synapses from the two groups.</strong> The
-ppk25+ part is 41%. Thus PPN1 mixes the two groups. PPN1 is not a marker for one group.</p>
-<p>The positions of the synapses do not help. On PPN1, the two groups mix along the full
-dendrite. The Kolmogorov-Smirnov D value is 0.02 to 0.06 on the three axes. The maximum value
-on any principal axis is 0.08.</p>
-<p>You must change this sentence in the paper.</p>
+<p><strong>One sentence in the paper must change.</strong> The paper says that PPN1 gives
+evidence for the receptor type of WG3, and cites the physiology of Kallman et al. 2015. The
+connectome shows that PPN1 takes almost equal input from the two groups. Thus PPN1 does not
+select one group, and it is not evidence for a receptor type. That does not reduce its value
+here. A neuron that mixes the two groups is a poor marker and a good anchor.</p>
 </div>
 
 <p class="note">FlyBase gives the name PPN1 to AN05B023 in

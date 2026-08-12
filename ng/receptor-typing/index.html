@@ -238,8 +238,7 @@ morphology, and morphology is what could not do the job in the first place.</p>
 <tr class="bad"><td><span class="tag warn">No receptor type</span></td><td>WG2</td><td>LgLG2</td></tr>
 </table>
 </div>
-<p class="note">The analysis code holds these types at <code>figures/fig5/setup.R</code>, lines 269
-to 274.</p>
+<p class="note">The analysis code holds these types at <code>figures/fig5/setup.R</code>, lines 270 to 275. That block defines the ppk23 and ppk25 groups only. It holds no entry for Ir52a, Ir52b, WG1, WG2 or LgLG2.</p>
 
 <h2>2 &middot; What we ask instead</h2>
 
@@ -356,8 +355,7 @@ percent. 11075 come from the ppk25 positive group, which is 33 percent of the to
 0.406 within the ppk family.</p>
 
 <div class="callout">
-<p><strong>PPN1 is the first anchor, and it is not bad evidence.</strong> It has the smallest label
-sensitivity span in the whole set. It carries 27267 ppk synapses. It is a clean bilateral pair,
+<p><strong>PPN1 is the first anchor, and it is not bad evidence.</strong> Its label sensitivity span is the third smallest of the 57 targets, and the second smallest of the ten targets that carry more than 5000 synapses. It carries 27267 ppk synapses. It is a clean bilateral pair,
 with a per body standard deviation of 0.009. It is the only target with a confirmed driver line.</p>
 </div>
 
@@ -415,8 +413,7 @@ results is the honest error bar on the prediction.</p>
 <div class="callout">
 <p><strong>The lesson: a mixed source beats a large synapse count.</strong> A target with many
 synapses from one type is controlled by that one label. Flip it, and R moves from 0.000 to 1.000.
-PPN1 has the smallest span because its many synapses come from many types, so no single type
-controls it. When you pick a target, look at how many types feed it, not at how many synapses it
+PPN1 has one of the smallest spans because its many synapses come from many types, so no single type controls it. When you pick a target, look at how many types feed it, not at how many synapses it
 takes.</p>
 </div>
 
@@ -838,7 +835,7 @@ says so. Where a check has not been done, the sentence says that the check has n
 
 <p>B over A gives 0.41. A over C or B over C gives the share of all input. Group C is the denominator. It needs no second colour and no second reporter. It makes numbers comparable between targets, because each target gets its own total in the same assay.</p>
 
-<p>This design does not need the assumption that every ppk25 cell is a ppk23 cell. Each group is divided by the total, not by the other group. That assumption has never been checked. The two drivers are different construct classes.</p>
+<p>Divide A or B by C and this design does not need the assumption that every ppk25 cell is a ppk23 cell, because each is divided by the total. Divide B by A and the assumption does enter, because that is one group over another. So report A over C and B over C as the primary numbers, and treat B over A as a derived figure that carries the assumption. That assumption has never been checked. The two drivers are different construct classes.</p>
 
 <div class="callout warn">
 <p><span class="tag warn">Warning</span> Group C saturates. PPN1 takes 33476 input synapses. That much signal on one arbour is a block, not countable puncta. If group C saturates, all three groups must be read as intensity, not as counts. Decide this before imaging, because intensity reading needs matched laser power, matched gain and matched staining across the three groups.</p>

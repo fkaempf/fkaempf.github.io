@@ -941,29 +941,7 @@ because you must know what the laboratory owns.</li>
 months. This experiment answers the question that the GRASP test was to answer.</li>
 </ul>
 
-<h2>10 &middot; The paper is safe</h2>
-<div class="callout">
-<p>Use the connectome names in the paper. Write WG3, WG4, LgLG1a and LgLG1b. Show the receptor
-types as an extra layer. Give a confidence level to each receptor type.</p>
-<p>Then change WG3 and WG4 and calculate the results again. Show which results change. Wang and
-his group showed in 2011 that contact pheromones control the fly more than volatile pheromones.
-The mAL result in Figure 5 possibly shows how the brain does this. This result does not change
-if WG3 and WG4 change.</p>
-</div>
-
-<hr>
-<p class="foot">
-Data: <code>male-cns:v1.0</code> from neuPrint. No threshold. Two independent methods gave the same
-values. Scripts: <code>receptor_typing_validation/R/05_design_matrix_v1.R</code>,
-<code>06_final_targets.R</code>, <code>07_perbody_leg.R</code>, <code>08_scenes.R</code>.
-Documents: <code>PLAN.md</code>, <code>LEG_ARM.md</code>, <code>REAGENTS.md</code>,
-<code>CROSSES.md</code>, <code>CROSSING_REVIEW.md</code>.
-<br><br>
-GRASP puncta are not the same as synapses. Only compare ratios. Each R value on this page is a
-prediction from the connectome. It is not a measurement.
-</p>
-
-<h2>11 &middot; The Ir52 arm</h2>
+<h2>10 &middot; The Ir52 arm</h2>
 
 <p>The pages above examine the ppk types. There is a second question, and the connectome
 separates it more cleanly. WG1 has the receptor type Ir52a and Ir52b on this page. WG2 has no
@@ -1036,6 +1014,10 @@ give a simpler result: signal or no signal.</li>
 <tr class="bad"><td><a href="https://bdsc.indiana.edu/stocks/60692">BDSC 60692</a></td>
     <td>Ir52a-LexA-VP16, attP2 and VK00005</td><td>3 and 3</td>
     <td>Ir52a in a second binary system. attP2 holds a t-GRASP half.</td></tr>
+<tr class="bad"><td><a href="https://bdsc.indiana.edu/stocks/81230">BDSC 81230</a></td>
+    <td>w[*]; Bl[1]/CyO; P{Ir52b-GAL4.C}attP2</td><td>3, attP2</td>
+    <td>The only Ir52b driver. One GAL4, no UAS reporter. But attP2 holds a t-GRASP half. Also
+    remove the Bl/CyO on chromosome 2.</td></tr>
 </table>
 </div>
 
@@ -1048,9 +1030,13 @@ reporter.</p>
 </div>
 
 <div class="callout warn">
-<p><strong>Not checked: does an Ir52b driver exist?</strong> The arm needs one. A search of the
-stock centre by text did not work from here, so this page cannot say yes or no. Check this first,
-because the arm needs two drivers.</p>
+<p><strong>Ir52b exists as GAL4 only, and it sits at attP2.</strong> BDSC 81230 is the only Ir52b
+driver. There is no Ir52b-LexA. A t-GRASP half also holds attP2. Thus <strong>Ir52b cannot be
+used with t-GRASP</strong> until somebody moves it to another site or makes an Ir52b-LexA.</p>
+<p>Ir52a does work. Use BDSC 60699, whose GAL4 sits on chromosome 2, after you remove its UAS
+reporter from chromosome 3.</p>
+<p>This is the same shape of problem as ppk25-LexA. One member of each pair is missing from the
+second binary system.</p>
 <p><strong>Also not done for this arm:</strong> the per-body test, the isolator table and the
 synapse scenes. Section 5 gives all three for the leg arm. This section gives the target numbers
 only.</p>

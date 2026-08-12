@@ -956,3 +956,100 @@ Documents: <code>PLAN.md</code>, <code>LEG_ARM.md</code>, <code>REAGENTS.md</cod
 GRASP puncta are not the same as synapses. Only compare ratios. Each R value on this page is a
 prediction from the connectome. It is not a measurement.
 </p>
+
+<h2>12 &middot; The Ir52 arm</h2>
+
+<p>The pages above examine the ppk types. There is a second question, and the connectome
+separates it more cleanly. WG1 has the receptor type Ir52a and Ir52b on this page. WG2 has no
+receptor type. Luo, Talross and Carlson 2024 report that Ir52a cells and Ir52b cells are
+different populations. If that is correct, WG1 and WG2 are those two populations.</p>
+
+<h3>The target neurons</h3>
+<p>These target neurons take almost all of their contact chemosensory input from the Ir52 types.
+The last three columns give the input from each type.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Target</th><th class="num">Ir52 syn</th><th class="num">ppk syn</th><th class="num">Ir52 part</th>
+    <th class="num">WG1</th><th class="num">WG2</th><th class="num">LgLG2</th><th>Links</th></tr>
+<tr class="hi"><td>AN23B002</td><td class="num">3483</td><td class="num">90</td><td class="num">0.975</td>
+    <td class="num">3483</td><td class="num">0</td><td class="num">0</td>
+    <td><a href="https://neuronbridge.janelia.org/search?q=AN23B002">NB</a></td></tr>
+<tr class="hi"><td>IN03B034</td><td class="num">1659</td><td class="num">71</td><td class="num">0.959</td>
+    <td class="num">28</td><td class="num">1631</td><td class="num">0</td>
+    <td><a href="https://neuronbridge.janelia.org/search?q=IN03B034">NB</a></td></tr>
+<tr><td>ANXXX013</td><td class="num">1947</td><td class="num">137</td><td class="num">0.934</td>
+    <td class="num">37</td><td class="num">1904</td><td class="num">6</td>
+    <td><a href="https://neuronbridge.janelia.org/search?q=ANXXX013">NB</a></td></tr>
+<tr><td>IN06B024</td><td class="num">1282</td><td class="num">144</td><td class="num">0.899</td>
+    <td class="num">9</td><td class="num">1273</td><td class="num">0</td>
+    <td><a href="https://neuronbridge.janelia.org/search?q=IN06B024">NB</a></td></tr>
+<tr><td>AN08B007</td><td class="num">692</td><td class="num">22</td><td class="num">0.969</td>
+    <td class="num">22</td><td class="num">670</td><td class="num">0</td>
+    <td><a href="https://neuronbridge.janelia.org/search?q=AN08B007">NB</a></td></tr>
+<tr><td>ANXXX151</td><td class="num">5682</td><td class="num">51</td><td class="num">0.991</td>
+    <td class="num">2655</td><td class="num">1</td><td class="num">3026</td>
+    <td><a href="https://neuronbridge.janelia.org/search?q=ANXXX151">NB</a></td></tr>
+<tr><td>AN05B102d</td><td class="num">4631</td><td class="num">486</td><td class="num">0.905</td>
+    <td class="num">2327</td><td class="num">0</td><td class="num">2304</td>
+    <td><a href="https://neuronbridge.janelia.org/search?q=AN05B102d">NB</a></td></tr>
+</table>
+</div>
+
+<p><strong>AN23B002 takes 3483 synapses from WG1 and none from WG2.</strong> IN03B034 is the
+opposite: 1631 from WG2 and 28 from WG1. This pair separates WG1 from WG2 better than any pair
+separates the ppk types.</p>
+
+<p>ANXXX151 and AN05B102d take almost equal input from WG1 and LgLG2. Thus they test if LgLG2 is
+the leg type of the Ir52 group.</p>
+
+<h3>Why this arm is easier</h3>
+<ul class="steps">
+<li>The question is open. WG2 has no receptor type now. The ppk question asks you to check a call
+that somebody already made.</li>
+<li>The two drivers label different cells. The ppk25 cells are a part of the ppk23 cells, and
+that is why the ppk test needs a ratio and carries the unknown factor k. Two separate drivers
+give a simpler result: signal or no signal.</li>
+<li>Ir52a exists in two binary systems.</li>
+</ul>
+
+<h3>The stocks</h3>
+<div class="scroll">
+<table>
+<tr><th>Stock</th><th>Genotype</th><th>Chromosome</th><th>Note</th></tr>
+<tr class="hi"><td><a href="https://bdsc.indiana.edu/stocks/60699">BDSC 60699</a></td>
+    <td>P{Ir52a-GAL4.K}2 on II, UAS-mCD8::GFP.L LL6 on III</td><td>2 and 3</td>
+    <td>Use this one for GRASP. First remove the UAS reporter on chromosome 3.</td></tr>
+<tr><td><a href="https://bdsc.indiana.edu/stocks/60700">BDSC 60700</a></td>
+    <td>P{Ir52a-GAL4.K}8 on III, UAS-mCD8::GFP.L LL5 on II</td><td>3 and 2</td>
+    <td>The GAL4 is on chromosome 3.</td></tr>
+<tr class="bad"><td><a href="https://bdsc.indiana.edu/stocks/81229">BDSC 81229</a></td>
+    <td>P{Ir52a-GAL4.2931}attP2</td><td>3, attP2</td>
+    <td>One insertion and a defined site, so it is the cleanest line. But attP2 holds a t-GRASP
+    half. Use it only without t-GRASP.</td></tr>
+<tr class="bad"><td><a href="https://bdsc.indiana.edu/stocks/60692">BDSC 60692</a></td>
+    <td>Ir52a-LexA-VP16, attP2 and VK00005</td><td>3 and 3</td>
+    <td>Ir52a in a second binary system. attP2 holds a t-GRASP half.</td></tr>
+</table>
+</div>
+
+<div class="callout warn">
+<p><strong>The GAL4 lines that carry a K are random insertions.</strong> Insertion 2 and insertion
+8 can give different expression. Check both before you trust one.</p>
+<p><strong>Two stocks hold attP2, and a t-GRASP half also holds attP2.</strong> Thus BDSC 81229
+and BDSC 60692 do not go together with t-GRASP. BDSC 60699 works, after you remove its UAS
+reporter.</p>
+</div>
+
+<div class="callout warn">
+<p><strong>Not checked: does an Ir52b driver exist?</strong> The arm needs one. A search of the
+stock centre by text did not work from here, so this page cannot say yes or no. Check this first,
+because the arm needs two drivers.</p>
+<p><strong>Also not done for this arm:</strong> the per-body test, the isolator table and the
+synapse scenes. Section 5 gives all three for the leg arm. This section gives the target numbers
+only.</p>
+</div>
+
+<p class="note">Ir52a-LexA-VP16 is worth one more note. A receptor promoter can drive LexA in
+this receptor family. ppk25-LexA does not exist, and it is the reagent that blocks the ppk arm.
+The Ir52a line shows that such a construct is possible.</p>

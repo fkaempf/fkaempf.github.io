@@ -1013,13 +1013,17 @@ a check, the sentence says that nobody has done the check.</p>
 <p><strong>The result in one sentence.</strong> A presynapse map assigns a labelled class to one of the three groups with no difficulty, and it does not separate the two members of a pair, because those two types put their synapses in the same place.</p>
 </div>
 
-<h3>9.2 The limit is the registration, not the microscope</h3>
+<h3>9.2 What expansion supplies, and what it does not</h3>
 
-<p>Expansion to 20 times takes an optical resolution of about 250 nm to about 12 nm. The table shows that the project does not need 12 nm. The project needs to compare two animals, and the two animals must lie in one frame of reference. That step sets the useful bin size, and it does not improve with expansion.</p>
+<p>Expansion supplies the count of the sites. The terminal field is dense, and an unexpanded image does not separate one BRP site from the next one. You cannot measure the overlap of two sets of sites that you cannot resolve. Expansion to 20 times takes an optical resolution of about 250 nm to about 12 nm, and that step gives the puncta.</p>
 
-<h3>9.3 The design that removes the registration step</h3>
+<p>Expansion does not supply a frame of reference between two animals. The gel does not expand by the same factor everywhere. A local error of a few percent, across a nerve cord of several hundred micrometres, moves a site by many multiples of a 500 nm bin. A comparison between two animals therefore carries this error, and a larger expansion factor does not remove it.</p>
 
-<p>Mark the two sensory classes in one animal, in two colours. Then no comparison between animals is needed, and the bin size is set by the image alone.</p>
+<p class="note">The measurement itself does not depend on the factor. A cosine of binned counts stays the same when you scale the bin by the expansion factor. The predicted value of 0.745 holds at any factor.</p>
+
+<h3>9.3 The design that removes the distortion term</h3>
+
+<p>Mark the two sensory classes in one animal, in two colours, and expand one gel. Both sets of sites then carry the same local distortion, so the distortion cancels out of the overlap. Chromatic aberration remains, and beads correct that. No comparison between animals is needed.</p>
 
 <ul class="steps">
 <li>ppk23-LexA drives BRP in one colour.</li>
@@ -1033,6 +1037,24 @@ a check, the sentence says that nobody has done the check.</p>
 <div class="callout warn">
 <p><span class="tag q">Inference drawn here, not published</span> The predicted cosine of 0.745 comes from the connectome of one male. It carries no error bar for the variation between animals. Measure the same quantity in two animals of one genotype first, and use that value as the floor of the assay.</p>
 </div>
+
+<h3>9.4 Label first, then expand. The chemistry follows from that order</h3>
+
+<p>The label must go into the tissue before the gel. This order decides the gel chemistry, and the two routes of section 2 pull against each other here.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Route</th><th>Effect on a fluorescent protein</th><th>Consequence for this design</th></tr>
+<tr><td>Heat denaturation, the route that preserves the ultrastructure</td><td>The heat step unfolds the protein and ends the fluorescence</td><td>An expressed RFP does not survive. Use an antibody against the protein, applied before the gel and anchored into it.</td></tr>
+<tr><td>Proteinase K, with an anchoring step for the protein</td><td>A part of the fluorescence survives the digestion</td><td>An expressed RFP survives, and the antibody is optional. This route does not preserve the ultrastructure.</td></tr>
+</table>
+</div>
+
+<p>The conflict of section 3 therefore appears again in a second place. A gel that gives the ultrastructure removes an expressed fluorescent protein. This design needs no ultrastructure, so the second route is the correct one for it.</p>
+
+<p>A factor of 20 is normally not one round of expansion. It is a single round with a high factor gel, or two rounds. The label passes through every round, and each round loses signal. The factor and the order of the labelling are therefore one decision, not two.</p>
+
+<p class="note">The design needs the puncta to be separate in the image. Measure the density of the sites in the connectome for the classes you label, and set the factor from that density. Do not set the factor from a number in a paper.</p>
 
 <h2>10 &middot; Driver lines for the other receptors</h2>
 

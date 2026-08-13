@@ -154,8 +154,7 @@
  .doc.on{display:block}
  .doc > h2:first-of-type{margin-top:.6rem}
  @media print{.tabs{display:none} .doc{display:block!important}}
-</style>
-<style>
+</style><style>
  pre{background:#f7fbff;border:1px solid #d8d8d8;border-radius:8px;padding:.7rem .9rem;
      overflow-x:auto;font:.85rem ui-monospace,SFMono-Regular,Menlo,monospace;margin:.6rem 0 1rem}
  pre code{background:none;padding:0}
@@ -163,8 +162,7 @@
  hr{border:0;border-top:1px solid #ececec;margin:2rem 0 1rem}
  p.foot{color:#555;font-size:.8rem}
  @media print{ body{padding:0;max-width:none} h2{page-break-after:avoid} table{page-break-inside:auto} tr{page-break-inside:avoid} }
-</style>
-<h1>The first cross: PPN1 fill and ppk23 synapse label</h1>
+</style><h1>The first cross: PPN1 fill and ppk23 synapse label</h1>
 <p class="sub">What to set up, which lines do it, and what to clean off them first.
 Stock data from the laboratory snapshot of 20 July 2026 and from the Cambridge Genetics
 stockist. Connectome values from <code>male-cns:v1.0</code>.</p>
@@ -184,10 +182,32 @@ puncta that touch the membrane.</p>
 Genetics stockist. Nothing must be built.</p>
 </div>
 
-<h2>2 &middot; The configuration to build</h2>
+<h2>2 &middot; Two paths, and why both stay open</h2>
 
-<p>Put the synapse label in the GAL4 system and the target neuron in the LexA system. The reason is
-in section 6: only this way can the second arm of the experiment use the same reporter.</p>
+<p>The synapse label can sit in either binary expression system. The choice is not a preference. It
+decides which question the animal can answer, and the two questions are different.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Path</th><th>Label</th><th>Target</th><th>What it buys</th><th>What it costs</th></tr>
+<tr class="hi"><td><strong>A</strong>, label in GAL4</td><td>LMB-494, UAS-brp-D3-Cherry</td>
+<td>LexA, so R56C09-lexA</td>
+<td>Both ppk arms run in one reporter configuration, so the ppk25 to ppk23 <strong>ratio</strong> is
+possible. Gr32a also runs.</td>
+<td>The target is limited to the one LexA driver line that exists, which is PPN1.</td></tr>
+<tr class="hi"><td><strong>B</strong>, label in LexA</td><td>GJ948, LexAop2-Brp-mCherry</td>
+<td>GAL4, so any GAL4 or split-GAL4</td>
+<td>The target can be a <strong>split-GAL4</strong>. SS103018 labels AN13B002, a discriminating
+target. The four vAB3 lines become reachable.</td>
+<td>Only the ppk23 arm exists, because no ppk25-LexA line exists. No ratio.</td></tr>
+</table>
+</div>
+
+<p>Path A answers "how much does each ppk group give to PPN1". Path B answers "does this sensory
+class reach a target that PPN1 cannot separate". Neither replaces the other, so request both lines
+and build both.</p>
+
+<h3>2.1 Path A, the configuration</h3>
 
 <pre><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; UAS-brp-D3-Cherry / LexAop2-myr4xSNAPf(VK00005)</code></pre>
 
@@ -216,39 +236,92 @@ line gives a count that you cannot trust. LMB-494 also arrives balanced on both 
 Dfd-YFP on each balancer, so the larvae can be sorted under a fluorescence scope.</p>
 </div>
 
-<h2>3 &middot; The crosses</h2>
+<h2>3 &middot; The crosses for path A</h2>
 
-<h3>3.1 Build the two parent stocks</h3>
+<h3>3.1 Parent 1, the sensory side</h3>
 
 <div class="scroll">
 <table>
-<tr><th>Stock</th><th>Build from</th><th>Genotype to reach</th></tr>
-<tr><td><strong>Parent 1</strong>, the sensory side</td>
-<td>BDSC 93026 and LMB-494</td>
-<td><code>w ; ppk23-GAL4 / CyO ; UAS-brp-D3-Cherry / TM6B</code></td></tr>
-<tr><td><strong>Parent 2</strong>, the target side</td>
-<td>BDSC 53584 and GJ895</td>
-<td><code>w ; GMR56C09-lexA(attP40) / CyO ; LexAop2-myr4xSNAPf(VK00005) / TM6B</code></td></tr>
+<tr><th class="num">Gen</th><th>Cross</th><th>Score</th><th>Result</th></tr>
+<tr><td class="num">G0</td>
+<td>BDSC 93026 <code>w; ppk23-GAL4; TM2/TM6B</code> &times; LMB-494
+<code>w-; Sco/CyO,Dfd-YFP; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP</code></td>
+<td>Curly wing and YFP; Tubby; <strong>not</strong> Ubx and <strong>not</strong> Stubble</td>
+<td><code>w; ppk23-GAL4/CyO,Dfd-YFP; brp-D3-Cherry/TM6B</code></td></tr>
+<tr><td class="num">F1</td><td>sibling cross</td><td>Curly and Tubby</td>
+<td><strong>Parent 1</strong>, a balanced stock</td></tr>
 </table>
 </div>
 
-<p>LMB-494 already carries a balancer on chromosome 2 and on chromosome 3, so parent 1 needs no
-separate balancer stock. GJ895 carries <code>IF/CyO</code> and <code>TM6B</code> for the same
-reason.</p>
+<p>Every chromosome in this cross is marked, so no verification step is needed. The chromosome 3 of
+BDSC 93026 carries TM2 with Ubx or TM6B with Tubby. The chromosome 3 of LMB-494 carries brp-D3 or
+TM6B with Tubby, Stubble and Dfd-YFP. A fly that is Tubby but shows neither Ubx nor Stubble
+therefore holds the TM6B of BDSC 93026 over the brp-D3 of LMB-494, which is the class wanted. TM6B
+over TM6B dies, so that class does not appear.</p>
 
-<h3>3.2 The experimental cross</h3>
+<h3>3.2 Parent 2, the target side</h3>
+
+<div class="scroll">
+<table>
+<tr><th class="num">Gen</th><th>Cross</th><th>Score</th><th>Result</th></tr>
+<tr><td class="num">G0</td>
+<td>BDSC 53584 <code>w1118; GMR56C09-lexA(attP40)</code> &times; GJ895
+<code>IF/CyO; LexAop2-myr4xSNAPf(VK00005)/TM6B</code></td>
+<td>Curly wing; <strong>not</strong> Tubby</td>
+<td><code>w; R56C09-lexA/CyO; myr4xSNAPf/+</code></td></tr>
+<tr class="warn"><td class="num">F1</td><td>cross to a chromosome 3 balancer, then sibling cross</td>
+<td>Curly and Tubby, <strong>then verify</strong></td>
+<td><strong>Parent 2</strong>, <code>w; R56C09-lexA/CyO; myr4xSNAPf/TM6B</code></td></tr>
+</table>
+</div>
+
+<div class="callout warn">
+<p><span class="tag warn">the one snag</span> <code>LexAop2-myr4xSNAPf</code> carries no visible
+marker. In G0 its presence is deducible, because a fly that is not Tubby must have taken the
+chromosome 3 that is not TM6B. After that the insertion and a plain chromosome 3 cannot be told
+apart by eye. Establishing Parent 2 therefore needs <strong>one</strong> check by PCR, or one
+stain with a SNAP ligand on a few flies. This is a single cost at the start. Every cross after it
+is scored by markers alone.</p>
+</div>
+
+<p>The alternative avoids the stock and the check. Use the G0 progeny directly:
+<code>R56C09-lexA/CyO; myr4xSNAPf/+</code> is unambiguous in that generation. The cost is that half
+the final animals then lack the fill and must be discarded at the microscope, so the useful yield
+falls from one in nine to one in eighteen. Build the stock if you will run this more than
+twice.</p>
+
+<h3>3.3 The experimental cross</h3>
 
 <pre><code>Parent 1 virgin females  x  Parent 2 males
-   keep the male progeny with straight wings and no Tubby</code></pre>
+   keep the male progeny that are not Curly and not Tubby</code></pre>
 
-<p>One quarter of the progeny carry all four parts. Take males only. The midline crossing of the
-ppk23 neurons in T1 is male specific, and every prediction from the connectome comes from a
-male.</p>
+<p>Not Curly gives <code>ppk23-GAL4 / R56C09-lexA</code> on chromosome 2. Not Tubby gives
+<code>brp-D3-Cherry / myr4xSNAPf</code> on chromosome 3. <strong>One in nine of the survivors
+carries all four parts.</strong> CyO over CyO and TM6B over TM6B both die, so each chromosome
+gives three surviving classes and not four, and the fraction is one third times one third. Half of
+those are male, so plan on one useful male in eighteen. Take males only. The midline crossing of the ppk23 neurons in T1 is male specific, and
+every prediction from the connectome comes from a male.</p>
 
 <div class="callout">
-<p><span class="tag q">time</span> Each parent stock takes about 4 weeks and the two run in
-parallel. The experimental cross takes about 2 weeks. The total is about 6 weeks, and the two
-parent stocks then serve every later arm with no rebuilding.</p>
+<p><span class="tag q">time</span> Parent 1 takes 2 generations, about 4 weeks. Parent 2 takes 2
+generations plus the verification, about 5 weeks, and runs in parallel. The experimental cross
+takes about 2 weeks. Total about 7 weeks, and both parent stocks then serve every later arm.</p>
+</div>
+
+<h3>3.4 Swapping the arm</h3>
+
+<p>Parent 2 does not change between arms. Only Parent 1 changes, and only in its first cross.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Arm</th><th>Driver in Parent 1</th><th>Note</th></tr>
+<tr class="hi"><td>ppk23</td><td>BDSC 93026, chromosome 2</td><td>as above</td></tr>
+<tr class="hi"><td>ppk25</td><td>BDSC 93028, chromosome 2 copy only</td>
+<td>Remove the chromosome 3 copy first. See section 4.</td></tr>
+<tr><td>Gr32a</td><td>GJ1435, chromosome 3</td>
+<td>The driver and brp-D3 are then both on chromosome 3, so they must be recombined, or the fill
+must move to attP40 with GJ894 and the target driver to R56C09-GAL4 at attP2.</td></tr>
+</table>
 </div>
 
 <h2>4 &middot; Clean-up, line by line</h2>
@@ -325,7 +398,7 @@ before you can say that a punctum touches it.</li>
 a negative for the male specific part of the pattern.</li>
 </ul>
 
-<h2>6 &middot; Why the label goes in the GAL4 system</h2>
+<h2>6 &middot; Why only path A carries the ratio</h2>
 
 <p>One arm on its own does not test the receptor assignment. The test is the ratio of the ppk25 arm
 to the ppk23 arm at the same target, because the unknown efficiency of the method cancels in a
@@ -341,22 +414,47 @@ ratio. The two arms must therefore use the same reporter in the same system.</p>
 </table>
 </div>
 
-<p>This is why LMB-494 matters more than the LexAop version of the same label. It puts the label on
-the side that can be swapped. The same configuration then also runs with
-<code>Gr32a-GAL4</code>, which reaches a sensory class that no ppk line labels.</p>
+<p>This is why path A carries the ratio. It puts the label on the side that can be swapped, so the
+same configuration also runs with <code>Gr32a-GAL4</code>, which reaches a sensory class that no ppk
+line labels. Path B cannot do this, and it is kept for the targets instead. See section 7.</p>
 
-<h2>7 &middot; The variant with the label in the LexA system</h2>
+<h2>7 &middot; Path B in full, the label in the LexA system</h2>
 
-<p>Keep this for the case where LMB-494 does not express well. It gives the ppk23 arm and no ppk25
-arm.</p>
+<p>This path gives up the ratio and gains the target. Build it in parallel with path A.</p>
 
-<pre><code>w/Y ; ppk23-LexA / 10XUAS-IVS-myr::GFP(attP40) ; GMR56C09-GAL4(attP2) / +
-   plus LexAop2-Brp::mCherry</code></pre>
+<pre><code>w/Y ; ppk23-LexA / +  ;  target-GAL4 / UAS-myr::GFP
+   plus LexAop2-Brp-mCherry</code></pre>
 
-<p>The reporter is GJ948, <code>LexAop2-Brp-mCherry</code>, which the Cambridge Genetics stockist
-also holds. Its chromosome is not recorded in either place, so map it before you plan the cross.
-Note that the GJ numbers of the two collections do not agree: the stockist reports that its GJ1008
-is a different reagent.</p>
+<div class="scroll">
+<table>
+<tr><th>Part</th><th>Line</th><th>Genotype</th><th>Chr</th><th>State</th></tr>
+<tr class="hi"><td>ppk23 driver</td><td>GJ1472, from Dickson</td>
+<td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>2</td>
+<td>Clean off the 22B10-GAL4 first. See section 4.</td></tr>
+<tr class="hi"><td>synapse label</td><td>GJ948</td><td><code>LexAop2-Brp-mCherry</code></td>
+<td>not recorded</td><td>At the Cambridge Genetics stockist. Map the chromosome on arrival.</td></tr>
+<tr class="hi"><td>target driver</td><td>Kallman PPN1 GAL4, or SS103018</td>
+<td><code>w1118; P{GMR56C09-GAL4}attP2</code></td><td>3, attP2</td>
+<td>attP2 is free here, because this design carries no t-GRASP.</td></tr>
+<tr><td>target fill</td><td>GJ598, GJ599, GJ600 or GJ667</td>
+<td><code>10XUAS-IVS-myr::GFP</code> at su(Hw)attP8, attP40 or attP2</td><td>X, 2 or 3</td>
+<td>Three landing sites, so one fits whatever slot the label leaves.</td></tr>
+</table>
+</div>
+
+<div class="callout warn">
+<p><span class="tag warn">map GJ948 first</span> Its chromosome is recorded in neither collection.
+Every slot in this path depends on it, so map it before you plan the crosses. Note also that the
+two collections number differently: the stockist reports that its GJ1008 is a different
+reagent.</p>
+</div>
+
+<p>The targets this path opens are the ones PPN1 cannot reach. PPN1 takes near equal input from the
+two ppk groups, so it cannot separate them; the
+<a href="../receptor-typing/">receptor typing page</a> lists the discriminating targets, and
+SS103018, which labels AN13B002, is already in the laboratory. The four vAB3 candidate split-GAL4
+lines are also GAL4, and three of the four are marked dead, so check them before planning around
+them. None has been through MCFO, so nobody knows which AN09B017 member each one labels.</p>
 
 <h2>8 &middot; What the image must show</h2>
 

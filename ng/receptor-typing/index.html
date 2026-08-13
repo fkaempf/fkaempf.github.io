@@ -1054,7 +1054,35 @@ a check, the sentence says that nobody has done the check.</p>
 
 <p>A factor of 20 is normally not one round of expansion. It is a single round with a high factor gel, or two rounds. The label passes through every round, and each round loses signal. The factor and the order of the labelling are therefore one decision, not two.</p>
 
-<p class="note">The design needs the puncta to be separate in the image. Measure the density of the sites in the connectome for the classes you label, and set the factor from that density. Do not set the factor from a number in a paper.</p>
+<h3>9.5 The factor that the density needs, and a correction to the predicted count</h3>
+
+<div class="callout warn">
+<p><strong>A BRP punctum is not a synapse of the connectome.</strong> One presynaptic site serves several partners. For the eight types of the two ppk groups, 555468 connections come from 90875 presynaptic sites, which is 6.11 connections for each site. The prediction of 27267 sites for ppk23 in section 1.1 is a count of connections. An image of BRP shows the sites, so it shows about six times fewer objects, which is about 4400. Apply the undercount of the method after that, not before it.</p>
+</div>
+
+<div class="scroll">
+<table>
+<tr><th>Class</th><th class="num">Connections</th><th class="num">Presynaptic sites</th><th class="num">Connections for each site</th><th class="num">Median distance to the nearest site</th></tr>
+<tr><td>ppk23 group</td><td class="num">313535</td><td class="num">50315</td><td class="num">6.23</td><td class="num">287 nm</td></tr>
+<tr><td>ppk25 group</td><td class="num">241933</td><td class="num">40560</td><td class="num">5.96</td><td class="num">329 nm</td></tr>
+<tr class="hi"><td>both together</td><td class="num">555468</td><td class="num">90875</td><td class="num">6.11</td><td class="num">294 nm</td></tr>
+</table>
+</div>
+
+<p>A confocal microscope resolves about 250 nm. The median distance between two sites is 294 nm, so an image without a gel does not separate them. The table below gives the factor.</p>
+
+<div class="scroll">
+<table>
+<tr><th class="num">Factor</th><th class="num">Median distance after the gel</th><th class="num">Closest 5 percent</th><th class="num">Share of pairs still under 250 nm</th></tr>
+<tr class="hi"><td class="num">4</td><td class="num">1175 nm</td><td class="num">866 nm</td><td class="num">0.1 percent</td></tr>
+<tr><td class="num">8</td><td class="num">2351 nm</td><td class="num">1733 nm</td><td class="num">0.1 percent</td></tr>
+<tr><td class="num">20</td><td class="num">5877 nm</td><td class="num">4332 nm</td><td class="num">0.1 percent</td></tr>
+</table>
+</div>
+
+<p>A factor of 4 separates the sites. A larger factor gives a margin, and it does not change the answer. Choose the larger factor for the margin, and not because the density needs it.</p>
+
+<p class="note">The distances have a floor at 216 nm, which is 27 voxels of the volume. That floor comes from the way the sites were annotated, and not from the tissue. Two sites may lie closer than the table shows. Treat 294 nm as an upper value.</p>
 
 <h2>10 &middot; Driver lines for the other receptors</h2>
 

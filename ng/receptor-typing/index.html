@@ -1529,6 +1529,88 @@ expansion experiment.</p>
 
 <p class="note">The full list is at <code>flomington/src/utils/antibodies.js</code>. It holds the
 vendor, the lot and the notes for each vial.</p>
+
+<h2>11 &middot; The lines across the whole receptor panel</h2>
+
+<p>This section holds one fact from a search of the stock centre for ten receptor genes. The fact
+decides every design in this project.</p>
+
+<div class="callout">
+<p><strong>Four LexA lines exist across the ten genes. There is no QF line for any of them.</strong>
+A design with two binary expression systems needs one GAL4 line and one LexA line. The list of LexA
+lines is therefore the list of possible pairs.</p>
+</div>
+
+<div class="scroll">
+<table>
+<tr><th>Second system available</th><th>Stock</th><th>What the pair reaches</th><th>Status</th></tr>
+<tr class="hi"><td>ppk23-LexA</td><td>Not at the stock centre. The Dickson laboratory holds it, and
+    this laboratory holds a copy.</td><td>ppk23 against ppk25, which is the M against F question</td>
+    <td>Buildable today with ppk25-GAL4, BDSC 93028</td></tr>
+<tr class="hi"><td>Ir52a-LexA-VP16</td><td>BDSC 60692</td><td>The Ir52 group against the ppk group,
+    which is the third group against the other two</td><td>Buildable after one order, with
+    ppk23-GAL4, BDSC 93026. See section 7 for the attP2 conflict.</td></tr>
+<tr><td>Gr64f-LexA, a knock-in at the gene</td><td>BDSC 93445</td><td>A sugar class, as a control
+    that is not a pheromone class</td><td>Order</td></tr>
+<tr><td>Gr66a-LexA</td><td>BDSC 93023 on X, BDSC 93024 on II</td><td>A bitter class, as a second
+    control</td><td>Order</td></tr>
+</table>
+</div>
+
+<h3>11.1 Three groups, two systems</h3>
+
+<p>The bristle types fall into three groups, and the analysis page for the grouping gives the
+evidence. One animal can carry two binary expression systems, so one animal labels two of the three
+groups. The third group needs a second animal, or a driver in a third system. No such driver exists
+today for these genes.</p>
+
+<p class="note">A pair of animals answers the question. Animal one carries ppk23-LexA and
+ppk25-GAL4, and it separates the two groups of the ppk family. Animal two carries Ir52a-LexA and
+ppk23-GAL4, and it puts the third group against the first two. The design of section 9 in document
+two needs no target driver, so each animal gives a result on its own.</p>
+
+<h3>11.2 A knock-in is stronger evidence than a promoter fragment</h3>
+
+<p>Most lines here carry a piece of the promoter in front of GAL4. That piece may not carry every
+element of the gene, so the line may label the wrong cells. A knock-in puts the driver at the gene
+itself, so the line follows the gene.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Gene</th><th>Knock-in line</th><th>Consequence</th></tr>
+<tr><td>Gr33a</td><td>BDSC 93352, a CRIMIC insertion, and BDSC 31425</td><td>The expression is
+    evidence about the gene</td></tr>
+<tr><td>Gr64f</td><td>BDSC 93445, lexA at the gene</td><td>The same</td></tr>
+<tr class="bad"><td>ppk23, ppk25, ppk29, every Ir52</td><td>None</td><td>Every line for the genes of
+    this project is a promoter fragment. The expression is evidence about the fragment.</td></tr>
+</table>
+</div>
+
+<p>This gap matters for this project in particular. Document one states that the assignment of
+receptors to connectome types is circular, because it comes from the partners of the cells. A
+knock-in would give evidence of a different class. No knock-in exists for the genes that the
+assignment uses.</p>
+
+<h3>11.3 Two lines that the table promises more than it delivers</h3>
+
+<ul class="steps">
+<li><strong>Ir52b-GAL4, BDSC 81230.</strong> The stock exists and no expression has been seen from
+it. The assignment calls the third group the Ir52a and Ir52b group. Half of that name therefore
+rests on a line that shows nothing. Luo et al. 2024 add that the reference genome joins Ir52b and
+Ir52e in one annotation, so a reagent built on it covers both genes.</li>
+<li><strong>The ppk23 split-GAL4 halves, VT063311 and VT063314.</strong> These fragments carry a
+name from their position in the genome, so a text search for ppk23 finds them. That is not evidence
+that they label ppk23 cells. Look at the pattern on FlyLight before you use them.</li>
+</ul>
+
+<p class="note">Gr68a is a further male foreleg class, and the search above does not cover it. Check
+it separately.</p>
+
+<div class="callout warn">
+<p><span class="tag warn">Not verified here</span> The stock numbers in this section come from a
+search of the stock centre by the laboratory. Nobody has confirmed them against the catalogue for
+this document. Confirm each number on the day you order.</p>
+</div>
 </section>
 
 <hr>

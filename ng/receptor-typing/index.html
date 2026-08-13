@@ -983,6 +983,74 @@ a check, the sentence says that nobody has done the check.</p>
 </div>
 
 <p>The table gives a consistent result. You can answer every coarse question now with the reagents in the laboratory. Every fine question needs a count of puncta. A count of puncta needs the synaptic protein method. One question needs a fine count and the ultrastructure together. That question depends on the unpublished protocol.</p>
+
+<h2>9 &middot; A presynapse map with no target driver</h2>
+
+<p>Every design above needs a driver line for the target neuron. The laboratory holds one such line, so the panel holds one target neuron. This section gives a design that needs no target driver at all.</p>
+
+<p>Mark BRP in the sensory neurons. Image the marked sites. Do not mark a target neuron. The measured quantity is then the position of the presynaptic sites of one sensory class. The connectome holds the same quantity for every type, so you can compare the image against the connectome directly.</p>
+
+<h3>9.1 What the connectome says this design can resolve</h3>
+
+<p>A test on the connectome answers this before you buy a reagent. Take the presynaptic sites of the 1011 bodies of the 12 bristle types, which is 836310 sites. Put the sites in cubic bins. Compare the types by the cosine of their binned counts. The bin size stands for the precision of the measurement, because two animals must be compared in one frame of reference.</p>
+
+<div class="scroll">
+<table>
+<tr><th class="num">Bin</th><th class="num">LgLG1a against LgLG1b</th><th class="num">WG3 against WG4</th><th class="num">LgLG5 against LgLG6</th><th class="num">LgLG7 against LgLG8</th><th class="num">Median of all pairs</th></tr>
+<tr><td class="num">8000 nm</td><td class="num">0.994</td><td class="num">0.999</td><td class="num">0.944</td><td class="num">0.919</td><td class="num">0.219</td></tr>
+<tr><td class="num">4000 nm</td><td class="num">0.992</td><td class="num">0.992</td><td class="num">0.872</td><td class="num">0.878</td><td class="num">0.121</td></tr>
+<tr><td class="num">2000 nm</td><td class="num">0.980</td><td class="num">0.976</td><td class="num">0.809</td><td class="num">0.875</td><td class="num">0.115</td></tr>
+<tr class="hi"><td class="num">1000 nm</td><td class="num">0.936</td><td class="num">0.921</td><td class="num">0.681</td><td class="num">0.711</td><td class="num">0.019</td></tr>
+<tr class="hi"><td class="num">500 nm</td><td class="num">0.745</td><td class="num">0.743</td><td class="num">0.393</td><td class="num">0.500</td><td class="num">0.002</td></tr>
+</table>
+</div>
+
+<p>Read the last column first. At 500 nm the median pair of types gives 0.002, so the method separates two unrelated types completely. At the same bin size LgLG1a and LgLG1b still give 0.745. The four pairs that the assignment splits stay the most similar pairs in the set at every bin size.</p>
+
+<p>The three groups separate at every bin size. The wing types give a cosine of 0.00 against every leg type, because the two sets of sites lie in different neuropils. LgLG2 and WG1 give 0.00 against each other for the same reason.</p>
+
+<div class="callout">
+<p><strong>The result in one sentence.</strong> A presynapse map assigns a labelled class to one of the three groups with no difficulty, and it does not separate the two members of a pair, because those two types put their synapses in the same place.</p>
+</div>
+
+<h3>9.2 The limit is the registration, not the microscope</h3>
+
+<p>Expansion to 20 times takes an optical resolution of about 250 nm to about 12 nm. The table shows that the project does not need 12 nm. The project needs to compare two animals, and the two animals must lie in one frame of reference. That step sets the useful bin size, and it does not improve with expansion.</p>
+
+<h3>9.3 The design that removes the registration step</h3>
+
+<p>Mark the two sensory classes in one animal, in two colours. Then no comparison between animals is needed, and the bin size is set by the image alone.</p>
+
+<ul class="steps">
+<li>ppk23-LexA drives BRP in one colour.</li>
+<li>ppk25-GAL4 drives BRP in the other colour.</li>
+<li>Measure the overlap of the two sets of sites in each animal.</li>
+<li>The connectome predicts a cosine of 0.745 at 500 nm for LgLG1a against LgLG1b. A measured value near 1.00 falsifies the assignment. A measured value near 0.75 agrees with it.</li>
+</ul>
+
+<p class="note">The reagent limit of section 1.1 does not apply here. That limit comes from the target driver, and this design has no target driver. One sensory line in each of the two systems is exactly the pair that the laboratory holds.</p>
+
+<div class="callout warn">
+<p><span class="tag q">Inference drawn here, not published</span> The predicted cosine of 0.745 comes from the connectome of one male. It carries no error bar for the variation between animals. Measure the same quantity in two animals of one genotype first, and use that value as the floor of the assay.</p>
+</div>
+
+<h2>10 &middot; Driver lines for the other receptors</h2>
+
+<p>The two ppk lines cover one of the three groups of bristle types. A line for a further receptor covers a group that no current design reaches.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Receptor</th><th>Bristle types it may cover</th><th>What a line adds</th><th>Status</th></tr>
+<tr class="hi"><td>Ir52a, Ir52b</td><td>LgLG2 and WG1</td><td>These two types are the third group. They do not send drive to mAL, and they reach the LC1 cluster instead. No ppk line labels them.</td><td>Lines exist in the literature. Nobody has checked the stock centres for this project.</td></tr>
+<tr class="hi"><td>Gr32a</td><td>Not yet mapped to a connectome type</td><td>Gr32a cells are fruitless negative, so they are not a ppk class. Koganezawa et al. 2010 report that these cells contact mAL. The published route for the male hydrocarbon into mAL may therefore lie outside every type in this project.</td><td>Gr32a-GAL4 is a standard line.</td></tr>
+<tr><td>Gr68a</td><td>Not yet mapped</td><td>A further male foreleg class. It tests whether the unassigned types belong to a known receptor group.</td><td>Standard line.</td></tr>
+<tr><td>ppk29</td><td>Overlaps the ppk23 group</td><td>It tests the assumption that every ppk25 cell is also a ppk23 cell. Section 10 of document one lists that assumption as unchecked.</td><td>Standard line.</td></tr>
+</table>
+</div>
+
+<p>Two of these lines answer a question that the ppk pair cannot answer. An Ir52 line reaches the third group. A Gr32a line tests whether a sensory class outside this project supplies the drive that the literature attributes to mAL.</p>
+
+<p class="note">A new line gives the most value with the design of section 9, because that design needs no matched partner line. A single new line therefore produces a result on its own.</p>
 </section>
 
 <section class="doc" id="doc-reagents" role="tabpanel" aria-labelledby="tab-reagents">

@@ -155,9 +155,12 @@
  .doc > h2:first-of-type{margin-top:.6rem}
  @media print{.tabs{display:none} .doc{display:block!important}}
 </style><style>
- pre{background:#f7fbff;border:1px solid #d8d8d8;border-radius:8px;padding:.7rem .9rem;
-     overflow-x:auto;font:.85rem ui-monospace,SFMono-Regular,Menlo,monospace;margin:.6rem 0 1rem}
- pre code{background:none;padding:0}
+ pre{background:#0f1420;color:#e8edf4;border:1px solid #0f1420;border-radius:8px;
+     padding:.75rem .95rem;overflow-x:auto;
+     font:.85rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;margin:.6rem 0 1rem}
+ pre code{background:none;padding:0;color:inherit;font-size:1em}
+ code{color:#0b3d6b}
+ @media print{ pre{background:#f2f4f7;color:#14171c;border-color:#ccd2da} code{color:#14171c} }
  .scroll{overflow-x:auto}
  hr{border:0;border-top:1px solid #ececec;margin:2rem 0 1rem}
  p.foot{color:#555;font-size:.8rem}
@@ -208,8 +211,9 @@ equal input from the two groups, thus path A does not test the receptor assignme
 <td>3</td><td>synapse label, path A</td><td>stockist</td>
 <td><span class="tag warn">requested</span> quarantine?</td></tr>
 <tr><td>GJ948</td><td><code>LexAop2-Brp-mCherry</code></td><td>not recorded</td>
-<td>synapse label, path B</td><td>tray 2, inc 18; also stockist</td>
-<td><span class="tag warn">map it</span></td></tr>
+<td>synapse label, path B</td><td>Cambridge Genetics stockist</td>
+<td><span class="tag warn">requested</span> The laboratory vial is dead. GJ1008 and GJ1000 are also
+not available.</td></tr>
 <tr><td>GJ1472</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>2</td>
 <td>ppk23 driver, path B</td><td>25inc, Bella</td>
 <td><span class="tag warn">clean</span> remove 22B10-GAL4</td></tr>
@@ -426,7 +430,7 @@ Read the host from each vial before you plan the stain.</td></tr>
 <table>
 <tr><th>Question</th><th>Blocks</th><th>Action</th></tr>
 <tr class="hi"><td>Which chromosome has GJ948?</td><td>all of path B</td>
-<td>Ask Simon. Or map GJ948 against a LexA driver in the laboratory.</td></tr>
+<td>Ask Simon. The laboratory vial is dead, thus you cannot map it here.</td></tr>
 <tr class="hi"><td>Is LMB-494 out of quarantine?</td><td>Parent 1, thus path A</td>
 <td>Ask Simon.</td></tr>
 <tr><td>Which balancer marker does LMB-494 have?</td><td>the larval sort</td>
@@ -443,8 +447,12 @@ Read the host from each vial before you plan the stain.</td></tr>
 <h2>9 &middot; Order of work</h2>
 
 <ul class="steps">
-<li>Set up Parent 2 and both clean-up crosses. All the stocks are in the laboratory.</li>
-<li>Set up Parent 1 when LMB-494 arrives.</li>
+<li>Set up the two clean-up crosses and the target side of path B. All these stocks are in the
+laboratory.</li>
+<li>Both synapse labels come from the Cambridge Genetics stockist. LMB-494 is the label of path A.
+GJ948 is the label of path B. The laboratory vials of GJ948, GJ1008 and GJ1000 are dead.</li>
+<li>Set up Parent 1 when LMB-494 arrives. Set up the sensory side of path B when GJ948
+arrives.</li>
 <li>Order Acryloyl-X, sodium acrylate and the benzylguanine dye in the same week.</li>
 <li>Practise the gel on a <strong>ventral nerve cord</strong>. These sensory neurons have no
 presynapse in the brain.</li>

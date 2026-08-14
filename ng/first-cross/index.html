@@ -178,8 +178,11 @@ presynaptic sites of the ppk23 sensory neurons must carry the other colour. You 
 puncta that touch the membrane.</p>
 
 <div class="callout">
-<p><span class="tag ok">no order needed</span> Every part is in the laboratory or at the Cambridge
-Genetics stockist. Nothing must be built.</p>
+<p><span class="tag warn">one consumable is missing</span> Every fly line is in the laboratory or
+at the Cambridge Genetics stockist, and nothing must be built. One reagent is absent: a SNAP tag
+emits no light until a benzylguanine dye develops it, and the laboratory antibody list holds no
+benzylguanine ligand. Path A cannot be read out until that dye is in the freezer. Section 9.1
+names it.</p>
 </div>
 
 <h2>2 &middot; Two paths, and why both stay open</h2>
@@ -192,9 +195,11 @@ decides which question the animal can answer, and the two questions are differen
 <tr><th>Path</th><th>Label</th><th>Target</th><th>What it buys</th><th>What it costs</th></tr>
 <tr class="hi"><td><strong>A</strong>, label in GAL4</td><td>LMB-494, UAS-brp-D3-Cherry</td>
 <td>LexA, so R56C09-lexA</td>
-<td>Both ppk arms run in one reporter configuration, so the ppk25 to ppk23 <strong>ratio</strong> is
-possible. Gr32a also runs.</td>
-<td>The target is limited to the one LexA driver line that exists, which is PPN1.</td></tr>
+<td>Both ppk arms run in one reporter configuration, so the two arms can be compared at all.
+Gr32a also runs.</td>
+<td>The target is limited to PPN1, the one LexA driver line that exists, and PPN1 takes near equal
+input from the two groups. Path A therefore develops the assay. It does not test the
+assignment. See section 6.</td></tr>
 <tr class="hi"><td><strong>B</strong>, label in LexA</td><td>GJ948, LexAop2-Brp-mCherry</td>
 <td>GAL4, so any GAL4 or split-GAL4</td>
 <td>The target can be a <strong>split-GAL4</strong>. SS103018 labels AN13B002, a discriminating
@@ -246,10 +251,12 @@ Dfd-YFP on each balancer, so the larvae can be sorted under a fluorescence scope
 <tr><td class="num">G0</td>
 <td>BDSC 93026 <code>w; ppk23-GAL4; TM2/TM6B</code> &times; LMB-494
 <code>w-; Sco/CyO,Dfd-YFP; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP</code></td>
-<td>Curly wing and YFP; Tubby; <strong>not</strong> Ubx and <strong>not</strong> Stubble</td>
-<td><code>w; ppk23-GAL4/CyO,Dfd-YFP; brp-D3-Cherry/TM6B</code></td></tr>
-<tr><td class="num">F1</td><td>sibling cross</td><td>Curly and Tubby</td>
-<td><strong>Parent 1</strong>, a balanced stock</td></tr>
+<td>Tubby; <strong>not</strong> Ubx and <strong>not</strong> Stubble</td>
+<td><code>w; ppk23-GAL4/Sco or /CyO; brp-D3-Cherry/TM6B</code></td></tr>
+<tr><td class="num">F1</td><td>sibling cross</td>
+<td><strong>not</strong> Curly and <strong>not</strong> Sternopleural; Tubby</td>
+<td><strong>Parent 1</strong>, <code>w; ppk23-GAL4; brp-D3-Cherry/TM6B</code>, homozygous on
+chromosome 2</td></tr>
 </table>
 </div>
 
@@ -267,11 +274,11 @@ over TM6B dies, so that class does not appear.</p>
 <tr><td class="num">G0</td>
 <td>BDSC 53584 <code>w1118; GMR56C09-lexA(attP40)</code> &times; GJ895
 <code>IF/CyO; LexAop2-myr4xSNAPf(VK00005)/TM6B</code></td>
-<td>Curly wing; <strong>not</strong> Tubby</td>
-<td><code>w; R56C09-lexA/CyO; myr4xSNAPf/+</code></td></tr>
+<td><strong>not</strong> Curly and <strong>not</strong> Irregular facets; <strong>not</strong> Tubby</td>
+<td><code>w; R56C09-lexA/+; myr4xSNAPf/+</code></td></tr>
 <tr class="warn"><td class="num">F1</td><td>cross to a chromosome 3 balancer, then sibling cross</td>
 <td>Curly and Tubby, <strong>then verify</strong></td>
-<td><strong>Parent 2</strong>, <code>w; R56C09-lexA/CyO; myr4xSNAPf/TM6B</code></td></tr>
+<td><strong>Parent 2</strong>, <code>w; R56C09-lexA; myr4xSNAPf/TM6B</code>, homozygous on chromosome 2</td></tr>
 </table>
 </div>
 
@@ -287,25 +294,28 @@ is scored by markers alone.</p>
 <p>The alternative avoids the stock and the check. Use the G0 progeny directly:
 <code>R56C09-lexA/CyO; myr4xSNAPf/+</code> is unambiguous in that generation. The cost is that half
 the final animals then lack the fill and must be discarded at the microscope, so the useful yield
-falls from one in nine to one in eighteen. Build the stock if you will run this more than
-twice.</p>
+falls from one in three to one in six, and half the animals that look right lack the fill. Build
+the stock if you will run this more than twice.</p>
 
 <h3>3.3 The experimental cross</h3>
 
 <pre><code>Parent 1 virgin females  x  Parent 2 males
    keep the male progeny that are not Curly and not Tubby</code></pre>
 
-<p>Not Curly gives <code>ppk23-GAL4 / R56C09-lexA</code> on chromosome 2. Not Tubby gives
-<code>brp-D3-Cherry / myr4xSNAPf</code> on chromosome 3. <strong>One in nine of the survivors
-carries all four parts.</strong> CyO over CyO and TM6B over TM6B both die, so each chromosome
-gives three surviving classes and not four, and the fraction is one third times one third. Half of
-those are male, so plan on one useful male in eighteen. Take males only. The midline crossing of the ppk23 neurons in T1 is male specific, and
+<p>Both parents are homozygous on chromosome 2, so every progeny carries
+<code>ppk23-GAL4 / R56C09-lexA</code> and only chromosome 3 must be scored. Not Tubby gives
+<code>brp-D3-Cherry / myr4xSNAPf</code>. TM6B over TM6B dies, so three classes survive and
+<strong>one in three of the survivors carries all four parts</strong>. Half are male, so plan on
+one useful male in six. Take males only. The midline crossing of the ppk23 neurons in T1 is male specific, and
 every prediction from the connectome comes from a male.</p>
 
 <div class="callout">
-<p><span class="tag q">time</span> Parent 1 takes 2 generations, about 4 weeks. Parent 2 takes 2
-generations plus the verification, about 5 weeks, and runs in parallel. The experimental cross
-takes about 2 weeks. Total about 7 weeks, and both parent stocks then serve every later arm.</p>
+<p><span class="tag q">time</span> Parent 1 takes 3 generations, about 5 weeks, because chromosome
+2 is made homozygous. Parent 2 takes the same plus the verification. They run in parallel. The
+experimental cross takes about 2 weeks. <strong>About 7 weeks to the first ppk23 image.</strong></p>
+<p>Parent 2 serves every arm. Parent 1 does not: the ppk25 arm needs 4 weeks to clean BDSC 93028,
+then a rebuild of Parent 1, then the cross. Plan the ppk25 arm as a second block, not as a
+follow-on week.</p>
 </div>
 
 <h3>3.4 Swapping the arm</h3>
@@ -319,8 +329,10 @@ takes about 2 weeks. Total about 7 weeks, and both parent stocks then serve ever
 <tr class="hi"><td>ppk25</td><td>BDSC 93028, chromosome 2 copy only</td>
 <td>Remove the chromosome 3 copy first. See section 4.</td></tr>
 <tr><td>Gr32a</td><td>GJ1435, chromosome 3</td>
-<td>The driver and brp-D3 are then both on chromosome 3, so they must be recombined, or the fill
-must move to attP40 with GJ894 and the target driver to R56C09-GAL4 at attP2.</td></tr>
+<td>The driver and brp-D3 are then both on chromosome 3. Move the fill to GJ894 at attP40, which
+sits opposite R56C09-lexA on chromosome 2, and chromosome 3 is then free for Gr32a-GAL4 opposite
+brp-D3. Do <strong>not</strong> move the target driver to R56C09-GAL4: one GAL4 would then drive
+brp-D3 inside PPN1 as well, and every punctum on the membrane would be PPN1's own.</td></tr>
 </table>
 </div>
 
@@ -372,37 +384,45 @@ attempt it.</td><td class="num">&mdash;</td></tr>
 <tr><td>GJ890, GJ894</td><td>the same two at attP40</td>
 <td>On chromosome 2. Use these only if the fill must move off chromosome 3.</td></tr>
 <tr><td>GJ598, GJ599, GJ600, GJ667</td><td>four <code>10XUAS-IVS-myr::GFP</code> lines</td>
-<td>At su(Hw)attP8, attP40 and attP2. A fluorescent protein fill, if a chemical tag is not
-wanted.</td></tr>
+<td>At su(Hw)attP8, attP40 and attP2. <strong>Path B only.</strong> In path A the GAL4 sits in
+the sensory neurons, so a UAS fill would fill the bristles and not PPN1. The path A fill must be
+LexAop.</td></tr>
 <tr><td>GJ1435, Gr32a-GAL4</td><td><code>w118; Sp/CyO; Gr32a-Gal4.3.7.PW</code></td>
 <td>Sp/CyO is a balancer, not a transgene. Use as it is.</td></tr>
 </table>
 </div>
 
 <div class="callout warn">
-<p><span class="tag warn">check this</span> The clean-up crosses need a double balancer, and the
-laboratory snapshot of 20 July 2026 holds no plain one. The nearest is <strong>GJ832</strong>,
-<code>If/CyO; hsFLP, MKRS/TM6B, Tb1</code>, at incubator 18. Take the progeny that carry CyO and
-TM6B. Do not carry its other chromosome 3 forward, because a stray FLP will act on any flip-out
-cassette later.</p>
+<p><span class="tag ok">use this one</span> The clean-up crosses need a double balancer.
+<strong>GJ954</strong>, <code>w; IF/CyO; TM2/TM6B</code>, at incubator 18, is a plain one. It
+carries no transgene to pass on. Score Curly and Irregular-facets-negative for chromosome 2, and
+Tubby and Ubx-negative for chromosome 3.</p>
+<p><strong>GJ832</strong>, <code>If/CyO; hsFLP, MKRS/TM6B</code>, is a fallback only. It carries
+hsFLP on the MKRS chromosome, and a stray FLP will act on any flip-out cassette later.</p>
 </div>
 
 <h2>5 &middot; Controls, in the same batch</h2>
 
 <ul class="steps">
-<li>Parent 1 alone, with no LexA. The fill channel must be empty.</li>
-<li>Parent 2 alone, with no GAL4. The label channel must be empty.</li>
+<li>Parent 2 crossed to a stock with no GAL4, so the animal carries the target driver, the fill and
+the label but no ppk23-GAL4. The label channel on the PPN1 mask must be empty. This is the control
+that can fail, and it sets the threshold below which a punctum count means nothing.</li>
+<li>Parent 1 crossed to a stock with no LexA. The fill channel must be empty.</li>
+<li>A neuron with arbors in the same neuropil that the connectome says takes almost no ppk input,
+filled in the same batch. Its puncta for each square micrometre of membrane is the rate at which
+apposition is not a synapse. Without it, "touching" is not a measurement.</li>
 <li>The PPN1 driver with a fill only. This gives the shape of PPN1 on its own, which you need
 before you can say that a punctum touches it.</li>
 <li>A female of the full genotype. The ppk23 projection differs between the sexes, so a female is
 a negative for the male specific part of the pattern.</li>
 </ul>
 
-<h2>6 &middot; Why only path A carries the ratio</h2>
+<h2>6 &middot; Why the two arms must share one reporter</h2>
 
-<p>One arm on its own does not test the receptor assignment. The test is the ratio of the ppk25 arm
-to the ppk23 arm at the same target, because the unknown efficiency of the method cancels in a
-ratio. The two arms must therefore use the same reporter in the same system.</p>
+<p>One arm on its own gives a number with an unknown efficiency inside it. Comparing two arms
+removes the part of that efficiency which is common to both, and the two arms can only be compared
+if they carry the same reporter in the same system. This is a necessary condition, and it is not a
+sufficient one: see section 11 for what a single target still cannot do.</p>
 
 <div class="scroll">
 <table>
@@ -433,9 +453,13 @@ line labels. Path B cannot do this, and it is kept for the targets instead. See 
 <td>Clean off the 22B10-GAL4 first. See section 4.</td></tr>
 <tr class="hi"><td>synapse label</td><td>GJ948</td><td><code>LexAop2-Brp-mCherry</code></td>
 <td>not recorded</td><td>At the Cambridge Genetics stockist. Map the chromosome on arrival.</td></tr>
-<tr class="hi"><td>target driver</td><td>Kallman PPN1 GAL4, or SS103018</td>
+<tr class="hi"><td>target driver</td><td>Kallman PPN1 GAL4</td>
 <td><code>w1118; P{GMR56C09-GAL4}attP2</code></td><td>3, attP2</td>
 <td>attP2 is free here, because this design carries no t-GRASP.</td></tr>
+<tr class="warn"><td>target driver, the discriminating one</td><td>SS103018, labels AN13B002</td>
+<td>not recorded; the snapshot gives "?"</td><td>2 and 3</td>
+<td>A split-GAL4, so it fills attP40 and attP2 at once. Score its hemidriver positions and its
+balancers before you plan around it. This is step 0 of path B.</td></tr>
 <tr><td>target fill</td><td>GJ598, GJ599, GJ600 or GJ667</td>
 <td><code>10XUAS-IVS-myr::GFP</code> at su(Hw)attP8, attP40 or attP2</td><td>X, 2 or 3</td>
 <td>Three landing sites, so one fits whatever slot the label leaves.</td></tr>
@@ -443,10 +467,13 @@ line labels. Path B cannot do this, and it is kept for the targets instead. See 
 </div>
 
 <div class="callout warn">
-<p><span class="tag warn">map GJ948 first</span> Its chromosome is recorded in neither collection.
-Every slot in this path depends on it, so map it before you plan the crosses. Note also that the
-two collections number differently: the stockist reports that its GJ1008 is a different
-reagent.</p>
+<p><span class="tag warn">map the reporter first</span> Three vials of this reporter are already in
+the laboratory, so none of them must be ordered. GJ948 is in tray 2 at incubator 18 with no site
+recorded. GJ1008 is in tray 3 and its record gives both "(II)" and "su(Hw)attP8", which disagree,
+because su(Hw)attP8 is on the X chromosome. GJ1000 is in tray 3 and carries a LexA driver of its
+own. Every slot in this path depends on the site, so resolve it before you plan the crosses. Note
+that the two collections number differently: the stockist reports that its GJ1008 is a different
+reagent from the laboratory's.</p>
 </div>
 
 <p>The targets this path opens are the ones PPN1 cannot reach. PPN1 takes near equal input from the
@@ -463,18 +490,24 @@ them. None has been through MCFO, so nobody knows which AN09B017 member each one
 <tr><th>Quantity</th><th class="num">Value</th><th>Note</th></tr>
 <tr><td>ppk23 connections onto PPN1, in the connectome</td><td class="num">27267</td>
 <td>a count of connections</td></tr>
-<tr class="hi"><td>presynaptic sites that carry them</td><td class="num">about 4400</td>
-<td>one site serves 6.11 partners; a punctum is a site, not a connection</td></tr>
-<tr class="warn"><td>puncta to expect in the count</td><td class="num">2200 to 3300</td>
-<td>the method counts one half to three quarters of the true number</td></tr>
+<tr class="hi"><td>presynaptic sites apposed to PPN1</td><td class="num">about 27000</td>
+<td>One site serves about six partners, but those partners are different cells. Onto one target
+cell a site gives about one connection, so the count of sites is close to the count of
+connections. Do not divide by six here.</td></tr>
+<tr class="warn"><td>puncta to expect in the count</td><td class="num">13000 to 20000</td>
+<td>on two PPN1 cells together, if the method recovers one half to three quarters</td></tr>
+<tr><td>the same for the ppk25 arm</td><td class="num">11075</td>
+<td>connections; the second arm of the comparison</td></tr>
 <tr><td>median distance to the nearest site</td><td class="num">294 nm</td>
 <td>a confocal microscope resolves about 250 nm</td></tr>
 </table>
 </div>
 
 <div class="callout warn">
-<p><span class="tag warn">do not misread a low count</span> A count near 27000 would mean the label
-is wrong. Expect a few thousand.</p>
+<p><span class="tag warn">a low count is the failure, not the result</span> Expect of order 20000
+puncta over the two PPN1 cells. A few thousand means that the label, the antibody or the
+segmentation is losing most of the sites. It does not mean that the connectome is wrong. Decide the
+threshold that you will call a failure before you image.</p>
 </div>
 
 <h2>9 &middot; The expansion step</h2>
@@ -493,15 +526,30 @@ is wrong. Expect a few thousand.</p>
 </table>
 </div>
 
-<p>Label before the gel. A heat denaturation gel ends the fluorescence of an expressed protein, so
-an antibody must carry the signal. The laboratory holds seven anti-GFP antibodies across four host
-species, two anti-RFP, and nc82 against Bruchpilot as an independent landmark. Take a host for one
-target that differs from the host for the other.</p>
+<p>Choose one chemistry and follow it. proExM anchors the protein with Acryloyl-X and digests with
+proteinase K, and it <strong>keeps</strong> a usable part of the fluorescence of an expressed
+protein. A chemistry that denatures by heat preserves the ultrastructure instead and ends that
+fluorescence, and an antibody must then carry the signal. The two routes are not interchangeable,
+and section 3 of the receptor typing page gives the same conflict for GRASP.</p>
+
+<p>The antibody route is the safer default because it works with either chemistry. The laboratory
+holds seven anti-GFP antibodies across four host species and nc82 against Bruchpilot as an
+independent landmark.</p>
+
+<div class="callout warn">
+<p><span class="tag warn">check before staining</span> Neither of the two anti-RFP vials has a host
+species in the laboratory record, and one is marked low confidence. A two colour stain needs two
+different hosts, so read the host off both vials and write it into the record before you plan the
+staining.</p>
+</div>
 
 <div class="callout warn">
 <p><span class="tag warn">no cyanine dyes</span> The gel destroys them, and Alexa Fluor 647 is a
-cyanine dye. Use CF488A or an Atto conjugate first. Alexa Fluor 555, 594 and 633 and DyLight 550
-are acceptable, and all are in the laboratory.</p>
+cyanine dye. <strong>So are Alexa Fluor 555 and DyLight 550</strong>, which are of the same
+sulfoindocyanine class, and the laboratory holds both. Do not use them either.</p>
+
+<p>Use CF488A or an Atto conjugate in the green channel. Use Alexa Fluor 594 or 633 in the red
+channel. Both are in the laboratory and neither is a cyanine.</p>
 </div>
 
 <p>The chemical tag fill of section 2 helps here: a SNAP or CLIP tag is smaller and brighter than a
@@ -518,9 +566,21 @@ fluorescent protein and it survives the chemistry better.</p>
 <td>degrades on the shelf; buy fresh and reject a batch that is not white</td></tr>
 <tr><td>acrylamide, bis-acrylamide, APS, TEMED, 4-hydroxy-TEMPO</td><td>the rest of the gel</td>
 <td>standard, and possibly already held</td></tr>
-<tr><td>SNAP or CLIP surface ligand</td><td>to develop the fill of section 2</td>
-<td>only for the chemical tag route</td></tr>
+<tr class="warn"><td>a cell-permeable benzylguanine dye, for example SNAP-Cell 647-SiR or
+SNAP-Cell TMR-Star</td><td>develops the SNAP fill of path A; without it the target channel stays
+dark</td>
+<td><strong>Blocking.</strong> A Surface ligand is the wrong class: it cannot cross the membrane
+and these neurons are inside the nerve cord. Pick a dye that is not a cyanine and that does not
+sit in the mCherry channel.</td></tr>
 </table>
+</div>
+
+<div class="callout warn">
+<p><span class="tag warn">the 4x verdict is not established</span> The distances above have a floor
+at 216 nm, which is 27 voxels of the volume. That floor is how the sites were annotated, not
+biology, so the fraction of pairs closer than 216 nm is unmeasured. Treat "0.1 percent under
+250 nm" as a lower bound. If many pairs sit at the floor, 4x is not enough and a 10x gel is the
+safe choice.</p>
 </div>
 
 <p class="note">Take the protocol from the proExM paper of Tillberg and colleagues. This page gives
@@ -529,12 +589,18 @@ the decisions and the parts, not the recipe.</p>
 <h2>10 &middot; Order of work</h2>
 
 <ul class="steps">
-<li>Request LMB-494 and GJ948 from the Cambridge Genetics stockist. LMB-494 is the one that
-matters.</li>
-<li>Set up the two parent stocks. They take about 4 weeks and nothing else is on the critical
-path.</li>
+<li>Request <strong>LMB-494</strong> from the Cambridge Genetics stockist. Do not order GJ948: it
+is already in tray 2 at incubator 18, as a single vial.</li>
+<li>Order the benzylguanine dye of section 9.1 in the same week. It blocks the target channel of
+path A, so it belongs on the critical path with the gel reagents.</li>
+<li>Start the two clean-up crosses of section 4 in the same week. Each takes about 4 weeks, and
+each blocks one later arm.</li>
+<li>Set up the two parent stocks. Parent 1 takes about 4 weeks and Parent 2 about 5, because of
+the verification step.</li>
 <li>Order Acryloyl-X and sodium acrylate in the same week. They arrive long before the flies.</li>
-<li>Practise the gel on a brain you do not care about. The first gel always fails.</li>
+<li>Practise the gel on a <strong>ventral nerve cord</strong> you do not care about. The first gel
+always fails. These sensory neurons have no presynapse in the brain, so every synapse counted here
+is in the nerve cord, and the brain is useful only to check the driver pattern.</li>
 <li>Measure the expansion factor on every gel with a landmark of known size. The factor varies
 between gels, and every count depends on it.</li>
 </ul>
@@ -545,10 +611,17 @@ between gels, and every count depends on it.</li>
 undercount of the method. Every one of those is needed before the ratio experiment is worth
 running.</p>
 
-<p>The ratio of the ppk25 arm to the ppk23 arm tests the receptor assignment at PPN1. PPN1 takes
-near equal input from the two groups, so it cannot separate them by itself. The
-<a href="../receptor-typing/">receptor typing page</a> gives the targets that can, and the driver
-lines that they still need.</p>
+<p>The ppk25 arm at PPN1 gives the variance between animals, the working dilutions and the
+recovery of the method. <strong>It does not test the receptor assignment.</strong> PPN1 takes near
+equal input from the two groups, at a predicted ratio of 0.406 against 0.594 if the assignment is
+swapped, which is a separation of 1.46 times. The
+<a href="../receptor-typing/">receptor typing page</a> gives the targets that do separate them, and
+the driver lines that they still need.</p>
+
+<p>The unknown efficiency of the method does not cancel in a single ratio either. It cancels in a
+ratio of ratios: the same two drivers at two targets whose predicted fractions are opposed. One
+target alone leaves the driver strength and the staining efficiency inside the number.
+<code>CROSSING_REVIEW.md</code> sets out the two estimators.</p>
 
 <div class="callout warn">
 <p><span class="tag q">limit</span> No experiment on this page names the sex that a bristle

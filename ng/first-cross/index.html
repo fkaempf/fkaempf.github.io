@@ -1192,8 +1192,10 @@ function paint(){
   "Waiting for other work ("+wait.length+")";
  c="<ul class=\"wl\">";
  for(i=0;i<wait.length;i++){
-  var nm=byId[wait[i].need.id]?byId[wait[i].need.id].name:wait[i].need.id;
-  c+="<li>"+esc(cap(wait[i].it.name)+" needs "+nm+" first.")+"</li>";
+  var nd=byId[wait[i].need.id],nm=nd?nd.name:wait[i].need.id,me=wait[i].it;
+  var a=nd&&nd.sec?'<a href="#'+esc(nd.sec)+'">'+esc(nm)+"</a>":esc(nm);
+  var b=me.sec?'<a href="#'+esc(me.sec)+'">'+esc(cap(me.name))+"</a>":esc(cap(me.name));
+  c+="<li>"+b+" needs "+a+" first.</li>";
  }
  c+="</ul>";
  box.wait.querySelector("div").innerHTML=wait.length?c:

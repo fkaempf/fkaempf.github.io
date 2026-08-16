@@ -200,7 +200,7 @@ Related pages: <a href="../receptor-typing/">receptor typing</a>,
 <p data-path="b"><strong>Path B</strong>, label in LexA. One arm only. Any GAL4 or split-GAL4 target.</p>
 <pre data-path="b"><code>w/Y ; ppk23-LexA / + ; target-GAL4 / UAS-myr::GFP     plus LexAop2-Brp-mCherry</code></pre>
 <p class="trk-host" data-trk="b-target"></p>
-<p class="trk-host" data-trk="b-sensory"></p>
+<p class="trk-host" data-path="b" data-trk="b-sensory"></p>
 
 <div class="scroll">
 <table>
@@ -616,7 +616,8 @@ arrives.</li>
 
 <style>
  .pathsw{display:flex;gap:.4rem;flex-wrap:wrap;margin:.2rem 0 1.4rem}
- .pathsw .btn[aria-pressed="true"]{border-color:var(--link);color:var(--link);font-weight:600}
+ .pathsw .btn[aria-pressed="true"]{font-weight:700}
+ .pathsw .btn{padding:.45rem .9rem;font-size:.82rem}
  [data-path].pathoff{display:none}
 </style>
 <script>

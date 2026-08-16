@@ -177,6 +177,14 @@ Related pages: <a href="../receptor-typing/">receptor typing</a>,
 <a href="../bristle-typing/">bristle typing</a>,
 <a href="../bristle-impact/">bristle impact</a>.</p>
 
+<div class="tabs" role="tablist" aria-label="Documents">
+  <button role="tab" id="tab-crosses" aria-controls="doc-crosses" aria-selected="true">
+    1. Crosses<span>Stocks, crosses and what is in motion</span></button>
+  <button role="tab" id="tab-expansion" aria-controls="doc-expansion" aria-selected="false">
+    2. Expansion<span>The gel, the dyes and the antibodies</span></button>
+</div>
+
+<section class="doc" id="doc-crosses" role="tabpanel" aria-labelledby="tab-crosses">
 <h2 id="s1">1 &middot; The target genotypes</h2>
 
 <p><strong>Path A</strong>, label in GAL4. Both ppk arms are possible. The target is PPN1 only.</p>
@@ -560,8 +568,8 @@ connectome is wrong. Decide the failure threshold before you start the imaging.<
 </table>
 </div>
 
-<p class="note">The gel and the imaging are not on this page. Another person does that work. Give
-them the nerve cords and the numbers of section 7.</p>
+<p class="note">The gel and the imaging are on the Expansion tab. Another person does that work.
+Give them the nerve cords and the numbers of section 7.</p>
 
 <h2 id="s9">9 &middot; Open questions</h2>
 
@@ -598,6 +606,82 @@ arrives.</li>
 <li>Give the nerve cords to the person who does the gel and the imaging.</li>
 </ul>
 
+</section>
+
+<section class="doc" id="doc-expansion" role="tabpanel" aria-labelledby="tab-expansion">
+<p class="note">Another person does this work. This tab holds the decisions and the parts, so that
+the two of you use the same numbers. The counts to expect are on the crosses tab, in section 7.</p>
+
+<h2>1 &middot; The gel</h2>
+
+<div class="scroll">
+<table>
+<tr><th class="num">Factor</th><th class="num">Median distance</th><th>Result</th></tr>
+<tr class="bad"><td class="num">1</td><td class="num">294 nm</td><td>not separate</td></tr>
+<tr class="hi"><td class="num">4</td><td class="num">1175 nm</td><td>sufficient</td></tr>
+<tr><td class="num">8 to 20</td><td class="num">2351 to 5877 nm</td><td>a margin only</td></tr>
+</table>
+</div>
+
+<div class="scroll">
+<table>
+<tr><th>Decision</th><th>Rule</th></tr>
+<tr><td>chemistry</td><td>proExM keeps a usable part of the fluorescence. A heat denaturation gel
+keeps the ultrastructure and stops the fluorescence. Select one.</td></tr>
+<tr class="bad"><td>dyes to avoid</td><td>Alexa Fluor 647, Alexa Fluor 555 and DyLight 550. All
+three are cyanine dyes, and the gel destroys them.</td></tr>
+<tr class="hi"><td>dyes to use</td><td>CF488A or an Atto conjugate, green. Alexa Fluor 594 or 633,
+red.</td></tr>
+<tr class="warn"><td>antibody hosts</td><td>The record gives no host for the two anti-RFP vials.
+Read the host from each vial before you plan the stain.</td></tr>
+<tr class="warn"><td>the factor 4 result</td><td>Not established. The distances have a floor at
+216 nm from the annotation method. Use a factor of 10 if many pairs are at the floor.</td></tr>
+</table>
+</div>
+
+<h2>2 &middot; Items to order</h2>
+<div class="scroll">
+<table>
+<tr><th>Item</th><th>Function</th><th>Note</th></tr>
+<tr class="warn" data-trk="ord-anchor"><td>Acryloyl-X, SE</td><td>anchors the protein in the gel</td>
+<td>No substitute. Keep it dry and cold.</td></tr>
+<tr class="warn" data-trk="ord-acrylate"><td>sodium acrylate</td><td>the monomer that expands</td>
+<td>Buy a new batch. Reject a batch that is not white.</td></tr>
+<tr data-trk="ord-gel"><td>acrylamide, bis-acrylamide, APS, TEMED, 4-hydroxy-TEMPO</td>
+<td>the other gel components</td><td>The laboratory possibly has them.</td></tr>
+</table>
+</div>
+
+</section>
+
+<script>
+
+(function(){
+  var ids = ['crosses','expansion'];
+  var tabs = ids.map(function(k){ return document.getElementById('tab-'+k); });
+  var docs = ids.map(function(k){ return document.getElementById('doc-'+k); });
+
+  function show(i, push){
+    i = Math.max(0, Math.min(ids.length-1, i));
+    tabs.forEach(function(t,k){ t.setAttribute('aria-selected', k===i ? 'true':'false'); });
+    docs.forEach(function(d,k){ d.classList.toggle('on', k===i); });
+    if (push) history.replaceState(null,'','#'+ids[i]);
+    window.scrollTo({top:0});
+  }
+
+  tabs.forEach(function(t,i){
+    t.addEventListener('click', function(){ show(i,true); });
+    t.addEventListener('keydown', function(e){
+      if (e.key==='ArrowRight'){ e.preventDefault(); var n=(i+1)%ids.length; tabs[n].focus(); show(n,true); }
+      if (e.key==='ArrowLeft'){ e.preventDefault(); var p=(i-1+ids.length)%ids.length; tabs[p].focus(); show(p,true); }
+    });
+  });
+
+  var start = ids.indexOf((location.hash||'').replace('#',''));
+  show(start < 0 ? 0 : start, false);
+})();
+
+</script>
 <hr>
 <p class="foot">Stock records come from <code>flomington/backups/20260720-141305/stocks.json</code>,
 a local snapshot of 20 July 2026, and from the Cambridge Genetics stockist, 13 August 2026. Confirm

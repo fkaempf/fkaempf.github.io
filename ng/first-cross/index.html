@@ -187,20 +187,26 @@ Related pages: <a href="../receptor-typing/">receptor typing</a>,
 <section class="doc" id="doc-crosses" role="tabpanel" aria-labelledby="tab-crosses">
 <h2 id="s1">1 &middot; The target genotypes</h2>
 
-<p><strong>Path A</strong>, label in GAL4. Both ppk arms are possible. The target is PPN1 only.</p>
-<pre><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; UAS-brp-D3-Cherry / 13XLexAop2-mCD8::GFP(attP2)</code></pre>
+<p class="pathsw" role="group" aria-label="Which path to show">
+ <button type="button" class="btn" data-pathsel="a" aria-pressed="true">Path A</button>
+ <button type="button" class="btn ghost" data-pathsel="b" aria-pressed="false">Path B</button>
+ <button type="button" class="btn ghost" data-pathsel="both" aria-pressed="false">Both</button>
+</p>
 
-<p><strong>Path B</strong>, label in LexA. One arm only. Any GAL4 or split-GAL4 target.</p>
-<pre><code>w/Y ; ppk23-LexA / + ; target-GAL4 / UAS-myr::GFP     plus LexAop2-Brp-mCherry</code></pre>
+<p data-path="a"><strong>Path A</strong>, label in GAL4. Both ppk arms are possible. The target is PPN1 only.</p>
+<pre data-path="a"><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; UAS-brp-D3-Cherry / 13XLexAop2-mCD8::GFP(attP2)</code></pre>
+
+<p data-path="b"><strong>Path B</strong>, label in LexA. One arm only. Any GAL4 or split-GAL4 target.</p>
+<pre data-path="b"><code>w/Y ; ppk23-LexA / + ; target-GAL4 / UAS-myr::GFP     plus LexAop2-Brp-mCherry</code></pre>
 <p class="trk-host" data-trk="b-target"></p>
 <p class="trk-host" data-trk="b-sensory"></p>
 
 <div class="scroll">
 <table>
 <tr><th>Path</th><th>Arms possible</th><th>Targets possible</th><th>Use it for</th></tr>
-<tr class="hi"><td><strong>A</strong></td><td>ppk23, ppk25, Gr32a</td><td>PPN1 only</td>
+<tr class="hi" data-path="a"><td><strong>A</strong></td><td>ppk23, ppk25, Gr32a</td><td>PPN1 only</td>
 <td>the assay: counts, dilutions, settings, recovery</td></tr>
-<tr class="hi"><td><strong>B</strong></td><td>ppk23 only</td><td>any GAL4, and split-GAL4</td>
+<tr class="hi" data-path="b"><td><strong>B</strong></td><td>ppk23 only</td><td>any GAL4, and split-GAL4</td>
 <td>the targets that separate the two ppk groups</td></tr>
 </table>
 </div>
@@ -273,10 +279,11 @@ in the section that describes it.</p>
 <li data-trk-id="b-target" data-trk-kind="cross">the PPN1 mask control</li>
 </ul>
 
-<p class="trk-g">Path B, a later phase</p>
-<p class="note">Path A is the main line, because the receptor drivers exist in GAL4. Path B stays
-for one job that path A cannot do: a split-GAL4 target, for example SS103018 for AN13B002. A split
-occupies the GAL4 system, thus the label must then be in LexA. Path B waits for GJ948.</p>
+<p class="trk-g" data-path="b">Path B, a later phase</p>
+<p class="note" data-path="b">Path A is the main line, because the receptor drivers exist in GAL4.
+Path B stays for one job that path A cannot do: a split-GAL4 target, for example SS103018 for
+AN13B002. A split occupies the GAL4 system, thus the label must then be in LexA. Path B waits for
+GJ948.</p>
 <ul>
 <li data-trk-id="b-sensory" data-trk-kind="cross"
     data-trk-needs="ord-gj948:arrived q-gj948chr:done c1472-f3:done">the sensory side of path B</li>
@@ -348,21 +355,21 @@ counts, and those counts stay the authority.</p>
 <div class="scroll">
 <table>
 <tr><th>Line</th><th>Genotype</th><th>Chr</th><th>Function</th><th>Location</th><th>Condition</th></tr>
-<tr class="hi"><td>BDSC 93026</td><td><code>w1118; P{ppk23-Gal4.2.695}2; TM2/TM6B</code></td><td>2</td>
+<tr class="hi" data-path="a"><td>BDSC 93026</td><td><code>w1118; P{ppk23-Gal4.2.695}2; TM2/TM6B</code></td><td>2</td>
 <td>ppk23 driver, path A</td><td>25inc, 3 vials</td><td><span class="tag ok">ready</span></td></tr>
-<tr class="hi"><td>BDSC 53584</td><td><code>w1118; P{GMR56C09-lexA}attP40</code></td><td>2, attP40</td>
+<tr class="hi" data-path="a"><td>BDSC 53584</td><td><code>w1118; P{GMR56C09-lexA}attP40</code></td><td>2, attP40</td>
 <td>PPN1 driver, path A</td><td>inc 18</td><td><span class="tag ok">ready</span></td></tr>
-<tr class="hi"><td>BDSC 32203</td>
+<tr class="hi" data-path="a"><td>BDSC 32203</td>
 <td><code>w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-mCD8::GFP}attP2</code></td>
 <td>3, attP2, 68A4</td><td>PPN1 fill, path A</td><td>BDSC</td>
 <td><span class="tag ok">confirmed</span> RRID:BDSC_32203. Rubin and Pfeiffer.</td></tr>
-<tr class="hi"><td>LMB-494</td><td><code>w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP</code></td>
+<tr class="hi" data-path="a"><td>LMB-494</td><td><code>w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP</code></td>
 <td>3</td><td>synapse label, path A</td><td>stockist</td>
 <td>quarantine?</td></tr>
-<tr><td>GJ948</td><td><code>LexAop2-Brp-mCherry</code></td><td>not recorded</td>
+<tr data-path="b"><td>GJ948</td><td><code>LexAop2-Brp-mCherry</code></td><td>not recorded</td>
 <td>synapse label, path B</td><td>Cambridge Genetics stockist</td>
 <td>The laboratory vial is dead. GJ1008 and GJ1000 are also not available.</td></tr>
-<tr><td>GJ1472</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>2</td>
+<tr data-path="b"><td>GJ1472</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>2</td>
 <td>ppk23 driver, path B</td><td>25inc, Bella</td>
 <td><span class="tag warn">clean</span> remove 22B10-GAL4</td></tr>
 <tr><td>Kallman PPN1 GAL4</td><td><code>w1118; P{GMR56C09-GAL4}attP2</code></td><td>3, attP2</td>
@@ -380,7 +387,7 @@ counts, and those counts stay the authority.</p>
 <td>2 and 3</td><td>&mdash;</td><td>inc 18</td>
 <td><span class="tag warn">not used</span> A chemical tag needs a ligand. The laboratory has
 none.</td></tr>
-<tr><td>GJ598, GJ599, GJ600, GJ667</td><td><code>10XUAS-IVS-myr::GFP</code></td><td>X, 2, 3</td>
+<tr data-path="b"><td>GJ598, GJ599, GJ600, GJ667</td><td><code>10XUAS-IVS-myr::GFP</code></td><td>X, 2, 3</td>
 <td>target fill, <strong>path B only</strong></td><td>inc 18</td>
 <td><span class="tag ok">ready</span></td></tr>
 <tr><td>SS103018</td><td>not recorded; the snapshot gives "?"</td><td>2 and 3</td>
@@ -397,7 +404,7 @@ none.</td></tr>
 <p class="note">In path A the GAL4 is in the sensory neurons. A UAS fill thus labels the bristles
 and not PPN1. The path A fill must be LexAop. The order state of each line is in section 2.</p>
 
-<h2 id="s4">4 &middot; Crosses, path A</h2>
+<h2 id="s4" data-path="a">4 &middot; Crosses, path A</h2>
 
 <h3 id="s41">4.1 Parent 1</h3>
 <div class="scroll">
@@ -606,6 +613,44 @@ arrives.</li>
 <li>Give the nerve cords to the person who does the gel and the imaging.</li>
 </ul>
 
+<style>
+ .pathsw{display:flex;gap:.4rem;flex-wrap:wrap;margin:.2rem 0 1.4rem}
+ .pathsw .btn[aria-pressed="true"]{border-color:var(--link);color:var(--link);font-weight:600}
+ [data-path].pathoff{display:none}
+</style>
+<script>
+(function(){
+ var doc=document.getElementById("doc-crosses");
+ if(!doc)return;
+ var KEY="ng.first-cross.path";
+ var btns=doc.querySelectorAll("[data-pathsel]");
+ function block(h){ /* a heading owns every element up to the next h2 */
+  var out=[h],e=h.nextElementSibling;
+  while(e&&e.tagName!=="H2"){out.push(e);e=e.nextElementSibling;}
+  return out;
+ }
+ function apply(sel){
+  var all=doc.querySelectorAll("[data-path]"),i,j,el,want,grp;
+  for(i=0;i<all.length;i++){
+   el=all[i];want=(sel==="both"||el.getAttribute("data-path")===sel);
+   grp=(el.tagName==="H2")?block(el):[el];
+   for(j=0;j<grp.length;j++)grp[j].classList.toggle("pathoff",!want);
+  }
+  for(i=0;i<btns.length;i++){
+   var on=btns[i].getAttribute("data-pathsel")===sel;
+   btns[i].setAttribute("aria-pressed",on?"true":"false");
+   btns[i].className=on?"btn":"btn ghost";
+  }
+  try{window.localStorage.setItem(KEY,sel);}catch(err){}
+ }
+ for(var k=0;k<btns.length;k++)(function(b){
+  b.onclick=function(){apply(b.getAttribute("data-pathsel"));};
+ })(btns[k]);
+ var start="a";
+ try{var v=window.localStorage.getItem(KEY);if(v==="a"||v==="b"||v==="both")start=v;}catch(err){}
+ apply(start);
+})();
+</script>
 </section>
 
 <section class="doc" id="doc-expansion" role="tabpanel" aria-labelledby="tab-expansion">

@@ -1,0 +1,219 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Pheromone paper</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<style>
+ :root{
+  --bg:#fff; --fg:#1a1a1a; --dim:#555; --line:#ececec; --edge:#d8d8d8;
+  --link:#0b5fa5; --card:#f7fbff; --ink:#0b0e13;
+  --m:#e8a33d; --f:#d4607a; --warn:#c2410c; --ok:#15803d;
+ }
+ *{box-sizing:border-box}
+ body{font:15px/1.6 system-ui,sans-serif;margin:0;padding:2.5rem 1.25rem;
+      max-width:54rem;margin-inline:auto;color:var(--fg);background:var(--bg)}
+ h1{font-size:1.6rem;margin:0 0 .35rem;letter-spacing:-.01em}
+ h2{font-size:1.08rem;margin:3rem 0 .4rem;font-weight:600;letter-spacing:-.005em}
+ h3{font-size:.92rem;margin:1.6rem 0 .3rem;font-weight:600}
+ p.sub{color:var(--dim);margin:0 0 .4rem}
+ p.note{color:var(--dim);margin:0 0 1.1rem;font-size:.92rem}
+ a{color:var(--link)}
+ code{font:.86em ui-monospace,SFMono-Regular,Menlo,monospace;
+      background:rgba(11,95,165,.08);padding:.1em .35em;border-radius:4px}
+ table{border-collapse:collapse;width:100%;margin:.5rem 0 1rem;font-size:.87rem}
+ th,td{text-align:left;padding:.4rem .55rem;border-bottom:1px solid var(--line);
+       white-space:nowrap}
+ th{font-weight:600;color:var(--dim);font-size:.76rem;text-transform:uppercase;
+    letter-spacing:.04em}
+ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+ tr.hi td{background:rgba(11,95,165,.07);font-weight:600}
+ tr.bad td{background:rgba(194,65,12,.08)}
+ .tag{display:inline-block;padding:.05rem .4rem;border-radius:4px;font-size:.7rem;
+      font-weight:600;letter-spacing:.03em;text-transform:uppercase;vertical-align:1px}
+ .tag.m{background:var(--m);color:#3a2600}
+ .tag.f{background:var(--f);color:#fff}
+ .tag.warn{background:var(--warn);color:#fff}
+ .tag.ok{background:var(--ok);color:#fff}
+ .tag.q{background:#64748b;color:#fff}
+ .lead{font-size:1.05rem;line-height:1.65;margin:0 0 1.4rem}
+ .callout{border-left:3px solid var(--link);padding:.6rem 0 .6rem .9rem;
+          margin:1.2rem 0;background:var(--card);border-radius:0 7px 7px 0}
+ .callout.warn{border-left-color:var(--warn);background:rgba(194,65,12,.06)}
+ .callout p{margin:0}
+ .callout p + p{margin-top:.5rem}
+ figure{margin:1.4rem 0}
+ figure svg{display:block;width:100%;height:auto;overflow:visible}
+ figcaption{color:var(--dim);font-size:.78rem;margin-top:.5rem}
+ .dark-fig{background:var(--ink);border-radius:11px;padding:1.3rem 1.2rem}
+ .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));
+       gap:.7rem;margin:.8rem 0 1.2rem}
+ .lk{display:block;padding:.65rem .8rem;border:1px solid var(--edge);border-radius:9px;
+     text-decoration:none;color:inherit;transition:border-color .12s,background .12s}
+ .lk:hover{border-color:var(--link);background:var(--card)}
+ .lk b{display:block;color:var(--link);font-size:.9rem;margin-bottom:.1rem}
+ .lk span{display:block;color:var(--dim);font-size:.78rem;line-height:1.4;
+          white-space:normal}
+ .refs{list-style:none;padding:0;margin:.5rem 0 1rem;font-size:.86rem}
+ .refs li{padding:.3rem 0;border-bottom:1px solid var(--line);line-height:1.5}
+ .refs .yr{color:var(--dim);font-variant-numeric:tabular-nums}
+ .steps{counter-reset:s;list-style:none;padding:0;margin:.6rem 0 1.2rem}
+ .steps li{counter-increment:s;position:relative;padding:.5rem 0 .5rem 2.1rem;
+           border-bottom:1px solid var(--line);font-size:.9rem;line-height:1.55}
+ .steps li::before{content:counter(s);position:absolute;left:0;top:.55rem;
+   width:1.45rem;height:1.45rem;border-radius:50%;background:var(--link);color:#fff;
+   font-size:.72rem;font-weight:700;display:grid;place-items:center}
+ .pill{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--edge);
+       border-radius:999px;padding:.2rem .7rem;font-size:.78rem;color:var(--dim);
+       margin:0 .35rem .4rem 0}
+ .bar{height:.55rem;border-radius:3px;background:linear-gradient(90deg,var(--m) 0,var(--m) var(--p),var(--f) var(--p),var(--f) 100%);
+      min-width:5rem}
+ .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
+ .foot{color:var(--dim);font-size:.8rem;margin-top:2.5rem;line-height:1.6}
+
+ /* --- pitch launcher ---------------------------------------------------- */
+ .launch{position:sticky;top:0;z-index:20;display:flex;gap:.6rem;align-items:center;
+         justify-content:flex-end;padding:.5rem 0 .9rem;background:var(--bg);
+         margin:-2.5rem 0 1.2rem;padding-top:2.5rem}
+ .btn{appearance:none;border:1px solid var(--link);background:var(--link);color:#fff;
+      font:600 .85rem/1 system-ui,sans-serif;padding:.6rem 1rem;border-radius:8px;
+      cursor:pointer;letter-spacing:.01em}
+ .btn:hover{filter:brightness(1.1)}
+ .btn.ghost{background:transparent;color:var(--link)}
+
+ /* --- deck -------------------------------------------------------------- */
+ #deck{position:fixed;inset:0;z-index:100;background:var(--ink);color:#e8edf4;
+       display:none;flex-direction:column}
+ #deck.on{display:flex}
+ body.decked{overflow:hidden}
+ .slide{flex:1;display:none;flex-direction:column;justify-content:center;
+        padding:clamp(1.5rem,5vw,4rem);max-width:64rem;margin-inline:auto;width:100%}
+ .slide.on{display:flex}
+ .slide h2{font-size:clamp(1.5rem,3.6vw,2.5rem);margin:0 0 .8rem;color:#fff;
+           font-weight:650;letter-spacing:-.02em;line-height:1.15}
+ .slide h3{font-size:clamp(.85rem,1.5vw,1rem);margin:0 0 1.6rem;color:#8b95a5;
+           font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+ .slide p{font-size:clamp(1rem,1.7vw,1.2rem);line-height:1.6;color:#c3cbd8;
+          margin:0 0 1rem;max-width:46rem}
+ .slide ul{margin:0 0 1rem;padding-left:1.2rem;max-width:46rem}
+ .slide li{font-size:clamp(.95rem,1.6vw,1.12rem);line-height:1.65;color:#c3cbd8;
+           margin-bottom:.6rem}
+ .slide strong{color:#fff}
+ .slide em{color:#ffd166;font-style:normal;font-weight:600}
+ .slide table{font-size:clamp(.8rem,1.4vw,.98rem);color:#c3cbd8}
+ .slide th{color:#8b95a5;border-bottom-color:#2a323d}
+ .slide td{border-bottom-color:#232a33}
+ .slide tr.hi td{background:rgba(255,209,102,.12);color:#fff}
+ .slide tr.bad td{background:rgba(194,65,12,.18)}
+ .slide code{background:rgba(255,255,255,.1);color:#ffd166}
+ .slide .kpi{display:flex;gap:clamp(1rem,4vw,3rem);flex-wrap:wrap;margin:1.2rem 0}
+ .slide .kpi div{min-width:8rem}
+ .slide .kpi b{display:block;font-size:clamp(2rem,5.5vw,3.4rem);color:#ffd166;
+               line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+ .slide .kpi span{display:block;font-size:.82rem;color:#8b95a5;margin-top:.4rem;
+                  text-transform:uppercase;letter-spacing:.05em}
+ .slide figure{margin:.5rem 0}
+ .slide figcaption{color:#8b95a5}
+ .deckbar{display:flex;align-items:center;justify-content:space-between;
+          padding:.7rem clamp(1rem,4vw,2rem);border-top:1px solid #232a33;
+          font-size:.8rem;color:#8b95a5;gap:1rem}
+ .deckbar button{appearance:none;background:transparent;border:1px solid #2f3843;
+                 color:#c3cbd8;border-radius:7px;padding:.35rem .8rem;cursor:pointer;
+                 font:600 .78rem/1 system-ui,sans-serif}
+ .deckbar button:hover{border-color:#6fb3ef;color:#fff}
+ .prog{flex:1;height:3px;background:#232a33;border-radius:2px;overflow:hidden}
+ .prog i{display:block;height:100%;background:#6fb3ef;transition:width .2s}
+ .title-slide h2{font-size:clamp(2rem,5.5vw,3.6rem);margin-bottom:1.2rem}
+ .title-slide p{font-size:clamp(1.05rem,2vw,1.35rem);color:#8b95a5}
+
+ @media (prefers-color-scheme:dark){
+  :root{--bg:#141414;--fg:#e8e8e8;--dim:#a6a6a6;--line:#2a2a2a;--edge:#333;
+        --link:#6fb3ef;--card:#1b2430}
+  .lk:hover{background:#1b2430}
+  code{background:rgba(111,179,239,.12)}
+  .dark-fig{background:transparent;padding-left:0;padding-right:0}
+  .callout{background:rgba(111,179,239,.07)}
+  .callout.warn{background:rgba(194,65,12,.12)}
+  tr.hi td{background:rgba(111,179,239,.1)}
+ }
+ @media print{.launch,#deck{display:none!important}}
+
+ /* ---- three-document switcher ---------------------------------------- */
+ .tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin:0 0 1.8rem;
+       border-bottom:1px solid var(--line);padding-bottom:0}
+ .tabs button{appearance:none;background:none;border:0;border-bottom:2px solid transparent;
+              color:var(--dim);font:600 .92rem/1 system-ui,sans-serif;
+              padding:.7rem .85rem;cursor:pointer;letter-spacing:.01em;
+              margin-bottom:-1px;white-space:nowrap}
+ .tabs button:hover{color:var(--fg)}
+ .tabs button[aria-selected="true"]{color:var(--link);border-bottom-color:var(--link)}
+ .tabs button span{display:block;font-weight:400;font-size:.74rem;color:var(--dim);
+                   margin-top:.22rem;letter-spacing:0}
+ .tabs button[aria-selected="true"] span{color:var(--link);opacity:.8}
+ .doc{display:none}
+ .doc.on{display:block}
+ .doc > h2:first-of-type{margin-top:.6rem}
+ @media print{.tabs{display:none} .doc{display:block!important}}
+</style><style>
+ hr{border:0;border-top:1px solid #ececec;margin:2.2rem 0 1rem}
+ p.foot{color:#555;font-size:.8rem}
+ h2{margin-top:2.4rem}
+</style>
+<h1>Pheromone paper</h1>
+<p class="sub">The analysis pages and the experiment pages for the contact chemosensory work.
+Male CNS connectome, <code>male-cns:v1.0</code>.</p>
+<p class="note">Florian K&auml;mpf &middot; Jefferis laboratory &middot; updated 16 August 2026</p>
+
+<h2>Analysis</h2>
+<p class="note">What the connectome says. Each page holds its own methods and its own limits.</p>
+<div class="grid">
+<a class="lk" href="../sn-an-connections/"><b>Sensory neurons to their partners</b>
+<span>The contact chemosensory neurons and the neurons that they drive.</span></a>
+<a class="lk" href="../bristle-impact/"><b>Bristle impact</b>
+<span>Which bristle types and which neuromeres drive the dimorphic neurons.</span></a>
+<a class="lk" href="../bristle-typing/"><b>Bristle typing</b>
+<span>Do the dimorphic targets group the bristle types? Three groups, and the receptor
+assignment is not one of them.</span></a>
+<a class="lk" href="../dimorphic-ranking/"><b>Dimorphic ranking</b>
+<span>The ascending neurons after contact chemosensation, ranked by their dimorphic output.</span></a>
+<a class="lk" href="../an05b023-dimorphic/"><b>AN05B023, dimorphic partners</b>
+<span>The dimorphic partners of AN05B023a to d, separated by volume.</span></a>
+</div>
+
+<h2>Experiment</h2>
+<p class="note">What to do at the bench. These two pages hold the reagents and the crosses.</p>
+<div class="grid">
+<a class="lk" href="../receptor-typing/"><b>Receptor typing</b>
+<span>The question, the measurement and the reagents. Three documents in one page.</span></a>
+<a class="lk" href="../first-cross/"><b>Crosses</b>
+<span>The genotypes, the stock list, the crosses, the clean-ups and the controls.</span></a>
+</div>
+
+<h2>Pair comparisons</h2>
+<p class="note">Two members of the AN05B023 family against each other. Sensory drive and
+downstream partners.</p>
+<div class="grid">
+<a class="lk" href="../an05b023ac-partners/"><b>a against c</b><span>sensory drive and partners</span></a>
+<a class="lk" href="../an05b023ad-partners/"><b>a against d</b><span>sensory drive and partners</span></a>
+<a class="lk" href="../an05b023bc-partners/"><b>b against c</b><span>sensory drive and partners</span></a>
+<a class="lk" href="../an05b023cd-partners/"><b>c against d</b><span>sensory drive and partners</span></a>
+<a class="lk" href="../an05b023bc-cut/"><b>b against c, cut</b>
+<span>The same pair, cut at the reach of b. AN05B023b is truncated in the brain.</span></a>
+</div>
+
+<h2>Scenes</h2>
+<p class="note">Clio-NG scenes. Each page opens the neurons in three dimensions.</p>
+<div class="grid">
+<a class="lk" href="../an05b023/"><b>AN05B023a to d</b><span>the family</span></a>
+<a class="lk" href="../an05b023ac/"><b>AN05B023a and c</b><span>one pair</span></a>
+<a class="lk" href="../an05b023ad/"><b>AN05B023a and d</b><span>one pair</span></a>
+<a class="lk" href="../an05b023bc/"><b>AN05B023b and c</b><span>one pair</span></a>
+<a class="lk" href="../an05b023cd/"><b>AN05B023c and d</b><span>one pair</span></a>
+<a class="lk" href="../an05b102/"><b>AN05B102a to d</b><span>AN05B102d reaches the LC1 cluster</span></a>
+<a class="lk" href="../an09b017/"><b>AN09B017a to g</b><span>this family matches the vAB3 profile</span></a>
+</div>
+
+<hr>
+<p class="foot">Connectome values come from <code>male-cns:v1.0</code> through neuPrint. Each page
+gives its own date and its own method. The pages have a noindex tag, thus a search engine does not
+list them.</p>

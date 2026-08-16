@@ -1113,6 +1113,76 @@ The cross is written out on <a href="../first-cross/">the first cross page</a>.<
 <p>Two of these lines answer a question that the ppk pair cannot answer. An Ir52 line reaches the third group. A Gr32a line tests whether a sensory class outside this project supplies the drive that the literature attributes to mAL.</p>
 
 <p class="note">A new line gives the most value with the design of section 9, because that design needs no matched partner line. A single new line therefore produces a result on its own.</p>
+
+<h2>11 &middot; Every synapse onto PPN1, and not only the ppk synapses</h2>
+
+<p>The design of section 4 counts the input from one labelled sensory class. This section counts
+<strong>all</strong> the input of PPN1. The connectome gives 33476 input synapses, and the ppk cells
+supply 81 percent of them. A measurement of the whole input is thus a second, independent check of
+the same cell.</p>
+
+<h3>11.1 A receptor marker cannot do it</h3>
+
+<p>A postsynaptic marker labels the receptor field of PPN1. It therefore labels one transmitter
+only. The input of PPN1 divides like this:</p>
+
+<div class="scroll">
+<table>
+<tr><th>Transmitter of the input</th><th class="num">Synapses</th><th class="num">Share</th></tr>
+<tr><td>acetylcholine</td><td class="num">17360</td><td class="num">51.9%</td></tr>
+<tr class="warn"><td>unclear</td><td class="num">11167</td><td class="num">33.4%</td></tr>
+<tr><td>GABA</td><td class="num">4410</td><td class="num">13.2%</td></tr>
+<tr><td>glutamate</td><td class="num">511</td><td class="num">1.5%</td></tr>
+</table>
+</div>
+
+<div class="callout warn">
+<p><span class="tag warn">do not use a receptor marker here</span> <code>D&alpha;7-GFP</code> marks
+the postsynaptic side of a cholinergic synapse. It thus misses the GABA input, and it is blind to a
+third of the input that the dataset cannot call.</p>
+<p>That third is not a random third. <strong>99.1 percent of the unclear input comes from bristle
+types</strong>, and the two largest are WG3 with 5701 synapses and LgLG1b with 5354. These are the
+two types that the assignment calls ppk25. A receptor marker could thus miss most of the ppk25 arm,
+which is the arm that the calibration of section 4 needs.</p>
+</div>
+
+<p class="note">The transmitter calls of the sensory neurons are not reliable. The dataset calls
+LgLG6, LgLG7 and WG4 cholinergic, and it calls LgLG5 glutamatergic. A glutamatergic bristle neuron
+is not probable. Do not build a design on these calls.</p>
+
+<h3>11.2 Label the active zones instead</h3>
+
+<p>An active zone marker does not depend on the transmitter. You express <strong>nothing</strong> in
+the input neurons: Bruchpilot is already in each of them. You express a membrane marker in PPN1
+only, and you count the puncta that touch that membrane.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Route</th><th>In PPN1</th><th>In the input neurons</th><th>Note</th></tr>
+<tr class="hi"><td>antibody</td><td><code>R56C09-GAL4 / UAS-myr::GFP</code></td>
+<td>nothing. Stain with nc82.</td>
+<td>The laboratory holds nc82 and seven anti-GFP antibodies in four host species. nc82 is a mouse
+antibody, thus select a different host for the GFP. This route needs no new reagent.</td></tr>
+<tr class="hi"><td>chemical tag</td><td><code>R56C09-GAL4 / UAS-td3-Halo7-CAAX</code></td>
+<td>nothing. <code>Brp-SNAP</code> is a tag at the gene, thus every neuron has it.</td>
+<td>GJ834 gives Brp-SNAP on chromosome 2. GJ916 gives the Halo membrane at VK00027, opposite
+R56C09-GAL4 at attP2. A chemical tag is smaller and brighter than an antibody, and it holds through
+the gel. It needs two ligand dyes.</td></tr>
+</table>
+</div>
+
+<div class="callout warn">
+<p><span class="tag warn">do not use two SNAP tags</span> Brp-SNAP uses the SNAP tag. A
+<code>myr4xSNAPf</code> fill would take the same dye, thus you could not separate the membrane from
+the active zone. Use Halo or CLIP for the membrane. The laboratory holds both.</p>
+</div>
+
+<p>Both routes need the false contact control: a neuron in the same neuropil that receives almost no
+input from the class you count. Apposition is not a synapse, and that control gives the rate.</p>
+
+<p class="note">A count near 33476 shows that the method finds the synapses of the reconstruction.
+It does not show that the reconstruction is complete. Both can miss a small synapse in the same
+way.</p>
 </section>
 
 <section class="doc" id="doc-reagents" role="tabpanel" aria-labelledby="tab-reagents">

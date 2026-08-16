@@ -304,7 +304,7 @@ GJ948.</p>
 <li data-trk-id="q-lmb494marker" data-trk-kind="question"
     data-trk-needs="ord-lmb494:arrived">the balancer marker of LMB-494</li>
 <li data-trk-id="q-ss103018" data-trk-kind="question">the positions in SS103018</li>
-<li data-trk-id="q-r56c09" data-trk-kind="question">the PPN1 specificity of R56C09</li>
+<li data-trk-id="q-r56c09" data-trk-kind="question">which cells R56C09 labels</li>
 <li data-trk-id="q-an09b017" data-trk-kind="question">the vAB3 line of each AN09B017 member</li>
 </ul>
 </details>
@@ -543,27 +543,61 @@ threshold.</td></tr>
 value.</td></tr>
 <tr class="hi" data-trk="b-target"><td>the PPN1 mask</td>
 <td>Kallman PPN1 Gal4 virgins &times; GJ599 males</td>
-<td>The shape of PPN1 alone. It is the mask for the count, and it shows whether R56C09 labels PPN1
-only. All the stocks are in the laboratory, thus you can do this control today.</td></tr>
+<td>The shape of PPN1 alone. It is the mask for the count, and it shows which cells R56C09
+labels. All the stocks are in the laboratory, thus you can do this control today.</td></tr>
 <tr><td>sex</td><td>a female of the full genotype</td>
 <td>a negative control for the male specific pattern</td></tr>
 </table>
 </div>
 
-<h2 id="s7">7 &middot; Expected counts</h2>
+<h2 id="s7">7 &middot; PPN1 as the calibration</h2>
+
+<p>PPN1 does not test the receptor assignment. It tests the <strong>method</strong>. You measure the
+two arms, and you compare each count against the number in the connectome. If the counts follow the
+connectome, the method counts synapses quantitatively in this system. That result is what permits a
+reader to accept a later measurement on a target that does separate the two groups.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Region</th><th class="num">ppk25 family</th><th class="num">ppk23 family, all</th>
+<th class="num">predicted ratio</th></tr>
+<tr class="hi"><td>PPN1, whole</td><td class="num">11098</td><td class="num">27187</td>
+<td class="num">0.41</td></tr>
+<tr><td>PPN1, wing neuropil</td><td class="num">5701</td><td class="num">13839</td>
+<td class="num">0.41</td></tr>
+<tr><td>PPN1, leg neuropil</td><td class="num">5397</td><td class="num">13348</td>
+<td class="num">0.40</td></tr>
+</table>
+</div>
+
+<p class="note">The ppk25 cells are a part of the ppk23 cells, because an F cell is ppk23 positive
+and ppk25 positive. Thus the second column holds every ppk23 cell, and the ratio is the share of the
+F cells. Nobody has confirmed that every ppk25 cell is also a ppk23 cell.</p>
+
+<div class="callout">
+<p><span class="tag ok">the result to look for</span> A measured ratio near <strong>0.41</strong>
+shows that the puncta follow the synapse counts of the connectome. The same value in the wing and in
+the leg is a second, independent check inside one animal.</p>
+<p>A ratio far from 0.41 shows that the method is not quantitative here. Then stop, and use a
+functional method instead.</p>
+</div>
+
+<h3>7.1 The absolute counts</h3>
 
 <div class="scroll">
 <table>
 <tr><th>Quantity</th><th class="num">Value</th><th>Note</th></tr>
-<tr><td>ppk23 connections onto PPN1</td><td class="num">27267</td><td>connectome</td></tr>
+<tr><td>ppk23 connections onto PPN1</td><td class="num">27187</td><td>connectome</td></tr>
+<tr><td>ppk25 connections onto PPN1</td><td class="num">11098</td><td>connectome</td></tr>
+<tr><td>the whole input of PPN1</td><td class="num">33476</td>
+<td>The ppk cells give 81 percent of it.</td></tr>
 <tr class="hi"><td>presynaptic sites apposed to PPN1</td><td class="num">about 27000</td>
 <td>One site gives approximately one connection onto one target cell. <strong>Do not divide by
 six.</strong></td></tr>
-<tr class="hi"><td>puncta to expect</td><td class="num">13000 to 20000</td>
+<tr class="hi"><td>puncta to expect, ppk23 arm</td><td class="num">13000 to 20000</td>
 <td>two PPN1 cells, if the method finds one half to three quarters</td></tr>
-<tr><td>ppk25 arm</td><td class="num">11075</td><td>connections</td></tr>
 <tr><td>median distance between sites</td><td class="num">294 nm</td>
-<td>a confocal microscope resolves approximately 250 nm</td></tr>
+<td>The person who does the imaging needs this number.</td></tr>
 </table>
 </div>
 
@@ -606,8 +640,11 @@ Give them the nerve cords and the numbers of section 7.</p>
 <td>The record gives "eYFP" on one tray and "YFP" on another. Examine the stock on arrival.</td></tr>
 <tr data-trk="q-ss103018"><td>What are the positions in SS103018?</td><td>the discriminating target of path B</td>
 <td>Score the hemidrivers and the balancers.</td></tr>
-<tr data-trk="q-r56c09"><td>Does R56C09 label PPN1 only?</td><td>the expected count of 27267</td>
-<td>Cross the PPN1 driver to a fill and examine the pattern.</td></tr>
+<tr data-trk="q-r56c09"><td>Which cells does R56C09 label?</td><td>the calibration of section 7</td>
+<td>Use MCFO. If the line labels AN05B102 b, c and d as well as a, and you can separate them by
+shape, each cell gives its own predicted ratio: a 0.41, b 0.36, c 0.27, d 0.78. That gives four
+calibration points in one animal, thus more cells are better, not worse. If you cannot separate
+them, the prediction must be weighted by the cells that the line labels.</td></tr>
 <tr data-trk="q-an09b017"><td>Which AN09B017 member does each vAB3 line label?</td><td>every later target</td>
 <td>MCFO on SS104905. Three of the four lines have a dead flag.</td></tr>
 </table>

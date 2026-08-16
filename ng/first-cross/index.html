@@ -177,7 +177,7 @@ Related pages: <a href="../receptor-typing/">receptor typing</a>,
 <h2>1 &middot; The target genotypes</h2>
 
 <p><strong>Path A</strong>, label in GAL4. Both ppk arms are possible. The target is PPN1 only.</p>
-<pre><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; UAS-brp-D3-Cherry / LexAop2-myr4xSNAPf(VK00005)</code></pre>
+<pre><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; UAS-brp-D3-Cherry / 13XLexAop2-mCD8::GFP</code></pre>
 
 <p><strong>Path B</strong>, label in LexA. One arm only. Any GAL4 or split-GAL4 target.</p>
 <pre><code>w/Y ; ppk23-LexA / + ; target-GAL4 / UAS-myr::GFP     plus LexAop2-Brp-mCherry</code></pre>
@@ -192,8 +192,26 @@ Related pages: <a href="../receptor-typing/">receptor typing</a>,
 </table>
 </div>
 
-<p class="note">No ppk25-LexA line exists. This is why path B has one arm. PPN1 receives almost
-equal input from the two groups, thus path A does not test the receptor assignment.</p>
+<div class="callout">
+<p><span class="tag ok">path A is the main line</span> The receptor driver lines exist in GAL4. Only
+four LexA lines exist for the ten receptor genes, and only two of them apply here: ppk23-LexA and
+Ir52a-LexA. Path A can thus use every receptor driver. Path B can use two.</p>
+</div>
+
+<div class="scroll">
+<table>
+<tr><th>System</th><th>Drives</th><th>Colour</th><th>Line</th></tr>
+<tr class="hi"><td>GAL4</td><td>the active zones of the sensory neurons</td><td>red</td>
+<td>UAS-brp-D3-Cherry, LMB-494</td></tr>
+<tr class="hi"><td>LexA</td><td>the membrane of the target neuron</td><td>green</td>
+<td>13XLexAop2-mCD8::GFP, to order</td></tr>
+</table>
+</div>
+
+<p class="note">brp-D3-Cherry is red, thus the fill must be green. The two LexAop fluorophores at
+the Cambridge Genetics stockist, LMB-536 and LMB-538, are both red. Do not use them for path A.
+PPN1 receives almost equal input from the two ppk groups, thus path A develops the assay. It does
+not test the receptor assignment.</p>
 
 <h2>2 &middot; Stock list</h2>
 
@@ -204,9 +222,10 @@ equal input from the two groups, thus path A does not test the receptor assignme
 <td>ppk23 driver, path A</td><td>25inc, 3 vials</td><td><span class="tag ok">ready</span></td></tr>
 <tr class="hi"><td>BDSC 53584</td><td><code>w1118; P{GMR56C09-lexA}attP40</code></td><td>2, attP40</td>
 <td>PPN1 driver, path A</td><td>inc 18</td><td><span class="tag ok">ready</span></td></tr>
-<tr class="hi"><td>GJ895</td><td><code>IF/CyO; LexAop2-myr4xSNAPf-VK00005-1M/TM6B</code></td>
-<td>3, VK00005</td><td>PPN1 fill, path A</td><td>inc 18</td>
-<td><span class="tag warn">no marker</span> needs one PCR</td></tr>
+<tr class="hi"><td>13XLexAop2-mCD8::GFP</td><td>stock number not yet selected</td>
+<td>3 if available</td><td>PPN1 fill, path A</td><td><strong>to order</strong></td>
+<td><span class="tag warn">order</span> Several insertions exist at BDSC. Select one on
+chromosome 3.</td></tr>
 <tr class="hi"><td>LMB-494</td><td><code>w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP</code></td>
 <td>3</td><td>synapse label, path A</td><td>stockist</td>
 <td><span class="tag warn">requested</span> quarantine?</td></tr>
@@ -227,9 +246,11 @@ not available.</td></tr>
 <td>Gr32a driver, a third arm</td><td>25inc</td><td><span class="tag ok">ready</span></td></tr>
 <tr><td>GJ954</td><td><code>w; IF/CyO; TM2/TM6B</code></td><td>2 and 3</td>
 <td>double balancer for the clean-ups</td><td>inc 18</td><td><span class="tag ok">ready</span></td></tr>
-<tr><td>GJ890, GJ894</td><td><code>LexAop2-myr4xCLIPf</code>, <code>myr4xSNAPf</code>, attP40</td>
-<td>2</td><td>fill, if it must leave chromosome 3</td><td>inc 18</td>
-<td><span class="tag ok">ready</span></td></tr>
+<tr class="bad"><td>GJ890, GJ891, GJ894, GJ895</td>
+<td><code>LexAop2-myr4xCLIPf</code> and <code>myr4xSNAPf</code>, attP40 and VK00005</td>
+<td>2 and 3</td><td>&mdash;</td><td>inc 18</td>
+<td><span class="tag warn">not used</span> A chemical tag needs a ligand. The laboratory has
+none.</td></tr>
 <tr><td>GJ598, GJ599, GJ600, GJ667</td><td><code>10XUAS-IVS-myr::GFP</code></td><td>X, 2, 3</td>
 <td>target fill, <strong>path B only</strong></td><td>inc 18</td>
 <td><span class="tag ok">ready</span></td></tr>
@@ -268,17 +289,17 @@ LMB-494 has Stubble. A fly with two TM6B chromosomes dies.</p>
 <div class="scroll">
 <table>
 <tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr><td class="num">G0</td><td>BDSC 53584 &times; GJ895</td>
-<td><strong>Not</strong> Curly. <strong>Not</strong> Irregular facets. <strong>Not</strong> Tubby.</td>
-<td><code>w; R56C09-lexA/+; myr4xSNAPf/+</code></td></tr>
-<tr class="warn"><td class="num">F1</td><td>cross to a chromosome 3 balancer, then a sibling cross</td>
-<td>Curly and Tubby. Then <strong>PCR</strong>.</td>
-<td><strong>Parent 2</strong> <code>w; R56C09-lexA; myr4xSNAPf/TM6B</code></td></tr>
+<tr><td class="num">G0</td><td>BDSC 53584 &times; the 13XLexAop2-mCD8::GFP line</td>
+<td>the balancer markers of the stock that arrives</td>
+<td><code>w; R56C09-lexA/+; LexAop-mCD8::GFP/+</code></td></tr>
+<tr><td class="num">F1</td><td>cross to a chromosome 3 balancer, then a sibling cross</td>
+<td>the balancer markers</td>
+<td><strong>Parent 2</strong> <code>w; R56C09-lexA; LexAop-mCD8::GFP/TM6B</code></td></tr>
 </table>
 </div>
-<p class="note"><code>LexAop2-myr4xSNAPf</code> has no visible marker, thus Parent 2 needs one PCR.
-Do this one time only. An alternative is to use the G0 progeny directly. Then the yield decreases
-from one in three to one in six.</p>
+<p class="note">The GFP fill has no visible body marker. But a PCR is not necessary: cross a few
+flies to any LexA driver and look for green. This check is faster than a PCR, and it also confirms
+that the reporter works.</p>
 
 <h3>3.3 Experimental cross</h3>
 <pre><code>Parent 1 virgin females  x  Parent 2 males
@@ -325,7 +346,7 @@ from one in three to one in six.</p>
 <tr><th>Line</th><th>Remove</th><th>Effect if you do not</th><th>Method</th><th class="num">Weeks</th></tr>
 <tr class="bad"><td>GJ1472</td><td><code>22B10-GAL4</code>, chr 3</td>
 <td>It drives the UAS label in the wrong cells. Path B only.</td>
-<td>Cross to GJ954. Ser is dominant, thus no PCR.</td><td class="num">4</td></tr>
+<td>Four generations. See the table below.</td><td class="num">6</td></tr>
 <tr class="bad"><td>BDSC 93028</td><td>the second copy, chr 3</td>
 <td>Two copies against one change the driver strength between the arms.</td>
 <td>Cross to GJ954. Both inserts have the same marker, thus confirm by PCR.</td>
@@ -333,9 +354,29 @@ from one in three to one in six.</p>
 </table>
 </div>
 
-<p class="note">Use <strong>GJ954</strong>, <code>w; IF/CyO; TM2/TM6B</code>, incubator 18. Select
-Curly and not Irregular facets for chromosome 2. Select Tubby and not Ubx for chromosome 3. Use
+<p class="note">Use <strong>GJ954</strong>, <code>w; IF/CyO; TM2/TM6B</code>, incubator 18. Use
 GJ832 only if GJ954 is not available: GJ832 has hsFLP.</p>
+
+<h3>4.1 The ppk23-LexA clean-up, generation by generation</h3>
+<div class="scroll">
+<table>
+<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
+<tr><td class="num">G0</td><td>GJ1472 &times; GJ954</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td class="num">F1</td><td>&mdash;</td>
+<td>Curly. <strong>Not</strong> Irregular facets. <strong>Ser</strong>.</td>
+<td><code>; ppk23-LexA/CyO ; TM3,Ser / TM2 or TM6B</code>. The 22B10-GAL4 is gone.</td></tr>
+<tr class="hi"><td class="num">F2</td><td>cross to w1118</td>
+<td>Curly. <strong>Not</strong> Ser, Ubx or Tubby.</td>
+<td><code>; ppk23-LexA/CyO ; +/+</code></td></tr>
+<tr><td class="num">F3</td><td>incross</td><td>Curly</td>
+<td>the stable stock <code>; ppk23-LexA/CyO ; +/+</code></td></tr>
+</table>
+</div>
+<p class="note">The outcross to w1118 at F2 is necessary. GJ954 has TM2 and TM6B on chromosome 3,
+and GJ1472 has the GAL4 or TM3,Ser. Thus no plain chromosome 3 is present in the cross, and an
+incross alone gives a stock with a balancer on chromosome 3. That balancer then blocks the target
+driver in the final cross. Select Ser at F1: a fly with Ser cannot also have the 22B10-GAL4 from
+that parent.</p>
 
 <h2>5 &middot; Controls</h2>
 
@@ -418,9 +459,9 @@ Read the host from each vial before you plan the stain.</td></tr>
 <td>Buy a new batch. Reject a batch that is not white.</td></tr>
 <tr><td>acrylamide, bis-acrylamide, APS, TEMED, 4-hydroxy-TEMPO</td><td>the other gel components</td>
 <td>The laboratory possibly has them.</td></tr>
-<tr class="warn"><td>a cell-permeable benzylguanine dye, for example SNAP-Cell 647-SiR</td>
-<td>develops the SNAP fill of path A</td>
-<td>A Surface ligand is the incorrect class. Select a dye that is not a cyanine dye.</td></tr>
+<tr class="warn"><td>13XLexAop2-mCD8::GFP</td><td>the PPN1 fill of path A</td>
+<td>The only missing fly line. Select an insertion on chromosome 3. This one order opens every
+receptor arm.</td></tr>
 </table>
 </div>
 
@@ -433,6 +474,8 @@ Read the host from each vial before you plan the stain.</td></tr>
 <td>Ask Simon. The laboratory vial is dead, thus you cannot map it here.</td></tr>
 <tr class="hi"><td>Is LMB-494 out of quarantine?</td><td>Parent 1, thus path A</td>
 <td>Ask Simon.</td></tr>
+<tr class="hi"><td>Which 13XLexAop2-mCD8::GFP stock?</td><td>Parent 2, thus path A</td>
+<td>Select an insertion on chromosome 3 from the BDSC catalogue and order it.</td></tr>
 <tr><td>Which balancer marker does LMB-494 have?</td><td>the larval sort</td>
 <td>The record gives "eYFP" on one tray and "YFP" on another. Examine the stock on arrival.</td></tr>
 <tr><td>What are the positions in SS103018?</td><td>the discriminating target of path B</td>
@@ -453,7 +496,7 @@ laboratory.</li>
 GJ948 is the label of path B. The laboratory vials of GJ948, GJ1008 and GJ1000 are dead.</li>
 <li>Set up Parent 1 when LMB-494 arrives. Set up the sensory side of path B when GJ948
 arrives.</li>
-<li>Order Acryloyl-X, sodium acrylate and the benzylguanine dye in the same week.</li>
+<li>Order the 13XLexAop2-mCD8::GFP line now. Order Acryloyl-X and sodium acrylate in the same week.</li>
 <li>Practise the gel on a <strong>ventral nerve cord</strong>. These sensory neurons have no
 presynapse in the brain.</li>
 <li>Measure the expansion factor of each gel with a landmark of a known size.</li>

@@ -353,11 +353,11 @@ counts, and those counts stay the authority.</p>
 <h2 id="s3">3 &middot; Stock list</h2>
 
 <div class="scroll">
-<table>
+<table id="gt-src">
 <tr><th>Line</th><th>Genotype</th><th>Chr</th><th>Function</th><th>Location</th><th>Condition</th></tr>
 <tr class="hi" data-path="a"><td>BDSC 93026</td><td><code>w1118; P{ppk23-Gal4.2.695}2; TM2/TM6B</code></td><td>2</td>
 <td>ppk23 driver, path A</td><td>25inc, 3 vials</td><td><span class="tag ok">ready</span></td></tr>
-<tr class="hi" data-path="a"><td>BDSC 53584</td><td><code>w1118; P{GMR56C09-lexA}attP40</code></td><td>2, attP40</td>
+<tr class="hi" data-path="a" data-gt-also="Kallman PPN1 LexA"><td>BDSC 53584</td><td><code>w1118; P{GMR56C09-lexA}attP40</code></td><td>2, attP40</td>
 <td>PPN1 driver, path A</td><td>inc 18</td><td><span class="tag ok">ready</span></td></tr>
 <tr class="hi" data-path="a"><td>BDSC 32203</td>
 <td><code>w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-mCD8::GFP}attP2</code></td>
@@ -372,7 +372,7 @@ counts, and those counts stay the authority.</p>
 <tr data-path="b"><td>GJ1472</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>2</td>
 <td>ppk23 driver, path B</td><td>25inc, Bella</td>
 <td><span class="tag warn">clean</span> remove 22B10-GAL4</td></tr>
-<tr><td>Kallman PPN1 GAL4</td><td><code>w1118; P{GMR56C09-GAL4}attP2</code></td><td>3, attP2</td>
+<tr data-gt-also="Kallman PPN1 Gal4"><td>Kallman PPN1 GAL4</td><td><code>w1118; P{GMR56C09-GAL4}attP2</code></td><td>3, attP2</td>
 <td>target driver, path B; PPN1 mask control</td><td>inc 18</td>
 <td><span class="tag ok">ready</span></td></tr>
 <tr><td>BDSC 93028</td><td><code>w1118; P{ppk25-GAL4.S}2; P{ppk25-GAL4.S}3</code></td><td>2 and 3</td>
@@ -387,7 +387,7 @@ counts, and those counts stay the authority.</p>
 <td>2 and 3</td><td>&mdash;</td><td>inc 18</td>
 <td><span class="tag warn">not used</span> A chemical tag needs a ligand. The laboratory has
 none.</td></tr>
-<tr data-path="b"><td>GJ598, GJ599, GJ600, GJ667</td><td><code>10XUAS-IVS-myr::GFP</code></td><td>X, 2, 3</td>
+<tr data-path="b"><td>GJ599</td><td><code>w*; P{10XUAS-IVS-myr::GFP}attP40</code></td><td>2, attP40</td>
 <td>target fill, <strong>path B only</strong></td><td>inc 18</td>
 <td><span class="tag ok">ready</span></td></tr>
 <tr><td>SS103018</td><td>not recorded; the snapshot gives "?"</td><td>2 and 3</td>
@@ -482,8 +482,10 @@ chromosome 2, and every element is autosomal.</p>
 <tr class="hi"><td>ppk23</td><td>BDSC 93026, chr 2</td><td>Use the crosses above.</td></tr>
 <tr class="hi"><td>ppk25</td><td>BDSC 93028, the chr 2 copy</td><td>Remove the chr 3 copy first.</td></tr>
 <tr><td>Gr32a</td><td>GJ1435, chr 3</td>
-<td>The driver and brp-D3 are both on chromosome 3. Move the fill to GJ894 at attP40. Do
-<strong>not</strong> use R56C09-GAL4 as the target driver: that GAL4 also drives brp-D3 in PPN1.</td></tr>
+<td>The driver and brp-D3 are both on chromosome 3, thus the fill must move to chromosome 2.
+BDSC 32203 is at attP2 on chromosome 3, thus it does not fit. Order the same reporter at a
+chromosome 2 site, or recombine Gr32a-GAL4 with brp-D3. Do <strong>not</strong> use R56C09-GAL4 as
+the target driver: that GAL4 also drives brp-D3 in PPN1.</td></tr>
 </table>
 </div>
 
@@ -702,6 +704,280 @@ arrives.</li>
  apply(start);
 })();
 </script>
+
+<!-- genotype card start -->
+<style>
+ :root{--gt-shade:rgba(0,0,0,.18)}
+ @media (prefers-color-scheme:dark){:root{--gt-shade:rgba(0,0,0,.6)}
+  #gt-card{border-color:var(--link)}}
+ .gt{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;
+     font:inherit;color:inherit;text-align:inherit;line-height:inherit;cursor:help;
+     text-decoration:underline dotted;text-decoration-color:var(--dim);
+     text-underline-offset:2px}
+ .gt:hover,.gt[aria-expanded="true"]{text-decoration-color:var(--link)}
+ .gt:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+ #gt-card{position:absolute;left:0;top:0;z-index:60;
+     max-width:min(28rem,calc(100vw - 1.5rem));
+     background:var(--bg);color:var(--fg);border:1px solid var(--edge);border-radius:8px;
+     padding:.55rem .7rem;font-size:.85rem;line-height:1.5;
+     white-space:normal;overflow-wrap:anywhere;box-shadow:0 6px 20px var(--gt-shade)}
+ #gt-card[hidden]{display:none}
+ #gt-card .gt-n{margin:0 0 .3rem;font-weight:600}
+ #gt-card .gt-g{margin:0 0 .45rem}
+ #gt-card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.12rem .6rem}
+ #gt-card dt{color:var(--dim);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;
+     padding-top:.14rem}
+ #gt-card dd{margin:0}
+ @media print{.gt{text-decoration:none} #gt-card{display:none}}
+</style>
+<script>
+/* The genotype card. Every live word comes from the stock list of section 3.
+   That table is the only source. No genotype is written a second time here. */
+(function(){
+"use strict";
+function go(){
+try{
+
+var T=document.getElementById("gt-src");
+if(!T||!T.rows||T.rows.length<2)return;
+
+/* ---- the columns, by header name, read again on every open ------------- */
+function cols(){
+ var h=T.rows[0],m={},i,k;
+ if(!h)return null;
+ for(i=0;i<h.cells.length;i++){
+  k=(h.cells[i].textContent||"").replace(/\s+/g," ").trim().toLowerCase();
+  if(k&&!(k in m))m[k]=i;
+ }
+ return ("line" in m && "genotype" in m)?m:null;
+}
+var C=cols();
+if(!C)return;
+
+/* ---- the keys, from the Line column and from data-gt-also -------------- */
+function norm(s){return String(s).replace(/ /g," ").replace(/\s+/g," ").trim().toUpperCase();}
+function text(el){return el?(el.textContent||"").replace(/ /g," ").replace(/\s+/g," ").trim():"";}
+var rowOf={},keys=[],skipped=[],i,j,r,list,k,also;
+for(i=1;i<T.rows.length;i++){
+ r=T.rows[i];
+ if(!r.cells[C.line])continue;
+ list=(r.cells[C.line].textContent||"").split(",");
+ also=r.getAttribute("data-gt-also");
+ if(also)list=list.concat(also.split(","));
+ for(j=0;j<list.length;j++){
+  k=norm(list[j]);
+  if(!k)continue;
+  if(k.length<3||!/[0-9]/.test(k)){skipped.push(k);continue;}
+  if(rowOf[k]){skipped.push(k+" (twice)");continue;}
+  rowOf[k]=r;keys.push(k);
+ }
+}
+if(!keys.length)return;
+
+/* ---- one regular expression, the longest key first --------------------- */
+function esc(s){return s.replace(/[.*+?^${}()|[\]\\-]/g,"\\$&");}
+keys.sort(function(a,b){return b.length-a.length;});
+var alt=[];
+for(i=0;i<keys.length;i++)alt.push(esc(keys[i]).replace(/ +/g,"\\s+"));
+var RE=new RegExp("(^|[^0-9A-Za-z_\\-])("+alt.join("|")+")(?![0-9A-Za-z_\\-])","gi");
+
+/* ---- the walk ---------------------------------------------------------- */
+var SKIP=/^(SCRIPT|STYLE|NOSCRIPT|TEMPLATE|CODE|PRE|SAMP|KBD|VAR|TEXTAREA|INPUT|SELECT|OPTION|BUTTON|A|SUMMARY|LABEL|H1|H2|H3|H4)$/;
+function refuse(el){
+ if(SKIP.test(el.tagName))return true;
+ if(el===T||el.id==="trk"||el.id==="gt-card")return true;
+ if(el.classList&&(el.classList.contains("trk-host")||el.classList.contains("gt")))return true;
+ return false;
+}
+var W=document.createTreeWalker(document.body,
+ NodeFilter.SHOW_ELEMENT|NodeFilter.SHOW_TEXT,
+ {acceptNode:function(n){
+   if(n.nodeType===1)return refuse(n)?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_SKIP;
+   RE.lastIndex=0;
+   return RE.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;
+  }});
+var hits=[],node;
+while((node=W.nextNode()))hits.push(node);
+
+function mark(tn){
+ var s=tn.nodeValue,f=document.createDocumentFragment(),last=0,m,name,key,b;
+ RE.lastIndex=0;
+ while((m=RE.exec(s))){
+  name=m[2];key=norm(name);
+  if(!rowOf[key])continue;
+  f.appendChild(document.createTextNode(s.slice(last,m.index)+m[1]));
+  b=document.createElement("button");
+  b.type="button";b.className="gt";
+  b.setAttribute("data-gt",key);
+  b.setAttribute("aria-expanded","false");
+  b.setAttribute("aria-controls","gt-card");
+  b.setAttribute("aria-label",name+", show the genotype");
+  b.appendChild(document.createTextNode(name));
+  f.appendChild(b);
+  last=m.index+m[0].length;
+ }
+ if(!last)return;
+ f.appendChild(document.createTextNode(s.slice(last)));
+ tn.parentNode.replaceChild(f,tn);
+}
+for(i=0;i<hits.length;i++)mark(hits[i]);
+
+/* ---- the card ---------------------------------------------------------- */
+var card=document.createElement("div");
+card.id="gt-card";card.hidden=true;
+document.body.appendChild(card);
+
+function copy(from,to){
+ var kids=from.childNodes,i,bad,el,t;
+ for(i=0;i<kids.length;i++)to.appendChild(kids[i].cloneNode(true));
+ bad=to.querySelectorAll("a,button,select,input,textarea,[tabindex]");
+ for(i=0;i<bad.length;i++){
+  el=bad[i];t=document.createTextNode(el.textContent||"");
+  if(el.parentNode)el.parentNode.replaceChild(t,el);
+ }
+}
+function fill(key){
+ var r=rowOf[key],c=cols(),head,i,cell,t,dl,dt,dd,p,pa;
+ if(!r||!c)return false;
+ head=T.rows[0];
+ while(card.firstChild)card.removeChild(card.firstChild);
+ p=document.createElement("p");p.className="gt-n";
+ p.appendChild(document.createTextNode(text(r.cells[c.line])));
+ card.appendChild(p);
+ p=document.createElement("div");p.className="gt-g";
+ if(r.cells[c.genotype])copy(r.cells[c.genotype],p);
+ card.appendChild(p);
+ dl=document.createElement("dl");
+ for(i=0;i<head.cells.length;i++){
+  if(i===c.line||i===c.genotype)continue;
+  cell=r.cells[i];
+  if(!cell||(cell.classList&&cell.classList.contains("trk")))continue;
+  t=text(cell);
+  if(!t||t==="—")continue;
+  if(!text(head.cells[i]))continue;
+  dt=document.createElement("dt");
+  dt.appendChild(document.createTextNode(text(head.cells[i])));
+  dd=document.createElement("dd");copy(cell,dd);
+  dl.appendChild(dt);dl.appendChild(dd);
+ }
+ pa=r.getAttribute("data-path");
+ if(pa==="a"||pa==="b"){
+  dt=document.createElement("dt");dt.appendChild(document.createTextNode("Path"));
+  dd=document.createElement("dd");
+  dd.appendChild(document.createTextNode(pa==="a"?"listed under path A":"listed under path B"));
+  dl.appendChild(dt);dl.appendChild(dd);
+ }
+ if(dl.childNodes.length)card.appendChild(dl);
+ return true;
+}
+
+/* ---- open, close, position --------------------------------------------- */
+var open=null,byClick=false,tid=null;
+function up(n,sel){return (n&&n.closest)?n.closest(sel):null;}
+function put(b){
+ var q=b.getBoundingClientRect(),
+     vw=document.documentElement.clientWidth,vh=document.documentElement.clientHeight,w,h,x,y;
+ if(!q.width&&!q.height){shut();return;}
+ card.style.left="0px";card.style.top="-9999px";
+ w=card.offsetWidth;h=card.offsetHeight;
+ x=q.left;if(x+w>vw-8)x=vw-8-w;if(x<8)x=8;
+ y=q.bottom+6;
+ if(y+h>vh-8&&q.top-6-h>8)y=q.top-6-h;
+ card.style.left=(x+(window.pageXOffset||0))+"px";
+ card.style.top=(y+(window.pageYOffset||0))+"px";
+}
+function shut(){
+ if(!open)return;
+ open.setAttribute("aria-expanded","false");
+ open.removeAttribute("aria-describedby");
+ open=null;byClick=false;card.hidden=true;
+}
+function show(b,click){
+ if(!fill(b.getAttribute("data-gt")))return;
+ if(open&&open!==b){open.setAttribute("aria-expanded","false");open.removeAttribute("aria-describedby");}
+ open=b;byClick=!!click;
+ b.setAttribute("aria-expanded","true");
+ b.setAttribute("aria-describedby","gt-card");
+ card.hidden=false;
+ put(b);
+}
+
+/* Every handler sits on the document. Nothing is attached to a word, thus the
+   tracker can rewrite its panel and the words keep their function. */
+document.addEventListener("click",function(e){
+ var b=up(e.target,".gt");
+ if(!b)return;
+ if(open===b&&byClick)shut();else show(b,true);
+});
+document.addEventListener("pointerover",function(e){
+ if(e.pointerType!=="mouse")return;
+ var b=up(e.target,".gt");
+ if(b){if(open!==b){clearTimeout(tid);tid=setTimeout(function(){show(b,false);},120);}else clearTimeout(tid);return;}
+ if(open&&up(e.target,"#gt-card"))clearTimeout(tid);
+});
+document.addEventListener("pointerout",function(e){
+ if(e.pointerType!=="mouse")return;
+ clearTimeout(tid);
+ if(!open||byClick)return;
+ var to=e.relatedTarget;
+ if(to&&(up(to,".gt")===open||up(to,"#gt-card")))return;
+ tid=setTimeout(shut,200);
+});
+document.addEventListener("focusin",function(e){
+ var b=up(e.target,".gt");
+ if(b&&open!==b)show(b,false);
+});
+document.addEventListener("focusout",function(e){
+ if(open&&e.target===open&&e.relatedTarget)shut();
+});
+document.addEventListener("keydown",function(e){
+ if(open&&(e.key==="Escape"||e.key==="Esc"))shut();
+},true);
+document.addEventListener("pointerdown",function(e){
+ if(!open)return;
+ if(up(e.target,".gt")||up(e.target,"#gt-card"))return;
+ shut();
+},true);
+document.addEventListener("scroll",function(e){
+ if(open&&e.target!==document)shut();
+},true);
+window.addEventListener("resize",function(){if(open)put(open);});
+
+/* ---- the one sentence, written here so that it cannot lie -------------- */
+var h2=document.getElementById("s3"),note;
+if(h2&&h2.parentNode){
+ note=document.createElement("p");
+ note.className="note";
+ note.appendChild(document.createTextNode(
+  "A word with a dotted line has a row in this table. Touch the word, or move the pointer "+
+  "to it, to see the genotype. Push the ESC key to close the card."));
+ h2.parentNode.insertBefore(note,h2.nextSibling);
+}
+
+/* ---- optional: ?gt=check reports the names that have no row ------------ */
+if(/[?&]gt=check/.test(location.search)&&window.console&&console.warn){
+ /* the same filter as the walk, and one line for each text node, so that a
+    section link that the tracker adds cannot join two words into one */
+ var W2=document.createTreeWalker(document.body,NodeFilter.SHOW_ELEMENT|NodeFilter.SHOW_TEXT,
+  {acceptNode:function(n){return n.nodeType===1?
+    (refuse(n)?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_SKIP):NodeFilter.FILTER_ACCEPT;}});
+ var t2=[],x2;while((x2=W2.nextNode()))t2.push(x2.nodeValue);
+ var L=/\b(?:BDSC\s+\d{4,6}|GJ\d{3,4}|LMB-\d{3}|SS\d{6})\b/g,seen={},mm,body=t2.join("\n");
+ while((mm=L.exec(body))){k=norm(mm[0]);
+  if(!rowOf[k]&&!seen[k]){seen[k]=1;console.warn("gt: no row in section 3 for "+mm[0]);}}
+ for(i=0;i<skipped.length;i++)console.warn("gt: this Line name is not a key: "+skipped[i]);
+ console.warn("gt: "+keys.length+" keys, "+document.querySelectorAll(".gt").length+" words");
+}
+
+}catch(err){/* the page keeps every other function */}
+}
+/* The walk waits for the whole page, thus it runs after the tracker and after
+   the path switch. Both of them are then complete, and neither is disturbed. */
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go,false);
+else go();
+})();
+</script>
+<!-- genotype card end -->
 </section>
 
 <section class="doc" id="doc-expansion" role="tabpanel" aria-labelledby="tab-expansion">

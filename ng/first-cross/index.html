@@ -225,7 +225,7 @@ the record. Your browser holds the changes since the last commit.</p>
 
 <noscript>
 <p class="note">The tracker needs JavaScript. The list below gives the name of each step. It gives
-no state. The record is in the page source, between the two tracker marks.</p>
+no state. The record is in status.json, beside this page.</p>
 </noscript>
 
 <div id="trk" class="callout" hidden aria-live="polite" data-trk-stale="14"></div>
@@ -293,11 +293,7 @@ counts, and those counts stay the authority.</p>
 
 <!-- tracker record start -->
 <script type="application/json" id="trk-record">
-{"v":1,"page":"ng/first-cross","saved":"2026-08-16","i":{
-"ord-lmb494":{"s":"ordered","d":"2026-08-13"},
-"ord-gj948":{"s":"ordered","d":"2026-08-13"},
-"q-lexaop":{"s":"done","d":"2026-08-16"}
-}}
+{"v":1,"page":"ng/first-cross","saved":"2026-08-16","i":{"ord-lmb494":{"s":"ordered","d":"2026-08-13"},"ord-gj948":{"s":"ordered","d":"2026-08-13"},"ord-32203":{"s":"none","d":""},"ord-anchor":{"s":"none","d":""},"ord-acrylate":{"s":"none","d":""},"ord-gel":{"s":"none","d":""},"a1-g0":{"s":"none","d":""},"a1-f1":{"s":"none","d":""},"a2-g0":{"s":"none","d":""},"a2-f1":{"s":"none","d":""},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"q-gj948chr":{"s":"run","d":"2026-08-13"},"q-quarantine":{"s":"run","d":"2026-08-13"},"q-lexaop":{"s":"done","d":"2026-08-16"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""}}}
 </script>
 <!-- tracker record end -->
 
@@ -582,7 +578,8 @@ Read the host from each vial before you plan the stain.</td></tr>
 <td>the other gel components</td><td>The laboratory possibly has them.</td></tr>
 <tr class="warn" data-trk="ord-32203"><td>BDSC 32203, 13XLexAop2-mCD8::GFP at attP2</td>
 <td>the PPN1 fill of path A</td>
-<td>The only missing fly line. This one order opens every receptor arm.</td></tr>
+<td>The only fly line that must be bought. This one order opens every receptor arm. LMB-494 and
+GJ948 come from the Cambridge Genetics stockist, not from a supplier.</td></tr>
 <tr data-trk="ord-lmb494"><td>LMB-494, UAS-brp-D3-Cherry</td><td>the synapse label of path A</td>
 <td>Requested on 13 August 2026.</td></tr>
 <tr data-trk="ord-gj948"><td>GJ948, LexAop2-Brp-mCherry</td><td>the synapse label of path B</td>
@@ -770,9 +767,12 @@ function fetchRecord(){
    if(!r.ok)throw 0;return r.json();
   }).then(function(r){
    if(!r||typeof r!=="object"||!r.i||typeof r.i!=="object")throw 0;
-   if(+r.v>VER)throw 0;
+   if(+r.v>VER){bmsg.push("The record file is newer than this page. Update the page.");paint();return;}
+   if(r.page&&r.page!==PAGE){bmsg.push("The record file belongs to another page.");paint();return;}
    base=r.i;paint();
-  })["catch"](function(){/* the block in the page stays in use */});
+  })["catch"](function(){
+   bmsg.push("The record file does not load. The record in the page is in use.");paint();
+  });
  }catch(err){}
 }
 function readLocal(){
@@ -895,8 +895,8 @@ function skeleton(){
   '<button type="button" class="btn ghost" id="trk-undo">Cancel the last change</button>'+
   '<button type="button" class="btn ghost" id="trk-reset">Return to the page record</button></p>'+
   '<p class="note" id="trk-msg"></p>'+
-  '<p class="note">Paste this text into index.html, between the two tracker marks. '+
-  'Then commit the file.</p>'+
+  '<p class="note">Paste this text into status.json, then commit the file. The states are '+
+  'then the record for everybody. Keep the two lines that start with an underline.</p>'+
   '<p class="note" id="trk-unk"></p></details>'+
   '<p class="note" id="trk-fail"></p>'+
   '<p class="note">The tracker keeps your changes in this browser. The record in the page '+

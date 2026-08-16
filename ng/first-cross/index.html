@@ -177,13 +177,15 @@ Related pages: <a href="../receptor-typing/">receptor typing</a>,
 <a href="../bristle-typing/">bristle typing</a>,
 <a href="../bristle-impact/">bristle impact</a>.</p>
 
-<h2>1 &middot; The target genotypes</h2>
+<h2 id="s1">1 &middot; The target genotypes</h2>
 
 <p><strong>Path A</strong>, label in GAL4. Both ppk arms are possible. The target is PPN1 only.</p>
 <pre><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; UAS-brp-D3-Cherry / 13XLexAop2-mCD8::GFP(attP2)</code></pre>
 
 <p><strong>Path B</strong>, label in LexA. One arm only. Any GAL4 or split-GAL4 target.</p>
 <pre><code>w/Y ; ppk23-LexA / + ; target-GAL4 / UAS-myr::GFP     plus LexAop2-Brp-mCherry</code></pre>
+<p class="trk-host" data-trk="b-target"></p>
+<p class="trk-host" data-trk="b-sensory"></p>
 
 <div class="scroll">
 <table>
@@ -216,7 +218,122 @@ the Cambridge Genetics stockist, LMB-536 and LMB-538, are both red. Do not use t
 PPN1 receives almost equal input from the two ppk groups, thus path A develops the assay. It does
 not test the receptor assignment.</p>
 
-<h2>2 &middot; Stock list</h2>
+<h2 id="s2">2 &middot; Work in motion</h2>
+
+<p>This section gives the state of each step. You set each state yourself. The page source holds
+the record. Your browser holds the changes since the last commit.</p>
+
+<noscript>
+<p class="note">The tracker needs JavaScript. The list below gives the name of each step. It gives
+no state. The record is in the page source, between the two tracker marks.</p>
+</noscript>
+
+<div id="trk" class="callout" hidden aria-live="polite" data-trk-stale="14"></div>
+
+<p class="note">The states in this browser are yours alone. To record a state for everybody, edit
+<a href="https://github.com/fkaempf/fkaempf.github.io/edit/main/ng/first-cross/status.json"
+>status.json on GitHub</a>. GitHub asks you to sign in, thus only you and your collaborators can
+write. The page shows the new state about one minute after the commit.</p>
+
+<details id="trk-all" open>
+<summary>All steps</summary>
+<p class="note">This list gives the name of each step. A state chip sits on the row of each step,
+in the section that describes it.</p>
+
+<p class="trk-g">Crosses and clean-ups</p>
+<ul>
+<li data-trk-id="a1-g0" data-trk-kind="cross"
+    data-trk-needs="ord-lmb494:arrived q-quarantine:done">Parent 1, G0</li>
+<li data-trk-id="a1-f1" data-trk-kind="cross"
+    data-trk-needs="a1-g0:done">Parent 1, F1</li>
+<li data-trk-id="a2-g0" data-trk-kind="cross"
+    data-trk-needs="ord-32203:arrived">Parent 2, G0</li>
+<li data-trk-id="a2-f1" data-trk-kind="cross"
+    data-trk-needs="a2-g0:done">Parent 2, F1</li>
+<li data-trk-id="ax" data-trk-kind="cross"
+    data-trk-needs="a1-f1:done a2-f1:done">the experimental cross</li>
+<li data-trk-id="c1472-g0" data-trk-kind="cross">the GJ1472 clean-up, G0</li>
+<li data-trk-id="c1472-f1" data-trk-kind="cross"
+    data-trk-needs="c1472-g0:done">the GJ1472 clean-up, F1</li>
+<li data-trk-id="c1472-f2" data-trk-kind="cross"
+    data-trk-needs="c1472-f1:done">the GJ1472 clean-up, F2</li>
+<li data-trk-id="c1472-f3" data-trk-kind="cross"
+    data-trk-needs="c1472-f2:done">the GJ1472 clean-up, F3</li>
+<li data-trk-id="c93028" data-trk-kind="cross">the BDSC 93028 clean-up</li>
+<li data-trk-id="b-target" data-trk-kind="cross">the target side of path B</li>
+<li data-trk-id="b-sensory" data-trk-kind="cross"
+    data-trk-needs="ord-gj948:arrived q-gj948chr:done c1472-f3:done">the sensory side of path B</li>
+</ul>
+
+<p class="trk-g">Orders</p>
+<ul>
+<li data-trk-id="ord-lmb494" data-trk-kind="order">LMB-494</li>
+<li data-trk-id="ord-gj948" data-trk-kind="order">GJ948</li>
+<li data-trk-id="ord-32203" data-trk-kind="order">BDSC 32203</li>
+<li data-trk-id="ord-anchor" data-trk-kind="order">Acryloyl-X, SE</li>
+<li data-trk-id="ord-acrylate" data-trk-kind="order">sodium acrylate</li>
+<li data-trk-id="ord-gel" data-trk-kind="order">the other gel components</li>
+</ul>
+
+<p class="trk-g">Questions</p>
+<ul>
+<li data-trk-id="q-gj948chr" data-trk-kind="question">the chromosome of GJ948</li>
+<li data-trk-id="q-quarantine" data-trk-kind="question">the quarantine state of LMB-494</li>
+<li data-trk-id="q-lexaop" data-trk-kind="question">the correct LexAop2-mCD8::GFP stock</li>
+<li data-trk-id="q-lmb494marker" data-trk-kind="question"
+    data-trk-needs="ord-lmb494:arrived">the balancer marker of LMB-494</li>
+<li data-trk-id="q-ss103018" data-trk-kind="question">the positions in SS103018</li>
+<li data-trk-id="q-r56c09" data-trk-kind="question">the PPN1 specificity of R56C09</li>
+<li data-trk-id="q-an09b017" data-trk-kind="question">the vAB3 line of each AN09B017 member</li>
+</ul>
+</details>
+
+<p class="note">The tracker gives no date for the end of the work. Section 4.4 gives the week
+counts, and those counts stay the authority.</p>
+
+<!-- tracker record start -->
+<script type="application/json" id="trk-record">
+{"v":1,"page":"ng/first-cross","saved":"2026-08-16","i":{
+"ord-lmb494":{"s":"ordered","d":"2026-08-13"},
+"ord-gj948":{"s":"ordered","d":"2026-08-13"},
+"q-lexaop":{"s":"done","d":"2026-08-16"}
+}}
+</script>
+<!-- tracker record end -->
+
+<style>
+ .trk-host:empty{display:none}
+ .trk-s{appearance:none;-webkit-appearance:none;border:0;cursor:pointer;
+        font-family:inherit;line-height:1.6}
+ .trk-s option{background:var(--bg);color:var(--fg);text-transform:none;
+        font-weight:400;letter-spacing:0}
+ .trk-s:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+ .trk-d{color:inherit;background:var(--bg);border:1px solid var(--edge);
+        border-radius:4px;font:inherit;font-size:.78rem;padding:.05rem .25rem;
+        margin-left:.35rem;color-scheme:light dark}
+ th.trk,td.trk{white-space:nowrap}
+ #trk{margin:1rem 0 1.2rem}
+ #trk .steps{margin:.5rem 0 .8rem}
+ #trk details{margin-top:.6rem;font-size:.9rem}
+ #trk summary{cursor:pointer;color:var(--link)}
+ #trk .wl{margin:.4rem 0 0;padding-left:1.1rem;font-size:.9rem}
+ #trk .btn{font-size:.78rem;padding:.4rem .7rem;margin:0 .3rem .3rem 0}
+ #trk textarea{width:100%;min-height:8rem;color:inherit;background:var(--bg);
+        border:1px solid var(--edge);border-radius:6px;padding:.5rem;margin:.4rem 0;
+        font:.78rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+        color-scheme:light dark}
+ #trk-all{margin:1rem 0 1.2rem;font-size:.92rem}
+ #trk-all summary{cursor:pointer;color:var(--link);font-weight:600}
+ #trk-all .trk-g{margin:.9rem 0 .2rem;font-size:.76rem;font-weight:600;color:var(--dim);
+        text-transform:uppercase;letter-spacing:.04em}
+ #trk-all ul{list-style:none;padding:0;margin:0}
+ #trk-all li{padding:.25rem 0;border-bottom:1px solid var(--line)}
+ #trk-all li a{margin-left:.4rem;font-size:.8rem}
+ @media print{#trk-rec,.trk-d,#trk-all{display:none}
+        .trk-s{appearance:auto;-webkit-appearance:auto}}
+</style>
+
+<h2 id="s3">3 &middot; Stock list</h2>
 
 <div class="scroll">
 <table>
@@ -227,15 +344,14 @@ not test the receptor assignment.</p>
 <td>PPN1 driver, path A</td><td>inc 18</td><td><span class="tag ok">ready</span></td></tr>
 <tr class="hi"><td>BDSC 32203</td>
 <td><code>w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-mCD8::GFP}attP2</code></td>
-<td>3, attP2, 68A4</td><td>PPN1 fill, path A</td><td><strong>to order</strong></td>
+<td>3, attP2, 68A4</td><td>PPN1 fill, path A</td><td>BDSC</td>
 <td><span class="tag ok">confirmed</span> RRID:BDSC_32203. Rubin and Pfeiffer.</td></tr>
 <tr class="hi"><td>LMB-494</td><td><code>w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP</code></td>
 <td>3</td><td>synapse label, path A</td><td>stockist</td>
-<td><span class="tag warn">requested</span> quarantine?</td></tr>
+<td>quarantine?</td></tr>
 <tr><td>GJ948</td><td><code>LexAop2-Brp-mCherry</code></td><td>not recorded</td>
 <td>synapse label, path B</td><td>Cambridge Genetics stockist</td>
-<td><span class="tag warn">requested</span> The laboratory vial is dead. GJ1008 and GJ1000 are also
-not available.</td></tr>
+<td>The laboratory vial is dead. GJ1008 and GJ1000 are also not available.</td></tr>
 <tr><td>GJ1472</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>2</td>
 <td>ppk23 driver, path B</td><td>25inc, Bella</td>
 <td><span class="tag warn">clean</span> remove 22B10-GAL4</td></tr>
@@ -269,18 +385,18 @@ none.</td></tr>
 </div>
 
 <p class="note">In path A the GAL4 is in the sensory neurons. A UAS fill thus labels the bristles
-and not PPN1. The path A fill must be LexAop.</p>
+and not PPN1. The path A fill must be LexAop. The order state of each line is in section 2.</p>
 
-<h2>3 &middot; Crosses, path A</h2>
+<h2 id="s4">4 &middot; Crosses, path A</h2>
 
-<h3>3.1 Parent 1</h3>
+<h3 id="s41">4.1 Parent 1</h3>
 <div class="scroll">
 <table>
 <tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr><td class="num">G0</td><td>BDSC 93026 &times; LMB-494</td>
+<tr data-trk="a1-g0"><td class="num">G0</td><td>BDSC 93026 &times; LMB-494</td>
 <td>Tubby. <strong>Not</strong> Ubx. <strong>Not</strong> Stubble.</td>
 <td><code>w; ppk23-GAL4/Sco or /CyO; brp-D3-Cherry/TM6B</code></td></tr>
-<tr><td class="num">F1</td><td>sibling cross</td>
+<tr data-trk="a1-f1"><td class="num">F1</td><td>sibling cross</td>
 <td><strong>Not</strong> Curly. <strong>Not</strong> Sternopleural. Tubby.</td>
 <td><strong>Parent 1</strong> <code>w; ppk23-GAL4; brp-D3-Cherry/TM6B</code></td></tr>
 </table>
@@ -288,14 +404,14 @@ and not PPN1. The path A fill must be LexAop.</p>
 <p class="note">All chromosomes have a marker, thus no PCR is necessary. TM2 has Ubx. The TM6B of
 LMB-494 has Stubble. A fly with two TM6B chromosomes dies.</p>
 
-<h3>3.2 Parent 2</h3>
+<h3 id="s42">4.2 Parent 2</h3>
 <div class="scroll">
 <table>
 <tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr><td class="num">G0</td><td>BDSC 53584 &times; BDSC 32203</td>
+<tr data-trk="a2-g0"><td class="num">G0</td><td>BDSC 53584 &times; BDSC 32203</td>
 <td>the balancer markers of the stock that arrives</td>
 <td><code>w; R56C09-lexA/+; LexAop-mCD8::GFP(attP2)/+</code></td></tr>
-<tr><td class="num">F1</td><td>cross to a chromosome 3 balancer, then a sibling cross</td>
+<tr data-trk="a2-f1"><td class="num">F1</td><td>cross to a chromosome 3 balancer, then a sibling cross</td>
 <td>the balancer markers</td>
 <td><strong>Parent 2</strong> <code>w; R56C09-lexA; LexAop-mCD8::GFP/TM6B</code></td></tr>
 </table>
@@ -304,9 +420,10 @@ LMB-494 has Stubble. A fly with two TM6B chromosomes dies.</p>
 flies to any LexA driver and look for green. This check is faster than a PCR, and it also confirms
 that the reporter works.</p>
 
-<h3>3.3 Experimental cross</h3>
+<h3 id="s43">4.3 Experimental cross</h3>
 <pre><code>Parent 1 virgin females  x  Parent 2 males
    keep the male progeny that are not Tubby</code></pre>
+<p class="trk-host" data-trk="ax"></p>
 <div class="scroll">
 <table>
 <tr><th>Quantity</th><th>Value</th></tr>
@@ -318,7 +435,7 @@ that the reporter works.</p>
 </table>
 </div>
 
-<h3>3.4 Time</h3>
+<h3 id="s44">4.4 Time</h3>
 <div class="scroll">
 <table>
 <tr><th>Step</th><th class="num">Weeks</th><th>Note</th></tr>
@@ -330,7 +447,7 @@ that the reporter works.</p>
 </table>
 </div>
 
-<h3>3.5 How to change the arm</h3>
+<h3 id="s45">4.5 How to change the arm</h3>
 <div class="scroll">
 <table>
 <tr><th>Arm</th><th>Driver in Parent 1</th><th>Instruction</th></tr>
@@ -342,7 +459,7 @@ that the reporter works.</p>
 </table>
 </div>
 
-<h2>4 &middot; Clean-up</h2>
+<h2 id="s5">5 &middot; Clean-up</h2>
 
 <div class="scroll">
 <table>
@@ -350,7 +467,7 @@ that the reporter works.</p>
 <tr class="bad"><td>GJ1472</td><td><code>22B10-GAL4</code>, chr 3</td>
 <td>It drives the UAS label in the wrong cells. Path B only.</td>
 <td>Four generations. See the table below.</td><td class="num">6</td></tr>
-<tr class="bad"><td>BDSC 93028</td><td>the second copy, chr 3</td>
+<tr class="bad" data-trk="c93028"><td>BDSC 93028</td><td>the second copy, chr 3</td>
 <td>Two copies against one change the driver strength between the arms.</td>
 <td>Cross to GJ954. Both inserts have the same marker, thus confirm by PCR.</td>
 <td class="num">4</td></tr>
@@ -358,20 +475,21 @@ that the reporter works.</p>
 </div>
 
 <p class="note">Use <strong>GJ954</strong>, <code>w; IF/CyO; TM2/TM6B</code>, incubator 18. Use
-GJ832 only if GJ954 is not available: GJ832 has hsFLP.</p>
+GJ832 only if GJ954 is not available: GJ832 has hsFLP. The four generations of GJ1472 have their
+own states in section 5.1.</p>
 
-<h3>4.1 The ppk23-LexA clean-up, generation by generation</h3>
+<h3 id="s51">5.1 The ppk23-LexA clean-up, generation by generation</h3>
 <div class="scroll">
 <table>
 <tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr><td class="num">G0</td><td>GJ1472 &times; GJ954</td><td>&mdash;</td><td>&mdash;</td></tr>
-<tr><td class="num">F1</td><td>&mdash;</td>
+<tr data-trk="c1472-g0"><td class="num">G0</td><td>GJ1472 &times; GJ954</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr data-trk="c1472-f1"><td class="num">F1</td><td>&mdash;</td>
 <td>Curly. <strong>Not</strong> Irregular facets. <strong>Ser</strong>.</td>
 <td><code>; ppk23-LexA/CyO ; TM3,Ser / TM2 or TM6B</code>. The 22B10-GAL4 is gone.</td></tr>
-<tr class="hi"><td class="num">F2</td><td>cross to w1118</td>
+<tr class="hi" data-trk="c1472-f2"><td class="num">F2</td><td>cross to w1118</td>
 <td>Curly. <strong>Not</strong> Ser, Ubx or Tubby.</td>
 <td><code>; ppk23-LexA/CyO ; +/+</code></td></tr>
-<tr><td class="num">F3</td><td>incross</td><td>Curly</td>
+<tr data-trk="c1472-f3"><td class="num">F3</td><td>incross</td><td>Curly</td>
 <td>the stable stock <code>; ppk23-LexA/CyO ; +/+</code></td></tr>
 </table>
 </div>
@@ -381,7 +499,7 @@ incross alone gives a stock with a balancer on chromosome 3. That balancer then 
 driver in the final cross. Select Ser at F1: a fly with Ser cannot also have the 22B10-GAL4 from
 that parent.</p>
 
-<h2>5 &middot; Controls</h2>
+<h2 id="s6">6 &middot; Controls</h2>
 
 <div class="scroll">
 <table>
@@ -402,7 +520,7 @@ value.</td></tr>
 </table>
 </div>
 
-<h2>6 &middot; Expected counts</h2>
+<h2 id="s7">7 &middot; Expected counts</h2>
 
 <div class="scroll">
 <table>
@@ -425,7 +543,7 @@ label, the antibody or the segmentation loses most of the sites. It does not sho
 connectome is wrong. Decide the failure threshold before you start the imaging.</p>
 </div>
 
-<h2>7 &middot; Expansion and staining</h2>
+<h2 id="s8">8 &middot; Expansion and staining</h2>
 
 <div class="scroll">
 <table>
@@ -452,44 +570,49 @@ Read the host from each vial before you plan the stain.</td></tr>
 </table>
 </div>
 
-<h3>7.1 Items to order</h3>
+<h3 id="s81">8.1 Items to order</h3>
 <div class="scroll">
 <table>
 <tr><th>Item</th><th>Function</th><th>Note</th></tr>
-<tr class="warn"><td>Acryloyl-X, SE</td><td>anchors the protein in the gel</td>
+<tr class="warn" data-trk="ord-anchor"><td>Acryloyl-X, SE</td><td>anchors the protein in the gel</td>
 <td>No substitute. Keep it dry and cold.</td></tr>
-<tr class="warn"><td>sodium acrylate</td><td>the monomer that expands</td>
+<tr class="warn" data-trk="ord-acrylate"><td>sodium acrylate</td><td>the monomer that expands</td>
 <td>Buy a new batch. Reject a batch that is not white.</td></tr>
-<tr><td>acrylamide, bis-acrylamide, APS, TEMED, 4-hydroxy-TEMPO</td><td>the other gel components</td>
-<td>The laboratory possibly has them.</td></tr>
-<tr class="warn"><td>BDSC 32203, 13XLexAop2-mCD8::GFP at attP2</td><td>the PPN1 fill of path A</td>
+<tr data-trk="ord-gel"><td>acrylamide, bis-acrylamide, APS, TEMED, 4-hydroxy-TEMPO</td>
+<td>the other gel components</td><td>The laboratory possibly has them.</td></tr>
+<tr class="warn" data-trk="ord-32203"><td>BDSC 32203, 13XLexAop2-mCD8::GFP at attP2</td>
+<td>the PPN1 fill of path A</td>
 <td>The only missing fly line. This one order opens every receptor arm.</td></tr>
+<tr data-trk="ord-lmb494"><td>LMB-494, UAS-brp-D3-Cherry</td><td>the synapse label of path A</td>
+<td>Requested on 13 August 2026.</td></tr>
+<tr data-trk="ord-gj948"><td>GJ948, LexAop2-Brp-mCherry</td><td>the synapse label of path B</td>
+<td>Requested on 13 August 2026.</td></tr>
 </table>
 </div>
 
-<h2>8 &middot; Open questions</h2>
+<h2 id="s9">9 &middot; Open questions</h2>
 
 <div class="scroll">
 <table>
 <tr><th>Question</th><th>Blocks</th><th>Action</th></tr>
-<tr class="hi"><td>Which chromosome has GJ948?</td><td>all of path B</td>
+<tr class="hi" data-trk="q-gj948chr"><td>Which chromosome has GJ948?</td><td>all of path B</td>
 <td>Ask Simon. The laboratory vial is dead, thus you cannot map it here.</td></tr>
-<tr class="hi"><td>Is LMB-494 out of quarantine?</td><td>Parent 1, thus path A</td>
+<tr class="hi" data-trk="q-quarantine"><td>Is LMB-494 out of quarantine?</td><td>Parent 1, thus path A</td>
 <td>Ask Simon.</td></tr>
-<tr><td>Which 13XLexAop2-mCD8::GFP stock?</td><td>&mdash;</td>
-<td><span class="tag ok">answered</span> BDSC 32203, confirmed on 16 August 2026.</td></tr>
-<tr><td>Which balancer marker does LMB-494 have?</td><td>the larval sort</td>
+<tr data-trk="q-lexaop"><td>Which 13XLexAop2-mCD8::GFP stock?</td><td>&mdash;</td>
+<td>BDSC 32203, confirmed on 16 August 2026.</td></tr>
+<tr data-trk="q-lmb494marker"><td>Which balancer marker does LMB-494 have?</td><td>the larval sort</td>
 <td>The record gives "eYFP" on one tray and "YFP" on another. Examine the stock on arrival.</td></tr>
-<tr><td>What are the positions in SS103018?</td><td>the discriminating target of path B</td>
+<tr data-trk="q-ss103018"><td>What are the positions in SS103018?</td><td>the discriminating target of path B</td>
 <td>Score the hemidrivers and the balancers.</td></tr>
-<tr><td>Does R56C09 label PPN1 only?</td><td>the expected count of 27267</td>
+<tr data-trk="q-r56c09"><td>Does R56C09 label PPN1 only?</td><td>the expected count of 27267</td>
 <td>Cross the PPN1 driver to a fill and examine the pattern.</td></tr>
-<tr><td>Which AN09B017 member does each vAB3 line label?</td><td>every later target</td>
+<tr data-trk="q-an09b017"><td>Which AN09B017 member does each vAB3 line label?</td><td>every later target</td>
 <td>MCFO on SS104905. Three of the four lines have a dead flag.</td></tr>
 </table>
 </div>
 
-<h2>9 &middot; Order of work</h2>
+<h2 id="s10">10 &middot; Order of work</h2>
 
 <ul class="steps">
 <li>Set up the two clean-up crosses and the target side of path B. All these stocks are in the
@@ -509,3 +632,453 @@ presynapse in the brain.</li>
 a local snapshot of 20 July 2026, and from the Cambridge Genetics stockist, 13 August 2026. Confirm
 each stock before you take a vial. Connectome values come from <code>male-cns:v1.0</code> through
 neuPrint, measured on 13 August 2026.</p>
+
+<script>
+(function(){
+"use strict";
+var KEY="avlp743m.ng.first-cross.trk.v1",VER=1,PAGE="ng/first-cross";
+var MON=["January","February","March","April","May","June","July","August","September",
+         "October","November","December"];
+var STATES={
+ cross:[["none","not started","q"],["virgins","virgins","m"],["set","cross set up","m"],
+        ["score","to score","m"],["done","done","ok"],["failed","failed","warn"]],
+ order:[["none","not ordered","q"],["ordered","ordered","m"],["arrived","arrived","ok"],
+        ["failed","failed","warn"]],
+ question:[["none","open","q"],["run","in progress","m"],["done","answered","ok"]]
+};
+var VERB={cross:"Set up ",order:"Order ",question:"Find "};
+var RUN={virgins:1,set:1,score:1,ordered:1,run:1};
+var FIN={done:1,arrived:1};
+
+var items=[],byId={},base={},local={},bmsg=[],msg=[],undo=null,noStore=false;
+var panel,box={},ta,unk,btnUndo;
+
+function pad(n){return (n<10?"0":"")+n;}
+function today(){var d=new Date();
+ return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());}
+function parts(s){var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s||"");
+ return m?[+m[1],+m[2],+m[3]]:null;}
+function fmt(s){var p=parts(s);return p?(p[2]+" "+MON[p[1]-1]+" "+p[0]):"";}
+function ago(s){var a=parts(s),b=parts(today());if(!a||!b)return null;
+ return Math.round((Date.UTC(b[0],b[1]-1,b[2])-Date.UTC(a[0],a[1]-1,a[2]))/86400000);}
+function cap(s){return s?s.charAt(0).toUpperCase()+s.slice(1):s;}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")
+ .replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function row(kind,code){var l=STATES[kind]||STATES.cross,i;
+ for(i=0;i<l.length;i++)if(l[i][0]===code)return l[i];return l[0];}
+function ok(kind,code){var l=STATES[kind]||STATES.cross,i;
+ for(i=0;i<l.length;i++)if(l[i][0]===code)return true;return false;}
+function plural(n,one,many){return n===1?one:many;}
+
+/* ---- the item list, read from the registry ---------------------------- */
+function collect(){
+ var els=document.querySelectorAll("#trk-all [data-trk-id]"),i,j,e,id,kind,raw,needs,p;
+ for(i=0;i<els.length;i++){
+  e=els[i];id=e.getAttribute("data-trk-id");
+  if(!id||byId[id])continue;
+  kind=e.getAttribute("data-trk-kind");if(!STATES[kind])kind="cross";
+  raw=(e.getAttribute("data-trk-needs")||"").split(/\s+/);needs=[];
+  for(j=0;j<raw.length;j++){if(!raw[j])continue;p=raw[j].split(":");
+   needs.push({id:p[0],s:p[1]||"done"});}
+  var it={id:id,kind:kind,name:(e.textContent||"").replace(/\s+/g," ").trim(),
+          needs:needs,sec:"",secName:"",sel:null,dt:null,reg:e,host:null};
+  items.push(it);byId[id]=it;
+ }
+}
+
+/* ---- the hosts, and the section link of each item ---------------------- */
+function place(){
+ var nodes=document.querySelectorAll("h2[id],h3[id],[data-trk]"),
+     lastId="",lastName="",tables=[],i,r,n,it,t,c,head,rows,id;
+ for(i=0;i<nodes.length;i++){
+  n=nodes[i];
+  if(n.hasAttribute("data-trk")){
+   it=byId[n.getAttribute("data-trk")];
+   if(!it)continue;
+   it.sec=lastId;it.secName=lastName;
+   if(n.tagName==="TR"){
+    t=n.parentNode;
+    while(t&&t.tagName!=="TABLE")t=t.parentNode;
+    if(t&&tables.indexOf(t)<0)tables.push(t);
+   }else{it.host=n;}
+  }else{
+   lastId=n.id;
+   lastName=(n.textContent||"").replace(/·/g," ").replace(/\s+/g," ").trim();
+  }
+ }
+ for(i=0;i<tables.length;i++){
+  rows=tables[i].rows;
+  for(r=0;r<rows.length;r++){
+   n=rows[r];id=n.getAttribute("data-trk");
+   head=!id&&n.cells[0]&&n.cells[0].tagName==="TH";
+   c=document.createElement(head?"th":"td");
+   c.className="trk";
+   if(head)c.appendChild(document.createTextNode("State"));
+   n.insertBefore(c,n.cells[0]||null);
+   if(id&&byId[id])control(byId[id],c);
+  }
+ }
+ for(i=0;i<items.length;i++){
+  it=items[i];
+  if(it.host){it.host.appendChild(document.createTextNode(cap(it.name)+": "));control(it,it.host);}
+  if(it.sec&&it.reg){
+   var a=document.createElement("a");
+   a.href="#"+it.sec;
+   a.appendChild(document.createTextNode(it.secName));
+   it.reg.appendChild(a);
+  }
+ }
+}
+
+function control(it,cell){
+ var list=STATES[it.kind],i,o;
+ var sel=document.createElement("select");
+ sel.className="trk-s tag q";
+ sel.setAttribute("aria-label","State of "+it.name);
+ for(i=0;i<list.length;i++){
+  o=document.createElement("option");o.value=list[i][0];
+  o.appendChild(document.createTextNode(list[i][1]));sel.appendChild(o);
+ }
+ sel.onchange=function(){setState(it.id,sel.value);};
+ var dt=document.createElement("input");
+ dt.type="date";dt.className="trk-d";
+ dt.setAttribute("aria-label","Date of the last change of "+it.name);
+ dt.onchange=function(){setDate(it.id,dt.value);};
+ cell.appendChild(sel);cell.appendChild(dt);
+ it.sel=sel;it.dt=dt;
+}
+
+/* ---- the two record layers -------------------------------------------- */
+function readBase(){
+ var e=document.getElementById("trk-record"),r;
+ if(!e)return;
+ try{
+  r=JSON.parse(e.textContent||e.innerHTML);
+  if(!r||typeof r!=="object")throw 0;
+  if(+r.v>VER){bmsg.push("The record is newer than this page. Update the page.");return;}
+  base=(r.i&&typeof r.i==="object")?r.i:{};
+ }catch(err){
+  base={};bmsg.push("The page record does not read. Your browser record is in use.");
+ }
+}
+/* The committed record is status.json, beside this page. The block in the page
+   is the fallback for the file:// case and for a failed request. */
+function fetchRecord(){
+ if(!window.fetch)return;
+ try{
+  window.fetch("status.json",{cache:"no-store"}).then(function(r){
+   if(!r.ok)throw 0;return r.json();
+  }).then(function(r){
+   if(!r||typeof r!=="object"||!r.i||typeof r.i!=="object")throw 0;
+   if(+r.v>VER)throw 0;
+   base=r.i;paint();
+  })["catch"](function(){/* the block in the page stays in use */});
+ }catch(err){}
+}
+function readLocal(){
+ var t=null,r;
+ msg=[];local={};
+ if(noStore){msg.push("This browser does not save the states. The page record still works.");return;}
+ try{t=window.localStorage.getItem(KEY);}
+ catch(err){
+  noStore=true;
+  msg.push("This browser does not save the states. The page record still works.");return;
+ }
+ if(!t)return;
+ try{
+  r=JSON.parse(t);
+  if(!r||typeof r!=="object")throw 0;
+  if(+r.v>VER){msg.push("The record is newer than this page. Update the page.");return;}
+  local=(r.i&&typeof r.i==="object")?r.i:{};
+ }catch(err){
+  local={};msg.push("The browser record does not read. The page record is in use.");
+ }
+}
+function save(){
+ if(noStore)return;
+ try{
+  window.localStorage.setItem(KEY,JSON.stringify(
+   {v:VER,page:PAGE,saved:today(),i:local}));
+ }catch(err){
+  noStore=true;msg.push("This browser does not save the states. The page record still works.");
+ }
+}
+function get(id){
+ var a=base[id],b=local[id];
+ var A=(a&&a.s)?a:null,B=(b&&b.s)?b:null;
+ if(A&&B)return ((B.d||"")>=(A.d||""))?B:A;
+ return B||A||{s:"none",d:""};
+}
+function snap(){
+ var S={},i,it,g;
+ for(i=0;i<items.length;i++){
+  it=items[i];g=get(it.id);
+  S[it.id]={c:ok(it.kind,g.s)?g.s:"none",d:g.d||""};
+ }
+ return S;
+}
+function extras(){
+ var out=[],k;
+ for(k in base)if(base.hasOwnProperty(k)&&!byId[k])out.push(k);
+ for(k in local)if(local.hasOwnProperty(k)&&!byId[k]&&out.indexOf(k)<0)out.push(k);
+ return out;
+}
+
+/* ---- the changes ------------------------------------------------------- */
+function keep(id){undo={id:id,had:!!local[id],prev:local[id]?
+ {s:local[id].s,d:local[id].d}:null};}
+function setState(id,s){
+ keep(id);
+ if(s==="none"&&!(base[id]&&base[id].s))delete local[id];
+ else local[id]={s:s,d:today()};
+ save();paint();
+}
+function setDate(id,d){
+ var g=get(id);
+ if(!parts(d)||g.s==="none")return;
+ keep(id);
+ local[id]={s:g.s,d:d};
+ save();paint();
+}
+function stepBack(){
+ if(!undo)return;
+ if(undo.had)local[undo.id]=undo.prev;else delete local[undo.id];
+ undo=null;save();paint();
+}
+
+/* ---- the record text --------------------------------------------------- */
+function recordText(){
+ var lines=[],i,g,ex;
+ for(i=0;i<items.length;i++){
+  g=get(items[i].id);
+  if(g.s&&g.s!=="none")
+   lines.push(JSON.stringify(items[i].id)+':{"s":"'+g.s+'","d":"'+(g.d||"")+'"}');
+ }
+ ex=extras();
+ for(i=0;i<ex.length;i++){
+  g=get(ex[i]);
+  if(g.s&&g.s!=="none")
+   lines.push(JSON.stringify(ex[i])+':{"s":"'+g.s+'","d":"'+(g.d||"")+'"}');
+ }
+ return '{"v":'+VER+',"page":"'+PAGE+'","saved":"'+today()+'","i":{\n'+
+        lines.join(",\n")+'\n}}';
+}
+function pending(S){
+ var n=0,i,it,b,bc,ex,g;
+ for(i=0;i<items.length;i++){
+  it=items[i];b=base[it.id]||{};
+  bc=(b.s&&ok(it.kind,b.s))?b.s:"none";
+  if(S[it.id].c!==bc||(S[it.id].c!=="none"&&S[it.id].d!==(b.d||"")))n++;
+ }
+ ex=extras();
+ for(i=0;i<ex.length;i++){
+  g=get(ex[i]);b=base[ex[i]]||{};
+  if((g.s||"")!==(b.s||"")||(g.d||"")!==(b.d||""))n++;
+ }
+ return n;
+}
+
+/* ---- the panel --------------------------------------------------------- */
+function skeleton(){
+ panel.innerHTML=
+  '<p id="trk-count"></p>'+
+  '<p id="trk-prov" class="note"></p>'+
+  '<div id="trk-ready"></div>'+
+  '<div id="trk-run"></div>'+
+  '<details id="trk-wait"><summary></summary><div></div></details>'+
+  '<details id="trk-rec"><summary>Record</summary>'+
+  '<p class="note">The page source holds the record. Your browser holds the changes since '+
+  'the last commit.</p>'+
+  '<textarea id="trk-ta" spellcheck="false" aria-label="The record"></textarea>'+
+  '<p><button type="button" class="btn" id="trk-copy">Copy the record</button>'+
+  '<button type="button" class="btn ghost" id="trk-load">Load the record</button>'+
+  '<button type="button" class="btn ghost" id="trk-undo">Cancel the last change</button>'+
+  '<button type="button" class="btn ghost" id="trk-reset">Return to the page record</button></p>'+
+  '<p class="note" id="trk-msg"></p>'+
+  '<p class="note">Paste this text into index.html, between the two tracker marks. '+
+  'Then commit the file.</p>'+
+  '<p class="note" id="trk-unk"></p></details>'+
+  '<p class="note" id="trk-fail"></p>'+
+  '<p class="note">The tracker keeps your changes in this browser. The record in the page '+
+  'source is the copy that every machine reads.</p>';
+ box.count=panel.querySelector("#trk-count");
+ box.prov=panel.querySelector("#trk-prov");
+ box.ready=panel.querySelector("#trk-ready");
+ box.run=panel.querySelector("#trk-run");
+ box.wait=panel.querySelector("#trk-wait");
+ box.fail=panel.querySelector("#trk-fail");
+ ta=panel.querySelector("#trk-ta");
+ unk=panel.querySelector("#trk-unk");
+ btnUndo=panel.querySelector("#trk-undo");
+ panel.querySelector("#trk-copy").onclick=doCopy;
+ panel.querySelector("#trk-load").onclick=doLoad;
+ btnUndo.onclick=stepBack;
+ panel.querySelector("#trk-reset").onclick=doReset;
+}
+function say(s){var e=panel.querySelector("#trk-msg");if(e)e.innerHTML=esc(s);}
+function doCopy(){
+ var done=false;
+ ta.focus();ta.select();
+ try{done=document.execCommand("copy");}catch(err){done=false;}
+ say(done?"The record is on the clipboard.":"The text is selected. Copy it now.");
+}
+function doLoad(){
+ var r;
+ try{
+  r=JSON.parse(ta.value);
+  if(!r||typeof r!=="object"||!r.i||typeof r.i!=="object")throw 0;
+  if(+r.v>VER)throw 0;
+ }catch(err){say("The text does not read as a record. Nothing changed.");return;}
+ undo=null;local=r.i;save();paint();
+ say("The record is now in this browser.");
+}
+function doReset(){
+ if(!window.confirm("Do you want to remove the changes in this browser?"))return;
+ try{window.localStorage.removeItem(KEY);}catch(err){}
+ undo=null;local={};paint();
+ say("The tracker now uses the page record.");
+}
+
+function paint(){
+ var S=snap(),i,j,it,st,c;
+ var failed=[],running=[],fin=[],ready=[],wait=[],blocks={},un,n;
+ for(i=0;i<items.length;i++){
+  it=items[i];st=S[it.id];
+  if(it.sel){it.sel.value=st.c;it.sel.className="trk-s tag "+row(it.kind,st.c)[2];}
+  if(it.dt){it.dt.value=st.d;it.dt.style.display=(st.c==="none")?"none":"";}
+  for(j=0;j<it.needs.length;j++)blocks[it.needs[j].id]=1;
+ }
+ for(i=0;i<items.length;i++){
+  it=items[i];st=S[it.id];
+  if(st.c==="failed"){failed.push(it);continue;}
+  if(RUN[st.c]){running.push(it);continue;}
+  if(FIN[st.c]){fin.push(it);continue;}
+  un=null;
+  for(j=0;j<it.needs.length;j++){
+   var nd=it.needs[j];
+   if(!S[nd.id]||S[nd.id].c!==nd.s){un=nd;break;}
+  }
+  if(un)wait.push({it:it,need:un});else ready.push(it);
+ }
+
+ /* line 1, the counts */
+ c="";
+ if(failed.length)c+='<span class="tag warn">'+failed.length+" failed</span> ";
+ if(running.length)c+='<span class="tag m">'+running.length+" in motion</span> ";
+ if(fin.length)c+='<span class="tag ok">'+fin.length+" done</span> ";
+ n=ready.length+wait.length;
+ if(n)c+='<span class="tag q">'+n+" not started</span>";
+ box.count.innerHTML=c;
+
+ /* line 2, the provenance */
+ var last="";
+ for(i=0;i<items.length;i++){
+  st=S[items[i].id];
+  if(st.c!=="none"&&st.d>last)last=st.d;
+ }
+ c=last?"Last change: "+esc(fmt(last))+".":"You did not set a state yet.";
+ n=pending(S);
+ if(n)c+=' <span class="tag warn">'+n+" "+plural(n,"change is","changes are")+
+         " not in the record</span>";
+ box.prov.innerHTML=c;
+
+ /* block 3, what you can start */
+ ready.sort(function(a,b){return (blocks[a.id]?0:1)-(blocks[b.id]?0:1);});
+ if(!ready.length){
+  c="<p>"+(wait.length?"You cannot start a step today. Every step waits for other work.":
+                      "No step waits to start.")+"</p>";
+ }else{
+  c="<p>You can start "+ready.length+" "+plural(ready.length,"step","steps")+" today.</p>";
+  c+='<ul class="steps">';
+  for(i=0;i<ready.length&&i<6;i++){
+   it=ready[i];
+   c+="<li>"+esc(VERB[it.kind]+it.name)+".";
+   if(it.sec)c+=' <a href="#'+esc(it.sec)+'">'+esc(it.secName)+"</a>";
+   c+="</li>";
+  }
+  c+="</ul>";
+  if(ready.length>6)c+='<p class="note">'+(ready.length-6)+" more "+
+   plural(ready.length-6,"step can","steps can")+" start today.</p>";
+ }
+ box.ready.innerHTML=c;
+
+ /* block 4, what is running */
+ var stale=+(panel.getAttribute("data-trk-stale")||14),mo=[],d;
+ for(i=0;i<failed.length;i++)mo.push({it:failed[i],bad:true,rank:0});
+ for(i=0;i<running.length;i++){
+  d=ago(S[running[i].id].d);
+  mo.push({it:running[i],bad:(d!==null&&d>=stale),rank:(d!==null&&d>=stale)?1:2,d:d});
+ }
+ var slow=0;
+ for(i=0;i<mo.length;i++)if(mo[i].rank===1)slow++;
+ mo.sort(function(a,b){
+  if(a.rank!==b.rank)return a.rank-b.rank;
+  return (b.d||0)-(a.d||0);
+ });
+ if(!mo.length){c="<p>No step is in motion.</p>";}
+ else{
+  c="<p>This work is in motion.</p>"+
+    '<div class="scroll"><table><tr><th>Item</th><th>State</th><th>Since</th>'+
+    '<th class="num">Days</th></tr>';
+  for(i=0;i<mo.length;i++){
+   it=mo[i].it;st=S[it.id];d=ago(st.d);
+   c+="<tr"+(mo[i].bad?' class="bad"':"")+"><td>"+esc(cap(it.name))+"</td>"+
+      '<td><span class="tag '+row(it.kind,st.c)[2]+'">'+esc(row(it.kind,st.c)[1])+
+      "</span></td><td>"+esc(fmt(st.d))+'</td><td class="num">'+
+      (d===null?"":d)+"</td></tr>";
+  }
+  c+="</table></div>";
+  if(slow)c+='<p class="note">'+slow+" "+plural(slow,"step has","steps have")+
+   " no change for "+stale+" days or more.</p>";
+ }
+ box.run.innerHTML=c;
+
+ /* block 5, what waits */
+ box.wait.querySelector("summary").innerHTML=
+  "Waiting for other work ("+wait.length+")";
+ c="<ul class=\"wl\">";
+ for(i=0;i<wait.length;i++){
+  var nm=byId[wait[i].need.id]?byId[wait[i].need.id].name:wait[i].need.id;
+  c+="<li>"+esc(cap(wait[i].it.name)+" needs "+nm+" first.")+"</li>";
+ }
+ c+="</ul>";
+ box.wait.querySelector("div").innerHTML=wait.length?c:
+  '<p class="note">No step waits for other work.</p>';
+
+ /* block 6, the record */
+ if(document.activeElement!==ta)ta.value=recordText();
+ var ex=extras();
+ unk.innerHTML=ex.length?esc(ex.length+" "+plural(ex.length,"record has","records have")+
+  " no step. The record keeps "+plural(ex.length,"it.","them.")):"";
+ btnUndo.style.display=undo?"":"none";
+
+ /* the failure lines */
+ var all=bmsg.concat(msg),seen={},out=[];
+ for(i=0;i<all.length;i++)if(!seen[all[i]]){seen[all[i]]=1;out.push(esc(all[i]));}
+ box.fail.innerHTML=out.join("<br>");
+
+ panel.hidden=false;
+}
+
+try{
+ panel=document.getElementById("trk");
+ if(panel){
+  collect();
+  if(items.length){
+   place();
+   readBase();
+   readLocal();
+   skeleton();
+   paint();
+   fetchRecord();
+   var all=document.getElementById("trk-all");
+   if(all)all.removeAttribute("open");
+   window.addEventListener("storage",function(e){
+    if(e.key!==KEY)return;
+    try{readLocal();undo=null;paint();}catch(err){}
+   });
+  }
+ }
+}catch(err){/* the tracker stays hidden and the page is unchanged */}
+})();
+</script>

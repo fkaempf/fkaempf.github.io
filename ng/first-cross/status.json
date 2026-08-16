@@ -1,0 +1,129 @@
+{
+ "v": 1,
+ "page": "ng/first-cross",
+ "saved": "2026-08-16",
+ "_states": {
+  "cross": [
+   "none",
+   "virgins",
+   "set",
+   "score",
+   "done",
+   "failed"
+  ],
+  "order": [
+   "none",
+   "ordered",
+   "arrived",
+   "failed"
+  ],
+  "question": [
+   "none",
+   "run",
+   "done"
+  ]
+ },
+ "_help": "Edit s and d for an item. d is the date of the last change, as YYYY-MM-DD.",
+ "i": {
+  "ord-lmb494": {
+   "s": "ordered",
+   "d": "2026-08-13"
+  },
+  "ord-gj948": {
+   "s": "ordered",
+   "d": "2026-08-13"
+  },
+  "ord-32203": {
+   "s": "none",
+   "d": ""
+  },
+  "ord-anchor": {
+   "s": "none",
+   "d": ""
+  },
+  "ord-acrylate": {
+   "s": "none",
+   "d": ""
+  },
+  "ord-gel": {
+   "s": "none",
+   "d": ""
+  },
+  "a1-g0": {
+   "s": "none",
+   "d": ""
+  },
+  "a1-f1": {
+   "s": "none",
+   "d": ""
+  },
+  "a2-g0": {
+   "s": "none",
+   "d": ""
+  },
+  "a2-f1": {
+   "s": "none",
+   "d": ""
+  },
+  "ax": {
+   "s": "none",
+   "d": ""
+  },
+  "c1472-g0": {
+   "s": "none",
+   "d": ""
+  },
+  "c1472-f1": {
+   "s": "none",
+   "d": ""
+  },
+  "c1472-f2": {
+   "s": "none",
+   "d": ""
+  },
+  "c1472-f3": {
+   "s": "none",
+   "d": ""
+  },
+  "c93028": {
+   "s": "none",
+   "d": ""
+  },
+  "b-target": {
+   "s": "none",
+   "d": ""
+  },
+  "b-sensory": {
+   "s": "none",
+   "d": ""
+  },
+  "q-gj948chr": {
+   "s": "run",
+   "d": "2026-08-13"
+  },
+  "q-quarantine": {
+   "s": "run",
+   "d": "2026-08-13"
+  },
+  "q-lexaop": {
+   "s": "done",
+   "d": "2026-08-16"
+  },
+  "q-lmb494marker": {
+   "s": "none",
+   "d": ""
+  },
+  "q-ss103018": {
+   "s": "none",
+   "d": ""
+  },
+  "q-r56c09": {
+   "s": "none",
+   "d": ""
+  },
+  "q-an09b017": {
+   "s": "none",
+   "d": ""
+  }
+ }
+}

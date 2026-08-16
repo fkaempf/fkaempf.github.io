@@ -155,12 +155,15 @@
  .doc > h2:first-of-type{margin-top:.6rem}
  @media print{.tabs{display:none} .doc{display:block!important}}
 </style><style>
- pre{background:#0f1420;color:#e8edf4;border:1px solid #0f1420;border-radius:8px;
+ :root{--codefg:#0b3d6b;--preline:#0f1420}
+ pre{background:#0f1420;color:#e8edf4;border:1px solid var(--preline);border-radius:8px;
      padding:.75rem .95rem;overflow-x:auto;
      font:.85rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;margin:.6rem 0 1rem}
  pre code{background:none;padding:0;color:inherit;font-size:1em}
- code{color:#0b3d6b}
- @media print{ pre{background:#f2f4f7;color:#14171c;border-color:#ccd2da} code{color:#14171c} }
+ code{color:var(--codefg)}
+ @media (prefers-color-scheme:dark){ :root{--codefg:#9ecbff;--preline:#2f3843} }
+ @media print{ :root{--codefg:#14171c;--preline:#ccd2da}
+               pre{background:#f2f4f7;color:#14171c} }
  .scroll{overflow-x:auto}
  hr{border:0;border-top:1px solid #ececec;margin:2rem 0 1rem}
  p.foot{color:#555;font-size:.8rem}

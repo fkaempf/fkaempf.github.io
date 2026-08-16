@@ -177,7 +177,7 @@ Related pages: <a href="../receptor-typing/">receptor typing</a>,
 <h2>1 &middot; The target genotypes</h2>
 
 <p><strong>Path A</strong>, label in GAL4. Both ppk arms are possible. The target is PPN1 only.</p>
-<pre><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; UAS-brp-D3-Cherry / 13XLexAop2-mCD8::GFP</code></pre>
+<pre><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; UAS-brp-D3-Cherry / 13XLexAop2-mCD8::GFP(attP2)</code></pre>
 
 <p><strong>Path B</strong>, label in LexA. One arm only. Any GAL4 or split-GAL4 target.</p>
 <pre><code>w/Y ; ppk23-LexA / + ; target-GAL4 / UAS-myr::GFP     plus LexAop2-Brp-mCherry</code></pre>
@@ -204,7 +204,7 @@ Ir52a-LexA. Path A can thus use every receptor driver. Path B can use two.</p>
 <tr class="hi"><td>GAL4</td><td>the active zones of the sensory neurons</td><td>red</td>
 <td>UAS-brp-D3-Cherry, LMB-494</td></tr>
 <tr class="hi"><td>LexA</td><td>the membrane of the target neuron</td><td>green</td>
-<td>13XLexAop2-mCD8::GFP, to order</td></tr>
+<td>13XLexAop2-mCD8::GFP, BDSC 32203</td></tr>
 </table>
 </div>
 
@@ -222,11 +222,10 @@ not test the receptor assignment.</p>
 <td>ppk23 driver, path A</td><td>25inc, 3 vials</td><td><span class="tag ok">ready</span></td></tr>
 <tr class="hi"><td>BDSC 53584</td><td><code>w1118; P{GMR56C09-lexA}attP40</code></td><td>2, attP40</td>
 <td>PPN1 driver, path A</td><td>inc 18</td><td><span class="tag ok">ready</span></td></tr>
-<tr class="hi"><td>13XLexAop2-mCD8::GFP</td>
-<td><code>w1118; P{13XLexAop2-mCD8::GFP}attP2</code></td>
-<td>3, attP2</td><td>PPN1 fill, path A</td><td><strong>to order</strong></td>
-<td><span class="tag warn">confirm the number</span> BDSC 32203 is the probable stock. See the
-note below.</td></tr>
+<tr class="hi"><td>BDSC 32203</td>
+<td><code>w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-mCD8::GFP}attP2</code></td>
+<td>3, attP2, 68A4</td><td>PPN1 fill, path A</td><td><strong>to order</strong></td>
+<td><span class="tag ok">confirmed</span> RRID:BDSC_32203. Rubin and Pfeiffer.</td></tr>
 <tr class="hi"><td>LMB-494</td><td><code>w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP</code></td>
 <td>3</td><td>synapse label, path A</td><td>stockist</td>
 <td><span class="tag warn">requested</span> quarantine?</td></tr>
@@ -290,9 +289,9 @@ LMB-494 has Stubble. A fly with two TM6B chromosomes dies.</p>
 <div class="scroll">
 <table>
 <tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr><td class="num">G0</td><td>BDSC 53584 &times; the 13XLexAop2-mCD8::GFP line</td>
+<tr><td class="num">G0</td><td>BDSC 53584 &times; BDSC 32203</td>
 <td>the balancer markers of the stock that arrives</td>
-<td><code>w; R56C09-lexA/+; LexAop-mCD8::GFP/+</code></td></tr>
+<td><code>w; R56C09-lexA/+; LexAop-mCD8::GFP(attP2)/+</code></td></tr>
 <tr><td class="num">F1</td><td>cross to a chromosome 3 balancer, then a sibling cross</td>
 <td>the balancer markers</td>
 <td><strong>Parent 2</strong> <code>w; R56C09-lexA; LexAop-mCD8::GFP/TM6B</code></td></tr>
@@ -460,9 +459,8 @@ Read the host from each vial before you plan the stain.</td></tr>
 <td>Buy a new batch. Reject a batch that is not white.</td></tr>
 <tr><td>acrylamide, bis-acrylamide, APS, TEMED, 4-hydroxy-TEMPO</td><td>the other gel components</td>
 <td>The laboratory possibly has them.</td></tr>
-<tr class="warn"><td>13XLexAop2-mCD8::GFP, probably BDSC 32203</td><td>the PPN1 fill of path A</td>
-<td>The only missing fly line. This one order opens every receptor arm. Confirm the stock number
-first.</td></tr>
+<tr class="warn"><td>BDSC 32203, 13XLexAop2-mCD8::GFP at attP2</td><td>the PPN1 fill of path A</td>
+<td>The only missing fly line. This one order opens every receptor arm.</td></tr>
 </table>
 </div>
 
@@ -475,11 +473,8 @@ first.</td></tr>
 <td>Ask Simon. The laboratory vial is dead, thus you cannot map it here.</td></tr>
 <tr class="hi"><td>Is LMB-494 out of quarantine?</td><td>Parent 1, thus path A</td>
 <td>Ask Simon.</td></tr>
-<tr class="hi"><td>Which 13XLexAop2-mCD8::GFP stock?</td><td>Parent 2, thus path A</td>
-<td>BDSC 32203 is the probable stock, at attP2 on chromosome 3. It belongs to the Pfeiffer 2010
-13XLexAop2 series, and the neighbour numbers hold the same reporter at other landing sites.
-<strong>Nobody has confirmed this number.</strong> The BDSC website refuses an automatic query, thus
-open the record by hand before you order.</td></tr>
+<tr><td>Which 13XLexAop2-mCD8::GFP stock?</td><td>&mdash;</td>
+<td><span class="tag ok">answered</span> BDSC 32203, confirmed on 16 August 2026.</td></tr>
 <tr><td>Which balancer marker does LMB-494 have?</td><td>the larval sort</td>
 <td>The record gives "eYFP" on one tray and "YFP" on another. Examine the stock on arrival.</td></tr>
 <tr><td>What are the positions in SS103018?</td><td>the discriminating target of path B</td>
@@ -500,7 +495,7 @@ laboratory.</li>
 GJ948 is the label of path B. The laboratory vials of GJ948, GJ1008 and GJ1000 are dead.</li>
 <li>Set up Parent 1 when LMB-494 arrives. Set up the sensory side of path B when GJ948
 arrives.</li>
-<li>Order the 13XLexAop2-mCD8::GFP line now. Order Acryloyl-X and sodium acrylate in the same week.</li>
+<li>Order BDSC 32203 now. Order Acryloyl-X and sodium acrylate in the same week.</li>
 <li>Practise the gel on a <strong>ventral nerve cord</strong>. These sensory neurons have no
 presynapse in the brain.</li>
 <li>Measure the expansion factor of each gel with a landmark of a known size.</li>

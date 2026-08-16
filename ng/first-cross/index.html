@@ -230,10 +230,11 @@ no state. The record is in status.json, beside this page.</p>
 
 <div id="trk" class="callout" hidden aria-live="polite" data-trk-stale="14"></div>
 
-<p class="note">The states in this browser are yours alone. To record a state for everybody, edit
-<a href="https://github.com/fkaempf/fkaempf.github.io/edit/main/ng/first-cross/status.json"
->status.json on GitHub</a>. GitHub asks you to sign in, thus only you and your collaborators can
-write. The page shows the new state about one minute after the commit.</p>
+<p class="note">The states in this browser are yours alone. To record them for everybody, open
+<strong>Record</strong> below and press <strong>Copy and open GitHub</strong>. The button copies the
+whole file and opens the editor. In GitHub select all, paste, then commit. GitHub asks you to sign
+in, thus only you and your collaborators can write. The page shows the new state about one minute
+after the commit.</p>
 
 <details id="trk-all" open>
 <summary>All steps</summary>
@@ -871,6 +872,41 @@ function recordText(){
  return '{"v":'+VER+',"page":"'+PAGE+'","saved":"'+today()+'","i":{\n'+
         lines.join(",\n")+'\n}}';
 }
+var EDIT_URL="https://github.com/fkaempf/fkaempf.github.io/edit/main/ng/first-cross/status.json";
+/* The whole file, so it can replace status.json without a hand edit. */
+function fileText(){
+  var head='{\n "v": '+VER+',\n "page": "'+PAGE+'",\n "saved": "'+today()+'",\n'+
+  ' "_states": {"cross": ["none","virgins","set","score","done","failed"],'+
+  ' "order": ["none","ordered","arrived","failed"],'+
+  ' "question": ["none","run","done"]},\n'+
+  ' "_help": "Edit s and d for an item. d is the date of the last change, as YYYY-MM-DD.",\n'+
+  ' "i": ';
+ var lines=[],i,g,ex,seen={};
+ for(i=0;i<items.length;i++){
+  g=get(items[i].id);seen[items[i].id]=1;
+  lines.push('  '+JSON.stringify(items[i].id)+': {"s": "'+(g.s||"none")+'", "d": "'+(g.d||"")+'"}');
+ }
+ ex=extras();
+ for(i=0;i<ex.length;i++){
+  if(seen[ex[i]])continue;
+  g=get(ex[i]);
+  lines.push('  '+JSON.stringify(ex[i])+': {"s": "'+(g.s||"none")+'", "d": "'+(g.d||"")+'"}');
+ }
+ return head+"{\n"+lines.join(",\n")+"\n }\n}\n";
+}
+function doGitHub(){
+ var t=fileText(),done=false;
+ try{
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+   navigator.clipboard.writeText(t);done=true;
+  }
+ }catch(err){}
+ if(!done){ta.value=t;ta.focus();ta.select();
+  try{done=document.execCommand("copy");}catch(err){}}
+ say(done?"The file is on the clipboard. In GitHub select all, paste, then commit."
+        :"The text is selected. Copy it, then paste it in GitHub.");
+ window.open(EDIT_URL,"_blank","noopener");
+}
 function pending(S){
  var n=0,i,it,b,bc,ex,g;
  for(i=0;i<items.length;i++){
@@ -898,7 +934,8 @@ function skeleton(){
   '<p class="note">The page source holds the record. Your browser holds the changes since '+
   'the last commit.</p>'+
   '<textarea id="trk-ta" spellcheck="false" aria-label="The record"></textarea>'+
-  '<p><button type="button" class="btn" id="trk-copy">Copy the record</button>'+
+  '<p><button type="button" class="btn" id="trk-gh">Copy and open GitHub</button>'+
+  '<button type="button" class="btn ghost" id="trk-copy">Copy the record</button>'+
   '<button type="button" class="btn ghost" id="trk-load">Load the record</button>'+
   '<button type="button" class="btn ghost" id="trk-undo">Cancel the last change</button>'+
   '<button type="button" class="btn ghost" id="trk-reset">Return to the page record</button></p>'+
@@ -918,6 +955,7 @@ function skeleton(){
  ta=panel.querySelector("#trk-ta");
  unk=panel.querySelector("#trk-unk");
  btnUndo=panel.querySelector("#trk-undo");
+ panel.querySelector("#trk-gh").onclick=doGitHub;
  panel.querySelector("#trk-copy").onclick=doCopy;
  panel.querySelector("#trk-load").onclick=doLoad;
  btnUndo.onclick=stepBack;

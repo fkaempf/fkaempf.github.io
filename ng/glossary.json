@@ -3364,7 +3364,7 @@
    "chr": "3",
    "function": "synapse label, path A",
    "location": "Cambridge Fly Facility",
-   "condition": "arrived. Ask whether it cleared quarantine.",
+   "condition": "arrived. Check the Dfd-YFP marker on the balancers.",
    "pages": [
     {
      "label": "crosses",

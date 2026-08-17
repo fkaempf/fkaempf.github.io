@@ -264,7 +264,7 @@ in the section that describes it.</p>
 <p class="note">The PPN1 mask control is Kallman PPN1 Gal4 crossed to GJ599. It gives the shape of PPN1 alone, and it shows which cells R56C09 labels. It later becomes the target side of path B.</p>
 <ul>
 <li data-trk-id="a1-g0" data-trk-kind="cross"
-    data-trk-needs="ord-lmb494:arrived q-quarantine:done">Parent 1, G0</li>
+    data-trk-needs="ord-lmb494:arrived">Parent 1, G0</li>
 <li data-trk-id="a1-f1" data-trk-kind="cross"
     data-trk-needs="a1-g0:done">Parent 1, F1</li>
 <li data-trk-id="a2-g0" data-trk-kind="cross"
@@ -316,7 +316,6 @@ GJ948.</p>
 <p class="trk-g">Questions</p>
 <ul>
 <li data-trk-id="q-gj948chr" data-trk-kind="question">the chromosome of GJ948</li>
-<li data-trk-id="q-quarantine" data-trk-kind="question">the quarantine state of LMB-494</li>
 <li data-trk-id="q-lexaop" data-trk-kind="question">the correct LexAop2-mCD8::GFP stock</li>
 <li data-trk-id="q-lmb494marker" data-trk-kind="question"
     data-trk-needs="ord-lmb494:arrived">the balancer marker of LMB-494</li>
@@ -328,7 +327,7 @@ GJ948.</p>
 
 <!-- tracker record start -->
 <script type="application/json" id="trk-record">
-{"v":1,"page":"ng/first-cross","saved":"2026-08-17","i":{"a1-g0":{"s":"virgins","d":"2026-08-17"},"a1-f1":{"s":"blocked","d":"2026-08-17"},"a2-g0":{"s":"blocked","d":"2026-08-17"},"a2-f1":{"s":"none","d":"2026-08-16"},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"ctl-nogal4":{"s":"none","d":""},"ctl-nolexa":{"s":"none","d":""},"ctl-false":{"s":"none","d":""},"ctl-sex":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"ord-lmb494":{"s":"arrived","d":"2026-08-17"},"ord-gj948":{"s":"arrived","d":"2026-08-17"},"q-gj948chr":{"s":"blocked","d":"2026-08-17"},"q-quarantine":{"s":"done","d":"2026-08-17"},"q-lexaop":{"s":"done","d":"2026-08-17"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""},"ord-32209":{"s":"none","d":""},"ord-32211":{"s":"none","d":""}}}
+{"v":1,"page":"ng/first-cross","saved":"2026-08-17","i":{"a1-g0":{"s":"virgins","d":"2026-08-17"},"a1-f1":{"s":"blocked","d":"2026-08-17"},"a2-g0":{"s":"blocked","d":"2026-08-17"},"a2-f1":{"s":"none","d":"2026-08-16"},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"ctl-nogal4":{"s":"none","d":""},"ctl-nolexa":{"s":"none","d":""},"ctl-false":{"s":"none","d":""},"ctl-sex":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"ord-lmb494":{"s":"arrived","d":"2026-08-17"},"ord-gj948":{"s":"arrived","d":"2026-08-17"},"q-gj948chr":{"s":"blocked","d":"2026-08-17"},"q-lexaop":{"s":"done","d":"2026-08-17"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""},"ord-32209":{"s":"none","d":""},"ord-32211":{"s":"none","d":""}}}
 </script>
 <!-- tracker record end -->
 
@@ -384,7 +383,7 @@ GJ948.</p>
 for a driver.</td></tr>
 <tr class="hi" data-path="a"><td>LMB-494</td><td><code>w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP</code></td>
 <td>3</td><td>synapse label, path A</td><td>Cambridge Fly Facility</td>
-<td><span class="tag ok">arrived</span> Ask whether it cleared quarantine.</td></tr>
+<td><span class="tag ok">arrived</span> Check the Dfd-YFP marker on the balancers.</td></tr>
 <tr data-path="b"><td>GJ948</td><td><code>LexAop2-Brp-mCherry</code></td><td>not recorded</td>
 <td>synapse label, path B</td><td>Cambridge Fly Facility</td>
 <td>On the way from the Cambridge Fly Facility. The laboratory vial is dead.</td></tr>
@@ -683,8 +682,6 @@ Give them the nerve cords and the numbers of section 7.</p>
 <tr class="hi" data-trk="q-gj948chr"><td>Which chromosome has GJ948?</td><td>all of path B</td>
 <td>The stock is here now. Cross it to any LexA driver and look for red, or ask the Cambridge Fly
 Facility for the site.</td></tr>
-<tr data-trk="q-quarantine"><td>Is LMB-494 out of quarantine?</td><td>&mdash;</td>
-<td><span class="tag ok">answered</span> It arrived from the facility on 17 August 2026.</td></tr>
 <tr data-trk="q-lexaop"><td>Which 13XLexAop2-IVS-myr::GFP stock?</td><td>&mdash;</td>
 <td>BDSC 32209 at attP2, and BDSC 32211 on the X chromosome. Chosen on 17 August 2026.</td></tr>
 <tr data-trk="q-lmb494marker"><td>Which balancer marker does LMB-494 have?</td><td>the larval sort</td>

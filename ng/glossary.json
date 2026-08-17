@@ -3643,7 +3643,7 @@
    "chr": "3, attP2 and VK00027",
    "function": "both t-GRASP halves, path C",
    "location": "inc 18",
-   "condition": "ready. UAS drives the pre half, thus the sensory driver is GAL4 and the target driver is LexA. This is the usable orientation.",
+   "condition": "ready. UAS drives the pre half, thus the sensory driver is GAL4 and the target driver is LexA. This is the orientation for path C at PPN1. The stock list gives the reason, and not the orientation: ppk23, ppk25 and Gr32a exist as GAL4, and R56C09-lexA is the only target driver line in the laboratory with LexA.",
    "pages": [
     {
      "label": "crosses",
@@ -3656,9 +3656,9 @@
    "name": "BDSC 79039",
    "genotype": "y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027/TM6C, Sb[1] Tb[1]",
    "chr": "3, attP2 and VK00027",
-   "function": "the opposite orientation",
+   "function": "the second orientation, path B with t-GRASP",
    "location": "inc 18",
-   "condition": "blocked. LexAop drives the pre half, thus the target driver must be GAL4. Nearly every target GAL4 sits at attP2, and a t-GRASP half already holds attP2.",
+   "condition": "second orientation. LexAop drives the pre half, thus the sensory driver is LexA and the target driver is GAL4. This orientation opens the GAL4 targets and the split-GAL4 targets. The two halves sit on one chromosome 3, thus a target GAL4 at attP2 sits on the other chromosome 3, in trans. The laboratory holds one sensory LexA line, ppk23-LexA, thus this stock gives the ppk23 arm only, and the clean-up of section 5.1 must finish first. See section 8.1.",
    "pages": [
     {
      "label": "crosses",

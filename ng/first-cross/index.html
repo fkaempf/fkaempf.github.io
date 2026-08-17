@@ -448,12 +448,17 @@ chromosome from his mother.</td></tr>
 <td><code>y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{13XLexAop2-post-t-GRASP}attP2 PBac{20XUAS-pre-t-GRASP}VK00027</code></td>
 <td>3, attP2 and VK00027</td><td>both t-GRASP halves, path C</td><td>inc 18</td>
 <td><span class="tag ok">ready</span> UAS drives the pre half, thus the sensory driver is GAL4 and
-the target driver is LexA. This is the usable orientation.</td></tr>
+the target driver is LexA. This is the orientation for path C at PPN1. The stock list gives the
+reason, and not the orientation: ppk23, ppk25 and Gr32a exist as GAL4, and R56C09-lexA is the only
+target driver line in the laboratory with LexA.</td></tr>
 <tr data-path="c"><td>BDSC 79039</td>
 <td><code>y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027/TM6C, Sb[1] Tb[1]</code></td>
-<td>3, attP2 and VK00027</td><td>the opposite orientation</td><td>inc 18</td>
-<td><span class="tag warn">blocked</span> LexAop drives the pre half, thus the target driver must be
-GAL4. Nearly every target GAL4 sits at attP2, and a t-GRASP half already holds attP2.</td></tr>
+<td>3, attP2 and VK00027</td><td>the second orientation, path B with t-GRASP</td><td>inc 18</td>
+<td><span class="tag warn">second orientation</span> LexAop drives the pre half, thus the sensory
+driver is LexA and the target driver is GAL4. This orientation opens the GAL4 targets and the
+split-GAL4 targets. The two halves sit on one chromosome 3, thus a target GAL4 at attP2 sits on the
+other chromosome 3, in trans. The laboratory holds one sensory LexA line, ppk23-LexA, thus this stock
+gives the ppk23 arm only, and the clean-up of section 5.1 must finish first. See section 8.1.</td></tr>
 <tr data-path="b"><td>GJ599</td><td><code>w*; P{10XUAS-IVS-myr::GFP}attP40</code></td><td>2, attP40</td>
 <td>target fill, <strong>path B only</strong></td><td>inc 18</td>
 <td><span class="tag ok">ready</span></td></tr>
@@ -662,8 +667,10 @@ functional method instead.</p>
 <tr class="hi"><td>presynaptic sites apposed to PPN1</td><td class="num">about 27000</td>
 <td>One site gives approximately one connection onto one target cell. <strong>Do not divide by
 six.</strong></td></tr>
-<tr class="hi"><td>puncta to expect, ppk23 arm</td><td class="num">13000 to 20000</td>
-<td>two PPN1 cells, if the method finds one half to three quarters</td></tr>
+<tr class="hi"><td>puncta to expect, ppk23 arm</td><td class="num">about 20000</td>
+<td>two PPN1 cells, at the 74 percent that the membrane contact method of Lillvis et al. gives. That
+method found 501 sites against the 677 sites of the electron microscopy sample. Their best single
+sample gives 89 percent, thus 24000. Do not expect the best sample.</td></tr>
 <tr><td>median distance between sites</td><td class="num">294 nm</td>
 <td>The person who does the imaging needs this number.</td></tr>
 </table>
@@ -677,10 +684,11 @@ connectome is wrong. Decide the failure threshold before you start the imaging.<
 
 <h2 id="s8c" data-path="c">8 &middot; Path C, t-GRASP</h2>
 
-<p data-path="c">t-GRASP splits a fluorescent protein in two. One half sits on the membrane of the
-sensory neuron and one half on the membrane of the target. The halves join only where the two
-membranes touch, thus the signal is the contact. You need no synapse label, no membrane fill, no
-antibody and no gel.</p>
+<p data-path="c">t-GRASP splits a fluorescent protein in two halves. The cacophony tail holds the pre
+half at the active zones of the sensory neuron. The mouse ICAM-5 ectodomain holds the post half on
+the whole dendrite of the target neuron. The two halves join where an active zone comes close to
+that dendrite. Path C needs no synapse label, no membrane fill and no gel. Path C needs a
+stain.</p>
 
 <div class="scroll" data-path="c">
 <table>
@@ -693,22 +701,147 @@ half, thus it goes in PPN1.</td></tr>
 </table>
 </div>
 
-<p data-path="c">Both halves of BDSC 79040 are on chromosome 3, thus chromosome 3 is full. The two
-drivers sit on chromosome 2, one on each homolog, as in path A. Path C therefore needs no new stock
-and no order.</p>
+<p data-path="c"><strong>Why this orientation.</strong> The drivers give the reason. The stock does not
+give the reason. ppk25 exists only as GAL4, thus the ppk25 arm puts the GAL4 in the sensory neuron.
+The two arms must use the same reporter arrangement, or the unknown efficiency of the method does not
+cancel in the ratio of section 7. The sensory driver is therefore GAL4, and the target driver is
+therefore LexA. BDSC 79040 puts the pre half behind UAS, thus BDSC 79040 fits these drivers. BDSC
+79039 has the other orientation: see section 8.1.</p>
+
+<p data-path="c">The limit of this route is not the chromosome. R56C09-lexA is the only target driver
+line in the laboratory with LexA, thus path C reaches PPN1 only. A split-GAL4 target cannot drive the
+post half in this orientation.</p>
+
+<p data-path="c"><strong>The chromosomes.</strong> Both halves of BDSC 79040 sit on one chromosome 3.
+One half sits at attP2, at 68A4. The other half sits at VK00027, at 89E11. These two sites are full
+on that chromosome. The other chromosome 3 is free. Count units, and do not count halves. Chromosome
+3 holds two units, one unit on each homolog. Path A uses the free homolog: brp-D3-Cherry and the
+LexAop fill sit in trans. A third unit on chromosome 3 does not fit, and section 4.5 shows this limit
+for the Gr32a arm. The two drivers of path C sit on chromosome 2, one driver on each homolog, as in
+path A. The Gr32a arm is therefore also possible in path C: GJ1435 sits on chromosome 3, in trans to
+the t-GRASP chromosome. Confirm first that the Gr32a insertion is not at attP2.</p>
+
+<p class="note" data-path="c">Do not put a new transgene at attP2 on the free chromosome 3. A t-GRASP
+half holds attP2. Two transgenes at the same site pair with each other, and one transgene can then
+drive the other transgene in trans. This effect is transvection. Mellert and Truman 2012, Genetics
+191:1129, show it between transgenes at one phiC31 site, and attP2 is one of those sites. They also
+show that an active UAS array drives transcription in trans. The risk is expression of the post half
+outside the target pattern. Use a
+different position on chromosome 3, or use chromosome 2, or use the X chromosome.</p>
+
+<p data-path="c"><strong>The crosses.</strong> Path C needs no fly order. All three stocks are in the
+laboratory. Path C needs two crosses, because the three elements are in three stocks, and a cross has
+two parents. No stock holds a driver and a t-GRASP half together.</p>
+
+<div class="scroll" data-path="c">
+<table>
+<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
+<tr class="hi"><td class="num">G0</td><td>BDSC 93026 &times; BDSC 79040</td>
+<td>Curly. <strong>Tubby</strong>.</td>
+<td><code>w; ppk23-GAL4/CyO,Dfd-EYFP; t-GRASP/TM6B</code></td></tr>
+<tr class="hi"><td class="num">F1</td><td>the progeny of G0 &times; BDSC 53584</td>
+<td><strong>Not</strong> Curly. <strong>Not</strong> Tubby. Keep the males.</td>
+<td><code>w/Y ; ppk23-GAL4 / R56C09-lexA(attP40) ; t-GRASP / +</code></td></tr>
+</table>
+</div>
+<p class="trk-host" data-path="c" data-trk="c-grasp"></p>
+
+<p class="note" data-path="c">The markers give one in four of the progeny of the second cross. The
+males give one in eight. The two crosses need about 4 to 5 weeks at 25 degrees Celsius: this page
+counts 2 weeks for one cross. The direction of both crosses is free, because no element is on the X
+chromosome. The Tubby comes from BDSC 93026, because its chromosome 3 is TM2/TM6B. The Curly comes
+from BDSC 79040. The two crosses therefore need no PCR. Move BDSC 79040 from incubator 18 to 25
+degrees Celsius before the first cross.</p>
+
+<p class="note" data-path="c">Path C builds no stock and keeps no stock: you use the progeny of the
+first cross as parents. The earlier analysis makes a homozygous stock instead, in three generations
+and about 6 to 8 weeks. Make that stock only if you do path C more than one time. Look at the two
+vials before you start. The snapshot is of 20 July 2026, it gives BDSC 79040 in incubator 18, and the
+last flip is 9 July 2026. Confirm that the stock is alive, as for GJ948.</p>
+
+<p data-path="c"><strong>The stain.</strong> The antibody gives the signal. Shearin et al. read the
+t-GRASP signal with a rabbit anti-GFP antibody, anti-GFP Tag Abfinity from ThermoFisher. Their figure
+S1 shows that this antibody finds the joined GFP, and that it does not find the free halves. A
+general anti-GFP also binds the free spGFP1-10 half. Your choice of antibody therefore controls the
+meaning of the signal. The earlier analysis gives four channels for this readout: anti-GFP for the
+signal, anti-HA for the pre half, anti-ICAM-5 for the target mask, and nc82 for the registration.</p>
+
+<p class="note" data-path="c">The laboratory holds seven anti-GFP antibodies. The record holds no
+Abfinity antibody, and no record shows which vial binds the joined protein only. Path C can therefore
+need one antibody order. Stain an animal that carries one half only. Read that animal in the same
+session, with the same stain and the same settings. Accept a count only after that animal stays
+blank.</p>
 
 <div class="callout warn" data-path="c">
-<p><span class="tag warn">read this before you choose path C</span> t-GRASP shows that two membranes
-are close. It does not show a synapse. Nobody has compared a t-GRASP count against electron
-microscopy, and the method of path A has been compared. Thus path C gives a yes or no answer about
-contact, and it does not give a synapse count that the calibration of section 7 can use.</p>
-<p>t-GRASP also fails after a gel that denatures by heat, because the heat unfolds the barrel of the
-fluorescent protein. Path C and the ultrastructure route exclude each other.</p>
+<p><span class="tag warn">read this before you choose path C</span> A t-GRASP punctum shows that a
+dendrite membrane came close to an active zone. The cacophony tail holds the pre half at the active
+zone, thus t-GRASP reports more than two close membranes. Shearin et al. 2018 compared the puncta
+against a separate Brp label of the active zones, and the puncta agreed with that label. They also
+tested six lamina types that lie close to the R1-6 terminals and make no synapse with them. Five of
+these six types gave no signal. Close membranes alone therefore did not make a punctum.</p>
+<p>t-GRASP makes two known errors. The polarity can be wrong: L4 makes synapses onto R1-6, and
+t-GRASP found that contact. A strong driver can also make a punctum at a cell body, where there is no
+synapse. Shearin et al. write that t-GRASP is not infallible, and that you must confirm a positive
+result with a second method.</p>
+<p>A punctum does not identify one synapse. A count of puncta is not a count of synapses. Nobody has
+compared a t-GRASP count against electron microscopy. Lillvis et al. 2022 compared two labels against
+electron microscopy: the nc82 antibody against the endogenous Brp protein, and Brp with a STaR tag.
+Their membrane contact method found 501 sites against the 677 sites of the electron microscopy
+sample, which is 74 percent. They recommend a postsynaptic marker, because the membrane contact
+method loses more sites. Path A uses UAS-brp-D3-Cherry. That reagent is a short form of Brp, a GAL4
+driver expresses it, and it is not the endogenous protein. Nobody has compared that label against
+electron microscopy. Path C therefore gives a yes or no answer about contact, and it gives no synapse
+count for the calibration of section 7. The count of path A also has no comparison against electron
+microscopy yet. Path A therefore needs a decision: use STaR, or add an nc82 channel against the
+endogenous Brp protein, or accept the difference as a risk.</p>
+<p><span class="tag q">Inference drawn here, not published</span> A gel that denatures by heat
+probably stops the t-GRASP signal. The heat unfolds the barrel of the fluorescent protein, and the
+barrel then releases spGFP11. This statement is a prediction from the chemistry. No publication
+reports a test. LICONN heats the sample to 95 degrees Celsius in 200 mM SDS for 100 minutes (Tavakoli
+et al. 2025, Nature 642:398). LICONN then finds GFP with an antibody after that step, thus an
+unfolded barrel does not stop every readout. Do not plan path C and the ultrastructure route as one
+experiment.</p>
 </div>
 
-<p class="note" data-path="c">Use path C when path A cannot run: a label that does not express, an
-antibody that does not penetrate, or a gel that will not come. It answers a smaller question with
-stocks that are already in the incubator.</p>
+<p class="note" data-path="c">Use path C when path A cannot run: a label that does not express, or a
+gel that will not come. Path C also reads out through an antibody, thus a stain that does not
+penetrate the nerve cord stops path C as well. Path C answers a smaller question with stocks that are
+already in the incubator.</p>
+
+<h3 id="s81" data-path="c">8.1 The second orientation, BDSC 79039</h3>
+
+<p data-path="c">BDSC 79039 is not blocked. Its two halves also sit on one chromosome 3, at attP2 and
+at VK00027. A target GAL4 at attP2 sits on the other chromosome 3. The two insertions are then in
+trans, and one fly carries both. Shearin et al. 2018 made the stocks for both directions.</p>
+
+<p data-path="c">BDSC 79039 puts the pre half behind LexAop. The sensory driver must therefore use
+LexA, and the target driver must use GAL4. This orientation opens the GAL4 targets and the split-GAL4
+targets, which BDSC 79040 cannot reach. It is path B with t-GRASP, and it needs no synapse label and
+no fill.</p>
+
+<p data-path="c">Three limits stay.</p>
+<ul data-path="c">
+<li>The laboratory holds one sensory LexA line, ppk23-LexA. BDSC 79039 therefore gives the ppk23 arm
+only. The stock in the incubator also carries 22B10-GAL4, and that GAL4 drives the post half in the
+wrong cells. The clean-up of section 5.1 must finish first, and it takes four generations.</li>
+<li>The ppk23 arm and the ppk25 arm then use different reporter arrangements, thus the unknown
+efficiency of the method does not cancel in their ratio. BDSC 79039 gives a yes or no answer at one
+target. It does not give the ratio of section 7.</li>
+<li>A target GAL4 at attP2 pairs with the UAS half at attP2, and transvection can then express the
+post half outside the target pattern. Prefer a target driver that is not at attP2. If the target
+driver sits at attP2, add a control animal with no sensory driver at that same target.</li>
+</ul>
+
+<p data-path="c">The genotype with the PPN1 GAL4 target, which sits at attP2:</p>
+<pre data-path="c"><code>w/Y ; ppk23-LexA / + ; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027 / P{GMR56C09-GAL4}attP2</code></pre>
+
+<p data-path="c">The genotype with a split-GAL4 target, here SS104905:</p>
+<pre data-path="c"><code>w/Y ; ppk23-LexA / 71A10-p65ADZ ; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027 / VT034623-ZpGdbd(attP2)</code></pre>
+
+<p class="note" data-path="c">The split-GAL4 genotype holds two units on chromosome 2 and two units on
+chromosome 3, one unit on each homolog. The PPN1 GAL4 genotype holds one unit on chromosome 2 and two
+units on chromosome 3. The t-GRASP chromosome of BDSC 79039 is balanced over TM6C, Sb Tb. In the last
+cross you therefore keep the progeny that are not Tubby.</p>
 
 <h2 id="s8">9 &middot; Items to order</h2>
 

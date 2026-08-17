@@ -1189,13 +1189,29 @@ way.</p>
 <section class="doc" id="doc-reagents" role="tabpanel" aria-labelledby="tab-reagents">
 <h2>1 &middot; Chromosome constraint</h2>
 
-<p>Chromosome 3 is full in this design. The two halves of the t-GRASP pair both sit on chromosome
-3. Every other transgene in this design must therefore sit on chromosome 2 or on chromosome X.</p>
+<p>Count units, and do not count halves. The two halves of the t-GRASP pair sit on ONE chromosome 3,
+at attP2 and at VK00027. Those two sites are full on that chromosome. The other chromosome 3 is
+free, and a transgene there expresses, because two transgenes in trans both work. Section 11 of
+document two uses that free homolog: GJ916 gives the Halo membrane at VK00027, opposite
+R56C09-GAL4 at attP2.</p>
 
-<p>Chromosome 2 carries the sensory driver line and the target driver line. Chromosome 3 carries
-the two GRASP halves and nothing else. Read the rest of this document against that rule. A stock
-fails the rule in two ways. The stock puts a transgene on chromosome 3 that is not a GRASP half.
-The stock puts a transgene at attP2, and a GRASP half already holds attP2.</p>
+<p>The rule is therefore a count. Chromosome 3 holds two units, one unit on each homolog. A third
+unit on chromosome 3 does not fit. Chromosome 2 carries the sensory driver and the target driver,
+one on each homolog.</p>
+
+<div class="callout warn">
+<p><span class="tag q">Inference drawn here, not published for this design</span> Do not put a new
+transgene at attP2 on the free homolog. Two transgenes at the same site pair, and one transgene can
+then drive the other in trans. This effect is transvection. Mellert and Truman 2012,
+Genetics 191:1129, show it between transgenes at one integration site. The risk here is expression
+of a GRASP half outside the pattern of its driver. Use another position on chromosome 3, or use
+chromosome 2 or the X chromosome. This is a caution, and it is not a measured failure of this
+design.</p>
+</div>
+
+<p class="note">Corrected on 17 August 2026. An earlier version of this section said "chromosome 3
+is full", and it forbade every chromosome 3 transgene. That rule counted halves and not units, and
+it disagreed with section 11 of document two.</p>
 
 <div class="callout">
 <p>The GRASP reagents on chromosome 3 cause no problem in this design. The GRASP reagents on

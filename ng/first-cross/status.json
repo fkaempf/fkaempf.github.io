@@ -2,34 +2,136 @@
  "v": 1,
  "page": "ng/first-cross",
  "saved": "2026-08-17",
- "_states": {"cross": ["none","virgins","set","score","done","failed"], "order": ["none","ordered","arrived","failed"], "question": ["none","run","done"]},
+ "_states": {
+  "cross": [
+   "none",
+   "virgins",
+   "set",
+   "score",
+   "done",
+   "failed"
+  ],
+  "order": [
+   "none",
+   "ordered",
+   "arrived",
+   "failed"
+  ],
+  "question": [
+   "none",
+   "run",
+   "done"
+  ]
+ },
  "_help": "Edit s and d for an item. d is the date of the last change, as YYYY-MM-DD.",
  "i": {
-  "a1-g0": {"s": "virgins", "d": "2026-08-17"},
-  "a1-f1": {"s": "blocked", "d": "2026-08-17"},
-  "a2-g0": {"s": "blocked", "d": "2026-08-17"},
-  "a2-f1": {"s": "none", "d": "2026-08-16"},
-  "ax": {"s": "none", "d": ""},
-  "c1472-g0": {"s": "none", "d": ""},
-  "c1472-f1": {"s": "none", "d": ""},
-  "c1472-f2": {"s": "none", "d": ""},
-  "c1472-f3": {"s": "none", "d": ""},
-  "c93028": {"s": "none", "d": ""},
-  "b-target": {"s": "none", "d": ""},
-  "ctl-nogal4": {"s": "none", "d": ""},
-  "ctl-nolexa": {"s": "none", "d": ""},
-  "ctl-false": {"s": "none", "d": ""},
-  "ctl-sex": {"s": "none", "d": ""},
-  "b-sensory": {"s": "none", "d": ""},
-  "ord-lmb494": {"s": "arrived", "d": "2026-08-17"},
-  "ord-gj948": {"s": "arrived", "d": "2026-08-17"},
-  "ord-32203": {"s": "none", "d": ""},
-  "q-gj948chr": {"s": "blocked", "d": "2026-08-17"},
-  "q-quarantine": {"s": "run", "d": "2026-08-17"},
-  "q-lexaop": {"s": "run", "d": "2026-08-17"},
-  "q-lmb494marker": {"s": "none", "d": ""},
-  "q-ss103018": {"s": "none", "d": ""},
-  "q-r56c09": {"s": "none", "d": ""},
-  "q-an09b017": {"s": "none", "d": ""}
+  "a1-g0": {
+   "s": "virgins",
+   "d": "2026-08-17"
+  },
+  "a1-f1": {
+   "s": "blocked",
+   "d": "2026-08-17"
+  },
+  "a2-g0": {
+   "s": "blocked",
+   "d": "2026-08-17"
+  },
+  "a2-f1": {
+   "s": "none",
+   "d": "2026-08-16"
+  },
+  "ax": {
+   "s": "none",
+   "d": ""
+  },
+  "c1472-g0": {
+   "s": "none",
+   "d": ""
+  },
+  "c1472-f1": {
+   "s": "none",
+   "d": ""
+  },
+  "c1472-f2": {
+   "s": "none",
+   "d": ""
+  },
+  "c1472-f3": {
+   "s": "none",
+   "d": ""
+  },
+  "c93028": {
+   "s": "none",
+   "d": ""
+  },
+  "b-target": {
+   "s": "none",
+   "d": ""
+  },
+  "ctl-nogal4": {
+   "s": "none",
+   "d": ""
+  },
+  "ctl-nolexa": {
+   "s": "none",
+   "d": ""
+  },
+  "ctl-false": {
+   "s": "none",
+   "d": ""
+  },
+  "ctl-sex": {
+   "s": "none",
+   "d": ""
+  },
+  "b-sensory": {
+   "s": "none",
+   "d": ""
+  },
+  "ord-lmb494": {
+   "s": "arrived",
+   "d": "2026-08-17"
+  },
+  "ord-gj948": {
+   "s": "arrived",
+   "d": "2026-08-17"
+  },
+  "q-gj948chr": {
+   "s": "blocked",
+   "d": "2026-08-17"
+  },
+  "q-quarantine": {
+   "s": "run",
+   "d": "2026-08-17"
+  },
+  "q-lexaop": {
+   "s": "run",
+   "d": "2026-08-17"
+  },
+  "q-lmb494marker": {
+   "s": "none",
+   "d": ""
+  },
+  "q-ss103018": {
+   "s": "none",
+   "d": ""
+  },
+  "q-r56c09": {
+   "s": "none",
+   "d": ""
+  },
+  "q-an09b017": {
+   "s": "none",
+   "d": ""
+  },
+  "ord-32209": {
+   "s": "none",
+   "d": ""
+  },
+  "ord-32211": {
+   "s": "none",
+   "d": ""
+  }
  }
 }

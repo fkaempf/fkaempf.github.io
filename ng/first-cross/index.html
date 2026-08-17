@@ -195,7 +195,7 @@ Related pages: <a href="../receptor-typing/">receptor typing</a>,
 </p>
 
 <p data-path="a"><strong>Path A</strong>, label in GAL4. Both ppk arms are possible. The target is PPN1 only.</p>
-<pre data-path="a"><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; UAS-brp-D3-Cherry / 13XLexAop2-mCD8::GFP(attP2)</code></pre>
+<pre data-path="a"><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; UAS-brp-D3-Cherry / 13XLexAop2-IVS-myr::GFP(attP2)</code></pre>
 
 <p data-path="b"><strong>Path B</strong>, label in LexA. One arm only. Any GAL4 or split-GAL4 target.</p>
 <pre data-path="b"><code>w/Y ; ppk23-LexA / + ; target-GAL4 / UAS-myr::GFP     plus LexAop2-Brp-mCherry</code></pre>
@@ -234,7 +234,7 @@ Ir52a-LexA. Path A can thus use every receptor driver. Path B can use two.</p>
 <tr class="hi"><td>GAL4</td><td>the active zones of the sensory neurons</td><td>red</td>
 <td>UAS-brp-D3-Cherry, LMB-494</td></tr>
 <tr class="hi"><td>LexA</td><td>the membrane of the target neuron</td><td>green</td>
-<td>13XLexAop2-mCD8::GFP, BDSC 32203</td></tr>
+<td>13XLexAop2-IVS-myr::GFP, BDSC 32209</td></tr>
 </table>
 </div>
 
@@ -268,7 +268,7 @@ in the section that describes it.</p>
 <li data-trk-id="a1-f1" data-trk-kind="cross"
     data-trk-needs="a1-g0:done">Parent 1, F1</li>
 <li data-trk-id="a2-g0" data-trk-kind="cross"
-    data-trk-needs="ord-32203:arrived">Parent 2, G0</li>
+    data-trk-needs="ord-32209:arrived">Parent 2, G0</li>
 <li data-trk-id="a2-f1" data-trk-kind="cross"
     data-trk-needs="a2-g0:done">Parent 2, F1</li>
 <li data-trk-id="ax" data-trk-kind="cross"
@@ -309,7 +309,8 @@ GJ948.</p>
 <ul>
 <li data-trk-id="ord-lmb494" data-trk-kind="order">LMB-494</li>
 <li data-trk-id="ord-gj948" data-trk-kind="order">GJ948</li>
-<li data-trk-id="ord-32203" data-trk-kind="order">BDSC 32203</li>
+<li data-trk-id="ord-32209" data-trk-kind="order">BDSC 32209</li>
+<li data-trk-id="ord-32211" data-trk-kind="order">BDSC 32211</li>
 </ul>
 
 <p class="trk-g">Questions</p>
@@ -327,7 +328,7 @@ GJ948.</p>
 
 <!-- tracker record start -->
 <script type="application/json" id="trk-record">
-{"v":1,"page":"ng/first-cross","saved":"2026-08-17","i":{"a1-g0":{"s":"virgins","d":"2026-08-17"},"a1-f1":{"s":"blocked","d":"2026-08-17"},"a2-g0":{"s":"blocked","d":"2026-08-17"},"a2-f1":{"s":"none","d":"2026-08-16"},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"ctl-nogal4":{"s":"none","d":""},"ctl-nolexa":{"s":"none","d":""},"ctl-false":{"s":"none","d":""},"ctl-sex":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"ord-lmb494":{"s":"arrived","d":"2026-08-17"},"ord-gj948":{"s":"arrived","d":"2026-08-17"},"ord-32203":{"s":"none","d":""},"q-gj948chr":{"s":"blocked","d":"2026-08-17"},"q-quarantine":{"s":"run","d":"2026-08-17"},"q-lexaop":{"s":"run","d":"2026-08-17"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""}}}
+{"v":1,"page":"ng/first-cross","saved":"2026-08-17","i":{"a1-g0":{"s":"virgins","d":"2026-08-17"},"a1-f1":{"s":"blocked","d":"2026-08-17"},"a2-g0":{"s":"blocked","d":"2026-08-17"},"a2-f1":{"s":"none","d":"2026-08-16"},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"ctl-nogal4":{"s":"none","d":""},"ctl-nolexa":{"s":"none","d":""},"ctl-false":{"s":"none","d":""},"ctl-sex":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"ord-lmb494":{"s":"arrived","d":"2026-08-17"},"ord-gj948":{"s":"arrived","d":"2026-08-17"},"q-gj948chr":{"s":"blocked","d":"2026-08-17"},"q-quarantine":{"s":"run","d":"2026-08-17"},"q-lexaop":{"s":"run","d":"2026-08-17"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""},"ord-32209":{"s":"none","d":""},"ord-32211":{"s":"none","d":""}}}
 </script>
 <!-- tracker record end -->
 
@@ -372,10 +373,15 @@ GJ948.</p>
 <td>ppk23 driver, path A</td><td>25inc, 3 vials</td><td><span class="tag ok">ready</span></td></tr>
 <tr class="hi" data-path="a" data-gt-also="Kallman PPN1 LexA"><td>BDSC 53584</td><td><code>w1118; P{GMR56C09-lexA}attP40</code></td><td>2, attP40</td>
 <td>PPN1 driver, path A</td><td>inc 18</td><td><span class="tag ok">ready</span></td></tr>
-<tr class="hi" data-path="a"><td>BDSC 32203</td>
-<td><code>w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-mCD8::GFP}attP2</code></td>
-<td>3, attP2, 68A4</td><td>PPN1 fill, path A</td><td>BDSC</td>
-<td><span class="tag ok">confirmed</span></td></tr>
+<tr class="hi" data-path="a"><td>BDSC 32209</td>
+<td><code>w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-IVS-myr::GFP}attP2</code></td>
+<td>3, attP2</td><td>PPN1 fill, path A</td><td>BDSC</td>
+<td><span class="tag warn">order</span> The fill of every arm that keeps chromosome 3 free.</td></tr>
+<tr class="hi" data-path="a"><td>BDSC 32211</td>
+<td><code>y[1] w[*] P{y[+t7.7] w[+mC]=13XLexAop2-IVS-myr::GFP}su(Hw)attP8</code></td>
+<td>X, su(Hw)attP8</td><td>PPN1 fill, the Gr32a arm</td><td>BDSC</td>
+<td><span class="tag warn">order</span> The same reporter on the X chromosome. It frees chromosome 3
+for a driver.</td></tr>
 <tr class="hi" data-path="a"><td>LMB-494</td><td><code>w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP</code></td>
 <td>3</td><td>synapse label, path A</td><td>Cambridge Fly Facility</td>
 <td><span class="tag ok">arrived</span> Ask whether it cleared quarantine.</td></tr>
@@ -474,7 +480,7 @@ LMB-494 has Stubble. A fly with two TM6B chromosomes dies.</p>
 <div class="scroll">
 <table>
 <tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr data-trk="a2-g0"><td class="num">G0</td><td>BDSC 32203 &times; BDSC 53584</td>
+<tr data-trk="a2-g0"><td class="num">G0</td><td>BDSC 32209 &times; BDSC 53584</td>
 <td>the balancer markers of the stock that arrives</td>
 <td><code>w; R56C09-lexA/+; LexAop-mCD8::GFP(attP2)/+</code></td></tr>
 <tr data-trk="a2-f1"><td class="num">F1</td><td>cross to a chromosome 3 balancer, then a sibling cross</td>
@@ -520,10 +526,11 @@ that the reporter works.</p>
 <tr class="hi"><td>ppk23</td><td>BDSC 93026, chr 2</td><td>Use the crosses above.</td></tr>
 <tr class="hi"><td>ppk25</td><td>BDSC 93028, the chr 2 copy</td><td>Remove the chr 3 copy first.</td></tr>
 <tr><td>Gr32a</td><td>GJ1435, chr 3</td>
-<td>The driver and brp-D3 are both on chromosome 3, thus the fill must move to chromosome 2.
-BDSC 32203 is at attP2 on chromosome 3, thus it does not fit. Order the same reporter at a
-chromosome 2 site, or recombine Gr32a-GAL4 with brp-D3. Do <strong>not</strong> use R56C09-GAL4 as
-the target driver: that GAL4 also drives brp-D3 in PPN1.</td></tr>
+<td>The driver and brp-D3 are both on chromosome 3, thus the fill must leave chromosome 3. Use
+BDSC 32211, which carries the same reporter on the X chromosome. The mother must carry BDSC 32211,
+because a son takes his X chromosome from his mother, and this work scores males. Do
+<strong>not</strong> use R56C09-GAL4 as the target driver: that GAL4 also drives brp-D3 in
+PPN1.</td></tr>
 </table>
 </div>
 
@@ -652,9 +659,12 @@ connectome is wrong. Decide the failure threshold before you start the imaging.<
 <div class="scroll">
 <table>
 <tr><th>Item</th><th>Function</th><th>Note</th></tr>
-<tr class="warn" data-trk="ord-32203"><td>BDSC 32203, 13XLexAop2-mCD8::GFP at attP2</td>
+<tr class="warn" data-trk="ord-32209"><td>BDSC 32209, at attP2 on chromosome 3</td>
 <td>the PPN1 fill of path A</td>
-<td>The only fly line that must be bought. This one order opens every receptor arm.</td></tr>
+<td>The fill of the ppk23 arm and of the ppk25 arm. This order opens both.</td></tr>
+<tr class="warn" data-trk="ord-32211"><td>BDSC 32211, at su(Hw)attP8 on the X chromosome</td>
+<td>the PPN1 fill of the Gr32a arm</td>
+<td>The same reporter on the X chromosome. The Gr32a driver and brp-D3 both need chromosome 3.</td></tr>
 <tr data-trk="ord-lmb494"><td>LMB-494, UAS-brp-D3-Cherry</td><td>the synapse label of path A</td>
 <td>Requested from the Cambridge Fly Facility on 13 August 2026.</td></tr>
 <tr data-trk="ord-gj948"><td>GJ948, LexAop2-Brp-mCherry</td><td>the synapse label of path B</td>
@@ -674,8 +684,8 @@ Give them the nerve cords and the numbers of section 7.</p>
 <td>Ask Simon. The laboratory vial is dead, thus you cannot map it here.</td></tr>
 <tr class="hi" data-trk="q-quarantine"><td>Is LMB-494 out of quarantine?</td><td>Parent 1, thus path A</td>
 <td>Ask Simon.</td></tr>
-<tr data-trk="q-lexaop"><td>Which 13XLexAop2-mCD8::GFP stock?</td><td>&mdash;</td>
-<td>BDSC 32203, confirmed on 16 August 2026.</td></tr>
+<tr data-trk="q-lexaop"><td>Which 13XLexAop2-IVS-myr::GFP stock?</td><td>&mdash;</td>
+<td>BDSC 32209 at attP2, and BDSC 32211 on the X chromosome. Chosen on 17 August 2026.</td></tr>
 <tr data-trk="q-lmb494marker"><td>Which balancer marker does LMB-494 have?</td><td>the larval sort</td>
 <td>The record gives "eYFP" on one tray and "YFP" on another. Examine the stock on arrival.</td></tr>
 <tr data-trk="q-ss103018"><td>What are the positions in SS103018?</td><td>the discriminating target of path B</td>
@@ -699,7 +709,7 @@ laboratory.</li>
 GJ948 is the label of path B. The laboratory vial of GJ948 is dead.</li>
 <li>Set up Parent 1 when LMB-494 arrives. Set up the sensory side of path B when GJ948
 arrives.</li>
-<li>Order BDSC 32203 now.</li>
+<li>Order BDSC 32209 and BDSC 32211 now.</li>
 <li>Give the nerve cords to the person who does the gel and the imaging.</li>
 </ul>
 

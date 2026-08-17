@@ -110,7 +110,8 @@
   "BDSC 93026": "BDSC 93026",
   "BDSC 53584": "BDSC 53584",
   "Kallman PPN1 LexA": "BDSC 53584",
-  "BDSC 32203": "BDSC 32203",
+  "BDSC 32209": "BDSC 32209",
+  "BDSC 32211": "BDSC 32211",
   "LMB-494": "LMB-494",
   "GJ948": "GJ948",
   "ppk23-LexA-dirty": "ppk23-LexA-dirty",
@@ -3324,14 +3325,30 @@
    ],
    "path": "a"
   },
-  "BDSC 32203": {
+  "BDSC 32209": {
    "kind": "stock",
-   "name": "BDSC 32203",
-   "genotype": "w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-mCD8::GFP}attP2",
-   "chr": "3, attP2, 68A4",
+   "name": "BDSC 32209",
+   "genotype": "w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-IVS-myr::GFP}attP2",
+   "chr": "3, attP2",
    "function": "PPN1 fill, path A",
    "location": "BDSC",
-   "condition": "confirmed",
+   "condition": "order. The fill of every arm that keeps chromosome 3 free.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ],
+   "path": "a"
+  },
+  "BDSC 32211": {
+   "kind": "stock",
+   "name": "BDSC 32211",
+   "genotype": "y[1] w[*] P{y[+t7.7] w[+mC]=13XLexAop2-IVS-myr::GFP}su(Hw)attP8",
+   "chr": "X, su(Hw)attP8",
+   "function": "PPN1 fill, the Gr32a arm",
+   "location": "BDSC",
+   "condition": "order. The same reporter on the X chromosome. It frees chromosome 3 for a driver.",
    "pages": [
     {
      "label": "crosses",

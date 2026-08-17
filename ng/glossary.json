@@ -106,7 +106,34 @@
   "vAB3": "vAB3",
   "AN05B023": "AN05B023",
   "AN05B102": "AN05B102",
-  "AN09B017": "AN09B017"
+  "AN09B017": "AN09B017",
+  "BDSC 93026": "BDSC 93026",
+  "BDSC 53584": "BDSC 53584",
+  "Kallman PPN1 LexA": "BDSC 53584",
+  "BDSC 32203": "BDSC 32203",
+  "LMB-494": "LMB-494",
+  "GJ948": "GJ948",
+  "GJ1472": "GJ1472",
+  "BDSC 93028": "BDSC 93028",
+  "GJ1435": "GJ1435",
+  "GJ954": "GJ954",
+  "GJ890": "GJ890",
+  "GJ891": "GJ891",
+  "GJ894": "GJ894",
+  "GJ895": "GJ895",
+  "GJ598": "GJ598",
+  "GJ600": "GJ600",
+  "GJ667": "GJ667",
+  "GJ832": "GJ832",
+  "GJ1008": "GJ1008",
+  "SS104905": "SS104905",
+  "LMB-495": "LMB-495",
+  "LMB-536": "LMB-536",
+  "LMB-538": "LMB-538",
+  "GJ599": "GJ599",
+  "SS103018": "SS103018",
+  "GJ946": "GJ946",
+  "GJ1000": "GJ1000"
  },
  "entries": {
   "AN01B004": {
@@ -3264,7 +3291,408 @@
      "url": "../receptor-typing/"
     }
    ]
+  },
+  "BDSC 93026": {
+   "kind": "stock",
+   "name": "BDSC 93026",
+   "genotype": "w1118; P{ppk23-Gal4.2.695}2; TM2/TM6B",
+   "chr": "2",
+   "function": "ppk23 driver, path A",
+   "location": "25inc, 3 vials",
+   "condition": "ready",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ],
+   "path": "a"
+  },
+  "BDSC 53584": {
+   "kind": "stock",
+   "name": "BDSC 53584",
+   "genotype": "w1118; P{GMR56C09-lexA}attP40",
+   "chr": "2, attP40",
+   "function": "PPN1 driver, path A",
+   "location": "inc 18",
+   "condition": "ready",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ],
+   "path": "a"
+  },
+  "BDSC 32203": {
+   "kind": "stock",
+   "name": "BDSC 32203",
+   "genotype": "w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-mCD8::GFP}attP2",
+   "chr": "3, attP2, 68A4",
+   "function": "PPN1 fill, path A",
+   "location": "BDSC",
+   "condition": "confirmed. RRID:BDSC_32203. Rubin and Pfeiffer.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ],
+   "path": "a"
+  },
+  "LMB-494": {
+   "kind": "stock",
+   "name": "LMB-494",
+   "genotype": "w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP",
+   "chr": "3",
+   "function": "synapse label, path A",
+   "location": "stockist",
+   "condition": "quarantine?",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ],
+   "path": "a"
+  },
+  "GJ948": {
+   "kind": "stock",
+   "name": "GJ948",
+   "genotype": "LexAop2-Brp-mCherry",
+   "chr": "not recorded",
+   "function": "synapse label, path B",
+   "location": "Cambridge Genetics stockist",
+   "condition": "The laboratory vial is dead. GJ1008 and GJ1000 are also not available.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ],
+   "path": "b"
+  },
+  "GJ1472": {
+   "kind": "stock",
+   "name": "GJ1472",
+   "genotype": ";ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser",
+   "chr": "2",
+   "function": "ppk23 driver, path B",
+   "location": "25inc, Bella",
+   "condition": "clean. remove 22B10-GAL4",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ],
+   "path": "b"
+  },
+  "BDSC 93028": {
+   "kind": "stock",
+   "name": "BDSC 93028",
+   "genotype": "w1118; P{ppk25-GAL4.S}2; P{ppk25-GAL4.S}3",
+   "chr": "2 and 3",
+   "function": "ppk25 driver, the second arm",
+   "location": "inc 18",
+   "condition": "clean. remove the chromosome 3 copy",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "GJ1435": {
+   "kind": "stock",
+   "name": "GJ1435",
+   "genotype": "w118; Sp/CyO; Gr32a-Gal4.3.7.PW",
+   "chr": "3",
+   "function": "Gr32a driver, a third arm",
+   "location": "25inc",
+   "condition": "ready",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "GJ954": {
+   "kind": "stock",
+   "name": "GJ954",
+   "genotype": "w; IF/CyO; TM2/TM6B",
+   "chr": "2 and 3",
+   "function": "double balancer for the clean-ups",
+   "location": "inc 18",
+   "condition": "ready",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "GJ890": {
+   "kind": "stock",
+   "name": "GJ890",
+   "genotype": "LexAop2-myr4xCLIPf, attP40",
+   "chr": "2",
+   "function": "\u2014",
+   "location": "inc 18",
+   "condition": "not used. A chemical tag needs a ligand. The laboratory has none.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "GJ891": {
+   "kind": "stock",
+   "name": "GJ891",
+   "genotype": "LexAop2-myr4xCLIPf, VK00005",
+   "chr": "3",
+   "function": "\u2014",
+   "location": "inc 18",
+   "condition": "not used. As GJ890.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "GJ894": {
+   "kind": "stock",
+   "name": "GJ894",
+   "genotype": "LexAop2-myr4xSNAPf, attP40",
+   "chr": "2",
+   "function": "\u2014",
+   "location": "inc 18",
+   "condition": "not used. As GJ890.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "GJ895": {
+   "kind": "stock",
+   "name": "GJ895",
+   "genotype": "IF/CyO; LexAop2-myr4xSNAPf-VK00005-1M/TM6B",
+   "chr": "3",
+   "function": "\u2014",
+   "location": "inc 18",
+   "condition": "not used. As GJ890.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "GJ598": {
+   "kind": "stock",
+   "name": "GJ598",
+   "genotype": "w* P{10XUAS-IVS-myr::GFP}su(Hw)attP8",
+   "chr": "X",
+   "function": "target fill, path B",
+   "location": "inc 18",
+   "condition": "X chromosome. The mother must carry it. See section 4.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ],
+   "path": "b"
+  },
+  "GJ600": {
+   "kind": "stock",
+   "name": "GJ600",
+   "genotype": "w*;; P{10XUAS-IVS-myr::GFP}attP2",
+   "chr": "3, attP2",
+   "function": "target fill, path B",
+   "location": "inc 18",
+   "condition": "ready",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ],
+   "path": "b"
+  },
+  "GJ667": {
+   "kind": "stock",
+   "name": "GJ667",
+   "genotype": "w*;; P{10XUAS-IVS-myr::GFP::P10}attP2",
+   "chr": "3, attP2",
+   "function": "target fill, path B",
+   "location": "inc 18",
+   "condition": "ready",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ],
+   "path": "b"
+  },
+  "GJ832": {
+   "kind": "stock",
+   "name": "GJ832",
+   "genotype": "If/CyO; hsFLP, MKRS/TM6B, Tb1",
+   "chr": "2 and 3",
+   "function": "double balancer, second choice",
+   "location": "inc 18",
+   "condition": "has hsFLP. Use GJ954 first.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "GJ1008": {
+   "kind": "stock",
+   "name": "GJ1008",
+   "genotype": "w; LexAop2-Brp::mCherry",
+   "chr": "not recorded",
+   "function": "\u2014",
+   "location": "inc 18",
+   "condition": "dead. The record gives \"(II)\" and \"su(Hw)attP8\", which disagree.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "SS104905": {
+   "kind": "stock",
+   "name": "SS104905",
+   "genotype": "w; 71A10-p65ADZ/CyO; VT034623-ZpGdbd in attP2/TM6B,Tb",
+   "chr": "2 and 3",
+   "function": "a vAB3 candidate",
+   "location": "25inc",
+   "condition": "not mapped. The other three vAB3 lines have a dead flag.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "LMB-495": {
+   "kind": "stock",
+   "name": "LMB-495",
+   "genotype": "2xUAS:brp-mRFP, full length",
+   "chr": "3",
+   "function": "a comparison only",
+   "location": "stockist",
+   "condition": "aggregates. Do not count with it.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "LMB-536": {
+   "kind": "stock",
+   "name": "LMB-536",
+   "genotype": "w; if/CyO; LexAop:mCherry/TM6B",
+   "chr": "3",
+   "function": "\u2014",
+   "location": "stockist",
+   "condition": "wrong colour. Red, thus it clashes with brp-D3-Cherry.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "LMB-538": {
+   "kind": "stock",
+   "name": "LMB-538",
+   "genotype": "w; LexAop:tdTomato(nls 6.1.2)/CyO; MKRS/TM6B",
+   "chr": "2",
+   "function": "\u2014",
+   "location": "stockist",
+   "condition": "wrong colour. Red, nuclear, and the record reports a high background.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "GJ599": {
+   "kind": "stock",
+   "name": "GJ599",
+   "genotype": "w*; P{10XUAS-IVS-myr::GFP}attP40",
+   "chr": "2, attP40",
+   "function": "target fill, path B only",
+   "location": "inc 18",
+   "condition": "ready",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ],
+   "path": "b"
+  },
+  "SS103018": {
+   "kind": "stock",
+   "name": "SS103018",
+   "genotype": "not recorded; the snapshot gives \"?\"",
+   "chr": "2 and 3",
+   "function": "AN13B002, a target that separates the groups",
+   "location": "25inc",
+   "condition": "map it. split-GAL4",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "GJ946": {
+   "kind": "stock",
+   "name": "GJ946",
+   "genotype": "UAS-Brp(d3)mCherry, Tub>G80>, ...",
+   "chr": "2",
+   "function": "\u2014",
+   "location": "inc 18",
+   "condition": "do not use. GAL80 blocks it",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "GJ1000": {
+   "kind": "stock",
+   "name": "GJ1000",
+   "genotype": "71D08-LexA(attp40), LexAop2-Brp::mCherry; ...",
+   "chr": "2",
+   "function": "\u2014",
+   "location": "tray 3, inc 18",
+   "condition": "do not use. has its own LexA driver",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
   }
  },
- "note": "Fly stocks are not in this file. The crosses page reads its own stock table."
+ "note": "The fly stocks come from the stock list of the crosses page. That table is the source, and this file is written again at each build of that page.",
+ "stocks_generated": "2026-08-17"
 }

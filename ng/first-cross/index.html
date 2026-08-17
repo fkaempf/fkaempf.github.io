@@ -279,9 +279,9 @@ in the section that describes it.</p>
 <li data-trk-id="a2-f1" data-trk-kind="cross"
     data-trk-needs="a2-g0:done">Parent 2, F1</li>
 <li data-trk-id="a2-hz" data-trk-kind="cross"
-    data-trk-needs="a2-f1:done">Parent 2, homozygous</li>
+    data-trk-needs="a2-f1:done">Parent 2, a stable stock</li>
 <li data-trk-id="a1-hz" data-trk-kind="cross"
-    data-trk-needs="a1-f1:done">Parent 1, homozygous</li>
+    data-trk-needs="a1-f1:done">Parent 1, a stable stock</li>
 <li data-trk-id="ax" data-trk-kind="cross"
     data-trk-needs="a1-f1:done a2-f1:done">the experimental cross</li>
 <li data-trk-id="c1472-g0" data-trk-kind="cross">the ppk23-LexA clean-up, G0</li>
@@ -575,35 +575,63 @@ LMB-494 has Stubble. A fly with two TM6B chromosomes dies.</p>
 flies to any LexA driver and look for green. This check is faster than a PCR, and it also confirms
 that the reporter works.</p>
 
-<h3 id="s43">4.3 Homozygous stocks</h3>
+<h3 id="s43">4.3 Stable stocks</h3>
 
-<p>Parent 1 and Parent 2 keep chromosome 3 over TM6B. The experimental cross therefore gives one
-useful male in six. A homozygous stock removes the balancer. Every progeny then has the element,
-and the yield becomes one male in two.</p>
+<p>You do the experimental cross one time for each arm. A rebuild of a parent costs five weeks. A
+stable stock removes that cost. A stable stock keeps its genotype at each flip, and it needs no new
+cross.</p>
 
-<p>Chromosome 2 is already homozygous in both parents. Only chromosome 3 needs this work.</p>
+<p>Chromosome 2 needs no work. ppk23-GAL4 and R56C09-lexA are already homozygous in both parents.
+Chromosome 3 holds the decision.</p>
 
-<p>The work is one generation. A fly with two TM6B chromosomes dies. A sibling cross of a balanced
-stock therefore gives one homozygote in three survivors. You find that fly by the absence of
-Tubby.</p>
+<p><strong>Two routes give a stable chromosome 3.</strong></p>
 
 <div class="scroll">
 <table>
-<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr class="hi" data-trk="a2-hz"><td class="num">F1</td><td>sibling cross of Parent 2</td>
-<td><strong>Not</strong> Tubby</td>
-<td><code>w; R56C09-lexA; LexAop-mCD8::GFP</code>, homozygous</td></tr>
-<tr class="hi" data-trk="a1-hz"><td class="num">F1</td><td>sibling cross of Parent 1</td>
-<td><strong>Not</strong> Tubby</td>
-<td><code>w; ppk23-GAL4; brp-D3-Cherry</code>, homozygous</td></tr>
+<tr><th>Route</th><th>When to use it</th><th>Work at each flip</th><th>Cost</th></tr>
+<tr class="hi"><td>homozygous</td><td>the insertion lives as a pair</td><td>none</td>
+<td>The stock has no marker on chromosome 3. You cannot see a loss by eye.</td></tr>
+<tr class="hi"><td>balanced over TM6B</td><td>the insertion does not live as a pair, or it is weak
+as a pair</td><td>select Tubby each time</td>
+<td>More work at each flip. But the marker shows the genotype.</td></tr>
 </table>
 </div>
 
-<p><strong>Make Parent 2 homozygous first.</strong> Every arm uses Parent 2. Parent 1 changes with
-the arm. The work on Parent 2 therefore gives a result for each arm.</p>
+<p><strong>One generation decides the route.</strong> Do a sibling cross of the parent. Then count
+the flies without Tubby. A fly with two TM6B chromosomes dies, thus one survivor in three is the
+homozygote.</p>
 
-<p class="note">Confirm that the reporter works before this step. A homozygous stock has no balancer
-marker on chromosome 3. You then lose the check by eye. Keep the balanced stock as a spare.</p>
+<div class="scroll">
+<table>
+<tr><th>Result</th><th>What it shows</th><th>Route</th></tr>
+<tr data-trk="a2-hz"><td>about one in three, and healthy</td><td>homozygous viable</td>
+<td>homozygous</td></tr>
+<tr><td>none</td><td>homozygous lethal</td><td>balanced</td></tr>
+<tr data-trk="a1-hz"><td>present, but small or weak</td><td>homozygous sick</td><td>balanced</td></tr>
+</table>
+</div>
+
+<p><strong>Do Parent 2 first.</strong> Every arm uses Parent 2. Parent 1 changes with the arm. The
+work on Parent 2 therefore gives a result for each arm.</p>
+
+<p><strong>How to keep a stock stable.</strong></p>
+
+<div class="scroll">
+<table>
+<tr><th>Rule</th><th>Reason</th></tr>
+<tr class="hi"><td>Select Tubby at each flip of a balanced stock.</td>
+<td>An insertion that lives as a pair pushes out the balancer. The stock then loses its marker, and
+you cannot see the genotype.</td></tr>
+<tr class="hi"><td>Keep a balanced spare of each homozygous stock.</td>
+<td>A homozygous stock has no marker. A loss is invisible.</td></tr>
+<tr><td>Keep the spare in a second incubator.</td>
+<td>One incubator failure then does not stop the work.</td></tr>
+<tr><td>Test the reporter each three months.</td>
+<td>The GFP fill has no body marker. Cross a few flies to a LexA driver and look for green.</td></tr>
+<tr class="bad"><td>Do not keep a stock as a heterozygote without a balancer.</td>
+<td>The element goes away in a few generations.</td></tr>
+</table>
+</div>
 
 <div class="callout warn">
 <p><strong>Two copies give a different signal.</strong> A homozygous stock gives two copies of
@@ -613,10 +641,9 @@ heterozygous animal.</p>
 <p><strong>A male cannot be homozygous for the X reporter.</strong> A male has one X chromosome.
 BDSC 32211 therefore always gives one copy. The Gr32a arm and the chromosome 3 Ir52a arms use it.
 Keep those arms apart from the homozygous arms in a comparison.</p>
-<p><strong>Some insertions do not live as a pair.</strong> If no fly is without Tubby, or if those
-flies are weak, the insertion is homozygous lethal or homozygous sick. Keep the balanced stock and
-use it. The landing site of brp-D3 in LMB-494 is not recorded, thus this risk is not known for
-Parent 1.</p>
+<p><strong>The route for Parent 1 is not known yet.</strong> The landing site of brp-D3 in LMB-494
+is not recorded. Thus you cannot say now if it lives as a pair. Do the test above before you plan
+the stock.</p>
 </div>
 
 <h3 id="s44">4.4 Experimental cross</h3>
@@ -641,7 +668,7 @@ Parent 1.</p>
 <tr><td>Parent 1</td><td class="num">5</td><td>3 generations</td></tr>
 <tr><td>Parent 2</td><td class="num">5</td><td>in parallel, plus one PCR</td></tr>
 <tr><td>experimental cross</td><td class="num">2</td><td></td></tr>
-<tr><td>homozygous stocks</td><td class="num">+2</td>
+<tr><td>stable stocks</td><td class="num">+2</td>
 <td>one generation for each parent, in parallel. Optional for one arm only.</td></tr>
 <tr class="hi"><td>first ppk23 image</td><td class="num">7</td><td>from the start</td></tr>
 <tr><td>ppk25 arm</td><td class="num">+10</td><td>clean BDSC 93028, rebuild Parent 1, cross</td></tr>

@@ -818,7 +818,9 @@ var RE=new RegExp("(^|[^0-9A-Za-z_\\-])("+alt.join("|")+")(?![0-9A-Za-z_\\-])","
 var SKIP=/^(SCRIPT|STYLE|NOSCRIPT|TEMPLATE|CODE|PRE|SAMP|KBD|VAR|TEXTAREA|INPUT|SELECT|OPTION|BUTTON|A|SUMMARY|LABEL|H1|H2|H3|H4)$/;
 function refuse(el){
  if(SKIP.test(el.tagName))return true;
- if(el===T||el.id==="trk"||el.id==="gt-card")return true;
+ /* The stock list is marked too. copy() unwraps a marker back to text, thus
+    the card never holds a control. */
+ if(el.id==="trk"||el.id==="gt-card")return true;
  if(el.classList&&(el.classList.contains("trk-host")||el.classList.contains("gt")))return true;
  return false;
 }

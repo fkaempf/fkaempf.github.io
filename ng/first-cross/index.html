@@ -291,6 +291,17 @@ in the section that describes it.</p>
 <li data-trk-id="b-target" data-trk-kind="cross">the PPN1 mask control</li>
 </ul>
 
+<p class="trk-g">Controls</p>
+<ul>
+<li data-trk-id="ctl-nogal4" data-trk-kind="cross"
+    data-trk-needs="a2-f1:done">the control with no sensory driver</li>
+<li data-trk-id="ctl-nolexa" data-trk-kind="cross"
+    data-trk-needs="a1-f1:done">the control with no target driver</li>
+<li data-trk-id="ctl-false" data-trk-kind="cross">the false contact rate</li>
+<li data-trk-id="ctl-sex" data-trk-kind="cross"
+    data-trk-needs="ax:done">the female of the full genotype</li>
+</ul>
+
 <p class="trk-g" data-path="b">Path B, a later phase</p>
 <p class="note" data-path="b">Path A is the main line, because the receptor drivers exist in GAL4.
 Path B stays for one job that path A cannot do: a split-GAL4 target, for example SS103018 for
@@ -326,7 +337,7 @@ counts, and those counts stay the authority.</p>
 
 <!-- tracker record start -->
 <script type="application/json" id="trk-record">
-{"v":1,"page":"ng/first-cross","saved":"2026-08-16","i":{"ord-lmb494":{"s":"ordered","d":"2026-08-13"},"ord-gj948":{"s":"ordered","d":"2026-08-13"},"ord-32203":{"s":"none","d":""},"a1-g0":{"s":"none","d":""},"a1-f1":{"s":"none","d":""},"a2-g0":{"s":"none","d":""},"a2-f1":{"s":"none","d":""},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"q-gj948chr":{"s":"run","d":"2026-08-13"},"q-quarantine":{"s":"run","d":"2026-08-13"},"q-lexaop":{"s":"done","d":"2026-08-16"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""}}}
+{"v":1,"page":"ng/first-cross","saved":"2026-08-16","i":{"ord-lmb494":{"s":"ordered","d":"2026-08-13"},"ord-gj948":{"s":"ordered","d":"2026-08-13"},"ord-32203":{"s":"none","d":""},"a1-g0":{"s":"none","d":""},"a1-f1":{"s":"none","d":""},"a2-g0":{"s":"none","d":""},"a2-f1":{"s":"none","d":""},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"q-gj948chr":{"s":"run","d":"2026-08-13"},"q-quarantine":{"s":"run","d":"2026-08-13"},"q-lexaop":{"s":"done","d":"2026-08-16"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""},"ctl-nogal4":{"s":"none","d":""},"ctl-nolexa":{"s":"none","d":""},"ctl-false":{"s":"none","d":""},"ctl-sex":{"s":"none","d":""}}}
 </script>
 <!-- tracker record end -->
 
@@ -586,12 +597,12 @@ that parent.</p>
 <div class="scroll">
 <table>
 <tr><th>Control</th><th>Genotype</th><th>Expected result</th></tr>
-<tr class="hi"><td>no sensory driver</td><td>Parent 2 crossed to a stock with no GAL4</td>
+<tr class="hi" data-trk="ctl-nogal4"><td>no sensory driver</td><td>Parent 2 crossed to a stock with no GAL4</td>
 <td>The label channel on the PPN1 mask is empty. This control can fail. It gives the failure
 threshold.</td></tr>
-<tr><td>no target driver</td><td>Parent 1 crossed to a stock with no LexA</td>
+<tr data-trk="ctl-nolexa"><td>no target driver</td><td>Parent 1 crossed to a stock with no LexA</td>
 <td>The fill channel is empty.</td></tr>
-<tr class="hi"><td>false contact rate</td>
+<tr class="hi" data-trk="ctl-false"><td>false contact rate</td>
 <td>a neuron in the same neuropil that receives almost no ppk input</td>
 <td>puncta for each square micrometre of membrane. Without this, "touch" has no measured
 value.</td></tr>
@@ -599,7 +610,7 @@ value.</td></tr>
 <td>Kallman PPN1 Gal4 &times; GJ599, at attP40. Not GJ598, which is on the X chromosome.</td>
 <td>The shape of PPN1 alone. It is the mask for the count, and it shows which cells R56C09
 labels. All the stocks are in the laboratory, thus you can do this control today.</td></tr>
-<tr><td>sex</td><td>a female of the full genotype</td>
+<tr data-trk="ctl-sex"><td>sex</td><td>a female of the full genotype</td>
 <td>a negative control for the male specific pattern</td></tr>
 </table>
 </div>

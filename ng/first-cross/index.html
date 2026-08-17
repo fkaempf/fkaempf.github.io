@@ -172,7 +172,7 @@
 </style><h1>Crosses: PPN1 fill and ppk23 synapse label</h1>
 <p class="sub">Reference page. The genotypes, the stocks, the crosses, the clean-ups and the
 controls. Stock data comes from the laboratory snapshot of 20 July 2026 and from the Cambridge
-Genetics stockist. Connectome values come from <code>male-cns:v1.0</code>.</p>
+Cambridge Fly Facility. Connectome values come from <code>male-cns:v1.0</code>.</p>
 <p class="note">Florian K&auml;mpf &middot; 14 August 2026 &middot;
 Related pages: <a href="../receptor-typing/">receptor typing</a>,
 <a href="../bristle-typing/">bristle typing</a>,
@@ -204,9 +204,8 @@ the incubator is ppk23-LexA-dirty, and it carries 22B10-GAL4, which drives the U
 wrong cells.</p>
 <p class="trk-host" data-path="b" data-trk="b-sensory"></p>
 <p class="note" data-path="b">The record gives no chromosome for GJ948, thus the direction of a
-cross that carries it is not yet known. The sister stock GJ1008 gives su(Hw)attP8, which is an X
-site, thus an X linked form of this reporter exists. Find the chromosome first: section 9 holds the
-question. The positions in SS103018 are also not scored.</p>
+cross that carries it is not yet known. Find the chromosome when the stock arrives: section 9 holds
+the question. The positions in SS103018 are also not scored.</p>
 
 <p class="note" data-path="b">Two path B parts are on the X chromosome, or may be. GJ598 is at
 su(Hw)attP8. GJ948 is not placed. Each of them must come from the mother, because a son takes his X
@@ -240,9 +239,9 @@ Ir52a-LexA. Path A can thus use every receptor driver. Path B can use two.</p>
 </div>
 
 <p class="note">brp-D3-Cherry is red, thus the fill must be green. The two LexAop fluorophores at
-the Cambridge Genetics stockist, LMB-536 and LMB-538, are both red. Do not use them for path A.
-PPN1 receives almost equal input from the two ppk groups, thus path A develops the assay. It does
-not test the receptor assignment.</p>
+the Cambridge Fly Facility are both red. Do not use them for path A.
+PPN1 receives almost equal input from the two ppk groups. Path A therefore develops the assay, and
+it does not test the receptor assignment.</p>
 
 <h2 id="s2">2 &middot; Work in motion</h2>
 
@@ -255,12 +254,6 @@ no state. The record is in status.json, beside this page.</p>
 </noscript>
 
 <div id="trk" class="callout" hidden aria-live="polite" data-trk-stale="14"></div>
-
-<p class="note">The states in this browser are yours alone. To record them for everybody, open
-<strong>Record</strong> below and press <strong>Copy and open GitHub</strong>. The button copies the
-whole file and opens the editor. In GitHub select all, paste, then commit. GitHub asks you to sign
-in, thus only you and your collaborators can write. The page shows the new state about one minute
-after the commit.</p>
 
 <details id="trk-all" open>
 <summary>All steps</summary>
@@ -332,9 +325,6 @@ GJ948.</p>
 </ul>
 </details>
 
-<p class="note">The tracker gives no date for the end of the work. Section 4.4 gives the week
-counts, and those counts stay the authority.</p>
-
 <!-- tracker record start -->
 <script type="application/json" id="trk-record">
 {"v":1,"page":"ng/first-cross","saved":"2026-08-16","i":{"ord-lmb494":{"s":"ordered","d":"2026-08-13"},"ord-gj948":{"s":"ordered","d":"2026-08-13"},"ord-32203":{"s":"none","d":""},"a1-g0":{"s":"none","d":""},"a1-f1":{"s":"none","d":""},"a2-g0":{"s":"none","d":""},"a2-f1":{"s":"none","d":""},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"q-gj948chr":{"s":"run","d":"2026-08-13"},"q-quarantine":{"s":"run","d":"2026-08-13"},"q-lexaop":{"s":"done","d":"2026-08-16"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""},"ctl-nogal4":{"s":"none","d":""},"ctl-nolexa":{"s":"none","d":""},"ctl-false":{"s":"none","d":""},"ctl-sex":{"s":"none","d":""}}}
@@ -385,13 +375,13 @@ counts, and those counts stay the authority.</p>
 <tr class="hi" data-path="a"><td>BDSC 32203</td>
 <td><code>w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-mCD8::GFP}attP2</code></td>
 <td>3, attP2, 68A4</td><td>PPN1 fill, path A</td><td>BDSC</td>
-<td><span class="tag ok">confirmed</span> RRID:BDSC_32203. Rubin and Pfeiffer.</td></tr>
+<td><span class="tag ok">confirmed</span></td></tr>
 <tr class="hi" data-path="a"><td>LMB-494</td><td><code>w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP</code></td>
-<td>3</td><td>synapse label, path A</td><td>stockist</td>
-<td>quarantine?</td></tr>
+<td>3</td><td>synapse label, path A</td><td>Cambridge Fly Facility</td>
+<td><span class="tag m">on the way</span> Ask whether it is out of quarantine.</td></tr>
 <tr data-path="b"><td>GJ948</td><td><code>LexAop2-Brp-mCherry</code></td><td>not recorded</td>
-<td>synapse label, path B</td><td>Cambridge Genetics stockist</td>
-<td>The laboratory vial is dead. GJ1008 and GJ1000 are also not available.</td></tr>
+<td>synapse label, path B</td><td>Cambridge Fly Facility</td>
+<td>On the way from the Cambridge Fly Facility. The laboratory vial is dead.</td></tr>
 <tr data-path="b" data-gt-also="GJ1472; ppk23-LexA"><td>ppk23-LexA-dirty</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>2</td>
 <td>ppk23 driver, path B</td><td>25inc, Bella</td>
 <td><span class="tag warn">clean it</span> It has 22B10-GAL4. See section 5.1.</td></tr>
@@ -400,7 +390,7 @@ counts, and those counts stay the authority.</p>
 <td><span class="tag q">to make</span> The product of the clean-up of section 5.1, at F3.</td></tr>
 <tr data-gt-also="Kallman PPN1 Gal4"><td>Kallman PPN1 GAL4</td><td><code>w1118; P{GMR56C09-GAL4}attP2</code></td><td>3, attP2</td>
 <td>target driver, path B; PPN1 mask control</td><td>inc 18</td>
-<td><span class="tag ok">ready</span></td></tr>
+<td><span class="tag ok">ready</span> The GAL4 form and the LexA form drive the same cells. Path A needs the LexA form, and path B and the mask control need the GAL4 form.</td></tr>
 <tr><td>BDSC 93028</td><td><code>w1118; P{ppk25-GAL4.S}2; P{ppk25-GAL4.S}3</code></td><td>2 and 3</td>
 <td>ppk25 driver, the second arm</td><td>inc 18</td>
 <td><span class="tag warn">clean</span> remove the chromosome 3 copy</td></tr>
@@ -410,7 +400,7 @@ counts, and those counts stay the authority.</p>
 <td>double balancer for the clean-ups</td><td>inc 18</td><td><span class="tag ok">ready</span></td></tr>
 <tr class="bad"><td>GJ890</td><td><code>LexAop2-myr4xCLIPf</code>, attP40</td><td>2</td>
 <td>&mdash;</td><td>inc 18</td>
-<td><span class="tag warn">not used</span> A chemical tag needs a ligand. The laboratory has none.</td></tr>
+<td><span class="tag q">needs a ligand</span> This laboratory developed the tags, thus ask Julian for the dye.</td></tr>
 <tr class="bad"><td>GJ891</td><td><code>LexAop2-myr4xCLIPf</code>, VK00005</td><td>3</td>
 <td>&mdash;</td><td>inc 18</td>
 <td><span class="tag warn">not used</span> As GJ890.</td></tr>
@@ -431,33 +421,18 @@ chromosome from his mother.</td></tr>
 <tr><td>GJ832</td><td><code>If/CyO; hsFLP, MKRS/TM6B, Tb1</code></td><td>2 and 3</td>
 <td>double balancer, second choice</td><td>inc 18</td>
 <td><span class="tag warn">has hsFLP</span> Use GJ954 first.</td></tr>
-<tr class="bad"><td>GJ1008</td><td><code>w; LexAop2-Brp::mCherry</code></td><td>not recorded</td>
-<td>&mdash;</td><td>inc 18</td>
-<td><span class="tag warn">dead</span> The record gives "(II)" and "su(Hw)attP8", which disagree.</td></tr>
 <tr><td>SS104905</td><td><code>w; 71A10-p65ADZ/CyO; VT034623-ZpGdbd in attP2/TM6B,Tb</code></td>
 <td>2 and 3</td><td>a vAB3 candidate</td><td>25inc</td>
-<td><span class="tag q">not mapped</span> The other three vAB3 lines have a dead flag.</td></tr>
+<td><span class="tag q">not mapped</span> Four vAB3 lines are alive: SS103089, SS104905, SS104909 and SS105464.</td></tr>
 <tr><td>LMB-495</td><td><code>2xUAS:brp-mRFP</code>, full length</td><td>3</td>
-<td>a comparison only</td><td>stockist</td>
-<td><span class="tag warn">aggregates</span> Do not count with it.</td></tr>
-<tr class="bad"><td>LMB-536</td><td><code>w; if/CyO; LexAop:mCherry/TM6B</code></td><td>3</td>
-<td>&mdash;</td><td>stockist</td>
-<td><span class="tag warn">wrong colour</span> Red, thus it clashes with brp-D3-Cherry.</td></tr>
-<tr class="bad"><td>LMB-538</td><td><code>w; LexAop:tdTomato(nls 6.1.2)/CyO; MKRS/TM6B</code></td>
-<td>2</td><td>&mdash;</td><td>stockist</td>
-<td><span class="tag warn">wrong colour</span> Red, nuclear, and the record reports a high
-background.</td></tr>
+<td>a comparison only</td><td>Cambridge Fly Facility</td>
+<td><span class="tag m">on the way</span> Full length Bruchpilot aggregates. Do not count with it.</td></tr>
 <tr data-path="b"><td>GJ599</td><td><code>w*; P{10XUAS-IVS-myr::GFP}attP40</code></td><td>2, attP40</td>
 <td>target fill, <strong>path B only</strong></td><td>inc 18</td>
 <td><span class="tag ok">ready</span></td></tr>
 <tr><td>SS103018</td><td>not recorded; the snapshot gives "?"</td><td>2 and 3</td>
 <td>AN13B002, a target that separates the groups</td><td>25inc</td>
 <td><span class="tag warn">map it</span> split-GAL4</td></tr>
-<tr class="bad"><td>GJ946</td><td><code>UAS-Brp(d3)mCherry, Tub&gt;G80&gt;, ...</code></td><td>2</td>
-<td>&mdash;</td><td>inc 18</td><td><span class="tag warn">do not use</span> GAL80 blocks it</td></tr>
-<tr class="bad"><td>GJ1000</td><td><code>71D08-LexA(attp40), LexAop2-Brp::mCherry; ...</code></td><td>2</td>
-<td>&mdash;</td><td>tray 3, inc 18</td>
-<td><span class="tag warn">do not use</span> has its own LexA driver</td></tr>
 </table>
 </div>
 
@@ -681,9 +656,9 @@ connectome is wrong. Decide the failure threshold before you start the imaging.<
 <td>the PPN1 fill of path A</td>
 <td>The only fly line that must be bought. This one order opens every receptor arm.</td></tr>
 <tr data-trk="ord-lmb494"><td>LMB-494, UAS-brp-D3-Cherry</td><td>the synapse label of path A</td>
-<td>Requested from the Cambridge Genetics stockist on 13 August 2026.</td></tr>
+<td>Requested from the Cambridge Fly Facility on 13 August 2026.</td></tr>
 <tr data-trk="ord-gj948"><td>GJ948, LexAop2-Brp-mCherry</td><td>the synapse label of path B</td>
-<td>Requested from the Cambridge Genetics stockist on 13 August 2026.</td></tr>
+<td>Requested from the Cambridge Fly Facility on 13 August 2026.</td></tr>
 </table>
 </div>
 
@@ -711,7 +686,7 @@ shape, each cell gives its own predicted ratio: a 0.41, b 0.36, c 0.27, d 0.78. 
 calibration points in one animal, thus more cells are better, not worse. If you cannot separate
 them, the prediction must be weighted by the cells that the line labels.</td></tr>
 <tr data-trk="q-an09b017"><td>Which AN09B017 member does each vAB3 line label?</td><td>every later target</td>
-<td>MCFO on SS104905. Three of the four lines have a dead flag.</td></tr>
+<td>Use MCFO. Four lines are alive: SS103089, SS104905, SS104909 and SS105464.</td></tr>
 </table>
 </div>
 
@@ -720,8 +695,8 @@ them, the prediction must be weighted by the cells that the line labels.</td></t
 <ul class="steps">
 <li>Set up the two clean-up crosses and the target side of path B. All these stocks are in the
 laboratory.</li>
-<li>Both synapse labels come from the Cambridge Genetics stockist. LMB-494 is the label of path A.
-GJ948 is the label of path B. The laboratory vials of GJ948, GJ1008 and GJ1000 are dead.</li>
+<li>Both synapse labels come from the Cambridge Fly Facility. LMB-494 is the label of path A.
+GJ948 is the label of path B. The laboratory vial of GJ948 is dead.</li>
 <li>Set up Parent 1 when LMB-494 arrives. Set up the sensory side of path B when GJ948
 arrives.</li>
 <li>Order BDSC 32203 now.</li>
@@ -1010,14 +985,7 @@ window.addEventListener("resize",function(){if(open)put(open);});
 
 /* ---- the one sentence, written here so that it cannot lie -------------- */
 var h2=document.getElementById("s3"),note;
-if(h2&&h2.parentNode){
- note=document.createElement("p");
- note.className="note";
- note.appendChild(document.createTextNode(
-  "A word with a dotted line has a row in this table. Touch the word, or move the pointer "+
-  "to it, to see the genotype. Push the ESC key to close the card."));
- h2.parentNode.insertBefore(note,h2.nextSibling);
-}
+/* The dotted underline is its own instruction, thus the page needs no sentence. */
 
 /* ---- optional: ?gt=check reports the names that have no row ------------ */
 if(/[?&]gt=check/.test(location.search)&&window.console&&console.warn){
@@ -1121,7 +1089,7 @@ Read the host from each vial before you plan the stain.</td></tr>
 </script>
 <hr>
 <p class="foot">Stock records come from <code>flomington/backups/20260720-141305/stocks.json</code>,
-a local snapshot of 20 July 2026, and from the Cambridge Genetics stockist, 13 August 2026. Confirm
+a local snapshot of 20 July 2026, and from the Cambridge Fly Facility, 13 August 2026. Confirm
 each stock before you take a vial. Connectome values come from <code>male-cns:v1.0</code> through
 neuPrint, measured on 13 August 2026.</p>
 

@@ -130,15 +130,10 @@
   "GJ600": "GJ600",
   "GJ667": "GJ667",
   "GJ832": "GJ832",
-  "GJ1008": "GJ1008",
   "SS104905": "SS104905",
   "LMB-495": "LMB-495",
-  "LMB-536": "LMB-536",
-  "LMB-538": "LMB-538",
   "GJ599": "GJ599",
-  "SS103018": "SS103018",
-  "GJ946": "GJ946",
-  "GJ1000": "GJ1000"
+  "SS103018": "SS103018"
  },
  "entries": {
   "AN01B004": {
@@ -3336,7 +3331,7 @@
    "chr": "3, attP2, 68A4",
    "function": "PPN1 fill, path A",
    "location": "BDSC",
-   "condition": "confirmed. RRID:BDSC_32203. Rubin and Pfeiffer.",
+   "condition": "confirmed",
    "pages": [
     {
      "label": "crosses",
@@ -3351,8 +3346,8 @@
    "genotype": "w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP",
    "chr": "3",
    "function": "synapse label, path A",
-   "location": "stockist",
-   "condition": "quarantine?",
+   "location": "Cambridge Fly Facility",
+   "condition": "on the way. Ask whether it is out of quarantine.",
    "pages": [
     {
      "label": "crosses",
@@ -3367,8 +3362,8 @@
    "genotype": "LexAop2-Brp-mCherry",
    "chr": "not recorded",
    "function": "synapse label, path B",
-   "location": "Cambridge Genetics stockist",
-   "condition": "The laboratory vial is dead. GJ1008 and GJ1000 are also not available.",
+   "location": "Cambridge Fly Facility",
+   "condition": "On the way from the Cambridge Fly Facility. The laboratory vial is dead.",
    "pages": [
     {
      "label": "crosses",
@@ -3416,7 +3411,7 @@
    "chr": "3, attP2",
    "function": "target driver, path B; PPN1 mask control",
    "location": "inc 18",
-   "condition": "ready",
+   "condition": "ready. The GAL4 form and the LexA form drive the same cells. Path A needs the LexA form, and path B and the mask control need the GAL4 form.",
    "pages": [
     {
      "label": "crosses",
@@ -3476,7 +3471,7 @@
    "chr": "2",
    "function": "\u2014",
    "location": "inc 18",
-   "condition": "not used. A chemical tag needs a ligand. The laboratory has none.",
+   "condition": "needs a ligand. This laboratory developed the tags, thus ask Julian for the dye.",
    "pages": [
     {
      "label": "crosses",
@@ -3592,21 +3587,6 @@
     }
    ]
   },
-  "GJ1008": {
-   "kind": "stock",
-   "name": "GJ1008",
-   "genotype": "w; LexAop2-Brp::mCherry",
-   "chr": "not recorded",
-   "function": "\u2014",
-   "location": "inc 18",
-   "condition": "dead. The record gives \"(II)\" and \"su(Hw)attP8\", which disagree.",
-   "pages": [
-    {
-     "label": "crosses",
-     "url": "../first-cross/"
-    }
-   ]
-  },
   "SS104905": {
    "kind": "stock",
    "name": "SS104905",
@@ -3614,7 +3594,7 @@
    "chr": "2 and 3",
    "function": "a vAB3 candidate",
    "location": "25inc",
-   "condition": "not mapped. The other three vAB3 lines have a dead flag.",
+   "condition": "not mapped. Four vAB3 lines are alive: SS103089, SS104905, SS104909 and SS105464.",
    "pages": [
     {
      "label": "crosses",
@@ -3628,38 +3608,8 @@
    "genotype": "2xUAS:brp-mRFP, full length",
    "chr": "3",
    "function": "a comparison only",
-   "location": "stockist",
-   "condition": "aggregates. Do not count with it.",
-   "pages": [
-    {
-     "label": "crosses",
-     "url": "../first-cross/"
-    }
-   ]
-  },
-  "LMB-536": {
-   "kind": "stock",
-   "name": "LMB-536",
-   "genotype": "w; if/CyO; LexAop:mCherry/TM6B",
-   "chr": "3",
-   "function": "\u2014",
-   "location": "stockist",
-   "condition": "wrong colour. Red, thus it clashes with brp-D3-Cherry.",
-   "pages": [
-    {
-     "label": "crosses",
-     "url": "../first-cross/"
-    }
-   ]
-  },
-  "LMB-538": {
-   "kind": "stock",
-   "name": "LMB-538",
-   "genotype": "w; LexAop:tdTomato(nls 6.1.2)/CyO; MKRS/TM6B",
-   "chr": "2",
-   "function": "\u2014",
-   "location": "stockist",
-   "condition": "wrong colour. Red, nuclear, and the record reports a high background.",
+   "location": "Cambridge Fly Facility",
+   "condition": "on the way. Full length Bruchpilot aggregates. Do not count with it.",
    "pages": [
     {
      "label": "crosses",
@@ -3691,36 +3641,6 @@
    "function": "AN13B002, a target that separates the groups",
    "location": "25inc",
    "condition": "map it. split-GAL4",
-   "pages": [
-    {
-     "label": "crosses",
-     "url": "../first-cross/"
-    }
-   ]
-  },
-  "GJ946": {
-   "kind": "stock",
-   "name": "GJ946",
-   "genotype": "UAS-Brp(d3)mCherry, Tub>G80>, ...",
-   "chr": "2",
-   "function": "\u2014",
-   "location": "inc 18",
-   "condition": "do not use. GAL80 blocks it",
-   "pages": [
-    {
-     "label": "crosses",
-     "url": "../first-cross/"
-    }
-   ]
-  },
-  "GJ1000": {
-   "kind": "stock",
-   "name": "GJ1000",
-   "genotype": "71D08-LexA(attp40), LexAop2-Brp::mCherry; ...",
-   "chr": "2",
-   "function": "\u2014",
-   "location": "tray 3, inc 18",
-   "condition": "do not use. has its own LexA driver",
    "pages": [
     {
      "label": "crosses",

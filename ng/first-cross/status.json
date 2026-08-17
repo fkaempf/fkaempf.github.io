@@ -9,18 +9,21 @@
    "set",
    "score",
    "done",
+   "blocked",
    "failed"
   ],
   "order": [
    "none",
    "ordered",
    "arrived",
+   "blocked",
    "failed"
   ],
   "question": [
    "none",
    "run",
-   "done"
+   "done",
+   "blocked"
   ]
  },
  "_help": "Edit s and d for an item. d is the date of the last change, as YYYY-MM-DD.",

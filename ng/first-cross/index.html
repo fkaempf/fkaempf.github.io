@@ -1103,10 +1103,12 @@ var MON=["January","February","March","April","May","June","July","August","Sept
          "October","November","December"];
 var STATES={
  cross:[["none","not started","q"],["virgins","wait \u263f","m"],["set","cross set up","m"],
-        ["score","to score","m"],["done","done","ok"],["failed","failed","warn"]],
+        ["score","to score","m"],["done","done","ok"],
+        ["blocked","blocked","warn"],["failed","failed","warn"]],
  order:[["none","not ordered","q"],["ordered","ordered","m"],["arrived","arrived","ok"],
-        ["failed","failed","warn"]],
- question:[["none","open","q"],["run","in progress","m"],["done","answered","ok"]]
+        ["blocked","blocked","warn"],["failed","failed","warn"]],
+ question:[["none","open","q"],["run","in progress","m"],["done","answered","ok"],
+           ["blocked","blocked","warn"]]
 };
 var VERB={cross:"Set up ",order:"Order ",question:"Find "};
 var RUN={virgins:1,set:1,score:1,ordered:1,run:1};
@@ -1443,7 +1445,7 @@ function doReset(){
 
 function paint(){
  var S=snap(),i,j,it,st,c;
- var failed=[],running=[],fin=[],ready=[],wait=[],blocks={},un,n;
+ var failed=[],blocked=[],running=[],fin=[],ready=[],wait=[],blocks={},un,n;
  for(i=0;i<items.length;i++){
   it=items[i];st=S[it.id];
   if(it.sel){it.sel.value=st.c;it.sel.className="trk-s tag "+row(it.kind,st.c)[2];}
@@ -1453,6 +1455,7 @@ function paint(){
  for(i=0;i<items.length;i++){
   it=items[i];st=S[it.id];
   if(st.c==="failed"){failed.push(it);continue;}
+  if(st.c==="blocked"){blocked.push(it);continue;}
   if(RUN[st.c]){running.push(it);continue;}
   if(FIN[st.c]){fin.push(it);continue;}
   un=null;
@@ -1466,6 +1469,7 @@ function paint(){
  /* line 1, the counts */
  c="";
  if(failed.length)c+='<span class="tag warn">'+failed.length+" failed</span> ";
+ if(blocked.length)c+='<span class="tag warn">'+blocked.length+" blocked</span> ";
  if(running.length)c+='<span class="tag m">'+running.length+" in motion</span> ";
  if(fin.length)c+='<span class="tag ok">'+fin.length+" done</span> ";
  n=ready.length+wait.length;
@@ -1560,6 +1564,13 @@ function paint(){
  var all=bmsg.concat(msg),seen={},out=[];
  for(i=0;i<all.length;i++)if(!seen[all[i]]){seen[all[i]]=1;out.push(esc(all[i]));}
  box.fail.innerHTML=out.join("<br>");
+ if(blocked.length){
+  var bl="<p class=\"note\"><strong>Blocked:</strong> ";
+  for(i=0;i<blocked.length;i++){
+   bl+=(i?", ":"")+esc(blocked[i].name);
+  }
+  box.fail.innerHTML+=(box.fail.innerHTML?"<br>":"")+bl+". Say why in the note of status.json.</p>";
+ }
 
  panel.hidden=false;
 }

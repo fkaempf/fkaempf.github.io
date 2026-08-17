@@ -1086,7 +1086,7 @@ arrives.</li>
  .pathsw{display:flex;gap:.4rem;flex-wrap:wrap;margin:.2rem 0 1.4rem}
  .pathsw .btn[aria-pressed="true"]{font-weight:700}
  .pathsw .btn{padding:.45rem .9rem;font-size:.82rem}
- [data-path].pathoff{display:none}
+ .pathoff{display:none}
 </style>
 <script>
 (function(){
@@ -1117,7 +1117,7 @@ arrives.</li>
   b.onclick=function(){apply(b.getAttribute("data-pathsel"));};
  })(btns[k]);
  var start="a";
- try{var v=window.localStorage.getItem(KEY);if(v==="a"||v==="b"||v==="both")start=v;}catch(err){}
+ try{var v=window.localStorage.getItem(KEY);if(v==="a"||v==="b"||v==="c"||v==="both")start=v;}catch(err){}
  apply(start);
 })();
 </script>

@@ -557,7 +557,7 @@ the target driver: that GAL4 also drives brp-D3 in PPN1.</td></tr>
 <div class="scroll">
 <table>
 <tr><th>Line</th><th>Remove</th><th>Effect if you do not</th><th>Method</th><th class="num">Weeks</th></tr>
-<tr class="bad"><td>ppk23-LexA-dirty</td><td><code>22B10-GAL4</code>, chr 3</td>
+<tr class="bad" data-trk="c1472-f3"><td>ppk23-LexA-dirty</td><td><code>22B10-GAL4</code>, chr 3</td>
 <td>It drives the UAS label in the wrong cells. Path B only.</td>
 <td>Four generations. See the table below.</td><td class="num">6</td></tr>
 <tr class="bad" data-trk="c93028"><td>BDSC 93028</td><td>the second copy, chr 3</td>
@@ -1239,6 +1239,8 @@ function control(it,cell){
  dt.setAttribute("aria-label","Date of the last change of "+it.name);
  dt.onchange=function(){setDate(it.id,dt.value);};
  cell.appendChild(sel);cell.appendChild(dt);
+ if(!it.sels){it.sels=[];it.dts=[];}
+ it.sels.push(sel);it.dts.push(dt);
  it.sel=sel;it.dt=dt;
 }
 
@@ -1478,8 +1480,10 @@ function paint(){
  var failed=[],blocked=[],running=[],fin=[],ready=[],wait=[],blocks={},un,n;
  for(i=0;i<items.length;i++){
   it=items[i];st=S[it.id];
-  if(it.sel){it.sel.value=st.c;it.sel.className="trk-s tag "+row(it.kind,st.c)[2];}
-  if(it.dt){it.dt.value=st.d;it.dt.style.display=(st.c==="none")?"none":"";}
+  if(it.sels){for(j=0;j<it.sels.length;j++){
+   it.sels[j].value=st.c;it.sels[j].className="trk-s tag "+row(it.kind,st.c)[2];
+   it.dts[j].value=st.d;it.dts[j].style.display=(st.c==="none")?"none":"";
+  }}
   for(j=0;j<it.needs.length;j++)blocks[it.needs[j].id]=1;
  }
  for(i=0;i<items.length;i++){

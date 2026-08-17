@@ -113,8 +113,10 @@
   "BDSC 32203": "BDSC 32203",
   "LMB-494": "LMB-494",
   "GJ948": "GJ948",
-  "ppk23-LexA": "ppk23-LexA",
-  "GJ1472": "ppk23-LexA",
+  "ppk23-LexA-dirty": "ppk23-LexA-dirty",
+  "GJ1472": "ppk23-LexA-dirty",
+  "ppk23-LexA": "ppk23-LexA-dirty",
+  "ppk23-LexA-clean": "ppk23-LexA-clean",
   "Kallman PPN1 GAL4": "Kallman PPN1 GAL4",
   "Kallman PPN1 Gal4": "Kallman PPN1 GAL4",
   "BDSC 93028": "BDSC 93028",
@@ -3375,14 +3377,30 @@
    ],
    "path": "b"
   },
-  "ppk23-LexA": {
+  "ppk23-LexA-dirty": {
    "kind": "stock",
-   "name": "ppk23-LexA",
+   "name": "ppk23-LexA-dirty",
    "genotype": ";ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser",
    "chr": "2",
    "function": "ppk23 driver, path B",
    "location": "25inc, Bella",
-   "condition": "clean. remove 22B10-GAL4",
+   "condition": "clean it. It has 22B10-GAL4. See section 5.1.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ],
+   "path": "b"
+  },
+  "ppk23-LexA-clean": {
+   "kind": "stock",
+   "name": "ppk23-LexA-clean",
+   "genotype": "; ppk23-LexA/CyO ; +/+",
+   "chr": "2",
+   "function": "ppk23 driver, path B",
+   "location": "does not exist yet",
+   "condition": "to make. The product of the clean-up of section 5.1, at F3.",
    "pages": [
     {
      "label": "crosses",

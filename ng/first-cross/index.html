@@ -199,6 +199,9 @@ Related pages: <a href="../receptor-typing/">receptor typing</a>,
 
 <p data-path="b"><strong>Path B</strong>, label in LexA. One arm only. Any GAL4 or split-GAL4 target.</p>
 <pre data-path="b"><code>w/Y ; ppk23-LexA / + ; target-GAL4 / UAS-myr::GFP     plus LexAop2-Brp-mCherry</code></pre>
+<p class="note" data-path="b">The ppk23-LexA of this genotype is ppk23-LexA-clean. The stock in
+the incubator is ppk23-LexA-dirty, and it carries 22B10-GAL4, which drives the UAS fill in the
+wrong cells.</p>
 <p class="trk-host" data-path="b" data-trk="b-sensory"></p>
 <p class="note" data-path="b">The record gives no chromosome for GJ948, thus the direction of a
 cross that carries it is not yet known. The sister stock GJ1008 gives su(Hw)attP8, which is an X
@@ -378,9 +381,12 @@ counts, and those counts stay the authority.</p>
 <tr data-path="b"><td>GJ948</td><td><code>LexAop2-Brp-mCherry</code></td><td>not recorded</td>
 <td>synapse label, path B</td><td>Cambridge Genetics stockist</td>
 <td>The laboratory vial is dead. GJ1008 and GJ1000 are also not available.</td></tr>
-<tr data-path="b" data-gt-also="GJ1472"><td>ppk23-LexA</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>2</td>
+<tr data-path="b" data-gt-also="GJ1472; ppk23-LexA"><td>ppk23-LexA-dirty</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>2</td>
 <td>ppk23 driver, path B</td><td>25inc, Bella</td>
-<td><span class="tag warn">clean</span> remove 22B10-GAL4</td></tr>
+<td><span class="tag warn">clean it</span> It has 22B10-GAL4. See section 5.1.</td></tr>
+<tr data-path="b"><td>ppk23-LexA-clean</td><td><code>; ppk23-LexA/CyO ; +/+</code></td><td>2</td>
+<td>ppk23 driver, path B</td><td>does not exist yet</td>
+<td><span class="tag q">to make</span> The product of the clean-up of section 5.1, at F3.</td></tr>
 <tr data-gt-also="Kallman PPN1 Gal4"><td>Kallman PPN1 GAL4</td><td><code>w1118; P{GMR56C09-GAL4}attP2</code></td><td>3, attP2</td>
 <td>target driver, path B; PPN1 mask control</td><td>inc 18</td>
 <td><span class="tag ok">ready</span></td></tr>
@@ -540,7 +546,7 @@ the target driver: that GAL4 also drives brp-D3 in PPN1.</td></tr>
 <div class="scroll">
 <table>
 <tr><th>Line</th><th>Remove</th><th>Effect if you do not</th><th>Method</th><th class="num">Weeks</th></tr>
-<tr class="bad"><td>ppk23-LexA</td><td><code>22B10-GAL4</code>, chr 3</td>
+<tr class="bad"><td>ppk23-LexA-dirty</td><td><code>22B10-GAL4</code>, chr 3</td>
 <td>It drives the UAS label in the wrong cells. Path B only.</td>
 <td>Four generations. See the table below.</td><td class="num">6</td></tr>
 <tr class="bad" data-trk="c93028"><td>BDSC 93028</td><td>the second copy, chr 3</td>
@@ -558,7 +564,7 @@ own states in section 5.1.</p>
 <div class="scroll">
 <table>
 <tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr data-trk="c1472-g0"><td class="num">G0</td><td>ppk23-LexA &times; GJ954</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr data-trk="c1472-g0"><td class="num">G0</td><td>ppk23-LexA-dirty &times; GJ954</td><td>&mdash;</td><td>&mdash;</td></tr>
 <tr data-trk="c1472-f1"><td class="num">F1</td><td>&mdash;</td>
 <td>Curly. <strong>Not</strong> Irregular facets. <strong>Ser</strong>.</td>
 <td><code>; ppk23-LexA/CyO ; TM3,Ser / TM2 or TM6B</code>. The 22B10-GAL4 is gone.</td></tr>
@@ -566,11 +572,11 @@ own states in section 5.1.</p>
 <td>Curly. <strong>Not</strong> Ser, Ubx or Tubby.</td>
 <td><code>; ppk23-LexA/CyO ; +/+</code></td></tr>
 <tr data-trk="c1472-f3"><td class="num">F3</td><td>incross</td><td>Curly</td>
-<td>the stable stock <code>; ppk23-LexA/CyO ; +/+</code></td></tr>
+<td><strong>ppk23-LexA-clean</strong>, <code>; ppk23-LexA/CyO ; +/+</code></td></tr>
 </table>
 </div>
 <p class="note">The outcross to w1118 at F2 is necessary. GJ954 has TM2 and TM6B on chromosome 3,
-and the ppk23-LexA stock has the GAL4 or TM3,Ser. Thus no plain chromosome 3 is present in the cross, and an
+and ppk23-LexA-dirty has the GAL4 or TM3,Ser. Thus no plain chromosome 3 is present in the cross, and an
 incross alone gives a stock with a balancer on chromosome 3. That balancer then blocks the target
 driver in the final cross. Select Ser at F1: a fly with Ser cannot also have the 22B10-GAL4 from
 that parent.</p>

@@ -278,6 +278,10 @@ in the section that describes it.</p>
     data-trk-needs="ord-32209:arrived">Parent 2, G0</li>
 <li data-trk-id="a2-f1" data-trk-kind="cross"
     data-trk-needs="a2-g0:done">Parent 2, F1</li>
+<li data-trk-id="a2-hz" data-trk-kind="cross"
+    data-trk-needs="a2-f1:done">Parent 2, homozygous</li>
+<li data-trk-id="a1-hz" data-trk-kind="cross"
+    data-trk-needs="a1-f1:done">Parent 1, homozygous</li>
 <li data-trk-id="ax" data-trk-kind="cross"
     data-trk-needs="a1-f1:done a2-f1:done">the experimental cross</li>
 <li data-trk-id="c1472-g0" data-trk-kind="cross">the ppk23-LexA clean-up, G0</li>
@@ -354,7 +358,7 @@ GJ948.</p>
 
 <!-- tracker record start -->
 <script type="application/json" id="trk-record">
-{"v":1,"page":"ng/first-cross","saved":"2026-08-17","i":{"a1-g0":{"s":"virgins","d":"2026-08-17"},"a1-f1":{"s":"blocked","d":"2026-08-17"},"a2-g0":{"s":"blocked","d":"2026-08-17"},"a2-f1":{"s":"none","d":"2026-08-16"},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"ctl-nogal4":{"s":"none","d":""},"ctl-nolexa":{"s":"none","d":""},"ctl-false":{"s":"none","d":""},"ctl-sex":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"ord-lmb494":{"s":"arrived","d":"2026-08-17"},"ord-gj948":{"s":"arrived","d":"2026-08-17"},"q-gj948chr":{"s":"blocked","d":"2026-08-17"},"q-lexaop":{"s":"done","d":"2026-08-17"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""},"ord-32209":{"s":"ordered","d":"2026-08-17"},"ord-32211":{"s":"ordered","d":"2026-08-17"},"c-grasp":{"s":"none","d":""},"ord-57671":{"s":"ordered","d":"2026-08-17"},"ord-58370":{"s":"ordered","d":"2026-08-17"},"ord-60692":{"s":"ordered","d":"2026-08-17"},"ord-60699":{"s":"ordered","d":"2026-08-17"},"ord-77138":{"s":"ordered","d":"2026-08-17"},"ord-77139":{"s":"ordered","d":"2026-08-17"},"ord-81229":{"s":"ordered","d":"2026-08-17"},"ord-81230":{"s":"ordered","d":"2026-08-17"},"q-lmb494site":{"s":"none","d":""},"q-frudsx":{"s":"none","d":""},"q-brpd3chr2":{"s":"none","d":""},"q-ir52blexa":{"s":"none","d":""},"q-ppk25lexa":{"s":"none","d":""},"q-ir52aconstruct":{"s":"none","d":""}}}
+{"v":1,"page":"ng/first-cross","saved":"2026-08-17","i":{"a1-g0":{"s":"virgins","d":"2026-08-17"},"a1-f1":{"s":"blocked","d":"2026-08-17"},"a2-g0":{"s":"blocked","d":"2026-08-17"},"a2-f1":{"s":"none","d":"2026-08-16"},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"ctl-nogal4":{"s":"none","d":""},"ctl-nolexa":{"s":"none","d":""},"ctl-false":{"s":"none","d":""},"ctl-sex":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"ord-lmb494":{"s":"arrived","d":"2026-08-17"},"ord-gj948":{"s":"arrived","d":"2026-08-17"},"q-gj948chr":{"s":"blocked","d":"2026-08-17"},"q-lexaop":{"s":"done","d":"2026-08-17"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""},"ord-32209":{"s":"ordered","d":"2026-08-17"},"ord-32211":{"s":"ordered","d":"2026-08-17"},"c-grasp":{"s":"none","d":""},"ord-57671":{"s":"ordered","d":"2026-08-17"},"ord-58370":{"s":"ordered","d":"2026-08-17"},"ord-60692":{"s":"ordered","d":"2026-08-17"},"ord-60699":{"s":"ordered","d":"2026-08-17"},"ord-77138":{"s":"ordered","d":"2026-08-17"},"ord-77139":{"s":"ordered","d":"2026-08-17"},"ord-81229":{"s":"ordered","d":"2026-08-17"},"ord-81230":{"s":"ordered","d":"2026-08-17"},"q-lmb494site":{"s":"none","d":""},"q-frudsx":{"s":"none","d":""},"q-brpd3chr2":{"s":"none","d":""},"q-ir52blexa":{"s":"none","d":""},"q-ppk25lexa":{"s":"none","d":""},"q-ir52aconstruct":{"s":"none","d":""},"a1-hz":{"s":"none","d":""},"a2-hz":{"s":"none","d":""}}}
 </script>
 <!-- tracker record end -->
 
@@ -571,7 +575,51 @@ LMB-494 has Stubble. A fly with two TM6B chromosomes dies.</p>
 flies to any LexA driver and look for green. This check is faster than a PCR, and it also confirms
 that the reporter works.</p>
 
-<h3 id="s43">4.3 Experimental cross</h3>
+<h3 id="s43">4.3 Homozygous stocks</h3>
+
+<p>Parent 1 and Parent 2 keep chromosome 3 over TM6B. The experimental cross therefore gives one
+useful male in six. A homozygous stock removes the balancer. Every progeny then has the element,
+and the yield becomes one male in two.</p>
+
+<p>Chromosome 2 is already homozygous in both parents. Only chromosome 3 needs this work.</p>
+
+<p>The work is one generation. A fly with two TM6B chromosomes dies. A sibling cross of a balanced
+stock therefore gives one homozygote in three survivors. You find that fly by the absence of
+Tubby.</p>
+
+<div class="scroll">
+<table>
+<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
+<tr class="hi" data-trk="a2-hz"><td class="num">F1</td><td>sibling cross of Parent 2</td>
+<td><strong>Not</strong> Tubby</td>
+<td><code>w; R56C09-lexA; LexAop-mCD8::GFP</code>, homozygous</td></tr>
+<tr class="hi" data-trk="a1-hz"><td class="num">F1</td><td>sibling cross of Parent 1</td>
+<td><strong>Not</strong> Tubby</td>
+<td><code>w; ppk23-GAL4; brp-D3-Cherry</code>, homozygous</td></tr>
+</table>
+</div>
+
+<p><strong>Make Parent 2 homozygous first.</strong> Every arm uses Parent 2. Parent 1 changes with
+the arm. The work on Parent 2 therefore gives a result for each arm.</p>
+
+<p class="note">Confirm that the reporter works before this step. A homozygous stock has no balancer
+marker on chromosome 3. You then lose the check by eye. Keep the balanced stock as a spare.</p>
+
+<div class="callout warn">
+<p><strong>Two copies give a different signal.</strong> A homozygous stock gives two copies of
+brp-D3-Cherry and two copies of the fill. Section 7 compares the two arms as a ratio. Both arms
+must therefore have the same number of copies. Do not compare a homozygous animal with a
+heterozygous animal.</p>
+<p><strong>A male cannot be homozygous for the X reporter.</strong> A male has one X chromosome.
+BDSC 32211 therefore always gives one copy. The Gr32a arm and the chromosome 3 Ir52a arms use it.
+Keep those arms apart from the homozygous arms in a comparison.</p>
+<p><strong>Some insertions do not live as a pair.</strong> If no fly is without Tubby, or if those
+flies are weak, the insertion is homozygous lethal or homozygous sick. Keep the balanced stock and
+use it. The landing site of brp-D3 in LMB-494 is not recorded, thus this risk is not known for
+Parent 1.</p>
+</div>
+
+<h3 id="s44">4.4 Experimental cross</h3>
 <pre><code>Parent 1  x  Parent 2
    keep the male progeny that are not Tubby</code></pre>
 <p class="trk-host" data-trk="ax"></p>
@@ -586,19 +634,21 @@ that the reporter works.</p>
 </table>
 </div>
 
-<h3 id="s44">4.4 Time</h3>
+<h3 id="s45">4.5 Time</h3>
 <div class="scroll">
 <table>
 <tr><th>Step</th><th class="num">Weeks</th><th>Note</th></tr>
 <tr><td>Parent 1</td><td class="num">5</td><td>3 generations</td></tr>
 <tr><td>Parent 2</td><td class="num">5</td><td>in parallel, plus one PCR</td></tr>
 <tr><td>experimental cross</td><td class="num">2</td><td></td></tr>
+<tr><td>homozygous stocks</td><td class="num">+2</td>
+<td>one generation for each parent, in parallel. Optional for one arm only.</td></tr>
 <tr class="hi"><td>first ppk23 image</td><td class="num">7</td><td>from the start</td></tr>
 <tr><td>ppk25 arm</td><td class="num">+10</td><td>clean BDSC 93028, rebuild Parent 1, cross</td></tr>
 </table>
 </div>
 
-<h3 id="s45">4.5 How to change the arm</h3>
+<h3 id="s46">4.6 How to change the arm</h3>
 <div class="scroll">
 <table>
 <tr><th>Arm</th><th>Driver in Parent 1</th><th>Instruction</th></tr>
@@ -769,7 +819,7 @@ drive the post half in this orientation.</p>
 
 <p data-path="c"><strong>The chromosomes.</strong> Count units, and do not count halves. Chromosome 3
 holds two units, one unit on each homolog. The two halves of BDSC 79040 are one unit. A third unit on
-chromosome 3 does not fit. Section 4.5 shows this limit for the Gr32a arm.</p>
+chromosome 3 does not fit. Section 4.6 shows this limit for the Gr32a arm.</p>
 
 <div class="scroll" data-path="c">
 <table>

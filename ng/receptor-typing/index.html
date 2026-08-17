@@ -823,7 +823,10 @@ The cross is written out on <a href="../first-cross/">the first cross page</a>.<
 <h3>1.1 Configuration for this project</h3>
 
 <ul class="steps">
-<li>Use a ppk-GAL4 driver line to drive STaR. This step tags BRP in the sensory neurons.</li>
+<li>Use a ppk-GAL4 driver line to drive UAS-brp-D3-Cherry. This step marks the presynaptic sites
+of the sensory neurons.</li>
+<li>Stain the same animal with nc82. That antibody marks the endogenous BRP protein in every cell.
+The ratio of the two counts gives the calibration.</li>
 <li>Mark the PPN1 membrane with R56C09-lexA.</li>
 <li>Count the tagged BRP sites that touch the PPN1 membrane.</li>
 <li>Repeat the whole experiment with the other ppk driver line.</li>
@@ -1524,10 +1527,10 @@ pattern.</li>
 that includes a gel. Order Alexa Fluor 488, CF568 or Atto 647N as the secondary dyes.</li>
 <li>Make a control line that carries the spGFP1-10 half alone and no partner. This line must stay
 blank. Make it at the same time as the experimental crosses.</li>
-<li>Order the STaR components if you take the BRP counting route. That route uses the two binary
-expression systems that the laboratory already holds. The ppk-GAL4 line drives the BRP tag.
-R56C09-lexA marks the target neuron membrane. The other documents in this set give the method and
-the expected synapse counts.</li>
+<li><strong>Do not order the STaR components.</strong> STaR gives the better BRP label, but it
+needs five elements, and path A has space for four. The crosses document gives that result. Use
+UAS-brp-D3-Cherry with an nc82 channel instead. That route uses the two binary expression systems
+that the laboratory already holds, and it needs no new stock.</li>
 </ul>
 
 <h3>9.4 Missing information</h3>
@@ -1574,8 +1577,9 @@ Test it against a known positive before you use it in an experiment.</p>
 
 <h3>10.2 The antibodies that the recommended method needs</h3>
 
-<p>Document 2 recommends that you tag a real synaptic protein. That method needs an antibody
-against BRP, or against the tag that STaR puts on BRP. The laboratory holds both.</p>
+<p>Document 2 recommends that you mark a real synaptic protein. That method needs the nc82
+antibody against BRP. The V5 antibodies below apply to STaR only, and this project does not use
+STaR. The laboratory holds all of them.</p>
 
 <div class="scroll">
 <table>

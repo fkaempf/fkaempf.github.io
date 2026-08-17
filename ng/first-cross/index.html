@@ -277,13 +277,13 @@ in the section that describes it.</p>
     data-trk-needs="a2-g0:done">Parent 2, F1</li>
 <li data-trk-id="ax" data-trk-kind="cross"
     data-trk-needs="a1-f1:done a2-f1:done">the experimental cross</li>
-<li data-trk-id="c1472-g0" data-trk-kind="cross">the GJ1472 clean-up, G0</li>
+<li data-trk-id="c1472-g0" data-trk-kind="cross">the ppk23-LexA clean-up, G0</li>
 <li data-trk-id="c1472-f1" data-trk-kind="cross"
-    data-trk-needs="c1472-g0:done">the GJ1472 clean-up, F1</li>
+    data-trk-needs="c1472-g0:done">the ppk23-LexA clean-up, F1</li>
 <li data-trk-id="c1472-f2" data-trk-kind="cross"
-    data-trk-needs="c1472-f1:done">the GJ1472 clean-up, F2</li>
+    data-trk-needs="c1472-f1:done">the ppk23-LexA clean-up, F2</li>
 <li data-trk-id="c1472-f3" data-trk-kind="cross"
-    data-trk-needs="c1472-f2:done">the GJ1472 clean-up, F3</li>
+    data-trk-needs="c1472-f2:done">the ppk23-LexA clean-up, F3</li>
 <li data-trk-id="c93028" data-trk-kind="cross">the BDSC 93028 clean-up</li>
 <li data-trk-id="b-target" data-trk-kind="cross">the PPN1 mask control</li>
 </ul>
@@ -378,7 +378,7 @@ counts, and those counts stay the authority.</p>
 <tr data-path="b"><td>GJ948</td><td><code>LexAop2-Brp-mCherry</code></td><td>not recorded</td>
 <td>synapse label, path B</td><td>Cambridge Genetics stockist</td>
 <td>The laboratory vial is dead. GJ1008 and GJ1000 are also not available.</td></tr>
-<tr data-path="b"><td>GJ1472</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>2</td>
+<tr data-path="b" data-gt-also="GJ1472"><td>ppk23-LexA</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>2</td>
 <td>ppk23 driver, path B</td><td>25inc, Bella</td>
 <td><span class="tag warn">clean</span> remove 22B10-GAL4</td></tr>
 <tr data-gt-also="Kallman PPN1 Gal4"><td>Kallman PPN1 GAL4</td><td><code>w1118; P{GMR56C09-GAL4}attP2</code></td><td>3, attP2</td>
@@ -540,7 +540,7 @@ the target driver: that GAL4 also drives brp-D3 in PPN1.</td></tr>
 <div class="scroll">
 <table>
 <tr><th>Line</th><th>Remove</th><th>Effect if you do not</th><th>Method</th><th class="num">Weeks</th></tr>
-<tr class="bad"><td>GJ1472</td><td><code>22B10-GAL4</code>, chr 3</td>
+<tr class="bad"><td>ppk23-LexA</td><td><code>22B10-GAL4</code>, chr 3</td>
 <td>It drives the UAS label in the wrong cells. Path B only.</td>
 <td>Four generations. See the table below.</td><td class="num">6</td></tr>
 <tr class="bad" data-trk="c93028"><td>BDSC 93028</td><td>the second copy, chr 3</td>
@@ -551,14 +551,14 @@ the target driver: that GAL4 also drives brp-D3 in PPN1.</td></tr>
 </div>
 
 <p class="note">Use <strong>GJ954</strong>, <code>w; IF/CyO; TM2/TM6B</code>, incubator 18. Use
-GJ832 only if GJ954 is not available: GJ832 has hsFLP. The four generations of GJ1472 have their
+GJ832 only if GJ954 is not available: GJ832 has hsFLP. The four generations of the ppk23-LexA clean-up have their
 own states in section 5.1.</p>
 
 <h3 id="s51">5.1 The ppk23-LexA clean-up, generation by generation</h3>
 <div class="scroll">
 <table>
 <tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr data-trk="c1472-g0"><td class="num">G0</td><td>GJ1472 &times; GJ954</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr data-trk="c1472-g0"><td class="num">G0</td><td>ppk23-LexA &times; GJ954</td><td>&mdash;</td><td>&mdash;</td></tr>
 <tr data-trk="c1472-f1"><td class="num">F1</td><td>&mdash;</td>
 <td>Curly. <strong>Not</strong> Irregular facets. <strong>Ser</strong>.</td>
 <td><code>; ppk23-LexA/CyO ; TM3,Ser / TM2 or TM6B</code>. The 22B10-GAL4 is gone.</td></tr>
@@ -570,7 +570,7 @@ own states in section 5.1.</p>
 </table>
 </div>
 <p class="note">The outcross to w1118 at F2 is necessary. GJ954 has TM2 and TM6B on chromosome 3,
-and GJ1472 has the GAL4 or TM3,Ser. Thus no plain chromosome 3 is present in the cross, and an
+and the ppk23-LexA stock has the GAL4 or TM3,Ser. Thus no plain chromosome 3 is present in the cross, and an
 incross alone gives a stock with a balancer on chromosome 3. That balancer then blocks the target
 driver in the final cross. Select Ser at F1: a fly with Ser cannot also have the 22B10-GAL4 from
 that parent.</p>

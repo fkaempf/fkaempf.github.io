@@ -122,6 +122,14 @@
   "Kallman PPN1 Gal4": "Kallman PPN1 GAL4",
   "BDSC 93028": "BDSC 93028",
   "GJ1435": "GJ1435",
+  "BDSC 77138": "BDSC 77138",
+  "BDSC 77139": "BDSC 77139",
+  "BDSC 60692": "BDSC 60692",
+  "BDSC 60699": "BDSC 60699",
+  "BDSC 81229": "BDSC 81229",
+  "BDSC 81230": "BDSC 81230",
+  "BDSC 57671": "BDSC 57671",
+  "BDSC 58370": "BDSC 58370",
   "GJ954": "GJ954",
   "GJ890": "GJ890",
   "GJ891": "GJ891",
@@ -3334,7 +3342,7 @@
    "chr": "3, attP2",
    "function": "PPN1 fill, path A",
    "location": "BDSC",
-   "condition": "order. The fill of every arm that keeps chromosome 3 free.",
+   "condition": "ordered. 17 August 2026. The fill of every arm that keeps chromosome 3 free. It sits at attP2, thus BDSC 77139 replaces it when a second transgene is at attP2.",
    "pages": [
     {
      "label": "crosses",
@@ -3350,7 +3358,7 @@
    "chr": "X, su(Hw)attP8",
    "function": "PPN1 fill, the Gr32a arm",
    "location": "BDSC",
-   "condition": "order. The same reporter on the X chromosome. It frees chromosome 3 for a driver.",
+   "condition": "ordered. 17 August 2026. The same reporter on the X chromosome. It frees chromosome 3 for a driver.",
    "pages": [
     {
      "label": "crosses",
@@ -3461,6 +3469,126 @@
    "function": "Gr32a driver, a third arm",
    "location": "25inc",
    "condition": "ready",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "BDSC 77138": {
+   "kind": "stock",
+   "name": "BDSC 77138",
+   "genotype": "w[*]; P{w[+mC]=13xLexAop2-CD4-tdTom}4",
+   "chr": "2",
+   "function": "red LexAop fill",
+   "location": "BDSC",
+   "condition": "ordered. 17 August 2026. A random P insertion, thus it is not at attP40. It gives the arms with a chromosome 3 driver a fill that is not on the X chromosome.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "BDSC 77139": {
+   "kind": "stock",
+   "name": "BDSC 77139",
+   "genotype": "w[*]; PBac{y[+mDint2] w[+mC]=13xLexAop2-CD4-tdTom}VK00033/TM6B, Tb[1]",
+   "chr": "3, VK00033",
+   "function": "red LexAop fill",
+   "location": "BDSC",
+   "condition": "ordered. 17 August 2026. VK00033 is not attP2. Use this line in place of BDSC 32209 in every genotype that has a second transgene at attP2.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "BDSC 60692": {
+   "kind": "stock",
+   "name": "BDSC 60692",
+   "genotype": "w[*]; wg[Sp-1]/CyO; P{Ir52a-LexA-VP16}attP2 PBac{Ir52a-LexA-VP16}VK00005/TM3, Sb[1] Ser[1]",
+   "chr": "3, attP2 and VK00005",
+   "function": "Ir52a driver, path B",
+   "location": "BDSC",
+   "condition": "ordered. 17 August 2026. Two copies on one chromosome 3. John Carlson gave the line to the stock centre, thus it is the line of Luo, Talross and Carlson 2024. It occupies attP2.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "BDSC 60699": {
+   "kind": "stock",
+   "name": "BDSC 60699",
+   "genotype": "w[*]; P{w[+mC]=Ir52a-GAL4.K}2/CyO; P{w[+mC]=UAS-mCD8::GFP.L}LL6",
+   "chr": "2",
+   "function": "Ir52a driver, path A",
+   "location": "BDSC",
+   "condition": "ordered. 17 August 2026. Remove chromosome 3 first. Cross to GJ954 two times, and keep TM2/TM6B. Do this before brp-D3-Cherry comes in. Both labels are w+, thus you cannot see the difference between them later.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "BDSC 81229": {
+   "kind": "stock",
+   "name": "BDSC 81229",
+   "genotype": "w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52a-GAL4.2931}attP2/TM6B, Tb[+]",
+   "chr": "3, attP2",
+   "function": "Ir52a driver, path A",
+   "location": "BDSC",
+   "condition": "ordered. 17 August 2026. This line has no second label. Both chromosomes have a marker. The promoter fragment is different from the fragment of BDSC 60699.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "BDSC 81230": {
+   "kind": "stock",
+   "name": "BDSC 81230",
+   "genotype": "w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52b-GAL4.C}attP2",
+   "chr": "3, attP2",
+   "function": "Ir52b driver, a pattern check",
+   "location": "BDSC",
+   "condition": "ordered. 17 August 2026. One cross only: look at the legs and the wing margin. Ir52b does not separate WG1 from WG2. Do not put this line with BDSC 60692, because both sit at attP2.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "BDSC 57671": {
+   "kind": "stock",
+   "name": "BDSC 57671",
+   "genotype": "w[*]; P{w[+mC]=Gr68a-GAL4.1.8}2; Dr[1]/TM3, Sb[1]",
+   "chr": "2",
+   "function": "Gr68a driver, a fourth arm",
+   "location": "BDSC",
+   "condition": "ordered. 17 August 2026. The driver is on chromosome 2, thus this arm uses the recipe of BDSC 93026 without a change.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "BDSC 58370": {
+   "kind": "stock",
+   "name": "BDSC 58370",
+   "genotype": "w[*]; wg[Sp-1]/CyO; P{w[+mC]=Gr68a-GAL4.B}1",
+   "chr": "3",
+   "function": "Gr68a driver, second fragment",
+   "location": "BDSC",
+   "condition": "ordered. 17 August 2026. The promoter fragment is different from the fragment of BDSC 57671. The Gr68a driver also labels mechanosensory cells, thus two fragments give a control.",
    "pages": [
     {
      "label": "crosses",

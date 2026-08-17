@@ -3500,7 +3500,7 @@
    "chr": "X",
    "function": "target fill, path B",
    "location": "inc 18",
-   "condition": "X chromosome. The mother must carry it. See section 4.",
+   "condition": "X chromosome. The mother must carry it, because a son takes his X chromosome from his mother.",
    "pages": [
     {
      "label": "crosses",

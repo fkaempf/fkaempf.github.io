@@ -200,6 +200,15 @@ Related pages: <a href="../receptor-typing/">receptor typing</a>,
 <p data-path="b"><strong>Path B</strong>, label in LexA. One arm only. Any GAL4 or split-GAL4 target.</p>
 <pre data-path="b"><code>w/Y ; ppk23-LexA / + ; target-GAL4 / UAS-myr::GFP     plus LexAop2-Brp-mCherry</code></pre>
 <p class="trk-host" data-path="b" data-trk="b-sensory"></p>
+<p class="note" data-path="b">The record gives no chromosome for GJ948, thus the direction of a
+cross that carries it is not yet known. The sister stock GJ1008 gives su(Hw)attP8, which is an X
+site, thus an X linked form of this reporter exists. Find the chromosome first: section 9 holds the
+question. The positions in SS103018 are also not scored.</p>
+
+<p class="note" data-path="b">Two path B parts are on the X chromosome, or may be. GJ598 is at
+su(Hw)attP8. GJ948 is not placed. Each of them must come from the mother, because a son takes his X
+chromosome from his mother, and this work scores males. Every other path B cross goes in either
+direction.</p>
 
 <div class="scroll">
 <table>
@@ -396,7 +405,8 @@ counts, and those counts stay the authority.</p>
 <td><span class="tag warn">not used</span> As GJ890.</td></tr>
 <tr data-path="b"><td>GJ598</td><td><code>w* P{10XUAS-IVS-myr::GFP}su(Hw)attP8</code></td><td>X</td>
 <td>target fill, path B</td><td>inc 18</td>
-<td><span class="tag warn">X chromosome</span> The mother must carry it. See section 4.</td></tr>
+<td><span class="tag warn">X chromosome</span> The mother must carry it, because a son takes his X
+chromosome from his mother.</td></tr>
 <tr data-path="b"><td>GJ600</td><td><code>w*;; P{10XUAS-IVS-myr::GFP}attP2</code></td><td>3, attP2</td>
 <td>target fill, path B</td><td>inc 18</td><td><span class="tag ok">ready</span></td></tr>
 <tr data-path="b"><td>GJ667</td><td><code>w*;; P{10XUAS-IVS-myr::GFP::P10}attP2</code></td><td>3, attP2</td>
@@ -442,17 +452,22 @@ and not PPN1. The path A fill must be LexAop. The order state of each line is in
 <div class="callout" data-path="a">
 <p><span class="tag q">which parent gives the virgins</span> Every element of path A is on
 chromosome 2 or on chromosome 3. Thus the direction of each cross is free. Take the virgins from
-the stock that gives them first. The tables give one direction only, to keep the record clear.</p>
-<p>The direction is <strong>not</strong> free if a transgene is on the X chromosome. A son takes
-his X chromosome from his mother. GJ598, <code>10XUAS-IVS-myr::GFP</code> at su(Hw)attP8, is on the
-X chromosome. If you use GJ598, the mother must carry it, because the experiment uses males.</p>
+the stock that gives them first. The tables give each cross as one stock against the other stock,
+and not as virgins against males.</p>
+<p>The direction is <strong>not</strong> free if an element is on the X chromosome. A son takes his
+X chromosome from his mother, and this work uses males. Thus the mother must carry that element.
+GJ598, <code>10XUAS-IVS-myr::GFP</code> at su(Hw)attP8, is on the X chromosome, and only path B
+uses it. A balancer, a dominant marker or an insertion on chromosome 2 or on chromosome 3 does not
+fix the direction.</p>
+<p>You keep male progeny at the experimental cross. That is a rule for the progeny that you keep.
+It is not a rule for the parents.</p>
 </div>
 
 <h3 id="s41">4.1 Parent 1</h3>
 <div class="scroll">
 <table>
 <tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr data-trk="a1-g0"><td class="num">G0</td><td>LMB-494 virgins &times; BDSC 93026 males</td>
+<tr data-trk="a1-g0"><td class="num">G0</td><td>LMB-494 &times; BDSC 93026</td>
 <td>Tubby. <strong>Not</strong> Ubx. <strong>Not</strong> Stubble.</td>
 <td><code>w; ppk23-GAL4/Sco or /CyO; brp-D3-Cherry/TM6B</code></td></tr>
 <tr data-trk="a1-f1"><td class="num">F1</td><td>sibling cross</td>
@@ -467,7 +482,7 @@ LMB-494 has Stubble. A fly with two TM6B chromosomes dies.</p>
 <div class="scroll">
 <table>
 <tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr data-trk="a2-g0"><td class="num">G0</td><td>BDSC 32203 virgins &times; BDSC 53584 males</td>
+<tr data-trk="a2-g0"><td class="num">G0</td><td>BDSC 32203 &times; BDSC 53584</td>
 <td>the balancer markers of the stock that arrives</td>
 <td><code>w; R56C09-lexA/+; LexAop-mCD8::GFP(attP2)/+</code></td></tr>
 <tr data-trk="a2-f1"><td class="num">F1</td><td>cross to a chromosome 3 balancer, then a sibling cross</td>
@@ -480,10 +495,8 @@ flies to any LexA driver and look for green. This check is faster than a PCR, an
 that the reporter works.</p>
 
 <h3 id="s43">4.3 Experimental cross</h3>
-<pre><code>Parent 1 virgin females  x  Parent 2 males
+<pre><code>Parent 1  x  Parent 2
    keep the male progeny that are not Tubby</code></pre>
-<p class="note">This direction is a convention, not a requirement. Both parents are homozygous on
-chromosome 2, and every element is autosomal.</p>
 <p class="trk-host" data-trk="ax"></p>
 <div class="scroll">
 <table>
@@ -532,7 +545,7 @@ the target driver: that GAL4 also drives brp-D3 in PPN1.</td></tr>
 <td>Four generations. See the table below.</td><td class="num">6</td></tr>
 <tr class="bad" data-trk="c93028"><td>BDSC 93028</td><td>the second copy, chr 3</td>
 <td>Two copies against one change the driver strength between the arms.</td>
-<td>Cross to GJ954, in either direction. Both inserts have the same marker, thus confirm by PCR.</td>
+<td>Cross to GJ954. Both inserts have the same marker, thus confirm by PCR.</td>
 <td class="num">4</td></tr>
 </table>
 </div>
@@ -545,7 +558,7 @@ own states in section 5.1.</p>
 <div class="scroll">
 <table>
 <tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr data-trk="c1472-g0"><td class="num">G0</td><td>GJ1472 virgins &times; GJ954 males</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr data-trk="c1472-g0"><td class="num">G0</td><td>GJ1472 &times; GJ954</td><td>&mdash;</td><td>&mdash;</td></tr>
 <tr data-trk="c1472-f1"><td class="num">F1</td><td>&mdash;</td>
 <td>Curly. <strong>Not</strong> Irregular facets. <strong>Ser</strong>.</td>
 <td><code>; ppk23-LexA/CyO ; TM3,Ser / TM2 or TM6B</code>. The 22B10-GAL4 is gone.</td></tr>
@@ -577,7 +590,7 @@ threshold.</td></tr>
 <td>puncta for each square micrometre of membrane. Without this, "touch" has no measured
 value.</td></tr>
 <tr class="hi" data-trk="b-target"><td>the PPN1 mask</td>
-<td>Kallman PPN1 Gal4 virgins &times; GJ599 males</td>
+<td>Kallman PPN1 Gal4 &times; GJ599, at attP40. Not GJ598, which is on the X chromosome.</td>
 <td>The shape of PPN1 alone. It is the mask for the count, and it shows which cells R56C09
 labels. All the stocks are in the laboratory, thus you can do this control today.</td></tr>
 <tr><td>sex</td><td>a female of the full genotype</td>
@@ -710,9 +723,9 @@ arrives.</li>
  if(!doc)return;
  var KEY="ng.first-cross.path";
  var btns=doc.querySelectorAll("[data-pathsel]");
- function block(h){ /* a heading owns every element up to the next h2 */
-  var out=[h],e=h.nextElementSibling;
-  while(e&&e.tagName!=="H2"){out.push(e);e=e.nextElementSibling;}
+ function block(h){ /* a heading owns every element up to the next heading of its own rank */
+  var out=[h],e=h.nextElementSibling,stop=h.tagName;
+  while(e&&e.tagName!==stop&&!(stop==="H3"&&e.tagName==="H2")){out.push(e);e=e.nextElementSibling;}
   return out;
  }
  function apply(sel){

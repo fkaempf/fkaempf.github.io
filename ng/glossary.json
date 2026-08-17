@@ -133,6 +133,8 @@
   "GJ832": "GJ832",
   "SS104905": "SS104905",
   "LMB-495": "LMB-495",
+  "BDSC 79040": "BDSC 79040",
+  "BDSC 79039": "BDSC 79039",
   "GJ599": "GJ599",
   "SS103018": "SS103018"
  },
@@ -3627,6 +3629,36 @@
    "function": "a comparison only",
    "location": "Cambridge Fly Facility",
    "condition": "on the way. Full length Bruchpilot aggregates. Do not count with it.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "BDSC 79040": {
+   "kind": "stock",
+   "name": "BDSC 79040",
+   "genotype": "y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{13XLexAop2-post-t-GRASP}attP2 PBac{20XUAS-pre-t-GRASP}VK00027",
+   "chr": "3, attP2 and VK00027",
+   "function": "both t-GRASP halves, path C",
+   "location": "inc 18",
+   "condition": "ready. UAS drives the pre half, thus the sensory driver is GAL4 and the target driver is LexA. This is the usable orientation.",
+   "pages": [
+    {
+     "label": "crosses",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "BDSC 79039": {
+   "kind": "stock",
+   "name": "BDSC 79039",
+   "genotype": "y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027/TM6C, Sb[1] Tb[1]",
+   "chr": "3, attP2 and VK00027",
+   "function": "the opposite orientation",
+   "location": "inc 18",
+   "condition": "blocked. LexAop drives the pre half, thus the target driver must be GAL4. Nearly every target GAL4 sits at attP2, and a t-GRASP half already holds attP2.",
    "pages": [
     {
      "label": "crosses",

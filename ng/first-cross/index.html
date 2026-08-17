@@ -191,7 +191,8 @@ Related pages: <a href="../receptor-typing/">receptor typing</a>,
 <p class="pathsw" role="group" aria-label="Which path to show">
  <button type="button" class="btn" data-pathsel="a" aria-pressed="true">Path A</button>
  <button type="button" class="btn ghost" data-pathsel="b" aria-pressed="false">Path B</button>
- <button type="button" class="btn ghost" data-pathsel="both" aria-pressed="false">Both</button>
+ <button type="button" class="btn ghost" data-pathsel="c" aria-pressed="false">Path C</button>
+ <button type="button" class="btn ghost" data-pathsel="both" aria-pressed="false">All</button>
 </p>
 
 <p data-path="a"><strong>Path A</strong>, label in GAL4. Both ppk arms are possible. The target is PPN1 only.</p>
@@ -204,13 +205,17 @@ the incubator is ppk23-LexA-dirty, and it carries 22B10-GAL4, which drives the U
 wrong cells.</p>
 <p class="trk-host" data-path="b" data-trk="b-sensory"></p>
 <p class="note" data-path="b">The record gives no chromosome for GJ948, thus the direction of a
-cross that carries it is not yet known. Find the chromosome when the stock arrives: section 9 holds
+cross that carries it is not yet known. Find the chromosome when the stock arrives: section 10 holds
 the question. The positions in SS103018 are also not scored.</p>
 
 <p class="note" data-path="b">Two path B parts are on the X chromosome, or may be. GJ598 is at
 su(Hw)attP8. GJ948 is not placed. Each of them must come from the mother, because a son takes his X
 chromosome from his mother, and this work scores males. Every other path B cross goes in either
 direction.</p>
+
+<p data-path="c"><strong>Path C</strong>, t-GRASP. No label and no fill: the two halves of a
+fluorescent protein meet at a contact, thus the contact itself makes the signal.</p>
+<pre data-path="c"><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; BDSC 79040 (both halves, chromosome 3)</code></pre>
 
 <div class="scroll">
 <table>
@@ -219,6 +224,8 @@ direction.</p>
 <td>the assay: counts, dilutions, settings, recovery</td></tr>
 <tr class="hi" data-path="b"><td><strong>B</strong></td><td>ppk23 only</td><td>any GAL4, and split-GAL4</td>
 <td>the targets that separate the two ppk groups</td></tr>
+<tr data-path="c"><td><strong>C</strong></td><td>ppk23, ppk25, Gr32a</td><td>PPN1 only</td>
+<td>the fallback. It needs no label, no fill and no gel.</td></tr>
 </table>
 </div>
 
@@ -295,6 +302,11 @@ in the section that describes it.</p>
     data-trk-needs="ax:done">the female of the full genotype</li>
 </ul>
 
+<p class="trk-g" data-path="c">Path C, the fallback</p>
+<ul>
+<li data-trk-id="c-grasp" data-trk-kind="cross">the t-GRASP cross of path C</li>
+</ul>
+
 <p class="trk-g" data-path="b">Path B, a later phase</p>
 <p class="note" data-path="b">Path A is the main line, because the receptor drivers exist in GAL4.
 Path B stays for one job that path A cannot do: a split-GAL4 target, for example SS103018 for
@@ -327,7 +339,7 @@ GJ948.</p>
 
 <!-- tracker record start -->
 <script type="application/json" id="trk-record">
-{"v":1,"page":"ng/first-cross","saved":"2026-08-17","i":{"a1-g0":{"s":"virgins","d":"2026-08-17"},"a1-f1":{"s":"blocked","d":"2026-08-17"},"a2-g0":{"s":"blocked","d":"2026-08-17"},"a2-f1":{"s":"none","d":"2026-08-16"},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"ctl-nogal4":{"s":"none","d":""},"ctl-nolexa":{"s":"none","d":""},"ctl-false":{"s":"none","d":""},"ctl-sex":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"ord-lmb494":{"s":"arrived","d":"2026-08-17"},"ord-gj948":{"s":"arrived","d":"2026-08-17"},"q-gj948chr":{"s":"blocked","d":"2026-08-17"},"q-lexaop":{"s":"done","d":"2026-08-17"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""},"ord-32209":{"s":"none","d":""},"ord-32211":{"s":"none","d":""}}}
+{"v":1,"page":"ng/first-cross","saved":"2026-08-17","i":{"a1-g0":{"s":"virgins","d":"2026-08-17"},"a1-f1":{"s":"blocked","d":"2026-08-17"},"a2-g0":{"s":"blocked","d":"2026-08-17"},"a2-f1":{"s":"none","d":"2026-08-16"},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"ctl-nogal4":{"s":"none","d":""},"ctl-nolexa":{"s":"none","d":""},"ctl-false":{"s":"none","d":""},"ctl-sex":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"ord-lmb494":{"s":"arrived","d":"2026-08-17"},"ord-gj948":{"s":"arrived","d":"2026-08-17"},"q-gj948chr":{"s":"blocked","d":"2026-08-17"},"q-lexaop":{"s":"done","d":"2026-08-17"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""},"ord-32209":{"s":"none","d":""},"ord-32211":{"s":"none","d":""},"c-grasp":{"s":"none","d":""}}}
 </script>
 <!-- tracker record end -->
 
@@ -432,6 +444,16 @@ chromosome from his mother.</td></tr>
 <tr><td>LMB-495</td><td><code>2xUAS:brp-mRFP</code>, full length</td><td>3</td>
 <td>a comparison only</td><td>Cambridge Fly Facility</td>
 <td><span class="tag m">on the way</span> Full length Bruchpilot aggregates. Do not count with it.</td></tr>
+<tr class="hi" data-path="c"><td>BDSC 79040</td>
+<td><code>y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{13XLexAop2-post-t-GRASP}attP2 PBac{20XUAS-pre-t-GRASP}VK00027</code></td>
+<td>3, attP2 and VK00027</td><td>both t-GRASP halves, path C</td><td>inc 18</td>
+<td><span class="tag ok">ready</span> UAS drives the pre half, thus the sensory driver is GAL4 and
+the target driver is LexA. This is the usable orientation.</td></tr>
+<tr data-path="c"><td>BDSC 79039</td>
+<td><code>y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027/TM6C, Sb[1] Tb[1]</code></td>
+<td>3, attP2 and VK00027</td><td>the opposite orientation</td><td>inc 18</td>
+<td><span class="tag warn">blocked</span> LexAop drives the pre half, thus the target driver must be
+GAL4. Nearly every target GAL4 sits at attP2, and a t-GRASP half already holds attP2.</td></tr>
 <tr data-path="b"><td>GJ599</td><td><code>w*; P{10XUAS-IVS-myr::GFP}attP40</code></td><td>2, attP40</td>
 <td>target fill, <strong>path B only</strong></td><td>inc 18</td>
 <td><span class="tag ok">ready</span></td></tr>
@@ -653,7 +675,42 @@ label, the antibody or the segmentation loses most of the sites. It does not sho
 connectome is wrong. Decide the failure threshold before you start the imaging.</p>
 </div>
 
-<h2 id="s8">8 &middot; Items to order</h2>
+<h2 id="s8c" data-path="c">8 &middot; Path C, t-GRASP</h2>
+
+<p data-path="c">t-GRASP splits a fluorescent protein in two. One half sits on the membrane of the
+sensory neuron and one half on the membrane of the target. The halves join only where the two
+membranes touch, thus the signal is the contact. You need no synapse label, no membrane fill, no
+antibody and no gel.</p>
+
+<div class="scroll" data-path="c">
+<table>
+<tr><th>Part</th><th>Line</th><th>In which cell</th></tr>
+<tr class="hi"><td>both halves</td><td>BDSC 79040</td>
+<td>The UAS half is the pre half, thus it goes in the sensory neuron. The LexAop half is the post
+half, thus it goes in PPN1.</td></tr>
+<tr class="hi"><td>sensory driver</td><td>BDSC 93026, ppk23-GAL4</td><td>chromosome 2</td></tr>
+<tr class="hi"><td>target driver</td><td>BDSC 53584, R56C09-lexA at attP40</td><td>chromosome 2</td></tr>
+</table>
+</div>
+
+<p data-path="c">Both halves of BDSC 79040 are on chromosome 3, thus chromosome 3 is full. The two
+drivers sit on chromosome 2, one on each homolog, as in path A. Path C therefore needs no new stock
+and no order.</p>
+
+<div class="callout warn" data-path="c">
+<p><span class="tag warn">read this before you choose path C</span> t-GRASP shows that two membranes
+are close. It does not show a synapse. Nobody has compared a t-GRASP count against electron
+microscopy, and the method of path A has been compared. Thus path C gives a yes or no answer about
+contact, and it does not give a synapse count that the calibration of section 7 can use.</p>
+<p>t-GRASP also fails after a gel that denatures by heat, because the heat unfolds the barrel of the
+fluorescent protein. Path C and the ultrastructure route exclude each other.</p>
+</div>
+
+<p class="note" data-path="c">Use path C when path A cannot run: a label that does not express, an
+antibody that does not penetrate, or a gel that will not come. It answers a smaller question with
+stocks that are already in the incubator.</p>
+
+<h2 id="s8">9 &middot; Items to order</h2>
 
 <div class="scroll">
 <table>
@@ -674,7 +731,7 @@ connectome is wrong. Decide the failure threshold before you start the imaging.<
 <p class="note">The gel and the imaging are on the Expansion tab. Another person does that work.
 Give them the nerve cords and the numbers of section 7.</p>
 
-<h2 id="s9">9 &middot; Open questions</h2>
+<h2 id="s9">10 &middot; Open questions</h2>
 
 <div class="scroll">
 <table>
@@ -698,7 +755,7 @@ them, the prediction must be weighted by the cells that the line labels.</td></t
 </table>
 </div>
 
-<h2 id="s10">10 &middot; Order of work</h2>
+<h2 id="s10">11 &middot; Order of work</h2>
 
 <ul class="steps">
 <li>Set up the two clean-up crosses and the target side of path B. All these stocks are in the

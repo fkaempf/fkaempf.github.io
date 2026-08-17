@@ -1,0 +1,3270 @@
+{
+ "schema": "avlp743m.glossary",
+ "version": 1,
+ "generated": "2026-08-17",
+ "source": {
+  "kind": "live",
+  "server": "https://neuprint-cns.janelia.org",
+  "dataset": "male-cns:v1.0",
+  "fetched": "2026-08-16T23:56:11Z",
+  "bodies_with_a_type": 164506,
+  "stocks_from": "ng/first-cross/index.html#gt-src",
+  "notes_by": "this project, not the connectome"
+ },
+ "index": {
+  "AN01B004": "AN01B004",
+  "AN05B023a": "AN05B023a",
+  "AN05B023b": "AN05B023b",
+  "AN05B023c": "AN05B023c",
+  "AN05B023d": "AN05B023d",
+  "AN05B035": "AN05B035",
+  "AN05B096": "AN05B096",
+  "AN05B102a": "AN05B102a",
+  "AN05B102b": "AN05B102b",
+  "AN05B102c": "AN05B102c",
+  "AN05B102d": "AN05B102d",
+  "AN05B107": "AN05B107",
+  "AN08B007": "AN08B007",
+  "AN09B013": "AN09B013",
+  "AN09B017a": "AN09B017a",
+  "AN09B017b": "AN09B017b",
+  "AN09B017c": "AN09B017c",
+  "AN09B017e": "AN09B017e",
+  "AN09B017f": "AN09B017f",
+  "AN09B017g": "AN09B017g",
+  "AN13B002": "AN13B002",
+  "AN17A003": "AN17A003",
+  "AN17A013": "AN17A013",
+  "AN17A024": "AN17A024",
+  "AN23B002": "AN23B002",
+  "ANXXX013": "ANXXX013",
+  "ANXXX093": "ANXXX093",
+  "ANXXX151": "ANXXX151",
+  "AVLP316": "AVLP316",
+  "AVLP711m": "AVLP711m",
+  "AVLP743m": "AVLP743m",
+  "AVLP750m": "AVLP750m",
+  "AVLP757m": "AVLP757m",
+  "AVLP758m": "AVLP758m",
+  "CB1852": "CB1852",
+  "DA1_lPN": "DA1_lPN",
+  "DNde007": "DNde007",
+  "DNpe029": "DNpe029",
+  "IN01B065": "IN01B065",
+  "IN03B034": "IN03B034",
+  "IN05B002": "IN05B002",
+  "IN06B024": "IN06B024",
+  "IN07B010": "IN07B010",
+  "IN11A020": "IN11A020",
+  "IN11A022": "IN11A022",
+  "IN11A032_a": "IN11A032_a",
+  "IN17A013": "IN17A013",
+  "IN23B007": "IN23B007",
+  "IN23B011": "IN23B011",
+  "IN23B020": "IN23B020",
+  "IN23B025": "IN23B025",
+  "INXXX044": "INXXX044",
+  "LgAG1": "LgAG1",
+  "LgLG1a": "LgLG1a",
+  "LgLG1b": "LgLG1b",
+  "LgLG2": "LgLG2",
+  "LgLG3": "LgLG3",
+  "LgLG4": "LgLG4",
+  "LgLG5": "LgLG5",
+  "LgLG6": "LgLG6",
+  "LgLG7": "LgLG7",
+  "LgLG8": "LgLG8",
+  "LH001m": "LH001m",
+  "LH004m": "LH004m",
+  "LH007m": "LH007m",
+  "LH008m": "LH008m",
+  "LHAV4c2": "LHAV4c2",
+  "M_lvPNm45": "M_lvPNm45",
+  "mAL_m1": "mAL_m1",
+  "mAL_m2a": "mAL_m2a",
+  "mAL_m3c": "mAL_m3c",
+  "mAL_m5a": "mAL_m5a",
+  "mAL_m5c": "mAL_m5c",
+  "mAL_m8": "mAL_m8",
+  "pC1_3a": "pC1_3a",
+  "pC1_3c": "pC1_3c",
+  "PVLP206m": "PVLP206m",
+  "SIP100m": "SIP100m",
+  "SIP101m": "SIP101m",
+  "SIP104m": "SIP104m",
+  "SIP105m": "SIP105m",
+  "SIP122m": "SIP122m",
+  "SNch05": "SNch05",
+  "VES206m": "VES206m",
+  "WG1": "WG1",
+  "WG2": "WG2",
+  "WG3": "WG3",
+  "WG4": "WG4",
+  "aSP8": "aSP8",
+  "LC1": "LC1",
+  "pC1": "pC1",
+  "vAB3": "vAB3",
+  "AN05B023": "AN05B023",
+  "AN05B102": "AN05B102",
+  "AN09B017": "AN09B017"
+ },
+ "entries": {
+  "AN01B004": {
+   "kind": "type",
+   "name": "AN01B004",
+   "what": "ascending neuron",
+   "subclass": "IA, BA",
+   "cells": 6,
+   "sides": {
+    "L": 3,
+    "R": 3
+   },
+   "neuromere": "A1, T2, T3",
+   "transmitter": "acetylcholine",
+   "hemilineage": "01B",
+   "atlas": {
+    "flywire": "AN_GNG_162"
+   },
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN05B023a": {
+   "kind": "type",
+   "name": "AN05B023a",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "T2",
+   "transmitter": "gaba",
+   "hemilineage": "05B",
+   "atlas": {
+    "flywire": "AN_GNG_SAD_14"
+   },
+   "note": {
+    "text": "A member of the ascending family that the pair pages compare.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "an05b023",
+     "url": "../an05b023/"
+    },
+    {
+     "label": "an05b023 dimorphic",
+     "url": "../an05b023-dimorphic/"
+    },
+    {
+     "label": "an05b023ac",
+     "url": "../an05b023ac/"
+    },
+    {
+     "label": "an05b023ac partners",
+     "url": "../an05b023ac-partners/"
+    },
+    {
+     "label": "an05b023ad",
+     "url": "../an05b023ad/"
+    },
+    {
+     "label": "an05b023ad partners",
+     "url": "../an05b023ad-partners/"
+    },
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN05B023b": {
+   "kind": "type",
+   "name": "AN05B023b",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A2",
+   "transmitter": "gaba",
+   "hemilineage": "05B",
+   "note": {
+    "text": "A member of the ascending family that the pair pages compare.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "an05b023",
+     "url": "../an05b023/"
+    },
+    {
+     "label": "an05b023 dimorphic",
+     "url": "../an05b023-dimorphic/"
+    },
+    {
+     "label": "an05b023bc",
+     "url": "../an05b023bc/"
+    },
+    {
+     "label": "an05b023bc cut",
+     "url": "../an05b023bc-cut/"
+    },
+    {
+     "label": "an05b023bc partners",
+     "url": "../an05b023bc-partners/"
+    },
+    {
+     "label": "bristle impact",
+     "url": "../bristle-impact/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN05B023c": {
+   "kind": "type",
+   "name": "AN05B023c",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A6",
+   "transmitter": "gaba",
+   "hemilineage": "05B",
+   "atlas": {
+    "flywire": "AN_AVLP_22"
+   },
+   "note": {
+    "text": "A member of the ascending family that the pair pages compare.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "an05b023",
+     "url": "../an05b023/"
+    },
+    {
+     "label": "an05b023 dimorphic",
+     "url": "../an05b023-dimorphic/"
+    },
+    {
+     "label": "an05b023ac",
+     "url": "../an05b023ac/"
+    },
+    {
+     "label": "an05b023ac partners",
+     "url": "../an05b023ac-partners/"
+    },
+    {
+     "label": "an05b023bc",
+     "url": "../an05b023bc/"
+    },
+    {
+     "label": "an05b023bc cut",
+     "url": "../an05b023bc-cut/"
+    },
+    {
+     "label": "an05b023bc partners",
+     "url": "../an05b023bc-partners/"
+    },
+    {
+     "label": "an05b023cd",
+     "url": "../an05b023cd/"
+    },
+    {
+     "label": "an05b023cd partners",
+     "url": "../an05b023cd-partners/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN05B023d": {
+   "kind": "type",
+   "name": "AN05B023d",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A9",
+   "transmitter": "gaba",
+   "hemilineage": "05B",
+   "atlas": {
+    "flywire": "AN_AVLP_GNG_10"
+   },
+   "note": {
+    "text": "A member of the ascending family that the pair pages compare.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "an05b023",
+     "url": "../an05b023/"
+    },
+    {
+     "label": "an05b023 dimorphic",
+     "url": "../an05b023-dimorphic/"
+    },
+    {
+     "label": "an05b023ad",
+     "url": "../an05b023ad/"
+    },
+    {
+     "label": "an05b023ad partners",
+     "url": "../an05b023ad-partners/"
+    },
+    {
+     "label": "an05b023cd",
+     "url": "../an05b023cd/"
+    },
+    {
+     "label": "an05b023cd partners",
+     "url": "../an05b023cd-partners/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN05B035": {
+   "kind": "type",
+   "name": "AN05B035",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A2",
+   "transmitter": "gaba",
+   "dimorphism": "potentially male-specific",
+   "hemilineage": "05B",
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "AN05B096": {
+   "kind": "type",
+   "name": "AN05B096",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 4,
+   "sides": {
+    "L": 2,
+    "R": 2
+   },
+   "neuromere": "T2, T3",
+   "transmitter": "acetylcholine",
+   "hemilineage": "05B",
+   "atlas": {
+    "flywire": "AN_GNG_SAD_20, SA_VTV_DProN_1"
+   },
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN05B102a": {
+   "kind": "type",
+   "name": "AN05B102a",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A1",
+   "transmitter": "acetylcholine",
+   "hemilineage": "05B",
+   "atlas": {
+    "hemibrain": "(hb1665775343)",
+    "flywire": "AN_AVLP_20"
+   },
+   "aliases": [
+    {
+     "name": "PPN1",
+     "cite": "Kallman 2015"
+    }
+   ],
+   "note": {
+    "text": "The crosses use a driver line for this type.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN05B102b": {
+   "kind": "type",
+   "name": "AN05B102b",
+   "what": "ascending neuron",
+   "subclass": "CA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A3",
+   "transmitter": "acetylcholine",
+   "hemilineage": "05B",
+   "atlas": {
+    "flywire": "AN_multi_66"
+   },
+   "pages": [
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    }
+   ]
+  },
+  "AN05B102c": {
+   "kind": "type",
+   "name": "AN05B102c",
+   "what": "ascending neuron",
+   "subclass": "CA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A4",
+   "transmitter": "acetylcholine",
+   "dimorphism": "potentially sexually dimorphic",
+   "hemilineage": "05B",
+   "atlas": {
+    "flywire": "AN_AVLP_PVLP_5"
+   },
+   "pages": [
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN05B102d": {
+   "kind": "type",
+   "name": "AN05B102d",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A10",
+   "transmitter": "acetylcholine",
+   "dimorphism": "potentially sexually dimorphic",
+   "hemilineage": "05B",
+   "atlas": {
+    "flywire": "AN_multi_69"
+   },
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN05B107": {
+   "kind": "type",
+   "name": "AN05B107",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "T2",
+   "transmitter": "acetylcholine",
+   "hemilineage": "05B",
+   "atlas": {
+    "flywire": "AN_multi_85"
+   },
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN08B007": {
+   "kind": "type",
+   "name": "AN08B007",
+   "what": "ascending neuron",
+   "subclass": "CA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "T3",
+   "transmitter": "gaba",
+   "hemilineage": "08B",
+   "atlas": {
+    "flywire": "AN_multi_33"
+   },
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN09B013": {
+   "kind": "type",
+   "name": "AN09B013",
+   "what": "ascending neuron",
+   "subclass": "CA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A7",
+   "transmitter": "acetylcholine",
+   "hemilineage": "09B",
+   "atlas": {
+    "flywire": "AN_multi_91"
+   },
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN09B017a": {
+   "kind": "type",
+   "name": "AN09B017a",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "T2",
+   "transmitter": "glutamate",
+   "dimorphism": "male-specific",
+   "hemilineage": "09B",
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "AN09B017b": {
+   "kind": "type",
+   "name": "AN09B017b",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A3",
+   "transmitter": "glutamate",
+   "dimorphism": "male-specific",
+   "hemilineage": "09B",
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN09B017c": {
+   "kind": "type",
+   "name": "AN09B017c",
+   "what": "ascending neuron",
+   "subclass": "CA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A6",
+   "transmitter": "glutamate",
+   "dimorphism": "male-specific",
+   "hemilineage": "09B",
+   "pages": [
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN09B017e": {
+   "kind": "type",
+   "name": "AN09B017e",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A9",
+   "transmitter": "glutamate",
+   "dimorphism": "male-specific",
+   "hemilineage": "09B",
+   "aliases": [
+    {
+     "name": "vAB3",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "AN09B017f": {
+   "kind": "type",
+   "name": "AN09B017f",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A10",
+   "transmitter": "glutamate",
+   "dimorphism": "male-specific",
+   "hemilineage": "09B",
+   "aliases": [
+    {
+     "name": "vAB3",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "AN09B017g": {
+   "kind": "type",
+   "name": "AN09B017g",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A10",
+   "transmitter": "glutamate",
+   "dimorphism": "male-specific",
+   "hemilineage": "09B",
+   "aliases": [
+    {
+     "name": "vAB3",
+     "cite": "Yu 2010, von Phillipsborn 2011"
+    }
+   ],
+   "pages": [
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN13B002": {
+   "kind": "type",
+   "name": "AN13B002",
+   "what": "ascending neuron",
+   "subclass": "CA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A1",
+   "transmitter": "gaba",
+   "hemilineage": "TBD",
+   "atlas": {
+    "flywire": "AN_GNG_68"
+   },
+   "aliases": [
+    {
+     "name": "Dandelion",
+     "cite": "Shiu 2022"
+    }
+   ],
+   "pages": [
+    {
+     "label": "first cross",
+     "url": "../first-cross/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN17A003": {
+   "kind": "type",
+   "name": "AN17A003",
+   "what": "ascending neuron",
+   "subclass": "IA, BA",
+   "cells": 6,
+   "sides": {
+    "L": 3,
+    "R": 3
+   },
+   "neuromere": "T1, T2, T3",
+   "transmitter": "acetylcholine",
+   "hemilineage": "17A",
+   "atlas": {
+    "flywire": "AN_GNG_91, AN_GNG_97, AN_GNG_98"
+   },
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN17A013": {
+   "kind": "type",
+   "name": "AN17A013",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 4,
+   "sides": {
+    "L": 2,
+    "R": 2
+   },
+   "neuromere": "T1, T2",
+   "transmitter": "acetylcholine",
+   "hemilineage": "17A",
+   "atlas": {
+    "flywire": "AN_GNG_190, AN_GNG_191"
+   },
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN17A024": {
+   "kind": "type",
+   "name": "AN17A024",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 6,
+   "sides": {
+    "L": 3,
+    "R": 3
+   },
+   "neuromere": "T1, T2, T3",
+   "transmitter": "acetylcholine",
+   "hemilineage": "17A",
+   "atlas": {
+    "flywire": "AN_GNG_134"
+   },
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN23B002": {
+   "kind": "type",
+   "name": "AN23B002",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "T2",
+   "transmitter": "acetylcholine",
+   "hemilineage": "23B",
+   "atlas": {
+    "flywire": "AN_GNG_202"
+   },
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "ANXXX013": {
+   "kind": "type",
+   "name": "ANXXX013",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A1",
+   "transmitter": "gaba",
+   "dimorphism": "sexually dimorphic",
+   "hemilineage": "TBD",
+   "atlas": {
+    "flywire": "AN_GNG_150"
+   },
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "ANXXX093": {
+   "kind": "type",
+   "name": "ANXXX093",
+   "what": "ascending neuron",
+   "subclass": "CA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A6",
+   "transmitter": "acetylcholine",
+   "hemilineage": "TBD",
+   "atlas": {
+    "flywire": "AN_AVLP_21"
+   },
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "ANXXX151": {
+   "kind": "type",
+   "name": "ANXXX151",
+   "what": "ascending neuron",
+   "subclass": "BA",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A2",
+   "transmitter": "acetylcholine",
+   "dimorphism": "potentially sexually dimorphic",
+   "hemilineage": "TBD",
+   "atlas": {
+    "flywire": "AN_multi_71"
+   },
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AVLP316": {
+   "kind": "type",
+   "name": "AVLP316",
+   "what": "cb intrinsic",
+   "cells": 6,
+   "sides": {
+    "L": 3,
+    "R": 3
+   },
+   "transmitter": "acetylcholine",
+   "dimorphism": "sexually dimorphic",
+   "hemilineage": "putative_primary",
+   "atlas": {
+    "hemibrain": "AVLP316",
+    "flywire": "AVLP316"
+   },
+   "aliases": [
+    {
+     "name": "aIP-g",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "pIP6",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "AVLP711m": {
+   "kind": "type",
+   "name": "AVLP711m",
+   "what": "cb intrinsic",
+   "cells": 5,
+   "sides": {
+    "L": 3,
+    "R": 2
+   },
+   "neuromere": "CG",
+   "transmitter": "acetylcholine",
+   "dimorphism": "male-specific",
+   "hemilineage": "DL1_ventral",
+   "aliases": [
+    {
+     "name": "pIP-e",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "pIP5",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "AVLP743m": {
+   "kind": "type",
+   "name": "AVLP743m",
+   "what": "cb intrinsic",
+   "cells": 11,
+   "sides": {
+    "L": 6,
+    "R": 5
+   },
+   "transmitter": "unclear",
+   "dimorphism": "male-specific",
+   "hemilineage": "VLPl4_dorsal",
+   "aliases": [
+    {
+     "name": "LC1",
+     "cite": "Ruta 2010"
+    }
+   ],
+   "note": {
+    "text": "This project starts at this type.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "AVLP750m": {
+   "kind": "type",
+   "name": "AVLP750m",
+   "what": "cb intrinsic",
+   "cells": 3,
+   "sides": {
+    "L": 2,
+    "R": 1
+   },
+   "transmitter": "acetylcholine",
+   "dimorphism": "male-specific",
+   "hemilineage": "SLPal2",
+   "aliases": [
+    {
+     "name": "aSP-g",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aSP6",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "AVLP757m": {
+   "kind": "type",
+   "name": "AVLP757m",
+   "what": "cb intrinsic",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "transmitter": "acetylcholine",
+   "dimorphism": "male-specific",
+   "hemilineage": "DM6_dorso_lateral",
+   "aliases": [
+    {
+     "name": "pMP-f",
+     "cite": "Cachero 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "AVLP758m": {
+   "kind": "type",
+   "name": "AVLP758m",
+   "what": "cb intrinsic",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "transmitter": "acetylcholine",
+   "dimorphism": "male-specific",
+   "hemilineage": "putative_primary",
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "CB1852": {
+   "kind": "type",
+   "name": "CB1852",
+   "what": "cb intrinsic",
+   "cells": 9,
+   "sides": {
+    "L": 5,
+    "R": 4
+   },
+   "transmitter": "acetylcholine",
+   "hemilineage": "VLPl2_posterior",
+   "atlas": {
+    "flywire": "CB1852"
+   },
+   "aliases": [
+    {
+     "name": "aIP-e",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aSP9",
+     "cite": "Yu 2010"
+    },
+    {
+     "name": "LC2",
+     "cite": "Ruta 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "DA1_lPN": {
+   "kind": "type",
+   "name": "DA1_lPN",
+   "what": "cb intrinsic",
+   "class": "ALPN",
+   "cells": 13,
+   "sides": {
+    "L": 7,
+    "R": 6
+   },
+   "neuromere": "DC",
+   "transmitter": "acetylcholine",
+   "hemilineage": "ALl1_ventral",
+   "atlas": {
+    "hemibrain": "DA1_lPN",
+    "flywire": "DA1_lPN"
+   },
+   "aliases": [
+    {
+     "name": "aDT-e",
+     "cite": "Cachero 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "DNde007": {
+   "kind": "type",
+   "name": "DNde007",
+   "what": "descending neuron",
+   "subclass": "xl",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "transmitter": "glutamate",
+   "dimorphism": "sexually dimorphic",
+   "hemilineage": "putative_primary",
+   "atlas": {
+    "flywire": "DNde007"
+   },
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "DNpe029": {
+   "kind": "type",
+   "name": "DNpe029",
+   "what": "descending neuron",
+   "subclass": "xl",
+   "cells": 4,
+   "sides": {
+    "L": 2,
+    "R": 2
+   },
+   "neuromere": "DC",
+   "transmitter": "acetylcholine",
+   "hemilineage": "05B_put1",
+   "atlas": {
+    "flywire": "DNpe029"
+   },
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "IN01B065": {
+   "kind": "type",
+   "name": "IN01B065",
+   "what": "vnc intrinsic",
+   "subclass": "IR",
+   "cells": 20,
+   "sides": {
+    "L": 10,
+    "R": 10
+   },
+   "neuromere": "A1, T2, T3",
+   "transmitter": "gaba",
+   "hemilineage": "01B",
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "IN03B034": {
+   "kind": "type",
+   "name": "IN03B034",
+   "what": "vnc intrinsic",
+   "subclass": "BI",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "T2",
+   "transmitter": "gaba",
+   "hemilineage": "03B",
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "IN05B002": {
+   "kind": "type",
+   "name": "IN05B002",
+   "what": "vnc intrinsic",
+   "subclass": "BI",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "T1",
+   "transmitter": "gaba",
+   "hemilineage": "05B",
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "IN06B024": {
+   "kind": "type",
+   "name": "IN06B024",
+   "what": "vnc intrinsic",
+   "subclass": "BI",
+   "cells": 4,
+   "sides": {
+    "L": 2,
+    "R": 2
+   },
+   "neuromere": "T1, T2",
+   "transmitter": "gaba",
+   "hemilineage": "06B",
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "IN07B010": {
+   "kind": "type",
+   "name": "IN07B010",
+   "what": "vnc intrinsic",
+   "subclass": "BI",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "T2",
+   "transmitter": "acetylcholine",
+   "hemilineage": "07B",
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "IN11A020": {
+   "kind": "type",
+   "name": "IN11A020",
+   "what": "vnc intrinsic",
+   "subclass": "BI, II",
+   "cells": 6,
+   "sides": {
+    "L": 3,
+    "R": 3
+   },
+   "neuromere": "T1",
+   "transmitter": "acetylcholine",
+   "hemilineage": "11A",
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "IN11A022": {
+   "kind": "type",
+   "name": "IN11A022",
+   "what": "vnc intrinsic",
+   "subclass": "II",
+   "cells": 6,
+   "sides": {
+    "L": 3,
+    "R": 3
+   },
+   "neuromere": "T2",
+   "transmitter": "acetylcholine",
+   "hemilineage": "11A",
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "IN11A032_a": {
+   "kind": "type",
+   "name": "IN11A032_a",
+   "what": "vnc intrinsic",
+   "subclass": "BI",
+   "cells": 3,
+   "sides": {
+    "L": 2,
+    "R": 1
+   },
+   "neuromere": "T2",
+   "transmitter": "acetylcholine",
+   "hemilineage": "11A",
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "IN17A013": {
+   "kind": "type",
+   "name": "IN17A013",
+   "what": "vnc intrinsic",
+   "subclass": "II",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "T3",
+   "transmitter": "acetylcholine",
+   "hemilineage": "17A",
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "IN23B007": {
+   "kind": "type",
+   "name": "IN23B007",
+   "what": "vnc intrinsic",
+   "subclass": "BI",
+   "cells": 7,
+   "sides": {
+    "L": 4,
+    "R": 3
+   },
+   "neuromere": "T2, T1, T3",
+   "transmitter": "acetylcholine",
+   "hemilineage": "23B",
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "IN23B011": {
+   "kind": "type",
+   "name": "IN23B011",
+   "what": "vnc intrinsic",
+   "subclass": "BI",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "neuromere": "A1",
+   "transmitter": "acetylcholine",
+   "hemilineage": "23B",
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "IN23B020": {
+   "kind": "type",
+   "name": "IN23B020",
+   "what": "vnc intrinsic",
+   "subclass": "BR, BI",
+   "cells": 7,
+   "sides": {
+    "L": 3,
+    "R": 4
+   },
+   "neuromere": "T2, T1, T3",
+   "transmitter": "acetylcholine",
+   "hemilineage": "23B",
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "IN23B025": {
+   "kind": "type",
+   "name": "IN23B025",
+   "what": "vnc intrinsic",
+   "subclass": "BI",
+   "cells": 6,
+   "sides": {
+    "L": 3,
+    "R": 3
+   },
+   "neuromere": "T1, T2, T3",
+   "transmitter": "acetylcholine",
+   "hemilineage": "23B",
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "INXXX044": {
+   "kind": "type",
+   "name": "INXXX044",
+   "what": "vnc intrinsic",
+   "subclass": "II",
+   "cells": 8,
+   "sides": {
+    "L": 4,
+    "R": 4
+   },
+   "neuromere": "A1, A2, T2, T3",
+   "transmitter": "gaba",
+   "hemilineage": "TBD",
+   "pages": [
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "LgAG1": {
+   "kind": "type",
+   "name": "LgAG1",
+   "what": "sensory ascending",
+   "class": "gustatory",
+   "subclass": "leg bristle",
+   "cells": 25,
+   "sides": {
+    "L": 12,
+    "R": 13
+   },
+   "enters": [
+    {
+     "nerve": "ProLN",
+     "segment": "T1",
+     "cells": 10
+    },
+    {
+     "nerve": "MetaLN",
+     "segment": "T3",
+     "cells": 8
+    },
+    {
+     "nerve": "MesoLN",
+     "segment": "T2",
+     "cells": 7
+    }
+   ],
+   "transmitter": "acetylcholine",
+   "pages": [
+    {
+     "label": "an05b023",
+     "url": "../an05b023/"
+    },
+    {
+     "label": "an05b023ad",
+     "url": "../an05b023ad/"
+    },
+    {
+     "label": "an05b023ad partners",
+     "url": "../an05b023ad-partners/"
+    },
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "LgLG1a": {
+   "kind": "type",
+   "name": "LgLG1a",
+   "what": "vnc sensory",
+   "class": "gustatory",
+   "subclass": "leg bristle",
+   "cells": 136,
+   "sides": {
+    "L": 68,
+    "R": 68
+   },
+   "enters": [
+    {
+     "nerve": "MetaLN",
+     "segment": "T3",
+     "cells": 52
+    },
+    {
+     "nerve": "MesoLN",
+     "segment": "T2",
+     "cells": 50
+    },
+    {
+     "nerve": "ProLN",
+     "segment": "T1",
+     "cells": 34
+    }
+   ],
+   "transmitter": "acetylcholine",
+   "note": {
+    "text": "A leg bristle type that this project follows.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "an05b023",
+     "url": "../an05b023/"
+    },
+    {
+     "label": "an05b023ac",
+     "url": "../an05b023ac/"
+    },
+    {
+     "label": "an05b023ad partners",
+     "url": "../an05b023ad-partners/"
+    },
+    {
+     "label": "an05b023bc",
+     "url": "../an05b023bc/"
+    },
+    {
+     "label": "an05b023cd",
+     "url": "../an05b023cd/"
+    },
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "bristle impact",
+     "url": "../bristle-impact/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "LgLG1b": {
+   "kind": "type",
+   "name": "LgLG1b",
+   "what": "vnc sensory",
+   "class": "gustatory",
+   "subclass": "leg bristle",
+   "cells": 134,
+   "sides": {
+    "L": 65,
+    "R": 69
+   },
+   "enters": [
+    {
+     "nerve": "MesoLN",
+     "segment": "T2",
+     "cells": 48
+    },
+    {
+     "nerve": "MetaLN",
+     "segment": "T3",
+     "cells": 48
+    },
+    {
+     "nerve": "ProLN",
+     "segment": "T1",
+     "cells": 38
+    }
+   ],
+   "transmitter": "unclear",
+   "note": {
+    "text": "A leg bristle type that this project follows.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "an05b023",
+     "url": "../an05b023/"
+    },
+    {
+     "label": "an05b023ac",
+     "url": "../an05b023ac/"
+    },
+    {
+     "label": "an05b023ac partners",
+     "url": "../an05b023ac-partners/"
+    },
+    {
+     "label": "an05b023ad",
+     "url": "../an05b023ad/"
+    },
+    {
+     "label": "an05b023ad partners",
+     "url": "../an05b023ad-partners/"
+    },
+    {
+     "label": "an05b023bc",
+     "url": "../an05b023bc/"
+    },
+    {
+     "label": "an05b023cd",
+     "url": "../an05b023cd/"
+    },
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "bristle impact",
+     "url": "../bristle-impact/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "LgLG2": {
+   "kind": "type",
+   "name": "LgLG2",
+   "what": "vnc sensory",
+   "class": "gustatory",
+   "subclass": "leg bristle, taste bristle",
+   "cells": 130,
+   "sides": {
+    "L": 65,
+    "R": 65
+   },
+   "enters": [
+    {
+     "nerve": "ProLN",
+     "segment": "T1",
+     "cells": 46
+    },
+    {
+     "nerve": "MesoLN",
+     "segment": "T2",
+     "cells": 42
+    },
+    {
+     "nerve": "MetaLN",
+     "segment": "T3",
+     "cells": 42
+    }
+   ],
+   "transmitter": "acetylcholine",
+   "pages": [
+    {
+     "label": "an05b023",
+     "url": "../an05b023/"
+    },
+    {
+     "label": "an05b023ac",
+     "url": "../an05b023ac/"
+    },
+    {
+     "label": "an05b023ac partners",
+     "url": "../an05b023ac-partners/"
+    },
+    {
+     "label": "an05b023ad",
+     "url": "../an05b023ad/"
+    },
+    {
+     "label": "an05b023ad partners",
+     "url": "../an05b023ad-partners/"
+    },
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "LgLG3": {
+   "kind": "type",
+   "name": "LgLG3",
+   "what": "vnc sensory",
+   "class": "gustatory",
+   "subclass": "leg bristle",
+   "cells": 162,
+   "sides": {
+    "L": 78,
+    "R": 84
+   },
+   "enters": [
+    {
+     "nerve": "ProLN",
+     "segment": "T1",
+     "cells": 59
+    },
+    {
+     "nerve": "MetaLN",
+     "segment": "T3",
+     "cells": 54
+    },
+    {
+     "nerve": "MesoLN",
+     "segment": "T2",
+     "cells": 49
+    }
+   ],
+   "transmitter": "acetylcholine",
+   "pages": [
+    {
+     "label": "an05b023",
+     "url": "../an05b023/"
+    },
+    {
+     "label": "an05b023ad",
+     "url": "../an05b023ad/"
+    },
+    {
+     "label": "an05b023ad partners",
+     "url": "../an05b023ad-partners/"
+    },
+    {
+     "label": "an05b023cd",
+     "url": "../an05b023cd/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "LgLG4": {
+   "kind": "type",
+   "name": "LgLG4",
+   "what": "vnc sensory",
+   "class": "gustatory",
+   "subclass": "leg bristle, taste bristle",
+   "cells": 43,
+   "sides": {
+    "L": 23,
+    "R": 20
+   },
+   "enters": [
+    {
+     "nerve": "ProLN",
+     "segment": "T1",
+     "cells": 16
+    },
+    {
+     "nerve": "MetaLN",
+     "segment": "T3",
+     "cells": 14
+    },
+    {
+     "nerve": "MesoLN",
+     "segment": "T2",
+     "cells": 13
+    }
+   ],
+   "transmitter": "acetylcholine",
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "LgLG5": {
+   "kind": "type",
+   "name": "LgLG5",
+   "what": "vnc sensory",
+   "class": "gustatory",
+   "subclass": "leg bristle",
+   "cells": 13,
+   "sides": {
+    "L": 6,
+    "R": 7
+   },
+   "enters": [
+    {
+     "nerve": "ProLN",
+     "segment": "T1",
+     "cells": 13
+    }
+   ],
+   "transmitter": "glutamate",
+   "pages": [
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "bristle impact",
+     "url": "../bristle-impact/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "LgLG6": {
+   "kind": "type",
+   "name": "LgLG6",
+   "what": "vnc sensory",
+   "class": "gustatory",
+   "subclass": "leg bristle",
+   "cells": 16,
+   "sides": {
+    "L": 9,
+    "R": 7
+   },
+   "enters": [
+    {
+     "nerve": "ProLN",
+     "segment": "T1",
+     "cells": 16
+    }
+   ],
+   "transmitter": "acetylcholine",
+   "pages": [
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "bristle impact",
+     "url": "../bristle-impact/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "LgLG7": {
+   "kind": "type",
+   "name": "LgLG7",
+   "what": "vnc sensory",
+   "class": "gustatory",
+   "subclass": "leg bristle",
+   "cells": 21,
+   "sides": {
+    "L": 11,
+    "R": 10
+   },
+   "enters": [
+    {
+     "nerve": "ProLN",
+     "segment": "T1",
+     "cells": 21
+    }
+   ],
+   "transmitter": "acetylcholine",
+   "pages": [
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "bristle impact",
+     "url": "../bristle-impact/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "LgLG8": {
+   "kind": "type",
+   "name": "LgLG8",
+   "what": "vnc sensory",
+   "class": "gustatory",
+   "subclass": "leg bristle",
+   "cells": 14,
+   "sides": {
+    "L": 6,
+    "R": 8
+   },
+   "enters": [
+    {
+     "nerve": "ProLN",
+     "segment": "T1",
+     "cells": 14
+    }
+   ],
+   "transmitter": "unclear",
+   "pages": [
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "bristle impact",
+     "url": "../bristle-impact/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "LH001m": {
+   "kind": "type",
+   "name": "LH001m",
+   "what": "cb intrinsic",
+   "cells": 4,
+   "sides": {
+    "L": 2,
+    "R": 2
+   },
+   "transmitter": "acetylcholine",
+   "dimorphism": "male-specific",
+   "hemilineage": "SLPad1_anterior",
+   "aliases": [
+    {
+     "name": "aSP-f",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aSP5",
+     "cite": "Yu 2010"
+    },
+    {
+     "name": "DC1",
+     "cite": "Ruta 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "LH004m": {
+   "kind": "type",
+   "name": "LH004m",
+   "what": "cb intrinsic",
+   "cells": 6,
+   "sides": {
+    "L": 3,
+    "R": 3
+   },
+   "transmitter": "gaba",
+   "dimorphism": "male-specific",
+   "hemilineage": "VLPl4_dorsal",
+   "aliases": [
+    {
+     "name": "LC1",
+     "cite": "Ruta 2010"
+    },
+    {
+     "name": "fru-M-500251"
+    }
+   ],
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "LH007m": {
+   "kind": "type",
+   "name": "LH007m",
+   "what": "cb intrinsic",
+   "cells": 8,
+   "sides": {
+    "L": 4,
+    "R": 4
+   },
+   "transmitter": "gaba",
+   "dimorphism": "male-specific",
+   "hemilineage": "VLPl4_dorsal",
+   "aliases": [
+    {
+     "name": "LC1",
+     "cite": "Ruta 2010"
+    },
+    {
+     "name": "fru-M-300124"
+    }
+   ],
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "LH008m": {
+   "kind": "type",
+   "name": "LH008m",
+   "what": "cb intrinsic",
+   "cells": 11,
+   "sides": {
+    "L": 6,
+    "R": 5
+   },
+   "transmitter": "acetylcholine",
+   "dimorphism": "male-specific",
+   "hemilineage": "SLPad1_anterior",
+   "aliases": [
+    {
+     "name": "aSP-f",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aSP5",
+     "cite": "Yu 2010"
+    },
+    {
+     "name": "DC1",
+     "cite": "Ruta 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "LHAV4c2": {
+   "kind": "type",
+   "name": "LHAV4c2",
+   "what": "cb intrinsic",
+   "cells": 9,
+   "sides": {
+    "L": 4,
+    "R": 5
+   },
+   "transmitter": "gaba",
+   "dimorphism": "sexually dimorphic",
+   "hemilineage": "LHl1",
+   "atlas": {
+    "hemibrain": "LHAV4c2",
+    "flywire": "LHAV4c2"
+   },
+   "aliases": [
+    {
+     "name": "aSP-k",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aSP8",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "M_lvPNm45": {
+   "kind": "type",
+   "name": "M_lvPNm45",
+   "what": "cb intrinsic",
+   "class": "ALPN",
+   "cells": 7,
+   "sides": {
+    "L": 3,
+    "R": 4
+   },
+   "neuromere": "TC",
+   "transmitter": "acetylcholine",
+   "hemilineage": "ALlv1",
+   "atlas": {
+    "hemibrain": "M_lvPNm45",
+    "flywire": "M_lvPNm45"
+   },
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "mAL_m1": {
+   "kind": "type",
+   "name": "mAL_m1",
+   "what": "cb intrinsic",
+   "cells": 12,
+   "sides": {
+    "L": 6,
+    "R": 6
+   },
+   "transmitter": "gaba",
+   "dimorphism": "male-specific",
+   "hemilineage": "CREa1_ventral",
+   "aliases": [
+    {
+     "name": "aDT-b",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aDT2",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "mAL_m2a": {
+   "kind": "type",
+   "name": "mAL_m2a",
+   "what": "cb intrinsic",
+   "cells": 4,
+   "sides": {
+    "L": 2,
+    "R": 2
+   },
+   "transmitter": "unclear",
+   "dimorphism": "male-specific",
+   "hemilineage": "CREa1_ventral",
+   "aliases": [
+    {
+     "name": "aDT-b",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aDT2",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "mAL_m3c": {
+   "kind": "type",
+   "name": "mAL_m3c",
+   "what": "cb intrinsic",
+   "cells": 10,
+   "sides": {
+    "L": 5,
+    "R": 5
+   },
+   "transmitter": "gaba",
+   "dimorphism": "male-specific",
+   "hemilineage": "CREa1_ventral",
+   "aliases": [
+    {
+     "name": "aDT-b",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aDT2",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "mAL_m5a": {
+   "kind": "type",
+   "name": "mAL_m5a",
+   "what": "cb intrinsic",
+   "cells": 6,
+   "sides": {
+    "L": 3,
+    "R": 3
+   },
+   "transmitter": "gaba",
+   "dimorphism": "male-specific",
+   "hemilineage": "CREa1_ventral",
+   "aliases": [
+    {
+     "name": "aDT-b",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aDT2",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "mAL_m5c": {
+   "kind": "type",
+   "name": "mAL_m5c",
+   "what": "cb intrinsic",
+   "cells": 6,
+   "sides": {
+    "L": 3,
+    "R": 3
+   },
+   "transmitter": "gaba",
+   "dimorphism": "male-specific",
+   "hemilineage": "CREa1_ventral",
+   "aliases": [
+    {
+     "name": "aDT-b",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aDT2",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "mAL_m8": {
+   "kind": "type",
+   "name": "mAL_m8",
+   "what": "cb intrinsic",
+   "cells": 16,
+   "sides": {
+    "L": 8,
+    "R": 8
+   },
+   "transmitter": "gaba",
+   "dimorphism": "male-specific",
+   "hemilineage": "CREa1_ventral",
+   "aliases": [
+    {
+     "name": "aDT-b",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aDT2",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "pC1_3a": {
+   "kind": "type",
+   "name": "pC1_3a",
+   "what": "cb intrinsic",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "transmitter": "acetylcholine",
+   "dimorphism": "male-specific",
+   "hemilineage": "DM4_dorsal",
+   "aliases": [
+    {
+     "name": "pC1",
+     "cite": "Lee 2002, Rideout 2010, Nojima 2021"
+    },
+    {
+     "name": "pMP-e",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "pMP4",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "pC1_3c": {
+   "kind": "type",
+   "name": "pC1_3c",
+   "what": "cb intrinsic",
+   "cells": 4,
+   "sides": {
+    "L": 2,
+    "R": 2
+   },
+   "transmitter": "acetylcholine",
+   "dimorphism": "male-specific",
+   "hemilineage": "DM4_dorsal",
+   "aliases": [
+    {
+     "name": "pC1",
+     "cite": "Lee 2002, Rideout 2010, Nojima 2021"
+    },
+    {
+     "name": "pMP-e",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "pMP4",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "PVLP206m": {
+   "kind": "type",
+   "name": "PVLP206m",
+   "what": "cb intrinsic",
+   "cells": 4,
+   "sides": {
+    "L": 2,
+    "R": 2
+   },
+   "transmitter": "acetylcholine",
+   "dimorphism": "male-specific",
+   "hemilineage": "VLPa1_lateral",
+   "aliases": [
+    {
+     "name": "aIP-b",
+     "cite": "Cachero 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "SIP100m": {
+   "kind": "type",
+   "name": "SIP100m",
+   "what": "cb intrinsic",
+   "cells": 10,
+   "sides": {
+    "L": 5,
+    "R": 5
+   },
+   "transmitter": "glutamate",
+   "dimorphism": "male-specific",
+   "hemilineage": "SMPad1",
+   "aliases": [
+    {
+     "name": "aSP-a",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aSP2",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "SIP101m": {
+   "kind": "type",
+   "name": "SIP101m",
+   "what": "cb intrinsic",
+   "cells": 6,
+   "sides": {
+    "L": 3,
+    "R": 3
+   },
+   "transmitter": "glutamate",
+   "dimorphism": "male-specific",
+   "hemilineage": "SMPad1",
+   "aliases": [
+    {
+     "name": "aSP-a",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aSP2",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "SIP104m": {
+   "kind": "type",
+   "name": "SIP104m",
+   "what": "cb intrinsic",
+   "cells": 8,
+   "sides": {
+    "L": 4,
+    "R": 4
+   },
+   "transmitter": "glutamate",
+   "dimorphism": "male-specific",
+   "hemilineage": "SMPad1",
+   "aliases": [
+    {
+     "name": "aSP-a",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aSP2",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "SIP105m": {
+   "kind": "type",
+   "name": "SIP105m",
+   "what": "cb intrinsic",
+   "cells": 2,
+   "sides": {
+    "L": 1,
+    "R": 1
+   },
+   "transmitter": "acetylcholine",
+   "dimorphism": "male-specific",
+   "hemilineage": "FLAa3",
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "SIP122m": {
+   "kind": "type",
+   "name": "SIP122m",
+   "what": "cb intrinsic",
+   "cells": 8,
+   "sides": {
+    "L": 3,
+    "R": 5
+   },
+   "transmitter": "glutamate",
+   "dimorphism": "male-specific",
+   "hemilineage": "SMPad1",
+   "aliases": [
+    {
+     "name": "aSP-a",
+     "cite": "Cachero 2010"
+    },
+    {
+     "name": "aSP2",
+     "cite": "Yu 2010"
+    }
+   ],
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "SNch05": {
+   "kind": "type",
+   "name": "SNch05",
+   "what": "vnc sensory",
+   "class": "gustatory",
+   "subclass": "leg bristle",
+   "cells": 8,
+   "sides": {
+    "L": 6,
+    "R": 2
+   },
+   "enters": [
+    {
+     "nerve": "MetaLN",
+     "segment": "T3",
+     "cells": 5
+    },
+    {
+     "nerve": "MesoLN",
+     "segment": "T2",
+     "cells": 2
+    },
+    {
+     "nerve": "ProLN",
+     "segment": "T1",
+     "cells": 1
+    }
+   ],
+   "transmitter": "acetylcholine",
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "VES206m": {
+   "kind": "type",
+   "name": "VES206m",
+   "what": "cb intrinsic",
+   "cells": 7,
+   "sides": {
+    "L": 4,
+    "R": 3
+   },
+   "transmitter": "acetylcholine",
+   "dimorphism": "male-specific",
+   "hemilineage": "FLAa3",
+   "pages": [
+    {
+     "label": "avlp743m",
+     "url": "../avlp743m/"
+    }
+   ]
+  },
+  "WG1": {
+   "kind": "type",
+   "name": "WG1",
+   "what": "vnc sensory",
+   "class": "gustatory",
+   "subclass": "wing bristle",
+   "cells": 96,
+   "sides": {
+    "L": 48,
+    "R": 48
+   },
+   "enters": [
+    {
+     "nerve": "ADMN",
+     "segment": "wing",
+     "cells": 96
+    }
+   ],
+   "transmitter": "acetylcholine",
+   "pages": [
+    {
+     "label": "an05b023",
+     "url": "../an05b023/"
+    },
+    {
+     "label": "an05b023ac",
+     "url": "../an05b023ac/"
+    },
+    {
+     "label": "an05b023ac partners",
+     "url": "../an05b023ac-partners/"
+    },
+    {
+     "label": "an05b023ad",
+     "url": "../an05b023ad/"
+    },
+    {
+     "label": "an05b023ad partners",
+     "url": "../an05b023ad-partners/"
+    },
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "WG2": {
+   "kind": "type",
+   "name": "WG2",
+   "what": "vnc sensory",
+   "class": "gustatory",
+   "subclass": "wing bristle",
+   "cells": 97,
+   "sides": {
+    "L": 49,
+    "R": 48
+   },
+   "enters": [
+    {
+     "nerve": "ADMN",
+     "segment": "wing",
+     "cells": 97
+    }
+   ],
+   "transmitter": "acetylcholine",
+   "pages": [
+    {
+     "label": "an05b023",
+     "url": "../an05b023/"
+    },
+    {
+     "label": "an05b023ad",
+     "url": "../an05b023ad/"
+    },
+    {
+     "label": "an05b023ad partners",
+     "url": "../an05b023ad-partners/"
+    },
+    {
+     "label": "an05b023cd",
+     "url": "../an05b023cd/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "WG3": {
+   "kind": "type",
+   "name": "WG3",
+   "what": "vnc sensory",
+   "class": "gustatory",
+   "subclass": "wing bristle",
+   "cells": 96,
+   "sides": {
+    "L": 48,
+    "R": 48
+   },
+   "enters": [
+    {
+     "nerve": "ADMN",
+     "segment": "wing",
+     "cells": 96
+    }
+   ],
+   "transmitter": "unclear",
+   "note": {
+    "text": "The wing bristle types that this project follows.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "an05b023",
+     "url": "../an05b023/"
+    },
+    {
+     "label": "an05b023ac",
+     "url": "../an05b023ac/"
+    },
+    {
+     "label": "an05b023ac partners",
+     "url": "../an05b023ac-partners/"
+    },
+    {
+     "label": "an05b023ad partners",
+     "url": "../an05b023ad-partners/"
+    },
+    {
+     "label": "an05b023bc",
+     "url": "../an05b023bc/"
+    },
+    {
+     "label": "an05b023cd",
+     "url": "../an05b023cd/"
+    },
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "WG4": {
+   "kind": "type",
+   "name": "WG4",
+   "what": "vnc sensory",
+   "class": "gustatory",
+   "subclass": "wing bristle",
+   "cells": 96,
+   "sides": {
+    "L": 48,
+    "R": 48
+   },
+   "enters": [
+    {
+     "nerve": "ADMN",
+     "segment": "wing",
+     "cells": 96
+    }
+   ],
+   "transmitter": "acetylcholine",
+   "note": {
+    "text": "The wing bristle types that this project follows.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "an05b023",
+     "url": "../an05b023/"
+    },
+    {
+     "label": "an05b023ac",
+     "url": "../an05b023ac/"
+    },
+    {
+     "label": "an05b023ad partners",
+     "url": "../an05b023ad-partners/"
+    },
+    {
+     "label": "an05b023bc",
+     "url": "../an05b023bc/"
+    },
+    {
+     "label": "an05b023cd",
+     "url": "../an05b023cd/"
+    },
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "aSP8": {
+   "kind": "family",
+   "name": "aSP8",
+   "what": "cb intrinsic",
+   "members": [
+    "AVLP002",
+    "AVLP005",
+    "AVLP009",
+    "AVLP734m",
+    "AVLP755m",
+    "AVLP760m",
+    "AVLP761m",
+    "AVLP762m",
+    "AVLP763m",
+    "CB2763",
+    "ICL008m",
+    "LHAV4c2",
+    "WED001"
+   ],
+   "named_here": [
+    "LHAV4c2"
+   ],
+   "cells": 70,
+   "transmitter": "gaba",
+   "dimorphism": "mixed: male-specific, sexually dimorphic",
+   "cite": "Yu 2010",
+   "note": {
+    "text": "A name from the older work. Here it covers more than one type.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    }
+   ]
+  },
+  "LC1": {
+   "kind": "family",
+   "name": "LC1",
+   "what": "cb intrinsic",
+   "members": [
+    "AVLP743m",
+    "LH004m",
+    "LH007m"
+   ],
+   "named_here": [
+    "AVLP743m",
+    "LH004m",
+    "LH007m"
+   ],
+   "cells": 25,
+   "transmitter": "mixed: gaba, unclear",
+   "dimorphism": "male-specific",
+   "cite": "Ruta 2010",
+   "note": {
+    "text": "A name from the older work. Here it covers more than one type.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "pC1": {
+   "kind": "family",
+   "name": "pC1",
+   "what": "cb intrinsic",
+   "members": [
+    "pC1_10a",
+    "pC1_10b",
+    "pC1_10c",
+    "pC1_10d",
+    "pC1_11a",
+    "pC1_11b",
+    "pC1_12a",
+    "pC1_12b",
+    "pC1_13a",
+    "pC1_13b",
+    "pC1_13c",
+    "pC1_14a",
+    "pC1_14b",
+    "pC1_15a",
+    "pC1_15b",
+    "pC1_15c",
+    "pC1_16a",
+    "pC1_16b",
+    "pC1_17a",
+    "pC1_17b",
+    "pC1_18a",
+    "pC1_18b",
+    "pC1_19",
+    "pC1_1a",
+    "pC1_1b",
+    "pC1_2a",
+    "pC1_2a/2b",
+    "pC1_2b",
+    "pC1_2c",
+    "pC1_3a",
+    "pC1_3b",
+    "pC1_3c",
+    "pC1_4a",
+    "pC1_4b",
+    "pC1_5a",
+    "pC1_5b",
+    "pC1_6b",
+    "pC1_7a",
+    "pC1_7b",
+    "pC1_8a",
+    "pC1_8b",
+    "pC1_8c"
+   ],
+   "named_here": [
+    "pC1_3a",
+    "pC1_3c"
+   ],
+   "cells": 136,
+   "transmitter": "acetylcholine",
+   "dimorphism": "mixed: male-specific, potentially male-specific",
+   "cite": "Lee 2002, Rideout 2010, Nojima 2021",
+   "note": {
+    "text": "A name from the older work. Here it covers more than one type.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "vAB3": {
+   "kind": "family",
+   "name": "vAB3",
+   "what": "ascending neuron",
+   "members": [
+    "AN09B017e",
+    "AN09B017f",
+    "AN09B017g"
+   ],
+   "named_here": [
+    "AN09B017e",
+    "AN09B017f",
+    "AN09B017g"
+   ],
+   "cells": 6,
+   "transmitter": "glutamate",
+   "dimorphism": "male-specific",
+   "cite": "Yu 2010, von Phillipsborn 2011",
+   "note": {
+    "text": "A name from the older work. Here it covers more than one type.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "an09b017",
+     "url": "../an09b017/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "first cross",
+     "url": "../first-cross/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN05B023": {
+   "kind": "family",
+   "name": "AN05B023",
+   "what": "ascending neuron",
+   "members": [
+    "AN05B023a",
+    "AN05B023b",
+    "AN05B023c",
+    "AN05B023d"
+   ],
+   "named_here": [
+    "AN05B023a",
+    "AN05B023b",
+    "AN05B023c",
+    "AN05B023d"
+   ],
+   "cells": 8,
+   "transmitter": "gaba",
+   "note": {
+    "text": "The ascending family that the pair pages compare.",
+    "by": "this project"
+   },
+   "pages": [
+    {
+     "label": "an05b023 dimorphic",
+     "url": "../an05b023-dimorphic/"
+    },
+    {
+     "label": "an05b102",
+     "url": "../an05b102/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "dimorphic ranking",
+     "url": "../dimorphic-ranking/"
+    },
+    {
+     "label": "pheromone paper",
+     "url": "../pheromone-paper/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  },
+  "AN05B102": {
+   "kind": "family",
+   "name": "AN05B102",
+   "what": "ascending neuron",
+   "members": [
+    "AN05B102a",
+    "AN05B102b",
+    "AN05B102c",
+    "AN05B102d"
+   ],
+   "named_here": [
+    "AN05B102a",
+    "AN05B102b",
+    "AN05B102c",
+    "AN05B102d"
+   ],
+   "cells": 8,
+   "transmitter": "acetylcholine",
+   "dimorphism": "potentially sexually dimorphic",
+   "pages": [
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "dimorphic ranking",
+     "url": "../dimorphic-ranking/"
+    },
+    {
+     "label": "first cross",
+     "url": "../first-cross/"
+    }
+   ]
+  },
+  "AN09B017": {
+   "kind": "family",
+   "name": "AN09B017",
+   "what": "ascending neuron",
+   "members": [
+    "AN09B017a",
+    "AN09B017b",
+    "AN09B017c",
+    "AN09B017d",
+    "AN09B017e",
+    "AN09B017f",
+    "AN09B017g"
+   ],
+   "named_here": [
+    "AN09B017a",
+    "AN09B017b",
+    "AN09B017c",
+    "AN09B017e",
+    "AN09B017f",
+    "AN09B017g"
+   ],
+   "cells": 14,
+   "transmitter": "glutamate",
+   "dimorphism": "male-specific",
+   "pages": [
+    {
+     "label": "bristle impact",
+     "url": "../bristle-impact/"
+    },
+    {
+     "label": "bristle typing",
+     "url": "../bristle-typing/"
+    },
+    {
+     "label": "dimorphic ranking",
+     "url": "../dimorphic-ranking/"
+    },
+    {
+     "label": "first cross",
+     "url": "../first-cross/"
+    },
+    {
+     "label": "receptor typing",
+     "url": "../receptor-typing/"
+    }
+   ]
+  }
+ },
+ "note": "Fly stocks are not in this file. The crosses page reads its own stock table."
+}

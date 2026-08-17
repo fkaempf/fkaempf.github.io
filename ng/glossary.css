@@ -1,0 +1,64 @@
+/* glossary.css - the marked word, and the one card that explains it.
+   Loaded by glossary.js from the directory that holds glossary.js, thus one
+   script tag is enough on a page. A page can also link this file in its head,
+   which removes the short moment in which a marked word has no dotted line.
+
+   COLOURS. The site has three colour regimes:
+     - hand written pages: --bg --fg --dim --line --edge --link, with a
+       @media (prefers-color-scheme:dark) block that changes them;
+     - knitted notebooks (dark.css): --bg --fg --dim --line --link, always dark,
+       and NO --edge;
+     - Clio-NG scene pages: no custom property at all, and a dark block that
+       changes the body only.
+   Therefore the card reads the colours of the page it sits on, and it never
+   asks the media query itself. Each var() ends in a literal, so a page that
+   defines nothing still gets a card with a background and a border. The
+   --glx-* values are put on the card by glossary.js: they are the colours that
+   the browser computed for the page body, thus the third regime works too. */
+
+.glx{
+  appearance:none;-webkit-appearance:none;
+  background:none;border:0;padding:0;margin:0;
+  font:inherit;color:inherit;text-align:inherit;line-height:inherit;
+  letter-spacing:inherit;word-spacing:inherit;text-transform:inherit;
+  vertical-align:baseline;white-space:nowrap;cursor:help;
+  text-decoration:underline dotted;
+  text-decoration-color:var(--dim,var(--glx-dim,#666));
+  text-underline-offset:2px;
+}
+.glx:hover,
+.glx[aria-expanded="true"]{text-decoration-color:var(--link,var(--glx-link,#0b5fa5))}
+.glx:focus-visible{outline:2px solid var(--link,var(--glx-link,#0b5fa5));outline-offset:2px}
+
+#glx-card{
+  position:absolute;left:0;top:0;z-index:60;
+  max-width:min(30rem,calc(100vw - 1.5rem));
+  /* --card and --panel are the panel colour of the two page kinds that have
+     one, thus the card stands off the page. --bg and --glx-bg follow. */
+  background:var(--card,var(--panel,var(--bg,var(--glx-bg,#fff))));
+  color:var(--fg,var(--glx-fg,#1a1a1a));
+  border:1px solid var(--edge,var(--line,var(--glx-line,#d8d8d8)));
+  border-radius:8px;
+  padding:.55rem .7rem;
+  font:400 .85rem/1.5 system-ui,sans-serif;
+  text-align:left;
+  white-space:normal;overflow-wrap:anywhere;
+  box-shadow:0 6px 20px rgba(0,0,0,.32);
+}
+#glx-card[hidden]{display:none}
+#glx-card .glx-n{margin:0 0 .3rem;font-weight:600;font-size:.95rem;line-height:1.35}
+#glx-card .glx-w{margin:0 0 .45rem}
+#glx-card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.12rem .6rem}
+#glx-card dt{
+  margin:0;padding-top:.14rem;font-weight:400;
+  color:var(--dim,var(--glx-dim,#555));
+  font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;
+}
+#glx-card dd{margin:0}
+#glx-card .glx-s{
+  margin:.5rem 0 0;padding-top:.35rem;
+  border-top:1px solid var(--edge,var(--line,var(--glx-line,#d8d8d8)));
+  color:var(--dim,var(--glx-dim,#555));font-size:.7rem;line-height:1.4;
+}
+
+@media print{.glx{text-decoration:none} #glx-card{display:none}}

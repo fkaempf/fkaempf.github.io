@@ -3347,7 +3347,7 @@
    "chr": "3",
    "function": "synapse label, path A",
    "location": "Cambridge Fly Facility",
-   "condition": "on the way. Ask whether it is out of quarantine.",
+   "condition": "arrived. Ask whether it cleared quarantine.",
    "pages": [
     {
      "label": "crosses",

@@ -159,6 +159,9 @@
   .scroll table{table-layout:fixed;width:100%;font-size:.72rem}
   .scroll td,.scroll th{overflow-wrap:anywhere;word-break:normal}
   .scroll code{white-space:normal;overflow-wrap:anywhere}}
+ .xref{color:inherit;text-decoration:none}
+ .xref:hover{text-decoration:underline}
+ .xref[hidden]{display:none}
 </style><style>
  :root{--codefg:#0b3d6b;--preline:#0f1420}
  pre{background:#0f1420;color:#e8edf4;border:1px solid var(--preline);border-radius:8px;
@@ -190,7 +193,7 @@ Related pages: <a href="../receptor-typing/">receptor typing</a>,
 </div>
 
 <section class="doc" id="doc-crosses" role="tabpanel" aria-labelledby="tab-crosses">
-<h2 id="s1">1 &middot; The target genotypes</h2>
+<h2 id="s1"><span class="secno">1</span> &middot; The target genotypes</h2>
 
 <p class="pathsw" role="group" aria-label="Which path to show">
  <button type="button" class="btn" data-pathsel="a" aria-pressed="true">Path A</button>
@@ -209,7 +212,7 @@ the incubator is ppk23-LexA-dirty, and it carries 22B10-GAL4, which drives the U
 wrong cells.</p>
 <p class="trk-host" data-path="b" data-trk="b-sensory"></p>
 <p class="note" data-path="b">The record gives no chromosome for GJ948, thus the direction of a
-cross that carries it is not yet known. Find the chromosome when the stock arrives: section 10 holds
+cross that carries it is not yet known. Find the chromosome when the stock arrives: section <a class="xref" href="#s9" data-ref="s9">10</a> holds
 the question. The positions in SS103018 are also not scored.</p>
 
 <p class="note" data-path="b">Two path B parts are on the X chromosome, or may be. GJ598 is at
@@ -255,7 +258,7 @@ the Cambridge Fly Facility are both red. Do not use them for path A.
 PPN1 receives almost equal input from the two ppk groups. Path A therefore develops the assay, and
 it does not test the receptor assignment.</p>
 
-<h2 id="s2" data-path="a b">2 &middot; Work in motion</h2>
+<h2 id="s2" data-path="a b"><span class="secno">2</span> &middot; Work in motion</h2>
 
 <p>This section gives the state of each step. You set each state yourself. The page source holds
 the record. Your browser holds the changes since the last commit.</p>
@@ -399,7 +402,7 @@ GJ948.</p>
         .trk-s{appearance:auto;-webkit-appearance:auto}}
 </style>
 
-<h2 id="s3">3 &middot; Stock list</h2>
+<h2 id="s3"><span class="secno">3</span> &middot; Stock list</h2>
 
 <div class="scroll">
 <table id="gt-src">
@@ -425,10 +428,10 @@ for a driver.</td></tr>
 <td>On the way from the Cambridge Fly Facility. The laboratory vial is dead.</td></tr>
 <tr data-path="b" data-gt-also="GJ1472; ppk23-LexA"><td>ppk23-LexA-dirty</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>2</td>
 <td>ppk23 driver, path B</td><td>25 degrees Celsius, Bella</td>
-<td><span class="tag warn">clean it</span> It has 22B10-GAL4. See section 5.1.</td></tr>
+<td><span class="tag warn">clean it</span> It has 22B10-GAL4. See section <a class="xref" href="#s51" data-ref="s51">5.1</a>.</td></tr>
 <tr data-path="b"><td>ppk23-LexA-clean</td><td><code>; ppk23-LexA/CyO ; +/+</code></td><td>2</td>
 <td>ppk23 driver, path B</td><td>does not exist yet</td>
-<td><span class="tag q">to make</span> The product of the clean-up of section 5.1, at F3.</td></tr>
+<td><span class="tag q">to make</span> The product of the clean-up of section <a class="xref" href="#s51" data-ref="s51">5.1</a>, at F3.</td></tr>
 <tr data-gt-also="Kallman PPN1 Gal4"><td>Kallman PPN1 GAL4</td><td><code>w1118; P{GMR56C09-GAL4}attP2</code></td><td>3, attP2</td>
 <td>target driver, path B; PPN1 mask control</td><td>18 degrees Celsius</td>
 <td><span class="tag ok">ready</span> The GAL4 form and the LexA form drive the same cells. Path A needs the LexA form, and path B and the mask control need the GAL4 form.</td></tr>
@@ -520,7 +523,7 @@ driver line with LexA: R56C09-lexA. R56C09-lexA drives PPN1.</td></tr>
 driver is LexA and the target driver is GAL4. This orientation opens the GAL4 targets and the
 split-GAL4 targets. The two halves sit on one chromosome 3, thus a target GAL4 at attP2 sits on the
 other chromosome 3, in trans. The laboratory holds one sensory LexA line, ppk23-LexA, thus this stock
-gives the ppk23 arm only, and the clean-up of section 5.1 must finish first. See section 8.1.</td></tr>
+gives the ppk23 arm only, and the clean-up of section <a class="xref" href="#s51" data-ref="s51">5.1</a> must finish first. See section <a class="xref" href="#s81" data-ref="s81">8.1</a>.</td></tr>
 <tr data-path="b"><td>GJ599</td><td><code>w*; P{10XUAS-IVS-myr::GFP}attP40</code></td><td>2, attP40</td>
 <td>target fill, <strong>path B only</strong></td><td>18 degrees Celsius</td>
 <td><span class="tag ok">ready</span></td></tr>
@@ -533,7 +536,7 @@ gives the ppk23 arm only, and the clean-up of section 5.1 must finish first. See
 <p class="note">In path A the GAL4 is in the sensory neurons. A UAS fill thus labels the bristles
 and not PPN1. The path A fill must be LexAop.</p>
 
-<h2 id="s4" data-path="a">4 &middot; Crosses, path A</h2>
+<h2 id="s4" data-path="a"><span class="secno">4</span> &middot; Crosses, path A</h2>
 
 <div class="callout" data-path="a">
 <p><span class="tag q">which parent gives the virgins</span> Every element of path A is on
@@ -549,7 +552,7 @@ fix the direction.</p>
 It is not a rule for the parents.</p>
 </div>
 
-<h3 id="s41">4.1 Parent 1</h3>
+<h3 id="s41"><span class="secno">4.1</span> Parent 1</h3>
 <div class="scroll">
 <table>
 <tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
@@ -564,7 +567,7 @@ It is not a rule for the parents.</p>
 <p class="note">All chromosomes have a marker, thus no PCR is necessary. TM2 has Ubx. The TM6B of
 LMB-494 has Stubble. A fly with two TM6B chromosomes dies.</p>
 
-<h3 id="s42">4.2 Parent 2</h3>
+<h3 id="s42"><span class="secno">4.2</span> Parent 2</h3>
 <div class="scroll">
 <table>
 <tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
@@ -580,7 +583,7 @@ LMB-494 has Stubble. A fly with two TM6B chromosomes dies.</p>
 flies to any LexA driver and look for green. This check is faster than a PCR, and it also confirms
 that the reporter works.</p>
 
-<h3 id="s43">4.3 Stable stocks</h3>
+<h3 id="s43"><span class="secno">4.3</span> Stable stocks</h3>
 
 <p>You do the experimental cross one time for each arm. A rebuild of a parent costs five weeks. A
 stable stock removes that cost. A flip is a transfer of the flies into a vial with new food. A stable
@@ -640,7 +643,7 @@ you cannot see the genotype.</td></tr>
 
 <div class="callout warn">
 <p><strong>Two copies give a different signal.</strong> A homozygous stock gives two copies of
-brp-D3-Cherry and two copies of the fill. Section 7 compares the two arms as a ratio. Both arms
+brp-D3-Cherry and two copies of the fill. Section <a class="xref" href="#s7" data-ref="s7">7</a> compares the two arms as a ratio. Both arms
 must therefore have the same number of copies. Do not compare a homozygous animal with a
 heterozygous animal.</p>
 <p><strong>A male cannot be homozygous for the X reporter.</strong> A male has one X chromosome.
@@ -651,7 +654,7 @@ is not recorded. Thus you cannot say now if it lives as a pair. Do the test abov
 the stock.</p>
 </div>
 
-<h3 id="s44">4.4 Experimental cross</h3>
+<h3 id="s44"><span class="secno">4.4</span> Experimental cross</h3>
 <pre><code>Parent 1  x  Parent 2
    keep the male progeny that are not Tubby</code></pre>
 <p class="trk-host" data-trk="ax"></p>
@@ -666,7 +669,7 @@ the stock.</p>
 </table>
 </div>
 
-<h3 id="s45">4.5 Time</h3>
+<h3 id="s45"><span class="secno">4.5</span> Time</h3>
 <div class="scroll">
 <table>
 <tr><th>Step</th><th class="num">Weeks</th><th>Note</th></tr>
@@ -680,7 +683,7 @@ the stock.</p>
 </table>
 </div>
 
-<h3 id="s46">4.6 How to change the arm</h3>
+<h3 id="s46"><span class="secno">4.6</span> How to change the arm</h3>
 <div class="scroll">
 <table>
 <tr><th>Arm</th><th>Driver in Parent 1</th><th>Instruction</th></tr>
@@ -700,7 +703,7 @@ PPN1.</td></tr>
 </table>
 </div>
 
-<h2 id="s5" data-path="a b">5 &middot; Clean-up</h2>
+<h2 id="s5" data-path="a b"><span class="secno">5</span> &middot; Clean-up</h2>
 
 <div class="scroll">
 <table>
@@ -717,9 +720,9 @@ PPN1.</td></tr>
 
 <p class="note">Use <strong>GJ954</strong>, <code>w; IF/CyO; TM2/TM6B</code>, 18 degrees Celsius. Use
 GJ832 only if GJ954 is not available: GJ832 has hsFLP. The four generations of the ppk23-LexA clean-up have their
-own states in section 5.1.</p>
+own states in section <a class="xref" href="#s51" data-ref="s51">5.1</a>.</p>
 
-<h3 id="s51">5.1 The ppk23-LexA clean-up, generation by generation</h3>
+<h3 id="s51"><span class="secno">5.1</span> The ppk23-LexA clean-up, generation by generation</h3>
 <div class="scroll">
 <table>
 <tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
@@ -740,7 +743,7 @@ incross alone gives a stock with a balancer on chromosome 3. That balancer then 
 driver in the final cross. Select Ser at F1: a fly with Ser cannot also have the 22B10-GAL4 from
 that parent.</p>
 
-<h2 id="s6" data-path="a b">6 &middot; Controls</h2>
+<h2 id="s6" data-path="a b"><span class="secno">6</span> &middot; Controls</h2>
 
 <div class="scroll">
 <table>
@@ -765,7 +768,7 @@ labels. All the stocks are in the laboratory, thus you can do this control today
 
 <p data-path="c"><strong>The counts to expect.</strong> The connectome gives these counts for PPN1.
 A ppk25 to ppk23 ratio near 0.41 is the expected result.</p>
-<h2 id="s7" data-path="a b">7 &middot; PPN1 as the calibration</h2>
+<h2 id="s7" data-path="a b"><span class="secno">7</span> &middot; PPN1 as the calibration</h2>
 
 <p>PPN1 does not test the receptor assignment. It tests the <strong>method</strong>. You measure the
 two arms, and you compare each count against the number in the connectome. If the counts follow the
@@ -797,7 +800,7 @@ the leg is a second, independent check inside one animal.</p>
 functional method instead.</p>
 </div>
 
-<h3>7.1 The absolute counts</h3>
+<h3><span class="secno">7.1</span> The absolute counts</h3>
 
 <div class="scroll">
 <table>
@@ -853,7 +856,7 @@ stock also makes LexA in the marked cells. Those cells then drive the label of P
 after somebody recombines the sensory GAL4 onto the R56C09-lexA chromosome. That step frees one place
 on chromosome 2.</p>
 
-<h2 id="s8c" data-path="b c">8 &middot; t-GRASP</h2>
+<h2 id="s8c" data-path="b c"><span class="secno">8</span> &middot; t-GRASP</h2>
 
 <p data-path="b c">t-GRASP splits a fluorescent protein in two halves. The pre half goes in the
 presynaptic cell. The post half goes in the postsynaptic cell. The two halves join where an active
@@ -910,7 +913,7 @@ before you report a ratio.</p>
 79040 puts the pre half on UAS, thus BDSC 79040 fits these drivers.</p>
 
 <p data-path="c">The limit of this route is not the chromosome. The target driver must use LexA.
-Section 3 lists one target driver line with LexA: R56C09-lexA. R56C09-lexA drives PPN1, thus path C
+Section <a class="xref" href="#s3" data-ref="s3">3</a> lists one target driver line with LexA: R56C09-lexA. R56C09-lexA drives PPN1, thus path C
 reaches PPN1 now. A second target driver line with LexA adds a second target. A split-GAL4 target
 cannot drive the post half in this orientation.</p>
 
@@ -946,7 +949,7 @@ states. The record gives 9 July 2026 as the last transfer of BDSC 79040 to new f
 <td>Move it to 25 degrees Celsius before the second cross.</td></tr>
 <tr><td>the Abfinity antibody</td><td>not in the record</td>
 <td>Order it now. The two crosses take 4 to 5 weeks.</td></tr>
-<tr><td>anti-ICAM-5</td><td>not in the record</td><td>Order it now. Section 8.3 names the vial.</td></tr>
+<tr><td>anti-ICAM-5</td><td>not in the record</td><td>Order it now. Section <a class="xref" href="#s83" data-ref="s83">8.3</a> names the vial.</td></tr>
 </table>
 </div>
 
@@ -958,7 +961,7 @@ stock.</p>
 two parents. No stock holds a driver and a t-GRASP half together.</p>
 
 <p class="note" data-path="c">Path C needs two crosses today. You use the progeny of the
-first cross as parents. Section 8.2 gives a stable stock that removes the first cross. That stock
+first cross as parents. Section <a class="xref" href="#s82" data-ref="s82">8.2</a> gives a stable stock that removes the first cross. That stock
 needs three generations and about 6 weeks. Make that stock only if you do path C more than one
 time.</p>
 
@@ -1019,7 +1022,7 @@ from the pilot animal. Use the same rule for both arms. Put the two arms in fixa
 
 <p class="note" data-path="c">The laboratory holds seven anti-GFP antibodies. No record shows which
 of them binds the joined halves only. The record holds no Abfinity antibody. An anti-GFP that also
-binds a free half makes a false signal. Section 8.3 lists the antibodies to order.</p>
+binds a free half makes a false signal. Section <a class="xref" href="#s83" data-ref="s83">8.3</a> lists the antibodies to order.</p>
 
 <p data-path="c"><strong>The controls.</strong> Read each control in the same session, with the same
 stain and the same settings. Accept a count only after both results.</p>
@@ -1071,7 +1074,7 @@ drives transcription in trans. In BDSC 79040, attP2 holds the LexAop post half. 
 at attP2 can therefore drive the post half. A cell outside the target pattern then makes the post
 half.</p>
 
-<h3 id="s81" data-path="b">8.1 t-GRASP for path B, BDSC 79039</h3>
+<h3 id="s81" data-path="b"><span class="secno">8.1</span> t-GRASP for path B, BDSC 79039</h3>
 <p data-path="b">BDSC 79040 carries the orientation for path A and path C: UAS drives the pre half.
 BDSC 79039 carries the other orientation. LexAop drives the pre half.</p>
 
@@ -1099,10 +1102,10 @@ attP2 sits on the other chromosome 3. The two insertions are then in trans. One 
 <li>The laboratory holds one sensory LexA line today, ppk23-LexA. BDSC 79039 therefore gives the
 ppk23 arm now. BDSC 60692, Ir52a-LexA, is on order. It sits at attP2, and so does the post half of
 BDSC 79039. The stock in the incubator also carries 22B10-GAL4. That GAL4 drives the post half in the wrong
-cells. The clean-up of section 5.1 must finish first. That clean-up takes four generations.</li>
+cells. The clean-up of section <a class="xref" href="#s51" data-ref="s51">5.1</a> must finish first. That clean-up takes four generations.</li>
 <li>The ppk23 arm and the ppk25 arm then use different reporter arrangements. The unknown efficiency
 of the method does not cancel in their ratio. BDSC 79039 gives a yes or no answer at one target. BDSC
-79039 does not give the ratio of section 7.</li>
+79039 does not give the ratio of section <a class="xref" href="#s7" data-ref="s7">7</a>.</li>
 <li>A target GAL4 at attP2 pairs with the UAS half at attP2. A cell outside the target pattern can
 then make the post half. Prefer a target driver that is not at attP2. If the target driver sits at
 attP2, add a control animal with no sensory driver at that same target.</li>
@@ -1119,7 +1122,7 @@ chromosome 3. Each homolog holds one unit. The PPN1 GAL4 genotype holds one unit
 two units on chromosome 3. The t-GRASP chromosome of BDSC 79039 is balanced over TM6C, Sb Tb. In the
 last cross, keep the progeny that are not Tubby.</p>
 
-<h3 id="s82" data-path="c">8.2 A stable stock for path C</h3>
+<h3 id="s82" data-path="c"><span class="secno">8.2</span> A stable stock for path C</h3>
 
 <p data-path="c">Path C needs two crosses now. One stable stock removes the first cross. Build the
 stock one time. Then do one cross for each experiment.</p>
@@ -1177,7 +1180,7 @@ uses the same target stock.</p>
 
 <p data-path="c">Both parents are homozygous. Each progeny fly therefore has the full genotype.
 Score no marker at this cross. Each fly gets one copy of each t-GRASP half. The two crosses of
-section 8 also give one copy of each half.</p>
+section <a class="xref" href="#s8c" data-ref="s8c">8</a> also give one copy of each half.</p>
 
 <p data-path="c"><strong>How to build the sensory stock.</strong></p>
 
@@ -1238,9 +1241,9 @@ for <code>P{ppk23-Gal4.2.695}</code>. The distance to attP40 is therefore not kn
 separates the recombinant. A test cross or a PCR must find it.</p>
 
 
-<h3 id="s83" data-path="c">8.3 What the nc82 channel adds</h3>
+<h3 id="s83" data-path="c"><span class="secno">8.3</span> What the nc82 channel adds</h3>
 
-<p data-path="c">Section 8 needs four channels. Four channels need four antibody hosts. The four
+<p data-path="c">Section <a class="xref" href="#s8c" data-ref="s8c">8</a> needs four channels. Four channels need four antibody hosts. The four
 hosts are rabbit, rat, goat and mouse. The four signals therefore separate. This section gives what
 the nc82 channel adds.</p>
 
@@ -1277,7 +1280,7 @@ labelled share of that count.</p>
 </table>
 </div>
 
-<h2 id="s8" data-path="a b">9 &middot; Items to order</h2>
+<h2 id="s8" data-path="a b"><span class="secno">9</span> &middot; Items to order</h2>
 
 <div class="scroll">
 <table>
@@ -1296,9 +1299,9 @@ labelled share of that count.</p>
 </div>
 
 <p class="note">The gel and the imaging are on the Expansion tab. Another person does that work.
-Give them the nerve cords and the numbers of section 7.</p>
+Give them the nerve cords and the numbers of section <a class="xref" href="#s7" data-ref="s7">7</a>.</p>
 
-<h2 id="s9" data-path="a b">10 &middot; Open questions</h2>
+<h2 id="s9" data-path="a b"><span class="secno">10</span> &middot; Open questions</h2>
 
 <div class="scroll">
 <table>
@@ -1312,7 +1315,7 @@ Facility for the site.</td></tr>
 <td>The record gives "eYFP" on one tray and "YFP" on another. The stock is here, thus examine it now. The larval sort needs this marker.</td></tr>
 <tr data-trk="q-ss103018"><td>What are the positions in SS103018?</td><td>the discriminating target of path B</td>
 <td>Score the hemidrivers and the balancers.</td></tr>
-<tr data-trk="q-r56c09"><td>Which cells does R56C09 label?</td><td>the calibration of section 7</td>
+<tr data-trk="q-r56c09"><td>Which cells does R56C09 label?</td><td>the calibration of section <a class="xref" href="#s7" data-ref="s7">7</a></td>
 <td>Use MCFO. If the line labels AN05B102 b, c and d as well as a, and you can separate them by
 shape, each cell gives its own predicted ratio: a 0.41, b 0.36, c 0.27, d 0.78. That gives four
 calibration points in one animal, thus more cells are better, not worse. If you cannot separate
@@ -1322,7 +1325,7 @@ them, the prediction must be weighted by the cells that the line labels.</td></t
 </table>
 </div>
 
-<h2 id="s10" data-path="a b">11 &middot; Order of work</h2>
+<h2 id="s10" data-path="a b"><span class="secno">11</span> &middot; Order of work</h2>
 
 <ul class="steps">
 <li>Set up the two clean-up crosses and the target side of path B. All these stocks are in the
@@ -1364,7 +1367,24 @@ arrives.</li>
    btns[i].setAttribute("aria-pressed",on?"true":"false");
    btns[i].className=on?"btn":"btn ghost";
   }
+  number();
   try{window.localStorage.setItem(KEY,sel);}catch(err){}
+ }
+ function number(){ /* ids never change, printed numbers follow the visible set */
+  var hs=doc.querySelectorAll("h2,h3"),i,h,n2=0,n3=0,num,map={},sp;
+  for(i=0;i<hs.length;i++){
+   h=hs[i];
+   if(h.classList.contains("pathoff"))continue;
+   if(h.tagName==="H2"){n2++;n3=0;num=""+n2;}else{n3++;num=n2+"."+n3;}
+   sp=h.querySelector(".secno"); if(sp)sp.textContent=num;
+   if(h.id)map[h.id]=num;
+  }
+  var xs=doc.querySelectorAll(".xref");
+  for(i=0;i<xs.length;i++){
+   var t=map[xs[i].getAttribute("data-ref")];
+   if(t){xs[i].textContent=t;xs[i].removeAttribute("hidden");}
+   else{xs[i].setAttribute("hidden","");}
+  }
  }
  for(var k=0;k<btns.length;k++)(function(b){
   b.onclick=function(){apply(b.getAttribute("data-pathsel"));};
@@ -1404,7 +1424,7 @@ arrives.</li>
  @media print{.gt{text-decoration:none} #gt-card{display:none}}
 </style>
 <script>
-/* The genotype card. Every live word comes from the stock list of section 3.
+/* The genotype card. Every live word comes from the stock list of section <a class="xref" href="#s3" data-ref="s3">3</a>.
    That table is the only source. No genotype is written a second time here. */
 (function(){
 "use strict";
@@ -1632,7 +1652,7 @@ if(/[?&]gt=check/.test(location.search)&&window.console&&console.warn){
  var t2=[],x2;while((x2=W2.nextNode()))t2.push(x2.nodeValue);
  var L=/\b(?:BDSC\s+\d{4,6}|GJ\d{3,4}|LMB-\d{3}|SS\d{6})\b/g,seen={},mm,body=t2.join("\n");
  while((mm=L.exec(body))){k=norm(mm[0]);
-  if(!rowOf[k]&&!seen[k]){seen[k]=1;console.warn("gt: no row in section 3 for "+mm[0]);}}
+  if(!rowOf[k]&&!seen[k]){seen[k]=1;console.warn("gt: no row in section <a class="xref" href="#s3" data-ref="s3">3</a> for "+mm[0]);}}
  for(i=0;i<skipped.length;i++)console.warn("gt: this Line name is not a key: "+skipped[i]);
  console.warn("gt: "+keys.length+" keys, "+document.querySelectorAll(".gt").length+" words");
 }
@@ -1652,7 +1672,7 @@ else go();
 <p class="note">Another person does this work. This tab holds the decisions and the parts, so that
 the two of you use the same numbers.</p>
 
-<h2 data-path="a b">1 &middot; The gel</h2>
+<h2 data-path="a b"><span class="secno">1</span> &middot; The gel</h2>
 
 <div class="scroll">
 <table>
@@ -1679,7 +1699,7 @@ Read the host from each vial before you plan the stain.</td></tr>
 </table>
 </div>
 
-<h2 data-path="a b">2 &middot; Items to order</h2>
+<h2 data-path="a b"><span class="secno">2</span> &middot; Items to order</h2>
 <div class="scroll">
 <table>
 <tr><th>Item</th><th>Function</th><th>Note</th></tr>

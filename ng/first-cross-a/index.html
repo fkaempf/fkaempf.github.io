@@ -1,7 +1,7 @@
 <!doctype html>
 <meta charset="utf-8">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%AA%B0%3C/text%3E%3C/svg%3E">
-<title>Crosses: PPN1 fill and ppk23 synapse label</title>
+<title>Crosses, path A: PPN1 fill and ppk23 synapse label</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <style>
@@ -184,6 +184,8 @@ Cambridge Fly Facility. Connectome values come from <code>male-cns:v1.0</code>.<
 Related pages: <a href="../receptor-typing/">receptor typing</a>,
 <a href="../bristle-typing/">bristle typing</a>,
 <a href="../bristle-impact/">bristle impact</a>.</p>
+<p class="pathname">Path A, label in GAL4.</p>
+<p class="note pathnav">Other paths: <a href="../first-cross-b/">path B, label in LexA</a> &middot; <a href="../first-cross-c/">path C, t-GRASP</a> &middot; <a href="../first-cross/">all three paths, with a switch</a>.</p>
 
 <div class="tabs" role="tablist" aria-label="Documents">
   <button role="tab" id="tab-crosses" aria-controls="doc-crosses" aria-selected="true">
@@ -195,16 +197,6 @@ Related pages: <a href="../receptor-typing/">receptor typing</a>,
 <section class="doc" id="doc-crosses" role="tabpanel" aria-labelledby="tab-crosses">
 <h2 id="s1"><span class="secno">1</span> &middot; The target genotypes</h2>
 
-<p class="pathsw" role="group" aria-label="Which path to show">
- <button type="button" class="btn" data-pathsel="a" aria-pressed="true">Path A</button>
- <button type="button" class="btn ghost" data-pathsel="b" aria-pressed="false">Path B</button>
- <button type="button" class="btn ghost" data-pathsel="c" aria-pressed="false">Path C</button>
- <button type="button" class="btn ghost" data-pathsel="both" aria-pressed="false">All</button>
-</p>
-<p class="note pathperma" data-nav="switch">Each path is also one page:
-<a href="../first-cross-a/">A</a> &middot;
-<a href="../first-cross-b/">B</a> &middot;
-<a href="../first-cross-c/">C</a>.</p>
 
 <p data-path="a"><strong>Path A</strong>, label in GAL4. Both ppk arms are possible. The target is PPN1 only.</p>
 <pre data-path="a"><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; UAS-brp-D3-Cherry / 13XLexAop2-IVS-myr::GFP(attP2)</code></pre>
@@ -1276,6 +1268,8 @@ arrives.</li>
  .pathsw .btn[aria-pressed="true"]{font-weight:700}
  .pathsw .btn{padding:.45rem .9rem;font-size:.82rem}
  .pathoff{display:none}
+ .pathname{margin:.2rem 0 .25rem;font-weight:600}
+ .pathnav{margin:0 0 1.4rem}
 </style>
 <script>
 (function(){
@@ -1301,7 +1295,6 @@ arrives.</li>
    btns[i].className=on?"btn":"btn ghost";
   }
   number();
-  try{window.localStorage.setItem(KEY,sel);}catch(err){}
  }
  function number(){ /* ids never change, printed numbers follow the visible set */
   var hs=doc.querySelectorAll("h2,h3"),i,h,n2=0,n3=0,num,map={},sp;
@@ -1324,7 +1317,6 @@ arrives.</li>
   b.onclick=function(){apply(b.getAttribute("data-pathsel"));};
  })(btns[k]);
  var start="a";
- try{var v=window.localStorage.getItem(KEY);if(v==="a"||v==="b"||v==="c"||v==="both")start=v;}catch(err){}
  apply(start);
  /* The Expansion tab comes after this script. Apply again at the complete page. */
  if(document.readyState==="loading")
@@ -1823,7 +1815,7 @@ function readBase(){
 function fetchRecord(){
  if(!window.fetch)return;
  try{
-  window.fetch("status.json",{cache:"no-store"}).then(function(r){
+  window.fetch("../first-cross/status.json",{cache:"no-store"}).then(function(r){
    if(!r.ok)throw 0;return r.json();
   }).then(function(r){
    if(!r||typeof r!=="object"||!r.i||typeof r.i!=="object")throw 0;

@@ -262,150 +262,6 @@ the Cambridge Fly Facility are both red. Do not use them for path A.
 PPN1 receives almost equal input from the two ppk groups. Path A therefore develops the assay, and
 it does not test the receptor assignment.</p>
 
-<h2 id="s2" data-path="a b"><span class="secno">2</span> &middot; Work in motion</h2>
-
-<p>This section gives the state of each step. You set each state yourself. The page source holds
-the record. Your browser holds the changes since the last commit.</p>
-
-<noscript>
-<p class="note">The tracker needs JavaScript. The list below gives the name of each step. It gives
-no state. The record is in status.json, beside this page.</p>
-</noscript>
-
-<div id="trk" class="callout" hidden aria-live="polite" data-trk-stale="14"></div>
-
-<details id="trk-all" open>
-<summary>All steps</summary>
-<p class="note">This list gives the name of each step. A state chip sits on the row of each step,
-in the section that describes it.</p>
-
-<p class="trk-g">Crosses and clean-ups</p>
-<p class="note">The PPN1 mask control is Kallman PPN1 Gal4 crossed to GJ599. It gives the shape of PPN1 alone, and it shows which cells R56C09 labels. It later becomes the target side of path B.</p>
-<ul>
-<li data-trk-id="a1-g0" data-trk-kind="cross"
-    data-trk-needs="ord-lmb494:arrived">Parent 1, G0</li>
-<li data-trk-id="a1-f1" data-trk-kind="cross"
-    data-trk-needs="a1-g0:done">Parent 1, F1</li>
-<li data-trk-id="a2-g0" data-trk-kind="cross"
-    data-trk-needs="ord-32209:arrived">Parent 2, G0</li>
-<li data-trk-id="a2-f1" data-trk-kind="cross"
-    data-trk-needs="a2-g0:done">Parent 2, F1</li>
-<li data-trk-id="a2-hz" data-trk-kind="cross"
-    data-trk-needs="a2-f1:done">Parent 2, a stable stock</li>
-<li data-trk-id="a1-hz" data-trk-kind="cross"
-    data-trk-needs="a1-f1:done">Parent 1, a stable stock</li>
-<li data-trk-id="ax" data-trk-kind="cross"
-    data-trk-needs="a1-f1:done a2-f1:done">the experimental cross</li>
-<li data-trk-id="c1472-g0" data-trk-kind="cross">the ppk23-LexA clean-up, G0</li>
-<li data-trk-id="c1472-f1" data-trk-kind="cross"
-    data-trk-needs="c1472-g0:done">the ppk23-LexA clean-up, F1</li>
-<li data-trk-id="c1472-f2" data-trk-kind="cross"
-    data-trk-needs="c1472-f1:done">the ppk23-LexA clean-up, F2</li>
-<li data-trk-id="c1472-f3" data-trk-kind="cross"
-    data-trk-needs="c1472-f2:done">the ppk23-LexA clean-up, F3</li>
-<li data-trk-id="c93028" data-trk-kind="cross">the BDSC 93028 clean-up</li>
-<li data-trk-id="b-target" data-trk-kind="cross">the PPN1 mask control</li>
-</ul>
-
-<p class="trk-g">Controls</p>
-<ul>
-<li data-trk-id="ctl-nogal4" data-trk-kind="cross"
-    data-trk-needs="a2-f1:done">the control with no sensory driver</li>
-<li data-trk-id="ctl-nolexa" data-trk-kind="cross"
-    data-trk-needs="a1-f1:done">the control with no target driver</li>
-<li data-trk-id="ctl-false" data-trk-kind="cross">the false contact rate</li>
-<li data-trk-id="ctl-sex" data-trk-kind="cross"
-    data-trk-needs="ax:done">the female of the full genotype</li>
-</ul>
-
-<p class="trk-g" data-path="c">Path C, the fallback</p>
-<ul>
-<li data-trk-id="c-grasp" data-trk-kind="cross">the t-GRASP cross of path C</li>
-</ul>
-
-<p class="trk-g" data-path="b">Path B, a later phase</p>
-<p class="note" data-path="b">Path A is the main line, because the receptor drivers exist in GAL4.
-Path B stays for one job that path A cannot do: a split-GAL4 target, for example SS103018 for
-AN13B002. A split occupies the GAL4 system, thus the label must then be in LexA. Path B waits for
-GJ948.</p>
-<ul>
-<li data-trk-id="b-sensory" data-trk-kind="cross"
-    data-trk-needs="ord-gj948:arrived q-gj948chr:done c1472-f3:done">the sensory side of path B</li>
-</ul>
-
-<p class="trk-g">Orders</p>
-<ul>
-<li data-trk-id="ord-lmb494" data-trk-kind="order">LMB-494</li>
-<li data-trk-id="ord-gj948" data-trk-kind="order">GJ948</li>
-<li data-trk-id="ord-32209" data-trk-kind="order">BDSC 32209</li>
-<li data-trk-id="ord-32211" data-trk-kind="order">BDSC 32211</li>
-<li data-trk-id="ord-57671" data-trk-kind="order">BDSC 57671</li>
-<li data-trk-id="ord-58370" data-trk-kind="order">BDSC 58370</li>
-<li data-trk-id="ord-60692" data-trk-kind="order">BDSC 60692</li>
-<li data-trk-id="ord-60699" data-trk-kind="order">BDSC 60699</li>
-<li data-trk-id="ord-77138" data-trk-kind="order">BDSC 77138</li>
-<li data-trk-id="ord-77139" data-trk-kind="order">BDSC 77139</li>
-<li data-trk-id="ord-81229" data-trk-kind="order">BDSC 81229</li>
-<li data-trk-id="ord-81230" data-trk-kind="order">BDSC 81230</li>
-</ul>
-
-<p class="trk-g">Questions</p>
-<ul>
-<li data-trk-id="q-gj948chr" data-trk-kind="question">the chromosome of GJ948</li>
-<li data-trk-id="q-lexaop" data-trk-kind="question">the correct LexAop2-mCD8::GFP stock</li>
-<li data-trk-id="q-lmb494marker" data-trk-kind="question"
-    data-trk-needs="ord-lmb494:arrived">the balancer marker of LMB-494</li>
-<li data-trk-id="q-ss103018" data-trk-kind="question">the positions in SS103018</li>
-<li data-trk-id="q-r56c09" data-trk-kind="question">which cells R56C09 labels</li>
-<li data-trk-id="q-an09b017" data-trk-kind="question">the vAB3 line of each AN09B017 member</li>
-<li data-trk-id="q-lmb494site" data-trk-kind="question"
-    data-trk-needs="ord-lmb494:arrived">the landing site of brp-D3 in LMB-494</li>
-<li data-trk-id="q-frudsx" data-trk-kind="question">the chromosomes of fru-LexA, dsx-LexA and dsx-GAL4</li>
-<li data-trk-id="q-brpd3chr2" data-trk-kind="question">a brp-D3-Cherry insertion on chromosome 2 or the X chromosome</li>
-<li data-trk-id="q-ir52blexa" data-trk-kind="question">the Ir52b-LexA line of the Carlson laboratory</li>
-<li data-trk-id="q-ppk25lexa" data-trk-kind="question">a ppk25-LexA line, if one exists</li>
-<li data-trk-id="q-ir52aconstruct" data-trk-kind="question">which Ir52a-GAL4 construct the papers used</li>
-</ul>
-</details>
-
-<!-- tracker record start -->
-<script type="application/json" id="trk-record">
-{"v":1,"page":"ng/first-cross","saved":"2026-08-17","i":{"a1-g0":{"s":"virgins","d":"2026-08-17"},"a1-f1":{"s":"blocked","d":"2026-08-17"},"a2-g0":{"s":"blocked","d":"2026-08-17"},"a2-f1":{"s":"none","d":"2026-08-16"},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"ctl-nogal4":{"s":"none","d":""},"ctl-nolexa":{"s":"none","d":""},"ctl-false":{"s":"none","d":""},"ctl-sex":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"ord-lmb494":{"s":"arrived","d":"2026-08-17"},"ord-gj948":{"s":"arrived","d":"2026-08-17"},"q-gj948chr":{"s":"blocked","d":"2026-08-17"},"q-lexaop":{"s":"done","d":"2026-08-17"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""},"ord-32209":{"s":"ordered","d":"2026-08-17"},"ord-32211":{"s":"ordered","d":"2026-08-17"},"c-grasp":{"s":"none","d":""},"ord-57671":{"s":"ordered","d":"2026-08-17"},"ord-58370":{"s":"ordered","d":"2026-08-17"},"ord-60692":{"s":"ordered","d":"2026-08-17"},"ord-60699":{"s":"ordered","d":"2026-08-17"},"ord-77138":{"s":"ordered","d":"2026-08-17"},"ord-77139":{"s":"ordered","d":"2026-08-17"},"ord-81229":{"s":"ordered","d":"2026-08-17"},"ord-81230":{"s":"ordered","d":"2026-08-17"},"q-lmb494site":{"s":"none","d":""},"q-frudsx":{"s":"none","d":""},"q-brpd3chr2":{"s":"none","d":""},"q-ir52blexa":{"s":"none","d":""},"q-ppk25lexa":{"s":"none","d":""},"q-ir52aconstruct":{"s":"none","d":""},"a1-hz":{"s":"none","d":""},"a2-hz":{"s":"none","d":""}}}
-</script>
-<!-- tracker record end -->
-
-<style>
- .trk-host:empty{display:none}
- .trk-s{appearance:none;-webkit-appearance:none;border:0;cursor:pointer;
-        font-family:inherit;line-height:1.6}
- .trk-s option{background:var(--bg);color:var(--fg);text-transform:none;
-        font-weight:400;letter-spacing:0}
- .trk-s:focus-visible{outline:2px solid var(--link);outline-offset:2px}
- .trk-d{color:inherit;background:var(--bg);border:1px solid var(--edge);
-        border-radius:4px;font:inherit;font-size:.78rem;padding:.05rem .25rem;
-        margin-left:.35rem;color-scheme:light dark}
- th.trk,td.trk{white-space:nowrap}
- #trk{margin:1rem 0 1.2rem}
- #trk .steps{margin:.5rem 0 .8rem}
- #trk details{margin-top:.6rem;font-size:.9rem}
- #trk summary{cursor:pointer;color:var(--link)}
- #trk .wl{margin:.4rem 0 0;padding-left:1.1rem;font-size:.9rem}
- #trk .btn{font-size:.78rem;padding:.4rem .7rem;margin:0 .3rem .3rem 0}
- #trk textarea{width:100%;min-height:8rem;color:inherit;background:var(--bg);
-        border:1px solid var(--edge);border-radius:6px;padding:.5rem;margin:.4rem 0;
-        font:.78rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
-        color-scheme:light dark}
- #trk-all{margin:1rem 0 1.2rem;font-size:.92rem}
- #trk-all summary{cursor:pointer;color:var(--link);font-weight:600}
- #trk-all .trk-g{margin:.9rem 0 .2rem;font-size:.76rem;font-weight:600;color:var(--dim);
-        text-transform:uppercase;letter-spacing:.04em}
- #trk-all ul{list-style:none;padding:0;margin:0}
- #trk-all li{padding:.25rem 0;border-bottom:1px solid var(--line)}
- #trk-all li a{margin-left:.4rem;font-size:.8rem}
- @media print{#trk-rec,.trk-d,#trk-all{display:none}
-        .trk-s{appearance:auto;-webkit-appearance:auto}}
-</style>
-
 <h2 id="s3"><span class="secno">3</span> &middot; Stock list</h2>
 
 <div class="scroll">
@@ -676,31 +532,6 @@ incross alone gives a stock with a balancer on chromosome 3. That balancer then 
 driver in the final cross. Select Ser at F1: a fly with Ser cannot also have the 22B10-GAL4 from
 that parent.</p>
 
-<h2 id="s6" data-path="a b"><span class="secno">6</span> &middot; Controls</h2>
-
-<div class="scroll">
-<table>
-<tr><th>Control</th><th>Genotype</th><th>Expected result</th></tr>
-<tr class="hi" data-trk="ctl-nogal4"><td>no sensory driver</td><td>Parent 2 crossed to a stock with no GAL4</td>
-<td>The label channel on the PPN1 mask is empty. This control can fail. It gives the failure
-threshold.</td></tr>
-<tr data-trk="ctl-nolexa"><td>no target driver</td><td>Parent 1 crossed to a stock with no LexA</td>
-<td>The fill channel is empty.</td></tr>
-<tr class="hi" data-trk="ctl-false"><td>false contact rate</td>
-<td>a neuron in the same neuropil that receives almost no ppk input</td>
-<td>puncta for each square micrometre of membrane. Without this, "touch" has no measured
-value.</td></tr>
-<tr class="hi" data-trk="b-target"><td>the PPN1 mask</td>
-<td>Kallman PPN1 Gal4 &times; GJ599, at attP40. Not GJ598, which is on the X chromosome.</td>
-<td>The shape of PPN1 alone. It is the mask for the count, and it shows which cells R56C09
-labels. All the stocks are in the laboratory, thus you can do this control today.</td></tr>
-<tr data-trk="ctl-sex"><td>sex</td><td>a female of the full genotype</td>
-<td>a negative control for the male specific pattern</td></tr>
-</table>
-</div>
-
-<p data-path="c"><strong>The counts to expect.</strong> The connectome gives these counts for PPN1.
-A ppk25 to ppk23 ratio near 0.41 is the expected result.</p>
 <h2 id="s7" data-path="a b"><span class="secno">7</span> &middot; PPN1 as the calibration</h2>
 
 <p>PPN1 does not test the receptor assignment. It tests the <strong>method</strong>. You measure the
@@ -1600,6 +1431,176 @@ else go();
 })();
 </script>
 <!-- genotype card end -->
+
+<h2 id="s6" data-path="a b"><span class="secno">6</span> &middot; Controls</h2>
+
+<div class="scroll">
+<table>
+<tr><th>Control</th><th>Genotype</th><th>Expected result</th></tr>
+<tr class="hi" data-trk="ctl-nogal4"><td>no sensory driver</td><td>Parent 2 crossed to a stock with no GAL4</td>
+<td>The label channel on the PPN1 mask is empty. This control can fail. It gives the failure
+threshold.</td></tr>
+<tr data-trk="ctl-nolexa"><td>no target driver</td><td>Parent 1 crossed to a stock with no LexA</td>
+<td>The fill channel is empty.</td></tr>
+<tr class="hi" data-trk="ctl-false"><td>false contact rate</td>
+<td>a neuron in the same neuropil that receives almost no ppk input</td>
+<td>puncta for each square micrometre of membrane. Without this, "touch" has no measured
+value.</td></tr>
+<tr class="hi" data-trk="b-target"><td>the PPN1 mask</td>
+<td>Kallman PPN1 Gal4 &times; GJ599, at attP40. Not GJ598, which is on the X chromosome.</td>
+<td>The shape of PPN1 alone. It is the mask for the count, and it shows which cells R56C09
+labels. All the stocks are in the laboratory, thus you can do this control today.</td></tr>
+<tr data-trk="ctl-sex"><td>sex</td><td>a female of the full genotype</td>
+<td>a negative control for the male specific pattern</td></tr>
+</table>
+</div>
+
+<p data-path="c"><strong>The counts to expect.</strong> The connectome gives these counts for PPN1.
+A ppk25 to ppk23 ratio near 0.41 is the expected result.</p>
+<h2 id="s2" data-path="a b"><span class="secno">2</span> &middot; Work in motion</h2>
+
+<p>This section gives the state of each step. You set each state yourself. The page source holds
+the record. Your browser holds the changes since the last commit.</p>
+
+<noscript>
+<p class="note">The tracker needs JavaScript. The list below gives the name of each step. It gives
+no state. The record is in status.json, beside this page.</p>
+</noscript>
+
+<div id="trk" class="callout" hidden aria-live="polite" data-trk-stale="14"></div>
+
+<details id="trk-all" open>
+<summary>All steps</summary>
+<p class="note">This list gives the name of each step. A state chip sits on the row of each step,
+in the section that describes it.</p>
+
+<p class="trk-g">Crosses and clean-ups</p>
+<p class="note">The PPN1 mask control is Kallman PPN1 Gal4 crossed to GJ599. It gives the shape of PPN1 alone, and it shows which cells R56C09 labels. It later becomes the target side of path B.</p>
+<ul>
+<li data-trk-id="a1-g0" data-trk-kind="cross"
+    data-trk-needs="ord-lmb494:arrived">Parent 1, G0</li>
+<li data-trk-id="a1-f1" data-trk-kind="cross"
+    data-trk-needs="a1-g0:done">Parent 1, F1</li>
+<li data-trk-id="a2-g0" data-trk-kind="cross"
+    data-trk-needs="ord-32209:arrived">Parent 2, G0</li>
+<li data-trk-id="a2-f1" data-trk-kind="cross"
+    data-trk-needs="a2-g0:done">Parent 2, F1</li>
+<li data-trk-id="a2-hz" data-trk-kind="cross"
+    data-trk-needs="a2-f1:done">Parent 2, a stable stock</li>
+<li data-trk-id="a1-hz" data-trk-kind="cross"
+    data-trk-needs="a1-f1:done">Parent 1, a stable stock</li>
+<li data-trk-id="ax" data-trk-kind="cross"
+    data-trk-needs="a1-f1:done a2-f1:done">the experimental cross</li>
+<li data-trk-id="c1472-g0" data-trk-kind="cross">the ppk23-LexA clean-up, G0</li>
+<li data-trk-id="c1472-f1" data-trk-kind="cross"
+    data-trk-needs="c1472-g0:done">the ppk23-LexA clean-up, F1</li>
+<li data-trk-id="c1472-f2" data-trk-kind="cross"
+    data-trk-needs="c1472-f1:done">the ppk23-LexA clean-up, F2</li>
+<li data-trk-id="c1472-f3" data-trk-kind="cross"
+    data-trk-needs="c1472-f2:done">the ppk23-LexA clean-up, F3</li>
+<li data-trk-id="c93028" data-trk-kind="cross">the BDSC 93028 clean-up</li>
+<li data-trk-id="b-target" data-trk-kind="cross">the PPN1 mask control</li>
+</ul>
+
+<p class="trk-g">Controls</p>
+<ul>
+<li data-trk-id="ctl-nogal4" data-trk-kind="cross"
+    data-trk-needs="a2-f1:done">the control with no sensory driver</li>
+<li data-trk-id="ctl-nolexa" data-trk-kind="cross"
+    data-trk-needs="a1-f1:done">the control with no target driver</li>
+<li data-trk-id="ctl-false" data-trk-kind="cross">the false contact rate</li>
+<li data-trk-id="ctl-sex" data-trk-kind="cross"
+    data-trk-needs="ax:done">the female of the full genotype</li>
+</ul>
+
+<p class="trk-g" data-path="c">Path C, the fallback</p>
+<ul>
+<li data-trk-id="c-grasp" data-trk-kind="cross">the t-GRASP cross of path C</li>
+</ul>
+
+<p class="trk-g" data-path="b">Path B, a later phase</p>
+<p class="note" data-path="b">Path A is the main line, because the receptor drivers exist in GAL4.
+Path B stays for one job that path A cannot do: a split-GAL4 target, for example SS103018 for
+AN13B002. A split occupies the GAL4 system, thus the label must then be in LexA. Path B waits for
+GJ948.</p>
+<ul>
+<li data-trk-id="b-sensory" data-trk-kind="cross"
+    data-trk-needs="ord-gj948:arrived q-gj948chr:done c1472-f3:done">the sensory side of path B</li>
+</ul>
+
+<p class="trk-g">Orders</p>
+<ul>
+<li data-trk-id="ord-lmb494" data-trk-kind="order">LMB-494</li>
+<li data-trk-id="ord-gj948" data-trk-kind="order">GJ948</li>
+<li data-trk-id="ord-32209" data-trk-kind="order">BDSC 32209</li>
+<li data-trk-id="ord-32211" data-trk-kind="order">BDSC 32211</li>
+<li data-trk-id="ord-57671" data-trk-kind="order">BDSC 57671</li>
+<li data-trk-id="ord-58370" data-trk-kind="order">BDSC 58370</li>
+<li data-trk-id="ord-60692" data-trk-kind="order">BDSC 60692</li>
+<li data-trk-id="ord-60699" data-trk-kind="order">BDSC 60699</li>
+<li data-trk-id="ord-77138" data-trk-kind="order">BDSC 77138</li>
+<li data-trk-id="ord-77139" data-trk-kind="order">BDSC 77139</li>
+<li data-trk-id="ord-81229" data-trk-kind="order">BDSC 81229</li>
+<li data-trk-id="ord-81230" data-trk-kind="order">BDSC 81230</li>
+</ul>
+
+<p class="trk-g">Questions</p>
+<ul>
+<li data-trk-id="q-gj948chr" data-trk-kind="question">the chromosome of GJ948</li>
+<li data-trk-id="q-lexaop" data-trk-kind="question">the correct LexAop2-mCD8::GFP stock</li>
+<li data-trk-id="q-lmb494marker" data-trk-kind="question"
+    data-trk-needs="ord-lmb494:arrived">the balancer marker of LMB-494</li>
+<li data-trk-id="q-ss103018" data-trk-kind="question">the positions in SS103018</li>
+<li data-trk-id="q-r56c09" data-trk-kind="question">which cells R56C09 labels</li>
+<li data-trk-id="q-an09b017" data-trk-kind="question">the vAB3 line of each AN09B017 member</li>
+<li data-trk-id="q-lmb494site" data-trk-kind="question"
+    data-trk-needs="ord-lmb494:arrived">the landing site of brp-D3 in LMB-494</li>
+<li data-trk-id="q-frudsx" data-trk-kind="question">the chromosomes of fru-LexA, dsx-LexA and dsx-GAL4</li>
+<li data-trk-id="q-brpd3chr2" data-trk-kind="question">a brp-D3-Cherry insertion on chromosome 2 or the X chromosome</li>
+<li data-trk-id="q-ir52blexa" data-trk-kind="question">the Ir52b-LexA line of the Carlson laboratory</li>
+<li data-trk-id="q-ppk25lexa" data-trk-kind="question">a ppk25-LexA line, if one exists</li>
+<li data-trk-id="q-ir52aconstruct" data-trk-kind="question">which Ir52a-GAL4 construct the papers used</li>
+</ul>
+</details>
+
+<!-- tracker record start -->
+<script type="application/json" id="trk-record">
+{"v":1,"page":"ng/first-cross","saved":"2026-08-17","i":{"a1-g0":{"s":"virgins","d":"2026-08-17"},"a1-f1":{"s":"blocked","d":"2026-08-17"},"a2-g0":{"s":"blocked","d":"2026-08-17"},"a2-f1":{"s":"none","d":"2026-08-16"},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"ctl-nogal4":{"s":"none","d":""},"ctl-nolexa":{"s":"none","d":""},"ctl-false":{"s":"none","d":""},"ctl-sex":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"ord-lmb494":{"s":"arrived","d":"2026-08-17"},"ord-gj948":{"s":"arrived","d":"2026-08-17"},"q-gj948chr":{"s":"blocked","d":"2026-08-17"},"q-lexaop":{"s":"done","d":"2026-08-17"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""},"ord-32209":{"s":"ordered","d":"2026-08-17"},"ord-32211":{"s":"ordered","d":"2026-08-17"},"c-grasp":{"s":"none","d":""},"ord-57671":{"s":"ordered","d":"2026-08-17"},"ord-58370":{"s":"ordered","d":"2026-08-17"},"ord-60692":{"s":"ordered","d":"2026-08-17"},"ord-60699":{"s":"ordered","d":"2026-08-17"},"ord-77138":{"s":"ordered","d":"2026-08-17"},"ord-77139":{"s":"ordered","d":"2026-08-17"},"ord-81229":{"s":"ordered","d":"2026-08-17"},"ord-81230":{"s":"ordered","d":"2026-08-17"},"q-lmb494site":{"s":"none","d":""},"q-frudsx":{"s":"none","d":""},"q-brpd3chr2":{"s":"none","d":""},"q-ir52blexa":{"s":"none","d":""},"q-ppk25lexa":{"s":"none","d":""},"q-ir52aconstruct":{"s":"none","d":""},"a1-hz":{"s":"none","d":""},"a2-hz":{"s":"none","d":""}}}
+</script>
+<!-- tracker record end -->
+
+<style>
+ .trk-host:empty{display:none}
+ .trk-s{appearance:none;-webkit-appearance:none;border:0;cursor:pointer;
+        font-family:inherit;line-height:1.6}
+ .trk-s option{background:var(--bg);color:var(--fg);text-transform:none;
+        font-weight:400;letter-spacing:0}
+ .trk-s:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+ .trk-d{color:inherit;background:var(--bg);border:1px solid var(--edge);
+        border-radius:4px;font:inherit;font-size:.78rem;padding:.05rem .25rem;
+        margin-left:.35rem;color-scheme:light dark}
+ th.trk,td.trk{white-space:nowrap}
+ #trk{margin:1rem 0 1.2rem}
+ #trk .steps{margin:.5rem 0 .8rem}
+ #trk details{margin-top:.6rem;font-size:.9rem}
+ #trk summary{cursor:pointer;color:var(--link)}
+ #trk .wl{margin:.4rem 0 0;padding-left:1.1rem;font-size:.9rem}
+ #trk .btn{font-size:.78rem;padding:.4rem .7rem;margin:0 .3rem .3rem 0}
+ #trk textarea{width:100%;min-height:8rem;color:inherit;background:var(--bg);
+        border:1px solid var(--edge);border-radius:6px;padding:.5rem;margin:.4rem 0;
+        font:.78rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+        color-scheme:light dark}
+ #trk-all{margin:1rem 0 1.2rem;font-size:.92rem}
+ #trk-all summary{cursor:pointer;color:var(--link);font-weight:600}
+ #trk-all .trk-g{margin:.9rem 0 .2rem;font-size:.76rem;font-weight:600;color:var(--dim);
+        text-transform:uppercase;letter-spacing:.04em}
+ #trk-all ul{list-style:none;padding:0;margin:0}
+ #trk-all li{padding:.25rem 0;border-bottom:1px solid var(--line)}
+ #trk-all li a{margin-left:.4rem;font-size:.8rem}
+ @media print{#trk-rec,.trk-d,#trk-all{display:none}
+        .trk-s{appearance:auto;-webkit-appearance:auto}}
+</style>
+
 </section>
 
 <section class="doc" id="doc-expansion" role="tabpanel" aria-labelledby="tab-expansion">

@@ -262,69 +262,6 @@ the Cambridge Fly Facility are both red. Do not use them for path A.
 PPN1 receives almost equal input from the two ppk groups. Path A therefore develops the assay, and
 it does not test the receptor assignment.</p>
 
-<h2 id="s3"><span class="secno">3</span> &middot; Stock list</h2>
-
-<div class="scroll">
-<table id="gt-src">
-<tr><th>Line</th><th>Function</th><th>Chr</th><th>Genotype</th><th>Location</th><th>Condition</th></tr>
-<tr class="hi" data-path="a c"><td>BDSC 93026</td><td>ppk23 driver, path A</td><td>2</td><td><code>w1118; P{ppk23-Gal4.2.695}2; TM2/TM6B</code></td><td>25 degrees Celsius, 3 vials</td><td><span class="tag ok">ready</span></td></tr>
-<tr class="hi" data-path="a c" data-gt-also="Kallman PPN1 LexA"><td>BDSC 53584</td><td>PPN1 driver, path A</td><td>2, attP40</td><td><code>w1118; P{GMR56C09-lexA}attP40</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
-<tr class="hi" data-path="a"><td>BDSC 32209</td><td>PPN1 fill, path A</td><td>3, attP2</td><td><code>w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-IVS-myr::GFP}attP2</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The fill of every arm that keeps chromosome 3 free. It sits at attP2, thus BDSC 77139 replaces it when a second transgene is at attP2.</td></tr>
-<tr class="hi" data-path="a"><td>BDSC 32211</td><td>PPN1 fill, the Gr32a arm</td><td>X, su(Hw)attP8</td><td><code>y[1] w[*] P{y[+t7.7] w[+mC]=13XLexAop2-IVS-myr::GFP}su(Hw)attP8</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The same reporter on the X chromosome. It frees chromosome 3
-for a driver.</td></tr>
-<tr class="hi" data-path="a"><td>LMB-494</td><td>synapse label, path A</td><td>3</td><td><code>w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP</code></td><td>Cambridge Fly Facility</td><td><span class="tag ok">arrived</span> Check the Dfd-YFP marker on the balancers.</td></tr>
-<tr data-path="b"><td>GJ948</td><td>synapse label, path B</td><td>not recorded</td><td><code>LexAop2-Brp-mCherry</code></td><td>Cambridge Fly Facility</td><td>On the way from the Cambridge Fly Facility. The laboratory vial is dead.</td></tr>
-<tr data-path="b" data-gt-also="GJ1472; ppk23-LexA"><td>ppk23-LexA-dirty</td><td>ppk23 driver, path B</td><td>2</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>25 degrees Celsius, Bella</td><td><span class="tag warn">clean it</span> It has 22B10-GAL4. See section <a class="xref" href="#s51" data-ref="s51">5.1</a>.</td></tr>
-<tr data-path="b"><td>ppk23-LexA-clean</td><td>ppk23 driver, path B</td><td>2</td><td><code>; ppk23-LexA/CyO ; +/+</code></td><td>does not exist yet</td><td><span class="tag q">to make</span> The product of the clean-up of section <a class="xref" href="#s51" data-ref="s51">5.1</a>, at F3.</td></tr>
-<tr data-gt-also="Kallman PPN1 Gal4"><td>Kallman PPN1 GAL4</td><td>target driver, path B; PPN1 mask control</td><td>3, attP2</td><td><code>w1118; P{GMR56C09-GAL4}attP2</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span> The GAL4 form and the LexA form drive the same cells. Path A needs the LexA form, and path B and the mask control need the GAL4 form.</td></tr>
-<tr><td>BDSC 93028</td><td>ppk25 driver, the second arm</td><td>2 and 3</td><td><code>w1118; P{ppk25-GAL4.S}2; P{ppk25-GAL4.S}3</code></td><td>18 degrees Celsius</td><td><span class="tag warn">clean</span> remove the chromosome 3 copy</td></tr>
-<tr><td>GJ1435</td><td>Gr32a driver, a third arm</td><td>3</td><td><code>w118; Sp/CyO; Gr32a-Gal4.3.7.PW</code></td><td>25 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
-<tr><td>BDSC 77138</td><td>red LexAop fill</td><td>2</td><td><code>w[*]; P{w[+mC]=13xLexAop2-CD4-tdTom}4</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. A random P insertion, thus it is not at attP40. It gives the arms with a
-chromosome 3 driver a fill that is not on the X chromosome.</td></tr>
-<tr><td>BDSC 77139</td><td>red LexAop fill</td><td>3, VK00033</td><td><code>w[*]; PBac{y[+mDint2] w[+mC]=13xLexAop2-CD4-tdTom}VK00033/TM6B, Tb[1]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. VK00033 is not attP2. Use this line in place of BDSC 32209 in every
-genotype that has a second transgene at attP2.</td></tr>
-<tr><td>BDSC 60692</td><td>Ir52a driver, path B</td><td>3, attP2 and VK00005</td><td><code>w[*]; wg[Sp-1]/CyO; P{Ir52a-LexA-VP16}attP2 PBac{Ir52a-LexA-VP16}VK00005/TM3, Sb[1] Ser[1]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. Two copies on one chromosome 3. John Carlson gave the line to the stock
-centre, thus it is the line of Luo, Talross and Carlson 2024. It occupies attP2.</td></tr>
-<tr><td>BDSC 60699</td><td>Ir52a driver, path A</td><td>2</td><td><code>w[*]; P{w[+mC]=Ir52a-GAL4.K}2/CyO; P{w[+mC]=UAS-mCD8::GFP.L}LL6</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. <strong>Remove chromosome 3 first.</strong> Cross to GJ954 two times, and
-keep TM2/TM6B. Do this before brp-D3-Cherry comes in. Both labels are w+, thus you cannot see the
-difference between them later.</td></tr>
-<tr><td>BDSC 81229</td><td>Ir52a driver, path A</td><td>3, attP2</td><td><code>w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52a-GAL4.2931}attP2/TM6B, Tb[+]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. This line has no second label. Both chromosomes have a marker. The
-promoter fragment is different from the fragment of BDSC 60699.</td></tr>
-<tr><td>BDSC 81230</td><td>Ir52b driver, a pattern check</td><td>3, attP2</td><td><code>w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52b-GAL4.C}attP2</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. One cross only: look at the legs and the wing margin. Ir52b does not
-separate WG1 from WG2. Do not put this line with BDSC 60692, because both sit at attP2.</td></tr>
-<tr><td>BDSC 57671</td><td>Gr68a driver, a fourth arm</td><td>2</td><td><code>w[*]; P{w[+mC]=Gr68a-GAL4.1.8}2; Dr[1]/TM3, Sb[1]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The driver is on chromosome 2, thus this arm uses the recipe of BDSC 93026
-without a change.</td></tr>
-<tr><td>BDSC 58370</td><td>Gr68a driver, second fragment</td><td>3</td><td><code>w[*]; wg[Sp-1]/CyO; P{w[+mC]=Gr68a-GAL4.B}1</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The promoter fragment is different from the fragment of BDSC 57671. The
-Gr68a driver also labels mechanosensory cells, thus two fragments give a control.</td></tr>
-<tr><td>GJ954</td><td>double balancer for the clean-ups</td><td>2 and 3</td><td><code>w; IF/CyO; TM2/TM6B</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
-<tr class="bad"><td>GJ890</td><td>&mdash;</td><td>2</td><td><code>LexAop2-myr4xCLIPf</code>, attP40</td><td>18 degrees Celsius</td><td><span class="tag q">needs a ligand</span> This laboratory developed the tags, thus ask Julian for the dye.</td></tr>
-<tr class="bad"><td>GJ891</td><td>&mdash;</td><td>3</td><td><code>LexAop2-myr4xCLIPf</code>, VK00005</td><td>18 degrees Celsius</td><td><span class="tag warn">not used</span> As GJ890.</td></tr>
-<tr class="bad"><td>GJ894</td><td>&mdash;</td><td>2</td><td><code>LexAop2-myr4xSNAPf</code>, attP40</td><td>18 degrees Celsius</td><td><span class="tag warn">not used</span> As GJ890.</td></tr>
-<tr class="bad"><td>GJ895</td><td>&mdash;</td><td>3</td><td><code>IF/CyO; LexAop2-myr4xSNAPf-VK00005-1M/TM6B</code></td><td>18 degrees Celsius</td><td><span class="tag warn">not used</span> As GJ890.</td></tr>
-<tr data-path="b"><td>GJ598</td><td>target fill, path B</td><td>X</td><td><code>w* P{10XUAS-IVS-myr::GFP}su(Hw)attP8</code></td><td>18 degrees Celsius</td><td><span class="tag warn">X chromosome</span> The mother must carry it, because a son takes his X
-chromosome from his mother.</td></tr>
-<tr data-path="b"><td>GJ600</td><td>target fill, path B</td><td>3, attP2</td><td><code>w*;; P{10XUAS-IVS-myr::GFP}attP2</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
-<tr data-path="b"><td>GJ667</td><td>target fill, path B</td><td>3, attP2</td><td><code>w*;; P{10XUAS-IVS-myr::GFP::P10}attP2</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
-<tr><td>GJ832</td><td>double balancer, second choice</td><td>2 and 3</td><td><code>If/CyO; hsFLP, MKRS/TM6B, Tb1</code></td><td>18 degrees Celsius</td><td><span class="tag warn">has hsFLP</span> Use GJ954 first.</td></tr>
-<tr><td>SS104905</td><td>a vAB3 candidate</td><td>2 and 3</td><td><code>w; 71A10-p65ADZ/CyO; VT034623-ZpGdbd in attP2/TM6B,Tb</code></td><td>25 degrees Celsius</td><td><span class="tag q">not mapped</span> Four vAB3 lines are alive: SS103089, SS104905, SS104909 and SS105464.</td></tr>
-<tr><td>LMB-495</td><td>a comparison only</td><td>3</td><td><code>2xUAS:brp-mRFP</code>, full length</td><td>Cambridge Fly Facility</td><td><span class="tag m">on the way</span> Full length Bruchpilot aggregates. Do not count with it.</td></tr>
-<tr class="hi" data-path="c"><td>BDSC 79040</td><td>both t-GRASP halves, path C</td><td>3, attP2 and VK00027</td><td><code>y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{13XLexAop2-post-t-GRASP}attP2 PBac{20XUAS-pre-t-GRASP}VK00027</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span> UAS drives the pre half, thus the sensory driver is GAL4 and
-the target driver is LexA. This is the orientation for path C at PPN1. The stock list gives the
-reason, and not the orientation: ppk23, ppk25 and Gr32a exist as GAL4. This table lists one target
-driver line with LexA: R56C09-lexA. R56C09-lexA drives PPN1.</td></tr>
-<tr data-path="b"><td>BDSC 79039</td><td>the second orientation, path B with t-GRASP</td><td>3, attP2 and VK00027</td><td><code>y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027/TM6C, Sb[1] Tb[1]</code></td><td>18 degrees Celsius</td><td><span class="tag warn">second orientation</span> LexAop drives the pre half, thus the sensory
-driver is LexA and the target driver is GAL4. This orientation opens the GAL4 targets and the
-split-GAL4 targets. The two halves sit on one chromosome 3, thus a target GAL4 at attP2 sits on the
-other chromosome 3, in trans. The laboratory holds one sensory LexA line, ppk23-LexA, thus this stock
-gives the ppk23 arm only, and the clean-up of section <a class="xref" href="#s51" data-ref="s51">5.1</a> must finish first. See section <a class="xref" href="#s81" data-ref="s81">8.1</a>.</td></tr>
-<tr data-path="b"><td>GJ599</td><td>target fill, <strong>path B only</strong></td><td>2, attP40</td><td><code>w*; P{10XUAS-IVS-myr::GFP}attP40</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
-<tr><td>SS103018</td><td>AN13B002, a target that separates the groups</td><td>2 and 3</td><td>not recorded; the snapshot gives "?"</td><td>25 degrees Celsius</td><td><span class="tag warn">map it</span> split-GAL4</td></tr>
-</table>
-</div>
-
-<p class="note">In path A the GAL4 is in the sensory neurons. A UAS fill thus labels the bristles
-and not PPN1. The path A fill must be LexAop.</p>
-
 <h2 id="s4" data-path="a"><span class="secno">4</span> &middot; Crosses, path A</h2>
 
 <div class="callout" data-path="a">
@@ -491,134 +428,6 @@ because a son takes his X chromosome from his mother, and this work scores males
 PPN1.</td></tr>
 </table>
 </div>
-
-<h2 id="s5" data-path="a b"><span class="secno">5</span> &middot; Clean-up</h2>
-
-<div class="scroll">
-<table>
-<tr><th>Line</th><th>Remove</th><th>Effect if you do not</th><th>Method</th><th class="num">Weeks</th></tr>
-<tr class="bad" data-trk="c1472-f3"><td>ppk23-LexA-dirty</td><td><code>22B10-GAL4</code>, chr 3</td>
-<td>It drives the UAS label in the wrong cells. Path B only.</td>
-<td>Four generations. See the table below.</td><td class="num">6</td></tr>
-<tr class="bad" data-trk="c93028"><td>BDSC 93028</td><td>the second copy, chr 3</td>
-<td>Two copies against one change the driver strength between the arms.</td>
-<td>Cross to GJ954. Both inserts have the same marker, thus confirm by PCR.</td>
-<td class="num">4</td></tr>
-</table>
-</div>
-
-<p class="note">Use <strong>GJ954</strong>, <code>w; IF/CyO; TM2/TM6B</code>, 18 degrees Celsius. Use
-GJ832 only if GJ954 is not available: GJ832 has hsFLP. The four generations of the ppk23-LexA clean-up have their
-own states in section <a class="xref" href="#s51" data-ref="s51">5.1</a>.</p>
-
-<h3 id="s51"><span class="secno">5.1</span> The ppk23-LexA clean-up, generation by generation</h3>
-<div class="scroll">
-<table>
-<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr data-trk="c1472-g0"><td class="num">G0</td><td>ppk23-LexA-dirty &times; GJ954</td><td>&mdash;</td><td>&mdash;</td></tr>
-<tr data-trk="c1472-f1"><td class="num">F1</td><td>&mdash;</td>
-<td>Curly. <strong>Not</strong> Irregular facets. <strong>Ser</strong>.</td>
-<td><code>; ppk23-LexA/CyO ; TM3,Ser / TM2 or TM6B</code>. The 22B10-GAL4 is gone.</td></tr>
-<tr class="hi" data-trk="c1472-f2"><td class="num">F2</td><td>cross to w1118</td>
-<td>Curly. <strong>Not</strong> Ser, Ubx or Tubby.</td>
-<td><code>; ppk23-LexA/CyO ; +/+</code></td></tr>
-<tr data-trk="c1472-f3"><td class="num">F3</td><td>incross</td><td>Curly</td>
-<td><strong>ppk23-LexA-clean</strong>, <code>; ppk23-LexA/CyO ; +/+</code></td></tr>
-</table>
-</div>
-<p class="note">The outcross to w1118 at F2 is necessary. GJ954 has TM2 and TM6B on chromosome 3,
-and ppk23-LexA-dirty has the GAL4 or TM3,Ser. Thus no plain chromosome 3 is present in the cross, and an
-incross alone gives a stock with a balancer on chromosome 3. That balancer then blocks the target
-driver in the final cross. Select Ser at F1: a fly with Ser cannot also have the 22B10-GAL4 from
-that parent.</p>
-
-<h2 id="s7" data-path="a b"><span class="secno">7</span> &middot; PPN1 as the calibration</h2>
-
-<p>PPN1 does not test the receptor assignment. It tests the <strong>method</strong>. You measure the
-two arms, and you compare each count against the number in the connectome. If the counts follow the
-connectome, the method counts synapses quantitatively in this system. That result is what permits a
-reader to accept a later measurement on a target that does separate the two groups.</p>
-
-<div class="scroll" data-path="a b c">
-<table>
-<tr><th>Region</th><th class="num">ppk25 family</th><th class="num">ppk23 family, all</th>
-<th class="num">predicted ratio</th></tr>
-<tr class="hi"><td>PPN1, whole</td><td class="num">11098</td><td class="num">27187</td>
-<td class="num">0.41</td></tr>
-<tr><td>PPN1, wing neuropil</td><td class="num">5701</td><td class="num">13839</td>
-<td class="num">0.41</td></tr>
-<tr><td>PPN1, leg neuropil</td><td class="num">5397</td><td class="num">13348</td>
-<td class="num">0.40</td></tr>
-</table>
-</div>
-
-<p class="note">The ppk25 cells are a part of the ppk23 cells, because an F cell is ppk23 positive
-and ppk25 positive. Thus the second column holds every ppk23 cell, and the ratio is the share of the
-F cells. Nobody has confirmed that every ppk25 cell is also a ppk23 cell.</p>
-
-<div class="callout">
-<p><span class="tag ok">the result to look for</span> A measured ratio near <strong>0.41</strong>
-shows that the puncta follow the synapse counts of the connectome. The same value in the wing and in
-the leg is a second, independent check inside one animal.</p>
-<p>A ratio far from 0.41 shows that the method is not quantitative here. Then stop, and use a
-functional method instead.</p>
-</div>
-
-<h3><span class="secno">7.1</span> The absolute counts</h3>
-
-<div class="scroll">
-<table>
-<tr><th>Quantity</th><th class="num">Value</th><th>Note</th></tr>
-<tr><td>ppk23 connections onto PPN1</td><td class="num">27187</td><td>connectome</td></tr>
-<tr><td>ppk25 connections onto PPN1</td><td class="num">11098</td><td>connectome</td></tr>
-<tr><td>the whole input of PPN1</td><td class="num">33476</td>
-<td>The ppk cells give 81 percent of it.</td></tr>
-<tr class="hi"><td>presynaptic sites apposed to PPN1</td><td class="num">about 27000</td>
-<td>One site gives approximately one connection onto one target cell. <strong>Do not divide by
-six.</strong></td></tr>
-<tr class="hi"><td>puncta to expect, ppk23 arm</td><td class="num">about 20000</td>
-<td>two PPN1 cells, at the 74 percent that the membrane contact method of Lillvis et al. gives. That
-method found 501 sites against the 677 sites of the electron microscopy sample. Their best single
-sample gives 89 percent, thus 24000. Do not expect the best sample.</td></tr>
-<tr><td>median distance between sites</td><td class="num">294 nm</td>
-<td>The person who does the imaging needs this number.</td></tr>
-<tr class="hi"><td>the count that shows a failure</td><td class="num">a few thousand</td>
-<td>The label, the antibody or the segmentation loses most of the sites. The connectome is not
-wrong. Decide the threshold before you image.</td></tr>
-</table>
-</div>
-
-<p data-path="a"><strong>The label of path A.</strong> UAS-brp-D3-Cherry is a short form of Brp. A
-GAL4 driver expresses it. It is not the endogenous protein. Nobody has compared it against electron
-microscopy. Do not accept that difference as a risk. That option gives no number for the
-calibration.</p>
-
-<p data-path="a"><strong>Add an nc82 channel.</strong> The nc82 antibody marks the endogenous Brp
-protein in every cell. Count the brp-D3-Cherry puncta and the nc82 sites in one animal. The ratio of
-the two counts is the calibration. This step needs one antibody and no new genetics.</p>
-
-<p data-path="a"><strong>Why path A does not use STaR.</strong> Lillvis et al. 2022 compared the nc82
-antibody and a STaR tag against electron microscopy. STaR marks the endogenous Brp protein, thus STaR
-is the better label. They also recommend a postsynaptic marker, because a membrane contact method
-loses more sites. Path A has no space for STaR.</p>
-
-<p data-path="a">STaR needs five elements.</p>
-<ul data-path="a">
-<li>the sensory GAL4</li>
-<li>R56C09-lexA</li>
-<li>the tagged brp transgene</li>
-<li>a source of FLP</li>
-<li>a membrane label for PPN1</li>
-</ul>
-
-<p data-path="a">Chromosome 2 holds the two drivers, thus chromosome 2 is full. BDSC 77138 is on
-chromosome 2. BDSC 55753 carries the tagged brp transgene at VK00033. BDSC 77139 is also at VK00033.
-Those two stocks cannot share a chromosome.</p>
-
-<p data-path="a">A green tag with a green fill gives no result. A V5 tag gives a result. But each V5
-stock also makes LexA in the marked cells. Those cells then drive the label of PPN1. Use STaR only
-after somebody recombines the sensory GAL4 onto the R56C09-lexA chromosome. That step frees one place
-on chromosome 2.</p>
 
 <h2 id="s8c" data-path="b c"><span class="secno">8</span> &middot; t-GRASP</h2>
 
@@ -1043,6 +852,197 @@ labelled share of that count.</p>
 <td>Check the record first. It does not say if a vial exists.</td></tr>
 </table>
 </div>
+
+<h2 id="s3"><span class="secno">3</span> &middot; Stock list</h2>
+
+<div class="scroll">
+<table id="gt-src">
+<tr><th>Line</th><th>Function</th><th>Chr</th><th>Genotype</th><th>Location</th><th>Condition</th></tr>
+<tr class="hi" data-path="a c"><td>BDSC 93026</td><td>ppk23 driver, path A</td><td>2</td><td><code>w1118; P{ppk23-Gal4.2.695}2; TM2/TM6B</code></td><td>25 degrees Celsius, 3 vials</td><td><span class="tag ok">ready</span></td></tr>
+<tr class="hi" data-path="a c" data-gt-also="Kallman PPN1 LexA"><td>BDSC 53584</td><td>PPN1 driver, path A</td><td>2, attP40</td><td><code>w1118; P{GMR56C09-lexA}attP40</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr class="hi" data-path="a"><td>BDSC 32209</td><td>PPN1 fill, path A</td><td>3, attP2</td><td><code>w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-IVS-myr::GFP}attP2</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The fill of every arm that keeps chromosome 3 free. It sits at attP2, thus BDSC 77139 replaces it when a second transgene is at attP2.</td></tr>
+<tr class="hi" data-path="a"><td>BDSC 32211</td><td>PPN1 fill, the Gr32a arm</td><td>X, su(Hw)attP8</td><td><code>y[1] w[*] P{y[+t7.7] w[+mC]=13XLexAop2-IVS-myr::GFP}su(Hw)attP8</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The same reporter on the X chromosome. It frees chromosome 3
+for a driver.</td></tr>
+<tr class="hi" data-path="a"><td>LMB-494</td><td>synapse label, path A</td><td>3</td><td><code>w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP</code></td><td>Cambridge Fly Facility</td><td><span class="tag ok">arrived</span> Check the Dfd-YFP marker on the balancers.</td></tr>
+<tr data-path="b"><td>GJ948</td><td>synapse label, path B</td><td>not recorded</td><td><code>LexAop2-Brp-mCherry</code></td><td>Cambridge Fly Facility</td><td>On the way from the Cambridge Fly Facility. The laboratory vial is dead.</td></tr>
+<tr data-path="b" data-gt-also="GJ1472; ppk23-LexA"><td>ppk23-LexA-dirty</td><td>ppk23 driver, path B</td><td>2</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>25 degrees Celsius, Bella</td><td><span class="tag warn">clean it</span> It has 22B10-GAL4. See section <a class="xref" href="#s51" data-ref="s51">5.1</a>.</td></tr>
+<tr data-path="b"><td>ppk23-LexA-clean</td><td>ppk23 driver, path B</td><td>2</td><td><code>; ppk23-LexA/CyO ; +/+</code></td><td>does not exist yet</td><td><span class="tag q">to make</span> The product of the clean-up of section <a class="xref" href="#s51" data-ref="s51">5.1</a>, at F3.</td></tr>
+<tr data-gt-also="Kallman PPN1 Gal4"><td>Kallman PPN1 GAL4</td><td>target driver, path B; PPN1 mask control</td><td>3, attP2</td><td><code>w1118; P{GMR56C09-GAL4}attP2</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span> The GAL4 form and the LexA form drive the same cells. Path A needs the LexA form, and path B and the mask control need the GAL4 form.</td></tr>
+<tr><td>BDSC 93028</td><td>ppk25 driver, the second arm</td><td>2 and 3</td><td><code>w1118; P{ppk25-GAL4.S}2; P{ppk25-GAL4.S}3</code></td><td>18 degrees Celsius</td><td><span class="tag warn">clean</span> remove the chromosome 3 copy</td></tr>
+<tr><td>GJ1435</td><td>Gr32a driver, a third arm</td><td>3</td><td><code>w118; Sp/CyO; Gr32a-Gal4.3.7.PW</code></td><td>25 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr><td>BDSC 77138</td><td>red LexAop fill</td><td>2</td><td><code>w[*]; P{w[+mC]=13xLexAop2-CD4-tdTom}4</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. A random P insertion, thus it is not at attP40. It gives the arms with a
+chromosome 3 driver a fill that is not on the X chromosome.</td></tr>
+<tr><td>BDSC 77139</td><td>red LexAop fill</td><td>3, VK00033</td><td><code>w[*]; PBac{y[+mDint2] w[+mC]=13xLexAop2-CD4-tdTom}VK00033/TM6B, Tb[1]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. VK00033 is not attP2. Use this line in place of BDSC 32209 in every
+genotype that has a second transgene at attP2.</td></tr>
+<tr><td>BDSC 60692</td><td>Ir52a driver, path B</td><td>3, attP2 and VK00005</td><td><code>w[*]; wg[Sp-1]/CyO; P{Ir52a-LexA-VP16}attP2 PBac{Ir52a-LexA-VP16}VK00005/TM3, Sb[1] Ser[1]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. Two copies on one chromosome 3. John Carlson gave the line to the stock
+centre, thus it is the line of Luo, Talross and Carlson 2024. It occupies attP2.</td></tr>
+<tr><td>BDSC 60699</td><td>Ir52a driver, path A</td><td>2</td><td><code>w[*]; P{w[+mC]=Ir52a-GAL4.K}2/CyO; P{w[+mC]=UAS-mCD8::GFP.L}LL6</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. <strong>Remove chromosome 3 first.</strong> Cross to GJ954 two times, and
+keep TM2/TM6B. Do this before brp-D3-Cherry comes in. Both labels are w+, thus you cannot see the
+difference between them later.</td></tr>
+<tr><td>BDSC 81229</td><td>Ir52a driver, path A</td><td>3, attP2</td><td><code>w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52a-GAL4.2931}attP2/TM6B, Tb[+]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. This line has no second label. Both chromosomes have a marker. The
+promoter fragment is different from the fragment of BDSC 60699.</td></tr>
+<tr><td>BDSC 81230</td><td>Ir52b driver, a pattern check</td><td>3, attP2</td><td><code>w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52b-GAL4.C}attP2</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. One cross only: look at the legs and the wing margin. Ir52b does not
+separate WG1 from WG2. Do not put this line with BDSC 60692, because both sit at attP2.</td></tr>
+<tr><td>BDSC 57671</td><td>Gr68a driver, a fourth arm</td><td>2</td><td><code>w[*]; P{w[+mC]=Gr68a-GAL4.1.8}2; Dr[1]/TM3, Sb[1]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The driver is on chromosome 2, thus this arm uses the recipe of BDSC 93026
+without a change.</td></tr>
+<tr><td>BDSC 58370</td><td>Gr68a driver, second fragment</td><td>3</td><td><code>w[*]; wg[Sp-1]/CyO; P{w[+mC]=Gr68a-GAL4.B}1</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The promoter fragment is different from the fragment of BDSC 57671. The
+Gr68a driver also labels mechanosensory cells, thus two fragments give a control.</td></tr>
+<tr><td>GJ954</td><td>double balancer for the clean-ups</td><td>2 and 3</td><td><code>w; IF/CyO; TM2/TM6B</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr class="bad"><td>GJ890</td><td>&mdash;</td><td>2</td><td><code>LexAop2-myr4xCLIPf</code>, attP40</td><td>18 degrees Celsius</td><td><span class="tag q">needs a ligand</span> This laboratory developed the tags, thus ask Julian for the dye.</td></tr>
+<tr class="bad"><td>GJ891</td><td>&mdash;</td><td>3</td><td><code>LexAop2-myr4xCLIPf</code>, VK00005</td><td>18 degrees Celsius</td><td><span class="tag warn">not used</span> As GJ890.</td></tr>
+<tr class="bad"><td>GJ894</td><td>&mdash;</td><td>2</td><td><code>LexAop2-myr4xSNAPf</code>, attP40</td><td>18 degrees Celsius</td><td><span class="tag warn">not used</span> As GJ890.</td></tr>
+<tr class="bad"><td>GJ895</td><td>&mdash;</td><td>3</td><td><code>IF/CyO; LexAop2-myr4xSNAPf-VK00005-1M/TM6B</code></td><td>18 degrees Celsius</td><td><span class="tag warn">not used</span> As GJ890.</td></tr>
+<tr data-path="b"><td>GJ598</td><td>target fill, path B</td><td>X</td><td><code>w* P{10XUAS-IVS-myr::GFP}su(Hw)attP8</code></td><td>18 degrees Celsius</td><td><span class="tag warn">X chromosome</span> The mother must carry it, because a son takes his X
+chromosome from his mother.</td></tr>
+<tr data-path="b"><td>GJ600</td><td>target fill, path B</td><td>3, attP2</td><td><code>w*;; P{10XUAS-IVS-myr::GFP}attP2</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr data-path="b"><td>GJ667</td><td>target fill, path B</td><td>3, attP2</td><td><code>w*;; P{10XUAS-IVS-myr::GFP::P10}attP2</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr><td>GJ832</td><td>double balancer, second choice</td><td>2 and 3</td><td><code>If/CyO; hsFLP, MKRS/TM6B, Tb1</code></td><td>18 degrees Celsius</td><td><span class="tag warn">has hsFLP</span> Use GJ954 first.</td></tr>
+<tr><td>SS104905</td><td>a vAB3 candidate</td><td>2 and 3</td><td><code>w; 71A10-p65ADZ/CyO; VT034623-ZpGdbd in attP2/TM6B,Tb</code></td><td>25 degrees Celsius</td><td><span class="tag q">not mapped</span> Four vAB3 lines are alive: SS103089, SS104905, SS104909 and SS105464.</td></tr>
+<tr><td>LMB-495</td><td>a comparison only</td><td>3</td><td><code>2xUAS:brp-mRFP</code>, full length</td><td>Cambridge Fly Facility</td><td><span class="tag m">on the way</span> Full length Bruchpilot aggregates. Do not count with it.</td></tr>
+<tr class="hi" data-path="c"><td>BDSC 79040</td><td>both t-GRASP halves, path C</td><td>3, attP2 and VK00027</td><td><code>y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{13XLexAop2-post-t-GRASP}attP2 PBac{20XUAS-pre-t-GRASP}VK00027</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span> UAS drives the pre half, thus the sensory driver is GAL4 and
+the target driver is LexA. This is the orientation for path C at PPN1. The stock list gives the
+reason, and not the orientation: ppk23, ppk25 and Gr32a exist as GAL4. This table lists one target
+driver line with LexA: R56C09-lexA. R56C09-lexA drives PPN1.</td></tr>
+<tr data-path="b"><td>BDSC 79039</td><td>the second orientation, path B with t-GRASP</td><td>3, attP2 and VK00027</td><td><code>y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027/TM6C, Sb[1] Tb[1]</code></td><td>18 degrees Celsius</td><td><span class="tag warn">second orientation</span> LexAop drives the pre half, thus the sensory
+driver is LexA and the target driver is GAL4. This orientation opens the GAL4 targets and the
+split-GAL4 targets. The two halves sit on one chromosome 3, thus a target GAL4 at attP2 sits on the
+other chromosome 3, in trans. The laboratory holds one sensory LexA line, ppk23-LexA, thus this stock
+gives the ppk23 arm only, and the clean-up of section <a class="xref" href="#s51" data-ref="s51">5.1</a> must finish first. See section <a class="xref" href="#s81" data-ref="s81">8.1</a>.</td></tr>
+<tr data-path="b"><td>GJ599</td><td>target fill, <strong>path B only</strong></td><td>2, attP40</td><td><code>w*; P{10XUAS-IVS-myr::GFP}attP40</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr><td>SS103018</td><td>AN13B002, a target that separates the groups</td><td>2 and 3</td><td>not recorded; the snapshot gives "?"</td><td>25 degrees Celsius</td><td><span class="tag warn">map it</span> split-GAL4</td></tr>
+</table>
+</div>
+
+<p class="note">In path A the GAL4 is in the sensory neurons. A UAS fill thus labels the bristles
+and not PPN1. The path A fill must be LexAop.</p>
+
+<h2 id="s5" data-path="a b"><span class="secno">5</span> &middot; Clean-up</h2>
+
+<div class="scroll">
+<table>
+<tr><th>Line</th><th>Remove</th><th>Effect if you do not</th><th>Method</th><th class="num">Weeks</th></tr>
+<tr class="bad" data-trk="c1472-f3"><td>ppk23-LexA-dirty</td><td><code>22B10-GAL4</code>, chr 3</td>
+<td>It drives the UAS label in the wrong cells. Path B only.</td>
+<td>Four generations. See the table below.</td><td class="num">6</td></tr>
+<tr class="bad" data-trk="c93028"><td>BDSC 93028</td><td>the second copy, chr 3</td>
+<td>Two copies against one change the driver strength between the arms.</td>
+<td>Cross to GJ954. Both inserts have the same marker, thus confirm by PCR.</td>
+<td class="num">4</td></tr>
+</table>
+</div>
+
+<p class="note">Use <strong>GJ954</strong>, <code>w; IF/CyO; TM2/TM6B</code>, 18 degrees Celsius. Use
+GJ832 only if GJ954 is not available: GJ832 has hsFLP. The four generations of the ppk23-LexA clean-up have their
+own states in section <a class="xref" href="#s51" data-ref="s51">5.1</a>.</p>
+
+<h3 id="s51"><span class="secno">5.1</span> The ppk23-LexA clean-up, generation by generation</h3>
+<div class="scroll">
+<table>
+<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
+<tr data-trk="c1472-g0"><td class="num">G0</td><td>ppk23-LexA-dirty &times; GJ954</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr data-trk="c1472-f1"><td class="num">F1</td><td>&mdash;</td>
+<td>Curly. <strong>Not</strong> Irregular facets. <strong>Ser</strong>.</td>
+<td><code>; ppk23-LexA/CyO ; TM3,Ser / TM2 or TM6B</code>. The 22B10-GAL4 is gone.</td></tr>
+<tr class="hi" data-trk="c1472-f2"><td class="num">F2</td><td>cross to w1118</td>
+<td>Curly. <strong>Not</strong> Ser, Ubx or Tubby.</td>
+<td><code>; ppk23-LexA/CyO ; +/+</code></td></tr>
+<tr data-trk="c1472-f3"><td class="num">F3</td><td>incross</td><td>Curly</td>
+<td><strong>ppk23-LexA-clean</strong>, <code>; ppk23-LexA/CyO ; +/+</code></td></tr>
+</table>
+</div>
+<p class="note">The outcross to w1118 at F2 is necessary. GJ954 has TM2 and TM6B on chromosome 3,
+and ppk23-LexA-dirty has the GAL4 or TM3,Ser. Thus no plain chromosome 3 is present in the cross, and an
+incross alone gives a stock with a balancer on chromosome 3. That balancer then blocks the target
+driver in the final cross. Select Ser at F1: a fly with Ser cannot also have the 22B10-GAL4 from
+that parent.</p>
+
+<h2 id="s7" data-path="a b"><span class="secno">7</span> &middot; PPN1 as the calibration</h2>
+
+<p>PPN1 does not test the receptor assignment. It tests the <strong>method</strong>. You measure the
+two arms, and you compare each count against the number in the connectome. If the counts follow the
+connectome, the method counts synapses quantitatively in this system. That result is what permits a
+reader to accept a later measurement on a target that does separate the two groups.</p>
+
+<div class="scroll" data-path="a b c">
+<table>
+<tr><th>Region</th><th class="num">ppk25 family</th><th class="num">ppk23 family, all</th>
+<th class="num">predicted ratio</th></tr>
+<tr class="hi"><td>PPN1, whole</td><td class="num">11098</td><td class="num">27187</td>
+<td class="num">0.41</td></tr>
+<tr><td>PPN1, wing neuropil</td><td class="num">5701</td><td class="num">13839</td>
+<td class="num">0.41</td></tr>
+<tr><td>PPN1, leg neuropil</td><td class="num">5397</td><td class="num">13348</td>
+<td class="num">0.40</td></tr>
+</table>
+</div>
+
+<p class="note">The ppk25 cells are a part of the ppk23 cells, because an F cell is ppk23 positive
+and ppk25 positive. Thus the second column holds every ppk23 cell, and the ratio is the share of the
+F cells. Nobody has confirmed that every ppk25 cell is also a ppk23 cell.</p>
+
+<div class="callout">
+<p><span class="tag ok">the result to look for</span> A measured ratio near <strong>0.41</strong>
+shows that the puncta follow the synapse counts of the connectome. The same value in the wing and in
+the leg is a second, independent check inside one animal.</p>
+<p>A ratio far from 0.41 shows that the method is not quantitative here. Then stop, and use a
+functional method instead.</p>
+</div>
+
+<h3><span class="secno">7.1</span> The absolute counts</h3>
+
+<div class="scroll">
+<table>
+<tr><th>Quantity</th><th class="num">Value</th><th>Note</th></tr>
+<tr><td>ppk23 connections onto PPN1</td><td class="num">27187</td><td>connectome</td></tr>
+<tr><td>ppk25 connections onto PPN1</td><td class="num">11098</td><td>connectome</td></tr>
+<tr><td>the whole input of PPN1</td><td class="num">33476</td>
+<td>The ppk cells give 81 percent of it.</td></tr>
+<tr class="hi"><td>presynaptic sites apposed to PPN1</td><td class="num">about 27000</td>
+<td>One site gives approximately one connection onto one target cell. <strong>Do not divide by
+six.</strong></td></tr>
+<tr class="hi"><td>puncta to expect, ppk23 arm</td><td class="num">about 20000</td>
+<td>two PPN1 cells, at the 74 percent that the membrane contact method of Lillvis et al. gives. That
+method found 501 sites against the 677 sites of the electron microscopy sample. Their best single
+sample gives 89 percent, thus 24000. Do not expect the best sample.</td></tr>
+<tr><td>median distance between sites</td><td class="num">294 nm</td>
+<td>The person who does the imaging needs this number.</td></tr>
+<tr class="hi"><td>the count that shows a failure</td><td class="num">a few thousand</td>
+<td>The label, the antibody or the segmentation loses most of the sites. The connectome is not
+wrong. Decide the threshold before you image.</td></tr>
+</table>
+</div>
+
+<p data-path="a"><strong>The label of path A.</strong> UAS-brp-D3-Cherry is a short form of Brp. A
+GAL4 driver expresses it. It is not the endogenous protein. Nobody has compared it against electron
+microscopy. Do not accept that difference as a risk. That option gives no number for the
+calibration.</p>
+
+<p data-path="a"><strong>Add an nc82 channel.</strong> The nc82 antibody marks the endogenous Brp
+protein in every cell. Count the brp-D3-Cherry puncta and the nc82 sites in one animal. The ratio of
+the two counts is the calibration. This step needs one antibody and no new genetics.</p>
+
+<p data-path="a"><strong>Why path A does not use STaR.</strong> Lillvis et al. 2022 compared the nc82
+antibody and a STaR tag against electron microscopy. STaR marks the endogenous Brp protein, thus STaR
+is the better label. They also recommend a postsynaptic marker, because a membrane contact method
+loses more sites. Path A has no space for STaR.</p>
+
+<p data-path="a">STaR needs five elements.</p>
+<ul data-path="a">
+<li>the sensory GAL4</li>
+<li>R56C09-lexA</li>
+<li>the tagged brp transgene</li>
+<li>a source of FLP</li>
+<li>a membrane label for PPN1</li>
+</ul>
+
+<p data-path="a">Chromosome 2 holds the two drivers, thus chromosome 2 is full. BDSC 77138 is on
+chromosome 2. BDSC 55753 carries the tagged brp transgene at VK00033. BDSC 77139 is also at VK00033.
+Those two stocks cannot share a chromosome.</p>
+
+<p data-path="a">A green tag with a green fill gives no result. A V5 tag gives a result. But each V5
+stock also makes LexA in the marked cells. Those cells then drive the label of PPN1. Use STaR only
+after somebody recombines the sensory GAL4 onto the R56C09-lexA chromosome. That step frees one place
+on chromosome 2.</p>
 
 <h2 id="s8" data-path="a b"><span class="secno">9</span> &middot; Items to order</h2>
 

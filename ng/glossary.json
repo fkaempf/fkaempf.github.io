@@ -3309,15 +3309,14 @@
    "genotype": "w1118; P{ppk23-Gal4.2.695}2; TM2/TM6B",
    "chr": "2",
    "function": "ppk23 driver, path A",
-   "location": "25inc, 3 vials",
+   "location": "25 degrees Celsius, 3 vials",
    "condition": "ready",
    "pages": [
     {
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ],
-   "path": "a"
+   ]
   },
   "BDSC 53584": {
    "kind": "stock",
@@ -3325,15 +3324,14 @@
    "genotype": "w1118; P{GMR56C09-lexA}attP40",
    "chr": "2, attP40",
    "function": "PPN1 driver, path A",
-   "location": "inc 18",
+   "location": "18 degrees Celsius",
    "condition": "ready",
    "pages": [
     {
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ],
-   "path": "a"
+   ]
   },
   "BDSC 32209": {
    "kind": "stock",
@@ -3405,7 +3403,7 @@
    "genotype": ";ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser",
    "chr": "2",
    "function": "ppk23 driver, path B",
-   "location": "25inc, Bella",
+   "location": "25 degrees Celsius, Bella",
    "condition": "clean it. It has 22B10-GAL4. See section 5.1.",
    "pages": [
     {
@@ -3437,7 +3435,7 @@
    "genotype": "w1118; P{GMR56C09-GAL4}attP2",
    "chr": "3, attP2",
    "function": "target driver, path B; PPN1 mask control",
-   "location": "inc 18",
+   "location": "18 degrees Celsius",
    "condition": "ready. The GAL4 form and the LexA form drive the same cells. Path A needs the LexA form, and path B and the mask control need the GAL4 form.",
    "pages": [
     {
@@ -3452,7 +3450,7 @@
    "genotype": "w1118; P{ppk25-GAL4.S}2; P{ppk25-GAL4.S}3",
    "chr": "2 and 3",
    "function": "ppk25 driver, the second arm",
-   "location": "inc 18",
+   "location": "18 degrees Celsius",
    "condition": "clean. remove the chromosome 3 copy",
    "pages": [
     {
@@ -3467,7 +3465,7 @@
    "genotype": "w118; Sp/CyO; Gr32a-Gal4.3.7.PW",
    "chr": "3",
    "function": "Gr32a driver, a third arm",
-   "location": "25inc",
+   "location": "25 degrees Celsius",
    "condition": "ready",
    "pages": [
     {
@@ -3602,7 +3600,7 @@
    "genotype": "w; IF/CyO; TM2/TM6B",
    "chr": "2 and 3",
    "function": "double balancer for the clean-ups",
-   "location": "inc 18",
+   "location": "18 degrees Celsius",
    "condition": "ready",
    "pages": [
     {
@@ -3617,7 +3615,7 @@
    "genotype": "LexAop2-myr4xCLIPf, attP40",
    "chr": "2",
    "function": "\u2014",
-   "location": "inc 18",
+   "location": "18 degrees Celsius",
    "condition": "needs a ligand. This laboratory developed the tags, thus ask Julian for the dye.",
    "pages": [
     {
@@ -3632,7 +3630,7 @@
    "genotype": "LexAop2-myr4xCLIPf, VK00005",
    "chr": "3",
    "function": "\u2014",
-   "location": "inc 18",
+   "location": "18 degrees Celsius",
    "condition": "not used. As GJ890.",
    "pages": [
     {
@@ -3647,7 +3645,7 @@
    "genotype": "LexAop2-myr4xSNAPf, attP40",
    "chr": "2",
    "function": "\u2014",
-   "location": "inc 18",
+   "location": "18 degrees Celsius",
    "condition": "not used. As GJ890.",
    "pages": [
     {
@@ -3662,7 +3660,7 @@
    "genotype": "IF/CyO; LexAop2-myr4xSNAPf-VK00005-1M/TM6B",
    "chr": "3",
    "function": "\u2014",
-   "location": "inc 18",
+   "location": "18 degrees Celsius",
    "condition": "not used. As GJ890.",
    "pages": [
     {
@@ -3677,7 +3675,7 @@
    "genotype": "w* P{10XUAS-IVS-myr::GFP}su(Hw)attP8",
    "chr": "X",
    "function": "target fill, path B",
-   "location": "inc 18",
+   "location": "18 degrees Celsius",
    "condition": "X chromosome. The mother must carry it, because a son takes his X chromosome from his mother.",
    "pages": [
     {
@@ -3693,7 +3691,7 @@
    "genotype": "w*;; P{10XUAS-IVS-myr::GFP}attP2",
    "chr": "3, attP2",
    "function": "target fill, path B",
-   "location": "inc 18",
+   "location": "18 degrees Celsius",
    "condition": "ready",
    "pages": [
     {
@@ -3709,7 +3707,7 @@
    "genotype": "w*;; P{10XUAS-IVS-myr::GFP::P10}attP2",
    "chr": "3, attP2",
    "function": "target fill, path B",
-   "location": "inc 18",
+   "location": "18 degrees Celsius",
    "condition": "ready",
    "pages": [
     {
@@ -3725,7 +3723,7 @@
    "genotype": "If/CyO; hsFLP, MKRS/TM6B, Tb1",
    "chr": "2 and 3",
    "function": "double balancer, second choice",
-   "location": "inc 18",
+   "location": "18 degrees Celsius",
    "condition": "has hsFLP. Use GJ954 first.",
    "pages": [
     {
@@ -3740,7 +3738,7 @@
    "genotype": "w; 71A10-p65ADZ/CyO; VT034623-ZpGdbd in attP2/TM6B,Tb",
    "chr": "2 and 3",
    "function": "a vAB3 candidate",
-   "location": "25inc",
+   "location": "25 degrees Celsius",
    "condition": "not mapped. Four vAB3 lines are alive: SS103089, SS104905, SS104909 and SS105464.",
    "pages": [
     {
@@ -3770,8 +3768,8 @@
    "genotype": "y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{13XLexAop2-post-t-GRASP}attP2 PBac{20XUAS-pre-t-GRASP}VK00027",
    "chr": "3, attP2 and VK00027",
    "function": "both t-GRASP halves, path C",
-   "location": "inc 18",
-   "condition": "ready. UAS drives the pre half, thus the sensory driver is GAL4 and the target driver is LexA. This is the orientation for path C at PPN1. The stock list gives the reason, and not the orientation: ppk23, ppk25 and Gr32a exist as GAL4, and R56C09-lexA is the only target driver line in the laboratory with LexA.",
+   "location": "18 degrees Celsius",
+   "condition": "ready. UAS drives the pre half, thus the sensory driver is GAL4 and the target driver is LexA. This is the orientation for path C at PPN1. The stock list gives the reason, and not the orientation: ppk23, ppk25 and Gr32a exist as GAL4. This table lists one target driver line with LexA: R56C09-lexA. R56C09-lexA drives PPN1.",
    "pages": [
     {
      "label": "crosses",
@@ -3785,14 +3783,15 @@
    "genotype": "y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027/TM6C, Sb[1] Tb[1]",
    "chr": "3, attP2 and VK00027",
    "function": "the second orientation, path B with t-GRASP",
-   "location": "inc 18",
+   "location": "18 degrees Celsius",
    "condition": "second orientation. LexAop drives the pre half, thus the sensory driver is LexA and the target driver is GAL4. This orientation opens the GAL4 targets and the split-GAL4 targets. The two halves sit on one chromosome 3, thus a target GAL4 at attP2 sits on the other chromosome 3, in trans. The laboratory holds one sensory LexA line, ppk23-LexA, thus this stock gives the ppk23 arm only, and the clean-up of section 5.1 must finish first. See section 8.1.",
    "pages": [
     {
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "b"
   },
   "GJ599": {
    "kind": "stock",
@@ -3800,7 +3799,7 @@
    "genotype": "w*; P{10XUAS-IVS-myr::GFP}attP40",
    "chr": "2, attP40",
    "function": "target fill, path B only",
-   "location": "inc 18",
+   "location": "18 degrees Celsius",
    "condition": "ready",
    "pages": [
     {
@@ -3816,7 +3815,7 @@
    "genotype": "not recorded; the snapshot gives \"?\"",
    "chr": "2 and 3",
    "function": "AN13B002, a target that separates the groups",
-   "location": "25inc",
+   "location": "25 degrees Celsius",
    "condition": "map it. split-GAL4",
    "pages": [
     {
@@ -3827,5 +3826,5 @@
   }
  },
  "note": "The fly stocks come from the stock list of the crosses page. That table is the source, and this file is written again at each build of that page.",
- "stocks_generated": "2026-08-17"
+ "stocks_generated": "2026-08-18"
 }

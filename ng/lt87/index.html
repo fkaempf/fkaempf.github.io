@@ -1,0 +1,150 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>LT87 - Clio-NG scenes</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<script src="../glossary.js" defer></script>
+<style>
+ body{font:15px/1.6 system-ui,sans-serif;margin:0;padding:2.5rem 1.25rem;
+      max-width:52rem;margin-inline:auto;color:#1a1a1a;background:#fff}
+ h1{font-size:1.5rem;margin:0 0 .35rem}
+ p.sub{color:#555;margin:0 0 .75rem}
+ nav{margin:0 0 2rem;font-size:.9rem;display:flex;flex-wrap:wrap;gap:.35rem 1.1rem}
+ a{color:#0b5fa5}
+ .big{display:block;padding:1rem 1.15rem;border:1px solid #d8d8d8;border-radius:9px;
+      margin-bottom:1.75rem;text-decoration:none;color:inherit}
+ .big:hover{border-color:#0b5fa5;background:#f7fbff}
+ .big b{color:#0b5fa5}
+ table{border-collapse:collapse;width:100%}
+ th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid #ececec;
+       white-space:nowrap}
+ table.sortable th{cursor:pointer;user-select:none}
+ table.sortable th:hover{color:#0b5fa5}
+ table.sortable th.sorted::after{content:" ↕";font-size:.8em;opacity:.6}
+ th{font-weight:600;color:#555;font-size:.85rem;text-transform:uppercase;
+    letter-spacing:.03em}
+ th:nth-child(n+3),td:nth-child(n+3){text-align:right;font-variant-numeric:tabular-nums}
+ h2{font-size:1.05rem;margin:2.5rem 0 .35rem;font-weight:600}
+ p.note{color:#555;margin:0 0 1rem;font-size:.92rem}
+ .legend{margin:1.25rem 0 0;font-size:.85rem;color:#555;
+         display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;align-items:center}
+ .sw{display:inline-block;width:.7rem;height:.7rem;border-radius:2px;
+     margin-right:.35rem;vertical-align:-1px}
+ @media (prefers-color-scheme:dark){
+  body{background:#141414;color:#e8e8e8}
+  a{color:#6fb3ef} .big{border-color:#333} .big b{color:#6fb3ef}
+  .big:hover{border-color:#6fb3ef;background:#1b2430}
+  th,td{border-bottom-color:#2a2a2a} th,.legend,p.sub{color:#aaa}
+  p.note{color:#c2c8d2}
+ }
+</style>
+<h1>LT87 input scenes</h1>
+<p class="sub">Clio-NG scenes for the male CNS (male-cns:v1.0). Each neuron is red;
+input synapses are point annotations, one layer per presynaptic type. Extra
+layers start hidden; toggle them in the layer bar.</p>
+
+<nav>
+  <a href="../avlp743m/">AVLP743m scenes</a>
+  <a href="../avlp743m-literature/">Partner literature</a>
+</nav>
+
+<a class="big" href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_overview.json">
+  <b>Overview: all 2 neurons with their strongest inputs</b><br>
+  Every LT87 body in one scene, with a point layer for each of the four strongest
+  input types.
+</a>
+
+<h2>Top input partners</h2>
+<p class="note">Type level, summed over all 2 bodies. Share is of LT87&rsquo;s
+total input. Neurotransmitter is the partner&rsquo;s own <code>consensus_nt</code>.
+Click a column header to sort.</p>
+<table class="sortable">
+<thead><tr><th>Partner type</th><th>NT</th><th>Synapses</th><th>Share</th><th>Bodies</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>Tm24</td><td>acetylcholine</td><td>17210</td><td>57.5%</td><td>245</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_Tm24.json">scene</a></td></tr>
+<tr><td>Tm5a</td><td>acetylcholine</td><td>2274</td><td>7.6%</td><td>310</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_Tm5a.json">scene</a></td></tr>
+<tr><td>Tm30</td><td>gaba</td><td>1233</td><td>4.1%</td><td>123</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_Tm30.json">scene</a></td></tr>
+<tr><td>Tm5Y</td><td>acetylcholine</td><td>933</td><td>3.1%</td><td>389</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_Tm5Y.json">scene</a></td></tr>
+<tr><td>LT58</td><td>glutamate</td><td>613</td><td>2.0%</td><td>2</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_LT58.json">scene</a></td></tr>
+<tr><td>LT11</td><td>gaba</td><td>564</td><td>1.9%</td><td>2</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_LT11.json">scene</a></td></tr>
+<tr><td>T2a</td><td>acetylcholine</td><td>554</td><td>1.9%</td><td>268</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_T2a.json">scene</a></td></tr>
+<tr><td>MeLo12</td><td>glutamate</td><td>430</td><td>1.4%</td><td>47</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_MeLo12.json">scene</a></td></tr>
+<tr><td>Li34b</td><td>gaba</td><td>302</td><td>1.0%</td><td>55</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_Li34b.json">scene</a></td></tr>
+<tr><td>TmY19a</td><td>gaba</td><td>298</td><td>1.0%</td><td>61</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_TmY19a.json">scene</a></td></tr>
+<tr><td>Li16</td><td>glutamate</td><td>283</td><td>0.9%</td><td>4</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_Li16.json">scene</a></td></tr>
+<tr><td>Tm6</td><td>acetylcholine</td><td>240</td><td>0.8%</td><td>181</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_Tm6.json">scene</a></td></tr>
+<tr><td>AVLP080</td><td>gaba</td><td>216</td><td>0.7%</td><td>2</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_AVLP080.json">scene</a></td></tr>
+<tr><td>LC15</td><td>acetylcholine</td><td>209</td><td>0.7%</td><td>88</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_LC15.json">scene</a></td></tr>
+<tr><td>Li39</td><td>gaba</td><td>186</td><td>0.6%</td><td>2</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_input_Li39.json">scene</a></td></tr>
+</tbody>
+</table>
+
+<h2>Top output partners</h2>
+<p class="note">Same, for LT87&rsquo;s outputs. The transmitter shown is still
+the partner&rsquo;s, so it describes what that partner releases, not the sign of
+this connection.</p>
+<table class="sortable">
+<thead><tr><th>Partner type</th><th>NT</th><th>Synapses</th><th>Share</th><th>Bodies</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>AVLP316</td><td>acetylcholine</td><td>1041</td><td>5.3%</td><td>6</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_output_AVLP316.json">scene</a></td></tr>
+<tr><td>CB1852</td><td>acetylcholine</td><td>912</td><td>4.6%</td><td>9</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_output_CB1852.json">scene</a></td></tr>
+<tr><td>LHAD1g1</td><td>gaba</td><td>859</td><td>4.4%</td><td>2</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_output_LHAD1g1.json">scene</a></td></tr>
+<tr><td>AVLP597</td><td>gaba</td><td>715</td><td>3.6%</td><td>2</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_output_AVLP597.json">scene</a></td></tr>
+<tr><td>CB1185</td><td>acetylcholine</td><td>402</td><td>2.0%</td><td>4</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_output_CB1185.json">scene</a></td></tr>
+<tr><td>VES022</td><td>gaba</td><td>393</td><td>2.0%</td><td>10</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_output_VES022.json">scene</a></td></tr>
+<tr><td>AVLP080</td><td>gaba</td><td>384</td><td>1.9%</td><td>2</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_output_AVLP080.json">scene</a></td></tr>
+<tr><td>(untyped)</td><td>acetylcholine</td><td>365</td><td>1.9%</td><td>17</td><td>-</td></tr>
+<tr><td>AVLP017</td><td>glutamate</td><td>346</td><td>1.8%</td><td>2</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_output_AVLP017.json">scene</a></td></tr>
+<tr><td>AVLP577</td><td>acetylcholine</td><td>279</td><td>1.4%</td><td>4</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_output_AVLP577.json">scene</a></td></tr>
+<tr><td>AVLP340</td><td>acetylcholine</td><td>266</td><td>1.3%</td><td>2</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_output_AVLP340.json">scene</a></td></tr>
+<tr><td>pC1_1a</td><td>acetylcholine</td><td>263</td><td>1.3%</td><td>7</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_output_pC1_1a.json">scene</a></td></tr>
+<tr><td>DNp55</td><td>acetylcholine</td><td>259</td><td>1.3%</td><td>2</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_output_DNp55.json">scene</a></td></tr>
+<tr><td>CL311</td><td>acetylcholine</td><td>236</td><td>1.2%</td><td>2</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_output_CL311.json">scene</a></td></tr>
+<tr><td>AVLP299_c</td><td>acetylcholine</td><td>226</td><td>1.1%</td><td>3</td><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_pair_output_AVLP299_c.json">scene</a></td></tr>
+</tbody>
+</table>
+
+<h2>Scenes</h2>
+<table class="sortable">
+<thead><tr><th>Neuron</th><th>Side</th><th>Input syn</th><th>Of the 4 types</th></tr></thead>
+<tbody>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_10200.json">LT87 10200</a></td><td>L</td><td>14595</td><td>10166</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/LT87_10266.json">LT87 10266</a></td><td>R</td><td>16256</td><td>11484</td></tr>
+</tbody>
+</table>
+
+<p class="legend">
+<span class="sw" style="background:#00E676"></span>Tm24
+<span class="sw" style="background:#00B0FF;margin-left:1rem"></span>Tm5a
+<span class="sw" style="background:#FFAB00;margin-left:1rem"></span>Tm30
+<span class="sw" style="background:#FF4081;margin-left:1rem"></span>Tm5Y
+</p>
+
+<script>
+// click-to-sort on every table marked sortable. A column sorts numerically when
+// every cell parses as a number once per-cent signs and commas are stripped,
+// otherwise alphabetically.
+document.querySelectorAll("table.sortable").forEach(function (tbl) {
+  var dir = {};
+  tbl.querySelectorAll("th").forEach(function (th, idx) {
+    th.addEventListener("click", function () {
+      var body = tbl.tBodies[0];
+      var rws = Array.prototype.slice.call(body.rows);
+      dir[idx] = -(dir[idx] || 1);
+      var num = rws.every(function (r) {
+        var t = r.cells[idx].textContent.replace(/[%,]/g, "").trim();
+        return t === "-" || t === "" || !isNaN(parseFloat(t));
+      });
+      rws.sort(function (a, b) {
+        var x = a.cells[idx].textContent.trim(), y = b.cells[idx].textContent.trim();
+        if (num) return ((parseFloat(x.replace(/[%,]/g, "")) || 0) -
+                         (parseFloat(y.replace(/[%,]/g, "")) || 0)) * dir[idx];
+        return x.localeCompare(y) * dir[idx];
+      });
+      rws.forEach(function (r) { body.appendChild(r); });
+      tbl.querySelectorAll("th").forEach(function (o) { o.classList.remove("sorted"); });
+      th.classList.add("sorted");
+    });
+  });
+});
+</script>

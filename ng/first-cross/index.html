@@ -163,7 +163,8 @@
  .xref:hover{text-decoration:underline}
  .xref[hidden]{display:none}
  h4{font-size:.95rem;margin:1.1rem 0 .35rem;font-weight:600}
-</style><style>
+</style>
+<style>
  :root{--codefg:#0b3d6b;--preline:#0f1420}
  pre{background:#0f1420;color:#e8edf4;border:1px solid var(--preline);border-radius:8px;
      padding:.75rem .95rem;overflow-x:auto;
@@ -177,809 +178,55 @@
  hr{border:0;border-top:1px solid #ececec;margin:2rem 0 1rem}
  p.foot{color:#555;font-size:.8rem}
  @media print{ body{padding:0;max-width:none} h2{page-break-after:avoid} table{page-break-inside:auto} tr{page-break-inside:avoid} }
-</style><h1>Crosses: PPN1 fill and ppk23 synapse label</h1>
+</style>
+<h1>Crosses: PPN1 fill and ppk23 synapse label</h1>
+
 <p class="sub">Reference page. The genotypes, the stocks, the crosses, the clean-ups and the
-controls. Stock data comes from the laboratory snapshot of 20 July 2026 and from the Cambridge
-Cambridge Fly Facility. Connectome values come from <code>male-cns:v1.0</code>.</p>
+controls. Stock data comes from the laboratory snapshot of 20 July 2026 and from the Cambridge Fly
+Facility. Connectome values come from <code>male-cns:v1.0</code>. Confirm each stock before you take
+a vial.</p>
+
 <p class="note">Florian K&auml;mpf &middot; 14 August 2026 &middot;
 Related pages: <a href="../receptor-typing/">receptor typing</a>,
 <a href="../bristle-typing/">bristle typing</a>,
 <a href="../bristle-impact/">bristle impact</a>.</p>
-
 <div class="tabs" role="tablist" aria-label="Documents">
-  <button role="tab" id="tab-crosses" aria-controls="doc-crosses" aria-selected="true">
-    1. Crosses<span>Stocks, crosses and what is in motion</span></button>
+  <button role="tab" id="tab-compare" aria-controls="doc-compare" aria-selected="true">
+    1. Which path<span>The reach and the limit of each path</span></button>
+  <button role="tab" id="tab-a" aria-controls="doc-a" aria-selected="false">
+    2. Path A<span>The synapse label is in GAL4</span></button>
+  <button role="tab" id="tab-b" aria-controls="doc-b" aria-selected="false">
+    3. Path B<span>The synapse label is in LexA</span></button>
+  <button role="tab" id="tab-c" aria-controls="doc-c" aria-selected="false">
+    4. Path C<span>t-GRASP, a contact test</span></button>
   <button role="tab" id="tab-expansion" aria-controls="doc-expansion" aria-selected="false">
-    2. Expansion<span>The gel, the dyes and the antibodies</span></button>
+    5. Expansion<span>The gel, the dyes and the antibodies</span></button>
 </div>
+<section class="doc on" id="doc-compare" role="tabpanel" aria-labelledby="tab-compare">
+<!-- the one table that is about all three paths. It has its own tab. -->
+<h2 id="s0"><span class="secno"></span> &middot; Which path to use</h2>
 
-<section class="doc" id="doc-crosses" role="tabpanel" aria-labelledby="tab-crosses">
-<h2 id="s1"><span class="secno">1</span> &middot; The target genotypes</h2>
-
-<p class="pathsw" role="group" aria-label="Which path to show">
- <button type="button" class="btn" data-pathsel="a" aria-pressed="true">Path A</button>
- <button type="button" class="btn ghost" data-pathsel="b" aria-pressed="false">Path B</button>
- <button type="button" class="btn ghost" data-pathsel="c" aria-pressed="false">Path C</button>
- <button type="button" class="btn ghost" data-pathsel="both" aria-pressed="false">All</button>
-</p>
-
-<p data-path="a"><strong>Path A</strong>, label in GAL4. Both ppk arms are possible. The target is PPN1 only.</p>
-<pre data-path="a"><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; UAS-brp-D3-Cherry / 13XLexAop2-IVS-myr::GFP(attP2)</code></pre>
-
-<p data-path="b"><strong>Path B</strong>, label in LexA. One arm only. Any GAL4 or split-GAL4 target.</p>
-<pre data-path="b"><code>w/Y ; ppk23-LexA / + ; target-GAL4 / UAS-myr::GFP     plus LexAop2-Brp-mCherry</code></pre>
-<p class="note" data-path="b">The ppk23-LexA of this genotype is ppk23-LexA-clean. The stock in
-the incubator is ppk23-LexA-dirty, and it carries 22B10-GAL4, which drives the UAS fill in the
-wrong cells.</p>
-<p class="trk-host" data-path="b" data-trk="b-sensory"></p>
-<p class="note" data-path="b">The record gives no chromosome for GJ948, thus the direction of a
-cross that carries it is not yet known. Find the chromosome when the stock arrives: section <a class="xref" href="#s9" data-ref="s9">10</a> holds
-the question. The positions in SS103018 are also not scored.</p>
-
-<p class="note" data-path="b">Two path B parts are on the X chromosome, or may be. GJ598 is at
-su(Hw)attP8. GJ948 is not placed. Each of them must come from the mother, because a son takes his X
-chromosome from his mother, and this work scores males. Every other path B cross goes in either
-direction.</p>
-
-<p data-path="c"><strong>Path C</strong>, t-GRASP. Both ppk arms are possible. The target is PPN1
-only. The two halves of a fluorescent protein join where an active zone comes close to the
-dendrite.</p>
-<pre data-path="c"><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; 13XLexAop2-post-t-GRASP(attP2) 20XUAS-pre-t-GRASP(VK00027) / +</code></pre>
+<p>Three paths answer the same question. This table gives the reach and the limit of
+each path. Each path then has its own document.</p>
 
 <div class="scroll">
 <table>
 <tr><th>Path</th><th>Arms possible</th><th>Targets possible</th><th>Use it for</th></tr>
-<tr class="hi" data-path="a"><td><strong>A</strong></td><td>ppk23, ppk25, Gr32a; Gr68a and Ir52a, ordered 17 August 2026</td><td>PPN1 only</td>
+<tr class="hi"><td><strong>A</strong></td><td>ppk23, ppk25, Gr32a; Gr68a and Ir52a, ordered 17 August 2026</td><td>PPN1 today. A LexA line for another ascending neuron adds a target.</td>
 <td>the assay: counts, dilutions, settings, recovery</td></tr>
-<tr class="hi" data-path="b"><td><strong>B</strong></td><td>ppk23; Ir52a, ordered 17 August 2026</td><td>any GAL4, and split-GAL4</td>
+<tr class="hi"><td><strong>B</strong></td><td>ppk23; Ir52a, ordered 17 August 2026</td><td>any GAL4, and split-GAL4</td>
 <td>the targets that separate the two ppk groups</td></tr>
-<tr data-path="c"><td><strong>C</strong></td><td>ppk23, ppk25, Gr32a; Gr68a and Ir52a, ordered 17 August 2026</td><td>PPN1 only</td>
+<tr><td><strong>C</strong></td><td>ppk23, ppk25, Gr32a; Gr68a and Ir52a, ordered 17 August 2026</td><td>PPN1 today. A LexA line for another ascending neuron adds a target. fru-LexA is one candidate.</td>
 <td>the contact test, when path A stops. It needs no gel, and it gives no counts.</td></tr>
 </table>
 </div>
 
-<div class="callout" data-path="a b">
-<p><span class="tag ok">path A is the main line</span> The receptor driver lines exist in GAL4. Only
-four LexA lines exist for the ten receptor genes, and only two of them apply here: ppk23-LexA and
-Ir52a-LexA. Path A can thus use every receptor driver. Path B can use two.</p>
-</div>
+<h2><span class="secno"></span> &middot; The predicted ratio at PPN1</h2>
 
-<div class="scroll" data-path="a">
-<table>
-<tr><th>System</th><th>Drives</th><th>Colour</th><th>Line</th></tr>
-<tr class="hi"><td>GAL4</td><td>the active zones of the sensory neurons</td><td>red</td>
-<td>UAS-brp-D3-Cherry, LMB-494</td></tr>
-<tr class="hi"><td>LexA</td><td>the membrane of the target neuron</td><td>green</td>
-<td>13XLexAop2-IVS-myr::GFP, BDSC 32209</td></tr>
-</table>
-</div>
-
-<p class="note" data-path="a">brp-D3-Cherry is red, thus the fill must be green. The two LexAop fluorophores at
-the Cambridge Fly Facility are both red. Do not use them for path A.
-PPN1 receives almost equal input from the two ppk groups. Path A therefore develops the assay, and
-it does not test the receptor assignment.</p>
-
-<h2 id="s4" data-path="a"><span class="secno">4</span> &middot; Crosses, path A</h2>
-
-<div class="callout" data-path="a">
-<p><span class="tag q">which parent gives the virgins</span> Every element of path A is on
-chromosome 2 or on chromosome 3. Thus the direction of each cross is free. Take the virgins from
-the stock that gives them first. The tables give each cross as one stock against the other stock,
-and not as virgins against males.</p>
-<p>The direction is <strong>not</strong> free if an element is on the X chromosome. A son takes his
-X chromosome from his mother, and this work uses males. Thus the mother must carry that element.
-GJ598, <code>10XUAS-IVS-myr::GFP</code> at su(Hw)attP8, is on the X chromosome, and only path B
-uses it. A balancer, a dominant marker or an insertion on chromosome 2 or on chromosome 3 does not
-fix the direction.</p>
-<p>You keep male progeny at the experimental cross. That is a rule for the progeny that you keep.
-It is not a rule for the parents.</p>
-</div>
-
-<h3 id="s41"><span class="secno">4.1</span> Parent 1</h3>
-<div class="scroll">
-<table>
-<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr data-trk="a1-g0"><td class="num">G0</td><td>LMB-494 &times; BDSC 93026</td>
-<td>Tubby. <strong>Not</strong> Ubx. <strong>Not</strong> Stubble.</td>
-<td><code>w; ppk23-GAL4/Sco or /CyO; brp-D3-Cherry/TM6B</code></td></tr>
-<tr data-trk="a1-f1"><td class="num">F1</td><td>sibling cross</td>
-<td><strong>Not</strong> Curly. <strong>Not</strong> Sternopleural. Tubby.</td>
-<td><strong>Parent 1</strong> <code>w; ppk23-GAL4; brp-D3-Cherry/TM6B</code></td></tr>
-</table>
-</div>
-<p class="note">All chromosomes have a marker, thus no PCR is necessary. TM2 has Ubx. The TM6B of
-LMB-494 has Stubble. A fly with two TM6B chromosomes dies.</p>
-
-<h3 id="s42"><span class="secno">4.2</span> Parent 2</h3>
-<div class="scroll">
-<table>
-<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr data-trk="a2-g0"><td class="num">G0</td><td>BDSC 32209 &times; BDSC 53584</td>
-<td>the balancer markers of the stock that arrives</td>
-<td><code>w; R56C09-lexA/+; LexAop-mCD8::GFP(attP2)/+</code></td></tr>
-<tr data-trk="a2-f1"><td class="num">F1</td><td>cross to a chromosome 3 balancer, then a sibling cross</td>
-<td>the balancer markers</td>
-<td><strong>Parent 2</strong> <code>w; R56C09-lexA; LexAop-mCD8::GFP/TM6B</code></td></tr>
-</table>
-</div>
-<p class="note">The GFP fill has no visible body marker. But a PCR is not necessary: cross a few
-flies to any LexA driver and look for green. This check is faster than a PCR, and it also confirms
-that the reporter works.</p>
-
-<h3 id="s43"><span class="secno">4.3</span> Stable stocks</h3>
-
-<p>You do the experimental cross one time for each arm. A rebuild of a parent costs five weeks. A
-stable stock removes that cost. A flip is a transfer of the flies into a vial with new food. A stable
-stock keeps its genotype at each flip, and it needs no new cross.</p>
-
-<p>Chromosome 2 needs no work. ppk23-GAL4 and R56C09-lexA are already homozygous in both parents.
-Chromosome 3 holds the decision.</p>
-
-<p><strong>Two routes give a stable chromosome 3.</strong></p>
+<p>The connectome predicts the ratio of the two ppk arms at PPN1. Path A and path B measure that
+prediction. Path C gives a ratio of puncta, and not a synapse count.</p>
 
 <div class="scroll">
-<table>
-<tr><th>Route</th><th>When to use it</th><th>Work at each flip</th><th>Cost</th></tr>
-<tr class="hi"><td>homozygous</td><td>the insertion lives as a pair</td><td>none</td>
-<td>The stock has no marker on chromosome 3. You cannot see a loss by eye.</td></tr>
-<tr class="hi"><td>balanced over TM6B</td><td>the insertion does not live as a pair, or it is weak
-as a pair</td><td>select Tubby each time</td>
-<td>More work at each flip. But the marker shows the genotype.</td></tr>
-</table>
-</div>
-
-<p><strong>One generation decides the route.</strong> Do a sibling cross of the parent. Then count
-the flies without Tubby. A fly with two TM6B chromosomes dies, thus one survivor in three is the
-homozygote.</p>
-
-<div class="scroll">
-<table>
-<tr><th>Result</th><th>What it shows</th><th>Route</th></tr>
-<tr data-trk="a2-hz"><td>about one in three, and healthy</td><td>homozygous viable</td>
-<td>homozygous</td></tr>
-<tr><td>none</td><td>homozygous lethal</td><td>balanced</td></tr>
-<tr data-trk="a1-hz"><td>present, but small or weak</td><td>homozygous sick</td><td>balanced</td></tr>
-</table>
-</div>
-
-<p><strong>Do Parent 2 first.</strong> Every arm uses Parent 2. Parent 1 changes with the arm. The
-work on Parent 2 therefore gives a result for each arm.</p>
-
-<p><strong>How to keep a stock stable.</strong></p>
-
-<div class="scroll">
-<table>
-<tr><th>Rule</th><th>Reason</th></tr>
-<tr class="hi"><td>Select Tubby at each flip of a balanced stock.</td>
-<td>An insertion that lives as a pair pushes out the balancer. The stock then loses its marker, and
-you cannot see the genotype.</td></tr>
-<tr class="hi"><td>Keep a balanced spare of each homozygous stock.</td>
-<td>A homozygous stock has no marker. A loss is invisible.</td></tr>
-<tr><td>Keep the spare in a second incubator.</td>
-<td>One incubator failure then does not stop the work.</td></tr>
-<tr><td>Test the reporter every three months.</td>
-<td>The GFP fill has no body marker. Cross a few flies to a LexA driver and look for green.</td></tr>
-<tr class="bad"><td>Do not keep a stock as a heterozygote without a balancer.</td>
-<td>The element goes away in a few generations.</td></tr>
-</table>
-</div>
-
-<div class="callout warn">
-<p><strong>Two copies give a different signal.</strong> A homozygous stock gives two copies of
-brp-D3-Cherry and two copies of the fill. Section <a class="xref" href="#s7" data-ref="s7">7</a> compares the two arms as a ratio. Both arms
-must therefore have the same number of copies. Do not compare a homozygous animal with a
-heterozygous animal.</p>
-<p><strong>A male cannot be homozygous for the X reporter.</strong> A male has one X chromosome.
-BDSC 32211 therefore always gives one copy. The Gr32a arm and the chromosome 3 Ir52a arms use it.
-Keep those arms apart from the homozygous arms in a comparison.</p>
-<p><strong>The route for Parent 1 is not known yet.</strong> The landing site of brp-D3 in LMB-494
-is not recorded. Thus you cannot say now if it lives as a pair. Do the test above before you plan
-the stock.</p>
-</div>
-
-<h3 id="s44"><span class="secno">4.4</span> Experimental cross</h3>
-<pre><code>Parent 1  x  Parent 2
-   keep the male progeny that are not Tubby</code></pre>
-<p class="trk-host" data-trk="ax"></p>
-<div class="scroll">
-<table>
-<tr><th>Quantity</th><th>Value</th></tr>
-<tr class="hi"><td>progeny with all four elements</td><td>one in three of the survivors</td></tr>
-<tr class="hi"><td>useful males</td><td>one in six</td></tr>
-<tr><td>chromosome 2</td><td>fixed; both parents are homozygous</td></tr>
-<tr><td>chromosome 3</td><td>score Tubby only</td></tr>
-<tr><td>sex</td><td>males only; the T1 midline crossing occurs in the male only</td></tr>
-</table>
-</div>
-
-<h3 id="s45"><span class="secno">4.5</span> Time</h3>
-<div class="scroll">
-<table>
-<tr><th>Step</th><th class="num">Weeks</th><th>Note</th></tr>
-<tr><td>Parent 1</td><td class="num">5</td><td>3 generations</td></tr>
-<tr><td>Parent 2</td><td class="num">5</td><td>in parallel, plus one PCR</td></tr>
-<tr><td>experimental cross</td><td class="num">2</td><td></td></tr>
-<tr><td>stable stocks</td><td class="num">+2</td>
-<td>one generation for each parent, in parallel. Optional for one arm only.</td></tr>
-<tr class="hi"><td>first ppk23 image</td><td class="num">7</td><td>from the start</td></tr>
-<tr><td>ppk25 arm</td><td class="num">+10</td><td>clean BDSC 93028, rebuild Parent 1, cross</td></tr>
-</table>
-</div>
-
-<h3 id="s46"><span class="secno">4.6</span> How to change the arm</h3>
-<div class="scroll">
-<table>
-<tr><th>Arm</th><th>Driver in Parent 1</th><th>Instruction</th></tr>
-<tr class="hi"><td>ppk23</td><td>BDSC 93026, chr 2</td><td>Use the crosses above.</td></tr>
-<tr class="hi"><td>ppk25</td><td>BDSC 93028, the chr 2 copy</td><td>Remove the chr 3 copy first.</td></tr>
-<tr><td>Gr68a</td><td>BDSC 57671, chr 2</td>
-<td><span class="tag m">ordered</span> 17 August 2026. Use the crosses above without a change.</td></tr>
-<tr><td>Ir52a</td><td>BDSC 60699, chr 2</td>
-<td><span class="tag m">ordered</span> 17 August 2026. Remove the chr 3 copy first. BDSC 81229 sits at
-attP2 on chromosome 3, thus that line needs the recipe of the Gr32a arm.</td></tr>
-<tr><td>Gr32a</td><td>GJ1435, chr 3</td>
-<td>The driver and brp-D3 are both on chromosome 3, thus the fill must leave chromosome 3. Use
-BDSC 32211, which carries the same reporter on the X chromosome. The mother must carry BDSC 32211,
-because a son takes his X chromosome from his mother, and this work scores males. Do
-<strong>not</strong> use R56C09-GAL4 as the target driver: that GAL4 also drives brp-D3 in
-PPN1.</td></tr>
-</table>
-</div>
-
-<h2 id="s8c" data-path="b c"><span class="secno">8</span> &middot; t-GRASP</h2>
-
-<p data-path="b c">t-GRASP splits a fluorescent protein in two halves. The pre half goes in the
-presynaptic cell. The post half goes in the postsynaptic cell. The two halves join where an active
-zone comes close to the dendrite. The joined halves make the signal. An antibody stain reads that
-signal.</p>
-
-<p class="note" data-path="b c">See Shearin et al. 2018, Journal of Neuroscience Methods 306:94-102,
-PMID 29792886. That paper describes t-GRASP and gives the two stocks.</p>
-
-<div class="scroll" data-path="c">
-<table>
-<tr><th>Part</th><th>Line</th><th>Where it goes</th></tr>
-<tr class="hi"><td>the pre half</td><td>BDSC 79040, on UAS</td>
-<td>the sensory neuron, at the active zones. The carrier is the cacophony tail.</td></tr>
-<tr class="hi"><td>the post half</td><td>BDSC 79040, on LexAop</td>
-<td>PPN1, on the whole dendrite. The carrier is the mouse ICAM-5 ectodomain.</td></tr>
-<tr class="hi"><td>sensory driver</td><td>BDSC 93026, ppk23-GAL4</td><td>chromosome 2</td></tr>
-<tr class="hi"><td>target driver</td><td>BDSC 53584, R56C09-lexA at attP40</td><td>chromosome 2</td></tr>
-</table>
-</div>
-
-<h3 id="s8a" data-path="b c"><span class="secno"></span> What a punctum shows</h3>
-<p data-path="b c">A punctum usually shows a dendrite membrane
-that is close to an active zone. The pre half sits at the active zones of the sensory neuron. A
-punctum is therefore more than a contact between two membranes.</p>
-
-<p data-path="b c">Shearin et al. 2018 compared the puncta against a separate Brp label. The puncta
-agreed with that label.</p>
-
-<p data-path="b c">Shearin et al. 2018 also tested nine lamina types against the R1-6 terminals. R1-6
-makes synapses onto L1, L2 and L3. t-GRASP found all three. Six other types get no synapse from R1-6.
-Five of those six gave no signal. Close membranes alone therefore do not make a punctum.</p>
-
-<h4 id="s8m" data-path="b c"><span class="secno"></span> Two known errors</h4>
-<p data-path="b c">The polarity can be wrong. L4 is the sixth type
-of that test. L4 makes synapses onto R1-6, and t-GRASP found that contact. A strong driver can also
-make a punctum at a cell body, where there is no synapse. Shearin et al. write that you must confirm
-a positive result with a second method.</p>
-
-<h3 id="s8b" data-path="c"><span class="secno"></span> The limit</h3>
-<p data-path="c">A punctum does not identify one synapse. Half of the
-presynaptic sites on PPN1 lie closer than 294 nm. A confocal without a gel does not separate them.
-Nobody has compared a t-GRASP count against electron microscopy. Path C gives a yes or no answer
-about contact. Path C gives no synapse count.</p>
-
-<h3 id="s8d" data-path="c"><span class="secno"></span> Why this orientation</h3>
-<p data-path="c">The orientation follows from the available
-drivers. ppk25 exists in GAL4 only. The ppk25 arm therefore puts the GAL4 in the sensory neuron. The
-two arms must use the same reporter arrangement. A difference between the arms is then not a
-difference of reagent. The result of path C is a ratio. That ratio is the punctum count of the ppk25
-arm divided by the punctum count of the ppk23 arm.</p>
-
-<p class="note" data-path="c">That comparison needs one more condition. The two drivers must give the
-same expression level. The anti-HA channel shows the pre half in each arm. Compare the two levels
-before you report a ratio.</p>
-
-<p data-path="c">The sensory driver is therefore GAL4. The target driver is therefore LexA. BDSC
-79040 puts the pre half on UAS, thus BDSC 79040 fits these drivers.</p>
-
-<p data-path="c">The limit of this route is not the chromosome. The target driver must use LexA.
-Section <a class="xref" href="#s3" data-ref="s3">3</a> lists one target driver line with LexA: R56C09-lexA. R56C09-lexA drives PPN1, thus path C
-reaches PPN1 now. A second target driver line with LexA adds a second target. A split-GAL4 target
-cannot drive the post half in this orientation.</p>
-
-<h3 id="s8e" data-path="c"><span class="secno"></span> The gel and t-GRASP</h3>
-<p data-path="c">Expansion microscopy is the main method of
-path A. A gel that denatures by heat probably stops the t-GRASP signal. The heat unfolds the barrel
-of the fluorescent protein. The two halves then separate. This statement is a prediction from the
-chemistry. No publication reports a test.</p>
-
-<p data-path="c">LICONN heats the sample to 95 degrees Celsius in 200 mM SDS for 100 minutes. See
-Tavakoli et al. 2025, Nature 642:398. LICONN then finds GFP with an antibody after that step. An
-unfolded barrel therefore does not stop every readout.</p>
-
-<p class="note" data-path="c">The LICONN result does not settle this question. A whole GFP is one
-protein chain. The two t-GRASP halves are two chains. The Abfinity antibody binds the joined halves
-only. Test the gel with a t-GRASP sample before you plan one experiment with both.</p>
-
-<h3 id="s8f" data-path="c"><span class="secno"></span> When to use path C</h3>
-<p data-path="c">Use path C when path A stops. Path
-A stops if the label does not express. Path A also stops if the gel fails. Path C adds no separate
-label stock and no separate fill stock, and it needs no gel. Path C needs an antibody stain. A stain
-that does not enter the nerve cord stops path C too.</p>
-
-<h3 id="s8g" data-path="c"><span class="secno"></span> Before the first cross</h3>
-<p data-path="c">The snapshot of 20 July 2026 gives these
-states. The record gives 9 July 2026 as the last transfer of BDSC 79040 to new food.</p>
-
-<div class="scroll" data-path="c">
-<table>
-<tr><th>Stock or item</th><th>Where the snapshot puts it</th><th>Do this first</th></tr>
-<tr class="hi"><td>BDSC 93026</td><td>25 degrees Celsius, 3 vials</td>
-<td>Confirm that the stock is alive.</td></tr>
-<tr class="hi"><td>BDSC 79040</td><td>18 degrees Celsius</td>
-<td>Confirm that the stock is alive. Move it to 25 degrees Celsius before the first cross.</td></tr>
-<tr class="hi"><td>BDSC 53584</td><td>18 degrees Celsius</td>
-<td>Move it to 25 degrees Celsius before the second cross.</td></tr>
-<tr><td>the Abfinity antibody</td><td>not in the record</td>
-<td>Order it now. The two crosses take 4 to 5 weeks.</td></tr>
-<tr><td>anti-ICAM-5</td><td>not in the record</td><td>Order it now. Section <a class="xref" href="#s83" data-ref="s83">8.3</a> names the vial.</td></tr>
-</table>
-</div>
-
-<h3 id="s8h" data-path="c"><span class="secno"></span> The crosses</h3>
-<p data-path="c">The ppk23 arm, the ppk25 arm and the Gr32a arm need no
-new stock. The laboratory holds those stocks. The Gr68a arm and the Ir52a arm wait for an ordered
-stock.</p>
-
-<p data-path="c">Path C needs two crosses. The three elements sit in three stocks, and a cross has
-two parents. No stock holds a driver and a t-GRASP half together.</p>
-
-<p class="note" data-path="c">Path C needs two crosses today. You use the progeny of the
-first cross as parents. Section <a class="xref" href="#s82" data-ref="s82">8.2</a> gives a stable stock that removes the first cross. That stock
-needs three generations and about 6 weeks. Make that stock only if you do path C more than one
-time.</p>
-
-<div class="scroll" data-path="c">
-<table>
-<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr class="hi"><td class="num">G0</td><td>BDSC 93026 &times; BDSC 79040</td>
-<td>Curly. <strong>Tubby</strong>.</td>
-<td><code>w; ppk23-GAL4/CyO,Dfd-EYFP; t-GRASP/TM6B</code></td></tr>
-<tr class="hi"><td class="num">F1</td><td>the progeny of G0 &times; BDSC 53584</td>
-<td><strong>Not</strong> Curly. <strong>Not</strong> Tubby. Keep the males.</td>
-<td><code>w/Y ; ppk23-GAL4 / R56C09-lexA(attP40) ; t-GRASP / +</code></td></tr>
-</table>
-</div>
-<p class="trk-host" data-path="c" data-trk="c-grasp"></p>
-
-<div class="scroll" data-path="c">
-<table>
-<tr><th>Quantity</th><th>Value</th></tr>
-<tr class="hi"><td>progeny without the two markers</td><td>one in four at the second cross</td></tr>
-<tr class="hi"><td>useful males</td><td>one in eight</td></tr>
-<tr><td>time, the two crosses</td>
-<td>about 4 to 5 weeks at 25 degrees Celsius, at 2 weeks for one cross</td></tr>
-<tr><td>direction</td><td>free, because no element is on the X chromosome</td></tr>
-<tr><td>Tubby</td><td>from BDSC 93026, whose chromosome 3 is TM2/TM6B</td></tr>
-<tr><td>Curly</td><td>from BDSC 79040</td></tr>
-<tr><td>PCR</td><td>none, because Tubby and Curly are enough</td></tr>
-</table>
-</div>
-
-<h3 id="s8i" data-path="b c"><span class="secno"></span> The stain</h3>
-<p data-path="b c">The antibody decides the signal. Shearin et al. read
-the t-GRASP signal with one antibody: anti-GFP Tag Abfinity, ThermoFisher, rabbit. This page calls
-it the Abfinity antibody. Their
-figure S1 shows that this antibody finds the joined halves. The same antibody does not find the free
-halves. A general anti-GFP can also bind a free half. Your choice of antibody therefore decides the
-meaning of the signal.</p>
-
-<p data-path="b c">This readout needs four channels.</p>
-
-<div class="scroll" data-path="b c">
-<table>
-<tr><th>Channel</th><th>What it shows</th></tr>
-<tr class="hi"><td>the Abfinity antibody</td><td>the signal</td></tr>
-<tr class="hi"><td>anti-HA</td><td>the pre half</td></tr>
-<tr class="hi"><td>anti-ICAM-5</td><td>the target mask</td></tr>
-<tr class="hi"><td>nc82</td><td>each presynaptic site</td></tr>
-</table>
-</div>
-
-<h4 id="s8n" data-path="c"><span class="secno"></span> A blank signal channel</h4>
-<p data-path="c">A blank signal channel has two
-causes. The cells make no contact, or one half is absent. The anti-HA channel shows the pre half. The
-anti-ICAM-5 channel shows the post half. Accept a blank result only when both those channels are
-positive.</p>
-
-<h4 id="s8o" data-path="c"><span class="secno"></span> How to compare the two arms</h4>
-<p data-path="c">Write the count rule before
-you image. A punctum must lie inside the anti-ICAM-5 mask. Record the size range and the threshold
-from the pilot animal. Use the same rule for both arms. Put the two arms in fixative at the same age.</p>
-
-<p class="note" data-path="c">The laboratory holds seven anti-GFP antibodies. No record shows which
-of them binds the joined halves only. The record holds no Abfinity antibody. An anti-GFP that also
-binds a free half makes a false signal. Section <a class="xref" href="#s83" data-ref="s83">8.3</a> lists the antibodies to order.</p>
-
-<h3 id="s8j" data-path="c"><span class="secno"></span> The controls</h3>
-<p data-path="c">Read each control in the same session, with the same
-stain and the same settings. Accept a count only after both results.</p>
-
-<div class="scroll" data-path="c">
-<table>
-<tr><th>Control</th><th>Animal</th><th>Expected result</th></tr>
-<tr class="hi"><td>the antibody, and the pre half alone</td>
-<td>the progeny of the first cross. Those flies have no LexA, thus they make no post half.</td>
-<td>no punctum</td></tr>
-<tr class="hi"><td>the post half alone</td>
-<td>BDSC 79040 &times; BDSC 53584. Those flies have no GAL4, thus they make no pre half.</td>
-<td>no punctum</td></tr>
-</table>
-</div>
-
-<p data-path="b c">A unit is one set of transgenes on one homolog. A unit moves as one piece in a
-cross.</p>
-
-<h3 id="s8k" data-path="c"><span class="secno"></span> The chromosomes</h3>
-<p data-path="c">The two
-halves of BDSC 79040 sit on one homolog, and they are one unit. Chromosome 3 takes no third unit. The
-Gr32a driver GJ1435 also sits on chromosome 3, and it has the same limit.</p>
-
-<div class="scroll" data-path="c">
-<table>
-<tr><th>Chromosome 3</th><th>What is on it</th><th>Space left</th></tr>
-<tr class="hi"><td>one homolog</td>
-<td>both halves of BDSC 79040: attP2, at 68A4, and VK00027, at 89E11</td>
-<td>none, the two sites are full</td></tr>
-<tr class="hi"><td>the other homolog</td><td>nothing</td><td>space for one unit</td></tr>
-</table>
-</div>
-
-<p data-path="c">One homolog of chromosome 3 stays free. Path A puts brp-D3-Cherry and the LexAop
-fill in trans on chromosome 3. The two drivers of path C sit on chromosome 2, one driver on each
-homolog. Path A uses the same arrangement on chromosome 2. The Gr32a arm is therefore also possible
-in path C. GJ1435 goes on the free homolog, in trans to the two t-GRASP halves.</p>
-
-<p data-path="c">Confirm first that the Gr32a insertion is not at attP2.</p>
-
-<p class="note" data-path="c">Do not put a new transgene at attP2 on the free chromosome 3. A t-GRASP
-half is already at attP2. Two transgenes at the same site pair with each other. One transgene can
-then drive the other transgene in trans. This effect is transvection. Use a different position on
-chromosome 3, or use chromosome 2, or use the X chromosome.</p>
-
-<p class="note" data-path="c">Mellert and Truman 2012, Genetics 191:1129, show transvection between
-transgenes at one phiC31 site. attP2 is one of those sites. They also show that an active UAS array
-drives transcription in trans. In BDSC 79040, attP2 holds the LexAop post half. A new UAS transgene
-at attP2 can therefore drive the post half. A cell outside the target pattern then makes the post
-half.</p>
-
-<h3 id="s81" data-path="b"><span class="secno">8.1</span> t-GRASP for path B, BDSC 79039</h3>
-<p data-path="b">BDSC 79040 carries the orientation for path A and path C: UAS drives the pre half.
-BDSC 79039 carries the other orientation. LexAop drives the pre half.</p>
-
-<p data-path="b">BDSC 79039 is not blocked. Shearin et al. 2018 made the stocks for both directions.
-BDSC 79039 puts the pre half on LexAop. The sensory driver must therefore use LexA. The target driver
-must use GAL4.</p>
-
-<div class="scroll" data-path="b">
-<table>
-<tr><th>Part</th><th>BDSC 79040</th><th>BDSC 79039</th></tr>
-<tr class="hi"><td>the pre half</td><td>on UAS</td><td>on LexAop</td></tr>
-<tr class="hi"><td>the sensory driver</td><td>GAL4</td><td>LexA</td></tr>
-<tr class="hi"><td>the target driver</td><td>LexA</td><td>GAL4</td></tr>
-<tr><td>the targets it reaches</td><td>PPN1 only</td>
-<td>the GAL4 targets and the split-GAL4 targets</td></tr>
-</table>
-</div>
-
-<p data-path="b">This route is path B with t-GRASP. BDSC 79039 carries the synapse label and the
-membrane fill in one stock. This route therefore replaces GJ948 and the UAS fill. The two halves of BDSC 79039 also sit on one chromosome 3, at attP2 and at VK00027. A target GAL4 at
-attP2 sits on the other chromosome 3. The two insertions are then in trans. One fly carries both.</p>
-
-<p data-path="b">Three limits stay.</p>
-<ul data-path="b">
-<li>The laboratory holds one sensory LexA line today, ppk23-LexA. BDSC 79039 therefore gives the
-ppk23 arm now. BDSC 60692, Ir52a-LexA, is on order. It sits at attP2, and so does the post half of
-BDSC 79039. The stock in the incubator also carries 22B10-GAL4. That GAL4 drives the post half in the wrong
-cells. The clean-up of section <a class="xref" href="#s51" data-ref="s51">5.1</a> must finish first. That clean-up takes four generations.</li>
-<li>The ppk23 arm and the ppk25 arm then use different reporter arrangements. The unknown efficiency
-of the method does not cancel in their ratio. BDSC 79039 gives a yes or no answer at one target. BDSC
-79039 does not give the ratio of section <a class="xref" href="#s7" data-ref="s7">7</a>.</li>
-<li>A target GAL4 at attP2 pairs with the UAS half at attP2. A cell outside the target pattern can
-then make the post half. Prefer a target driver that is not at attP2. If the target driver sits at
-attP2, add a control animal with no sensory driver at that same target.</li>
-</ul>
-
-<p data-path="b">The genotype with the PPN1 GAL4 target, which sits at attP2:</p>
-<pre data-path="b"><code>w/Y ; ppk23-LexA / + ; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027 / P{GMR56C09-GAL4}attP2</code></pre>
-
-<p data-path="b">The genotype with a split-GAL4 target, here SS104905:</p>
-<pre data-path="b"><code>w/Y ; ppk23-LexA / 71A10-p65ADZ ; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027 / VT034623-ZpGdbd(attP2)</code></pre>
-
-<p class="note" data-path="b">The split-GAL4 genotype holds two units on chromosome 2 and two units on
-chromosome 3. Each homolog holds one unit. The PPN1 GAL4 genotype holds one unit on chromosome 2 and
-two units on chromosome 3. The t-GRASP chromosome of BDSC 79039 is balanced over TM6C, Sb Tb. In the
-last cross, keep the progeny that are not Tubby.</p>
-
-<h3 id="s82" data-path="c"><span class="secno">8.2</span> A stable stock for path C</h3>
-
-<p data-path="c">Path C needs two crosses now. One stable stock removes the first cross. Build the
-stock one time. Then do one cross for each experiment.</p>
-
-<h4 id="s8p" data-path="c"><span class="secno"></span> Check the arm first</h4>
-<p data-path="c">The table gives the arms that can have
-a stable stock. The other arms keep the two crosses.</p>
-
-<div class="scroll" data-path="c">
-<table>
-<tr><th>Arm</th><th>Sensory driver</th><th>A stable stock</th><th>Note</th></tr>
-<tr class="hi"><td>ppk23</td><td>BDSC 93026, chromosome 2</td><td>Yes</td><td>Use the crosses above.</td></tr>
-<tr class="hi"><td>ppk25</td><td>BDSC 93028, the chromosome 2 copy</td><td>Yes</td>
-<td>Remove the chromosome 3 copy first.</td></tr>
-<tr class="hi"><td>Gr68a</td><td>BDSC 57671, chromosome 2 <span class="tag m">ordered</span></td><td>Yes</td>
-<td>Wait for the stock. It was ordered on 17 August 2026.</td></tr>
-<tr><td>Ir52a</td><td>BDSC 60699, chromosome 2 <span class="tag m">ordered</span></td><td>Yes</td>
-<td>Remove the chromosome 3 copy first. It was ordered on 17 August 2026.</td></tr>
-<tr class="bad"><td>Gr32a</td><td>GJ1435, chromosome 3</td><td>No</td>
-<td>The driver and the t-GRASP halves both need chromosome 3.</td></tr>
-<tr class="bad"><td>Ir52a, second line</td><td>BDSC 81229, attP2 on chromosome 3 <span class="tag m">ordered</span></td><td>No</td>
-<td>attP2 holds a t-GRASP half.</td></tr>
-</table>
-</div>
-
-<p class="note" data-path="c">A chromosome 3 driver sits in trans to the t-GRASP halves. That
-chromosome pair does not keep its genotype. Those arms therefore keep the two crosses.</p>
-
-<h4 id="s8q" data-path="c"><span class="secno"></span> The plan</h4>
-<p data-path="c">Put the sensory driver and both t-GRASP halves in one
-stock. The target stock exists already. Cross the two stocks.</p>
-
-<div class="scroll" data-path="c">
-<table>
-<tr><th>Parent</th><th>Genotype</th><th>State</th></tr>
-<tr class="hi"><td>the sensory stock</td><td><code>w; ppk23-GAL4; t-GRASP</code></td>
-<td><span class="tag q">to make</span> Two crosses. See the tables below.</td></tr>
-<tr class="hi"><td>the target stock</td><td><code>w1118; P{GMR56C09-lexA}attP40</code></td>
-<td><span class="tag ok">ready</span> BDSC 53584. It needs no work.</td></tr>
-</table>
-</div>
-
-<p data-path="c">Both chromosomes of the sensory stock are homozygous. The stock therefore keeps its
-genotype at each transfer to new food. BDSC 53584 is homozygous too. Each arm needs its own sensory stock. Every arm
-uses the same target stock.</p>
-
-<p data-path="c"><strong>The experiment, after the stock exists.</strong></p>
-
-<div class="scroll" data-path="c">
-<table>
-<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr class="hi"><td class="num">G0</td><td>the sensory stock &times; BDSC 53584</td>
-<td>nothing. Keep the male progeny.</td>
-<td><code>w/Y ; ppk23-GAL4 / R56C09-lexA(attP40) ; t-GRASP / +</code></td></tr>
-</table>
-</div>
-
-<p data-path="c">Both parents are homozygous. Each progeny fly therefore has the full genotype.
-Score no marker at this cross. Each fly gets one copy of each t-GRASP half. The two crosses of
-section <a class="xref" href="#s8c" data-ref="s8c">8</a> also give one copy of each half.</p>
-
-<h4 id="s8r" data-path="c"><span class="secno"></span> How to build the sensory stock</h4>
-<p data-path="c"></p>
-
-<div class="scroll" data-path="c">
-<table>
-<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr class="hi"><td class="num">G0</td><td>BDSC 93026 &times; BDSC 79040</td>
-<td>Curly. <strong>Tubby</strong>.</td>
-<td><code>w; ppk23-GAL4/CyO,Dfd-EYFP; t-GRASP/TM6B</code></td></tr>
-<tr class="hi"><td class="num">F1</td><td>sibling cross</td>
-<td><strong>Not</strong> Curly. <strong>Not</strong> Tubby.</td>
-<td><code>w; ppk23-GAL4; t-GRASP</code>. Put these flies in one vial. That vial is the stock.</td></tr>
-</table>
-</div>
-
-<div class="scroll" data-path="c">
-<table>
-<tr><th>Quantity</th><th>Value</th></tr>
-<tr class="hi"><td>the wanted class at the sibling cross</td><td>one in nine of the survivors</td></tr>
-<tr class="hi"><td>time to the stock</td><td>about 6 weeks at 25 degrees Celsius</td></tr>
-<tr><td>Curly</td><td>from BDSC 79040, whose chromosome 2 is <code>wg[Sp-1]/CyO, P{Dfd-EYFP}2</code></td></tr>
-<tr><td>Tubby</td><td>from BDSC 93026, whose chromosome 3 is <code>TM2/TM6B</code></td></tr>
-<tr><td>PCR</td><td>none. Curly and Tubby are enough.</td></tr>
-<tr><td>direction</td><td>free. No element is on the X chromosome.</td></tr>
-</table>
-</div>
-
-<p class="note" data-path="c">A fly with two CyO chromosomes dies. A fly with two TM6B chromosomes
-dies. One survivor in three is therefore homozygous at each chromosome.</p>
-
-<h4 id="s8s" data-path="c"><span class="secno"></span> How to keep the stock</h4>
-<p data-path="c">The stock has no body marker. You cannot
-see a loss.</p>
-
-<div class="scroll" data-path="c">
-<table>
-<tr><th>Rule</th><th>Reason</th></tr>
-<tr class="hi"><td>Test the stock every three months. It must give no Curly progeny and no Tubby
-progeny.</td>
-<td>Curly progeny or Tubby progeny show that the stock is not pure.</td></tr>
-<tr class="hi"><td>Keep a balanced spare in a second incubator.</td>
-<td>One incubator failure then does not stop the work.</td></tr>
-</table>
-</div>
-
-<p class="note" data-path="c">The laboratory keeps its stocks at 18 degrees Celsius. Move a vial to
-25 degrees Celsius before a cross.</p>
-
-<h4 id="s8t" data-path="c"><span class="secno"></span> One stock cannot hold both drivers</h4>
-<p data-path="c">ppk23-GAL4 and R56C09-lexA
-are both on chromosome 2, on different homologs. Such a stock gives three classes at each
-generation. Both insertions carry <code>w[+mC]</code>. No body marker separates the three classes.
-Path C therefore keeps two parents. With the sensory stock, path C needs one cross.</p>
-
-<h4 id="s8u" data-path="c"><span class="secno"></span> One route makes a single stock</h4>
-<p data-path="c">Recombine ppk23-GAL4 onto the
-R56C09-lexA chromosome. Chromosome 2 then holds both drivers. The stock then keeps its genotype.</p>
-
-<p class="note" data-path="c">Two facts block this route today. The record gives no insertion site
-for <code>P{ppk23-Gal4.2.695}</code>. The distance to attP40 is therefore not known. No body marker
-separates the recombinant. A test cross or a PCR must find it.</p>
-
-
-<h3 id="s83" data-path="c"><span class="secno">8.3</span> What the nc82 channel adds</h3>
-
-<p data-path="c">Section <a class="xref" href="#s8c" data-ref="s8c">8</a> needs four channels. Four channels need four antibody hosts. The four
-hosts are rabbit, rat, goat and mouse. The four signals therefore separate. This section gives what
-the nc82 channel adds.</p>
-
-<p data-path="c">The nc82 channel does not show every input to PPN1. nc82 marks the endogenous Brp
-protein in each cell. It therefore marks the presynaptic sites of each input. It marks more than the
-labelled pair. It does not name the partner cell of a site.</p>
-
-<p data-path="c">The nc82 channel gives a different number. Count the nc82 puncta that touch the
-target mask. That count is the upper limit of the input to PPN1. The t-GRASP puncta then give the
-labelled share of that count.</p>
-
-<div class="scroll" data-path="c">
-<table>
-<tr><th>Antibody</th><th>Host</th><th>What it shows</th><th>In the record</th></tr>
-<tr class="hi"><td>the Abfinity antibody</td><td>rabbit</td>
-<td>the joined halves, thus the labelled contacts</td><td>no</td></tr>
-<tr class="hi"><td>anti-HA</td><td>rat</td><td>the pre half</td><td>not checked</td></tr>
-<tr class="hi"><td>anti-ICAM-5</td><td>goat</td><td>the target mask</td><td>no</td></tr>
-<tr class="hi"><td>nc82, anti-Brp</td><td>mouse</td><td>each presynaptic site</td><td>yes</td></tr>
-</table>
-</div>
-
-<p data-path="c">Path C needs three antibodies that the record does not hold.</p>
-
-<div class="scroll" data-path="c">
-<table>
-<tr><th>Antibody</th><th>Vial</th><th>Action</th></tr>
-<tr class="hi"><td>the Abfinity antibody</td><td>anti-GFP Tag Abfinity, ThermoFisher</td>
-<td>Order it. The record holds no vial that binds the joined halves only.</td></tr>
-<tr class="hi"><td>goat anti-ICAM-5</td><td>anti-ICAM-5 or TLN, Bio-techne AF1173</td>
-<td>Order it. The record holds no vial.</td></tr>
-<tr><td>rat anti-HA</td><td>anti-HA 3F10, Roche 11867431001</td>
-<td>Check the record first. It does not say if a vial exists.</td></tr>
-</table>
-</div>
-
-<h2 id="s3"><span class="secno">3</span> &middot; Stock list</h2>
-
-<div class="scroll">
-<table id="gt-src">
-<tr><th>Line</th><th>Function</th><th>Chr</th><th>Genotype</th><th>Location</th><th>Condition</th></tr>
-<tr class="hi" data-path="a c"><td>BDSC 93026</td><td>ppk23 driver, path A</td><td>2</td><td><code>w1118; P{ppk23-Gal4.2.695}2; TM2/TM6B</code></td><td>25 degrees Celsius, 3 vials</td><td><span class="tag ok">ready</span></td></tr>
-<tr class="hi" data-path="a c" data-gt-also="Kallman PPN1 LexA"><td>BDSC 53584</td><td>PPN1 driver, path A</td><td>2, attP40</td><td><code>w1118; P{GMR56C09-lexA}attP40</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
-<tr class="hi" data-path="a"><td>BDSC 32209</td><td>PPN1 fill, path A</td><td>3, attP2</td><td><code>w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-IVS-myr::GFP}attP2</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The fill of every arm that keeps chromosome 3 free. It sits at attP2, thus BDSC 77139 replaces it when a second transgene is at attP2.</td></tr>
-<tr class="hi" data-path="a"><td>BDSC 32211</td><td>PPN1 fill, the Gr32a arm</td><td>X, su(Hw)attP8</td><td><code>y[1] w[*] P{y[+t7.7] w[+mC]=13XLexAop2-IVS-myr::GFP}su(Hw)attP8</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The same reporter on the X chromosome. It frees chromosome 3
-for a driver.</td></tr>
-<tr class="hi" data-path="a"><td>LMB-494</td><td>synapse label, path A</td><td>3</td><td><code>w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP</code></td><td>Cambridge Fly Facility</td><td><span class="tag ok">arrived</span> Check the Dfd-YFP marker on the balancers.</td></tr>
-<tr data-path="b"><td>GJ948</td><td>synapse label, path B</td><td>not recorded</td><td><code>LexAop2-Brp-mCherry</code></td><td>Cambridge Fly Facility</td><td>On the way from the Cambridge Fly Facility. The laboratory vial is dead.</td></tr>
-<tr data-path="b" data-gt-also="GJ1472; ppk23-LexA"><td>ppk23-LexA-dirty</td><td>ppk23 driver, path B</td><td>2</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>25 degrees Celsius, Bella</td><td><span class="tag warn">clean it</span> It has 22B10-GAL4. See section <a class="xref" href="#s51" data-ref="s51">5.1</a>.</td></tr>
-<tr data-path="b"><td>ppk23-LexA-clean</td><td>ppk23 driver, path B</td><td>2</td><td><code>; ppk23-LexA/CyO ; +/+</code></td><td>does not exist yet</td><td><span class="tag q">to make</span> The product of the clean-up of section <a class="xref" href="#s51" data-ref="s51">5.1</a>, at F3.</td></tr>
-<tr data-gt-also="Kallman PPN1 Gal4"><td>Kallman PPN1 GAL4</td><td>target driver, path B; PPN1 mask control</td><td>3, attP2</td><td><code>w1118; P{GMR56C09-GAL4}attP2</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span> The GAL4 form and the LexA form drive the same cells. Path A needs the LexA form, and path B and the mask control need the GAL4 form.</td></tr>
-<tr><td>BDSC 93028</td><td>ppk25 driver, the second arm</td><td>2 and 3</td><td><code>w1118; P{ppk25-GAL4.S}2; P{ppk25-GAL4.S}3</code></td><td>18 degrees Celsius</td><td><span class="tag warn">clean</span> remove the chromosome 3 copy</td></tr>
-<tr><td>GJ1435</td><td>Gr32a driver, a third arm</td><td>3</td><td><code>w118; Sp/CyO; Gr32a-Gal4.3.7.PW</code></td><td>25 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
-<tr><td>BDSC 77138</td><td>red LexAop fill</td><td>2</td><td><code>w[*]; P{w[+mC]=13xLexAop2-CD4-tdTom}4</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. A random P insertion, thus it is not at attP40. It gives the arms with a
-chromosome 3 driver a fill that is not on the X chromosome.</td></tr>
-<tr><td>BDSC 77139</td><td>red LexAop fill</td><td>3, VK00033</td><td><code>w[*]; PBac{y[+mDint2] w[+mC]=13xLexAop2-CD4-tdTom}VK00033/TM6B, Tb[1]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. VK00033 is not attP2. Use this line in place of BDSC 32209 in every
-genotype that has a second transgene at attP2.</td></tr>
-<tr><td>BDSC 60692</td><td>Ir52a driver, path B</td><td>3, attP2 and VK00005</td><td><code>w[*]; wg[Sp-1]/CyO; P{Ir52a-LexA-VP16}attP2 PBac{Ir52a-LexA-VP16}VK00005/TM3, Sb[1] Ser[1]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. Two copies on one chromosome 3. John Carlson gave the line to the stock
-centre, thus it is the line of Luo, Talross and Carlson 2024. It occupies attP2.</td></tr>
-<tr><td>BDSC 60699</td><td>Ir52a driver, path A</td><td>2</td><td><code>w[*]; P{w[+mC]=Ir52a-GAL4.K}2/CyO; P{w[+mC]=UAS-mCD8::GFP.L}LL6</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. <strong>Remove chromosome 3 first.</strong> Cross to GJ954 two times, and
-keep TM2/TM6B. Do this before brp-D3-Cherry comes in. Both labels are w+, thus you cannot see the
-difference between them later.</td></tr>
-<tr><td>BDSC 81229</td><td>Ir52a driver, path A</td><td>3, attP2</td><td><code>w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52a-GAL4.2931}attP2/TM6B, Tb[+]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. This line has no second label. Both chromosomes have a marker. The
-promoter fragment is different from the fragment of BDSC 60699.</td></tr>
-<tr><td>BDSC 81230</td><td>Ir52b driver, a pattern check</td><td>3, attP2</td><td><code>w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52b-GAL4.C}attP2</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. One cross only: look at the legs and the wing margin. Ir52b does not
-separate WG1 from WG2. Do not put this line with BDSC 60692, because both sit at attP2.</td></tr>
-<tr><td>BDSC 57671</td><td>Gr68a driver, a fourth arm</td><td>2</td><td><code>w[*]; P{w[+mC]=Gr68a-GAL4.1.8}2; Dr[1]/TM3, Sb[1]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The driver is on chromosome 2, thus this arm uses the recipe of BDSC 93026
-without a change.</td></tr>
-<tr><td>BDSC 58370</td><td>Gr68a driver, second fragment</td><td>3</td><td><code>w[*]; wg[Sp-1]/CyO; P{w[+mC]=Gr68a-GAL4.B}1</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The promoter fragment is different from the fragment of BDSC 57671. The
-Gr68a driver also labels mechanosensory cells, thus two fragments give a control.</td></tr>
-<tr><td>GJ954</td><td>double balancer for the clean-ups</td><td>2 and 3</td><td><code>w; IF/CyO; TM2/TM6B</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
-<tr class="bad"><td>GJ890</td><td>&mdash;</td><td>2</td><td><code>LexAop2-myr4xCLIPf</code>, attP40</td><td>18 degrees Celsius</td><td><span class="tag q">needs a ligand</span> This laboratory developed the tags, thus ask Julian for the dye.</td></tr>
-<tr class="bad"><td>GJ891</td><td>&mdash;</td><td>3</td><td><code>LexAop2-myr4xCLIPf</code>, VK00005</td><td>18 degrees Celsius</td><td><span class="tag warn">not used</span> As GJ890.</td></tr>
-<tr class="bad"><td>GJ894</td><td>&mdash;</td><td>2</td><td><code>LexAop2-myr4xSNAPf</code>, attP40</td><td>18 degrees Celsius</td><td><span class="tag warn">not used</span> As GJ890.</td></tr>
-<tr class="bad"><td>GJ895</td><td>&mdash;</td><td>3</td><td><code>IF/CyO; LexAop2-myr4xSNAPf-VK00005-1M/TM6B</code></td><td>18 degrees Celsius</td><td><span class="tag warn">not used</span> As GJ890.</td></tr>
-<tr data-path="b"><td>GJ598</td><td>target fill, path B</td><td>X</td><td><code>w* P{10XUAS-IVS-myr::GFP}su(Hw)attP8</code></td><td>18 degrees Celsius</td><td><span class="tag warn">X chromosome</span> The mother must carry it, because a son takes his X
-chromosome from his mother.</td></tr>
-<tr data-path="b"><td>GJ600</td><td>target fill, path B</td><td>3, attP2</td><td><code>w*;; P{10XUAS-IVS-myr::GFP}attP2</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
-<tr data-path="b"><td>GJ667</td><td>target fill, path B</td><td>3, attP2</td><td><code>w*;; P{10XUAS-IVS-myr::GFP::P10}attP2</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
-<tr><td>GJ832</td><td>double balancer, second choice</td><td>2 and 3</td><td><code>If/CyO; hsFLP, MKRS/TM6B, Tb1</code></td><td>18 degrees Celsius</td><td><span class="tag warn">has hsFLP</span> Use GJ954 first.</td></tr>
-<tr><td>SS104905</td><td>a vAB3 candidate</td><td>2 and 3</td><td><code>w; 71A10-p65ADZ/CyO; VT034623-ZpGdbd in attP2/TM6B,Tb</code></td><td>25 degrees Celsius</td><td><span class="tag q">not mapped</span> Four vAB3 lines are alive: SS103089, SS104905, SS104909 and SS105464.</td></tr>
-<tr><td>LMB-495</td><td>a comparison only</td><td>3</td><td><code>2xUAS:brp-mRFP</code>, full length</td><td>Cambridge Fly Facility</td><td><span class="tag m">on the way</span> Full length Bruchpilot aggregates. Do not count with it.</td></tr>
-<tr class="hi" data-path="c"><td>BDSC 79040</td><td>both t-GRASP halves, path C</td><td>3, attP2 and VK00027</td><td><code>y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{13XLexAop2-post-t-GRASP}attP2 PBac{20XUAS-pre-t-GRASP}VK00027</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span> UAS drives the pre half, thus the sensory driver is GAL4 and
-the target driver is LexA. This is the orientation for path C at PPN1. The stock list gives the
-reason, and not the orientation: ppk23, ppk25 and Gr32a exist as GAL4. This table lists one target
-driver line with LexA: R56C09-lexA. R56C09-lexA drives PPN1.</td></tr>
-<tr data-path="b"><td>BDSC 79039</td><td>the second orientation, path B with t-GRASP</td><td>3, attP2 and VK00027</td><td><code>y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027/TM6C, Sb[1] Tb[1]</code></td><td>18 degrees Celsius</td><td><span class="tag warn">second orientation</span> LexAop drives the pre half, thus the sensory
-driver is LexA and the target driver is GAL4. This orientation opens the GAL4 targets and the
-split-GAL4 targets. The two halves sit on one chromosome 3, thus a target GAL4 at attP2 sits on the
-other chromosome 3, in trans. The laboratory holds one sensory LexA line, ppk23-LexA, thus this stock
-gives the ppk23 arm only, and the clean-up of section <a class="xref" href="#s51" data-ref="s51">5.1</a> must finish first. See section <a class="xref" href="#s81" data-ref="s81">8.1</a>.</td></tr>
-<tr data-path="b"><td>GJ599</td><td>target fill, <strong>path B only</strong></td><td>2, attP40</td><td><code>w*; P{10XUAS-IVS-myr::GFP}attP40</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
-<tr><td>SS103018</td><td>AN13B002, a target that separates the groups</td><td>2 and 3</td><td>not recorded; the snapshot gives "?"</td><td>25 degrees Celsius</td><td><span class="tag warn">map it</span> split-GAL4</td></tr>
-</table>
-</div>
-
-<p class="note">In path A the GAL4 is in the sensory neurons. A UAS fill thus labels the bristles
-and not PPN1. The path A fill must be LexAop.</p>
-
-<h2 id="s5" data-path="a b"><span class="secno">5</span> &middot; Clean-up</h2>
-
-<div class="scroll">
-<table>
-<tr><th>Line</th><th>Remove</th><th>Effect if you do not</th><th>Method</th><th class="num">Weeks</th></tr>
-<tr class="bad" data-trk="c1472-f3"><td>ppk23-LexA-dirty</td><td><code>22B10-GAL4</code>, chr 3</td>
-<td>It drives the UAS label in the wrong cells. Path B only.</td>
-<td>Four generations. See the table below.</td><td class="num">6</td></tr>
-<tr class="bad" data-trk="c93028"><td>BDSC 93028</td><td>the second copy, chr 3</td>
-<td>Two copies against one change the driver strength between the arms.</td>
-<td>Cross to GJ954. Both inserts have the same marker, thus confirm by PCR.</td>
-<td class="num">4</td></tr>
-</table>
-</div>
-
-<p class="note">Use <strong>GJ954</strong>, <code>w; IF/CyO; TM2/TM6B</code>, 18 degrees Celsius. Use
-GJ832 only if GJ954 is not available: GJ832 has hsFLP. The four generations of the ppk23-LexA clean-up have their
-own states in section <a class="xref" href="#s51" data-ref="s51">5.1</a>.</p>
-
-<h3 id="s51"><span class="secno">5.1</span> The ppk23-LexA clean-up, generation by generation</h3>
-<div class="scroll">
-<table>
-<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
-<tr data-trk="c1472-g0"><td class="num">G0</td><td>ppk23-LexA-dirty &times; GJ954</td><td>&mdash;</td><td>&mdash;</td></tr>
-<tr data-trk="c1472-f1"><td class="num">F1</td><td>&mdash;</td>
-<td>Curly. <strong>Not</strong> Irregular facets. <strong>Ser</strong>.</td>
-<td><code>; ppk23-LexA/CyO ; TM3,Ser / TM2 or TM6B</code>. The 22B10-GAL4 is gone.</td></tr>
-<tr class="hi" data-trk="c1472-f2"><td class="num">F2</td><td>cross to w1118</td>
-<td>Curly. <strong>Not</strong> Ser, Ubx or Tubby.</td>
-<td><code>; ppk23-LexA/CyO ; +/+</code></td></tr>
-<tr data-trk="c1472-f3"><td class="num">F3</td><td>incross</td><td>Curly</td>
-<td><strong>ppk23-LexA-clean</strong>, <code>; ppk23-LexA/CyO ; +/+</code></td></tr>
-</table>
-</div>
-<p class="note">The outcross to w1118 at F2 is necessary. GJ954 has TM2 and TM6B on chromosome 3,
-and ppk23-LexA-dirty has the GAL4 or TM3,Ser. Thus no plain chromosome 3 is present in the cross, and an
-incross alone gives a stock with a balancer on chromosome 3. That balancer then blocks the target
-driver in the final cross. Select Ser at F1: a fly with Ser cannot also have the 22B10-GAL4 from
-that parent.</p>
-
-<h2 id="s7" data-path="a b"><span class="secno">7</span> &middot; PPN1 as the calibration</h2>
-
-<p>PPN1 does not test the receptor assignment. It tests the <strong>method</strong>. You measure the
-two arms, and you compare each count against the number in the connectome. If the counts follow the
-connectome, the method counts synapses quantitatively in this system. That result is what permits a
-reader to accept a later measurement on a target that does separate the two groups.</p>
-
-<div class="scroll" data-path="a b c">
 <table>
 <tr><th>Region</th><th class="num">ppk25 family</th><th class="num">ppk23 family, all</th>
 <th class="num">predicted ratio</th></tr>
@@ -999,69 +246,425 @@ F cells. Nobody has confirmed that every ppk25 cell is also a ppk23 cell.</p>
 <div class="callout">
 <p><span class="tag ok">the result to look for</span> A measured ratio near <strong>0.41</strong>
 shows that the puncta follow the synapse counts of the connectome. The same value in the wing and in
-the leg is a second, independent check inside one animal.</p>
-<p>A ratio far from 0.41 shows that the method is not quantitative here. Then stop, and use a
-functional method instead.</p>
+the leg is a second, independent check inside one animal. A ratio far from <strong>0.41</strong>
+shows that the method is not quantitative here.</p>
+</div>
+</section>
+<section class="doc" id="doc-a" role="tabpanel" aria-labelledby="tab-a" data-trk-scope="a">
+<p class="pathlede">Path A puts the synapse label in GAL4 and the fill in LexA. Every receptor driver is possible. This is the main line.</p>
+<div class="subtabs" role="tablist" aria-label="Path A, the parts">
+  <button role="tab" id="sub-a-question" aria-controls="pane-a-question" aria-selected="true">Question</button>
+  <button role="tab" id="sub-a-method" aria-controls="pane-a-method" aria-selected="false">Method</button>
+  <button role="tab" id="sub-a-reagents" aria-controls="pane-a-reagents" aria-selected="false">Reagents</button>
 </div>
 
-<h3><span class="secno">7.1</span> The absolute counts</h3>
-
+<div class="pane on" id="pane-a-question" role="tabpanel" aria-labelledby="sub-a-question">
+<h2 id="a-s1"><span class="secno"></span> &middot; The target genotypes</h2>
+<p><strong>Path A</strong>, label in GAL4. Both ppk arms are possible. The target is PPN1 today,
+because R56C09-lexA is the one target driver with LexA in the laboratory. A second target driver line
+with LexA adds a second target.</p>
+<pre><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; UAS-brp-D3-Cherry / 13XLexAop2-IVS-myr::GFP(attP2)</code></pre>
+<div class="callout">
+<p><span class="tag ok">path A is the main line</span> The receptor driver lines exist in GAL4. Only
+four LexA lines exist for the ten receptor genes, and only two of them apply here: ppk23-LexA and
+Ir52a-LexA. Path A can thus use every receptor driver. Path B can use two.</p>
+</div>
 <div class="scroll">
 <table>
-<tr><th>Quantity</th><th class="num">Value</th><th>Note</th></tr>
-<tr><td>ppk23 connections onto PPN1</td><td class="num">27187</td><td>connectome</td></tr>
-<tr><td>ppk25 connections onto PPN1</td><td class="num">11098</td><td>connectome</td></tr>
-<tr><td>the whole input of PPN1</td><td class="num">33476</td>
-<td>The ppk cells give 81 percent of it.</td></tr>
-<tr class="hi"><td>presynaptic sites apposed to PPN1</td><td class="num">about 27000</td>
-<td>One site gives approximately one connection onto one target cell. <strong>Do not divide by
-six.</strong></td></tr>
-<tr class="hi"><td>puncta to expect, ppk23 arm</td><td class="num">about 20000</td>
-<td>two PPN1 cells, at the 74 percent that the membrane contact method of Lillvis et al. gives. That
-method found 501 sites against the 677 sites of the electron microscopy sample. Their best single
-sample gives 89 percent, thus 24000. Do not expect the best sample.</td></tr>
-<tr><td>median distance between sites</td><td class="num">294 nm</td>
-<td>The person who does the imaging needs this number.</td></tr>
-<tr class="hi"><td>the count that shows a failure</td><td class="num">a few thousand</td>
-<td>The label, the antibody or the segmentation loses most of the sites. The connectome is not
-wrong. Decide the threshold before you image.</td></tr>
+<tr><th>System</th><th>Drives</th><th>Colour</th><th>Line</th></tr>
+<tr class="hi"><td>GAL4</td><td>the active zones of the sensory neurons</td><td>red</td>
+<td>UAS-brp-D3-Cherry, LMB-494</td></tr>
+<tr class="hi"><td>LexA</td><td>the membrane of the target neuron</td><td>green</td>
+<td>13XLexAop2-IVS-myr::GFP, BDSC 32209</td></tr>
 </table>
 </div>
-
-<p data-path="a"><strong>The label of path A.</strong> UAS-brp-D3-Cherry is a short form of Brp. A
+<p class="note">brp-D3-Cherry is red, thus the fill must be green. The two LexAop fluorophores at
+the Cambridge Fly Facility are both red. Do not use them for path A.
+PPN1 receives almost equal input from the two ppk groups. Path A therefore develops the assay, and
+it does not test the receptor assignment.</p>
+<h2 id="a-s7"><span class="secno"></span> &middot; What the PPN1 counts show</h2>
+<p>PPN1 does not test the receptor assignment. It tests the <strong>method</strong>. Measure the two
+arms. Compare each count against the connectome count. A measured ratio near the predicted ratio
+shows that the method counts synapses here. A reader then accepts a later measurement at a target
+that separates the two groups.</p>
+<p class="note">The Which path tab gives the predicted ratio. It gives one ratio for the whole
+neuron, one for the wing neuropil and one for the leg neuropil.</p>
+<p>A ratio far from the predicted ratio shows that the method is not quantitative here. Then stop,
+and use a functional method instead.</p>
+<h3><span class="secno"></span> The absolute counts</h3>
+<p>The whole input of PPN1 is <strong>33476</strong> connections. The ppk cells give 81 percent of
+it. About <strong>27000</strong> presynaptic sites are apposed to PPN1. One site gives approximately
+one connection onto one target cell. <strong>Do not divide by six.</strong></p>
+<p>Expect about <strong>20000</strong> puncta in the ppk23 arm. That number holds two PPN1 cells, at
+the 74 percent that the membrane contact method of Lillvis et al. 2022 gives. That method found 501 sites
+against the 677 sites of the electron microscopy sample. Their best single sample gives 89 percent,
+thus 24000 puncta. Do not expect the best sample.</p>
+<p>The median distance between sites is <strong>294 nm</strong>. The person who does the imaging
+needs this number.</p>
+<p class="note">A count of a few thousand puncta shows a failure. The label, the antibody or the
+segmentation loses most of the sites. The connectome is not wrong. Decide the threshold before you
+image.</p>
+<p><strong>The label of path A.</strong> UAS-brp-D3-Cherry is a short form of Brp. A
 GAL4 driver expresses it. It is not the endogenous protein. Nobody has compared it against electron
 microscopy. Do not accept that difference as a risk. That option gives no number for the
 calibration.</p>
-
-<p data-path="a"><strong>Add an nc82 channel.</strong> The nc82 antibody marks the endogenous Brp
+<p><strong>Add an nc82 channel.</strong> The nc82 antibody marks the endogenous Brp
 protein in every cell. Count the brp-D3-Cherry puncta and the nc82 sites in one animal. The ratio of
 the two counts is the calibration. This step needs one antibody and no new genetics.</p>
-
-<p data-path="a"><strong>Why path A does not use STaR.</strong> Lillvis et al. 2022 compared the nc82
+<p><strong>Why path A does not use STaR.</strong> Lillvis et al. 2022 compared the nc82
 antibody and a STaR tag against electron microscopy. STaR marks the endogenous Brp protein, thus STaR
 is the better label. They also recommend a postsynaptic marker, because a membrane contact method
 loses more sites. Path A has no space for STaR.</p>
-
-<p data-path="a">STaR needs five elements.</p>
-<ul data-path="a">
+<p>STaR needs five elements.</p>
+<ul>
 <li>the sensory GAL4</li>
 <li>R56C09-lexA</li>
 <li>the tagged brp transgene</li>
 <li>a source of FLP</li>
 <li>a membrane label for PPN1</li>
 </ul>
-
-<p data-path="a">Chromosome 2 holds the two drivers, thus chromosome 2 is full. BDSC 77138 is on
+<p>Chromosome 2 holds the two drivers, thus chromosome 2 is full. BDSC 77138 is on
 chromosome 2. BDSC 55753 carries the tagged brp transgene at VK00033. BDSC 77139 is also at VK00033.
 Those two stocks cannot share a chromosome.</p>
-
-<p data-path="a">A green tag with a green fill gives no result. A V5 tag gives a result. But each V5
+<p>A green tag with a green fill gives no result. A V5 tag gives a result. But each V5
 stock also makes LexA in the marked cells. Those cells then drive the label of PPN1. Use STaR only
 after somebody recombines the sensory GAL4 onto the R56C09-lexA chromosome. That step frees one place
 on chromosome 2.</p>
+<h2 id="a-s9"><span class="secno"></span> &middot; Open questions</h2>
+<div class="scroll">
+<table>
+<tr><th>Question</th><th>Blocks</th><th>Action</th></tr>
+<tr data-trk="q-lexaop"><td>Which 13XLexAop2-IVS-myr::GFP stock?</td><td>&mdash;</td>
+<td>BDSC 32209 at attP2, and BDSC 32211 on the X chromosome. Chosen on 17 August 2026.</td></tr>
+<tr data-trk="q-lmb494marker"><td>Which balancer marker does LMB-494 have?</td><td>the larval sort</td>
+<td>The record gives "eYFP" on one tray and "YFP" on another. The stock is here, thus examine it now. The larval sort needs this marker.</td></tr>
+<tr data-trk="q-r56c09"><td>Which cells does R56C09 label?</td><td>the calibration of section <a class="xref" href="#a-s7" data-ref="a-s7">7</a></td>
+<td>Use MCFO. If the line labels AN05B102 b, c and d as well as a, and you can separate them by
+shape, each cell gives its own predicted ratio: a 0.41, b 0.36, c 0.27, d 0.78. That gives four
+calibration points in one animal, thus more cells are better, not worse. If you cannot separate
+them, the prediction must be weighted by the cells that the line labels.</td></tr>
+<tr data-trk="q-an09b017"><td>Which AN09B017 member does each vAB3 line label?</td><td>every later target</td>
+<td>Use MCFO. Four lines are alive: SS103089, SS104905, SS104909 and SS105464.</td></tr>
+</table>
+</div>
+</div>
 
-<h2 id="s8" data-path="a b"><span class="secno">9</span> &middot; Items to order</h2>
+<div class="pane" id="pane-a-method" role="tabpanel" aria-labelledby="sub-a-method">
+<h2 id="a-s4"><span class="secno"></span> &middot; Crosses, path A</h2>
+<div class="callout">
+<p><span class="tag q">which parent gives the virgins</span> Every element of the ppk23 arm and of
+the ppk25 arm is on chromosome 2 or on chromosome 3. Thus the direction of each cross is free. Take
+the virgins from the stock that gives them first. The tables give each cross as one stock against
+the other stock, and not as virgins against males.</p>
+<p>The direction is <strong>not</strong> free if an element is on the X chromosome. A son takes his
+X chromosome from his mother, and this work uses males. Thus the mother must carry that element.
+BDSC 32211, <code>13XLexAop2-IVS-myr::GFP</code> at su(Hw)attP8, is on the X chromosome. The Gr32a
+arm uses it. A balancer, a dominant marker or an insertion on chromosome 2 or on chromosome 3 does
+not fix the direction.</p>
+<p>You keep male progeny at the experimental cross. That is a rule for the progeny that you keep.
+It is not a rule for the parents.</p>
+</div>
+<h3 id="a-s41"><span class="secno"></span> Parent 1</h3>
+<div class="scroll">
+<table>
+<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
+<tr data-trk="a1-g0"><td class="num">G0</td><td>LMB-494 &times; BDSC 93026</td>
+<td>Tubby. <strong>Not</strong> Ubx. <strong>Not</strong> Stubble.</td>
+<td><code>w; ppk23-GAL4/Sco or /CyO; brp-D3-Cherry/TM6B</code></td></tr>
+<tr data-trk="a1-f1"><td class="num">F1</td><td>sibling cross</td>
+<td><strong>Not</strong> Curly. <strong>Not</strong> Sternopleural. Tubby.</td>
+<td><strong>Parent 1</strong> <code>w; ppk23-GAL4; brp-D3-Cherry/TM6B</code></td></tr>
+</table>
+</div>
+<p class="note">All chromosomes have a marker, thus no PCR is necessary. TM2 has Ubx. The TM6B of
+LMB-494 has Stubble. A fly with two TM6B chromosomes dies.</p>
+<h3 id="a-s42"><span class="secno"></span> Parent 2</h3>
+<div class="scroll">
+<table>
+<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
+<tr data-trk="a2-g0"><td class="num">G0</td><td>BDSC 32209 &times; BDSC 53584</td>
+<td>the balancer markers of the stock that arrives</td>
+<td><code>w; R56C09-lexA/+; LexAop-mCD8::GFP(attP2)/+</code></td></tr>
+<tr data-trk="a2-f1"><td class="num">F1</td><td>cross to a chromosome 3 balancer, then a sibling cross</td>
+<td>the balancer markers</td>
+<td><strong>Parent 2</strong> <code>w; R56C09-lexA; LexAop-mCD8::GFP/TM6B</code></td></tr>
+</table>
+</div>
+<p class="note">The GFP fill has no visible body marker. But a PCR is not necessary: cross a few
+flies to any LexA driver and look for green. This check is faster than a PCR, and it also confirms
+that the reporter works.</p>
+<h3 id="a-s43"><span class="secno"></span> Stable stocks</h3>
+<p>You do the experimental cross one time for each arm. A rebuild of a parent costs five weeks. A
+stable stock removes that cost. A flip is a transfer of the flies into a vial with new food. A stable
+stock keeps its genotype at each flip, and it needs no new cross.</p>
+<p>Chromosome 2 needs no work. ppk23-GAL4 and R56C09-lexA are already homozygous in both parents.
+Chromosome 3 holds the decision.</p>
+<p><strong>Two routes give a stable chromosome 3.</strong></p>
+<div class="scroll">
+<table>
+<tr><th>Route</th><th>When to use it</th><th>Work at each flip</th><th>Cost</th></tr>
+<tr class="hi"><td>homozygous</td><td>the insertion lives as a pair</td><td>none</td>
+<td>The stock has no marker on chromosome 3. You cannot see a loss by eye.</td></tr>
+<tr class="hi"><td>balanced over TM6B</td><td>the insertion does not live as a pair, or it is weak
+as a pair</td><td>select Tubby each time</td>
+<td>More work at each flip. But the marker shows the genotype.</td></tr>
+</table>
+</div>
+<p><strong>One generation decides the route.</strong> Do a sibling cross of the parent. Then count
+the flies without Tubby. A fly with two TM6B chromosomes dies, thus one survivor in three is the
+homozygote.</p>
+<div class="scroll">
+<table>
+<tr><th>Result</th><th>What it shows</th><th>Route</th></tr>
+<tr data-trk="a2-hz"><td>about one in three, and healthy</td><td>homozygous viable</td>
+<td>homozygous</td></tr>
+<tr><td>none</td><td>homozygous lethal</td><td>balanced</td></tr>
+<tr data-trk="a1-hz"><td>present, but small or weak</td><td>homozygous sick</td><td>balanced</td></tr>
+</table>
+</div>
+<p><strong>Do Parent 2 first.</strong> Every arm uses Parent 2. Parent 1 changes with the arm. The
+work on Parent 2 therefore gives a result for each arm.</p>
+<p><strong>How to keep a stock stable.</strong></p>
+<div class="scroll">
+<table>
+<tr><th>Rule</th><th>Reason</th></tr>
+<tr class="hi"><td>Select Tubby at each flip of a balanced stock.</td>
+<td>An insertion that lives as a pair pushes out the balancer. The stock then loses its marker, and
+you cannot see the genotype.</td></tr>
+<tr class="hi"><td>Keep a balanced spare of each homozygous stock.</td>
+<td>A homozygous stock has no marker. A loss is invisible.</td></tr>
+<tr><td>Keep the spare in a second incubator.</td>
+<td>One incubator failure then does not stop the work.</td></tr>
+<tr><td>Test the reporter every three months.</td>
+<td>The GFP fill has no body marker. Cross a few flies to a LexA driver and look for green.</td></tr>
+<tr class="bad"><td>Do not keep a stock as a heterozygote without a balancer.</td>
+<td>The element goes away in a few generations.</td></tr>
+</table>
+</div>
+<div class="callout warn">
+<p><strong>Two copies give a different signal.</strong> A homozygous stock gives two copies of
+brp-D3-Cherry and two copies of the fill. Section <a class="xref" href="#a-s7" data-ref="a-s7">7</a> compares the two arms as a ratio. Both arms
+must therefore have the same number of copies. Do not compare a homozygous animal with a
+heterozygous animal.</p>
+<p><strong>A male cannot be homozygous for the X reporter.</strong> A male has one X chromosome.
+BDSC 32211 therefore always gives one copy. The Gr32a arm and the chromosome 3 Ir52a arms use it.
+Keep those arms apart from the homozygous arms in a comparison.</p>
+<p><strong>The route for Parent 1 is not known yet.</strong> The landing site of brp-D3 in LMB-494
+is not recorded. Thus you cannot say now if it lives as a pair. Do the test above before you plan
+the stock.</p>
+</div>
+<h3 id="a-s44"><span class="secno"></span> Experimental cross</h3>
+<pre><code>Parent 1  x  Parent 2
+   keep the male progeny that are not Tubby</code></pre>
+<p class="trk-host" data-trk="ax"></p>
+<div class="scroll">
+<table>
+<tr><th>Quantity</th><th>Value</th></tr>
+<tr class="hi"><td>progeny with all four elements</td><td>one in three of the survivors</td></tr>
+<tr class="hi"><td>useful males</td><td>one in six</td></tr>
+<tr><td>chromosome 2</td><td>fixed; both parents are homozygous</td></tr>
+<tr><td>chromosome 3</td><td>score Tubby only</td></tr>
+<tr><td>sex</td><td>males only; the T1 midline crossing occurs in the male only</td></tr>
+</table>
+</div>
+<h3 id="a-s45"><span class="secno"></span> Time</h3>
+<div class="scroll">
+<table>
+<tr><th>Step</th><th class="num">Weeks</th><th>Note</th></tr>
+<tr><td>Parent 1</td><td class="num">5</td><td>3 generations</td></tr>
+<tr><td>Parent 2</td><td class="num">5</td><td>in parallel, plus one PCR</td></tr>
+<tr><td>experimental cross</td><td class="num">2</td><td></td></tr>
+<tr><td>stable stocks</td><td class="num">+2</td>
+<td>one generation for each parent, in parallel. Optional for one arm only.</td></tr>
+<tr class="hi"><td>first ppk23 image</td><td class="num">7</td><td>from the start</td></tr>
+<tr><td>ppk25 arm</td><td class="num">+10</td><td>clean BDSC 93028, rebuild Parent 1, cross</td></tr>
+</table>
+</div>
+<h3 id="a-s46"><span class="secno"></span> How to change the arm</h3>
+<div class="scroll">
+<table>
+<tr><th>Arm</th><th>Driver in Parent 1</th><th>Instruction</th></tr>
+<tr class="hi"><td>ppk23</td><td>BDSC 93026, chr 2</td><td>Use the crosses above.</td></tr>
+<tr class="hi"><td>ppk25</td><td>BDSC 93028, the chr 2 copy</td><td>Remove the chr 3 copy first.</td></tr>
+<tr><td>Gr68a</td><td>BDSC 57671, chr 2</td>
+<td><span class="tag m">ordered</span> 17 August 2026. Use the crosses above without a change.</td></tr>
+<tr><td>Ir52a</td><td>BDSC 60699, chr 2</td>
+<td><span class="tag m">ordered</span> 17 August 2026. Remove the chr 3 copy first. BDSC 81229 sits at
+attP2 on chromosome 3, thus that line needs the recipe of the Gr32a arm.</td></tr>
+<tr><td>Gr32a</td><td>GJ1435, chr 3</td>
+<td>The driver and brp-D3 are both on chromosome 3, thus the fill must leave chromosome 3. Use
+BDSC 32211, which carries the same reporter on the X chromosome. The mother must carry BDSC 32211,
+because a son takes his X chromosome from his mother, and this work scores males. Do
+<strong>not</strong> use R56C09-GAL4 as the target driver: that GAL4 also drives brp-D3 in
+PPN1.</td></tr>
+</table>
+</div>
+<h2 id="a-s5"><span class="secno"></span> &middot; Clean-up</h2>
+<div class="scroll">
+<table>
+<tr><th>Line</th><th>Remove</th><th>Effect if you do not</th><th>Method</th><th class="num">Weeks</th></tr>
+<tr class="bad" data-trk="c93028"><td>BDSC 93028</td><td>the second copy, chr 3</td>
+<td>Two copies against one change the driver strength between the arms.</td>
+<td>Cross to GJ954. Both inserts have the same marker, thus confirm by PCR.</td>
+<td class="num">4</td></tr>
+</table>
+</div>
+<p class="note">Use the double balancer <strong>GJ954</strong>, <code>w; IF/CyO; TM2/TM6B</code>.</p>
+<h2 id="a-s10"><span class="secno"></span> &middot; Order of work</h2>
+<ul class="steps">
+<li>Set up the BDSC 93028 clean-up. That stock is in the laboratory.</li>
+<li>Set up Parent 1 when LMB-494 arrives. LMB-494 comes from the Cambridge Fly Facility.</li>
+<li>Watch for BDSC 32209 and BDSC 32211. The order date is 17 August 2026.</li>
+<li>Give the nerve cords to the person who does the gel and the imaging.</li>
+</ul>
+<h2 id="a-s6"><span class="secno"></span> &middot; Controls</h2>
+<div class="scroll">
+<table>
+<tr><th>Control</th><th>Genotype</th><th>Expected result</th></tr>
+<tr class="hi" data-trk="ctl-nogal4"><td>no sensory driver</td><td>Parent 2 crossed to a stock with no GAL4</td>
+<td>The label channel on the PPN1 mask is empty. This control can fail. It gives the failure
+threshold.</td></tr>
+<tr data-trk="ctl-nolexa"><td>no target driver</td><td>Parent 1 crossed to a stock with no LexA</td>
+<td>The fill channel is empty.</td></tr>
+<tr class="hi" data-trk="ctl-false"><td>false contact rate</td>
+<td>a neuron in the same neuropil that receives almost no ppk input</td>
+<td>puncta for each square micrometre of membrane. Without this, "touch" has no measured
+value.</td></tr>
+<tr class="hi" data-trk="b-target"><td>the PPN1 mask</td>
+<td>Kallman PPN1 Gal4 &times; GJ599, at attP40. Not GJ598, which is on the X chromosome.</td>
+<td>The shape of PPN1 alone. It is the mask for the count, and it shows which cells R56C09
+labels. All the stocks are in the laboratory, thus you can do this control today.</td></tr>
+<tr data-trk="ctl-sex"><td>sex</td><td>a female of the full genotype</td>
+<td>a negative control for the male specific pattern</td></tr>
+</table>
+</div>
 
+<h2 id="a-s2"><span class="secno"></span> &middot; The state of the work</h2>
+<p>This section counts the steps of this path. You set each state on the row of the step. Section
+<a class="xref" href="#a-s11" data-ref="a-s11">11</a> gives the steps in motion and the record.</p>
+<noscript>
+<p class="note">The tracker needs JavaScript. The list below gives the name of each step. It gives
+no state. The record is in status.json, beside this page.</p>
+</noscript>
+<div class="callout" hidden aria-live="polite" data-trk-panel data-trk-stale="14"></div>
+<details data-trk-reg open>
+<summary>All steps</summary>
+<p class="note">This list gives the name of each step. A state chip sits on the row of each step,
+in the section that describes it.</p>
+
+<p class="trk-g">Crosses and clean-ups</p>
+<ul>
+<li data-trk-id="a1-g0" data-trk-kind="cross"
+    data-trk-needs="ord-lmb494:arrived">Parent 1, G0</li>
+<li data-trk-id="a1-f1" data-trk-kind="cross"
+    data-trk-needs="a1-g0:done">Parent 1, F1</li>
+<li data-trk-id="a2-g0" data-trk-kind="cross"
+    data-trk-needs="ord-32209:arrived">Parent 2, G0</li>
+<li data-trk-id="a2-f1" data-trk-kind="cross"
+    data-trk-needs="a2-g0:done">Parent 2, F1</li>
+<li data-trk-id="a2-hz" data-trk-kind="cross"
+    data-trk-needs="a2-f1:done">Parent 2, a stable stock</li>
+<li data-trk-id="a1-hz" data-trk-kind="cross"
+    data-trk-needs="a1-f1:done">Parent 1, a stable stock</li>
+<li data-trk-id="ax" data-trk-kind="cross"
+    data-trk-needs="a1-f1:done a2-f1:done">the experimental cross</li>
+<li data-trk-id="c93028" data-trk-kind="cross">the BDSC 93028 clean-up</li>
+<li data-trk-id="b-target" data-trk-kind="cross">the PPN1 mask control</li>
+</ul>
+
+<p class="trk-g">Controls</p>
+<ul>
+<li data-trk-id="ctl-nogal4" data-trk-kind="cross"
+    data-trk-needs="a2-f1:done">the control with no sensory driver</li>
+<li data-trk-id="ctl-nolexa" data-trk-kind="cross"
+    data-trk-needs="a1-f1:done">the control with no target driver</li>
+<li data-trk-id="ctl-false" data-trk-kind="cross">the false contact rate</li>
+<li data-trk-id="ctl-sex" data-trk-kind="cross"
+    data-trk-needs="ax:done">the female of the full genotype</li>
+</ul>
+
+
+
+<p class="trk-g">Orders</p>
+<ul>
+<li data-trk-id="ord-lmb494" data-trk-kind="order">LMB-494</li>
+<li data-trk-id="ord-32209" data-trk-kind="order">BDSC 32209</li>
+<li data-trk-id="ord-32211" data-trk-kind="order">BDSC 32211</li>
+<li data-trk-id="ord-57671" data-trk-kind="order">BDSC 57671</li>
+<li data-trk-id="ord-58370" data-trk-kind="order">BDSC 58370</li>
+<li data-trk-id="ord-60699" data-trk-kind="order">BDSC 60699</li>
+<li data-trk-id="ord-77138" data-trk-kind="order">BDSC 77138</li>
+<li data-trk-id="ord-77139" data-trk-kind="order">BDSC 77139</li>
+<li data-trk-id="ord-81229" data-trk-kind="order">BDSC 81229</li>
+<li data-trk-id="ord-81230" data-trk-kind="order">BDSC 81230</li>
+</ul>
+
+<p class="trk-g">Questions</p>
+<ul>
+<li data-trk-id="q-lexaop" data-trk-kind="question">the correct LexAop2-mCD8::GFP stock</li>
+<li data-trk-id="q-lmb494marker" data-trk-kind="question"
+    data-trk-needs="ord-lmb494:arrived">the balancer marker of LMB-494</li>
+<li data-trk-id="q-r56c09" data-trk-kind="question">which cells R56C09 labels</li>
+<li data-trk-id="q-an09b017" data-trk-kind="question">the vAB3 line of each AN09B017 member</li>
+<li data-trk-id="q-lmb494site" data-trk-kind="question"
+    data-trk-needs="ord-lmb494:arrived">the landing site of brp-D3 in LMB-494</li>
+<li data-trk-id="q-frudsx" data-trk-kind="question">the chromosomes of fru-LexA, dsx-LexA and dsx-GAL4</li>
+<li data-trk-id="q-brpd3chr2" data-trk-kind="question">a brp-D3-Cherry insertion on chromosome 2 or the X chromosome</li>
+<li data-trk-id="q-ir52blexa" data-trk-kind="question">the Ir52b-LexA line of the Carlson laboratory</li>
+<li data-trk-id="q-ppk25lexa" data-trk-kind="question">a ppk25-LexA line, if one exists</li>
+<li data-trk-id="q-ir52aconstruct" data-trk-kind="question">which Ir52a-GAL4 construct the papers used</li>
+</ul>
+</details>
+</div>
+
+<div class="pane" id="pane-a-reagents" role="tabpanel" aria-labelledby="sub-a-reagents">
+<h2 id="a-s3"><span class="secno"></span> &middot; Stock list</h2>
+
+<div class="scroll">
+<table data-gt-src>
+<tr><th>Line</th><th>Type</th><th>Chr</th><th>Genotype</th><th>Location</th><th>Condition</th></tr>
+<tr class="hi"><td>BDSC 93026</td><td>sensory driver</td><td>2</td><td><code>w1118; P{ppk23-Gal4.2.695}2; TM2/TM6B</code></td><td>25 degrees Celsius, 3 vials</td><td><span class="tag ok">ready</span></td></tr>
+<tr class="hi" data-gt-also="Kallman PPN1 LexA"><td>BDSC 53584</td><td>AN driver</td><td>2, attP40</td><td><code>w1118; P{GMR56C09-lexA}attP40</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span> The target driver of PPN1.</td></tr>
+<tr class="hi"><td>BDSC 32209</td><td>fluorophore</td><td>3, attP2</td><td><code>w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-IVS-myr::GFP}attP2</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The fill of every arm that keeps chromosome 3 free. It sits at attP2, thus BDSC 77139 replaces it when a second transgene is at attP2.</td></tr>
+<tr class="hi"><td>BDSC 32211</td><td>fluorophore</td><td>X, su(Hw)attP8</td><td><code>y[1] w[*] P{y[+t7.7] w[+mC]=13XLexAop2-IVS-myr::GFP}su(Hw)attP8</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The same reporter on the X chromosome. It frees chromosome 3
+for a driver. The Gr32a arm uses it.</td></tr>
+<tr class="hi"><td>LMB-494</td><td>synapse marker</td><td>3</td><td><code>w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP</code></td><td>Cambridge Fly Facility</td><td><span class="tag ok">arrived</span> Check the Dfd-YFP marker on the balancers.</td></tr>
+<tr data-gt-also="Kallman PPN1 Gal4"><td>Kallman PPN1 GAL4</td><td>AN driver</td><td>3, attP2</td><td><code>w1118; P{GMR56C09-GAL4}attP2</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span> The GAL4 form and the LexA form drive the same cells. The PPN1 mask control needs the GAL4 form.</td></tr>
+<tr><td>BDSC 93028</td><td>sensory driver</td><td>2 and 3</td><td><code>w1118; P{ppk25-GAL4.S}2; P{ppk25-GAL4.S}3</code></td><td>18 degrees Celsius</td><td><span class="tag warn">clean</span> remove the chromosome 3 copy</td></tr>
+<tr><td>GJ1435</td><td>sensory driver</td><td>3</td><td><code>w118; Sp/CyO; Gr32a-Gal4.3.7.PW</code></td><td>25 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr><td>BDSC 77138</td><td>fluorophore</td><td>2</td><td><code>w[*]; P{w[+mC]=13xLexAop2-CD4-tdTom}4</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. A random P insertion, thus it is not at attP40. It gives the arms with a
+chromosome 3 driver a fill that is not on the X chromosome.</td></tr>
+<tr><td>BDSC 77139</td><td>fluorophore</td><td>3, VK00033</td><td><code>w[*]; PBac{y[+mDint2] w[+mC]=13xLexAop2-CD4-tdTom}VK00033/TM6B, Tb[1]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. VK00033 is not attP2. Use this line in place of BDSC 32209 in every
+genotype that has a second transgene at attP2.</td></tr>
+<tr><td>BDSC 60699</td><td>sensory driver</td><td>2</td><td><code>w[*]; P{w[+mC]=Ir52a-GAL4.K}2/CyO; P{w[+mC]=UAS-mCD8::GFP.L}LL6</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. <strong>Remove chromosome 3 first.</strong> Cross to GJ954 two times, and
+keep TM2/TM6B. Do this before brp-D3-Cherry comes in. Both labels are w+, thus you cannot see the
+difference between them later.</td></tr>
+<tr><td>BDSC 81229</td><td>sensory driver</td><td>3, attP2</td><td><code>w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52a-GAL4.2931}attP2/TM6B, Tb[+]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. This line has no second label. Both chromosomes have a marker. The
+promoter fragment is different from the fragment of BDSC 60699.</td></tr>
+<tr><td>BDSC 81230</td><td>sensory driver</td><td>3, attP2</td><td><code>w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52b-GAL4.C}attP2</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. One cross only: look at the legs and the wing margin. Ir52b does not
+separate WG1 from WG2. Do not put this line with BDSC 60692, because both sit at attP2.</td></tr>
+<tr><td>BDSC 57671</td><td>sensory driver</td><td>2</td><td><code>w[*]; P{w[+mC]=Gr68a-GAL4.1.8}2; Dr[1]/TM3, Sb[1]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The driver is on chromosome 2, thus this arm uses the recipe of BDSC 93026
+without a change.</td></tr>
+<tr><td>BDSC 58370</td><td>sensory driver</td><td>3</td><td><code>w[*]; wg[Sp-1]/CyO; P{w[+mC]=Gr68a-GAL4.B}1</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The promoter fragment is different from the fragment of BDSC 57671. The
+Gr68a driver also labels mechanosensory cells, thus two fragments give a control.</td></tr>
+<tr><td>GJ954</td><td>balancer</td><td>2 and 3</td><td><code>w; IF/CyO; TM2/TM6B</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr class="bad"><td>GJ890</td><td>tag, needs a dye</td><td>2</td><td><code>LexAop2-myr4xCLIPf</code>, attP40</td><td>18 degrees Celsius</td><td><span class="tag q">needs a ligand</span> This laboratory developed the tags, thus ask Julian for the dye.</td></tr>
+<tr class="bad"><td>GJ891</td><td>tag, needs a dye</td><td>3</td><td><code>LexAop2-myr4xCLIPf</code>, VK00005</td><td>18 degrees Celsius</td><td><span class="tag warn">not used</span> As GJ890.</td></tr>
+<tr class="bad"><td>GJ894</td><td>tag, needs a dye</td><td>2</td><td><code>LexAop2-myr4xSNAPf</code>, attP40</td><td>18 degrees Celsius</td><td><span class="tag warn">not used</span> As GJ890.</td></tr>
+<tr class="bad"><td>GJ895</td><td>tag, needs a dye</td><td>3</td><td><code>IF/CyO; LexAop2-myr4xSNAPf-VK00005-1M/TM6B</code></td><td>18 degrees Celsius</td><td><span class="tag warn">not used</span> As GJ890.</td></tr>
+<tr><td>GJ598</td><td>fluorophore</td><td>X</td><td><code>w* P{10XUAS-IVS-myr::GFP}su(Hw)attP8</code></td><td>18 degrees Celsius</td><td><span class="tag warn">X chromosome</span> The mother must carry it, because a son takes his X
+chromosome from his mother.</td></tr>
+<tr><td>GJ832</td><td>balancer</td><td>2 and 3</td><td><code>If/CyO; hsFLP, MKRS/TM6B, Tb1</code></td><td>18 degrees Celsius</td><td><span class="tag warn">has hsFLP</span> Use GJ954 first.</td></tr>
+<tr><td>SS104905</td><td>AN driver</td><td>2 and 3</td><td><code>w; 71A10-p65ADZ/CyO; VT034623-ZpGdbd in attP2/TM6B,Tb</code></td><td>25 degrees Celsius</td><td><span class="tag q">not mapped</span> Four vAB3 lines are alive: SS103089, SS104905, SS104909 and SS105464.</td></tr>
+<tr><td>LMB-495</td><td>synapse marker</td><td>3</td><td><code>2xUAS:brp-mRFP</code>, full length</td><td>Cambridge Fly Facility</td><td><span class="tag m">on the way</span> Full length Bruchpilot aggregates. Do not count with it.</td></tr>
+<tr><td>GJ599</td><td>fluorophore</td><td>2, attP40</td><td><code>w*; P{10XUAS-IVS-myr::GFP}attP40</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+</table>
+</div>
+
+<p class="note">In path A the GAL4 is in the sensory neurons. A UAS fill thus labels the bristles
+and not PPN1. The path A fill must be LexAop.</p>
+
+<h2 id="a-s8"><span class="secno"></span> &middot; Items to order</h2>
 <div class="scroll">
 <table>
 <tr><th>Item</th><th>Function</th><th>Note</th></tr>
@@ -1073,29 +676,83 @@ on chromosome 2.</p>
 <td>The same reporter on the X chromosome. The Gr32a driver and brp-D3 both need chromosome 3.</td></tr>
 <tr data-trk="ord-lmb494"><td>LMB-494, UAS-brp-D3-Cherry</td><td>the synapse label of path A</td>
 <td>Requested from the Cambridge Fly Facility on 13 August 2026.</td></tr>
-<tr data-trk="ord-gj948"><td>GJ948, LexAop2-Brp-mCherry</td><td>the synapse label of path B</td>
-<td>Requested from the Cambridge Fly Facility on 13 August 2026.</td></tr>
 </table>
 </div>
-
 <p class="note">The gel and the imaging are on the Expansion tab. Another person does that work.
-Give them the nerve cords and the numbers of section <a class="xref" href="#s7" data-ref="s7">7</a>.</p>
+Give them the nerve cords and the numbers of section <a class="xref" href="#a-s7" data-ref="a-s7">7</a>.</p>
 
-<h2 id="s9" data-path="a b"><span class="secno">10</span> &middot; Open questions</h2>
+<h2 id="a-s11"><span class="secno"></span> &middot; The steps in motion</h2>
+<noscript>
+<p class="note">This section needs JavaScript. The record is in status.json, beside this page.</p>
+</noscript>
+<div class="callout" hidden aria-live="polite" data-trk-detail></div>
+</div>
 
+</section>
+<section class="doc" id="doc-b" role="tabpanel" aria-labelledby="tab-b" data-trk-scope="b">
+<p class="pathlede">Path B puts the synapse label in LexA. Two receptor drivers are possible. Any GAL4 target is possible, and a split-GAL4 target.</p>
+<div class="subtabs" role="tablist" aria-label="Path B, the parts">
+  <button role="tab" id="sub-b-question" aria-controls="pane-b-question" aria-selected="true">Question</button>
+  <button role="tab" id="sub-b-method" aria-controls="pane-b-method" aria-selected="false">Method</button>
+  <button role="tab" id="sub-b-reagents" aria-controls="pane-b-reagents" aria-selected="false">Reagents</button>
+</div>
+
+<div class="pane on" id="pane-b-question" role="tabpanel" aria-labelledby="sub-b-question">
+<h2 id="b-s1"><span class="secno"></span> &middot; The target genotypes</h2>
+<p><strong>Path B</strong>, label in LexA. One arm only. Any GAL4 or split-GAL4 target.</p>
+<pre><code>w/Y ; ppk23-LexA / + ; target-GAL4 / UAS-myr::GFP     plus LexAop2-Brp-mCherry</code></pre>
+<p class="note">The ppk23-LexA of this genotype is ppk23-LexA-clean. The stock in
+the incubator is ppk23-LexA-dirty, and it carries 22B10-GAL4, which drives the UAS fill in the
+wrong cells.</p>
+<p class="trk-host" data-trk="b-sensory"></p>
+<p class="note">The record gives no chromosome for GJ948, thus the direction of a
+cross that carries it is not yet known. Find the chromosome when the stock arrives: section <a class="xref" href="#b-s9" data-ref="b-s9">10</a> holds
+the question. The positions in SS103018 are also not scored.</p>
+<p class="note">Two path B parts are on the X chromosome, or may be. GJ598 is at
+su(Hw)attP8. GJ948 is not placed. Each of them must come from the mother, because a son takes his X
+chromosome from his mother, and this work scores males. Every other path B cross goes in either
+direction.</p>
+<div class="callout">
+<p><span class="tag ok">path A is the main line</span> The receptor driver lines exist in GAL4. Only
+four LexA lines exist for the ten receptor genes, and only two of them apply here: ppk23-LexA and
+Ir52a-LexA. Path A can thus use every receptor driver. Path B can use two.</p>
+</div>
+<h2 id="b-s7"><span class="secno"></span> &middot; What the PPN1 counts show</h2>
+<p>PPN1 does not test the receptor assignment. It tests the <strong>method</strong>. Measure the two
+arms. Compare each count against the connectome count. A measured ratio near the predicted ratio
+shows that the method counts synapses here. A reader then accepts a later measurement at a target
+that separates the two groups.</p>
+<p class="note">The Which path tab gives the predicted ratio. It gives one ratio for the whole
+neuron, one for the wing neuropil and one for the leg neuropil.</p>
+<p>A ratio far from the predicted ratio shows that the method is not quantitative here. Then stop,
+and use a functional method instead.</p>
+<h3><span class="secno"></span> The absolute counts</h3>
+<p>The whole input of PPN1 is <strong>33476</strong> connections. The ppk cells give 81 percent of
+it. About <strong>27000</strong> presynaptic sites are apposed to PPN1. One site gives approximately
+one connection onto one target cell. <strong>Do not divide by six.</strong></p>
+<p>Expect about <strong>20000</strong> puncta in the ppk23 arm. That number holds two PPN1 cells, at
+the 74 percent that the membrane contact method of Lillvis et al. 2022 gives. That method found 501 sites
+against the 677 sites of the electron microscopy sample. Their best single sample gives 89 percent,
+thus 24000 puncta. Do not expect the best sample.</p>
+<p>The median distance between sites is <strong>294 nm</strong>. The person who does the imaging
+needs this number.</p>
+<p class="note">A count of a few thousand puncta shows a failure. The label, the antibody or the
+segmentation loses most of the sites. The connectome is not wrong. Decide the threshold before you
+image.</p>
+<h2 id="b-s9"><span class="secno"></span> &middot; Open questions</h2>
 <div class="scroll">
 <table>
 <tr><th>Question</th><th>Blocks</th><th>Action</th></tr>
 <tr class="hi" data-trk="q-gj948chr"><td>Which chromosome has GJ948?</td><td>all of path B</td>
-<td>The stock is here now. Cross it to any LexA driver and look for red, or ask the Cambridge Fly
-Facility for the site.</td></tr>
+<td>Cross it to any LexA driver and look for red, or ask the Cambridge Fly Facility for the
+site.</td></tr>
 <tr data-trk="q-lexaop"><td>Which 13XLexAop2-IVS-myr::GFP stock?</td><td>&mdash;</td>
 <td>BDSC 32209 at attP2, and BDSC 32211 on the X chromosome. Chosen on 17 August 2026.</td></tr>
 <tr data-trk="q-lmb494marker"><td>Which balancer marker does LMB-494 have?</td><td>the larval sort</td>
 <td>The record gives "eYFP" on one tray and "YFP" on another. The stock is here, thus examine it now. The larval sort needs this marker.</td></tr>
 <tr data-trk="q-ss103018"><td>What are the positions in SS103018?</td><td>the discriminating target of path B</td>
 <td>Score the hemidrivers and the balancers.</td></tr>
-<tr data-trk="q-r56c09"><td>Which cells does R56C09 label?</td><td>the calibration of section <a class="xref" href="#s7" data-ref="s7">7</a></td>
+<tr data-trk="q-r56c09"><td>Which cells does R56C09 label?</td><td>the calibration of section <a class="xref" href="#b-s7" data-ref="b-s7">7</a></td>
 <td>Use MCFO. If the line labels AN05B102 b, c and d as well as a, and you can separate them by
 shape, each cell gives its own predicted ratio: a 0.41, b 0.36, c 0.27, d 0.78. That gives four
 calibration points in one animal, thus more cells are better, not worse. If you cannot separate
@@ -1104,84 +761,764 @@ them, the prediction must be weighted by the cells that the line labels.</td></t
 <td>Use MCFO. Four lines are alive: SS103089, SS104905, SS104909 and SS105464.</td></tr>
 </table>
 </div>
+</div>
 
-<h2 id="s10" data-path="a b"><span class="secno">11</span> &middot; Order of work</h2>
-
+<div class="pane" id="pane-b-method" role="tabpanel" aria-labelledby="sub-b-method">
+<h2 id="b-s8c"><span class="secno"></span> &middot; t-GRASP</h2>
+<p>t-GRASP splits a fluorescent protein in two halves. The pre half goes in the
+presynaptic cell. The post half goes in the postsynaptic cell. The two halves join where an active
+zone comes close to the dendrite. The joined halves make the signal. An antibody stain reads that
+signal.</p>
+<p class="note">See Shearin et al. 2018, Journal of Neuroscience Methods 306:94-102,
+PMID 29792886. That paper describes t-GRASP and gives the two stocks.</p>
+<h3 id="b-s8a"><span class="secno"></span> What a punctum shows</h3>
+<p>A punctum usually shows a dendrite membrane
+that is close to an active zone. The pre half sits at the active zones of the sensory neuron. A
+punctum is therefore more than a contact between two membranes.</p>
+<p>Shearin et al. 2018 compared the puncta against a separate Brp label. The puncta
+agreed with that label.</p>
+<p>Shearin et al. 2018 also tested nine lamina types against the R1-6 terminals. R1-6
+makes synapses onto L1, L2 and L3. t-GRASP found all three. Six other types get no synapse from R1-6.
+Five of those six gave no signal. Close membranes alone therefore do not make a punctum.</p>
+<h4 id="b-s8m"><span class="secno"></span> Two known errors</h4>
+<p>The polarity can be wrong. L4 is the sixth type
+of that test. L4 makes synapses onto R1-6, and t-GRASP found that contact. A strong driver can also
+make a punctum at a cell body, where there is no synapse. Shearin et al. write that you must confirm
+a positive result with a second method.</p>
+<h3 id="b-s8i"><span class="secno"></span> The stain</h3>
+<p>The antibody decides the signal. Shearin et al. read
+the t-GRASP signal with one antibody: anti-GFP Tag Abfinity, ThermoFisher, rabbit. This page calls
+it the Abfinity antibody. Their
+figure S1 shows that this antibody finds the joined halves. The same antibody does not find the free
+halves. A general anti-GFP can also bind a free half. Your choice of antibody therefore decides the
+meaning of the signal.</p>
+<p>This readout needs four channels.</p>
+<div class="scroll">
+<table>
+<tr><th>Channel</th><th>What it shows</th></tr>
+<tr class="hi"><td>the Abfinity antibody</td><td>the signal</td></tr>
+<tr class="hi"><td>anti-HA</td><td>the pre half</td></tr>
+<tr class="hi"><td>anti-ICAM-5</td><td>the target mask</td></tr>
+<tr class="hi"><td>nc82</td><td>each presynaptic site</td></tr>
+</table>
+</div>
+<p>A unit is one set of transgenes on one homolog. A unit moves as one piece in a
+cross.</p>
+<h3 id="b-s81"><span class="secno"></span> t-GRASP for path B, BDSC 79039</h3>
+<p>BDSC 79040 puts the pre half on UAS. BDSC 79039 puts the pre half on LexAop. Path B needs
+BDSC 79039.</p>
+<p>BDSC 79039 is not blocked. Shearin et al. 2018 made the stocks for both directions.
+The sensory driver must therefore use LexA. The target driver must use GAL4.</p>
+<div class="scroll">
+<table>
+<tr><th>Part</th><th>BDSC 79040</th><th>BDSC 79039</th></tr>
+<tr class="hi"><td>the pre half</td><td>on UAS</td><td>on LexAop</td></tr>
+<tr class="hi"><td>the sensory driver</td><td>GAL4</td><td>LexA</td></tr>
+<tr class="hi"><td>the target driver</td><td>LexA</td><td>GAL4</td></tr>
+<tr><td>the targets it reaches</td><td>PPN1 only</td>
+<td>the GAL4 targets and the split-GAL4 targets</td></tr>
+</table>
+</div>
+<p>This route is path B with t-GRASP. BDSC 79039 carries the synapse label and the
+membrane fill in one stock. This route therefore replaces GJ948 and the UAS fill. The two halves of BDSC 79039 also sit on one chromosome 3, at attP2 and at VK00027. A target GAL4 at
+attP2 sits on the other chromosome 3. The two insertions are then in trans. One fly carries both.</p>
+<p>Three limits stay.</p>
+<ul>
+<li>The laboratory holds one sensory LexA line today, ppk23-LexA. BDSC 79039 therefore gives the
+ppk23 arm now. BDSC 60692, Ir52a-LexA, is on order. It sits at attP2, and so does the post half of
+BDSC 79039. The stock in the incubator also carries 22B10-GAL4. That GAL4 drives the post half in the wrong
+cells. The clean-up of section <a class="xref" href="#b-s51" data-ref="b-s51">5.1</a> must finish first. That clean-up takes four generations.</li>
+<li>The ppk23 arm and the ppk25 arm then use different reporter arrangements. The unknown efficiency
+of the method does not cancel in their ratio. BDSC 79039 gives a yes or no answer at one target. BDSC
+79039 does not give the ratio of section <a class="xref" href="#b-s7" data-ref="b-s7">7</a>.</li>
+<li>A target GAL4 at attP2 pairs with the UAS half at attP2. A cell outside the target pattern can
+then make the post half. Prefer a target driver that is not at attP2. If the target driver sits at
+attP2, add a control animal with no sensory driver at that same target.</li>
+</ul>
+<p>The genotype with the PPN1 GAL4 target, which sits at attP2:</p>
+<pre><code>w/Y ; ppk23-LexA / + ; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027 / P{GMR56C09-GAL4}attP2</code></pre>
+<p>The genotype with a split-GAL4 target, here SS104905:</p>
+<pre><code>w/Y ; ppk23-LexA / 71A10-p65ADZ ; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027 / VT034623-ZpGdbd(attP2)</code></pre>
+<p class="trk-host" data-trk="b-grasp"></p>
+<p class="note">The split-GAL4 genotype holds two units on chromosome 2 and two units on
+chromosome 3. Each homolog holds one unit. The PPN1 GAL4 genotype holds one unit on chromosome 2 and
+two units on chromosome 3. The t-GRASP chromosome of BDSC 79039 is balanced over TM6C, Sb Tb. In the
+last cross, keep the progeny that are not Tubby.</p>
+<h2 id="b-s5"><span class="secno"></span> &middot; Clean-up</h2>
+<div class="scroll">
+<table>
+<tr><th>Line</th><th>Remove</th><th>Effect if you do not</th><th>Method</th><th class="num">Weeks</th></tr>
+<tr class="bad" data-trk="c1472-f3"><td>ppk23-LexA-dirty</td><td><code>22B10-GAL4</code>, chr 3</td>
+<td>It drives the UAS label in the wrong cells.</td>
+<td>Four generations. See the table below.</td><td class="num">6</td></tr>
+<tr class="bad" data-trk="c93028"><td>BDSC 93028</td><td>the second copy, chr 3</td>
+<td>Two copies against one change the driver strength between the arms.</td>
+<td>Cross to GJ954. Both inserts have the same marker, thus confirm by PCR.</td>
+<td class="num">4</td></tr>
+</table>
+</div>
+<p class="note">Use the double balancer <strong>GJ954</strong>, <code>w; IF/CyO; TM2/TM6B</code>.</p>
+<h3 id="b-s51"><span class="secno"></span> The ppk23-LexA clean-up, generation by generation</h3>
+<div class="scroll">
+<table>
+<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
+<tr data-trk="c1472-g0"><td class="num">G0</td><td>ppk23-LexA-dirty &times; GJ954</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr data-trk="c1472-f1"><td class="num">F1</td><td>&mdash;</td>
+<td>Curly. <strong>Not</strong> Irregular facets. <strong>Ser</strong>.</td>
+<td><code>; ppk23-LexA/CyO ; TM3,Ser / TM2 or TM6B</code>. The 22B10-GAL4 is gone.</td></tr>
+<tr class="hi" data-trk="c1472-f2"><td class="num">F2</td><td>cross to w1118</td>
+<td>Curly. <strong>Not</strong> Ser, Ubx or Tubby.</td>
+<td><code>; ppk23-LexA/CyO ; +/+</code></td></tr>
+<tr data-trk="c1472-f3"><td class="num">F3</td><td>incross</td><td>Curly</td>
+<td><strong>ppk23-LexA-clean</strong>, <code>; ppk23-LexA/CyO ; +/+</code></td></tr>
+</table>
+</div>
+<p class="note">The outcross to w1118 at F2 is necessary. GJ954 and ppk23-LexA-dirty give no plain
+chromosome 3. An incross alone therefore keeps a balancer on chromosome 3. That balancer blocks the
+target driver in the final cross. Select Ser at F1. A fly with Ser has no 22B10-GAL4 from that
+parent.</p>
+<h2 id="b-s10"><span class="secno"></span> &middot; Order of work</h2>
 <ul class="steps">
-<li>Set up the two clean-up crosses and the target side of path B. All these stocks are in the
+<li>Set up the ppk23-LexA clean-up and the target side of path B. Those stocks are in the
 laboratory.</li>
-<li>Both synapse labels come from the Cambridge Fly Facility. LMB-494 is the label of path A.
-GJ948 is the label of path B. The laboratory vial of GJ948 is dead.</li>
-<li>Set up Parent 1 when LMB-494 arrives. Set up the sensory side of path B when GJ948
-arrives.</li>
-<li>Order BDSC 32209 and BDSC 32211 now.</li>
+<li>Set up the sensory side of path B when GJ948 arrives. GJ948 comes from the Cambridge Fly
+Facility, and the laboratory vial is dead.</li>
+<li>Find the chromosome of GJ948 when the stock arrives.</li>
 <li>Give the nerve cords to the person who does the gel and the imaging.</li>
 </ul>
+<h2 id="b-s6"><span class="secno"></span> &middot; Controls</h2>
+<div class="scroll">
+<table>
+<tr><th>Control</th><th>Genotype</th><th>Expected result</th></tr>
+<tr class="hi" data-trk="ctl-nogal4"><td>no sensory driver</td><td>Parent 2 crossed to a stock with no GAL4</td>
+<td>The label channel on the PPN1 mask is empty. This control can fail. It gives the failure
+threshold.</td></tr>
+<tr data-trk="ctl-nolexa"><td>no target driver</td><td>Parent 1 crossed to a stock with no LexA</td>
+<td>The fill channel is empty.</td></tr>
+<tr class="hi" data-trk="ctl-false"><td>false contact rate</td>
+<td>a neuron in the same neuropil that receives almost no ppk input</td>
+<td>puncta for each square micrometre of membrane. Without this, "touch" has no measured
+value.</td></tr>
+<tr class="hi" data-trk="b-target"><td>the PPN1 mask</td>
+<td>Kallman PPN1 Gal4 &times; GJ599, at attP40. Not GJ598, which is on the X chromosome.</td>
+<td>The shape of PPN1 alone. It is the mask for the count, and it shows which cells R56C09
+labels. All the stocks are in the laboratory, thus you can do this control today. This cross later
+becomes the target side of path B.</td></tr>
+<tr data-trk="ctl-sex"><td>sex</td><td>a female of the full genotype</td>
+<td>a negative control for the male specific pattern</td></tr>
+</table>
+</div>
 
-<style>
- .pathsw{display:flex;gap:.4rem;flex-wrap:wrap;margin:.2rem 0 1.4rem}
- .pathsw .btn[aria-pressed="true"]{font-weight:700}
- .pathsw .btn{padding:.45rem .9rem;font-size:.82rem}
- .pathoff{display:none}
-</style>
-<script>
-(function(){
- var doc=document.getElementById("doc-crosses");
- if(!doc)return;
- var KEY="ng.first-cross.path";
- var btns=doc.querySelectorAll("[data-pathsel]");
- function block(h){ /* a heading owns every element up to the next heading of its own rank */
-  var out=[h],e=h.nextElementSibling,stop=h.tagName;
-  while(e&&e.tagName!==stop&&!(stop==="H3"&&e.tagName==="H2")){out.push(e);e=e.nextElementSibling;}
-  return out;
- }
- function apply(sel){
-  var all=document.querySelectorAll("[data-path]"),i,j,el,want,grp;
-  for(i=0;i<all.length;i++){
-   el=all[i];want=(sel==="both"||(" "+el.getAttribute("data-path")+" ").indexOf(" "+sel+" ")>=0);
-   grp=(el.tagName==="H2")?block(el):[el];
-   for(j=0;j<grp.length;j++)grp[j].classList.toggle("pathoff",!want);
-  }
-  for(i=0;i<btns.length;i++){
-   var on=btns[i].getAttribute("data-pathsel")===sel;
-   btns[i].setAttribute("aria-pressed",on?"true":"false");
-   btns[i].className=on?"btn":"btn ghost";
-  }
-  number();
-  try{window.localStorage.setItem(KEY,sel);}catch(err){}
- }
- function number(){ /* ids never change, printed numbers follow the visible set */
-  var hs=doc.querySelectorAll("h2,h3,h4"),i,h,n2=0,n3=0,n4=0,num,map={},sp;
-  for(i=0;i<hs.length;i++){
-   h=hs[i];
-   if(h.classList.contains("pathoff"))continue;
-   if(h.tagName==="H2"){n2++;n3=0;n4=0;num=""+n2;}
-   else if(h.tagName==="H3"){n3++;n4=0;num=n2+"."+n3;}
-   else{n4++;num=n2+"."+n3+"."+n4;}
-   sp=h.querySelector(".secno"); if(sp)sp.textContent=num;
-   if(h.id)map[h.id]=num;
-  }
-  try{document.dispatchEvent(new CustomEvent("pathchange"));}catch(e){}
-  var xs=doc.querySelectorAll(".xref");
-  for(i=0;i<xs.length;i++){
-   var t=map[xs[i].getAttribute("data-ref")];
-   if(t){xs[i].textContent=t;xs[i].removeAttribute("hidden");}
-   else{xs[i].setAttribute("hidden","");}
-  }
- }
- for(var k=0;k<btns.length;k++)(function(b){
-  b.onclick=function(){apply(b.getAttribute("data-pathsel"));};
- })(btns[k]);
- var start="a";
- try{var v=window.localStorage.getItem(KEY);if(v==="a"||v==="b"||v==="c"||v==="both")start=v;}catch(err){}
- apply(start);
- /* The Expansion tab comes after this script. Apply again at the complete page. */
- if(document.readyState==="loading")
-  document.addEventListener("DOMContentLoaded",function(){apply(start);},false);
-})();
-</script>
+<h2 id="b-s2"><span class="secno"></span> &middot; The state of the work</h2>
+<p>This section counts the steps of this path. You set each state on the row of the step. Section
+<a class="xref" href="#b-s11" data-ref="b-s11">11</a> gives the steps in motion and the record.</p>
+<noscript>
+<p class="note">The tracker needs JavaScript. The list below gives the name of each step. It gives
+no state. The record is in status.json, beside this page.</p>
+</noscript>
+<div class="callout" hidden aria-live="polite" data-trk-panel data-trk-stale="14"></div>
+<details data-trk-reg open>
+<summary>All steps</summary>
+<p class="note">This list gives the name of each step. A state chip sits on the row of each step,
+in the section that describes it.</p>
 
+<p class="trk-g">Crosses and clean-ups</p>
+<ul>
+<li data-trk-id="c1472-g0" data-trk-kind="cross">the ppk23-LexA clean-up, G0</li>
+<li data-trk-id="c1472-f1" data-trk-kind="cross"
+    data-trk-needs="c1472-g0:done">the ppk23-LexA clean-up, F1</li>
+<li data-trk-id="c1472-f2" data-trk-kind="cross"
+    data-trk-needs="c1472-f1:done">the ppk23-LexA clean-up, F2</li>
+<li data-trk-id="c1472-f3" data-trk-kind="cross"
+    data-trk-needs="c1472-f2:done">the ppk23-LexA clean-up, F3</li>
+<li data-trk-id="c93028" data-trk-kind="cross">the BDSC 93028 clean-up</li>
+<li data-trk-id="b-target" data-trk-kind="cross">the PPN1 mask control</li>
+</ul>
+
+<p class="trk-g">Controls</p>
+<ul>
+<li data-trk-id="ctl-nogal4" data-trk-kind="cross"
+    data-trk-needs="a2-f1:done">the control with no sensory driver</li>
+<li data-trk-id="ctl-nolexa" data-trk-kind="cross"
+    data-trk-needs="a1-f1:done">the control with no target driver</li>
+<li data-trk-id="ctl-false" data-trk-kind="cross">the false contact rate</li>
+<li data-trk-id="ctl-sex" data-trk-kind="cross"
+    data-trk-needs="ax:done">the female of the full genotype</li>
+</ul>
+
+
+<p class="trk-g">Path B, a later phase</p>
+<p class="note">Path A is the main line, because the receptor drivers exist in GAL4.
+Path B stays for one job that path A cannot do: a split-GAL4 target, for example SS103018 for
+AN13B002. A split occupies the GAL4 system, thus the label must then be in LexA. Path B waits for
+GJ948.</p>
+<ul>
+<li data-trk-id="b-sensory" data-trk-kind="cross"
+    data-trk-needs="ord-gj948:arrived q-gj948chr:done c1472-f3:done">the sensory side of path B</li>
+<li data-trk-id="b-grasp" data-trk-kind="cross"
+    data-trk-needs="c1472-f3:done">the t-GRASP cross of path B</li>
+</ul>
+
+<p class="trk-g">Orders</p>
+<ul>
+<li data-trk-id="ord-gj948" data-trk-kind="order">GJ948</li>
+<li data-trk-id="ord-57671" data-trk-kind="order">BDSC 57671</li>
+<li data-trk-id="ord-58370" data-trk-kind="order">BDSC 58370</li>
+<li data-trk-id="ord-60692" data-trk-kind="order">BDSC 60692</li>
+<li data-trk-id="ord-60699" data-trk-kind="order">BDSC 60699</li>
+<li data-trk-id="ord-81229" data-trk-kind="order">BDSC 81229</li>
+<li data-trk-id="ord-81230" data-trk-kind="order">BDSC 81230</li>
+</ul>
+
+<p class="trk-g">Questions</p>
+<ul>
+<li data-trk-id="q-gj948chr" data-trk-kind="question">the chromosome of GJ948</li>
+<li data-trk-id="q-lexaop" data-trk-kind="question">the correct LexAop2-mCD8::GFP stock</li>
+<li data-trk-id="q-lmb494marker" data-trk-kind="question"
+    data-trk-needs="ord-lmb494:arrived">the balancer marker of LMB-494</li>
+<li data-trk-id="q-ss103018" data-trk-kind="question">the positions in SS103018</li>
+<li data-trk-id="q-r56c09" data-trk-kind="question">which cells R56C09 labels</li>
+<li data-trk-id="q-an09b017" data-trk-kind="question">the vAB3 line of each AN09B017 member</li>
+<li data-trk-id="q-lmb494site" data-trk-kind="question"
+    data-trk-needs="ord-lmb494:arrived">the landing site of brp-D3 in LMB-494</li>
+<li data-trk-id="q-frudsx" data-trk-kind="question">the chromosomes of fru-LexA, dsx-LexA and dsx-GAL4</li>
+<li data-trk-id="q-brpd3chr2" data-trk-kind="question">a brp-D3-Cherry insertion on chromosome 2 or the X chromosome</li>
+<li data-trk-id="q-ir52blexa" data-trk-kind="question">the Ir52b-LexA line of the Carlson laboratory</li>
+<li data-trk-id="q-ppk25lexa" data-trk-kind="question">a ppk25-LexA line, if one exists</li>
+<li data-trk-id="q-ir52aconstruct" data-trk-kind="question">which Ir52a-GAL4 construct the papers used</li>
+</ul>
+</details>
+</div>
+
+<div class="pane" id="pane-b-reagents" role="tabpanel" aria-labelledby="sub-b-reagents">
+<h2 id="b-s3"><span class="secno"></span> &middot; Stock list</h2>
+
+<div class="scroll">
+<table data-gt-src>
+<tr><th>Line</th><th>Type</th><th>Chr</th><th>Genotype</th><th>Location</th><th>Condition</th></tr>
+<tr><td>GJ948</td><td>synapse marker</td><td>not recorded</td><td><code>LexAop2-Brp-mCherry</code></td><td>Cambridge Fly Facility</td><td>On the way from the Cambridge Fly Facility. The laboratory vial is dead.</td></tr>
+<tr data-gt-also="GJ1472; ppk23-LexA"><td>ppk23-LexA-dirty</td><td>sensory driver</td><td>2</td><td><code>;ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser</code></td><td>25 degrees Celsius, Bella</td><td><span class="tag warn">clean it</span> It has 22B10-GAL4. See section <a class="xref" href="#b-s51" data-ref="b-s51">5.1</a>.</td></tr>
+<tr><td>ppk23-LexA-clean</td><td>sensory driver</td><td>2</td><td><code>; ppk23-LexA/CyO ; +/+</code></td><td>does not exist yet</td><td><span class="tag q">to make</span> The product of the clean-up of section <a class="xref" href="#b-s51" data-ref="b-s51">5.1</a>, at F3.</td></tr>
+<tr data-gt-also="Kallman PPN1 Gal4"><td>Kallman PPN1 GAL4</td><td>AN driver</td><td>3, attP2</td><td><code>w1118; P{GMR56C09-GAL4}attP2</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span> The GAL4 form and the LexA form drive the same cells. The PPN1 mask control needs the GAL4 form.</td></tr>
+<tr><td>BDSC 93028</td><td>sensory driver</td><td>2 and 3</td><td><code>w1118; P{ppk25-GAL4.S}2; P{ppk25-GAL4.S}3</code></td><td>18 degrees Celsius</td><td><span class="tag warn">clean</span> remove the chromosome 3 copy</td></tr>
+<tr><td>GJ1435</td><td>sensory driver</td><td>3</td><td><code>w118; Sp/CyO; Gr32a-Gal4.3.7.PW</code></td><td>25 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr><td>BDSC 60692</td><td>sensory driver</td><td>3, attP2 and VK00005</td><td><code>w[*]; wg[Sp-1]/CyO; P{Ir52a-LexA-VP16}attP2 PBac{Ir52a-LexA-VP16}VK00005/TM3, Sb[1] Ser[1]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. Two copies on one chromosome 3. John Carlson gave the line to the stock
+centre, thus it is the line of Luo, Talross and Carlson 2024. It occupies attP2.</td></tr>
+<tr><td>BDSC 60699</td><td>sensory driver</td><td>2</td><td><code>w[*]; P{w[+mC]=Ir52a-GAL4.K}2/CyO; P{w[+mC]=UAS-mCD8::GFP.L}LL6</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. <strong>Remove chromosome 3 first.</strong> Cross to GJ954 two times, and
+keep TM2/TM6B. Do this before brp-D3-Cherry comes in. Both labels are w+, thus you cannot see the
+difference between them later.</td></tr>
+<tr><td>BDSC 81229</td><td>sensory driver</td><td>3, attP2</td><td><code>w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52a-GAL4.2931}attP2/TM6B, Tb[+]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. This line has no second label. Both chromosomes have a marker. The
+promoter fragment is different from the fragment of BDSC 60699.</td></tr>
+<tr><td>BDSC 81230</td><td>sensory driver</td><td>3, attP2</td><td><code>w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52b-GAL4.C}attP2</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. One cross only: look at the legs and the wing margin. Ir52b does not
+separate WG1 from WG2. Do not put this line with BDSC 60692, because both sit at attP2.</td></tr>
+<tr><td>BDSC 57671</td><td>sensory driver</td><td>2</td><td><code>w[*]; P{w[+mC]=Gr68a-GAL4.1.8}2; Dr[1]/TM3, Sb[1]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The driver is on chromosome 2, thus this arm uses the recipe of BDSC 93026
+without a change.</td></tr>
+<tr><td>BDSC 58370</td><td>sensory driver</td><td>3</td><td><code>w[*]; wg[Sp-1]/CyO; P{w[+mC]=Gr68a-GAL4.B}1</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The promoter fragment is different from the fragment of BDSC 57671. The
+Gr68a driver also labels mechanosensory cells, thus two fragments give a control.</td></tr>
+<tr><td>GJ954</td><td>balancer</td><td>2 and 3</td><td><code>w; IF/CyO; TM2/TM6B</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr><td>GJ598</td><td>fluorophore</td><td>X</td><td><code>w* P{10XUAS-IVS-myr::GFP}su(Hw)attP8</code></td><td>18 degrees Celsius</td><td><span class="tag warn">X chromosome</span> The mother must carry it, because a son takes his X
+chromosome from his mother.</td></tr>
+<tr><td>GJ600</td><td>fluorophore</td><td>3, attP2</td><td><code>w*;; P{10XUAS-IVS-myr::GFP}attP2</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr><td>GJ667</td><td>fluorophore</td><td>3, attP2</td><td><code>w*;; P{10XUAS-IVS-myr::GFP::P10}attP2</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr><td>GJ832</td><td>balancer</td><td>2 and 3</td><td><code>If/CyO; hsFLP, MKRS/TM6B, Tb1</code></td><td>18 degrees Celsius</td><td><span class="tag warn">has hsFLP</span> Use GJ954 first.</td></tr>
+<tr><td>SS104905</td><td>AN driver</td><td>2 and 3</td><td><code>w; 71A10-p65ADZ/CyO; VT034623-ZpGdbd in attP2/TM6B,Tb</code></td><td>25 degrees Celsius</td><td><span class="tag q">not mapped</span> Four vAB3 lines are alive: SS103089, SS104905, SS104909 and SS105464.</td></tr>
+<tr><td>BDSC 79039</td><td>t-GRASP halves</td><td>3, attP2 and VK00027</td><td><code>y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027/TM6C, Sb[1] Tb[1]</code></td><td>18 degrees Celsius</td><td><span class="tag warn">second orientation</span> LexAop drives the pre half, thus the sensory
+driver is LexA and the target driver is GAL4. This orientation opens the GAL4 targets and the
+split-GAL4 targets. The two halves sit on one chromosome 3, thus a target GAL4 at attP2 sits on the
+other chromosome 3, in trans. The laboratory holds one sensory LexA line, ppk23-LexA, thus this stock
+gives the ppk23 arm only, and the clean-up of section <a class="xref" href="#b-s51" data-ref="b-s51">5.1</a> must finish first. See section <a class="xref" href="#b-s81" data-ref="b-s81">8.1</a>.</td></tr>
+<tr><td>GJ599</td><td>fluorophore</td><td>2, attP40</td><td><code>w*; P{10XUAS-IVS-myr::GFP}attP40</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr><td>SS103018</td><td>AN driver</td><td>2 and 3</td><td>not recorded; the snapshot gives "?"</td><td>25 degrees Celsius</td><td><span class="tag warn">map it</span> AN13B002. It is a split-GAL4 target, and it separates the two groups.</td></tr>
+</table>
+</div>
+
+<h2 id="b-s8"><span class="secno"></span> &middot; Items to order</h2>
+<div class="scroll">
+<table>
+<tr><th>Item</th><th>Function</th><th>Note</th></tr>
+<tr data-trk="ord-gj948"><td>GJ948, LexAop2-Brp-mCherry</td><td>the synapse label of path B</td>
+<td>Requested from the Cambridge Fly Facility on 13 August 2026.</td></tr>
+</table>
+</div>
+<p class="note">The gel and the imaging are on the Expansion tab. Another person does that work.
+Give them the nerve cords and the numbers of section <a class="xref" href="#b-s7" data-ref="b-s7">7</a>.</p>
+
+<h2 id="b-s11"><span class="secno"></span> &middot; The steps in motion</h2>
+<noscript>
+<p class="note">This section needs JavaScript. The record is in status.json, beside this page.</p>
+</noscript>
+<div class="callout" hidden aria-live="polite" data-trk-detail></div>
+</div>
+
+</section>
+<section class="doc" id="doc-c" role="tabpanel" aria-labelledby="tab-c" data-trk-scope="c">
+<p class="pathlede">Path C uses t-GRASP. The two halves of a fluorescent protein join at a contact. The result is a ratio. It gives no synapse count.</p>
+<div class="subtabs" role="tablist" aria-label="Path C, the parts">
+  <button role="tab" id="sub-c-question" aria-controls="pane-c-question" aria-selected="true">Question</button>
+  <button role="tab" id="sub-c-method" aria-controls="pane-c-method" aria-selected="false">Method</button>
+  <button role="tab" id="sub-c-reagents" aria-controls="pane-c-reagents" aria-selected="false">Reagents</button>
+</div>
+
+<div class="pane on" id="pane-c-question" role="tabpanel" aria-labelledby="sub-c-question">
+<h2 id="c-s1"><span class="secno"></span> &middot; The target genotypes</h2>
+<p><strong>Path C</strong>, t-GRASP. t-GRASP builds a fluorescent protein from two halves. The
+presynaptic neuron makes one half. The postsynaptic neuron makes the other half. The two halves join
+at a contact, and the joined protein makes the signal. See Shearin et al. 2018, Journal of
+Neuroscience Methods 306:94-102, PMID 29792886. Both ppk arms are possible. The target is PPN1 today,
+because R56C09-lexA is the one target driver with LexA in the laboratory.</p>
+<pre><code>w ; ppk23-GAL4 / GMR56C09-lexA(attP40) ; 13XLexAop2-post-t-GRASP(attP2) 20XUAS-pre-t-GRASP(VK00027) / +</code></pre>
+<div class="scroll">
+<table>
+<tr><th>Region</th><th class="num">ppk25 family</th><th class="num">ppk23 family, all</th>
+<th class="num">predicted ratio</th></tr>
+<tr class="hi"><td>PPN1, whole</td><td class="num">11098</td><td class="num">27187</td>
+<td class="num">0.41</td></tr>
+<tr><td>PPN1, wing neuropil</td><td class="num">5701</td><td class="num">13839</td>
+<td class="num">0.41</td></tr>
+<tr><td>PPN1, leg neuropil</td><td class="num">5397</td><td class="num">13348</td>
+<td class="num">0.40</td></tr>
+</table>
+</div>
+</div>
+
+<div class="pane" id="pane-c-method" role="tabpanel" aria-labelledby="sub-c-method">
+<h2 id="c-s8c"><span class="secno"></span> &middot; t-GRASP</h2>
+<p>Section <a class="xref" href="#c-s1" data-ref="c-s1">1</a> gives the method. An antibody stain reads the joined halves. The table gives the
+four parts of path C, and the stock of each part. Shearin et al. 2018 gives the two t-GRASP stocks.</p>
+<div class="scroll">
+<table>
+<tr><th>Part</th><th>Line</th><th>Where it goes</th></tr>
+<tr class="hi"><td>the pre half</td><td>BDSC 79040, on UAS</td>
+<td>the sensory neuron, at the active zones. The carrier is the cacophony tail.</td></tr>
+<tr class="hi"><td>the post half</td><td>BDSC 79040, on LexAop</td>
+<td>PPN1, on the whole dendrite. The carrier is the mouse ICAM-5 ectodomain.</td></tr>
+<tr class="hi"><td>sensory driver</td><td>BDSC 93026, ppk23-GAL4</td><td>chromosome 2</td></tr>
+<tr class="hi"><td>target driver</td><td>BDSC 53584, R56C09-lexA at attP40</td><td>chromosome 2</td></tr>
+</table>
+</div>
+<h3 id="c-s8a"><span class="secno"></span> What a punctum shows</h3>
+<p>A punctum usually shows a dendrite membrane
+that is close to an active zone. The pre half sits at the active zones of the sensory neuron. A
+punctum is therefore more than a contact between two membranes.</p>
+<p>Shearin et al. 2018 compared the puncta against a separate Brp label. The puncta
+agreed with that label.</p>
+<p>Shearin et al. 2018 also tested nine lamina types against the R1-6 terminals. R1-6
+makes synapses onto L1, L2 and L3. t-GRASP found all three. Six other types get no synapse from R1-6.
+Five of those six gave no signal. Close membranes alone therefore do not make a punctum.</p>
+<h4 id="c-s8m"><span class="secno"></span> Two known errors</h4>
+<p>The polarity can be wrong. L4 is the sixth type
+of that test. L4 makes synapses onto R1-6, and t-GRASP found that contact. A strong driver can also
+make a punctum at a cell body, where there is no synapse. Shearin et al. write that you must confirm
+a positive result with a second method.</p>
+<h3 id="c-s8b"><span class="secno"></span> The limit</h3>
+<p>A punctum does not identify one synapse. Half of the
+presynaptic sites on PPN1 lie closer than 294 nm. A confocal without a gel does not separate them.
+Nobody has compared a t-GRASP count against electron microscopy. Path C gives a yes or no answer
+about contact. Path C gives no synapse count.</p>
+<h3 id="c-s8d"><span class="secno"></span> Why this orientation</h3>
+<p>The available drivers set the orientation. ppk25 exists in GAL4 only. The ppk25 arm therefore
+puts the GAL4 in the sensory neuron. Both arms use the same reporter arrangement, thus a difference
+between the arms is not a difference of reagent. The result is a ratio. Divide the punctum count of
+the ppk25 arm by the punctum count of the ppk23 arm.</p>
+<p class="note">That comparison needs one more condition. The two drivers must give the
+same expression level. The anti-HA channel shows the pre half in each arm. Compare the two levels
+before you report a ratio.</p>
+<p>The sensory driver is therefore GAL4. The target driver is therefore LexA. BDSC
+79040 puts the pre half on UAS, thus BDSC 79040 fits these drivers.</p>
+<h3 id="c-s8e"><span class="secno"></span> The gel and t-GRASP</h3>
+<p>Path C reads its signal on a confocal, thus path C needs no gel. A gel that denatures by heat
+probably stops the t-GRASP signal. The heat unfolds the barrel of the fluorescent protein, and the
+two halves then separate. No publication reports a test. Test one t-GRASP sample in a gel before you
+combine path C and the gel.</p>
+<h3 id="c-s8f"><span class="secno"></span> What path C needs</h3>
+<p>Path C answers one question: do the sensory neurons make a synapse onto PPN1. Path C needs no
+synapse label stock and no membrane fill stock. Path C needs no gel. Path C needs an antibody stain.
+A stain that does not enter the nerve cord stops path C.</p>
+<h3 id="c-s8h"><span class="secno"></span> The crosses</h3>
+<p>The ppk23 arm, the ppk25 arm and the Gr32a arm need no
+new stock. The laboratory holds those stocks. The Gr68a arm and the Ir52a arm wait for an ordered
+stock.</p>
+<p>Path C needs two crosses. The three elements sit in three stocks, and a cross has
+two parents. No stock holds a driver and a t-GRASP half together. The two crosses take 4 to 5
+weeks.</p>
+<p class="note">Path C needs two crosses today. Section <a class="xref" href="#c-s82" data-ref="c-s82">8.2</a> gives a stable sensory stock, and that stock
+removes the first cross. The stock needs two crosses and about 6 weeks. Build the stock, then do one
+cross for each experiment.</p>
+<div class="scroll">
+<table>
+<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
+<tr class="hi" data-trk="cx-g0"><td class="num">G0</td><td>BDSC 93026 &times; BDSC 79040</td>
+<td>Curly. <strong>Tubby</strong>.</td>
+<td><code>w; ppk23-GAL4/CyO,Dfd-EYFP; t-GRASP/TM6B</code></td></tr>
+<tr class="hi" data-trk="c-grasp"><td class="num">F1</td><td>the progeny of G0 &times; BDSC 53584</td>
+<td><strong>Not</strong> Curly. <strong>Not</strong> Tubby. Keep the males.</td>
+<td><code>w/Y ; ppk23-GAL4 / R56C09-lexA(attP40) ; t-GRASP / +</code></td></tr>
+</table>
+</div>
+<div class="scroll">
+<table>
+<tr><th>Quantity</th><th>Value</th></tr>
+<tr class="hi"><td>progeny without the two markers</td><td>one in four at the second cross</td></tr>
+<tr class="hi"><td>useful males</td><td>one in eight</td></tr>
+<tr><td>direction</td><td>free, because no element is on the X chromosome</td></tr>
+<tr><td>Tubby</td><td>from BDSC 93026, whose chromosome 3 is TM2/TM6B</td></tr>
+<tr><td>Curly</td><td>from BDSC 79040</td></tr>
+<tr><td>PCR</td><td>none, because Tubby and Curly are enough</td></tr>
+</table>
+</div>
+<h3 id="c-s8i"><span class="secno"></span> The stain</h3>
+<p>The antibody decides the signal. Shearin et al. read
+the t-GRASP signal with one antibody: anti-GFP Tag Abfinity, ThermoFisher, rabbit. This page calls
+it the Abfinity antibody. Their
+figure S1 shows that this antibody finds the joined halves. The same antibody does not find the free
+halves. A general anti-GFP can also bind a free half. Your choice of antibody therefore decides the
+meaning of the signal.</p>
+<p>This readout needs four channels.</p>
+<div class="scroll">
+<table>
+<tr><th>Channel</th><th>What it shows</th></tr>
+<tr class="hi"><td>the Abfinity antibody</td><td>the signal</td></tr>
+<tr class="hi"><td>anti-HA</td><td>the pre half</td></tr>
+<tr class="hi"><td>anti-ICAM-5</td><td>the target mask</td></tr>
+<tr class="hi"><td>nc82</td><td>each presynaptic site</td></tr>
+</table>
+</div>
+<h4 id="c-s8n"><span class="secno"></span> A blank signal channel</h4>
+<p>A blank signal channel has two
+causes. The cells make no contact, or one half is absent. The anti-HA channel shows the pre half. The
+anti-ICAM-5 channel shows the post half. Accept a blank result only when both those channels are
+positive.</p>
+<h4 id="c-s8o"><span class="secno"></span> How to compare the two arms</h4>
+<p>Write the count rule before
+you image. A punctum must lie inside the anti-ICAM-5 mask. Record the size range and the threshold
+from the pilot animal. Use the same rule for both arms. Put the two arms in fixative at the same age.</p>
+<p class="note">The laboratory holds seven anti-GFP antibodies. No record says which of them binds
+the joined halves only. An anti-GFP that also binds a free half makes a false signal. Section <a class="xref" href="#c-s83" data-ref="c-s83">8.3</a>
+lists the antibodies to order.</p>
+<h3 id="c-s8j"><span class="secno"></span> The controls</h3>
+<p>Read each control in the same session, with the same
+stain and the same settings. Accept a count only after both controls give no punctum.</p>
+<div class="scroll">
+<table>
+<tr><th>Control</th><th>Animal</th><th>Expected result</th></tr>
+<tr class="hi" data-trk="ctl-cpre"><td>the antibody, and the pre half alone</td>
+<td>the progeny of the first cross. Those flies have no LexA, thus they make no post half.</td>
+<td>no punctum</td></tr>
+<tr class="hi" data-trk="ctl-cpost"><td>the post half alone</td>
+<td>BDSC 79040 &times; BDSC 53584. Those flies have no GAL4, thus they make no pre half.</td>
+<td>no punctum</td></tr>
+</table>
+</div>
+<h3 id="c-s8k"><span class="secno"></span> The chromosomes</h3>
+<p>A unit is one set of transgenes on one homolog. A unit moves as one piece in a cross. The two
+halves of BDSC 79040 are one unit on one homolog. Chromosome 3 takes no third unit. The Gr32a driver
+GJ1435 also needs chromosome 3.</p>
+<div class="scroll">
+<table>
+<tr><th>Chromosome 3</th><th>What is on it</th><th>Space left</th></tr>
+<tr class="hi"><td>one homolog</td>
+<td>both halves of BDSC 79040: attP2, at 68A4, and VK00027, at 89E11</td>
+<td>none, the two sites are full</td></tr>
+<tr class="hi"><td>the other homolog</td><td>nothing</td><td>space for one unit</td></tr>
+</table>
+</div>
+<p>One homolog of chromosome 3 stays free. The Gr32a arm is therefore possible. GJ1435 goes on the
+free homolog, in trans to the two t-GRASP halves. That arm keeps the two crosses, because a trans
+pair does not make a stable stock.</p>
+<p>Confirm first that the Gr32a insertion is not at attP2.</p>
+<p class="trk-host" data-trk="q-gr32asite"></p>
+<p class="note">Do not put a new transgene at attP2 on the free chromosome 3. A t-GRASP
+half is already at attP2. Two transgenes at the same site pair with each other. One transgene can
+then drive the other transgene in trans. This effect is transvection. Use a different position on
+chromosome 3, or use chromosome 2, or use the X chromosome.</p>
+<p class="note">Mellert and Truman 2012, Genetics 191:1129, show transvection between
+transgenes at one phiC31 site. attP2 is one of those sites. They also show that an active UAS array
+drives transcription in trans. In BDSC 79040, attP2 holds the LexAop post half. A new UAS transgene
+at attP2 can therefore drive the post half. A cell outside the target pattern then makes the post
+half.</p>
+<h3 id="c-s82"><span class="secno"></span> A stable stock for path C</h3>
+<p>Path C needs two crosses now. One stable stock removes the first cross. Build the
+stock one time. Then do one cross for each experiment.</p>
+<h4 id="c-s8p"><span class="secno"></span> Check the arm first</h4>
+<p>The table gives the arms that can have
+a stable stock. The other arms keep the two crosses.</p>
+<div class="scroll">
+<table>
+<tr><th>Arm</th><th>Sensory driver</th><th>A stable stock</th><th>Note</th></tr>
+<tr class="hi"><td>ppk23</td><td>BDSC 93026, chromosome 2</td><td>Yes</td><td>Use the crosses above.</td></tr>
+<tr class="hi" data-trk="c93028"><td>ppk25</td><td>BDSC 93028, the chromosome 2 copy</td><td>Yes</td>
+<td>Remove the chromosome 3 copy first. That copy needs the chromosome 3 sites of the t-GRASP halves.</td></tr>
+<tr class="hi"><td>Gr68a</td><td>BDSC 57671, chromosome 2 <span class="tag m">ordered</span></td><td>Yes</td>
+<td>Wait for the stock. It was ordered on 17 August 2026.</td></tr>
+<tr><td>Ir52a</td><td>BDSC 60699, chromosome 2 <span class="tag m">ordered</span></td><td>Yes</td>
+<td>Remove the chromosome 3 copy first. It was ordered on 17 August 2026.</td></tr>
+<tr class="bad"><td>Gr32a</td><td>GJ1435, chromosome 3</td><td>No</td>
+<td>The driver and the t-GRASP halves both need chromosome 3.</td></tr>
+<tr class="bad"><td>Ir52a, second line</td><td>BDSC 81229, attP2 on chromosome 3 <span class="tag m">ordered</span></td><td>No</td>
+<td>attP2 holds a t-GRASP half.</td></tr>
+</table>
+</div>
+<p class="note">A chromosome 3 driver sits in trans to the t-GRASP halves. That
+chromosome pair does not keep its genotype. Those arms therefore keep the two crosses.</p>
+<h4 id="c-s8q"><span class="secno"></span> The plan</h4>
+<p>Put the sensory driver and both t-GRASP halves in one
+stock. The target stock exists already. Cross the two stocks.</p>
+<div class="scroll">
+<table>
+<tr><th>Parent</th><th>Genotype</th><th>State</th></tr>
+<tr class="hi"><td>the sensory stock</td><td><code>w; ppk23-GAL4; t-GRASP</code></td>
+<td><span class="tag q">to make</span> Two crosses. See the tables below.</td></tr>
+<tr class="hi"><td>the target stock</td><td><code>w1118; P{GMR56C09-lexA}attP40</code></td>
+<td><span class="tag ok">ready</span> BDSC 53584. It needs no work.</td></tr>
+</table>
+</div>
+<p>Both chromosomes of the sensory stock are homozygous. The stock therefore keeps its
+genotype at each transfer to new food. BDSC 53584 is homozygous too. Each arm needs its own sensory stock. Every arm
+uses the same target stock.</p>
+<p><strong>The experiment, after the stock exists.</strong></p>
+<div class="scroll">
+<table>
+<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
+<tr class="hi"><td class="num">G0</td><td>the sensory stock &times; BDSC 53584</td>
+<td>nothing. Keep the male progeny.</td>
+<td><code>w/Y ; ppk23-GAL4 / R56C09-lexA(attP40) ; t-GRASP / +</code></td></tr>
+</table>
+</div>
+<p>Both parents are homozygous. Each progeny fly therefore has the full genotype.
+Score no marker at this cross. Each fly gets one copy of each t-GRASP half. The two crosses of
+section <a class="xref" href="#c-s8c" data-ref="c-s8c">8</a> also give one copy of each half.</p>
+<h4 id="c-s8r"><span class="secno"></span> How to build the sensory stock</h4>
+<p></p>
+<div class="scroll">
+<table>
+<tr><th class="num">Gen</th><th>Cross</th><th>Select</th><th>Result</th></tr>
+<tr class="hi" data-trk="cs-g0"><td class="num">G0</td><td>BDSC 93026 &times; BDSC 79040</td>
+<td>Curly. <strong>Tubby</strong>.</td>
+<td><code>w; ppk23-GAL4/CyO,Dfd-EYFP; t-GRASP/TM6B</code></td></tr>
+<tr class="hi" data-trk="cs-f1"><td class="num">F1</td><td>sibling cross</td>
+<td><strong>Not</strong> Curly. <strong>Not</strong> Tubby.</td>
+<td><code>w; ppk23-GAL4; t-GRASP</code>. Put these flies in one vial. That vial is the stock.</td></tr>
+</table>
+</div>
+<div class="scroll">
+<table>
+<tr><th>Quantity</th><th>Value</th></tr>
+<tr class="hi"><td>the wanted class at the sibling cross</td><td>one in nine of the survivors</td></tr>
+<tr class="hi"><td>time to the stock</td><td>about 6 weeks at 25 degrees Celsius</td></tr>
+<tr><td>Curly</td><td>from BDSC 79040, whose chromosome 2 is <code>wg[Sp-1]/CyO, P{Dfd-EYFP}2</code></td></tr>
+<tr><td>Tubby</td><td>from BDSC 93026, whose chromosome 3 is <code>TM2/TM6B</code></td></tr>
+<tr><td>PCR</td><td>none. Curly and Tubby are enough.</td></tr>
+<tr><td>direction</td><td>free. No element is on the X chromosome.</td></tr>
+</table>
+</div>
+<p class="note">A fly with two CyO chromosomes dies. A fly with two TM6B chromosomes
+dies. One survivor in three is therefore homozygous at each chromosome.</p>
+<h4 id="c-s8s"><span class="secno"></span> How to keep the stock</h4>
+<p>The stock has no body marker. You cannot
+see a loss.</p>
+<div class="scroll">
+<table>
+<tr><th>Rule</th><th>Reason</th></tr>
+<tr class="hi"><td>Test the stock every three months. It must give no Curly progeny and no Tubby
+progeny.</td>
+<td>Curly progeny or Tubby progeny show that the stock is not pure.</td></tr>
+<tr class="hi"><td>Keep a balanced spare in a second incubator.</td>
+<td>One incubator failure then does not stop the work.</td></tr>
+</table>
+</div>
+<p class="note">The laboratory keeps its stocks at 18 degrees Celsius. Move a vial to
+25 degrees Celsius before a cross.</p>
+<h4 id="c-s8t"><span class="secno"></span> One stock cannot hold both drivers</h4>
+<p>ppk23-GAL4 and R56C09-lexA
+are both on chromosome 2, on different homologs. Such a stock gives three classes at each
+generation. Both insertions carry <code>w[+mC]</code>. No body marker separates the three classes.
+Path C therefore keeps two parents. With the sensory stock, path C needs one cross.</p>
+<h4 id="c-s8u"><span class="secno"></span> One route makes a single stock</h4>
+<p>Recombine ppk23-GAL4 onto the
+R56C09-lexA chromosome. Chromosome 2 then holds both drivers. The stock then keeps its genotype.</p>
+<p class="note">Two facts block this route today. The record gives no insertion site
+for <code>P{ppk23-Gal4.2.695}</code>. The distance to attP40 is therefore not known. No body marker
+separates the recombinant. A test cross or a PCR must find it.</p>
+<p class="trk-host" data-trk="q-ppk23site"></p>
+<h3 id="c-s83"><span class="secno"></span> What the nc82 channel adds</h3>
+<p>A second antibody does not show every input to PPN1. nc82 marks each
+presynaptic site in the sample. It does not name the cell that makes a site. It gives an upper limit,
+and not a list of the inputs.</p>
+<p>Section <a class="xref" href="#c-s8c" data-ref="c-s8c">8</a> needs four channels. Four channels need four antibody hosts. The four
+hosts are rabbit, rat, goat and mouse. The four signals therefore separate. This section gives what
+the nc82 channel adds.</p>
+<p>nc82 marks the endogenous Brp protein in each cell. It therefore marks the presynaptic sites of
+each input. It marks more than the labelled pair.</p>
+<p>The nc82 channel gives a different number. Count the nc82 puncta that touch the
+target mask. That count is the upper limit of the input to PPN1. A confocal cannot show that a site
+on the mask makes a synapse onto PPN1. The t-GRASP puncta then give the labelled share of that
+count.</p>
+<div class="scroll">
+<table>
+<tr><th>Antibody</th><th>Host</th><th>What it shows</th><th>In the record</th></tr>
+<tr class="hi"><td>the Abfinity antibody</td><td>rabbit</td>
+<td>the joined halves, thus the labelled contacts</td><td>no</td></tr>
+<tr class="hi"><td>anti-HA</td><td>rat</td><td>the pre half</td><td>not checked</td></tr>
+<tr class="hi"><td>anti-ICAM-5</td><td>goat</td><td>the target mask</td><td>no</td></tr>
+<tr class="hi"><td>nc82, anti-Brp</td><td>mouse</td><td>each presynaptic site</td><td>yes</td></tr>
+</table>
+</div>
+<p>Path C needs three antibodies that the record does not hold.</p>
+<div class="scroll">
+<table>
+<tr><th>Antibody</th><th>Vial</th><th>Action</th></tr>
+<tr class="hi" data-trk="ord-abfinity"><td>the Abfinity antibody</td><td>anti-GFP Tag Abfinity, ThermoFisher</td>
+<td>Order it. The record holds no vial that binds the joined halves only.</td></tr>
+<tr class="hi" data-trk="ord-icam5"><td>goat anti-ICAM-5</td><td>anti-ICAM-5 or TLN, Bio-techne AF1173</td>
+<td>Order it. The record holds no vial.</td></tr>
+<tr data-trk="q-antiha"><td>rat anti-HA</td><td>anti-HA 3F10, Roche 11867431001</td>
+<td>Check the record first. It does not say if a vial exists.</td></tr>
+</table>
+</div>
+<p><strong>The counts to expect.</strong> Section <a class="xref" href="#c-s1" data-ref="c-s1">1</a> gives the counts of the connectome for
+PPN1. A ppk25 to ppk23 ratio near 0.41 is the expected result.</p>
+
+<h2 id="c-s2"><span class="secno"></span> &middot; The state of the work</h2>
+<p>This section counts the steps of this path. You set each state on the row of the step. Section
+<a class="xref" href="#c-s11" data-ref="c-s11">11</a> gives the steps in motion and the record.</p>
+<noscript>
+<p class="note">The tracker needs JavaScript. The list below gives the name of each step. It gives
+no state. The record is in status.json, beside this page.</p>
+</noscript>
+<div class="callout" hidden aria-live="polite" data-trk-panel data-trk-stale="14"></div>
+<details data-trk-reg open>
+<summary>All steps</summary>
+<p class="note">This list gives the name of each step. A state chip sits on the row of each step,
+in the section that describes it.</p>
+
+<p class="trk-g">Crosses and clean-ups</p>
+<ul>
+<li data-trk-id="c93028" data-trk-kind="cross">the BDSC 93028 clean-up</li>
+</ul>
+
+<p class="trk-g">Controls</p>
+<ul>
+<li data-trk-id="ctl-cpre" data-trk-kind="cross"
+    data-trk-needs="cx-g0:done">the pre half alone, path C</li>
+<li data-trk-id="ctl-cpost" data-trk-kind="cross">the post half alone, path C</li>
+</ul>
+
+<p class="trk-g">Path C, the crosses</p>
+<ul>
+<li data-trk-id="cx-g0" data-trk-kind="cross">the first cross of path C, G0</li>
+<li data-trk-id="c-grasp" data-trk-kind="cross"
+    data-trk-needs="cx-g0:done">the experimental cross of path C</li>
+<li data-trk-id="cs-g0" data-trk-kind="cross">the sensory stock of path C, G0</li>
+<li data-trk-id="cs-f1" data-trk-kind="cross"
+    data-trk-needs="cs-g0:done">the sensory stock of path C, F1</li>
+</ul>
+
+
+<p class="trk-g">Orders</p>
+<ul>
+<li data-trk-id="ord-abfinity" data-trk-kind="order">the Abfinity antibody</li>
+<li data-trk-id="ord-icam5" data-trk-kind="order">goat anti-ICAM-5</li>
+<li data-trk-id="ord-57671" data-trk-kind="order">BDSC 57671</li>
+<li data-trk-id="ord-58370" data-trk-kind="order">BDSC 58370</li>
+<li data-trk-id="ord-60699" data-trk-kind="order">BDSC 60699</li>
+<li data-trk-id="ord-81229" data-trk-kind="order">BDSC 81229</li>
+<li data-trk-id="ord-81230" data-trk-kind="order">BDSC 81230</li>
+</ul>
+
+<p class="trk-g">Questions</p>
+<ul>
+<li data-trk-id="q-antiha" data-trk-kind="question">a rat anti-HA vial in the record</li>
+<li data-trk-id="q-ppk23site" data-trk-kind="question">the insertion site of ppk23-GAL4</li>
+<li data-trk-id="q-gr32asite" data-trk-kind="question">the insertion site of the Gr32a driver</li>
+</ul>
+</details>
+</div>
+
+<div class="pane" id="pane-c-reagents" role="tabpanel" aria-labelledby="sub-c-reagents">
+<h2 id="c-s3"><span class="secno"></span> &middot; Stock list</h2>
+
+<div class="scroll">
+<table data-gt-src>
+<tr><th>Line</th><th>Type</th><th>Chr</th><th>Genotype</th><th>Location</th><th>Condition</th></tr>
+<tr class="hi"><td>BDSC 93026</td><td>sensory driver</td><td>2</td><td><code>w1118; P{ppk23-Gal4.2.695}2; TM2/TM6B</code></td><td>25 degrees Celsius, 3 vials</td><td><span class="tag ok">ready</span></td></tr>
+<tr class="hi" data-gt-also="Kallman PPN1 LexA"><td>BDSC 53584</td><td>AN driver</td><td>2, attP40</td><td><code>w1118; P{GMR56C09-lexA}attP40</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span> The target driver of PPN1.</td></tr>
+<tr><td>BDSC 93028</td><td>sensory driver</td><td>2 and 3</td><td><code>w1118; P{ppk25-GAL4.S}2; P{ppk25-GAL4.S}3</code></td><td>18 degrees Celsius</td><td><span class="tag warn">clean</span> remove the chromosome 3 copy</td></tr>
+<tr><td>GJ1435</td><td>sensory driver</td><td>3</td><td><code>w118; Sp/CyO; Gr32a-Gal4.3.7.PW</code></td><td>25 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr><td>BDSC 60699</td><td>sensory driver</td><td>2</td><td><code>w[*]; P{w[+mC]=Ir52a-GAL4.K}2/CyO; P{w[+mC]=UAS-mCD8::GFP.L}LL6</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. <strong>Remove chromosome 3 first.</strong> Cross to GJ954 two times, and
+keep TM2/TM6B. Do this before brp-D3-Cherry comes in. Both labels are w+, thus you cannot see the
+difference between them later.</td></tr>
+<tr><td>BDSC 81229</td><td>sensory driver</td><td>3, attP2</td><td><code>w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52a-GAL4.2931}attP2/TM6B, Tb[+]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. This line has no second label. Both chromosomes have a marker. The
+promoter fragment is different from the fragment of BDSC 60699.</td></tr>
+<tr><td>BDSC 81230</td><td>sensory driver</td><td>3, attP2</td><td><code>w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52b-GAL4.C}attP2</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. One cross only: look at the legs and the wing margin. Ir52b does not
+separate WG1 from WG2. Do not put this line with BDSC 60692, because both sit at attP2.</td></tr>
+<tr><td>BDSC 57671</td><td>sensory driver</td><td>2</td><td><code>w[*]; P{w[+mC]=Gr68a-GAL4.1.8}2; Dr[1]/TM3, Sb[1]</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The driver is on chromosome 2, thus this arm uses the recipe of BDSC 93026
+without a change.</td></tr>
+<tr><td>BDSC 58370</td><td>sensory driver</td><td>3</td><td><code>w[*]; wg[Sp-1]/CyO; P{w[+mC]=Gr68a-GAL4.B}1</code></td><td>BDSC</td><td><span class="tag m">ordered</span> 17 August 2026. The promoter fragment is different from the fragment of BDSC 57671. The
+Gr68a driver also labels mechanosensory cells, thus two fragments give a control.</td></tr>
+<tr><td>GJ954</td><td>balancer</td><td>2 and 3</td><td><code>w; IF/CyO; TM2/TM6B</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span></td></tr>
+<tr><td>GJ832</td><td>balancer</td><td>2 and 3</td><td><code>If/CyO; hsFLP, MKRS/TM6B, Tb1</code></td><td>18 degrees Celsius</td><td><span class="tag warn">has hsFLP</span> Use GJ954 first.</td></tr>
+<tr class="hi"><td>BDSC 79040</td><td>t-GRASP halves</td><td>3, attP2 and VK00027</td><td><code>y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{13XLexAop2-post-t-GRASP}attP2 PBac{20XUAS-pre-t-GRASP}VK00027</code></td><td>18 degrees Celsius</td><td><span class="tag ok">ready</span> UAS drives the pre half, thus the sensory driver is GAL4 and
+the target driver is LexA. This is the orientation for path C at PPN1. Every sensory driver in this
+table is GAL4: ppk23, ppk25, Gr32a, Gr68a, Ir52a and Ir52b. This table gives no Gr33 driver. This
+table gives one target driver line with LexA: R56C09-lexA. R56C09-lexA drives PPN1.</td></tr>
+</table>
+</div>
+
+<h2 id="c-s11"><span class="secno"></span> &middot; The steps in motion</h2>
+<noscript>
+<p class="note">This section needs JavaScript. The record is in status.json, beside this page.</p>
+</noscript>
+<div class="callout" hidden aria-live="polite" data-trk-detail></div>
+</div>
+
+</section>
+<section class="doc" id="doc-expansion" role="tabpanel" aria-labelledby="tab-expansion">
+<p class="note">Another person does this work. This tab holds the decisions and the parts, so that
+the two of you use the same numbers.</p>
+
+<h2><span class="secno"></span> &middot; The gel</h2>
+
+<div class="scroll">
+<table>
+<tr><th class="num">Factor</th><th class="num">Median distance</th><th>Result</th></tr>
+<tr class="bad"><td class="num">1</td><td class="num">294 nm</td><td>not separate</td></tr>
+<tr class="hi"><td class="num">4</td><td class="num">1175 nm</td><td>sufficient</td></tr>
+<tr><td class="num">8 to 20</td><td class="num">2351 to 5877 nm</td><td>a margin only</td></tr>
+</table>
+</div>
+
+<div class="scroll">
+<table>
+<tr><th>Decision</th><th>Rule</th></tr>
+<tr><td>chemistry</td><td>proExM keeps a usable part of the fluorescence. A heat denaturation gel
+keeps the ultrastructure and stops the fluorescence. Select one.</td></tr>
+<tr class="bad"><td>dyes to avoid</td><td>Alexa Fluor 647, Alexa Fluor 555 and DyLight 550. All
+three are cyanine dyes, and the gel destroys them.</td></tr>
+<tr class="hi"><td>dyes to use</td><td>CF488A or an Atto conjugate, green. Alexa Fluor 594 or 633,
+red.</td></tr>
+<tr class="warn"><td>antibody hosts</td><td>The record gives no host for the two anti-RFP vials.
+Read the host from each vial before you plan the stain.</td></tr>
+<tr class="warn"><td>the factor 4 result</td><td>Not established. The distances have a floor at
+216 nm from the annotation method. Use a factor of 10 if many pairs are at the floor.</td></tr>
+</table>
+</div>
+
+<h2><span class="secno"></span> &middot; Items to order</h2>
+
+<div class="scroll">
+<table>
+<tr><th>Item</th><th>Function</th><th>Note</th></tr>
+<tr class="warn"><td>Acryloyl-X, SE</td><td>anchors the protein in the gel</td>
+<td>No substitute. Keep it dry and cold.</td></tr>
+<tr class="warn"><td>sodium acrylate</td><td>the monomer that expands</td>
+<td>Buy a new batch. Reject a batch that is not white.</td></tr>
+<tr><td>acrylamide, bis-acrylamide, APS, TEMED, 4-hydroxy-TEMPO</td>
+<td>the other gel components</td><td>The laboratory possibly has them.</td></tr>
+</table>
+</div>
+</section>
 <!-- genotype card start -->
+
 <style>
  :root{--gt-shade:rgba(0,0,0,.18)}
  @media (prefers-color-scheme:dark){:root{--gt-shade:rgba(0,0,0,.6)}
@@ -1206,6 +1543,7 @@ arrives.</li>
  #gt-card dd{margin:0}
  @media print{.gt{text-decoration:none} #gt-card{display:none}}
 </style>
+
 <script>
 /* The genotype card. Every live word comes from the stock list of section <a class="xref" href="#s3" data-ref="s3">3</a>.
    That table is the only source. No genotype is written a second time here. */
@@ -1214,8 +1552,16 @@ arrives.</li>
 function go(){
 try{
 
-var T=document.getElementById("gt-src");
-if(!T||!T.rows||T.rows.length<2)return;
+/* Each path renders its own filter of the one stock table. The card reads every
+   one of them, thus a stock has a card in the path that lists it. */
+var TS=[].slice.call(document.querySelectorAll("[data-gt-src]"));
+if(!TS.length)return;
+var T={rows:[]},ti,tr,tj;
+for(ti=0;ti<TS.length;ti++){
+ tr=TS[ti].rows;
+ for(tj=(ti?1:0);tj<tr.length;tj++)T.rows.push(tr[tj]);
+}
+if(T.rows.length<2)return;
 
 /* ---- the columns, by header name, read again on every open ------------- */
 function cols(){
@@ -1315,7 +1661,7 @@ function copy(from,to){
  }
 }
 function fill(key){
- var r=rowOf[key],c=cols(),head,i,cell,t,dl,dt,dd,p,pa;
+ var r=rowOf[key],c=cols(),head,i,cell,t,dl,dt,dd,p;
  if(!r||!c)return false;
  head=T.rows[0];
  while(card.firstChild)card.removeChild(card.firstChild);
@@ -1336,13 +1682,6 @@ function fill(key){
   dt=document.createElement("dt");
   dt.appendChild(document.createTextNode(text(head.cells[i])));
   dd=document.createElement("dd");copy(cell,dd);
-  dl.appendChild(dt);dl.appendChild(dd);
- }
- pa=r.getAttribute("data-path");
- if(pa==="a"||pa==="b"){
-  dt=document.createElement("dt");dt.appendChild(document.createTextNode("Path"));
-  dd=document.createElement("dd");
-  dd.appendChild(document.createTextNode(pa==="a"?"listed under path A":"listed under path B"));
   dl.appendChild(dt);dl.appendChild(dd);
  }
  if(dl.childNodes.length)card.appendChild(dl);
@@ -1448,143 +1787,14 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 else go();
 })();
 </script>
+
 <!-- genotype card end -->
-
-<h2 id="s6" data-path="a b"><span class="secno">6</span> &middot; Controls</h2>
-
-<div class="scroll">
-<table>
-<tr><th>Control</th><th>Genotype</th><th>Expected result</th></tr>
-<tr class="hi" data-trk="ctl-nogal4"><td>no sensory driver</td><td>Parent 2 crossed to a stock with no GAL4</td>
-<td>The label channel on the PPN1 mask is empty. This control can fail. It gives the failure
-threshold.</td></tr>
-<tr data-trk="ctl-nolexa"><td>no target driver</td><td>Parent 1 crossed to a stock with no LexA</td>
-<td>The fill channel is empty.</td></tr>
-<tr class="hi" data-trk="ctl-false"><td>false contact rate</td>
-<td>a neuron in the same neuropil that receives almost no ppk input</td>
-<td>puncta for each square micrometre of membrane. Without this, "touch" has no measured
-value.</td></tr>
-<tr class="hi" data-trk="b-target"><td>the PPN1 mask</td>
-<td>Kallman PPN1 Gal4 &times; GJ599, at attP40. Not GJ598, which is on the X chromosome.</td>
-<td>The shape of PPN1 alone. It is the mask for the count, and it shows which cells R56C09
-labels. All the stocks are in the laboratory, thus you can do this control today.</td></tr>
-<tr data-trk="ctl-sex"><td>sex</td><td>a female of the full genotype</td>
-<td>a negative control for the male specific pattern</td></tr>
-</table>
-</div>
-
-<p data-path="c"><strong>The counts to expect.</strong> The connectome gives these counts for PPN1.
-A ppk25 to ppk23 ratio near 0.41 is the expected result.</p>
-<h2 id="s2" data-path="a b"><span class="secno">2</span> &middot; Work in motion</h2>
-
-<p>This section gives the state of each step. You set each state yourself. The page source holds
-the record. Your browser holds the changes since the last commit.</p>
-
-<noscript>
-<p class="note">The tracker needs JavaScript. The list below gives the name of each step. It gives
-no state. The record is in status.json, beside this page.</p>
-</noscript>
-
-<div id="trk" class="callout" hidden aria-live="polite" data-trk-stale="14"></div>
-
-<details id="trk-all" open>
-<summary>All steps</summary>
-<p class="note">This list gives the name of each step. A state chip sits on the row of each step,
-in the section that describes it.</p>
-
-<p class="trk-g">Crosses and clean-ups</p>
-<p class="note">The PPN1 mask control is Kallman PPN1 Gal4 crossed to GJ599. It gives the shape of PPN1 alone, and it shows which cells R56C09 labels. It later becomes the target side of path B.</p>
-<ul>
-<li data-trk-id="a1-g0" data-trk-kind="cross"
-    data-trk-needs="ord-lmb494:arrived">Parent 1, G0</li>
-<li data-trk-id="a1-f1" data-trk-kind="cross"
-    data-trk-needs="a1-g0:done">Parent 1, F1</li>
-<li data-trk-id="a2-g0" data-trk-kind="cross"
-    data-trk-needs="ord-32209:arrived">Parent 2, G0</li>
-<li data-trk-id="a2-f1" data-trk-kind="cross"
-    data-trk-needs="a2-g0:done">Parent 2, F1</li>
-<li data-trk-id="a2-hz" data-trk-kind="cross"
-    data-trk-needs="a2-f1:done">Parent 2, a stable stock</li>
-<li data-trk-id="a1-hz" data-trk-kind="cross"
-    data-trk-needs="a1-f1:done">Parent 1, a stable stock</li>
-<li data-trk-id="ax" data-trk-kind="cross"
-    data-trk-needs="a1-f1:done a2-f1:done">the experimental cross</li>
-<li data-trk-id="c1472-g0" data-trk-kind="cross">the ppk23-LexA clean-up, G0</li>
-<li data-trk-id="c1472-f1" data-trk-kind="cross"
-    data-trk-needs="c1472-g0:done">the ppk23-LexA clean-up, F1</li>
-<li data-trk-id="c1472-f2" data-trk-kind="cross"
-    data-trk-needs="c1472-f1:done">the ppk23-LexA clean-up, F2</li>
-<li data-trk-id="c1472-f3" data-trk-kind="cross"
-    data-trk-needs="c1472-f2:done">the ppk23-LexA clean-up, F3</li>
-<li data-trk-id="c93028" data-trk-kind="cross">the BDSC 93028 clean-up</li>
-<li data-trk-id="b-target" data-trk-kind="cross">the PPN1 mask control</li>
-</ul>
-
-<p class="trk-g">Controls</p>
-<ul>
-<li data-trk-id="ctl-nogal4" data-trk-kind="cross"
-    data-trk-needs="a2-f1:done">the control with no sensory driver</li>
-<li data-trk-id="ctl-nolexa" data-trk-kind="cross"
-    data-trk-needs="a1-f1:done">the control with no target driver</li>
-<li data-trk-id="ctl-false" data-trk-kind="cross">the false contact rate</li>
-<li data-trk-id="ctl-sex" data-trk-kind="cross"
-    data-trk-needs="ax:done">the female of the full genotype</li>
-</ul>
-
-<p class="trk-g" data-path="c">Path C, the fallback</p>
-<ul>
-<li data-trk-id="c-grasp" data-trk-kind="cross">the t-GRASP cross of path C</li>
-</ul>
-
-<p class="trk-g" data-path="b">Path B, a later phase</p>
-<p class="note" data-path="b">Path A is the main line, because the receptor drivers exist in GAL4.
-Path B stays for one job that path A cannot do: a split-GAL4 target, for example SS103018 for
-AN13B002. A split occupies the GAL4 system, thus the label must then be in LexA. Path B waits for
-GJ948.</p>
-<ul>
-<li data-trk-id="b-sensory" data-trk-kind="cross"
-    data-trk-needs="ord-gj948:arrived q-gj948chr:done c1472-f3:done">the sensory side of path B</li>
-</ul>
-
-<p class="trk-g">Orders</p>
-<ul>
-<li data-trk-id="ord-lmb494" data-trk-kind="order">LMB-494</li>
-<li data-trk-id="ord-gj948" data-trk-kind="order">GJ948</li>
-<li data-trk-id="ord-32209" data-trk-kind="order">BDSC 32209</li>
-<li data-trk-id="ord-32211" data-trk-kind="order">BDSC 32211</li>
-<li data-trk-id="ord-57671" data-trk-kind="order">BDSC 57671</li>
-<li data-trk-id="ord-58370" data-trk-kind="order">BDSC 58370</li>
-<li data-trk-id="ord-60692" data-trk-kind="order">BDSC 60692</li>
-<li data-trk-id="ord-60699" data-trk-kind="order">BDSC 60699</li>
-<li data-trk-id="ord-77138" data-trk-kind="order">BDSC 77138</li>
-<li data-trk-id="ord-77139" data-trk-kind="order">BDSC 77139</li>
-<li data-trk-id="ord-81229" data-trk-kind="order">BDSC 81229</li>
-<li data-trk-id="ord-81230" data-trk-kind="order">BDSC 81230</li>
-</ul>
-
-<p class="trk-g">Questions</p>
-<ul>
-<li data-trk-id="q-gj948chr" data-trk-kind="question">the chromosome of GJ948</li>
-<li data-trk-id="q-lexaop" data-trk-kind="question">the correct LexAop2-mCD8::GFP stock</li>
-<li data-trk-id="q-lmb494marker" data-trk-kind="question"
-    data-trk-needs="ord-lmb494:arrived">the balancer marker of LMB-494</li>
-<li data-trk-id="q-ss103018" data-trk-kind="question">the positions in SS103018</li>
-<li data-trk-id="q-r56c09" data-trk-kind="question">which cells R56C09 labels</li>
-<li data-trk-id="q-an09b017" data-trk-kind="question">the vAB3 line of each AN09B017 member</li>
-<li data-trk-id="q-lmb494site" data-trk-kind="question"
-    data-trk-needs="ord-lmb494:arrived">the landing site of brp-D3 in LMB-494</li>
-<li data-trk-id="q-frudsx" data-trk-kind="question">the chromosomes of fru-LexA, dsx-LexA and dsx-GAL4</li>
-<li data-trk-id="q-brpd3chr2" data-trk-kind="question">a brp-D3-Cherry insertion on chromosome 2 or the X chromosome</li>
-<li data-trk-id="q-ir52blexa" data-trk-kind="question">the Ir52b-LexA line of the Carlson laboratory</li>
-<li data-trk-id="q-ppk25lexa" data-trk-kind="question">a ppk25-LexA line, if one exists</li>
-<li data-trk-id="q-ir52aconstruct" data-trk-kind="question">which Ir52a-GAL4 construct the papers used</li>
-</ul>
-</details>
-
 <!-- tracker record start -->
+
 <script type="application/json" id="trk-record">
 {"v":1,"page":"ng/first-cross","saved":"2026-08-17","i":{"a1-g0":{"s":"virgins","d":"2026-08-17"},"a1-f1":{"s":"blocked","d":"2026-08-17"},"a2-g0":{"s":"blocked","d":"2026-08-17"},"a2-f1":{"s":"none","d":"2026-08-16"},"ax":{"s":"none","d":""},"c1472-g0":{"s":"none","d":""},"c1472-f1":{"s":"none","d":""},"c1472-f2":{"s":"none","d":""},"c1472-f3":{"s":"none","d":""},"c93028":{"s":"none","d":""},"b-target":{"s":"none","d":""},"ctl-nogal4":{"s":"none","d":""},"ctl-nolexa":{"s":"none","d":""},"ctl-false":{"s":"none","d":""},"ctl-sex":{"s":"none","d":""},"b-sensory":{"s":"none","d":""},"ord-lmb494":{"s":"arrived","d":"2026-08-17"},"ord-gj948":{"s":"arrived","d":"2026-08-17"},"q-gj948chr":{"s":"blocked","d":"2026-08-17"},"q-lexaop":{"s":"done","d":"2026-08-17"},"q-lmb494marker":{"s":"none","d":""},"q-ss103018":{"s":"none","d":""},"q-r56c09":{"s":"none","d":""},"q-an09b017":{"s":"none","d":""},"ord-32209":{"s":"ordered","d":"2026-08-17"},"ord-32211":{"s":"ordered","d":"2026-08-17"},"c-grasp":{"s":"none","d":""},"ord-57671":{"s":"ordered","d":"2026-08-17"},"ord-58370":{"s":"ordered","d":"2026-08-17"},"ord-60692":{"s":"ordered","d":"2026-08-17"},"ord-60699":{"s":"ordered","d":"2026-08-17"},"ord-77138":{"s":"ordered","d":"2026-08-17"},"ord-77139":{"s":"ordered","d":"2026-08-17"},"ord-81229":{"s":"ordered","d":"2026-08-17"},"ord-81230":{"s":"ordered","d":"2026-08-17"},"q-lmb494site":{"s":"none","d":""},"q-frudsx":{"s":"none","d":""},"q-brpd3chr2":{"s":"none","d":""},"q-ir52blexa":{"s":"none","d":""},"q-ppk25lexa":{"s":"none","d":""},"q-ir52aconstruct":{"s":"none","d":""},"a1-hz":{"s":"none","d":""},"a2-hz":{"s":"none","d":""}}}
 </script>
+
 <!-- tracker record end -->
 
 <style>
@@ -1598,108 +1808,27 @@ GJ948.</p>
         border-radius:4px;font:inherit;font-size:.78rem;padding:.05rem .25rem;
         margin-left:.35rem;color-scheme:light dark}
  th.trk,td.trk{white-space:nowrap}
- #trk{margin:1rem 0 1.2rem}
- #trk .steps{margin:.5rem 0 .8rem}
- #trk details{margin-top:.6rem;font-size:.9rem}
- #trk summary{cursor:pointer;color:var(--link)}
- #trk .wl{margin:.4rem 0 0;padding-left:1.1rem;font-size:.9rem}
- #trk .btn{font-size:.78rem;padding:.4rem .7rem;margin:0 .3rem .3rem 0}
- #trk textarea{width:100%;min-height:8rem;color:inherit;background:var(--bg);
+ /* Each path has its own panel and its own list of steps. The engine finds them
+    by attribute, thus no id repeats and no selector holds a path name. */
+ [data-trk-panel],[data-trk-detail]{margin:1rem 0 1.2rem}
+ [data-trk-detail] details{margin-top:.6rem;font-size:.9rem}
+ [data-trk-detail] summary{cursor:pointer;color:var(--link)}
+ [data-trk-detail] .wl{margin:.4rem 0 0;padding-left:1.1rem;font-size:.9rem}
+ [data-trk-detail] .btn{font-size:.78rem;padding:.4rem .7rem;margin:0 .3rem .3rem 0}
+ [data-trk-detail] textarea{width:100%;min-height:8rem;color:inherit;background:var(--bg);
         border:1px solid var(--edge);border-radius:6px;padding:.5rem;margin:.4rem 0;
         font:.78rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
         color-scheme:light dark}
- #trk-all{margin:1rem 0 1.2rem;font-size:.92rem}
- #trk-all summary{cursor:pointer;color:var(--link);font-weight:600}
- #trk-all .trk-g{margin:.9rem 0 .2rem;font-size:.76rem;font-weight:600;color:var(--dim);
+ [data-trk-reg]{margin:1rem 0 1.2rem;font-size:.92rem}
+ [data-trk-reg] summary{cursor:pointer;color:var(--link);font-weight:600}
+ [data-trk-reg] .trk-g{margin:.9rem 0 .2rem;font-size:.76rem;font-weight:600;color:var(--dim);
         text-transform:uppercase;letter-spacing:.04em}
- #trk-all ul{list-style:none;padding:0;margin:0}
- #trk-all li{padding:.25rem 0;border-bottom:1px solid var(--line)}
- #trk-all li a{margin-left:.4rem;font-size:.8rem}
- @media print{#trk-rec,.trk-d,#trk-all{display:none}
+ [data-trk-reg] ul{list-style:none;padding:0;margin:0}
+ [data-trk-reg] li{padding:.25rem 0;border-bottom:1px solid var(--line)}
+ [data-trk-reg] li a{margin-left:.4rem;font-size:.8rem}
+ @media print{.trk-rec,.trk-d,[data-trk-reg]{display:none}
         .trk-s{appearance:auto;-webkit-appearance:auto}}
 </style>
-
-</section>
-
-<section class="doc" id="doc-expansion" role="tabpanel" aria-labelledby="tab-expansion">
-<p class="note">Another person does this work. This tab holds the decisions and the parts, so that
-the two of you use the same numbers.</p>
-
-<h2 data-path="a b"><span class="secno">1</span> &middot; The gel</h2>
-
-<div class="scroll">
-<table>
-<tr><th class="num">Factor</th><th class="num">Median distance</th><th>Result</th></tr>
-<tr class="bad"><td class="num">1</td><td class="num">294 nm</td><td>not separate</td></tr>
-<tr class="hi"><td class="num">4</td><td class="num">1175 nm</td><td>sufficient</td></tr>
-<tr><td class="num">8 to 20</td><td class="num">2351 to 5877 nm</td><td>a margin only</td></tr>
-</table>
-</div>
-
-<div class="scroll">
-<table>
-<tr><th>Decision</th><th>Rule</th></tr>
-<tr><td>chemistry</td><td>proExM keeps a usable part of the fluorescence. A heat denaturation gel
-keeps the ultrastructure and stops the fluorescence. Select one.</td></tr>
-<tr class="bad"><td>dyes to avoid</td><td>Alexa Fluor 647, Alexa Fluor 555 and DyLight 550. All
-three are cyanine dyes, and the gel destroys them.</td></tr>
-<tr class="hi"><td>dyes to use</td><td>CF488A or an Atto conjugate, green. Alexa Fluor 594 or 633,
-red.</td></tr>
-<tr class="warn"><td>antibody hosts</td><td>The record gives no host for the two anti-RFP vials.
-Read the host from each vial before you plan the stain.</td></tr>
-<tr class="warn"><td>the factor 4 result</td><td>Not established. The distances have a floor at
-216 nm from the annotation method. Use a factor of 10 if many pairs are at the floor.</td></tr>
-</table>
-</div>
-
-<h2 data-path="a b"><span class="secno">2</span> &middot; Items to order</h2>
-<div class="scroll">
-<table>
-<tr><th>Item</th><th>Function</th><th>Note</th></tr>
-<tr class="warn" data-trk="ord-anchor"><td>Acryloyl-X, SE</td><td>anchors the protein in the gel</td>
-<td>No substitute. Keep it dry and cold.</td></tr>
-<tr class="warn" data-trk="ord-acrylate"><td>sodium acrylate</td><td>the monomer that expands</td>
-<td>Buy a new batch. Reject a batch that is not white.</td></tr>
-<tr data-trk="ord-gel"><td>acrylamide, bis-acrylamide, APS, TEMED, 4-hydroxy-TEMPO</td>
-<td>the other gel components</td><td>The laboratory possibly has them.</td></tr>
-</table>
-</div>
-
-</section>
-
-<script>
-
-(function(){
-  var ids = ['crosses','expansion'];
-  var tabs = ids.map(function(k){ return document.getElementById('tab-'+k); });
-  var docs = ids.map(function(k){ return document.getElementById('doc-'+k); });
-
-  function show(i, push){
-    i = Math.max(0, Math.min(ids.length-1, i));
-    tabs.forEach(function(t,k){ t.setAttribute('aria-selected', k===i ? 'true':'false'); });
-    docs.forEach(function(d,k){ d.classList.toggle('on', k===i); });
-    if (push) history.replaceState(null,'','#'+ids[i]);
-    window.scrollTo({top:0});
-  }
-
-  tabs.forEach(function(t,i){
-    t.addEventListener('click', function(){ show(i,true); });
-    t.addEventListener('keydown', function(e){
-      if (e.key==='ArrowRight'){ e.preventDefault(); var n=(i+1)%ids.length; tabs[n].focus(); show(n,true); }
-      if (e.key==='ArrowLeft'){ e.preventDefault(); var p=(i-1+ids.length)%ids.length; tabs[p].focus(); show(p,true); }
-    });
-  });
-
-  var start = ids.indexOf((location.hash||'').replace('#',''));
-  show(start < 0 ? 0 : start, false);
-})();
-
-</script>
-<hr>
-<p class="foot">Stock records come from <code>flomington/backups/20260720-141305/stocks.json</code>,
-a local snapshot of 20 July 2026, and from the Cambridge Fly Facility, 13 August 2026. Confirm
-each stock before you take a vial. Connectome values come from <code>male-cns:v1.0</code> through
-neuPrint, measured on 13 August 2026.</p>
 
 <script>
 (function(){
@@ -1716,12 +1845,14 @@ var STATES={
  question:[["none","open","q"],["run","in progress","m"],["done","answered","ok"],
            ["blocked","blocked","warn"]]
 };
-var VERB={cross:"Set up ",order:"Order ",question:"Find "};
 var RUN={virgins:1,set:1,score:1,ordered:1,run:1};
 var FIN={done:1,arrived:1};
 
+/* One record, one browser store, one item for each step. A step can be in two
+   paths, thus its state is common. Each path has its own panel, and a panel
+   counts its own steps only. */
 var items=[],byId={},base={},local={},bmsg=[],msg=[],undo=null,noStore=false;
-var panel,box={},ta,unk,btnUndo;
+var panes=[];
 
 function pad(n){return (n<10?"0":"")+n;}
 function today(){var d=new Date();
@@ -1741,18 +1872,23 @@ function ok(kind,code){var l=STATES[kind]||STATES.cross,i;
 function plural(n,one,many){return n===1?one:many;}
 
 /* ---- the item list, read from the registry ---------------------------- */
-function collect(){
- var els=document.querySelectorAll("#trk-all [data-trk-id]"),i,j,e,id,kind,raw,needs,p;
+function collect(pane){
+ var els=pane.reg?pane.reg.querySelectorAll("[data-trk-id]"):[],i,j,e,id,kind,raw,needs,p,it;
  for(i=0;i<els.length;i++){
   e=els[i];id=e.getAttribute("data-trk-id");
-  if(!id||byId[id])continue;
-  kind=e.getAttribute("data-trk-kind");if(!STATES[kind])kind="cross";
-  raw=(e.getAttribute("data-trk-needs")||"").split(/\s+/);needs=[];
-  for(j=0;j<raw.length;j++){if(!raw[j])continue;p=raw[j].split(":");
-   needs.push({id:p[0],s:p[1]||"done"});}
-  var it={id:id,kind:kind,name:(e.textContent||"").replace(/\s+/g," ").trim(),
-          needs:needs,sec:"",secName:"",sel:null,dt:null,reg:e,host:null};
-  items.push(it);byId[id]=it;
+  if(!id)continue;
+  it=byId[id];
+  if(!it){
+   kind=e.getAttribute("data-trk-kind");if(!STATES[kind])kind="cross";
+   raw=(e.getAttribute("data-trk-needs")||"").split(/\s+/);needs=[];
+   for(j=0;j<raw.length;j++){if(!raw[j])continue;p=raw[j].split(":");
+    needs.push({id:p[0],s:p[1]||"done"});}
+   it={id:id,kind:kind,name:(e.textContent||"").replace(/\s+/g," ").trim(),
+       needs:needs,sels:[],dts:[]};
+   items.push(it);byId[id]=it;
+  }
+  if(pane.items.indexOf(it)<0)pane.items.push(it);
+  pane.regOf[id]=e;
  }
 }
 
@@ -1761,20 +1897,24 @@ function secLabel(id){
  var h=id?document.getElementById(id):null;
  return h?h.textContent.replace(/\s+/g," ").trim():"";
 }
-function place(){
- var nodes=document.querySelectorAll("h2[id],h3[id],[data-trk]"),
-     lastId="",lastName="",tables=[],i,r,n,it,t,c,head,rows,id;
+/* The hosts of one path only. A step in two paths therefore gets one control in
+   each path, and the section link of each control names the heading of that
+   path. */
+function place(pane){
+ var nodes=pane.scope.querySelectorAll("h2[id],h3[id],[data-trk]"),
+     lastId="",lastName="",tables=[],hosts=[],i,r,n,it,t,c,head,rows,id;
  for(i=0;i<nodes.length;i++){
   n=nodes[i];
   if(n.hasAttribute("data-trk")){
    it=byId[n.getAttribute("data-trk")];
    if(!it)continue;
-   it.sec=lastId;it.secName=lastName;
+   if(pane.items.indexOf(it)<0)continue;
+   pane.secOf[it.id]=lastId;
    if(n.tagName==="TR"){
     t=n.parentNode;
     while(t&&t.tagName!=="TABLE")t=t.parentNode;
     if(t&&tables.indexOf(t)<0)tables.push(t);
-   }else{it.host=n;}
+   }else{hosts.push({it:it,el:n});}
   }else{
    lastId=n.id;
    lastName=(n.textContent||"").replace(/·/g," ").replace(/\s+/g," ").trim();
@@ -1789,17 +1929,21 @@ function place(){
    c.className="trk";
    if(head)c.appendChild(document.createTextNode("State"));
    n.insertBefore(c,n.cells[0]||null);
-   if(id&&byId[id])control(byId[id],c);
+   if(id&&byId[id]&&pane.items.indexOf(byId[id])>=0)control(byId[id],c);
   }
  }
- for(i=0;i<items.length;i++){
-  it=items[i];
-  if(it.host){it.host.appendChild(document.createTextNode(cap(it.name)+": "));control(it,it.host);}
-  if(it.sec&&it.reg){
+ for(i=0;i<hosts.length;i++){
+  hosts[i].el.appendChild(document.createTextNode(cap(hosts[i].it.name)+": "));
+  control(hosts[i].it,hosts[i].el);
+ }
+ for(i=0;i<pane.items.length;i++){
+  it=pane.items[i];
+  var sec=pane.secOf[it.id],e=pane.regOf[it.id];
+  if(sec&&e){
    var a=document.createElement("a");
-   a.href="#"+it.sec;
-   a.appendChild(document.createTextNode(secLabel(it.sec)));
-   it.reg.appendChild(a);
+   a.href="#"+sec;
+   a.appendChild(document.createTextNode(secLabel(sec)));
+   e.appendChild(a);
   }
  }
 }
@@ -1819,9 +1963,7 @@ function control(it,cell){
  dt.setAttribute("aria-label","Date of the last change of "+it.name);
  dt.onchange=function(){setDate(it.id,dt.value);};
  cell.appendChild(sel);cell.appendChild(dt);
- if(!it.sels){it.sels=[];it.dts=[];}
  it.sels.push(sel);it.dts.push(dt);
- it.sel=sel;it.dt=dt;
 }
 
 /* ---- the two record layers -------------------------------------------- */
@@ -1846,12 +1988,11 @@ function fetchRecord(){
    if(!r.ok)throw 0;return r.json();
   }).then(function(r){
    if(!r||typeof r!=="object"||!r.i||typeof r.i!=="object")throw 0;
-   if(+r.v>VER){bmsg.push("The record file is newer than this page. Update the page.");paint();return;}
-   if(r.page&&r.page!==PAGE){bmsg.push("The record file belongs to another page.");paint();return;}
-   base=r.i;paint();
+   if(+r.v>VER){bmsg.push("The record file is newer than this page. Update the page.");paintAll();return;}
+   if(r.page&&r.page!==PAGE){bmsg.push("The record file belongs to another page.");paintAll();return;}
+   base=r.i;paintAll();
   })["catch"](function(){
-   bmsg.push("The record file does not load. The record in the page is in use.");paint();
-  document.addEventListener("pathchange",paint,false);
+   bmsg.push("The record file does not load. The record in the page is in use.");paintAll();
   });
  }catch(err){}
 }
@@ -1897,6 +2038,11 @@ function snap(){
  }
  return S;
 }
+/* A state is common to the paths, thus every panel repaints. */
+function paintAll(){
+ var S=snap(),i;
+ for(i=0;i<panes.length;i++)paint(panes[i],S);
+}
 function extras(){
  var out=[],k;
  for(k in base)if(base.hasOwnProperty(k)&&!byId[k])out.push(k);
@@ -1911,19 +2057,19 @@ function setState(id,s){
  keep(id);
  if(s==="none"&&!(base[id]&&base[id].s))delete local[id];
  else local[id]={s:s,d:today()};
- save();paint();
+ save();paintAll();
 }
 function setDate(id,d){
  var g=get(id);
  if(!parts(d)||g.s==="none")return;
  keep(id);
  local[id]={s:g.s,d:d};
- save();paint();
+ save();paintAll();
 }
 function stepBack(){
  if(!undo)return;
  if(undo.had)local[undo.id]=undo.prev;else delete local[undo.id];
- undo=null;save();paint();
+ undo=null;save();paintAll();
 }
 
 /* ---- the record text --------------------------------------------------- */
@@ -1965,110 +2111,118 @@ function fileText(){
  }
  return head+"{\n"+lines.join(",\n")+"\n }\n}\n";
 }
-function doGitHub(){
+function doGitHub(pane){
  var t=fileText(),done=false;
  try{
   if(navigator.clipboard&&navigator.clipboard.writeText){
    navigator.clipboard.writeText(t);done=true;
   }
  }catch(err){}
- if(!done){ta.value=t;ta.focus();ta.select();
+ if(!done){pane.ta.value=t;pane.ta.focus();pane.ta.select();
   try{done=document.execCommand("copy");}catch(err){}}
- say(done?"The file is on the clipboard. In GitHub select all, paste, then commit."
-        :"The text is selected. Copy it, then paste it in GitHub.");
+ say(pane,done?"The file is on the clipboard. In GitHub select all, paste, then commit."
+             :"The text is selected. Copy it, then paste it in GitHub.");
  window.open(EDIT_URL,"_blank","noopener");
 }
-function pending(S){
+function pending(S,mine){
  var n=0,i,it,b,bc,ex,g;
- for(i=0;i<items.length;i++){
-  it=items[i];b=base[it.id]||{};
+ for(i=0;i<mine.length;i++){
+  it=mine[i];b=base[it.id]||{};
   bc=(b.s&&ok(it.kind,b.s))?b.s:"none";
   if(S[it.id].c!==bc||(S[it.id].c!=="none"&&S[it.id].d!==(b.d||"")))n++;
  }
- ex=extras();
- for(i=0;i<ex.length;i++){
-  g=get(ex[i]);b=base[ex[i]]||{};
-  if((g.s||"")!==(b.s||"")||(g.d||"")!==(b.d||""))n++;
+ if(mine===items){
+  ex=extras();
+  for(i=0;i<ex.length;i++){
+   g=get(ex[i]);b=base[ex[i]]||{};
+   if((g.s||"")!==(b.s||"")||(g.d||"")!==(b.d||""))n++;
+  }
  }
  return n;
 }
 
 /* ---- the panel --------------------------------------------------------- */
-function skeleton(){
+/* The panel gives the counts and the failures. The detail host gives the table
+   of the work in motion, the waiting list and the record. The detail host sits
+   at the end of the document, thus the summary stays beside the steps. */
+function skeleton(pane){
+ var panel=pane.panel,det=pane.detail||panel;
  panel.innerHTML=
-  '<p id="trk-count"></p>'+
-  '<p id="trk-prov" class="note"></p>'+
-  '<div id="trk-ready"></div>'+
-  '<div id="trk-run"></div>'+
-  '<details id="trk-wait"><summary></summary><div></div></details>'+
-  '<details id="trk-rec"><summary>Record</summary>'+
+  '<p class="trk-count"></p>'+
+  '<p class="note trk-fail"></p>';
+ var detail=
+  '<div class="trk-run"></div>'+
+  '<details class="trk-wait"><summary></summary><div></div></details>'+
+  '<details class="trk-rec"><summary>Record</summary>'+
   '<p class="note">The page source holds the record. Your browser holds the changes since '+
   'the last commit.</p>'+
-  '<textarea id="trk-ta" spellcheck="false" aria-label="The record"></textarea>'+
-  '<p><button type="button" class="btn" id="trk-gh">Copy and open GitHub</button>'+
-  '<button type="button" class="btn ghost" id="trk-copy">Copy the record</button>'+
-  '<button type="button" class="btn ghost" id="trk-load">Load the record</button>'+
-  '<button type="button" class="btn ghost" id="trk-undo">Cancel the last change</button>'+
-  '<button type="button" class="btn ghost" id="trk-reset">Return to the page record</button></p>'+
-  '<p class="note" id="trk-msg"></p>'+
+  '<textarea class="trk-ta" spellcheck="false" aria-label="The record"></textarea>'+
+  '<p><button type="button" class="btn trk-gh">Copy and open GitHub</button>'+
+  '<button type="button" class="btn ghost trk-copy">Copy the record</button>'+
+  '<button type="button" class="btn ghost trk-load">Load the record</button>'+
+  '<button type="button" class="btn ghost trk-undo">Cancel the last change</button>'+
+  '<button type="button" class="btn ghost trk-reset">Return to the page record</button></p>'+
+  '<p class="note trk-msg"></p>'+
   '<p class="note">Paste this text into status.json, then commit the file. The states are '+
   'then the record for everybody. Keep the two lines that start with an underline.</p>'+
-  '<p class="note" id="trk-unk"></p></details>'+
-  '<p class="note" id="trk-fail"></p>'+
+  '<p class="note trk-unk"></p></details>'+
   '<p class="note">The tracker keeps your changes in this browser. The record in the page '+
   'source is the copy that every machine reads.</p>';
- box.count=panel.querySelector("#trk-count");
- box.prov=panel.querySelector("#trk-prov");
- box.ready=panel.querySelector("#trk-ready");
- box.run=panel.querySelector("#trk-run");
- box.wait=panel.querySelector("#trk-wait");
- box.fail=panel.querySelector("#trk-fail");
- ta=panel.querySelector("#trk-ta");
- unk=panel.querySelector("#trk-unk");
- btnUndo=panel.querySelector("#trk-undo");
- panel.querySelector("#trk-gh").onclick=doGitHub;
- panel.querySelector("#trk-copy").onclick=doCopy;
- panel.querySelector("#trk-load").onclick=doLoad;
- btnUndo.onclick=stepBack;
- panel.querySelector("#trk-reset").onclick=doReset;
+ if(det===panel)panel.innerHTML+=detail;else det.innerHTML=detail;
+ var box=pane.box;
+ box.count=panel.querySelector(".trk-count");
+ box.fail=panel.querySelector(".trk-fail");
+ box.run=det.querySelector(".trk-run");
+ box.wait=det.querySelector(".trk-wait");
+ pane.ta=det.querySelector(".trk-ta");
+ pane.unk=det.querySelector(".trk-unk");
+ pane.btnUndo=det.querySelector(".trk-undo");
+ det.querySelector(".trk-gh").onclick=function(){doGitHub(pane);};
+ det.querySelector(".trk-copy").onclick=function(){doCopy(pane);};
+ det.querySelector(".trk-load").onclick=function(){doLoad(pane);};
+ pane.btnUndo.onclick=stepBack;
+ det.querySelector(".trk-reset").onclick=function(){doReset(pane);};
 }
-function say(s){var e=panel.querySelector("#trk-msg");if(e)e.innerHTML=esc(s);}
-function doCopy(){
+function say(pane,s){var e=(pane.detail||pane.panel).querySelector(".trk-msg");
+ if(e)e.innerHTML=esc(s);}
+function doCopy(pane){
  var done=false;
- ta.focus();ta.select();
+ pane.ta.focus();pane.ta.select();
  try{done=document.execCommand("copy");}catch(err){done=false;}
- say(done?"The record is on the clipboard.":"The text is selected. Copy it now.");
+ say(pane,done?"The record is on the clipboard.":"The text is selected. Copy it now.");
 }
-function doLoad(){
+function doLoad(pane){
  var r;
  try{
-  r=JSON.parse(ta.value);
+  r=JSON.parse(pane.ta.value);
   if(!r||typeof r!=="object"||!r.i||typeof r.i!=="object")throw 0;
   if(+r.v>VER)throw 0;
- }catch(err){say("The text does not read as a record. Nothing changed.");return;}
- undo=null;local=r.i;save();paint();
- say("The record is now in this browser.");
+ }catch(err){say(pane,"The text does not read as a record. Nothing changed.");return;}
+ undo=null;local=r.i;save();paintAll();
+ say(pane,"The record is now in this browser.");
 }
-function doReset(){
+function doReset(pane){
  if(!window.confirm("Do you want to remove the changes in this browser?"))return;
  try{window.localStorage.removeItem(KEY);}catch(err){}
- undo=null;local={};paint();
- say("The tracker now uses the page record.");
+ undo=null;local={};paintAll();
+ say(pane,"The tracker now uses the page record.");
 }
 
-function paint(){
- var S=snap(),i,j,it,st,c;
- var failed=[],blocked=[],running=[],fin=[],ready=[],wait=[],blocks={},un,n;
+/* One panel. It reads the states of every step, because a dependency can be a
+   step of another path, but it counts and lists its own steps only. */
+function paint(pane,S){
+ var mine=pane.items,box=pane.box,panel=pane.panel,ta=pane.ta,unk=pane.unk;
+ var i,j,it,st,c;
+ var failed=[],blocked=[],running=[],fin=[],ready=[],wait=[],un,n;
  for(i=0;i<items.length;i++){
   it=items[i];st=S[it.id];
-  if(it.sels){for(j=0;j<it.sels.length;j++){
+  for(j=0;j<it.sels.length;j++){
    it.sels[j].value=st.c;it.sels[j].className="trk-s tag "+row(it.kind,st.c)[2];
    it.dts[j].value=st.d;it.dts[j].style.display=(st.c==="none")?"none":"";
-  }}
-  for(j=0;j<it.needs.length;j++)blocks[it.needs[j].id]=1;
+  }
  }
- for(i=0;i<items.length;i++){
-  it=items[i];st=S[it.id];
+ for(i=0;i<mine.length;i++){
+  it=mine[i];st=S[it.id];
   if(st.c==="failed"){failed.push(it);continue;}
   if(st.c==="blocked"){blocked.push(it);continue;}
   if(RUN[st.c]){running.push(it);continue;}
@@ -2089,39 +2243,10 @@ function paint(){
  if(fin.length)c+='<span class="tag ok">'+fin.length+" done</span> ";
  n=ready.length+wait.length;
  if(n)c+='<span class="tag q">'+n+" not started</span>";
- box.count.innerHTML=c;
-
- /* line 2, the provenance */
- var last="";
- for(i=0;i<items.length;i++){
-  st=S[items[i].id];
-  if(st.c!=="none"&&st.d>last)last=st.d;
- }
- c=last?"Last change: "+esc(fmt(last))+".":"You did not set a state yet.";
- n=pending(S);
+ n=pending(S,mine);
  if(n)c+=' <span class="tag warn">'+n+" "+plural(n,"change is","changes are")+
          " not in the record</span>";
- box.prov.innerHTML=c;
-
- /* block 3, what you can start */
- ready.sort(function(a,b){return (blocks[a.id]?0:1)-(blocks[b.id]?0:1);});
- if(!ready.length){
-  c="<p>"+(wait.length?"You cannot start a step today. Every step waits for other work.":
-                      "No step waits to start.")+"</p>";
- }else{
-  c="<p>You can start "+ready.length+" "+plural(ready.length,"step","steps")+" today.</p>";
-  c+='<ul class="steps">';
-  for(i=0;i<ready.length&&i<6;i++){
-   it=ready[i];
-   c+="<li>"+esc(VERB[it.kind]+it.name)+".";
-   if(it.sec)c+=' <a href="#'+esc(it.sec)+'">'+esc(secLabel(it.sec))+"</a>";
-   c+="</li>";
-  }
-  c+="</ul>";
-  if(ready.length>6)c+='<p class="note">'+(ready.length-6)+" more "+
-   plural(ready.length-6,"step can","steps can")+" start today.</p>";
- }
- box.ready.innerHTML=c;
+ box.count.innerHTML=c;
 
  /* block 4, what is running */
  var stale=+(panel.getAttribute("data-trk-stale")||14),mo=[],d;
@@ -2160,8 +2285,9 @@ function paint(){
  c="<ul class=\"wl\">";
  for(i=0;i<wait.length;i++){
   var nd=byId[wait[i].need.id],nm=nd?nd.name:wait[i].need.id,me=wait[i].it;
-  var a=nd&&nd.sec?'<a href="#'+esc(nd.sec)+'">'+esc(nm)+"</a>":esc(nm);
-  var b=me.sec?'<a href="#'+esc(me.sec)+'">'+esc(cap(me.name))+"</a>":esc(cap(me.name));
+  var ns=nd?pane.secOf[nd.id]:null,ms=pane.secOf[me.id];
+  var a=ns?'<a href="#'+esc(ns)+'">'+esc(nm)+"</a>":esc(nm);
+  var b=ms?'<a href="#'+esc(ms)+'">'+esc(cap(me.name))+"</a>":esc(cap(me.name));
   c+="<li>"+b+" needs "+a+" first.</li>";
  }
  c+="</ul>";
@@ -2173,7 +2299,7 @@ function paint(){
  var ex=extras();
  unk.innerHTML=ex.length?esc(ex.length+" "+plural(ex.length,"record has","records have")+
   " no step. The record keeps "+plural(ex.length,"it.","them.")):"";
- btnUndo.style.display=undo?"":"none";
+ pane.btnUndo.style.display=undo?"":"none";
 
  /* the failure lines */
  var all=bmsg.concat(msg),seen={},out=[];
@@ -2188,27 +2314,199 @@ function paint(){
  }
 
  panel.hidden=false;
+ if(pane.detail)pane.detail.hidden=false;
 }
 
 try{
- panel=document.getElementById("trk");
- if(panel){
-  collect();
-  if(items.length){
-   place();
-   readBase();
-   readLocal();
-   skeleton();
-   paint();
-   fetchRecord();
-   var all=document.getElementById("trk-all");
-   if(all)all.removeAttribute("open");
-   window.addEventListener("storage",function(e){
-    if(e.key!==KEY)return;
-    try{readLocal();undo=null;paint();}catch(err){}
-   });
+ /* One scope for each path. A scope holds one panel and one list of steps. */
+ var scopes=document.querySelectorAll("[data-trk-scope]"),si,sc,pane;
+ for(si=0;si<scopes.length;si++){
+  sc=scopes[si];
+  pane={scope:sc,
+        panel:sc.querySelector("[data-trk-panel]"),
+        detail:sc.querySelector("[data-trk-detail]"),
+        reg:sc.querySelector("[data-trk-reg]"),
+        items:[],secOf:{},regOf:{},box:{},ta:null,unk:null,btnUndo:null};
+  if(!pane.panel||!pane.reg)continue;
+  collect(pane);
+  if(!pane.items.length)continue;
+  place(pane);
+  panes.push(pane);
+ }
+ if(panes.length){
+  readBase();
+  readLocal();
+  for(si=0;si<panes.length;si++){
+   skeleton(panes[si]);
+   panes[si].reg.removeAttribute("open");
   }
+  paintAll();
+  fetchRecord();
+  window.addEventListener("storage",function(e){
+   if(e.key!==KEY)return;
+   try{readLocal();undo=null;paintAll();}catch(err){}
+  });
  }
 }catch(err){/* the tracker stays hidden and the page is unchanged */}
 })();
 </script>
+<style>
+ /* ---- level 2, the role panes inside one path -------------------------- */
+ .subtabs{display:flex;gap:.3rem;flex-wrap:wrap;margin:0 0 1.5rem}
+ .subtabs button{appearance:none;background:none;border:1px solid var(--edge);
+        border-radius:999px;color:var(--dim);
+        font:600 .8rem/1 system-ui,sans-serif;padding:.42rem .85rem;cursor:pointer;
+        white-space:nowrap}
+ .subtabs button:hover{color:var(--fg);border-color:var(--dim)}
+ .subtabs button[aria-selected="true"]{color:var(--bg);background:var(--link);
+        border-color:var(--link)}
+ .pane{display:none}
+ .pane.on{display:block}
+ .pathlede{margin:0 0 1rem;color:var(--dim);font-size:.92rem}
+ @media print{
+  /* A printed path is one document. Every pane of the open path prints. */
+  .subtabs{display:none}
+  .pane{display:block!important}
+ }
+</style>
+
+<script>
+/* Two levels of tabs, and one hash for both.
+   Level 1 selects the document: the comparison, a path, or the expansion.
+   Level 2 selects the role pane inside a path: question, method or reagents.
+   A hash of "#c-method" therefore opens path C and its method pane.
+   A hash of "#path-c" opens path C and the pane that path last showed.
+
+   The section numbers come from this script. A heading id never changes. The
+   number of a heading is its place in its own document, across the three panes,
+   so a printed path reads 1, 2, 3 with no gap. */
+(function(){
+ var DOCS=["compare","a","b","c","expansion"];
+ var PATHS=["a","b","c"];
+ var ROLES=["question","method","reagents"];
+ var openPane={a:"question",b:"question",c:"question"};
+
+ function el(id){return document.getElementById(id);}
+
+ /* ---- the numbers, once, at load ------------------------------------- */
+ function number(doc){
+  var hs=doc.querySelectorAll("h2,h3,h4"),i,h,n2=0,n3=0,n4=0,num,map={},sp;
+  for(i=0;i<hs.length;i++){
+   h=hs[i];
+   if(h.tagName==="H2"){n2++;n3=0;n4=0;num=""+n2;}
+   else if(h.tagName==="H3"){n3++;n4=0;num=n2+"."+n3;}
+   else{n4++;num=n2+"."+n3+"."+n4;}
+   sp=h.querySelector(".secno");
+   if(sp)sp.textContent=num;
+   if(h.id)map[h.id]=num;
+  }
+  var xs=doc.querySelectorAll(".xref");
+  for(i=0;i<xs.length;i++){
+   var t=map[xs[i].getAttribute("data-ref")];
+   if(t){xs[i].textContent=t;xs[i].removeAttribute("hidden");}
+   else{xs[i].setAttribute("hidden","");}
+  }
+ }
+
+ /* ---- level 2 --------------------------------------------------------- */
+ function showPane(p,role,push){
+  if(ROLES.indexOf(role)<0)role="question";
+  openPane[p]=role;
+  var i,r,b,pane;
+  for(i=0;i<ROLES.length;i++){
+   r=ROLES[i];
+   b=el("sub-"+p+"-"+r); pane=el("pane-"+p+"-"+r);
+   if(b)b.setAttribute("aria-selected",r===role?"true":"false");
+   if(pane)pane.classList.toggle("on",r===role);
+  }
+  if(push)history.replaceState(null,"","#"+p+"-"+role);
+ }
+
+ /* ---- level 1 --------------------------------------------------------- */
+ function showDoc(name,push){
+  if(DOCS.indexOf(name)<0)name=DOCS[0];
+  var i,d,b;
+  for(i=0;i<DOCS.length;i++){
+   d=el("doc-"+DOCS[i]); b=el("tab-"+DOCS[i]);
+   if(d)d.classList.toggle("on",DOCS[i]===name);
+   if(b)b.setAttribute("aria-selected",DOCS[i]===name?"true":"false");
+  }
+  if(PATHS.indexOf(name)>=0){
+   showPane(name,openPane[name],false);
+   if(push)history.replaceState(null,"","#"+name+"-"+openPane[name]);
+  }else if(push){
+   history.replaceState(null,"","#"+name);
+  }
+  window.scrollTo({top:0});
+ }
+
+ /* ---- the hash names both levels ------------------------------------- */
+ function fromHash(h){
+  h=(h||"").replace("#","");
+  if(!h)return null;
+  var m=/^path-([abc])$/.exec(h);
+  if(m)return {doc:m[1],role:openPane[m[1]]};
+  m=/^([abc])-(question|method|reagents)$/.exec(h);
+  if(m)return {doc:m[1],role:m[2]};
+  if(DOCS.indexOf(h)>=0)return {doc:h,role:null};
+  /* a heading id: open the document and the pane that holds it */
+  var t=el(h),node=t;
+  while(node&&node!==document.body){
+   if(node.classList&&node.classList.contains("pane")){
+    var id=node.id.split("-");       /* pane-<path>-<role> */
+    return {doc:id[1],role:id[2],anchor:h};
+   }
+   if(node.classList&&node.classList.contains("doc")){
+    return {doc:node.id.replace("doc-",""),role:null,anchor:h};
+   }
+   node=node.parentNode;
+  }
+  return null;
+ }
+
+ function keys(strip,list,go){
+  strip.forEach(function(b,i){
+   if(!b)return;
+   b.addEventListener("click",function(){go(list[i]);});
+   b.addEventListener("keydown",function(e){
+    var n=-1;
+    if(e.key==="ArrowRight")n=(i+1)%list.length;
+    if(e.key==="ArrowLeft")n=(i-1+list.length)%list.length;
+    if(n<0)return;
+    e.preventDefault();
+    if(strip[n])strip[n].focus();
+    go(list[n]);
+   });
+  });
+ }
+
+ /* ---- wire it up ------------------------------------------------------ */
+ var i,p;
+ for(i=0;i<DOCS.length;i++){
+  var d=el("doc-"+DOCS[i]);
+  if(d)number(d);
+ }
+ keys(DOCS.map(function(k){return el("tab-"+k);}),DOCS,
+      function(k){showDoc(k,true);});
+ for(i=0;i<PATHS.length;i++)(function(p){
+  keys(ROLES.map(function(r){return el("sub-"+p+"-"+r);}),ROLES,
+       function(r){showPane(p,r,true);});
+ })(PATHS[i]);
+
+ var want=fromHash(location.hash)||{doc:DOCS[0],role:null};
+ showDoc(want.doc,false);
+ if(want.role)showPane(want.doc,want.role,false);
+ if(want.anchor){
+  var t=el(want.anchor);
+  if(t&&t.scrollIntoView)t.scrollIntoView();
+ }
+ window.addEventListener("hashchange",function(){
+  var w=fromHash(location.hash);
+  if(!w)return;
+  showDoc(w.doc,false);
+  if(w.role)showPane(w.doc,w.role,false);
+  if(w.anchor){var t=el(w.anchor); if(t&&t.scrollIntoView)t.scrollIntoView();}
+ },false);
+})();
+</script>
+<hr>

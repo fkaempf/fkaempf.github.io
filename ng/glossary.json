@@ -3306,7 +3306,7 @@
   "BDSC 93026": {
    "kind": "stock",
    "name": "BDSC 93026",
-   "function": "ppk23 driver, path A",
+   "function": "sensory driver",
    "chr": "2",
    "genotype": "w1118; P{ppk23-Gal4.2.695}2; TM2/TM6B",
    "location": "25 degrees Celsius, 3 vials",
@@ -3316,27 +3316,29 @@
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "a c"
   },
   "BDSC 53584": {
    "kind": "stock",
    "name": "BDSC 53584",
-   "function": "PPN1 driver, path A",
+   "function": "AN driver",
    "chr": "2, attP40",
    "genotype": "w1118; P{GMR56C09-lexA}attP40",
    "location": "18 degrees Celsius",
-   "condition": "ready",
+   "condition": "ready. The target driver of PPN1.",
    "pages": [
     {
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "a c"
   },
   "BDSC 32209": {
    "kind": "stock",
    "name": "BDSC 32209",
-   "function": "PPN1 fill, path A",
+   "function": "fluorophore",
    "chr": "3, attP2",
    "genotype": "w[*]; P{y[+t7.7] w[+mC]=13XLexAop2-IVS-myr::GFP}attP2",
    "location": "BDSC",
@@ -3352,11 +3354,11 @@
   "BDSC 32211": {
    "kind": "stock",
    "name": "BDSC 32211",
-   "function": "PPN1 fill, the Gr32a arm",
+   "function": "fluorophore",
    "chr": "X, su(Hw)attP8",
    "genotype": "y[1] w[*] P{y[+t7.7] w[+mC]=13XLexAop2-IVS-myr::GFP}su(Hw)attP8",
    "location": "BDSC",
-   "condition": "ordered. 17 August 2026. The same reporter on the X chromosome. It frees chromosome 3 for a driver.",
+   "condition": "ordered. 17 August 2026. The same reporter on the X chromosome. It frees chromosome 3 for a driver. The Gr32a arm uses it.",
    "pages": [
     {
      "label": "crosses",
@@ -3368,7 +3370,7 @@
   "LMB-494": {
    "kind": "stock",
    "name": "LMB-494",
-   "function": "synapse label, path A",
+   "function": "synapse marker",
    "chr": "3",
    "genotype": "w-; Sco/CyO,Dfd-YFP ; UAS-brp-D3-Cherry/TM6B,Sb,Dfd-YFP",
    "location": "Cambridge Fly Facility",
@@ -3384,7 +3386,7 @@
   "GJ948": {
    "kind": "stock",
    "name": "GJ948",
-   "function": "synapse label, path B",
+   "function": "synapse marker",
    "chr": "not recorded",
    "genotype": "LexAop2-Brp-mCherry",
    "location": "Cambridge Fly Facility",
@@ -3400,7 +3402,7 @@
   "ppk23-LexA-dirty": {
    "kind": "stock",
    "name": "ppk23-LexA-dirty",
-   "function": "ppk23 driver, path B",
+   "function": "sensory driver",
    "chr": "2",
    "genotype": ";ppk23-LexA/CyO; 22B10-Gal4/TM3, Ser",
    "location": "25 degrees Celsius, Bella",
@@ -3416,7 +3418,7 @@
   "ppk23-LexA-clean": {
    "kind": "stock",
    "name": "ppk23-LexA-clean",
-   "function": "ppk23 driver, path B",
+   "function": "sensory driver",
    "chr": "2",
    "genotype": "; ppk23-LexA/CyO ; +/+",
    "location": "does not exist yet",
@@ -3432,22 +3434,23 @@
   "Kallman PPN1 GAL4": {
    "kind": "stock",
    "name": "Kallman PPN1 GAL4",
-   "function": "target driver, path B; PPN1 mask control",
+   "function": "AN driver",
    "chr": "3, attP2",
    "genotype": "w1118; P{GMR56C09-GAL4}attP2",
    "location": "18 degrees Celsius",
-   "condition": "ready. The GAL4 form and the LexA form drive the same cells. Path A needs the LexA form, and path B and the mask control need the GAL4 form.",
+   "condition": "ready. The GAL4 form and the LexA form drive the same cells. The PPN1 mask control needs the GAL4 form.",
    "pages": [
     {
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "a b"
   },
   "BDSC 93028": {
    "kind": "stock",
    "name": "BDSC 93028",
-   "function": "ppk25 driver, the second arm",
+   "function": "sensory driver",
    "chr": "2 and 3",
    "genotype": "w1118; P{ppk25-GAL4.S}2; P{ppk25-GAL4.S}3",
    "location": "18 degrees Celsius",
@@ -3462,7 +3465,7 @@
   "GJ1435": {
    "kind": "stock",
    "name": "GJ1435",
-   "function": "Gr32a driver, a third arm",
+   "function": "sensory driver",
    "chr": "3",
    "genotype": "w118; Sp/CyO; Gr32a-Gal4.3.7.PW",
    "location": "25 degrees Celsius",
@@ -3477,7 +3480,7 @@
   "BDSC 77138": {
    "kind": "stock",
    "name": "BDSC 77138",
-   "function": "red LexAop fill",
+   "function": "fluorophore",
    "chr": "2",
    "genotype": "w[*]; P{w[+mC]=13xLexAop2-CD4-tdTom}4",
    "location": "BDSC",
@@ -3487,12 +3490,13 @@
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "a"
   },
   "BDSC 77139": {
    "kind": "stock",
    "name": "BDSC 77139",
-   "function": "red LexAop fill",
+   "function": "fluorophore",
    "chr": "3, VK00033",
    "genotype": "w[*]; PBac{y[+mDint2] w[+mC]=13xLexAop2-CD4-tdTom}VK00033/TM6B, Tb[1]",
    "location": "BDSC",
@@ -3502,12 +3506,13 @@
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "a"
   },
   "BDSC 60692": {
    "kind": "stock",
    "name": "BDSC 60692",
-   "function": "Ir52a driver, path B",
+   "function": "sensory driver",
    "chr": "3, attP2 and VK00005",
    "genotype": "w[*]; wg[Sp-1]/CyO; P{Ir52a-LexA-VP16}attP2 PBac{Ir52a-LexA-VP16}VK00005/TM3, Sb[1] Ser[1]",
    "location": "BDSC",
@@ -3517,12 +3522,13 @@
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "b"
   },
   "BDSC 60699": {
    "kind": "stock",
    "name": "BDSC 60699",
-   "function": "Ir52a driver, path A",
+   "function": "sensory driver",
    "chr": "2",
    "genotype": "w[*]; P{w[+mC]=Ir52a-GAL4.K}2/CyO; P{w[+mC]=UAS-mCD8::GFP.L}LL6",
    "location": "BDSC",
@@ -3537,7 +3543,7 @@
   "BDSC 81229": {
    "kind": "stock",
    "name": "BDSC 81229",
-   "function": "Ir52a driver, path A",
+   "function": "sensory driver",
    "chr": "3, attP2",
    "genotype": "w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52a-GAL4.2931}attP2/TM6B, Tb[+]",
    "location": "BDSC",
@@ -3552,7 +3558,7 @@
   "BDSC 81230": {
    "kind": "stock",
    "name": "BDSC 81230",
-   "function": "Ir52b driver, a pattern check",
+   "function": "sensory driver",
    "chr": "3, attP2",
    "genotype": "w[*]; Bl[1]/CyO; P{y[+t7.7] w[+mC]=Ir52b-GAL4.C}attP2",
    "location": "BDSC",
@@ -3567,7 +3573,7 @@
   "BDSC 57671": {
    "kind": "stock",
    "name": "BDSC 57671",
-   "function": "Gr68a driver, a fourth arm",
+   "function": "sensory driver",
    "chr": "2",
    "genotype": "w[*]; P{w[+mC]=Gr68a-GAL4.1.8}2; Dr[1]/TM3, Sb[1]",
    "location": "BDSC",
@@ -3582,7 +3588,7 @@
   "BDSC 58370": {
    "kind": "stock",
    "name": "BDSC 58370",
-   "function": "Gr68a driver, second fragment",
+   "function": "sensory driver",
    "chr": "3",
    "genotype": "w[*]; wg[Sp-1]/CyO; P{w[+mC]=Gr68a-GAL4.B}1",
    "location": "BDSC",
@@ -3597,7 +3603,7 @@
   "GJ954": {
    "kind": "stock",
    "name": "GJ954",
-   "function": "double balancer for the clean-ups",
+   "function": "balancer",
    "chr": "2 and 3",
    "genotype": "w; IF/CyO; TM2/TM6B",
    "location": "18 degrees Celsius",
@@ -3612,7 +3618,7 @@
   "GJ890": {
    "kind": "stock",
    "name": "GJ890",
-   "function": "\u2014",
+   "function": "tag, needs a dye",
    "chr": "2",
    "genotype": "LexAop2-myr4xCLIPf, attP40",
    "location": "18 degrees Celsius",
@@ -3622,12 +3628,13 @@
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "a"
   },
   "GJ891": {
    "kind": "stock",
    "name": "GJ891",
-   "function": "\u2014",
+   "function": "tag, needs a dye",
    "chr": "3",
    "genotype": "LexAop2-myr4xCLIPf, VK00005",
    "location": "18 degrees Celsius",
@@ -3637,12 +3644,13 @@
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "a"
   },
   "GJ894": {
    "kind": "stock",
    "name": "GJ894",
-   "function": "\u2014",
+   "function": "tag, needs a dye",
    "chr": "2",
    "genotype": "LexAop2-myr4xSNAPf, attP40",
    "location": "18 degrees Celsius",
@@ -3652,12 +3660,13 @@
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "a"
   },
   "GJ895": {
    "kind": "stock",
    "name": "GJ895",
-   "function": "\u2014",
+   "function": "tag, needs a dye",
    "chr": "3",
    "genotype": "IF/CyO; LexAop2-myr4xSNAPf-VK00005-1M/TM6B",
    "location": "18 degrees Celsius",
@@ -3667,12 +3676,13 @@
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "a"
   },
   "GJ598": {
    "kind": "stock",
    "name": "GJ598",
-   "function": "target fill, path B",
+   "function": "fluorophore",
    "chr": "X",
    "genotype": "w* P{10XUAS-IVS-myr::GFP}su(Hw)attP8",
    "location": "18 degrees Celsius",
@@ -3683,12 +3693,12 @@
      "url": "../first-cross/"
     }
    ],
-   "path": "b"
+   "path": "a b"
   },
   "GJ600": {
    "kind": "stock",
    "name": "GJ600",
-   "function": "target fill, path B",
+   "function": "fluorophore",
    "chr": "3, attP2",
    "genotype": "w*;; P{10XUAS-IVS-myr::GFP}attP2",
    "location": "18 degrees Celsius",
@@ -3704,7 +3714,7 @@
   "GJ667": {
    "kind": "stock",
    "name": "GJ667",
-   "function": "target fill, path B",
+   "function": "fluorophore",
    "chr": "3, attP2",
    "genotype": "w*;; P{10XUAS-IVS-myr::GFP::P10}attP2",
    "location": "18 degrees Celsius",
@@ -3720,7 +3730,7 @@
   "GJ832": {
    "kind": "stock",
    "name": "GJ832",
-   "function": "double balancer, second choice",
+   "function": "balancer",
    "chr": "2 and 3",
    "genotype": "If/CyO; hsFLP, MKRS/TM6B, Tb1",
    "location": "18 degrees Celsius",
@@ -3735,7 +3745,7 @@
   "SS104905": {
    "kind": "stock",
    "name": "SS104905",
-   "function": "a vAB3 candidate",
+   "function": "AN driver",
    "chr": "2 and 3",
    "genotype": "w; 71A10-p65ADZ/CyO; VT034623-ZpGdbd in attP2/TM6B,Tb",
    "location": "25 degrees Celsius",
@@ -3745,12 +3755,13 @@
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "a b"
   },
   "LMB-495": {
    "kind": "stock",
    "name": "LMB-495",
-   "function": "a comparison only",
+   "function": "synapse marker",
    "chr": "3",
    "genotype": "2xUAS:brp-mRFP, full length",
    "location": "Cambridge Fly Facility",
@@ -3760,27 +3771,29 @@
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "a"
   },
   "BDSC 79040": {
    "kind": "stock",
    "name": "BDSC 79040",
-   "function": "both t-GRASP halves, path C",
+   "function": "t-GRASP halves",
    "chr": "3, attP2 and VK00027",
    "genotype": "y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{13XLexAop2-post-t-GRASP}attP2 PBac{20XUAS-pre-t-GRASP}VK00027",
    "location": "18 degrees Celsius",
-   "condition": "ready. UAS drives the pre half, thus the sensory driver is GAL4 and the target driver is LexA. This is the orientation for path C at PPN1. The stock list gives the reason, and not the orientation: ppk23, ppk25 and Gr32a exist as GAL4. This table lists one target driver line with LexA: R56C09-lexA. R56C09-lexA drives PPN1.",
+   "condition": "ready. UAS drives the pre half, thus the sensory driver is GAL4 and the target driver is LexA. This is the orientation for path C at PPN1. Every sensory driver in this table is GAL4: ppk23, ppk25, Gr32a, Gr68a, Ir52a and Ir52b. This table gives no Gr33 driver. This table gives one target driver line with LexA: R56C09-lexA. R56C09-lexA drives PPN1.",
    "pages": [
     {
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "c"
   },
   "BDSC 79039": {
    "kind": "stock",
    "name": "BDSC 79039",
-   "function": "the second orientation, path B with t-GRASP",
+   "function": "t-GRASP halves",
    "chr": "3, attP2 and VK00027",
    "genotype": "y[1] w[*]; wg[Sp-1]/CyO, P{Dfd-EYFP}2; P{20XUAS-post-t-GRASP}attP2 PBac{13XLexAop2-pre-t-GRASP}VK00027/TM6C, Sb[1] Tb[1]",
    "location": "18 degrees Celsius",
@@ -3796,7 +3809,7 @@
   "GJ599": {
    "kind": "stock",
    "name": "GJ599",
-   "function": "target fill, path B only",
+   "function": "fluorophore",
    "chr": "2, attP40",
    "genotype": "w*; P{10XUAS-IVS-myr::GFP}attP40",
    "location": "18 degrees Celsius",
@@ -3807,24 +3820,25 @@
      "url": "../first-cross/"
     }
    ],
-   "path": "b"
+   "path": "a b"
   },
   "SS103018": {
    "kind": "stock",
    "name": "SS103018",
-   "function": "AN13B002, a target that separates the groups",
+   "function": "AN driver",
    "chr": "2 and 3",
    "genotype": "not recorded; the snapshot gives \"?\"",
    "location": "25 degrees Celsius",
-   "condition": "map it. split-GAL4",
+   "condition": "map it. AN13B002. It is a split-GAL4 target, and it separates the two groups.",
    "pages": [
     {
      "label": "crosses",
      "url": "../first-cross/"
     }
-   ]
+   ],
+   "path": "b"
   }
  },
  "note": "The fly stocks come from the stock list of the crosses page. That table is the source, and this file is written again at each build of that page.",
- "stocks_generated": "2026-08-18"
+ "stocks_generated": "2026-08-19"
 }

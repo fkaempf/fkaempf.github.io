@@ -1,0 +1,965 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>AVLP743m partners - literature mentions</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<script src="../glossary.js" defer></script>
+<style>
+ body{font:15px/1.65 system-ui,sans-serif;margin:0;padding:2.5rem 1.25rem;
+      max-width:52rem;margin-inline:auto;color:#1a1a1a;background:#fff}
+ h1{font-size:1.5rem;margin:0 0 .35rem}
+ p.sub{color:#555;margin:0 0 1.5rem}
+ a{color:#0b5fa5}
+ nav{margin:0 0 2rem;font-size:.9rem;display:flex;flex-wrap:wrap;gap:.35rem 1.1rem}
+ nav a.here{color:inherit;text-decoration:none;font-weight:600}
+ h2{font-size:1.15rem;margin:2.75rem 0 .5rem;font-weight:600;
+    border-top:1px solid #ececec;padding-top:1.25rem}
+ h3{font-size:1rem;margin:2rem 0 .35rem;font-weight:600}
+ h4{font-size:.92rem;margin:1.5rem 0 .35rem;font-weight:600;color:#555}
+ .wrap{overflow-x:auto;margin:1rem 0}
+ table{border-collapse:collapse;width:100%;font-size:.9rem}
+ th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid #ececec;
+       vertical-align:top}
+ th{font-weight:600;color:#555;font-size:.8rem;text-transform:uppercase;
+    letter-spacing:.03em;white-space:nowrap}
+ td:first-child{white-space:nowrap}
+ code{font-size:.9em;background:#f2f2f2;padding:.1rem .25rem;border-radius:3px}
+ pre{background:#f7f7f7;padding:.75rem 1rem;border-radius:6px;overflow-x:auto}
+ pre code{background:none;padding:0}
+ blockquote{margin:1rem 0;padding:.1rem 1rem;border-left:3px solid #d8d8d8;color:#555}
+ ul{padding-left:1.25rem}
+ li{margin:.35rem 0}
+ hr{border:0;border-top:1px solid #ececec;margin:2.5rem 0}
+ .box{border:1px solid #d8d8d8;border-left:4px solid #0b5fa5;border-radius:6px;
+      padding:1rem 1.15rem;margin:0 0 2rem;background:#f7fbff}
+ .box p{margin:.4rem 0}
+ .box p:first-child{margin-top:0}
+ .box p:last-child{margin-bottom:0}
+ @media (prefers-color-scheme:dark){
+  body{background:#141414;color:#e8e8e8}
+  a{color:#6fb3ef}
+  h2{border-top-color:#2a2a2a} h4{color:#aaa}
+  th,td{border-bottom-color:#2a2a2a} th,p.sub{color:#aaa}
+  code{background:#242424} pre{background:#1b1b1b}
+  blockquote{border-left-color:#333;color:#bbb}
+  hr{border-top-color:#2a2a2a}
+  .box{border-color:#333;border-left-color:#6fb3ef;background:#1b2430}
+ }
+</style>
+<h1>AVLP743m partners - literature mentions</h1>
+<p class="sub">Every publication found for each input and output cell type of AVLP743m, with the old name that produced the hit.</p>
+<nav><a href="index.html">Function</a>
+<a class="here">Publications</a>
+<a href="../avlp743m/">Scenes and partner tables</a></nav>
+
+<div class="box">
+<p><b>Read this first: AVLP743m has no name and no function in the literature.</b></p>
+<p>The male CNS annotation gives AVLP743m the old name <b>LC1 (Ruta 2010)</b>. That name does not
+hold. Kohl 2013 Table 1 aligns LC1 with the clone <code>aSP-k</code>, and the same annotation gives
+<code>aSP-k</code> and <code>aSP8</code> to <b>LHAV4c2</b>. Ruta's LC1 also has about 26 cells in
+males and 16 in females, and Clowney 2015 calls it GABAergic. AVLP743m has 11 cells, is
+male-specific, and its transmitter call is "unclear".</p>
+<p>The older project label <b>vAB3</b> is wrong as well. vAB3 is an ascending neuron of the nerve
+cord. The annotation gives vAB3 to <b>AN09B017f</b> and <b>AN09B017g</b>, which are two of the
+input partners on this page, and Stuerner 2025 makes the same assignment in print.</p>
+<p>So read every LC1 result below as a result about a mixed cluster, not about AVLP743m.</p>
+</div>
+
+<h2 id="introduction">Introduction</h2>
+<p>This report gives the published literature on the input and output partners of AVLP743m in the Janelia male CNS connectome (male-cns:v1.0).</p>
+<p><strong>Where the old names came from.</strong> The search did not guess the old names. Every search term came from the curated <code>synonyms</code> column of the male CNS annotation. That column records, for each modern type, the name or names that earlier papers used for the same cell or for the group that contains it. The synonym map below reproduces that column verbatim. The search then looked for each old name in PubMed, PubMed Central, Europe PMC, bioRxiv, publisher full text, the Virtual Fly Brain / FlyBase anatomy ontology, and the neuPrint male-cns:v1.0 type pages.</p>
+<p><strong>How the citations were checked.</strong> A second agent then attacked every citation. It read the full text where the full text was open. It checked that each paper exists, that each quoted sentence is in the source, and that the paper names the type or one of its synonyms. This report applies the corrections of that pass. It removes the citations that failed. The last section lists each removal and the reason. Nothing was removed silently.</p>
+<p><strong>Directness.</strong> Each citation is marked DIRECT or INDIRECT. DIRECT means the paper names the type or one of its curated synonyms. INDIRECT means the paper covers the pathway, the lineage, the region or the dataset, but does not name the cell.</p>
+<h3 id="caveat-1-the-old-names-are-coarser-than-the-modern-types">Caveat 1: the old names are coarser than the modern types</h3>
+<p>The old names come from light microscopy. They name clones, clusters and classes. The connectome names single cell types. One old name can therefore cover several modern types.</p>
+<div class="wrap"><table>
+<thead>
+<tr>
+<th>Old name</th>
+<th>Modern types that share it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aSP-a (Cachero 2010) / aSP2 (Yu 2010)</td>
+<td>SIP100m, SIP101m, SIP104m, SIP122m</td>
+</tr>
+<tr>
+<td>aDT-b (Cachero 2010) / aDT2 (Yu 2010) / mAL</td>
+<td>mAL_m1, mAL_m5a, mAL_m5c, mAL_m8</td>
+</tr>
+<tr>
+<td>aSP-f (Cachero 2010) / aSP5 (Yu 2010) / DC1 (Ruta 2010)</td>
+<td>LH008m, LH001m</td>
+</tr>
+<tr>
+<td>pC1 (Lee 2002) / pMP-e (Cachero 2010) / pMP4 (Yu 2010)</td>
+<td>pC1_3a, pC1_3c</td>
+</tr>
+<tr>
+<td>vAB3 (Yu 2010)</td>
+<td>AN09B017f, AN09B017g</td>
+</tr>
+</tbody>
+</table></div>
+<p>The four SIP types are more than a naming problem. Two of them are inputs to AVLP743m and two are outputs. The old name aSP-a does not separate the input side from the output side.</p>
+<p>The size difference is large. Cachero 2010 counts the aSP-a clone at about 50 to 60 cells per hemisphere in males. Cachero 2010 counts the pMP-f clone at about 21 cells per hemisphere, while AVLP757m has one cell per side. The mAL cluster holds about 30 cells per hemisphere in males and splits into at least eight connectome types.</p>
+<p><strong>A paper about an old name is therefore evidence about a group. It is not proof about one modern type.</strong> Read every statement below in that way. Where a paper made a measurement on a cluster, the report says so.</p>
+<h3 id="caveat-2-name-collisions">Caveat 2: name collisions</h3>
+<p>Several old names collide with unrelated modern names. Each collision below was found and checked during verification.</p>
+<ul>
+<li><strong>LC1 and LC2 (Ruta 2010)</strong> are lateral horn cluster names. They are not the lobula columnar visual types LC1 and LC2. The male CNS text contains the string LC1 three times, and every one is part of <code>LC10a</code>, a visual type.</li>
+<li><strong>DC1 (Ruta 2010)</strong> is a lateral horn cluster. DC1 is also a standard antennal lobe glomerulus name.</li>
+<li><strong>pIP5 / pIP-e</strong> is not <strong>pIP10</strong>. pIP10 is the descending song command neuron of von Philipsborn 2011. pIP5 is an unstudied class.</li>
+<li><strong>aSP2</strong> collides with <strong>aSP22</strong>, a different fruitless descending neuron. Nine of the ten <code>aSP2</code> string hits in Deutsch 2025 are aSP22.</li>
+<li><strong>aSP8</strong>: Taisz 2023 writes "the fru+ aSP-g (aSP8) neurons". The Kohl 2013 synonym table and the connectome both give aSP-g = aSP6, and give aSP8 = aSP-k = LC1. Do not follow aSP8 from Taisz 2023 into AVLP743m.</li>
+<li><strong>DC1 synonymy is not settled.</strong> Clowney 2015 glosses DC1 as "asp-j or aSP5". Kohl 2013 and Sato 2023 equate DC1 with aSP-f.</li>
+</ul>
+<hr />
+<h2 id="the-anchor-papers">The anchor papers</h2>
+<p>These papers supply most of the old names. They are given once here. The type sections cite them by author and year only.</p>
+<div class="wrap"><table>
+<thead>
+<tr>
+<th>Paper</th>
+<th>Full citation</th>
+<th>Link</th>
+<th>What it supplies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cachero 2010</td>
+<td>Cachero S, Ostrovsky AD, Yu JY, Dickson BJ, Jefferis GSXE (2010). Sexual dimorphism in the fly brain. <em>Current Biology</em> 20(18):1589-1601. PMID 20832311</td>
+<td><a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a></td>
+<td>The clone names aSP-a, aSP-f, aSP-g, aSP-k, aIP-b, aIP-e, aIP-g, aDT-b, pMP-e, pMP-f, pIP-e</td>
+</tr>
+<tr>
+<td>Yu 2010</td>
+<td>Yu JY, Kanai MI, Demir E, Jefferis GSXE, Dickson BJ (2010). Cellular organization of the neural circuit that drives Drosophila courtship behavior. <em>Current Biology</em> 20(18):1602-1614. PMID 20832315</td>
+<td><a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a></td>
+<td>The class names aSP2, aSP5, aSP6, aSP8, aSP9, aDT2, pMP4, pIP5, pIP6, vAB3</td>
+</tr>
+<tr>
+<td>Ruta 2010</td>
+<td>Ruta V, Datta SR, Vasconcelos ML, Freeland J, Looger LL, Axel R (2010). A dimorphic pheromone circuit in Drosophila from sensory input to descending output. <em>Nature</em> 468:686-690. PMID 21124455</td>
+<td><a href="https://doi.org/10.1038/nature09554">doi:10.1038/nature09554</a></td>
+<td>The lateral horn cluster names DC1, DC2, LC1, LC2</td>
+</tr>
+<tr>
+<td>Lee 2002</td>
+<td>Lee G, Hall JC, Park JH (2002). Doublesex gene expression in the central nervous system of Drosophila melanogaster. <em>Journal of Neurogenetics</em> 16(4):229-248. PMID 12745633</td>
+<td><a href="https://doi.org/10.1080/01677060216292">doi:10.1080/01677060216292</a></td>
+<td>The dsx+ cluster name pC1</td>
+</tr>
+<tr>
+<td>Rideout 2010</td>
+<td>Rideout EJ, Dornan AJ, Neville MC, Eadie S, Goodwin SF (2010). Control of sexual differentiation and behavior by the doublesex gene in Drosophila melanogaster. <em>Nature Neuroscience</em> 13(4):458-466. PMID 20305646</td>
+<td><a href="https://doi.org/10.1038/nn.2515">doi:10.1038/nn.2515</a></td>
+<td>pC1, through the dsx-Gal4 nomenclature</td>
+</tr>
+<tr>
+<td>Nojima 2021</td>
+<td>Nojima T, Rings A, Allen AM, Otto N, Verschut TA, Billeter JC, Neville MC, Goodwin SF (2021). A sex-specific switch between visual and olfactory inputs underlies adaptive sex differences in behavior. <em>Current Biology</em> 31(6):1175-1191.e6. PMID 33508219</td>
+<td><a href="https://doi.org/10.1016/j.cub.2020.12.047">doi:10.1016/j.cub.2020.12.047</a></td>
+<td>pC1, and pC2l for the neighbouring type AVLP738m</td>
+</tr>
+<tr>
+<td>von Philipsborn 2011</td>
+<td>von Philipsborn AC et al. (2011). Neuronal control of Drosophila courtship song. <em>Neuron</em> 69(3):509-522. PMID 21315261</td>
+<td><a href="https://doi.org/10.1016/j.neuron.2011.01.011">doi:10.1016/j.neuron.2011.01.011</a></td>
+<td>P1 and pIP10. The annotation also cites it for vAB3; that string could not be confirmed</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>The dataset paper.</strong> Berg S, Beckett IR, Costa M, Schlegel P, et al., corresponding author Jefferis GSXE (2025). <em>Sexual dimorphism in the complete connectome of the Drosophila male central nervous system</em>. bioRxiv, <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. This is a preprint. It is not peer reviewed. Version 1 was posted on 2025-10-09 and version 2 on 2025-10-30. Use the DOI, which resolves to version 2. It reports 166,691 proofread neurons, 11,691 types, and 7,205 isomorphic, 114 dimorphic, 262 male-specific and 69 female-specific types.</p>
+<p><strong>Read this before citing Berg 2025 for a type.</strong> The verification pass searched the full text of the preprint for the modern type names. AVLP743m, AVLP316, SIP100m, SIP101m, SIP104m, SIP122m, SIP105m, VES206m, AVLP758m, PVLP206m, AN05B102d, LHAV4c2, aSP-k and aSP8 all return zero hits. The type names and the synonyms live in the dataset and the supplement, not in the running text. Cite Berg 2025 as the dataset that defines the name. Do not cite it for a sentence about a type. The one exception found is <code>vpoIN</code>, which occurs four times in the running text with male-specific results.</p>
+<hr />
+<h2 id="synonym-map">Synonym map</h2>
+<p>The synonyms in the fourth column are the curated male-cns:v1.0 annotation, verbatim. The fifth column adds the further aliases that the research pass found. The tables are grouped by direction. Three types are on both sides: LHAV4c2, CB1852 and mAL_m1.</p>
+<h3 id="the-cell-itself">The cell itself</h3>
+<div class="wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Curated synonyms (verbatim)</th>
+<th>Further aliases found</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AVLP743m</td>
+<td>LC1 (Ruta 2010)</td>
+<td>aSP-k / aSP8, through the Kohl 2013 Table 1 alignment. Contested; see the identity section</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="input-partners">Input partners</h3>
+<p>Share is of the total input of AVLP743m.</p>
+<div class="wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Share</th>
+<th>NT</th>
+<th>Curated synonyms (verbatim)</th>
+<th>Further aliases found</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DA1_lPN</td>
+<td>7.4%</td>
+<td>ACh</td>
+<td>aDT-e (Cachero 2010)</td>
+<td>DA1 PN; DA1 projection neuron; DA1 lateral PN; Or67d PN; cVA projection neuron; DA1 iPN in Jefferis 2007</td>
+</tr>
+<tr>
+<td>M_lvPNm45</td>
+<td>6.5%</td>
+<td>ACh</td>
+<td>none</td>
+<td>none. Lineage lvPN, that is BAlp4 / ALlv1</td>
+</tr>
+<tr>
+<td>AN09B017f</td>
+<td>5.0%</td>
+<td>glut</td>
+<td>vAB3 (Yu 2010)</td>
+<td>none</td>
+</tr>
+<tr>
+<td>AN05B102d</td>
+<td>4.7%</td>
+<td>ACh</td>
+<td>none; FlyWire AN_multi_69</td>
+<td>none</td>
+</tr>
+<tr>
+<td>AN09B017g</td>
+<td>4.7%</td>
+<td>glut</td>
+<td>vAB3 (Yu 2010, von Philipsborn 2011)</td>
+<td>none</td>
+</tr>
+<tr>
+<td>LH008m</td>
+<td>4.0%</td>
+<td>ACh</td>
+<td>aSP-f (Cachero 2010), aSP5 (Yu 2010), DC1 (Ruta 2010)</td>
+<td>Adult fruitless aSP-f (male) lineage clone, VFB FBbt_00110598</td>
+</tr>
+<tr>
+<td>SIP101m</td>
+<td>3.1%</td>
+<td>glut</td>
+<td>aSP-a (Cachero 2010), aSP2 (Yu 2010)</td>
+<td>FBbt_00052699 lists "adult fru-aSP2 neuron" as a synonym of the aSP-a clone</td>
+</tr>
+<tr>
+<td>LHAV4c2</td>
+<td>2.5% <br>(also an output, 3.7%)</td>
+<td>GABA</td>
+<td>aSP-k (Cachero 2010), aSP8 (Yu 2010)</td>
+<td>vpoIN (Wang 2021); BLD4 / LHl1 hemilineage, AV4 tract, LHAV4c1 / LHAV4c2 group (VFB); AVLP_pr02, which FBbt_00110469 lists as an aSP-k (female) synonym - contested</td>
+</tr>
+<tr>
+<td>CB1852</td>
+<td>2.5% <br>(also an output, 1.4%)</td>
+<td>ACh</td>
+<td>aIP-e (Cachero 2010), aSP9 (Yu 2010), LC2 (Ruta 2010)</td>
+<td>aSP9-LHAV2b2a (Deutsch 2025); LHAV2b tract; FBbt_00052697 lists LC2 and aSP9 as aIP-e synonyms</td>
+</tr>
+<tr>
+<td>LH001m</td>
+<td>2.5%</td>
+<td>ACh</td>
+<td>aSP-f (Cachero 2010), aSP5 (Yu 2010), DC1 (Ruta 2010)</td>
+<td>Adult fruitless aSP-f (male) lineage clone, VFB FBbt_00110598</td>
+</tr>
+<tr>
+<td>AVLP750m</td>
+<td>2.1%</td>
+<td>ACh</td>
+<td>aSP-g (Cachero 2010), aSP6 (Yu 2010)</td>
+<td>aSP-g1, aSP-g2, aSP-g3, the subtype names of Taisz 2023</td>
+</tr>
+<tr>
+<td>mAL_m1</td>
+<td>2.1% <br>(also an output, 3.0%)</td>
+<td>GABA</td>
+<td>aDT-b (Cachero 2010), aDT2 (Yu 2010)</td>
+<td>mAL; mAL cluster; adult fruitless aDT-b neuron (VFB)</td>
+</tr>
+<tr>
+<td>pC1_3c</td>
+<td>2.0%</td>
+<td>ACh</td>
+<td>pC1 (Lee 2002, Rideout 2010, Nojima 2021), pMP-e (Cachero 2010), pMP4 (Yu 2010)</td>
+<td>P1 (Kimura 2008); P1a, the split-GAL4 label</td>
+</tr>
+<tr>
+<td>PVLP206m</td>
+<td>1.7%</td>
+<td>ACh</td>
+<td>aIP-b (Cachero 2010)</td>
+<td>Adult fruitless aIP-b neuron, FBbt_00110585</td>
+</tr>
+<tr>
+<td>SIP100m</td>
+<td>1.4%</td>
+<td>glut</td>
+<td>aSP-a (Cachero 2010), aSP2 (Yu 2010)</td>
+<td>none</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="output-partners">Output partners</h3>
+<p>Share is of the total output of AVLP743m.</p>
+<div class="wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Share</th>
+<th>NT</th>
+<th>Curated synonyms (verbatim)</th>
+<th>Further aliases found</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AVLP316</td>
+<td>11.0%</td>
+<td>ACh</td>
+<td>aIP-g (Cachero 2010), pIP6 (Yu 2010)</td>
+<td>aIPg, the modern unhyphenated spelling; aIPg1, aIPg2, aIPg3, the hemibrain sibling types</td>
+</tr>
+<tr>
+<td>mAL_m8</td>
+<td>8.5%</td>
+<td>GABA</td>
+<td>aDT-b (Cachero 2010), aDT2 (Yu 2010)</td>
+<td>mAL; mAL cluster</td>
+</tr>
+<tr>
+<td>SIP105m</td>
+<td>8.3%</td>
+<td>ACh</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>mAL_m5a</td>
+<td>4.1%</td>
+<td>GABA</td>
+<td>aDT-b (Cachero 2010), aDT2 (Yu 2010)</td>
+<td>mAL; mAL cluster</td>
+</tr>
+<tr>
+<td>LHAV4c2</td>
+<td>3.7% <br>(also an input, 2.5%)</td>
+<td>GABA</td>
+<td>aSP-k (Cachero 2010), aSP8 (Yu 2010)</td>
+<td>vpoIN (Wang 2021); BLD4 / LHl1 hemilineage, AV4 tract, LHAV4c1 / LHAV4c2 group (VFB); AVLP_pr02, which FBbt_00110469 lists as an aSP-k (female) synonym - contested</td>
+</tr>
+<tr>
+<td>AVLP711m</td>
+<td>3.3%</td>
+<td>ACh</td>
+<td>pIP-e (Cachero 2010), pIP5 (Yu 2010)</td>
+<td>pIP5/6, adult fru-P neuron, P4a / P4b (FBbt_00052706). pC2 is a retracted synonym</td>
+</tr>
+<tr>
+<td>mAL_m1</td>
+<td>3.0% <br>(also an input, 2.1%)</td>
+<td>GABA</td>
+<td>aDT-b (Cachero 2010), aDT2 (Yu 2010)</td>
+<td>mAL; mAL cluster; adult fruitless aDT-b neuron (VFB)</td>
+</tr>
+<tr>
+<td>SIP104m</td>
+<td>2.7%</td>
+<td>glut</td>
+<td>aSP-a (Cachero 2010), aSP2 (Yu 2010)</td>
+<td>none</td>
+</tr>
+<tr>
+<td>VES206m</td>
+<td>2.6%</td>
+<td>ACh</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>mAL_m5c</td>
+<td>2.5%</td>
+<td>GABA</td>
+<td>aDT-b (Cachero 2010), aDT2 (Yu 2010)</td>
+<td>mAL; mAL cluster</td>
+</tr>
+<tr>
+<td>AVLP758m</td>
+<td>1.7%</td>
+<td>ACh</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>SIP122m</td>
+<td>1.7%</td>
+<td>glut</td>
+<td>aSP-a (Cachero 2010), aSP2 (Yu 2010)</td>
+<td>none</td>
+</tr>
+<tr>
+<td>pC1_3a</td>
+<td>1.5%</td>
+<td>ACh</td>
+<td>pC1 (Lee 2002, Rideout 2010, Nojima 2021), pMP-e (Cachero 2010), pMP4 (Yu 2010)</td>
+<td>P1 (Kimura 2008); P1a, the split-GAL4 label</td>
+</tr>
+<tr>
+<td>AVLP757m</td>
+<td>1.5%</td>
+<td>ACh</td>
+<td>pMP-f (Cachero 2010)</td>
+<td>Adult fruitless P2e neuron (FBbt)</td>
+</tr>
+<tr>
+<td>CB1852</td>
+<td>1.4% <br>(also an input, 2.5%)</td>
+<td>ACh</td>
+<td>aIP-e (Cachero 2010), aSP9 (Yu 2010), LC2 (Ruta 2010)</td>
+<td>aSP9-LHAV2b2a (Deutsch 2025); LHAV2b tract; FBbt_00052697 lists LC2 and aSP9 as aIP-e synonyms</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="what-avlp743m-itself-is">What AVLP743m itself is</h2>
+<h3 id="verdict">Verdict</h3>
+<p><strong>AVLP743m is not vAB3. Retire the AVLP743m = vAB3 mapping.</strong> vAB3 is an ascending neuron of the nerve cord. AVLP743m is intrinsic to the central brain. The curated annotation gives vAB3 to AN09B017f and AN09B017g, which are two of the input partners of AVLP743m, and Stuerner 2025 makes the same assignment in print.</p>
+<p><strong>The positive half does not hold either. Treat the curated name LC1 as doubtful for AVLP743m.</strong> No paper names AVLP743m. No paper equates AVLP743m with LC1. LC1 is a soma cluster of Ruta 2010, not a cell type. Three measurements pull the LC1 name away from AVLP743m and towards LHAV4c2:</p>
+<ul>
+<li><strong>The alignment.</strong> Kohl 2013 Table 1 aligns LC1 with the Cachero clone aSP-k, and a footnote points to aSP8 of Yu 2010. The curated annotation gives aSP-k and aSP8 to <strong>LHAV4c2</strong>, not to AVLP743m.</li>
+<li><strong>Cell number and sex.</strong> Kohl 2013 Table 1 gives LC1 as male 25.8 (SD 3.4) and female 15.8 (SD 3.0) cells per hemisphere. LC1 is therefore present in both sexes. AVLP743m has 11 cells in total and is male-specific.</li>
+<li><strong>Transmitter.</strong> Clowney 2015 calls LC1 GABAergic and inhibitory. LHAV4c2 is GABA in the connectome. The transmitter call for AVLP743m is "unclear".</li>
+</ul>
+<p>So the safe statement is: <strong>AVLP743m is a male-specific cell type of the third cVA layer with no name and no function in the literature.</strong> It may be a part of the LC1 cluster, because LC1 is coarse and holds more cells than any one type. It is not the whole of LC1, and the LC1 results below must not be read as results about AVLP743m.</p>
+<h3 id="why-vab3-is-not-avlp743m">Why vAB3 is not AVLP743m</h3>
+<p>vAB3 is an ascending neuron of the ventral nerve cord. AVLP743m is a brain type. These are different objects. Four independent findings support this.</p>
+<ul>
+<li><strong>Yu 2010</strong> is the naming source. The verification pass obtained the published PDF and found the string <code>vAB3</code> 35 times, including the Figure 7 legend "Ascending pathways. GAL4 lines used for images in (H) were: leg and genitalia, peb-GAL4; vAB3, pox9-1-6". The paper states "We named these neuronal classes by extending and rationalizing current nomenclature". vAB3 is an ascending class in the source that coined the name.</li>
+<li><strong>Clowney 2015</strong> states in print, verbatim: "vAB3 neurons innervate only the first thoracic ganglion and should receive selective input only from the foreleg", and "Within the brain, vAB3 projections bifurcate and terminate in a discrete region of the sub-esophageal zone (SEZ) and in the lateral protocerebral complex, a Fru+ neuropil also innervated by P1 neurons".</li>
+<li><strong>Kallman 2015</strong> repeats that vAB3 "has projections in the first leg neuromere in the VNC, the SEZ and protocerebrum".</li>
+<li><strong>Stuerner 2025</strong>, in Nature, makes the modern mapping in print: "AN09B017 seems to match fru-expressing vAB3 neurons, which transmit contact pheromone signals from the front legs to P1 neurons in the brain". This is the same assignment that the curated annotation makes.</li>
+</ul>
+<p>So vAB3 belongs to AN09B017f and AN09B017g, which are two of the input partners of AVLP743m. The annotation is internally consistent.</p>
+<p>Two limits on that half of the verdict. Stuerner 2025 hedges with "seems to match". Stuerner 2025 also makes the match at the level of AN09B017, not at the level of the lettered subtypes.</p>
+<h3 id="what-the-evidence-for-lc1-is-and-what-it-is-not">What the evidence for LC1 is, and what it is not</h3>
+<ul>
+<li><p><strong>Ruta 2010 is the naming source for LC1.</strong> The paper is closed access. The verification pass could not read the string <code>LC1</code> in Ruta's own text. It confirmed the name at second hand from Clowney 2015, which writes "inhibitory LC1 neurons" and "GABAergic LC1 neurons" and cites Ruta 2010.</p></li>
+<li><p><strong>The research pass claimed that Kohl 2013 tabulates LC1 and records a male-only DA1 response for it. The verification pass refuted that claim.</strong> The verifier read the full text of Kohl 2013 and found zero occurrences of <code>LC1</code>. The sentence presented as a Kohl quote was not the paper's sentence. The male-only DA1 response in Kohl 2013 belongs to aSP-f / DC1, not to LC1. The citation was therefore removed from this section.</p></li>
+<li><p><strong>The table was read directly, and it settles the question.</strong> A separate pass fetched the JATS full text of Kohl 2013 from Europe PMC (PMC3898676) and quoted the two header rows of <code>Table 1. Summary of Studies of fru+ LHNs</code> cell by cell:</p>
+<pre><code>Cachero et al. (2010)   aSP-f   aSP-g   aSP-h   aSP-k   aIP-e
+Ruta et al. (2010)      DC1     n/a     DC2     LC1     LC2</code></pre>
+<p>The columns align one to one. <strong>aSP-k = LC1</strong> and <strong>aIP-e = LC2</strong>. The same column gives the LC1 counts as male 25.8 (SD 3.4) and female 15.8 (SD 3.0), and LC2 as male 13.0 (SD 2.8) and female 13.3 (SD 2.1). A footnote on the aSP-k column says "Compare with cluster aSP8 in Yu et al. (2010)". Two independent routes, the Europe PMC XML and the typeset article text, give the same rows, and the fetched file was checked by md5 against a fresh fetch.</p></li>
+<li><p>If that table reading is right, then <strong>LC1 = aSP-k = aSP8</strong>. That creates a second collision inside this very partner list, because the connectome gives aSP-k and aSP8 to <strong>LHAV4c2</strong>, which is both an input and an output partner of AVLP743m. Two different modern types would then trace back to one old cluster name.</p></li>
+<li><p><strong>Clowney 2015 calls LC1 GABAergic and inhibitory.</strong> That is a testable constraint on any AVLP743m identification.</p></li>
+<li><p><strong>Koganezawa 2016 uses "LC1" for a fruitless single-positive cluster</strong> in the courtship-versus-aggression switch. That is the lateral horn sense, not the visual sense.</p></li>
+</ul>
+<h3 id="how-coarse-lc1-is">How coarse LC1 is</h3>
+<p>Ruta 2010 defined five clusters of candidate third-order lateral horn neurons on the cVA pathway. LC1 is one of them. A cluster holds several cells and, in connectome terms, probably several types. AVLP743m is at most one member of LC1. Taisz 2023 shows the scale of the problem: the third layer of the cVA pathway holds 47 cell types, where the light-microscopy era saw a handful of clusters.</p>
+<h3 id="citations-for-the-identity-question">Citations for the identity question</h3>
+<p><strong>DIRECT</strong></p>
+<ul>
+<li><strong>Ruta 2010</strong>, <em>A dimorphic pheromone circuit in Drosophila from sensory input to descending output</em>, Nature. <a href="https://doi.org/10.1038/nature09554">doi:10.1038/nature09554</a> - hit under <code>LC1</code>. The naming source: the cVA circuit "is concise and minimally comprises four neurons, connected by three synapses", three of them dimorphic, defining "a male-specific neuropil that integrates inputs from multiple sensory systems and sends outputs to the ventral nerve cord". Limit: the paper is closed access, so LC1 was confirmed at second hand from Clowney 2015.</li>
+</ul>
+<p><strong>INDIRECT</strong></p>
+<ul>
+<li><strong>Taisz 2023</strong>, <em>Generating parallel representations of position and identity in the olfactory system</em>, Cell. <a href="https://doi.org/10.1016/j.cell.2023.04.038">doi:10.1016/j.cell.2023.04.038</a> - the modern treatment of the layer that LC1 sits in: "At the third circuit layer, we identify 47 cell types with diverse input-output connectivity", one population tonic to males, one tuned to olfactory looming, and one that integrates cVA and taste. Warning: the paper never names LC1 or AVLP743m, and the cVA-plus-taste population promotes <strong>female</strong> mating, while AVLP743m is male-specific.</li>
+<li><strong>Cachero 2010</strong>, <em>Sexual dimorphism in the fly brain</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - predicts "more than 700 potential sites of dimorphic neural connectivity. These are particularly enriched in third-order olfactory neurons of the lateral horn", the population that LC1 belongs to. Correction: this is the companion paper to <strong>Yu 2010</strong>, in the same journal and volume, not to Ruta 2010, which appeared in Nature that December.</li>
+<li><strong>Datta 2008</strong>, <em>The Drosophila pheromone cVA activates a sexually dimorphic neural circuit</em>, Nature. <a href="https://doi.org/10.1038/nature06808">doi:10.1038/nature06808</a> - shows "a male-specific axonal arbor in the lateral horn whose elaboration requires the expression of the transcription factor Fru(M) in DA1 projection neurons and other Fru+ cells". Input-side context only. It names no third-order cell.</li>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. The dataset in which AVLP743m and its LC1 synonym exist. The string AVLP743 has zero hits in the article text. The <code>m</code> suffix marks a male-specific type, so AVLP743m falls in the 262 male-specific types; the preprint does not state this, so it is an inference.</li>
+</ul>
+<p><strong>Removed from this section:</strong> Kohl 2013. See the discarded table.</p>
+<hr />
+<h2 id="input-partners-1">Input partners</h2>
+<h3 id="da1_lpn---input-74-cholinergic">DA1_lPN - input 7.4%, cholinergic</h3>
+<p><strong>Identity.</strong> Uniglomerular olfactory projection neuron of the lateral antennal lobe lineage. It innervates the DA1 glomerulus, the target of the Or67d receptor neurons that detect cis-vaccenyl acetate (cVA). About seven cells per hemisphere. It carries cVA to the mushroom body calyx and the lateral horn. Its lateral horn axon arbour is dimorphic. Curated synonym aDT-e (Cachero 2010). The type name DA1_lPN is stable across hemibrain, FlyWire and male CNS.</p>
+<p><strong>Coarseness.</strong> Moderate. Older papers write "DA1 PN" or "DA1 projection neurons". None of them writes "lPN". The DA1 glomerulus is also innervated by a separate GABAergic ventral PN and by multiglomerular PNs, and broad driver lines label mixed sets. Where a paper used photoactivation or single-cell labelling of the lateral cohort, the match to DA1_lPN is tight. Where it used a broad GAL4 line, the match is not tight. Jefferis 2007 uses a different scheme again: its DA1 iPN is the modern DA1_lPN, and its GABAergic vDA1 is the modern DA1_vPN. Swapping those two would swap an excitatory PN for an inhibitory one.</p>
+<p><strong>DIRECT</strong></p>
+<ul>
+<li><strong>Taisz 2023</strong>, <em>Generating parallel representations of position and identity in the olfactory system</em>, Cell. <a href="https://doi.org/10.1016/j.cell.2023.04.038">doi:10.1016/j.cell.2023.04.038</a> - hit under <code>DA1 lPN</code>. The strongest citation for this cell: it names "the well-known uniglomerular DA1 lateral projection neurons (lPNs)" and shows that they encode the angular position of a male by comparing cVA concentration between the two antennae, amplified by contralateral inhibition through the GABAergic il3LN6. Precision: "lPNs synapse onto 40 downstream cell types and lvPNs onto 11; only 4 cell types are shared". The connectomics is female (FAFB and hemibrain), so the male cross-match must be argued.</li>
+<li><strong>Kohl 2013</strong>, <em>A bidirectional circuit switch reroutes pheromone signals in male and female brains</em>, Cell. <a href="https://doi.org/10.1016/j.cell.2013.11.025">doi:10.1016/j.cell.2013.11.025</a> - hit under <code>DA1 PN</code>. Stimulates DA1 PN dendrites by acetylcholine iontophoresis and gives latency evidence for direct DA1 PN to aSP-f and aSP-g connections. Correction: the whole-cell recordings in this paper are from <strong>third-order</strong> lateral horn neurons; the sexual equivalence of first- and second-order neurons is stated as background from earlier work, not measured here.</li>
+<li><strong>Ruta 2010</strong>, <em>A dimorphic pheromone circuit in Drosophila from sensory input to descending output</em>, Nature. <a href="https://doi.org/10.1038/nature09554">doi:10.1038/nature09554</a> - hit under <code>DA1 PN</code>. Maps the four-neuron, three-synapse cVA circuit. Figure 2 is titled "DC1 neurons synapse with DA1 PNs and are selectively tuned to cVA". Correction: the descending arm runs DA1 PN to DC1 to DN1. LC1 and LC2 are third-order cVA cells but are not in that descending path. The paper's target region is the lateral horn and a male-specific lateral protocerebral neuropil; it does not use the term AVLP.</li>
+<li><strong>Datta 2008</strong>, <em>The Drosophila pheromone cVA activates a sexually dimorphic neural circuit</em>, Nature. <a href="https://doi.org/10.1038/nature06808">doi:10.1038/nature06808</a> - hit under <code>DA1 PN</code>. Photoactivatable-GFP tracing shows a male-specific axonal arbor in the lateral horn whose elaboration requires FruM in DA1 projection neurons <strong>and other Fru+ cells</strong>. Two corrections: the dimorphism reported is in the second-order DA1 PN axon, not in third-order cells; and Kohl 2013 challenges the interpretation, concluding that this male-specific ventral extension "is either not necessary for differential wiring or is a secondary consequence".</li>
+<li><strong>Jefferis 2007</strong>, <em>Comprehensive maps of Drosophila higher olfactory centers: spatially segregated fruit and pheromone representation</em>, Cell. <a href="https://doi.org/10.1016/j.cell.2007.01.040">doi:10.1016/j.cell.2007.01.040</a> - hit under <code>DA1 lateral projection neuron</code>. Registered single-cell maps of PN axons for 35 glomerular channels, showing that "axons of DA1 and VA1lm PNs project to a distinctive anterior-ventromedial region", segregated from the fruit-odour channels. Correction: the paper uses iPN and vPN, never lPN. State the iPN-to-lPN mapping wherever this citation is used.</li>
+</ul>
+<p><strong>Removed:</strong> Schlegel 2021. See the discarded table.</p>
+<h3 id="m_lvpnm45---input-65-cholinergic-no-direct-literature-found">M_lvPNm45 - input 6.5%, cholinergic. No direct literature found</h3>
+<p><strong>Identity.</strong> Multiglomerular antennal lobe projection neuron. The name is a systematic connectome identifier: <code>M_</code> means multiglomerular, <code>lvPN</code> means the lateroventral PN lineage BAlp4 / ALlv1, <code>m</code> means the medial antennal lobe tract, and <code>45</code> is the type number. The annotation gives no old-literature synonym.</p>
+<p><strong>No paper studies this cell.</strong> The verification pass searched the full text of Bates 2020, Schlegel 2021, Schlegel 2024, Scheffer 2020 and Taisz 2023 for <code>M_lvPNm45</code>. Every running text gives zero hits. The one place the string appears in print is a supplementary table: Supplementary file S5 of Schlegel 2021 lists three right-hemisphere bodies, 757258507, 757591093 and 792023887, as class mPN, tract mALT, lineage lvPN, cell body fiber AVM06. That is a table row with no discussion.</p>
+<p><strong>Coarseness.</strong> There is no old name to be coarse about. The coarseness runs the other way. Every citation is about a class that holds dozens of modern types. The hemibrain holds about 90 multiglomerular ALPN types.</p>
+<p><strong>Collision warning.</strong> The same lineage holds the well-studied <strong>uniglomerular DA1 lvPN</strong> of the cVA pathway. M_lvPNm45 is <strong>multiglomerular</strong>. They are different cells. A web summary found during checking states that M_lvPNm45 corresponds to the DA1 lvPN. That statement is false.</p>
+<p><strong>INDIRECT</strong></p>
+<ul>
+<li><strong>Schlegel 2021</strong>, <em>Information flow, cell types and stereotypy in a full olfactory connectome</em>, eLife. <a href="https://doi.org/10.7554/eLife.66018">doi:10.7554/eLife.66018</a> - hit under <code>M_lvPNm45</code>. The annotation effort that assigned the hemibrain M_lvPNm* names, and the only publication whose supplement contains this exact string. This is the correct provenance citation.</li>
+<li><strong>Bates 2020</strong>, <em>Complete connectomic reconstruction of olfactory projection neurons in the fly brain</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2020.06.042">doi:10.1016/j.cub.2020.06.042</a> - hit under <code>lvPN</code>. Describes the lineage verbatim: "lvPN (lineage BAlp4/ALlv1) PNs in this lateroventral lineage project through the mALT and trans-mALTs", shown to be ChAT-positive. Correction: this paper supplies the lineage abbreviation and the uPN / mPN class distinction only. It contains no <code>M_</code> name, it uses a different FAFB naming convention, and its own correspondence table leaves the FAFB field of M_lvPNm45 empty.</li>
+<li><strong>Schlegel 2024</strong>, <em>Whole-brain annotation and multi-connectome cell typing of Drosophila</em>, Nature. <a href="https://doi.org/10.1038/s41586-024-07686-5">doi:10.1038/s41586-024-07686-5</a> - the FlyWire whole-brain annotation, 8,453 types, of which 3,643 came from the hemibrain and 4,581 are new. Correction: zero hits for <code>M_lvPNm45</code> or even <code>lvPN</code>. No FlyWire counterpart of this type is claimed here. The paper reports that about one third of hemibrain types could not be reliably re-identified in FlyWire.</li>
+<li><strong>Taisz 2023</strong>, <em>Generating parallel representations of position and identity in the olfactory system</em>, Cell. <a href="https://doi.org/10.1016/j.cell.2023.04.038">doi:10.1016/j.cell.2023.04.038</a> - lineage background only. It works on "a uniglomerular cell type from the lateroventral lineage, which we call DA1 lateroventral projection neurons (lvPN)". Zero hits for <code>lvPNm45</code>, zero for <code>multiglomerular</code>. Shared lineage is the only link.</li>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>.</li>
+</ul>
+<p><strong>Removed:</strong> Scheffer 2020 and Tanaka 2012. See the discarded table.</p>
+<h3 id="an09b017f---input-50-glutamatergic">AN09B017f - input 5.0%, glutamatergic</h3>
+<p><strong>Identity.</strong> Ascending neuron from ventral nerve cord hemilineage 09B. Curated synonym vAB3 (Yu 2010). vAB3 is a fruitless-positive ascending neuron with arbours in the first thoracic (foreleg) neuromere. Its axon divides in the brain and ends in the subesophageal zone and in the lateral protocerebral complex, the fruitless-positive neuropil that P1 also innervates. It carries female pheromone (ppk25) signals from the foreleg taste bristles to mAL and P1.</p>
+<p><strong>Coarseness.</strong> vAB3 is much coarser than AN09B017f. Clowney 2015 calls vAB3 "a single class of ascending neurons". The connectome splits AN09B017 into lettered subtypes. Stuerner 2025 makes its match at the AN09B017 level and hedges with "seems to match". No published work separates f from g.</p>
+<p><strong>Transmitter warning.</strong> Do not justify the glutamatergic call from the hemilineage. Marin 2024 states that hemilineage 09B "was reported to be glutamatergic but in MANC includes a substantial fraction of cholinergic neurons". Hemilineage 09B is a documented exception to the one-hemilineage-one-transmitter rule.</p>
+<p><strong>DIRECT</strong></p>
+<ul>
+<li><strong>Clowney 2015</strong>, <em>Multimodal chemosensory circuits controlling male courtship in Drosophila</em>, Neuron. <a href="https://doi.org/10.1016/j.neuron.2015.07.025">doi:10.1016/j.neuron.2015.07.025</a> - hit under <code>vAB3</code>. The primary functional paper: vAB3 is the single ascending class that carries ppk25+ foreleg signals to the subesophageal zone and the lateral protocerebral complex, and is "positioned to convey sensory signals from ppk25+ axons in the ventral nerve cord to mAL interneurons within the brain". All quoted sentences were confirmed word for word in the full text.</li>
+<li><strong>Stuerner 2025</strong>, <em>Comparative connectomics of Drosophila descending and ascending neurons</em>, Nature. <a href="https://doi.org/10.1038/s41586-025-08925-z">doi:10.1038/s41586-025-08925-z</a> - hit under <code>AN09B017</code>. The only published source that makes the modern-to-old mapping: "AN09B017 seems to match fru-expressing vAB3 neurons, which transmit contact pheromone signals from the front legs to P1 neurons in the brain". It also calls AN09B017 a dimorphic AN that interconnects the T1 leg sensory area.</li>
+<li><strong>Yu 2010</strong>, <em>Cellular organization of the neural circuit that drives Drosophila courtship behavior</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a> - hit under <code>vAB3</code>. The naming source, now confirmed in the primary text: <code>vAB3</code> occurs 35 times in the published PDF, including the Figure 7 "Ascending pathways" legend. Anatomy and name only, no physiology.</li>
+</ul>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Kallman 2015</strong>, <em>Excitation and inhibition onto central courtship neurons biases Drosophila mate choice</em>, eLife. <a href="https://doi.org/10.7554/eLife.11188">doi:10.7554/eLife.11188</a> - hit under <code>vAB3</code>. Downgraded from DIRECT. <code>vAB3</code> occurs exactly once, in the Discussion, reporting Clowney 2015. <strong>Do not transfer this paper's own result onto AN09B017f.</strong> Kallman's novel ascending class is PPN1, and the paper states that PPN1 is not Fruitless-positive and that its projections are not dimorphic. vAB3 is Fru-positive and dimorphic, so PPN1 is a different cell.</li>
+<li><strong>Marin 2024</strong>, <em>Systematic annotation of a complete adult male Drosophila nerve cord connectome reveals principles of functional organisation</em>, eLife reviewed preprint. <a href="https://doi.org/10.7554/eLife.97766.1">doi:10.7554/eLife.97766.1</a> - the source of the ANxxBxxx naming scheme and of the hemilineage assignment. It does not name AN09B017f.</li>
+<li><strong>Lacin 2019</strong>, <em>Neurotransmitter identity is acquired in a lineage-restricted manner in the Drosophila CNS</em>, eLife. <a href="https://doi.org/10.7554/eLife.43701">doi:10.7554/eLife.43701</a> - the transmitter map of all 34 adult VNC hemilineages and the rule that all neurons in a hemilineage use the same fast transmitter. Cite for the general rule only, not for this cell. See the transmitter warning above.</li>
+</ul>
+<h3 id="an05b102d---input-47-cholinergic-no-direct-literature-found">AN05B102d - input 4.7%, cholinergic. No direct literature found</h3>
+<p><strong>Identity.</strong> Ascending neuron from ventral nerve cord hemilineage 05B. FlyWire name AN_multi_69. The annotation gives no old-literature synonym.</p>
+<p><strong>No paper names this cell.</strong> The verification pass searched Stuerner 2025 and Berg 2025 for <code>AN05B102</code> and <code>AN_multi_69</code>. Both return zero hits. This is a genuine gap. The type exists only in the connectome-era annotation.</p>
+<p><strong>Coarseness.</strong> There is no old name. The nearest published group is "ascending neurons of hemilineage 05B", which is far coarser than AN05B102d.</p>
+<p><strong>INDIRECT</strong></p>
+<ul>
+<li><strong>Marin 2024</strong>, <em>Systematic annotation of a complete adult male Drosophila nerve cord connectome reveals principles of functional organisation</em>, eLife reviewed preprint. <a href="https://doi.org/10.7554/eLife.97766.1">doi:10.7554/eLife.97766.1</a> - hit under <code>hemilineage 05B</code>. Verbatim: "Ascending neurons are also associated with specific hemilineages and are notably more common in T1 for 05B, 07B, and 08B - likely because these hemilineages predominantly consist of intersegmental neurons that project to adjacent neuromeres, including through the neck connective to the suboesophageal ganglia". Correction: Marin attributes the T1 enrichment to intersegmental projection patterns. Marin says nothing about pheromones or taste bristles. The pheromone reading is an interpretation, not the paper's statement.</li>
+<li><strong>Lacin 2019</strong>, <em>Neurotransmitter identity is acquired in a lineage-restricted manner in the Drosophila CNS</em>, eLife. <a href="https://doi.org/10.7554/eLife.43701">doi:10.7554/eLife.43701</a> - the basis for a lineage-based cholinergic prediction. Hemilineage 05B is not flagged as a mixed-transmitter exception, unlike 09B, so the prediction is defensible. It remains a prediction, not a measurement on this cell.</li>
+<li><strong>Stuerner 2025</strong>, <em>Comparative connectomics of Drosophila descending and ascending neurons</em>, Nature. <a href="https://doi.org/10.1038/s41586-025-08925-z">doi:10.1038/s41586-025-08925-z</a> - the framework that reconciles the FlyWire AN_multi_* names with the MANC AN names. It does not name this type.</li>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. Zero hits for AN05B102.</li>
+<li><strong>Elkahlah 2025</strong>, <em>Hierarchical diversification of instinctual behavior neurons by lineage, birth order, and sex</em>, bioRxiv. <a href="https://doi.org/10.1101/2025.06.03.657692">doi:10.1101/2025.06.03.657692</a> - identifies "91 transcription factors that, in combinations of 6-8, delineate cerebral hemilineages" and 33 birth-order transcription factors. Warning: this work profiles the <strong>cerebrum</strong>. AN05B102d is a ventral nerve cord neuron. Using cerebral lineage logic to explain a VNC subtype split is an extrapolation across CNS regions.</li>
+</ul>
+<h3 id="an09b017g---input-47-glutamatergic">AN09B017g - input 4.7%, glutamatergic</h3>
+<p><strong>Identity.</strong> Sister subtype of AN09B017f. Same hemilineage, same transmitter call, same curated synonym vAB3. The curated annotation also cites von Philipsborn 2011 for this subtype. That citation could not be confirmed and was removed; see the discarded table. The synonym map keeps it because the annotation states it.</p>
+<p><strong>Coarseness.</strong> vAB3 covers AN09B017f and AN09B017g, and possibly further subtypes. No citation below is evidence about AN09B017g alone.</p>
+<p><strong>DIRECT</strong></p>
+<ul>
+<li><strong>Clowney 2015</strong>, <em>Multimodal chemosensory circuits controlling male courtship in Drosophila</em>, Neuron. <a href="https://doi.org/10.1016/j.neuron.2015.07.025">doi:10.1016/j.neuron.2015.07.025</a> - hit under <code>vAB3</code>. Same evidence as for AN09B017f: ppk25+ foreleg input, T1-only innervation, subesophageal zone and lateral protocerebral complex output, and convergence on P1.</li>
+<li><strong>Stuerner 2025</strong>, <em>Comparative connectomics of Drosophila descending and ascending neurons</em>, Nature. <a href="https://doi.org/10.1038/s41586-025-08925-z">doi:10.1038/s41586-025-08925-z</a> - hit under <code>AN09B017</code>. The match is made at the level of AN09B017, not of the lettered subtype.</li>
+<li><strong>Yu 2010</strong>, <em>Cellular organization of the neural circuit that drives Drosophila courtship behavior</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a> - hit under <code>vAB3</code>. The naming source, confirmed in the primary text. Name and anatomy only.</li>
+</ul>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Kallman 2015</strong>, eLife. <a href="https://doi.org/10.7554/eLife.11188">doi:10.7554/eLife.11188</a> - one passing mention of vAB3 in the Discussion. The paper's own ascending relay is PPN1, which is Fru-negative and non-dimorphic, so it is not this cell.</li>
+<li><strong>Marin 2024</strong>, eLife reviewed preprint. <a href="https://doi.org/10.7554/eLife.97766.1">doi:10.7554/eLife.97766.1</a> - hemilineage 09B definition. Same transmitter warning as for AN09B017f.</li>
+</ul>
+<p><strong>Removed:</strong> von Philipsborn 2011. See the discarded table.</p>
+<h3 id="lh008m---input-40-cholinergic">LH008m - input 4.0%, cholinergic</h3>
+<p><strong>Identity.</strong> Male-specific cholinergic third-order olfactory neuron of the lateral horn. The male CNS type page records: male-specific, cb_intrinsic, hemilineage SLPad1_anterior, supertype 21433, 6 cells on the left and 5 on the right, cholinergic, and "Synonyms: Cachero 2010: aSP-f ; Yu 2010: aSP5 ; Ruta 2010: DC1". Under those old names this is one of the best-studied cells in the courtship literature: a cVA-selective cluster that receives DA1 projection neuron input, responds to cVA in males and not in females, and feeds a male-specific neuropil and descending output.</p>
+<p><strong>Coarseness.</strong> aSP-f, aSP5 and DC1 are cluster-level names. Cachero's aSP-f clone holds about 23 cells per hemisphere. Ruta's DC1 is a PA-GFP-labelled cluster of about 20 cells per hemisphere in males. Kohl 2013 recorded from the cluster and pooled it. The connectome splits that one cluster into at least LH008m and LH001m. <strong>No published paper splits them.</strong> Every functional claim is a claim about the group.</p>
+<p><strong>DIRECT</strong></p>
+<ul>
+<li><strong>Kohl 2013</strong>, <em>A bidirectional circuit switch reroutes pheromone signals in male and female brains</em>, Cell. <a href="https://doi.org/10.1016/j.cell.2013.11.025">doi:10.1016/j.cell.2013.11.025</a> - hit under <code>aSP-f</code>. In vivo whole-cell recording shows that aSP-f responds to cVA in males and not in females, while aSP-g does the opposite; both clusters exist in both sexes and share an input pathway, and FruM sets dendritic position so that aSP-f is connected to, and aSP-g disconnected from, DA1 input. The paper writes "aSP-f (DC1)" and "male aSP-f/DC1 neurons", and its Table 1 is a formal synonym table.</li>
+<li><strong>Ruta 2010</strong>, <em>A dimorphic pheromone circuit in Drosophila from sensory input to descending output</em>, Nature. <a href="https://doi.org/10.1038/nature09554">doi:10.1038/nature09554</a> - hit under <code>DC1</code>. Figure 2 is titled, verbatim, "DC1 neurons synapse with DA1 PNs and are selectively tuned to cVA". DC1 is the third element of the four-neuron, three-synapse cVA circuit.</li>
+<li><strong>Cachero 2010</strong>, <em>Sexual dimorphism in the fly brain</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - hit under <code>aSP-f</code>. The naming source. Twin-spot MARCM in a single brain gives an aSP-f dendrite to DA1 PN axon overlap of 32.6% in males against 0.1% in females. It proposes reciprocal lateral horn wiring as the basis of the opposite pheromone responses of the two sexes.</li>
+<li><strong>Yu 2010</strong>, <em>Cellular organization of the neural circuit that drives Drosophila courtship behavior</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a> - hit under <code>aSP5</code>. Verbatim: "We identified three distinct classes of fru neuron in the LH with dendritic arborizations that overlap with the axonal termini of the fru PNs: aSP5, aSP8, and aSP9". Correction: <strong>aSP5 is not one of the eleven dimorphisms</strong> that Yu 2010 reports. Do not let the two statements run together.</li>
+<li><strong>Sato 2023</strong>, <em>Molecular and cellular origins of behavioral sex differences: a tiny little fly tells a lot</em>, Frontiers in Molecular Neuroscience. <a href="https://doi.org/10.3389/fnmol.2023.1284367">doi:10.3389/fnmol.2023.1284367</a> - hit under <code>aSP-f</code> and <code>DC1</code>. <strong>This is a review with no new data.</strong> It is useful as the citable bridge between the naming schemes, because it writes "aSP-f (also known as DC1; Ruta et al.)" and states that "male aSP-f and female aSP-g receive monosynaptic inputs from DA1 projection neurons". Cite Kohl 2013 or Ruta 2010 for the underlying facts.</li>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. The type page synonym string was confirmed character for character.</li>
+</ul>
+<p><strong>Negative results worth recording.</strong> Clowney 2015 and Kallman 2015 are often cited beside this circuit. Neither names aSP-f, aSP5 or DC1. Taisz 2023 gives zero occurrences of aSP-f, aSP5 or DC1 in the full text, including the STAR Methods. None of the three is evidence about this cell.</p>
+<h3 id="sip101m---input-31-glutamatergic">SIP101m - input 3.1%, glutamatergic</h3>
+<p><strong>Identity.</strong> Glutamatergic cell type of the superior intermediate protocerebrum. Curated synonyms aSP-a (Cachero 2010) and aSP2 (Yu 2010). The functional literature is small. Immediate-early-gene labelling links the aSP2 cluster to courtship persistence in males that interact with a female.</p>
+<p><strong>Coarseness.</strong> The one old name aSP-a covers SIP100m, SIP101m, SIP104m and SIP122m. Cachero's aSP-a clone holds about 50 to 60 cells per hemisphere in males. No published work isolates SIP101m.</p>
+<p><strong>DIRECT</strong></p>
+<ul>
+<li><strong>Cachero 2010</strong>, <em>Sexual dimorphism in the fly brain</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - hit under <code>aSP-a</code>. The naming source, with real content on this clone: "Clones pMP-e and aSP-a are the most dimorphic fru+ clones in the central brain; their male-specific arbors occupy 6.5% and 2.7% of the central brain neuropil", and "clones aSP-a, aSP-f, aSP-h, and pMP-e have extensive arborizations in the MERs that are absent from females".</li>
+<li><strong>Takayanagi-Kiya 2019</strong>, <em>Activity-dependent visualization and control of neural circuits for courtship behavior in the fly</em>, PNAS. <a href="https://doi.org/10.1073/pnas.1814628116">doi:10.1073/pnas.1814628116</a> - hit under <code>aSP2</code>. The abstract states, verbatim: "Silencing of neurons including aSP2 led to frequent interruption of courtship and significant reduction of mating success rate without affecting latency to start courtship". Two limits: aSP2 was assigned from soma position, not from clonal or genetic identification; and the silencing used the broad OK371-fru intersection.</li>
+<li><strong>Takayanagi-Kiya 2023</strong>, <em>Cell assembly analysis of neural circuits for innate behavior in Drosophila melanogaster using an immediate early gene stripe/egr-1</em>, PNAS. <a href="https://doi.org/10.1073/pnas.2303318120">doi:10.1073/pnas.2303318120</a> - hit under <code>aSP2</code>. A second marker confirms that aSP2 double-labelling is higher after interaction with virgin or mated females than in single-housed controls, while male interaction is not different from control. Correction: this is the same laboratory with the same soma-position assignment. It is corroboration, not independent replication.</li>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. Naming authority through the dataset annotation. <code>SIP101m</code> has zero hits in the article text. The article names aSP-a once, as a song-detection element in "song detection circuits (aSP-a/pIP-e)".</li>
+</ul>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Yu 2010</strong>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a> - searched under <code>aSP2</code>. Downgraded to unverified. The paper is paywalled with no PMC record, and the string <code>aSP2</code> could not be confirmed in it. FBbt_00052699 lists "adult fru-aSP2 neuron" as a synonym of the aSP-a clone, so the aSP-a = aSP2 equation is curated, but the attribution of the <strong>name</strong> to Yu 2010 is unproven. Also note the aSP2 / aSP22 collision.</li>
+<li><strong>Deutsch 2025</strong>, <em>Sexually-dimorphic neurons in the Drosophila whole-brain connectome</em>, bioRxiv. <a href="https://doi.org/10.1101/2025.06.10.658788">doi:10.1101/2025.06.10.658788</a> - searched under <code>aSP-a</code> and <code>aSP2</code>. Correction to the research pass, which reported no mention: <code>aSP-a</code> has zero hits, but <code>aSP2</code> has one genuine hit, in a forward-looking passage about a future male connectome. That sentence says aSP2 is <strong>male-specific</strong> and therefore not identifiable in this female FlyWire dataset, which limits the value of the resource for SIP101m. The other nine string hits are aSP22.</li>
+</ul>
+<h3 id="lhav4c2---input-25-output-37-gabaergic">LHAV4c2 - input 2.5%, output 3.7%, GABAergic</h3>
+<p><strong>Identity.</strong> GABAergic lateral horn neuron. It is both an input and an output partner of AVLP743m, so it forms a reciprocal inhibitory loop with it. The name is a lateral horn tract name: AV4 primary neurite tract, hemilineage BLD4 (LHl1). Curated synonyms aSP-k (Cachero 2010) and aSP8 (Yu 2010). This type has the best literature of its group, through the vpoIN work.</p>
+<p><strong>Coarseness.</strong> Three levels stack. aSP-k and aSP8 are clone-level and class-level names. vpoIN is a population: the FAFB reconstruction reports 14 vpoIN cells per hemisphere against 2 vpoEN cells. FBbt curates aSP-k as "probably a subset of vpoIN", specifically the commissural subset. And the vpoIN functional work is female-side, on vaginal plate opening and receptivity, while LHAV4c2 is read here in the male connectome. Phrase any statement as a property of the aSP8 or vpoIN group.</p>
+<p><strong>A contested identity chain.</strong> FBbt_00110469 lists AVLP_pr02, one of the new types of Baker 2022, as a synonym of aSP-k (female). AVLP_pr02 is sine-preferring, while vpoIN is pulse-preferring. The aSP-k / aSP8 to modern-type chain is therefore contested. Do not assign the vpoIN functional story to LHAV4c2 without stating this.</p>
+<p><strong>DIRECT</strong></p>
+<ul>
+<li><strong>Wang 2021</strong>, <em>Neural circuit mechanisms of sexual receptivity in Drosophila females</em>, Nature 589:577-581 (online 25 November 2020). <a href="https://doi.org/10.1038/s41586-020-2972-7">doi:10.1038/s41586-020-2972-7</a> - hit under <code>vpoIN</code>, <code>aSP8</code> and <code>aSP-k</code>. Vaginal plate opening is driven by vpoDN descending neurons, excited by song-tuned cholinergic vpoEN and inhibited by GABAergic vpoIN. Optogenetic silencing and activation, plus whole-cell recording from vpoDN, show that vpoEN promotes and vpoIN inhibits opening and receptivity. <strong>Cite the preprint for the synonym sentence</strong>: "The vpoINs are morphologically similar to the previously described fru+ aSP8, aSP-k and vPN1 neurons; the vpoENs do not resemble any previously described cell type" was confirmed only in the bioRxiv version, <a href="https://doi.org/10.1101/2020.08.07.241919">doi:10.1101/2020.08.07.241919</a>. "Morphologically similar to" is not identity.</li>
+<li><strong>Baker 2022</strong>, <em>Neural network organization for courtship-song feature detection in Drosophila</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2022.06.019">doi:10.1016/j.cub.2022.06.019</a> - hit under <code>vpoIN</code>. Upgraded from INDIRECT. The paper does name and map vpoIN: pC1x and its partners "send outputs to three pulse-preferring (vpoEN, vpoIN, and pC2l) and three sine-preferring (AVLP_pr01, AVLP_pr22, and AVLP_pr31) neurons", and the Methods state "We identified vpoEN and vpoIN by inspecting the inputs to pMN2/vpoDN neurons". Zero occurrences of aSP8, aSP-k or LHAV4c2.</li>
+<li><strong>Deutsch 2025</strong>, <em>Sexually-dimorphic neurons in the Drosophila whole-brain connectome</em>, bioRxiv. <a href="https://doi.org/10.1101/2025.06.10.658788">doi:10.1101/2025.06.10.658788</a> - hit under <code>aSP8</code>. What the text supports, verbatim: "aSP8 and aIP1 neurons are both predicted to process gustatory and mechanosensory information. aSP8 has previously been shown to carry auditory (pulse song) responses... aSP8 is activated by male agonistic songs, and it may combine this information with contact pheromones from males to inhibit receptivity in females." <strong>Three claims of the research pass were refuted and are not repeated here</strong>: the equation "aSP8-vpoIN2 = LHAV4c2" is not in the paper, the GABA prediction is not in the paper, and the LC43 input belongs to aSP9, not aSP8.</li>
+<li><strong>Yu 2010</strong>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a> - hit under <code>aSP8</code>. The naming source, confirmed at second hand: the lateral horn literature refers to "cluster aSP8 in Yu et al. (2010)" when discussing aSP-k clones, and FBbt_00052703 lists "adult fruitless aSP8 neuron" as a synonym of aSP-k. Caution: aSP-k clones "are missing some neurons with extensive dendritic arbors in the lateral horn, compare with cluster aSP8". aSP-k and aSP8 are related but not exactly coextensive.</li>
+<li><strong>Berg 2025</strong> (dataset), cited under <code>vpoIN</code> - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. <code>LHAV4c2</code>, <code>aSP-k</code> and <code>aSP8</code> all give zero hits, but <code>vpoIN</code> occurs four times with directly relevant male results: "we identified vpoEN and vpoIN in the male CNS and surprisingly found no clear morphological dimorphism", and "In males, vpoIN also has strong outputs onto sex-specific/dimorphic neurons but female vpoINs primarily target isomorphic types". This is the best available answer to the female-to-male transfer question.</li>
+</ul>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Cachero 2010</strong>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - searched under <code>aSP-k</code>. Downgraded from DIRECT. <code>aSP-k</code> does not appear in the article body; it is in the figures and supplementary clone tables only. In Cachero's own Table 1, aSP-k is an <strong>auditory</strong> higher interneuron, and the lateral horn twin-spot evidence in that paper concerns aSP-f, aSP-g and aIP-e, not aSP-k. Generic lateral horn background only.</li>
+</ul>
+<h3 id="cb1852---input-25-output-14-cholinergic">CB1852 - input 2.5%, output 1.4%, cholinergic</h3>
+<p><strong>Identity.</strong> Cholinergic reciprocal partner of AVLP743m. CB1852 is a FlyWire central-brain type name from the Schlegel 2024 whole-brain annotation. Curated synonyms aIP-e (Cachero 2010), aSP9 (Yu 2010) and LC2 (Ruta 2010). The three-way identity is genuine and independently supported: FBbt_00052697, "adult fruitless aIP-e neuron", lists both "adult fruitless LC2 neuron" and "adult fruitless aSP9 neuron" as synonyms, and Deutsch 2025 writes that aSP9 shares morphology with Cachero's aIP-e.</p>
+<p><strong>Coarseness.</strong> Coarse in three ways. aIP-e is a MARCM lineage clone, about 27 cells per hemisphere. aSP9 is a light-level class; Deutsch 2025 counts 54 aSP9 neurons in FlyWire and splits them into subtypes such as aSP9-LHAV2b2a. LC2 is a physiologically defined cluster and is the coarsest of the three.</p>
+<p><strong>Disambiguation.</strong> Ruta's LC2 is a lateral horn cluster cell on the cVA pathway. It is not the lobula columnar visual type LC2. <strong>Also: LC1 is not LC2.</strong> Only LC2 is aIP-e and therefore CB1852. LC1 is aSP-k, a different cell, and Ruta's male DA1-stimulation response is +++ for LC1 but only +/- for LC2. Do not cite LC1 evidence for CB1852.</p>
+<p><strong>DIRECT</strong></p>
+<ul>
+<li><strong>Yu 2010</strong>, <em>Cellular organization of the neural circuit that drives Drosophila courtship behavior</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a> - hit under <code>aSP9</code>. The strongest of the three synonym routes: <code>aSP9</code> occurs 16 times in the published PDF with real content. aSP9 is one of the three fruitless classes in the lateral horn whose dendrites overlap the fruitless PN axon termini. Its arborisation is "lateral crescent, ventral ring", and "aSP5 and aSP8 form bilateral projections across the arch; aSP9 is ipsilateral".</li>
+<li><strong>Cachero 2010</strong>, <em>Sexual dimorphism in the fly brain</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - hit under <code>aIP-e</code>. <code>aIP-e</code> occurs six times with real content. Table 1 files it under Olfactory, Third-Order Neurons, at 27.0 cells per hemisphere, male-dimorphic. The paper states "Projection dimorphism was relatively weak in aIP-e", and its twin-spot overlap with DA1 PNs is only 2.2% and 2.1%. Correction: the five lateral horn classes in Cachero's own Figure 5 cluster analysis are aIP-e, aIP-b, aSP-f, aSP-g and aSP-h. The often-quoted list that includes aSP-k is Kohl 2013 Table 1, not Cachero.</li>
+<li><strong>Ruta 2010</strong>, <em>A dimorphic pheromone circuit in Drosophila from sensory input to descending output</em>, Nature. <a href="https://doi.org/10.1038/nature09554">doi:10.1038/nature09554</a> - hit under <code>LC2</code>, and for LC2 only. The naming source. The abstract claims were all confirmed; the primary text is paywalled, so the LC2 label was confirmed from Kohl 2013 Table 1 and FBbt_00052697.</li>
+<li><strong>Kohl 2013</strong>, <em>A bidirectional circuit switch reroutes pheromone signals in male and female brains</em>, Cell. <a href="https://doi.org/10.1016/j.cell.2013.11.025">doi:10.1016/j.cell.2013.11.025</a> - hit under <code>aIP-e</code>. <strong>Nomenclature only.</strong> Table 1, "Summary of Studies of fru+ LHNs", aligns Cachero's aSP-f, aSP-g, aSP-h, aSP-k and aIP-e with Ruta's DC1, n/a, DC2, LC1 and LC2. <code>aIP-e</code> occurs once in the whole paper, and the "This Study" block of Table 1 covers aSP-f, aSP-g and aSP-h only. <strong>Kohl 2013 recorded no data from aIP-e or LC2.</strong> This citation carries zero functional evidence about CB1852.</li>
+<li><strong>Deutsch 2025</strong>, <em>Sexually-dimorphic neurons in the Drosophila whole-brain connectome</em>, bioRxiv. <a href="https://doi.org/10.1101/2025.06.10.658788">doi:10.1101/2025.06.10.658788</a> - hit under <code>aSP9</code>. Maps 91 putative Fru or Dsx cell types, about 1,400 neurons, in the FlyWire female connectome and shares the labels in Codex. Verbatim: "Only around half of the aSP9 neurons (28/54) are multisensory". It also writes that aSP9 shares morphology with aIP-e. Correction: the statement about weak sensory input is specific - "aSP9-LHAV2b2a receives weak direct input from LC43", one lobula columnar type, used to illustrate a limit of a rank metric.</li>
+</ul>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Schlegel 2024</strong>, <em>Whole-brain annotation and multi-connectome cell typing of Drosophila</em>, Nature. <a href="https://doi.org/10.1038/s41586-024-07686-5">doi:10.1038/s41586-024-07686-5</a> - the source of the CB#### names: 8,453 annotated cell types, 3,643 from the hemibrain and 4,581 new. <code>CB1852</code>, <code>aIP-e</code> and <code>aSP9</code> all give zero hits. Cite for the provenance of the name only.</li>
+</ul>
+<h3 id="lh001m---input-25-cholinergic">LH001m - input 2.5%, cholinergic</h3>
+<p><strong>Identity.</strong> Male-specific cholinergic lateral horn neuron. The type page records male-specific, cb_intrinsic, hemilineage SLPad1_anterior, supertype 21433, 2 cells per side, cholinergic, and the same synonym string as LH008m: "Cachero 2010: aSP-f ; Yu 2010: aSP5 ; Ruta 2010: DC1".</p>
+<p><strong>Coarseness. This is the sharp case.</strong> LH008m and LH001m share one old name, share a hemilineage and share a supertype. They differ only in connectivity and morphology, and only in the connectome. Nothing in the literature splits them. A further point of caution: LH001m has 2 cells per side against LH008m's 6 and 5, so the Kohl recordings, drawn from a cluster of about 20 cells, are far more likely to have sampled LH008m. The evidence is weaker for LH001m than the shared DIRECT label suggests.</p>
+<p><strong>DIRECT</strong></p>
+<ul>
+<li><strong>Kohl 2013</strong>, Cell. <a href="https://doi.org/10.1016/j.cell.2013.11.025">doi:10.1016/j.cell.2013.11.025</a> - hit under <code>aSP-f</code>. Cluster-level recording of the male-responding cVA cluster. It covers LH001m together with LH008m and does not separate them.</li>
+<li><strong>Ruta 2010</strong>, Nature. <a href="https://doi.org/10.1038/nature09554">doi:10.1038/nature09554</a> - hit under <code>DC1</code>. DC1 neurons synapse with DA1 PNs and are selectively tuned to cVA. DC1 here is a cluster of about 20 cells per hemisphere in males.</li>
+<li><strong>Cachero 2010</strong>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - hit under <code>aSP-f</code>. Names the clone and shows the male-specific DA1 PN to aSP-f dendrite overlap, 32.6% in males against 0.1% in females.</li>
+<li><strong>Yu 2010</strong>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a> - hit under <code>aSP5</code>. Class-level anatomy only. Yu 2010 never writes aSP-f or DC1, so the tie to LH001m rests on the curated synonym.</li>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. The only source that separates LH001m from LH008m at all.</li>
+</ul>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Datta 2008</strong>, <em>The Drosophila pheromone cVA activates a sexually dimorphic neural circuit</em>, Nature. <a href="https://doi.org/10.1038/nature06808">doi:10.1038/nature06808</a> - the input side of the same story. It shows a male-specific DA1 PN axonal arbor in the lateral horn whose elaboration requires FruM in DA1 projection neurons <strong>and other Fru+ cells</strong>. It never names aSP-f, aSP5 or DC1, which is chronologically certain because it predates all three names. The step from that arbor to the aSP-f cluster is an inference from Ruta 2010 and Kohl 2013.</li>
+</ul>
+<h3 id="avlp750m---input-21-cholinergic">AVLP750m - input 2.1%, cholinergic</h3>
+<p><strong>Identity.</strong> Cholinergic male-specific type. The type page records male-specific, cb_intrinsic, hemilineage SLPal2, supertype 12551, 2 cells on one side and 1 on the other, cholinergic, and "Synonyms: Cachero 2010: aSP-g ; Yu 2010: aSP6". There is correctly no Ruta name, because Kohl 2013 Table 1 shows that aSP-g has no Ruta counterpart. aSP-g is the partner cluster of aSP-f in the changeover switch.</p>
+<p><strong>Coarseness, and a sex problem.</strong> aSP-g and aSP6 are cluster names. Taisz 2023 splits aSP-g into aSP-g1, aSP-g2 and aSP-g3 by dendrite position, and only aSP-g2 has DA1 input. Cachero counts the aSP-g clone at 13.4 cells in males and 13.4 in females, so the clone is <strong>not</strong> male-specific, while AVLP750m is a male-specific type of 2 and 1 cells. Furthermore, the Taisz physiology and behaviour are measured in <strong>female</strong> aSP-g. Those cells cannot be AVLP750m. Transfer runs only through the sex switch of Kohl 2013 and is weak. <strong>Do not attribute the female receptivity phenotype to AVLP750m.</strong></p>
+<p><strong>DIRECT</strong></p>
+<ul>
+<li><strong>Kohl 2013</strong>, <em>A bidirectional circuit switch reroutes pheromone signals in male and female brains</em>, Cell. <a href="https://doi.org/10.1016/j.cell.2013.11.025">doi:10.1016/j.cell.2013.11.025</a> - hit under <code>aSP-g</code>. aSP-g responds to cVA in females and not in males. FruM disconnects aSP-g from pheromone input while it connects aSP-f, by setting dendritic position, and selective masculinisation of these third-order neurons transforms their morphology and their pheromone responses. Cluster-level recording from a clone of about 13 cells.</li>
+<li><strong>Taisz 2023</strong>, <em>Generating parallel representations of position and identity in the olfactory system</em>, Cell. <a href="https://doi.org/10.1016/j.cell.2023.04.038">doi:10.1016/j.cell.2023.04.038</a> - hit under <code>aSP-g</code>, which occurs 47 times. Verbatim: "aSP-g2 neurons have the largest proportion of dendritic arbor in the LH and are the only subtype with DA1 input"; "all subtypes receive input from multiple taste PNs"; and "Activating aSP-g increased female receptivity while blocking aSP-g resulted in a small but significant decrease". Female aSP-g gives phasic ON responses to a male that habituate. <strong>Use for the aSP-g cluster only, never as physiology of AVLP750m.</strong></li>
+<li><strong>Cachero 2010</strong>, <em>Sexual dimorphism in the fly brain</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - hit under <code>aSP-g</code>. The naming source. Verbatim: "aSP-f, aSP-g, and aSP-h all have female-specific processes that localize to the FER", and "aSP-g can only form synapses with aDT-e, aDT-a, and aDT-f in females". Twin-spot MARCM gives a 22.2% aSP-g to DA1 PN overlap in females.</li>
+<li><strong>Yu 2010</strong>, <em>Cellular organization of the neural circuit that drives Drosophila courtship behavior</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a> - hit under <code>aSP6</code>, which occurs 12 times. aSP6 is one of the eleven dimorphisms: "the aSP4 and aSP6 neurons, also intrinsic to this structure, have both male- and female-specific arborizations". Correction: Yu 2010 treats aSP6 as an <strong>intrinsic neuron of the lateral protocerebral complex</strong>, not as a lateral horn third-order olfactory neuron. The three lateral horn classes in Yu 2010 are aSP5, aSP8 and aSP9.</li>
+<li><strong>Sato 2023</strong>, <em>Molecular and cellular origins of behavioral sex differences: a tiny little fly tells a lot</em>, Frontiers in Molecular Neuroscience. <a href="https://doi.org/10.3389/fnmol.2023.1284367">doi:10.3389/fnmol.2023.1284367</a> - <strong>a review with no new data.</strong> It devotes a section to "aSP-f and aSP-g: changeover switch of behavioral sex types in a pheromone pathway". Correction: the review attributes the aSP-f / aSP-g switch to FruM specifically. Doublesex is the switch for aDN, a different cell. Do not write "fruitless or doublesex" for aSP-g.</li>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. The type page synonyms were confirmed.</li>
+</ul>
+<h3 id="mal_m1---input-21-output-30-gabaergic-no-citation-names-the-modern-type">mAL_m1 - input 2.1%, output 3.0%, GABAergic. No citation names the modern type</h3>
+<p><strong>Identity.</strong> GABAergic interneuron of the mAL cluster, and the only mAL type that is reciprocally connected with AVLP743m. Curated synonyms aDT-b (Cachero 2010) and aDT2 (Yu 2010). The mAL cluster is dimorphic and fruitless-dependent, with dendrites in the subesophageal zone and an axon in the contralateral protocerebrum. It is the main GABAergic brake on the P1 and pC1 courtship command neurons.</p>
+<p><strong>Coarseness. This is the extreme case in this report.</strong> The verification pass downgraded <strong>every</strong> mAL citation to INDIRECT. aDT-b, aDT2 and "mAL" all name the whole cluster of about 30 cells per hemisphere in males, which the connectome splits into mAL_m1 to mAL_m8 and further subtypes. No paper names any mAL_m* type. <strong>There is no DIRECT citation for any mAL type in this report.</strong> The reciprocal AVLP743m to mAL_m1 motif is a connectome-only observation.</p>
+<p><strong>Two conflicts in the mAL literature.</strong> First, Sengupta 2022 reports that Koganezawa 2016 found that mAL activation induced neither aggression nor courtship, which opposes Sengupta's own result. Do not cite the two as if they agree. Second, Sengupta 2022 states the functional heterogeneity of mAL as a hypothesis - "It is plausible that mAL is a functionally heterogenous cluster" - not as a finding.</p>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Kimura 2005</strong>, <em>Fruitless specifies sexually dimorphic neural circuitry in the Drosophila brain</em>, Nature. <a href="https://doi.org/10.1038/nature04229">doi:10.1038/nature04229</a> - searched under <code>mAL</code>. The founding description: FruM blocks the female-specific death of these interneurons, so males keep about 30 per hemisphere against about 5 in females. Two limits: the abstract never uses the string "mAL", and the full text is paywalled, so the naming was confirmed only from secondary quotation. Also, <strong>some</strong> male mAL neurons add an ipsilateral branch, not all of them.</li>
+<li><strong>Clowney 2015</strong>, <em>Multimodal chemosensory circuits controlling male courtship in Drosophila</em>, Neuron. <a href="https://doi.org/10.1016/j.neuron.2015.07.025">doi:10.1016/j.neuron.2015.07.025</a> - searched under <code>mAL</code>. Verbatim: "mAL neurons, a previously described cluster (~30 cells/hemisphere) of sexually dimorphic GABA-ergic interneurons". mAL inhibition of P1 scales with vAB3 excitation, so mAL acts as gain control, not as a simple veto. The same paper puts mAL and DA1 projection neurons in one diagram, but it never types the PN as lPN.</li>
+<li><strong>Kallman 2015</strong>, <em>Excitation and inhibition onto central courtship neurons biases Drosophila mate choice</em>, eLife. <a href="https://doi.org/10.7554/eLife.11188">doi:10.7554/eLife.11188</a> - searched under <code>mAL</code>. Sensory neurons for male pheromones and for female pheromones both activate mAL, and mAL inhibits P1. The balance of excitation and inhibition onto P1 sets the mating decision.</li>
+<li><strong>Koganezawa 2016</strong>, <em>The neural circuitry that functions as a switch for courtship versus aggression in Drosophila males</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2016.04.017">doi:10.1016/j.cub.2016.04.017</a> - searched under <code>mAL</code>. "A double-layered inhibitory switch composed of two fru single-positive clusters, LC1 and mAL" makes courtship and aggression mutually exclusive. Collision warning: LC1 here is the fruitless-positive lateral horn cluster, not the lobula columnar visual type.</li>
+<li><strong>Sengupta 2022</strong>, <em>GABA transmission from mAL interneurons regulates aggression in Drosophila males</em>, PNAS. <a href="https://doi.org/10.1073/pnas.2117101119">doi:10.1073/pnas.2117101119</a> - searched under <code>mAL</code>. mAL activation raises intermale aggression, inactivation lowers it and raises intermale courtship, and GABA release from mAL is required. The paper names mAL heterogeneity as an open problem and calls for mosaic labelling.</li>
+<li><strong>Costa 2016</strong>, <em>NBLAST: rapid, sensitive comparison of neuronal structure and construction of neuron family databases</em>, Neuron. <a href="https://doi.org/10.1016/j.neuron.2016.06.012">doi:10.1016/j.neuron.2016.06.012</a> - searched under <code>mAL subtypes</code>. The only pre-connectome subdivision of mAL. Verbatim: "clustering cleanly separated male and female neurons, and identified three main types and two subtypes for the male neurons". Three limits: this is an algorithm paper with a one-sentence mAL result; the mAL clustering used a hand-selected set of partial mAL skeletons, not the 16,129-neuron validation set; and the subtypes are unnamed and have never been mapped onto any mAL_m* type.</li>
+</ul>
+<p><strong>Two further mAL papers were found but not verified in this pass.</strong> Koganezawa et al. 2010, Current Biology, on Gr32a gustatory terminals contacting mAL dendrites, <a href="https://doi.org/10.1016/j.cub.2009.11.038">doi:10.1016/j.cub.2009.11.038</a>, PMID 20036540. Grover et al. 2020, Nature Communications, showing that mAL stays active during copulation while P1 falls silent, <a href="https://doi.org/10.1038/s41467-020-14487-7">doi:10.1038/s41467-020-14487-7</a>, PMID 32001689. Check these before use.</p>
+<h3 id="pc1_3c---input-20-cholinergic">pC1_3c - input 2.0%, cholinergic</h3>
+<p><strong>Identity.</strong> One single-cell male type inside the dsx+ and fru+ pC1 cluster of the posterior lateral protocerebrum, the cluster that the male courtship literature calls P1. A live neuPrint query confirmed: acetylcholine, cb_intrinsic, hemilineage DM4_dorsal, one cell per side, dimorphism male-specific, and the synonym string "Lee 2002, Rideout 2010, Nojima 2021: pC1; Cachero 2010: pMP-e; Yu 2010: pMP4". Under those names the cluster is the courtship command and arousal node.</p>
+<p><strong>Coarseness. Severe.</strong> pC1 and P1 are cluster names. Kimura 2008 counted about 20 P1 interneurons per hemisphere; Ren 2016 raises that to about 50. The connectome splits the cluster into many single-cell types. Every paper below manipulates or images the whole cluster or a driver-line subset of it.</p>
+<p><strong>On the pC1a to pC1e scheme.</strong> That scheme comes from Wang 2021 and Deutsch 2020 and was defined in the <strong>female</strong> hemibrain, where pC1 holds about 7 cells per hemisphere. male-cns:v1.0 gives pC1_3c and pC1_3a no female counterpart. <strong>Treat "pC1_3a or pC1_3c = pC1d or pC1e" as an unsupported guess. Confidence: low.</strong> The defensible statement is that pC1_3a and pC1_3c are members of the male-specific P1 subset of the pC1 cluster. Note also that FBbt_00110621 warns that pC1 was wrongly listed as an exact synonym of P1: P1 is a <strong>subset</strong> of pC1, and pC1 as a dsx+ cluster exists in both sexes.</p>
+<p><strong>DIRECT (cluster level)</strong></p>
+<ul>
+<li><strong>Kimura 2008</strong>, <em>Fruitless and doublesex coordinate to generate male-specific neurons that can initiate courtship</em>, Neuron. <a href="https://doi.org/10.1016/j.neuron.2008.06.007">doi:10.1016/j.neuron.2008.06.007</a> - hit under <code>P1</code>. The discovery paper: P1 is a male-specific fru and dsx co-expressing cluster of about 20 interneurons near the mushroom body, each with a transversal neurite that ramifies in both hemispheres. A single induced P1 clone in an otherwise female brain provokes male-typical courtship. P1 is fated to die in females through DsxF. Correction: this shows that the fru+dsx+ <strong>P1 subset</strong> is male-specific, not that "the pC1 subtypes" are.</li>
+<li><strong>Cachero 2010</strong>, <em>Sexual dimorphism in the fly brain</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - hit under <code>pMP-e</code>. The naming source, confirmed through FBbt_00052710. pMP-e is the posterior medial protocerebrum fru+ clone that holds the P1 and pC1 neurons. Two notes: FBbt records that Ren 2016 considers the female pMP-e clone of Cachero 2010 possibly a misidentified unrelated clone, and it is Ren 2016, not Cachero, that assigns pMP-e to the DM4 neuroblast.</li>
+<li><strong>Yu 2010</strong>, <em>Cellular organization of the neural circuit that drives Drosophila courtship behavior</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a> - hit under <code>pMP4</code>. The naming source, confirmed through FBbt_00052710, which lists "adult fruitless pMP4 neuron" as an exact synonym of pMP-e. Anatomy and predicted connectivity only.</li>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. The dataset that defines pC1_3c and carries the synonyms. The full text was not reachable, and the type name will not be in the running prose. Note that the research pass silently dropped Rideout 2010 and Nojima 2021, which the same column lists.</li>
+</ul>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Wang 2021</strong>, <em>Neural circuit mechanisms of sexual receptivity in Drosophila females</em>, Nature. <a href="https://doi.org/10.1038/s41586-020-2972-7">doi:10.1038/s41586-020-2972-7</a> - searched under <code>pC1</code>. Downgraded from DIRECT. The paper behind the female pC1a to pC1e subtype definitions. It is entirely female hemibrain work, and pC1_3c is male-specific, so the cell studied does not exist in the animal studied. The token "pC1" matches the synonym column across sexes; it is not a mention of this neuron.</li>
+<li><strong>Deutsch 2020</strong>, <em>The neural basis for a persistent internal state in Drosophila females</em>, eLife. <a href="https://doi.org/10.7554/eLife.59502">doi:10.7554/eLife.59502</a> - searched under <code>pC1d</code> and <code>pC1e</code>. Downgraded from DIRECT, on the same ground. Female pC1d and pC1e drive minutes-long behavioural change in the presence of males; the paper maps all their inputs and outputs and finds strong recurrence with fru+ aIPg. Female-brain context for pC1 as a persistent-state node, not a source on this neuron.</li>
+</ul>
+<h3 id="pvlp206m---input-17-cholinergic-no-functional-literature-found">PVLP206m - input 1.7%, cholinergic. No functional literature found</h3>
+<p><strong>Identity.</strong> Cholinergic type of the posterior ventrolateral protocerebrum. The only curated synonym is aIP-b (Cachero 2010).</p>
+<p><strong>Correction to the research pass.</strong> The research agent reported that it could not retrieve any passage of Cachero 2010 containing the string <code>aIP-b</code>, and called the type literature-orphaned. <strong>That is false.</strong> <code>aIP-b</code> occurs four times in Cachero 2010, including substantive Results text. So the type is named in the primary literature. What is true is that <strong>no paper studies these cells functionally.</strong> PubMed has no indexed hit for aIP-b, and no physiology, behaviour or perturbation work exists.</p>
+<p><strong>Coarseness.</strong> aIP-b is a MARCM lineage clone, about 33 cells per hemisphere by FBbt_00110585, from neuroblast VLPa1. It covers an unknown number of modern types, of which PVLP206m is one. There is no downstream literature to narrow the label, so there is no group-level functional claim available either.</p>
+<p><strong>DIRECT</strong></p>
+<ul>
+<li><strong>Cachero 2010</strong>, <em>Sexual dimorphism in the fly brain</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - hit under <code>aIP-b</code>. Table 1 files aIP-b under Olfactory, Third-Order Neurons, with 32.5 cells in males against 19.6 in females. Verbatim: "The remaining fru+ LHNs have dendritic arbors that are relatively specific to the LH, occupying from 1% (aIP-b) to 20% (aSP-f)", and "the remaining lineage (aIP-b) occupies the same location in both sexes but is more dense in males". aIP-b is the exception in the Figure 5A cluster analysis: it is the one class where the male and female clones do not separate.</li>
+</ul>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. <code>PVLP206</code> and <code>aIP-b</code> both give zero hits in the article text. Correction to the research pass: the Methods state that the <code>m</code> suffix marks a <strong>male-specific</strong> type. PVLP206m therefore sits among the 262 male-specific types and cannot be one of the 114 dimorphic cross-matched types.</li>
+</ul>
+<p><strong>Removed:</strong> Yu 2010. See the discarded table.</p>
+<h3 id="sip100m---input-14-glutamatergic">SIP100m - input 1.4%, glutamatergic</h3>
+<p><strong>Identity.</strong> Glutamatergic superior intermediate protocerebrum type. Curated synonyms aSP-a (Cachero 2010) and aSP2 (Yu 2010), the same pair that SIP101m, SIP104m and SIP122m carry.</p>
+<p><strong>Coarseness.</strong> One old name, four modern types. SIP100m is the weakest of the four connections to AVLP743m, so it is the least likely of the four to dominate any bulk aSP2 manipulation. All evidence is group-level.</p>
+<p><strong>DIRECT</strong></p>
+<ul>
+<li><strong>Cachero 2010</strong>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - hit under <code>aSP-a</code>. Names the clone and reports it as one of the two most dimorphic fru+ clones in the central brain. The identical citation is attached to four male CNS types, and nothing in the paper separates them.</li>
+<li><strong>Takayanagi-Kiya 2019</strong>, PNAS. <a href="https://doi.org/10.1073/pnas.1814628116">doi:10.1073/pnas.1814628116</a> - hit under <code>aSP2</code>. Hr38-driven activity labelling marks aSP2 during male-female interaction; silencing neurons including aSP2 interrupts courtship and reduces mating success, with normal latency. Limits: OK371-fru intersection, and aSP2 identified by soma position.</li>
+<li><strong>Takayanagi-Kiya 2023</strong>, PNAS. <a href="https://doi.org/10.1073/pnas.2303318120">doi:10.1073/pnas.2303318120</a> - hit under <code>aSP2</code>. A second immediate-early gene, stripe/egr-1, corroborates the female-context recruitment. Same laboratory, so this is corroboration, not independent replication.</li>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. <code>SIP100m</code> gives zero hits in the article text. Naming authority through the dataset annotation.</li>
+</ul>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Yu 2010</strong>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a> - searched under <code>aSP2</code>. Unverified: paywalled, no PMC record, and the string could not be confirmed. Do not present Yu 2010 as the source of the aSP2 name without checking its class table.</li>
+</ul>
+<hr />
+<h2 id="output-partners-1">Output partners</h2>
+<h3 id="avlp316---output-110-cholinergic">AVLP316 - output 11.0%, cholinergic</h3>
+<p><strong>Identity.</strong> Cholinergic central-brain type and the largest single output partner of AVLP743m. AVLP316 is a hemibrain and FlyWire type name. Curated synonyms aIP-g (Cachero 2010) and pIP6 (Yu 2010). The literature under the modern spelling <strong>aIPg</strong> is substantial: aIPg neurons are dimorphic, cholinergic and Fru+, they form a recurrent loop with the Dsx+ pC1d and pC1e neurons, their activation drives female aggression and a persistent aggressive state, and connectomics proposes that they gate visual information flow to descending neurons.</p>
+<p><strong>Coarseness. Very coarse, and there is a subset trap.</strong> Cachero's aIP-g is a lineage clone. Yu's pIP6 is a light-level class. In the hemibrain, Schretter 2020 found 37 putative aIP-g neurons, of which <strong>only 11</strong> are the functionally studied aIPg types 1 to 3; 3 are SMP555 and SMP556, which the paper explicitly excludes, and 23 are unassigned. <strong>A male CNS type that carries the synonym aIP-g is therefore not automatically Schretter's aIPg.</strong> Note also that Cachero 2010 classifies the aIP-g clone as a fru+ <strong>auditory</strong> higher interneuron, not as a lateral horn olfactory clone. And pIP6 is many-to-one: FBbt_00052698 records that Cachero 2010 lists <strong>both aIP-g and pIP-e</strong> as corresponding to Yu's pIP6.</p>
+<p><strong>Do not write "AVLP316 drives female aggression". Write "AVLP316 belongs to the aIPg family, whose activation drives female aggression."</strong></p>
+<p><strong>DIRECT (family level)</strong></p>
+<ul>
+<li><strong>Schretter 2020</strong>, <em>Cell types and neuronal circuitry underlying female aggression in Drosophila</em>, eLife. <a href="https://doi.org/10.7554/eLife.58942">doi:10.7554/eLife.58942</a> - hit under <code>aIPg</code>, which occurs 369 times. The founding functional paper. Optogenetic activation increased and genetic inactivation reduced female aggression. The paper studies "a subset of the neurons derived from the aIP-g neuroblast (Cachero et al., 2010)", splits aIPg into three interconnected hemibrain types, shows that aIPg and pC1d are interconnected, and proposes that aIPg gates visual information to descending neurons. <code>AVLP316</code> has zero hits.</li>
+<li><strong>Deutsch 2020</strong>, <em>The neural basis for a persistent internal state in Drosophila females</em>, eLife. <a href="https://doi.org/10.7554/eLife.59502">doi:10.7554/eLife.59502</a> - hit under <code>aIPg</code>, which occurs 136 times. A full EM input and output map of pC1d and pC1e reports strong recurrent connectivity with the Fru+ aIPg neurons and minutes-long persistent activity in the pC1d and pC1e network. This is a female dataset, and <code>AVLP316</code> has zero hits.</li>
+<li><strong>Chiu 2025</strong>, <em>Cell type-specific contributions to a persistent aggressive internal state in female Drosophila</em>, eLife. <a href="https://doi.org/10.7554/eLife.88598">doi:10.7554/eLife.88598</a> - hit under <code>aIPg</code>, which occurs 118 times. A 30 second optogenetic stimulation of aIPg promotes an aggressive state that lasts at least 10 minutes, while the same stimulation of pC1d does not. Neither cell type shows persistent activity itself, and inactivating pC1d does not reduce aIPg-evoked persistent aggression. Note: this is the version of record of a reviewed preprint first posted in 2023, so some sources cite it as Chiu 2023.</li>
+<li><strong>Cachero 2010</strong>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - hit under <code>aIP-g</code>. Weak but real: <code>aIP-g</code> occurs exactly once in the whole paper, as a Table 1 row, "aIP-g 32.0 10.03 4.62 male-dimorphic", filed under Auditory Clones, Higher Interneurons. It is never discussed in the Results or the Discussion.</li>
+<li><strong>Yu 2010</strong>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a> - hit under <code>pIP6</code>. Weak: <code>pIP6</code> occurs four times, all in circuit-diagram figure panels with polarity "U" for undetermined, plus one legend line, "Intrinsic neurons of the lateral protocerebral complex. GAL4 lines used were: pIP5 and pIP6, 12-5". There is no descriptive sentence about pIP6. Collision check clean: the pIP series runs pIP1 to pIP9, and pIP6 is distinct from pIP10.</li>
+</ul>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. <code>AVLP316</code>, <code>aIP-g</code> and <code>pIP6</code> all give zero hits in the article text. The Methods state that the synonyms column was filled from Yu 2010, Cachero 2010 and Chiang 2011, with "high" and "low" confidence scores, so any given synonym may be a low-confidence manual match.</li>
+</ul>
+<h3 id="mal_m8---output-85-gabaergic-no-citation-names-the-modern-type">mAL_m8 - output 8.5%, GABAergic. No citation names the modern type</h3>
+<p><strong>Identity.</strong> GABAergic mAL cluster interneuron and the largest mAL output partner of AVLP743m. Curated synonyms aDT-b (Cachero 2010) and aDT2 (Yu 2010).</p>
+<p><strong>Coarseness and citations.</strong> Identical to mAL_m1. Every citation is cluster-level and INDIRECT: Kimura 2005, Clowney 2015, Kallman 2015, Koganezawa 2016, Sengupta 2022 and Costa 2016. See the mAL_m1 section above for the full list, the links, the two conflicts and the two unverified extra papers. Nothing in the literature distinguishes mAL_m8 from mAL_m1, mAL_m5a or mAL_m5c.</p>
+<h3 id="sip105m---output-83-cholinergic-no-direct-literature-found">SIP105m - output 8.3%, cholinergic. No direct literature found</h3>
+<p><strong>Identity.</strong> The name is a systematic male CNS identifier: SIP is the superior intermediate protocerebrum, 105 is the type number, and the <code>m</code> suffix marks a male-specific type. The annotation gives no old-literature synonym.</p>
+<p><strong>No literature exists.</strong> Searches for <code>SIP105m</code> and <code>SIP105</code> returned no paper on PubMed or the open web. The verification pass searched the full text of Berg 2025 and found zero hits for both strings. The search was capable, because the same text contains SIP025, VES200m, VES202m and AVLP532. The absence is real. No hemibrain or FlyWire counterpart was found. Report this as a genuine absence. Do not stretch it onto a weak match.</p>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. The only citable publication behind the name. It does not name the type. Dataset provenance only.</li>
+</ul>
+<h3 id="mal_m5a---output-41-gabaergic-no-citation-names-the-modern-type">mAL_m5a - output 4.1%, GABAergic. No citation names the modern type</h3>
+<p><strong>Identity and citations.</strong> Identical to mAL_m1 and mAL_m8. See the mAL_m1 section for the full citation list. All six citations are cluster-level and INDIRECT.</p>
+<h3 id="lhav4c2---output-37">LHAV4c2 - output 3.7%</h3>
+<p>See the input section for LHAV4c2. It is a reciprocal partner: 2.5% of the input and 3.7% of the output.</p>
+<h3 id="avlp711m---output-33-cholinergic-no-functional-literature-found">AVLP711m - output 3.3%, cholinergic. No functional literature found</h3>
+<p><strong>Identity.</strong> Cholinergic male-specific type. A live neuPrint query confirmed: synonyms "Cachero 2010: pIP-e; Yu 2010: pIP5", hemilineage DL1_ventral, 3 cells on the left and 2 on the right, cb_intrinsic, male-specific, cholinergic. FBbt_00052706 defines the adult fruitless pIP-e neuron as developing from neuroblast DL1 (CP2) with its cell body in the posterior inferior protocerebrum, which agrees with the hemilineage call.</p>
+<p><strong>This type is unstudied.</strong> Searches for pIP-e and pIP5 across PubMed, bioRxiv and the web returned the two anatomical atlases, the ontology entry, and phosphoinositide false positives. There is no physiology, no behaviour and no perturbation work.</p>
+<p><strong>Warning 1: pIP5 is not pIP10.</strong> pIP10 is the descending song command neuron of von Philipsborn 2011. pIP-e and pIP5 name a different, unstudied class.</p>
+<p><strong>Warning 2: the mapping is many-to-many.</strong> FBbt_00052706 states: "Cachero et al. (2010) list pIP-e as corresponding to the Yu et al. (2010) pIP5/6 and aIP-g also corresponding to pIP6." So pIP-e covers pIP5 <strong>and</strong> pIP6, and pIP6 is shared with aIP-g, which is the synonym of AVLP316. In the male CNS tables, the same "Cachero 2010: pIP-e; Yu 2010: pIP5" string is attached to about 168 bodies spread across several types, among them AOTU062, AVLP570, AVLP711m and AVLP738m. <strong>pIP5 is not a synonym of AVLP711m. It is a class label that AVLP711m shares with many other types.</strong></p>
+<p><strong>Warning 3: pC2 is a retracted synonym.</strong> FBbt formerly listed pC2 as an exact synonym of pIP-e and has since separated them. pC2 is a partially overlapping dsx+ class with its own classification. <strong>Do not use pC2 papers as evidence for AVLP711m.</strong> Record the historical overlap only as a caution.</p>
+<p><strong>DIRECT (class or clone level)</strong></p>
+<ul>
+<li><strong>Yu 2010</strong>, <em>Cellular organization of the neural circuit that drives Drosophila courtship behavior</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a> - hit under <code>pIP5</code>. The naming source, confirmed through FBbt_00052706. Anatomy and predicted connectivity only. No recording, no behaviour, no perturbation of pIP5.</li>
+<li><strong>Cachero 2010</strong>, <em>Sexual dimorphism in the fly brain</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - hit under <code>pIP-e</code>. The naming source, confirmed through FBbt_00052706. Correction: Cachero 2010 supplies the posterior inferior protocerebrum cell body position and the male-female cell count difference. <strong>The DL1 (CP2) neuroblast assignment belongs to Ren 2016, not to Cachero 2010.</strong></li>
+<li><strong>Virtual Fly Brain curators</strong>, <em>Adult fruitless pIP-e neuron [FBbt_00052706]</em>, FlyBase anatomy ontology. <a href="https://www.virtualflybrain.org/term/adult-fruitless-pip-e-neuron-fbbt_00052706/">VFB term page</a> - a curation resource, not a research paper. The term text was pulled from the EBI OLS4 API and matches the description above. Recorded synonyms: fru-pIP-e, adult fruitless pIP5 neuron, adult fruitless pIP6 neuron, adult fru-P neuron, adult fruitless P4a/P4b neuron. A more stable identifier is <a href="http://purl.obolibrary.org/obo/FBbt_00052706">purl.obolibrary.org/obo/FBbt_00052706</a>. Cite for the synonym mapping, not for biology.</li>
+</ul>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. Every per-type value above was confirmed by a live neuPrint query, including that AVLP711m does <strong>not</strong> carry a pC2l synonym; the sibling type AVLP738m carries "Nojima 2021: pC2l". The preprint contributes the type definition and the synonym. It does not describe any circuit switch through AVLP711m.</li>
+</ul>
+<h3 id="mal_m1---output-30">mAL_m1 - output 3.0%</h3>
+<p>See the input section for mAL_m1. It is the only mAL type reciprocally connected with AVLP743m: 2.1% of the input and 3.0% of the output.</p>
+<h3 id="sip104m---output-27-glutamatergic">SIP104m - output 2.7%, glutamatergic</h3>
+<p><strong>Identity.</strong> Glutamatergic superior intermediate protocerebrum type. Curated synonyms aSP-a (Cachero 2010) and aSP2 (Yu 2010). It sits on the output side of AVLP743m while SIP100m and SIP101m sit on the input side, although all four carry the same old name.</p>
+<p><strong>Coarseness.</strong> Because the four types split across the input and the output side, <strong>no aSP-a or aSP2 paper can tell you whether a reported effect came from the input arm or the output arm.</strong> All evidence is group-level.</p>
+<p><strong>DIRECT</strong></p>
+<ul>
+<li><strong>Cachero 2010</strong>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - hit under <code>aSP-a</code>. The origin of the clone name; 19 new male dimorphisms and more than 700 predicted dimorphic connection sites.</li>
+<li><strong>Takayanagi-Kiya 2019</strong>, PNAS. <a href="https://doi.org/10.1073/pnas.1814628116">doi:10.1073/pnas.1814628116</a> - hit under <code>aSP2</code>. Hr38 labelling marks aSP2 during male-female interaction; silencing neurons including aSP2 causes courtship interruption and reduced mating success with normal latency.</li>
+<li><strong>Takayanagi-Kiya 2023</strong>, PNAS. <a href="https://doi.org/10.1073/pnas.2303318120">doi:10.1073/pnas.2303318120</a> - hit under <code>aSP2</code>. Two-timepoint labelling in the same animal: double-positive counts were significantly higher than the single-housed control after virgin and mated female interaction, while male interaction was not different from control.</li>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. <code>SIP104m</code> gives zero hits in the article text.</li>
+</ul>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Yu 2010</strong>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a> - searched under <code>aSP2</code>. Unverified. "Origin of the aSP2 class name" is an unsupported attribution as it stands.</li>
+</ul>
+<h3 id="ves206m---output-26-cholinergic-no-direct-literature-found">VES206m - output 2.6%, cholinergic. No direct literature found</h3>
+<p><strong>Identity.</strong> Systematic male CNS identifier: VES is the vest, a ventral neuropil of the periesophageal region, 206 is the type number, and <code>m</code> marks a male-specific type. No old-literature synonym.</p>
+<p><strong>No literature exists.</strong> Searches for <code>VES206m</code> and <code>VES206</code> returned no paper. The verification pass found zero hits in the Berg 2025 full text for both strings. Hemibrain VES type numbering does not reach 206, which fits a male-CNS-only type.</p>
+<p><strong>Near-miss warning.</strong> The Berg 2025 text <strong>does</strong> contain <code>VES200m</code> and <code>VES202m</code>. Those are one or two digits away. Do not mistake them for support.</p>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. Dataset provenance only. It tells you where the name comes from and nothing about what the cell does.</li>
+</ul>
+<h3 id="mal_m5c---output-25-gabaergic-no-citation-names-the-modern-type">mAL_m5c - output 2.5%, GABAergic. No citation names the modern type</h3>
+<p><strong>Identity and citations.</strong> Identical to the other mAL types. See the mAL_m1 section. The caveat bites hardest here, because m5c carries only 2.5% of the output of AVLP743m and no citation resolves it from its siblings.</p>
+<h3 id="avlp758m---output-17-cholinergic-no-direct-literature-found">AVLP758m - output 1.7%, cholinergic. No direct literature found</h3>
+<p><strong>Identity.</strong> Systematic male CNS identifier: AVLP is the anterior ventrolateral protocerebrum, 758 is the type number, and <code>m</code> marks a male-specific type. It shares the prefix and the suffix with AVLP743m, so it is a near neighbour in the same neuropil. It is not a named literature cell.</p>
+<p><strong>No literature exists.</strong> Searches for <code>AVLP758m</code> and <code>AVLP758</code> returned no paper. The verification pass found zero hits in the Berg 2025 full text; the only AVLP type name present anywhere in that text is AVLP532. No FlyWire counterpart could be confirmed, so none is claimed.</p>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. Dataset provenance only.</li>
+</ul>
+<p><strong>Removed:</strong> Schlegel 2024. See the discarded table.</p>
+<h3 id="sip122m---output-17-glutamatergic">SIP122m - output 1.7%, glutamatergic</h3>
+<p><strong>Identity.</strong> Glutamatergic superior intermediate protocerebrum type. Curated synonyms aSP-a (Cachero 2010) and aSP2 (Yu 2010).</p>
+<p><strong>Coarseness.</strong> aSP-a and aSP2 map four to one. Nothing published resolves SIP122m from its three siblings.</p>
+<p><strong>DIRECT</strong></p>
+<ul>
+<li><strong>Cachero 2010</strong>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - hit under <code>aSP-a</code>. Correction: <strong>do not import the lateral horn twin-spot connectivity numbers into this entry.</strong> Those numbers concern aSP-f, aSP-g and aIP-e. Cachero discusses aSP-a as a lateral-horn-innervating, MER-arborising multimodal integrator, which is enough.</li>
+<li><strong>Takayanagi-Kiya 2019</strong>, PNAS. <a href="https://doi.org/10.1073/pnas.1814628116">doi:10.1073/pnas.1814628116</a> - hit under <code>aSP2</code>. aSP2 is recruited during male-female interaction and is required for courtship persistence. Correction: the optogenetic reactivation that induced courtship posture was <strong>population level</strong>, on the whole Hr38-labelled population. It is not an aSP2 result and is not repeated here as one.</li>
+<li><strong>Takayanagi-Kiya 2023</strong>, PNAS. <a href="https://doi.org/10.1073/pnas.2303318120">doi:10.1073/pnas.2303318120</a> - hit under <code>aSP2</code>. Distinct fruitless groups are activated by female and by male partners. Male-partner labelling concentrated in aSP3, AL, mAL, P2, P3 and P4, while aSP2 falls in the female-interaction assembly.</li>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. <code>SIP122m</code> gives zero hits in the article text.</li>
+</ul>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Yu 2010</strong>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.08.025">doi:10.1016/j.cub.2010.08.025</a> - searched under <code>aSP2</code>. Unverified; the string could not be confirmed in the paywalled text. The eleven anatomical dimorphisms are verified in the abstract.</li>
+</ul>
+<h3 id="pc1_3a---output-15-cholinergic">pC1_3a - output 1.5%, cholinergic</h3>
+<p><strong>Identity.</strong> A second single-cell male type in the same pC1 (P1) cluster as pC1_3c. A live neuPrint query confirmed: acetylcholine, cb_intrinsic, hemilineage DM4_dorsal, one cell per side, male-specific, and a <strong>byte-identical</strong> synonym string to pC1_3c. The three naming anchors, Kimura 2008, Cachero 2010 and Yu 2010, and the female pC1a to pC1e work, are listed under pC1_3c and apply here without change.</p>
+<p><strong>Coarseness.</strong> As for pC1_3c, and it also applies between the two: pC1_3a and pC1_3c are two cells of one cluster and <strong>no source in this report distinguishes them.</strong> Every functional result below used GAL4 or split-GAL4 lines that label tens of P1 cells. The only honest label for pC1_3a is "a male-specific P1 or pC1 subtype".</p>
+<p><strong>DIRECT (cluster level)</strong></p>
+<ul>
+<li><strong>von Philipsborn 2011</strong>, <em>Neuronal control of Drosophila courtship song</em>, Neuron. <a href="https://doi.org/10.1016/j.neuron.2011.01.011">doi:10.1016/j.neuron.2011.01.011</a> - hit under <code>P1</code>. Five fruitless classes trigger or compose courtship song. P1 and the descending pIP10 mediate the decision to sing and the act of singing; dPR1, vPR6 and vMS11 in the thoracic ganglia form the pulse-timing central pattern generator. P1 sits at the top of the song hierarchy. <strong>pIP10 is not the pIP5 or pIP-e of AVLP711m.</strong></li>
+<li><strong>Hindmarsh Sten 2021</strong>, <em>Sexual arousal gates visual processing during Drosophila courtship</em>, Nature. <a href="https://doi.org/10.1038/s41586-021-03714-w">doi:10.1038/s41586-021-03714-w</a> - hit under <code>P1</code>. P1 activity sets a persistent arousal state that selectively raises the gain of the LC10a visual projection neurons, and P1 activity tracks moment-to-moment changes in pursuit intensity. A network model shows that P1-amplified LC10a signalling almost fully specifies how a male tracks a female. <strong>LC10a is a lobula columnar visual type. It is not the LC1 of Ruta 2010.</strong></li>
+<li><strong>Clowney 2015</strong>, <em>Multimodal chemosensory circuits controlling male courtship in Drosophila</em>, Neuron. <a href="https://doi.org/10.1016/j.neuron.2015.07.025">doi:10.1016/j.neuron.2015.07.025</a> - hit under <code>P1</code>. Traces the gustatory and olfactory pheromone circuits to their convergence onto P1 and shows that inhibition tunes P1 even for courtship-promoting pheromones. This explains how P1 discriminates partners before it releases courtship.</li>
+<li><strong>Kohatsu 2015</strong>, <em>Visually induced initiation of Drosophila innate courtship-like following pursuit is mediated by central excitatory state</em>, Nature Communications. <a href="https://doi.org/10.1038/ncomms7457">doi:10.1038/ncomms7457</a> - hit under <code>pC1</code>. Optogenetic priming of the dsx+ pC1 cluster makes tethered males pursue moving light spots and produce unilateral wing extension with bilateral vibration, while the neighbouring pC2l cluster gives only contralateral wing display, abdominal bending and proboscis extension. Calcium imaging of pC1 shows periodic rises locked to each courtship turn.</li>
+<li><strong>Lee 2002</strong>, <em>Doublesex gene expression in the central nervous system of Drosophila melanogaster</em>, Journal of Neurogenetics. <a href="https://doi.org/10.1080/01677060216292">doi:10.1080/01677060216292</a> - hit under <code>pC1</code>. The origin of the dsx+ cluster nomenclature that gave pC1 its name. Nomenclature and expression only; no circuit, no physiology. Transparency: the abstract does not contain the string <code>pC1</code> and the full text is paywalled. The attribution rests on FlyBase and FBbt curation, where FBbt_00047348 carries the synonyms "doublesex-expressing posterior Cells-1 (male)" and "dsx-pC1 (male)", both cross-referenced to Lee, Hall and Park 2002.</li>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. Every per-type value was confirmed by a live neuPrint query. The preprint separates male from female types; it does not separate pC1_3a from pC1_3c.</li>
+</ul>
+<h3 id="avlp757m---output-15-cholinergic-no-functional-literature-found">AVLP757m - output 1.5%, cholinergic. No functional literature found</h3>
+<p><strong>Identity.</strong> Cholinergic male-specific type. A live neuPrint query confirmed: synonyms "Cachero 2010: pMP-f" and nothing else, acetylcholine, cb_intrinsic, hemilineage DM6_dorso_lateral, male-specific, one cell per side. FBbt assigns pMP-f to the DM6 neuroblast (Ren 2016), which matches the hemilineage call.</p>
+<p><strong>This is a near-blank type.</strong> A search for pMP-f returns the anatomical atlas entries only. There is no physiology, no behaviour and no optogenetics. Everything published about it is that it exists, that it is fru+, and that it is dimorphic. If this type matters for the AVLP743m story, the argument must come from connectivity, not from the literature.</p>
+<p><strong>Coarseness. The strongest cardinality gap in this report: about 21 to 1.</strong> FBbt_00052711 records that Cachero 2010 reports about 21 pMP-f cells per hemisphere, while AVLP757m is one cell per side. No property of AVLP757m follows from a property of the clone.</p>
+<p><strong>Two further cautions.</strong> pMP-f is a <strong>different clone</strong> from pMP-e, which is the P1 and pC1 clone. <strong>The pC1 and P1 literature does not transfer to AVLP757m.</strong> FBbt also gives pMP-f the additional synonym "adult fruitless P2e neuron", which is a further collision hazard.</p>
+<p><strong>DIRECT (clone level)</strong></p>
+<ul>
+<li><strong>Cachero 2010</strong>, <em>Sexual dimorphism in the fly brain</em>, Current Biology. <a href="https://doi.org/10.1016/j.cub.2010.07.045">doi:10.1016/j.cub.2010.07.045</a> - hit under <code>pMP-f</code>. The only primary source for the name. pMP-f is one of the catalogued fru+ posterior medial protocerebrum clones. Anatomy only; the paper makes no functional claim about pMP-f.</li>
+</ul>
+<p><strong>Indirect:</strong></p>
+<ul>
+<li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. Defines AVLP757m and records the pMP-f synonym. The general finding that male-specific connections form hotspots in higher brain centres is global context, not a statement about this cell.</li>
+</ul>
+<h3 id="cb1852---output-14">CB1852 - output 1.4%</h3>
+<p>See the input section for CB1852. It is a reciprocal partner: 2.5% of the input and 1.4% of the output.</p>
+<hr />
+<h2 id="partners-with-no-literature">Partners with no literature</h2>
+<p><strong>No paper names the type, and no old name maps onto it.</strong></p>
+<div class="wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SIP105m</td>
+<td>Male-CNS-only type. Zero hits for <code>SIP105m</code> and <code>SIP105</code> on PubMed, the open web and in the Berg 2025 full text. No hemibrain or FlyWire counterpart.</td>
+</tr>
+<tr>
+<td>VES206m</td>
+<td>Male-CNS-only type. Zero hits for <code>VES206m</code> and <code>VES206</code>. Hemibrain VES numbering does not reach 206. Berg 2025 names VES200m and VES202m, but not this type.</td>
+</tr>
+<tr>
+<td>AVLP758m</td>
+<td>Male-CNS-only type. Zero hits for <code>AVLP758m</code> and <code>AVLP758</code>. The only AVLP type name in the Berg 2025 text is AVLP532.</td>
+</tr>
+<tr>
+<td>AN05B102d</td>
+<td>No curated old name. Zero hits for <code>AN05B102</code>, <code>AN05B102d</code> and the FlyWire alias <code>AN_multi_69</code> in Stuerner 2025 and Berg 2025. Only the hemilineage 05B group is published.</td>
+</tr>
+<tr>
+<td>M_lvPNm45</td>
+<td>No curated old name. Zero hits in every running text checked. The string appears in print only as a row of Supplementary file S5 of Schlegel 2021, with no discussion.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Named in the literature, but never studied.</strong></p>
+<div class="wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PVLP206m</td>
+<td>aIP-b is named four times in Cachero 2010, with real Results text, so the name is real. No physiology, behaviour or perturbation work exists on aIP-b. PubMed has no indexed hit for the name.</td>
+</tr>
+<tr>
+<td>AVLP757m</td>
+<td>pMP-f appears in the Cachero 2010 clone catalogue and nowhere else. Anatomy only, and the clone is about 21 times larger than the type.</td>
+</tr>
+<tr>
+<td>AVLP711m</td>
+<td>pIP-e and pIP5 appear in the two atlases and the ontology only. The class label is shared across about 168 bodies and several male CNS types.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Named only at cluster level.</strong> The four mAL types, mAL_m1, mAL_m5a, mAL_m5c and mAL_m8, have a large literature, but the verification pass downgraded <strong>every</strong> citation to INDIRECT. No paper names any mAL_m* type. The only pre-connectome subdivision, Costa 2016, produced unnamed subtypes that have never been mapped onto the connectome names.</p>
+<hr />
+<h2 id="discarded-citations">Discarded citations</h2>
+<p>Every citation the verifier marked <code>exists=false</code> was removed. Citations that name neither the type nor any of its synonyms, and that the verifier recommended for removal, were also removed. Both classes are listed here.</p>
+<div class="wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Citation</th>
+<th>Verifier verdict</th>
+<th>Reason for removal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DA1_lPN</td>
+<td>Schlegel P 2025 [2021], <em>Information flow, cell types and stereotypy in a full olfactory connectome</em>, eLife 10:e66018, doi:10.7554/eLife.66018</td>
+<td><code>exists=false</code></td>
+<td>Mandatory drop. The paper is real, but the claim made of it is not. The string <code>DA1_lPN</code> does not appear; the paper's PN nomenclature is uPN, mPN and ALPN. The paper never mentions FlyWire; its second dataset is FAFB. The substrate is the hemibrain, a female brain. The stated attribution of the DA1_lPN name to this paper is false. <strong>Kept for M_lvPNm45</strong>, where the verifier confirmed the type name in Supplementary file S5.</td>
+</tr>
+<tr>
+<td>AVLP743m</td>
+<td>Kohl J 2013, <em>A bidirectional circuit switch reroutes pheromone signals in male and female brains</em>, Cell, doi:10.1016/j.cell.2013.11.025</td>
+<td>Refuted for LC1</td>
+<td><code>LC1</code> occurs zero times in the retrieved full text. The sentence presented as a verbatim Kohl quote is not the paper's sentence; the real sentence names no author. The claimed male-only DA1 response of LC1 in fact describes aSP-f and DC1. The citation was pulled in through an LC1 and DC1 collision. <strong>Kept elsewhere</strong> for aSP-f, aSP-g and for CB1852 nomenclature.</td>
+</tr>
+<tr>
+<td>PVLP206m</td>
+<td>Yu JY 2010, <em>Cellular organization of the neural circuit that drives Drosophila courtship behavior</em>, Current Biology, doi:10.1016/j.cub.2010.08.025</td>
+<td>Names neither the type nor a synonym</td>
+<td>Yu 2010's anterior inferior protocerebrum classes are aIP1 to aIP5 only. The hyphenated <code>aIP-b</code> never appears, and neither does PVLP206m. FBbt_00052695 lists no Yu 2010 class equivalent for aIP-b either. The research pass itself conceded that the paper "says nothing about this cell type".</td>
+</tr>
+<tr>
+<td>AN09B017g</td>
+<td>von Philipsborn AC 2011, <em>Neuronal control of Drosophila courtship song</em>, Neuron, doi:10.1016/j.neuron.2011.01.011</td>
+<td>vAB3 not confirmed</td>
+<td>The full text could not be reached, so the string <code>vAB3</code> could not be checked. The paper's five identified classes are P1, pIP10, dPR1, vPR6 and vMS11; vAB3 is not among them and is not a song neuron. The stated link, that vAB3 comes from the same fruitless VNC collection, is guilt by association; Yu 2010 supplies that collection and is already cited directly. The citation was also attached to subtype g but not to subtype f, although both rest on the same synonym. <strong>The curated synonym column still cites this paper for AN09B017g, so the synonym map keeps it.</strong></td>
+</tr>
+<tr>
+<td>M_lvPNm45</td>
+<td>Scheffer LK 2020, <em>A connectome and analysis of the adult Drosophila central brain</em>, eLife 9:e57443, doi:10.7554/eLife.57443</td>
+<td>Redundant provenance</td>
+<td>Zero hits for <code>M_lvPNm45</code>, <code>lvPN</code> and any <code>M_</code>-prefixed name. The EM volume is Scheffer's, but the ALPN type names were assigned by the Jefferis-lab olfactory annotation published as Schlegel 2021, whose supplement contains the string. This citation is volume provenance one step removed, and is redundant once Schlegel 2021 is cited.</td>
+</tr>
+<tr>
+<td>M_lvPNm45</td>
+<td>Tanaka NK 2012, <em>Organization of antennal lobe-associated neurons in adult Drosophila melanogaster brain</em>, Journal of Comparative Neurology, doi:10.1002/cne.23142</td>
+<td>No connection to the type</td>
+<td>No PMC record exists, so no full text could be searched. The paper predates the M_lvPNm* names and cannot be matched to any individual type. Two stretches were also found: the abstract never uses the word multiglomerular, and the mALT tract nomenclature is standardly attributed to Ito et al. 2014, not to this paper.</td>
+</tr>
+<tr>
+<td>AVLP758m</td>
+<td>Schlegel P 2024, <em>Whole-brain annotation and multi-connectome cell typing of Drosophila</em>, Nature, doi:10.1038/s41586-024-07686-5</td>
+<td>A record of a failed search</td>
+<td>Zero hits for <code>AVLP758</code> and <code>AVLP758m</code>; the paper contains no AVLP-numbered type names at all. The entry states that it is "cited only to document the counterpart search, not as evidence about the cell". A record of a failed search is not a citation. The search itself is reported in the AVLP758m section instead.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="statements-removed-while-the-citation-stayed">Statements removed while the citation stayed</h3>
+<p>Three specific statements failed verification, but the papers that carry them are still cited for other, verified content. The statements are not repeated anywhere in this report.</p>
+<div class="wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Statement removed</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LHAV4c2</td>
+<td>"Deutsch 2025 explicitly carries the label aSP8-vpoIN2 = LHAV4c2"</td>
+<td>The string <code>LHAV4c2</code> occurs zero times in the full text, and a Europe PMC full-text search returns zero hits corpus-wide. The equation is not in the source.</td>
+</tr>
+<tr>
+<td>LHAV4c2</td>
+<td>"Deutsch 2025 predicts aSP8 to be GABAergic" and "aSP8 receives weak direct input from the visual projection neuron LC43"</td>
+<td>The string <code>GABA</code> occurs zero times in the full text. The LC43 input belongs to aSP9-LHAV2b2a, not to aSP8; the claim came from an aSP8 and aSP9 collision.</td>
+</tr>
+<tr>
+<td>LHAV4c2</td>
+<td>The sentence attributed to Baker 2022, that AVLP_pr01 and AVLP_pr02 "share morphology with vpoINs, which provide sound-evoked inhibition onto vpoDNs"</td>
+<td>The sentence does not exist in the full text. Baker 2022 does name and map vpoIN, so the citation is kept and upgraded to DIRECT, with the correct quotations given instead.</td>
+</tr>
+</tbody>
+</table></div>
+

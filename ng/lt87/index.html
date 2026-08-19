@@ -30,6 +30,7 @@
          display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;align-items:center}
  .sw{display:inline-block;width:.7rem;height:.7rem;border-radius:2px;
      margin-right:.35rem;vertical-align:-1px}
+ img{max-width:100%;height:auto;border-radius:6px;margin:.5rem 0 0}
  @media (prefers-color-scheme:dark){
   body{background:#141414;color:#e8e8e8}
   a{color:#6fb3ef} .big{border-color:#333} .big b{color:#6fb3ef}
@@ -119,6 +120,11 @@ this connection.</p>
 <span class="sw" style="background:#FFAB00;margin-left:1rem"></span>Tm30
 <span class="sw" style="background:#FF4081;margin-left:1rem"></span>Tm5Y
 </p>
+
+<h2>Visual field</h2>
+<p class="note">Mollweide projection of the visual field, in the style of Berg et al. 2025. One mark is one lobula column, that is one ommatidium. The colour gives the number of LT87 input synapses in that column. A grey mark is a column of that eye with no input. The cross is the synapse-weighted centre. One LT87 cell reads 733 of 875 columns on the right and 768 of 867 on the left. It therefore sees almost the whole eye, and it gives more weight to the frontal field and to the field below the equator. The map agrees with the published Cell Type Explorer page for LT87: 15754 against 15784 input synapses, and a columnar completeness of 0.838 against 0.84. Built by R/19_lt87_eye_map.R.</p>
+<img src="eye_map.png" alt="LT87 field of view on the eye map">
+
 
 <script>
 // click-to-sort on every table marked sortable. A column sorts numerically when

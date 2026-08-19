@@ -1,0 +1,1567 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%AA%B0%3C/text%3E%3C/svg%3E">
+<title>AVLP743m - two-hop circuit map</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<script src="../glossary.js" defer></script>
+<style>
+ body{font:15px/1.6 system-ui,sans-serif;margin:0;padding:2.5rem 1.25rem;
+      max-width:52rem;margin-inline:auto;color:#1a1a1a;background:#fff}
+ h1{font-size:1.5rem;margin:0 0 .35rem}
+ p.sub{color:#555;margin:0 0 1.5rem}
+ a{color:#0b5fa5}
+ h2{font-size:1.05rem;margin:2.5rem 0 .35rem;font-weight:600}
+ p.note{color:#555;margin:1rem 0 0;font-size:.92rem}
+ p.back{margin:2.25rem 0 0;font-size:.92rem}
+
+ /* ---- the app breaks out of the 52rem prose column ---------------------- */
+ .app{position:relative;left:50%;transform:translateX(-50%);
+      width:min(78rem,calc(100vw - 2.5rem));margin:1.75rem 0 1rem;
+      border:1px solid #d8d8d8;border-radius:9px;overflow:hidden;
+      display:flex;align-items:stretch;background:#fff}
+ .side{flex:0 0 16.5rem;border-right:1px solid #ececec;padding:.85rem .9rem 1rem;
+       overflow-y:auto;max-height:min(80vh,47rem);font-size:.86rem}
+ .stage{flex:1 1 auto;position:relative;min-width:0;height:min(80vh,47rem)}
+ canvas#cv{display:block;width:100%;height:100%;touch-action:none;cursor:default}
+
+ .grp{margin:0 0 .95rem}
+ .grp>b,.rowv>b{display:block;font-size:.71rem;letter-spacing:.06em;
+                text-transform:uppercase;color:#666;font-weight:600;margin:0 0 .35rem}
+ .seg{display:flex;border:1px solid #d0d0d0;border-radius:6px;overflow:hidden}
+ .seg label{flex:1 1 0;text-align:center;padding:.3rem .1rem;cursor:pointer;
+            font-size:.79rem;color:#333;background:#fafafa;border-left:1px solid #e2e2e2;
+            user-select:none;white-space:nowrap;position:relative}
+ .seg label:first-child{border-left:0}
+ .seg input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+ .seg label.on{background:#0b5fa5;color:#fff}
+ .rowv{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem}
+ .rowv>b{margin-bottom:.2rem}
+ .rowv i{font-style:normal;font-variant-numeric:tabular-nums;color:#0b5fa5;
+         font-weight:600;font-size:.8rem;white-space:nowrap}
+ input[type=range]{width:100%;margin:0;accent-color:#0b5fa5}
+ .nts{display:grid;grid-template-columns:1fr 1fr;gap:.1rem .4rem}
+ .nts label{display:flex;align-items:center;gap:.28rem;cursor:pointer;font-size:.79rem;
+            white-space:nowrap;overflow:hidden}
+ .nts label span.dot{flex:0 0 auto;width:.62rem;height:.62rem;border-radius:50%}
+ .nts label u{color:#999;font-variant-numeric:tabular-nums;font-size:.73rem;
+              text-decoration:none}
+ .nts input,.chk input{margin:0;accent-color:#0b5fa5}
+ .chk{display:flex;align-items:flex-start;gap:.4rem;cursor:pointer;font-size:.82rem}
+ #q{width:100%;box-sizing:border-box;padding:.3rem .45rem;border:1px solid #d0d0d0;
+    border-radius:5px;font:inherit;font-size:.82rem;background:#fff;color:inherit}
+ .btnrow{display:flex;gap:.4rem}
+ button.b{flex:1 1 0;padding:.32rem .2rem;border:1px solid #d0d0d0;border-radius:6px;
+          background:#fafafa;color:#333;font:inherit;font-size:.79rem;cursor:pointer}
+ button.b:hover{border-color:#0b5fa5;color:#0b5fa5}
+ button.b[aria-pressed=true]{background:#0b5fa5;border-color:#0b5fa5;color:#fff}
+ .readout{font-variant-numeric:tabular-nums;font-size:.81rem;color:#444;
+          border-top:1px solid #ececec;padding-top:.5rem}
+ .readout b{color:#0b5fa5}
+ .sub2{font-size:.75rem;color:#888;margin:.2rem 0 0;line-height:1.4}
+ .warn{color:#a33;font-size:.78rem;margin:.4rem 0 0}
+
+ .lg{position:absolute;left:.6rem;bottom:.6rem;background:rgba(255,255,255,.9);
+     border:1px solid #e2e2e2;border-radius:7px;padding:.45rem .6rem;font-size:.74rem;
+     color:#444;pointer-events:none;line-height:1.5}
+ .lg .r{display:flex;align-items:center;gap:.35rem;white-space:nowrap}
+ .lg .dot{width:.6rem;height:.6rem;border-radius:50%;flex:0 0 auto}
+ .lg .n{opacity:.55;font-variant-numeric:tabular-nums}
+ .lg .sz{display:flex;align-items:flex-end;gap:.45rem;margin-top:.4rem;
+         padding-top:.4rem;border-top:1px solid #e6e6e6}
+ .lg .sz u{display:flex;flex-direction:column;align-items:center;gap:.15rem;
+           text-decoration:none}
+ .lg .sz i{display:block;border-radius:50%;font-style:normal}
+ .lg .sz em{font-style:normal;opacity:.75;line-height:1.3}
+ .tip{position:absolute;pointer-events:none;z-index:6;max-width:19rem;
+      background:rgba(255,255,255,.97);border:1px solid #cfcfcf;border-radius:7px;
+      padding:.45rem .6rem;font-size:.78rem;line-height:1.5;color:#222;
+      box-shadow:0 3px 12px rgba(0,0,0,.13);display:none}
+ .tip b{font-size:.86rem}
+ .tip dl{margin:.25rem 0 0;display:grid;grid-template-columns:auto auto;gap:0 .55rem}
+ .tip dt{color:#777}
+ .tip dd{margin:0;font-variant-numeric:tabular-nums}
+ .det{position:absolute;right:.6rem;top:.6rem;width:15.5rem;max-height:calc(100% - 1.2rem);
+      overflow-y:auto;background:rgba(255,255,255,.97);border:1px solid #cfcfcf;
+      border-radius:7px;padding:.55rem .7rem .7rem;font-size:.79rem;line-height:1.5;
+      box-shadow:0 3px 12px rgba(0,0,0,.1);display:none;z-index:5}
+ .det h3{margin:0 1rem .1rem 0;font-size:.95rem}
+ .det .x{position:absolute;right:.3rem;top:.2rem;border:0;background:none;
+         font-size:1.05rem;line-height:1;color:#999;cursor:pointer;padding:.15rem .3rem}
+ .det .x:hover{color:#0b5fa5}
+ .det .who{color:#888;font-size:.74rem}
+ .det dl{margin:.35rem 0 0;display:grid;grid-template-columns:auto 1fr;gap:0 .5rem}
+ .det dt{color:#777;white-space:nowrap}
+ .det dd{margin:0;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+ .det h4{margin:.6rem 0 .1rem;font-size:.7rem;text-transform:uppercase;
+         letter-spacing:.05em;color:#666;font-weight:600}
+ .det ul{margin:0;padding:0;list-style:none}
+ .det li{display:flex;justify-content:space-between;gap:.5rem}
+ .det li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .det li i{font-style:normal;color:#666;font-variant-numeric:tabular-nums;flex:0 0 auto}
+ .det .sc{display:block;margin-top:.55rem}
+ .toggleside{display:none}
+
+ @media (max-width:760px){
+  .app{flex-direction:column}
+  .side{flex:none;border-right:0;border-bottom:1px solid #ececec;max-height:none;
+        display:none}
+  .app.open .side{display:block}
+  .stage{height:min(70vh,32rem)}
+  .toggleside{display:block;width:100%;border:0;border-bottom:1px solid #ececec;
+              background:#fafafa;color:#0b5fa5;font:inherit;font-size:.85rem;
+              padding:.45rem .8rem;cursor:pointer;text-align:left}
+  .det{width:auto;left:.6rem;right:.6rem}
+  .lg{font-size:.68rem}
+ }
+
+ @media (prefers-color-scheme:dark){
+  body{background:#141414;color:#e8e8e8}
+  a{color:#6fb3ef}
+  p.sub{color:#aaa} p.note{color:#c2c8d2}
+  .app{background:#141414;border-color:#333}
+  .side{border-right-color:#2a2a2a;border-bottom-color:#2a2a2a}
+  .grp>b,.rowv>b{color:#9aa0a8}
+  .seg{border-color:#3a3a3a}
+  .seg label{background:#1c1c1c;color:#ccc;border-left-color:#2f2f2f}
+  .seg label.on{background:#6fb3ef;color:#101010}
+  .rowv i{color:#6fb3ef}
+  #q{background:#1c1c1c;border-color:#3a3a3a;color:#e8e8e8}
+  button.b{background:#1c1c1c;border-color:#3a3a3a;color:#ccc}
+  button.b:hover{border-color:#6fb3ef;color:#6fb3ef}
+  button.b[aria-pressed=true]{background:#6fb3ef;border-color:#6fb3ef;color:#101010}
+  .readout{color:#bbb;border-top-color:#2a2a2a} .readout b{color:#6fb3ef}
+  .sub2{color:#7d838c}
+  .nts label u{color:#7d838c}
+  .lg{background:rgba(22,22,22,.9);border-color:#333;color:#bbb}
+  .lg .sz{border-top-color:#2c2c2c}
+  .tip{background:rgba(24,24,24,.97);border-color:#3a3a3a;color:#e2e2e2;
+       box-shadow:0 3px 12px rgba(0,0,0,.5)}
+  .tip dt{color:#8d939c}
+  .det{background:rgba(24,24,24,.97);border-color:#3a3a3a;color:#e2e2e2;
+       box-shadow:0 3px 12px rgba(0,0,0,.5)}
+  .det dt,.det h4,.det li i,.det .who{color:#8d939c}
+  .det .x{color:#777}
+  .toggleside{background:#1c1c1c;color:#6fb3ef;border-bottom-color:#2a2a2a}
+  .warn{color:#e88}
+  input[type=range],.nts input,.chk input{accent-color:#6fb3ef}
+ }
+</style>
+
+<h1>AVLP743m two-hop circuit</h1>
+<p class="sub">The male CNS type graph around AVLP743m (male-cns:v1.0), drawn as a
+force layout that is never allowed to settle. 459 cell types, 3547 connections.</p>
+
+<p>Every bubble is a cell <em>type</em>, not a neuron: the 11 AVLP743m bodies are one
+node, and so are the 13 DA1_lPN bodies. Every wire is a type-to-type connection, and
+its weight is the share of the <em>target</em> type&rsquo;s total input that the source
+supplies &mdash; a 5% wire means the postsynaptic type gets a twentieth of everything
+it receives from that one presynaptic type. The type-pair matrix behind this is
+thresholded at 5 synapses. The export then keeps a pair only when it reaches both
+0.75% of the target&rsquo;s input and 5 synapses, so nothing weaker exists in the file:
+an empty stretch of the graph means below the floor, not zero. Two hops means the
+direct partners of AVLP743m and the partners of those partners, taken in the same
+direction &mdash; inputs of inputs on the left, outputs of outputs on the right.</p>
+
+<div class="app" id="app" data-glossary-skip>
+  <button class="toggleside" id="toggleside" aria-expanded="false">Controls &#9662;</button>
+  <div class="side" id="side">
+
+    <div class="grp">
+      <b>Direction</b>
+      <div class="seg" id="segDir">
+        <label><input type="radio" name="dir" value="in"><span>inputs</span></label>
+        <label><input type="radio" name="dir" value="out"><span>outputs</span></label>
+        <label><input type="radio" name="dir" value="both" checked><span>both</span></label>
+      </div>
+    </div>
+
+    <div class="grp">
+      <b>Weight metric</b>
+      <div class="seg" id="segMetric">
+        <label><input type="radio" name="metric" value="share" checked><span>% of target input</span></label>
+        <label><input type="radio" name="metric" value="syn"><span>raw synapses</span></label>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="rowv"><b id="lbThr">Min strength</b><i id="vThr">&ge; 0.75%</i></div>
+      <input type="range" id="rThr" min="75" max="1000" step="5" value="75"
+             aria-label="minimum connection strength">
+    </div>
+
+    <div class="grp">
+      <div class="rowv"><b>Hard synapse floor</b><i id="vMinSyn">&ge; 5 syn</i></div>
+      <input type="range" id="rMinSyn" min="5" max="200" step="1" value="5"
+             aria-label="minimum raw synapse count">
+    </div>
+
+    <div class="grp">
+      <b>Neurotransmitter</b>
+      <div class="nts" id="ntBox"></div>
+    </div>
+
+    <div class="grp">
+      <b>Scope</b>
+      <label class="chk"><input type="checkbox" id="cHop2" checked>
+        <span>hop&nbsp;2: partners of partners</span></label>
+    </div>
+
+    <div class="grp">
+      <b>Find a type</b>
+      <input id="q" type="search" placeholder="e.g. mAL, DA1, pC1" autocomplete="off"
+             spellcheck="false">
+      <div id="qOut" class="sub2"></div>
+    </div>
+
+    <div class="grp">
+      <div class="btnrow">
+        <button class="b" id="bPause" aria-pressed="false">Pause</button>
+        <button class="b" id="bFit">Fit</button>
+        <button class="b" id="bReset">Reset</button>
+      </div>
+    </div>
+
+    <div class="readout" id="readout">loading&hellip;</div>
+    <p class="sub2" id="ntnote">The transmitter filter never hides AVLP743m itself,
+      whose consensus call is <i>unclear</i>.</p>
+    <p class="warn" id="warn" hidden></p>
+  </div>
+
+  <div class="stage" id="stage">
+    <canvas id="cv"></canvas>
+    <div class="lg" id="legend"></div>
+    <div class="tip" id="tip"></div>
+    <div class="det" id="det"></div>
+  </div>
+</div>
+
+<p class="note" id="hint">Drag a bubble to pull the layout around; it keeps jiggling
+because the simulation is never allowed to reach zero. Scroll or pinch to zoom, drag
+the background to pan. Hover a bubble to isolate it, click to pin it and open its card,
+double-click to unpin. Raising a threshold removes a type together with everything that
+only hung off it, so what is left is always still wired to AVLP743m. Every control is
+written into the address bar, so the link you copy is the view you are looking at.</p>
+
+<p class="back"><a href="../avlp743m/">&larr; Back to the AVLP743m scene page</a></p>
+
+<script src="../d3.v7.min.js"></script>
+<script>
+"use strict";
+/* ===========================================================================
+   AVLP743m two-hop circuit map.
+
+   Sections
+     1  constants and palette
+     2  STATE - one plain object, the only source of truth
+     3  the URL hash - stateToHash / hashToState, lossless in both directions
+     4  data and a CSR adjacency index, built once
+     5  computeVisible() - the filter pipeline, pure and O(V+E)
+     6  simulation, canvas rendering, interaction
+     7  selfCheck() - asserts the invariants on load
+
+   Every control writes STATE and then calls apply(); nothing else decides what
+   is on screen. The cascade prune is a two-level sweep outwards from the core,
+   so a hop-2 type survives only while at least one hop-1 type it hangs off is
+   itself still connected to the core.
+   =========================================================================== */
+
+/* ---- 1. constants -------------------------------------------------------- */
+
+var NT_KEYS  = ["acetylcholine","gaba","glutamate","dopamine","serotonin","unclear"];
+var NT_SHORT = {acetylcholine:"ACh", gaba:"GABA", glutamate:"Glu",
+                dopamine:"DA", serotonin:"5-HT", unclear:"unclear"};
+var NT_ABBR  = {acetylcholine:"ach", gaba:"gaba", glutamate:"glu",
+                dopamine:"da", serotonin:"ser", unclear:"unc"};
+var ABBR_NT  = {}; NT_KEYS.forEach(function (k) { ABBR_NT[NT_ABBR[k]] = k; });
+
+/* Orange / teal / violet stay apart from one another and from the site's link
+   blue on both #fff and #141414; the three of them carry 441 of the 459 types. */
+var PAL = {
+  light: {acetylcholine:"#D9641E", gaba:"#12897A", glutamate:"#6247CC",
+          dopamine:"#B94A85", serotonin:"#8E7000", unclear:"#7C8290",
+          core:"#0b5fa5", bg:"#ffffff", fg:"#1a1a1a", mute:"#8a8a8a",
+          ring:"#1a1a1a", halo:"#0b5fa5", band:"rgba(0,0,0,.032)",
+          bandText:"rgba(0,0,0,.36)", labelHalo:"#ffffff"},
+  dark:  {acetylcholine:"#F0873F", gaba:"#35BFAA", glutamate:"#9584F0",
+          dopamine:"#E273B0", serotonin:"#D2AA2E", unclear:"#9AA2B0",
+          core:"#6fb3ef", bg:"#141414", fg:"#e8e8e8", mute:"#7d838c",
+          ring:"#e8e8e8", halo:"#6fb3ef", band:"rgba(255,255,255,.034)",
+          bandText:"rgba(255,255,255,.32)", labelHalo:"#141414"}
+};
+
+var COL = 200;                     /* world units between band columns          */
+var BAND_LABEL = {"-2":"inputs of inputs", "-1":"direct inputs", "0":"AVLP743m",
+                  "1":"direct outputs", "2":"outputs of outputs"};
+
+var SHARE_MIN = 0.75, SHARE_MAX = 10;   /* per cent, slider step 0.05          */
+var SYN_MIN = 5, SYN_MAX = 500;         /* raw count, log slider               */
+var FLOOR_MIN = 5, FLOOR_MAX = 200;     /* control 4                           */
+
+/* The synapse slider is logarithmic. Positions are pre-expanded into a strictly
+   increasing grid of integers, so position <-> value is a bijection and the URL
+   round-trip cannot drift. */
+var SYN_GRID = (function () {
+  var a = [], last = -1, p, v;
+  for (p = 0; p <= 100; p++) {
+    v = Math.round(SYN_MIN * Math.pow(SYN_MAX / SYN_MIN, p / 100));
+    if (v > last) { a.push(v); last = v; }
+  }
+  return a;
+})();
+function synPosFromVal(v) {                 /* nearest grid index */
+  var best = 0, bd = Infinity, i, d;
+  for (i = 0; i < SYN_GRID.length; i++) {
+    d = Math.abs(SYN_GRID[i] - v);
+    if (d < bd) { bd = d; best = i; }
+  }
+  return best;
+}
+function synValFromPos(p) {
+  return SYN_GRID[Math.max(0, Math.min(SYN_GRID.length - 1, Math.round(p)))];
+}
+
+var reduceMotion = !!(window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+/* ---- 2. state ------------------------------------------------------------ */
+
+function defaultState() {
+  var nt = {};
+  NT_KEYS.forEach(function (k) { nt[k] = true; });
+  return {
+    dir: "both",           /* in | out | both                                  */
+    metric: "share",       /* share | syn - a mode, not a checkbox             */
+    sharePct: SHARE_MIN,   /* control 3 while metric === "share"               */
+    synThr: SYN_MIN,       /* control 3 while metric === "syn"                 */
+    minSyn: FLOOR_MIN,     /* control 4, a hard raw floor on top of control 3  */
+    nt: nt,
+    hop2: true,
+    q: "",
+    paused: reduceMotion,
+    sel: ""
+  };
+}
+
+function clampNum(v, lo, hi, dflt) {
+  v = +v;
+  if (!isFinite(v)) return dflt;
+  return Math.max(lo, Math.min(hi, v));
+}
+
+/* normalise() is idempotent. Everything downstream sees normalised state only,
+   so the hash comparison in selfCheck compares like with like. */
+function normalise(s) {
+  var d = defaultState(), o = {};
+  o.dir    = (s.dir === "in" || s.dir === "out") ? s.dir : "both";
+  o.metric = (s.metric === "syn") ? "syn" : "share";
+  o.sharePct = Math.round(clampNum(s.sharePct, SHARE_MIN, SHARE_MAX, d.sharePct) * 20) / 20;
+  o.synThr = synValFromPos(synPosFromVal(clampNum(s.synThr, SYN_MIN, SYN_MAX, d.synThr)));
+  o.minSyn = Math.round(clampNum(s.minSyn, FLOOR_MIN, FLOOR_MAX, d.minSyn));
+  o.nt = {};
+  NT_KEYS.forEach(function (k) { o.nt[k] = (s.nt && k in s.nt) ? !!s.nt[k] : true; });
+  o.hop2 = s.hop2 === undefined ? true : !!s.hop2;
+  o.q = typeof s.q === "string" ? s.q.slice(0, 60) : "";
+  o.paused = !!s.paused;
+  o.sel = typeof s.sel === "string" ? s.sel.slice(0, 60) : "";
+  return o;
+}
+
+/* ---- 3. the URL hash ----------------------------------------------------- */
+/* Every key is always written, so the hash is a complete, canonical
+   serialisation and hashToState(stateToHash(x)) === x for normalised x. */
+
+function stateToHash(s0) {
+  var s = normalise(s0), on = [];
+  NT_KEYS.forEach(function (k) { if (s.nt[k]) on.push(NT_ABBR[k]); });
+  return [
+    "d="  + s.dir,
+    "m="  + s.metric,
+    "ts=" + s.sharePct.toFixed(2),
+    "tn=" + s.synThr,
+    "ms=" + s.minSyn,
+    "nt=" + (on.length ? on.join(",") : "-"),
+    "h2=" + (s.hop2 ? 1 : 0),
+    "p="  + (s.paused ? 1 : 0),
+    "q="  + encodeURIComponent(s.q),
+    "s="  + encodeURIComponent(s.sel)
+  ].join("&");
+}
+
+function hashToState(h) {
+  var s = defaultState(), seenNt = false;
+  h = String(h || "").replace(/^#/, "");
+  if (!h) return normalise(s);
+  h.split("&").forEach(function (kv) {
+    var i = kv.indexOf("="); if (i < 0) return;
+    var k = kv.slice(0, i), v = kv.slice(i + 1);
+    switch (k) {
+      case "d":  s.dir = v; break;
+      case "m":  s.metric = v; break;
+      case "ts": s.sharePct = parseFloat(v); break;
+      case "tn": s.synThr = parseInt(v, 10); break;
+      case "ms": s.minSyn = parseInt(v, 10); break;
+      case "h2": s.hop2 = v === "1"; break;
+      case "p":  s.paused = v === "1"; break;
+      case "q":  try { s.q = decodeURIComponent(v); } catch (e) { s.q = ""; } break;
+      case "s":  try { s.sel = decodeURIComponent(v); } catch (e) { s.sel = ""; } break;
+      case "nt":
+        seenNt = true;
+        NT_KEYS.forEach(function (n) { s.nt[n] = false; });
+        if (v !== "-") v.split(",").forEach(function (a) {
+          if (ABBR_NT[a]) s.nt[ABBR_NT[a]] = true;
+        });
+        break;
+    }
+  });
+  if (!seenNt) NT_KEYS.forEach(function (n) { s.nt[n] = true; });
+  return normalise(s);
+}
+
+/* ---- 4. data and index --------------------------------------------------- */
+
+var NODES = null, LINKS = null, CORE = null, NN = 0, NL = 0;
+var outOff, outIdx, inOff, inIdx;              /* CSR over link indices        */
+var passA, nodeOk, nodeVis, linkVis, wSum;     /* scratch, allocated once      */
+
+var STATE = normalise(hashToState(location.hash));
+var VIS = {nodes: [], links: [], nNodes: 0, nLinks: 0, scaleW: 1, scaleL: 1};
+
+function buildIndex() {
+  NN = NODES.length; NL = LINKS.length;
+  var i, cO = new Uint32Array(NN + 1), cI = new Uint32Array(NN + 1);
+  for (i = 0; i < NL; i++) { cO[LINKS[i].s + 1]++; cI[LINKS[i].t + 1]++; }
+  for (i = 0; i < NN; i++) { cO[i + 1] += cO[i]; cI[i + 1] += cI[i]; }
+  outOff = cO; inOff = cI;
+  outIdx = new Uint32Array(NL); inIdx = new Uint32Array(NL);
+  var fO = new Uint32Array(NN), fI = new Uint32Array(NN), s, t;
+  for (i = 0; i < NL; i++) {
+    s = LINKS[i].s; t = LINKS[i].t;
+    outIdx[outOff[s] + fO[s]++] = i;
+    inIdx[inOff[t] + fI[t]++] = i;
+  }
+  passA   = new Uint8Array(NL);
+  linkVis = new Uint8Array(NL);
+  nodeOk  = new Uint8Array(NN);
+  nodeVis = new Uint8Array(NN);
+  wSum    = new Float64Array(NN);
+}
+
+/* ---- 5. THE FILTER PIPELINE ----------------------------------------------
+   computeVisible(state) is a pure function of (NODES, LINKS, state). It writes
+   the scratch arrays and fills VIS. Cost O(V+E), no allocation beyond the two
+   output lists.
+
+   A  node admissibility - neurotransmitter, hop-2 toggle. The core is exempt:
+      its own consensus call is "unclear", and hiding it would blank the page.
+   B  link admissibility - the two strength floors, plus both ends admissible.
+   C  CASCADE PRUNE, a two-level sweep out of the core:
+        hop 1 is reached when an admissible link joins it to the core in the
+          enabled direction (v -> core for inputs, core -> v for outputs);
+        hop 2 is reached when an admissible link joins it to an already reached
+          hop-1 type in the direction that matches its own dir label - an "up"
+          type must feed a reached hop-1, a "down" type must be fed by one.
+      Lateral links (hop2-hop2, hop1-hop1) carry no reachability. They are
+      drawn, but they never keep a type alive on their own.
+      Note the hop-2 shell hangs off hop 1 by HOP, not by band: 19 band -2 and
+      9 band +2 types reach hop 1 only across the midline, and a band-based
+      sweep would orphan them.
+   D  a link is visible when it is admissible and both ends survived C.
+   E  node weight = sum of its visible incident edges in the live metric.
+
+   Invariants that follow by construction and are asserted in selfCheck():
+     - no visible link has a hidden endpoint;
+     - every visible non-core node has at least one visible link, because the
+       link that reached it in C is admissible and both its ends are visible.
+   ------------------------------------------------------------------------- */
+
+function computeVisible(st) {
+  var i, e, k, l, n;
+  var wantIn  = st.dir === "in"  || st.dir === "both";
+  var wantOut = st.dir === "out" || st.dir === "both";
+  var byShare = st.metric === "share";
+  var thrShare = st.sharePct / 100, thrSyn = st.synThr, floorSyn = st.minSyn;
+
+  /* A */
+  for (i = 0; i < NN; i++) {
+    n = NODES[i];
+    nodeOk[i] = (st.nt[n.nt] && (st.hop2 || n.hop <= 1)) ? 1 : 0;
+    nodeVis[i] = 0; wSum[i] = 0;
+  }
+  nodeOk[CORE] = 1;
+
+  /* B */
+  for (e = 0; e < NL; e++) {
+    l = LINKS[e];
+    var strong = l.syn >= floorSyn && (byShare ? l.sh >= thrShare : l.syn >= thrSyn);
+    passA[e] = (strong && nodeOk[l.s] && nodeOk[l.t]) ? 1 : 0;
+    linkVis[e] = 0;
+  }
+
+  /* C1 - the hop-1 ring */
+  var ring = [];
+  nodeVis[CORE] = 1;
+  if (wantIn) {
+    for (k = inOff[CORE]; k < inOff[CORE + 1]; k++) {
+      e = inIdx[k]; if (!passA[e]) continue;
+      i = LINKS[e].s;
+      if (NODES[i].hop === 1 && !nodeVis[i]) { nodeVis[i] = 1; ring.push(i); }
+    }
+  }
+  if (wantOut) {
+    for (k = outOff[CORE]; k < outOff[CORE + 1]; k++) {
+      e = outIdx[k]; if (!passA[e]) continue;
+      i = LINKS[e].t;
+      if (NODES[i].hop === 1 && !nodeVis[i]) { nodeVis[i] = 1; ring.push(i); }
+    }
+  }
+
+  /* C2 - the hop-2 shell, walked out of the ring only (<= 34 types) */
+  if (st.hop2) {
+    for (var a = 0; a < ring.length; a++) {
+      var v = ring[a];
+      if (wantIn) {
+        for (k = inOff[v]; k < inOff[v + 1]; k++) {
+          e = inIdx[k]; if (!passA[e]) continue;
+          i = LINKS[e].s;
+          if (NODES[i].hop === 2 && NODES[i].dir === "up") nodeVis[i] = 1;
+        }
+      }
+      if (wantOut) {
+        for (k = outOff[v]; k < outOff[v + 1]; k++) {
+          e = outIdx[k]; if (!passA[e]) continue;
+          i = LINKS[e].t;
+          if (NODES[i].hop === 2 && NODES[i].dir === "down") nodeVis[i] = 1;
+        }
+      }
+    }
+  }
+
+  /* D */
+  var nL = 0;
+  for (e = 0; e < NL; e++) {
+    l = LINKS[e];
+    if (passA[e] && nodeVis[l.s] && nodeVis[l.t]) { linkVis[e] = 1; nL++; }
+  }
+
+  /* E */
+  var vn = [], vl = [], ws = [], wl = [];
+  for (e = 0; e < NL; e++) {
+    if (!linkVis[e]) continue;
+    l = LINKS[e];
+    var w = byShare ? l.sh : l.syn;
+    wSum[l.s] += w; wSum[l.t] += w;
+    vl.push(l); wl.push(w);
+  }
+  for (i = 0; i < NN; i++) if (nodeVis[i]) {
+    vn.push(NODES[i]);
+    if (i !== CORE) ws.push(wSum[i]);
+  }
+
+  VIS.nodes = vn; VIS.links = vl;
+  VIS.nNodes = vn.length; VIS.nLinks = nL;
+  /* A single 76% edge would flatten every other bubble, so the size and width
+     scales top out at a high quantile rather than the maximum. */
+  VIS.scaleW = quantile(ws, 0.97) || 1;
+  VIS.scaleL = quantile(wl, 0.97) || 1;
+  return VIS;
+}
+
+function quantile(arr, p) {
+  if (!arr.length) return 0;
+  var a = arr.slice().sort(function (x, y) { return x - y; });
+  return a[Math.min(a.length - 1, Math.floor(p * (a.length - 1)))];
+}
+
+/* ---- 6. the app ---------------------------------------------------------- */
+
+var cv = document.getElementById("cv"),
+    ctx = cv.getContext("2d"),
+    stage = document.getElementById("stage"),
+    tipEl = document.getElementById("tip"),
+    detEl = document.getElementById("det"),
+    lgEl  = document.getElementById("legend"),
+    roEl  = document.getElementById("readout"),
+    qOut  = document.getElementById("qOut"),
+    warnEl = document.getElementById("warn");
+
+var W = 0, H = 0, dpr = 1;
+var tr = d3.zoomIdentity;
+var sim = null, fCharge = null, fCollide = null, fLink = null, fBand = null;
+var qtree = null, hovered = null, selected = null, dirty = true, dragging = false;
+var groups = [], matchSet = null, nodeById = new Map();
+var darkMQ = window.matchMedia("(prefers-color-scheme: dark)");
+var dark = darkMQ.matches;
+function P() { return dark ? PAL.dark : PAL.light; }
+function bandX(b) { return b * COL; }
+
+function resize() {
+  var r = stage.getBoundingClientRect();
+  dpr = window.devicePixelRatio || 1;
+  W = Math.max(80, Math.round(r.width));
+  H = Math.max(80, Math.round(r.height));
+  cv.width = Math.round(W * dpr);
+  cv.height = Math.round(H * dpr);
+  dirty = true;
+}
+
+/* Area encodes value. The cap breathes with how crowded the view is: 459
+   bubbles at 28 px would be a solid mat, 40 bubbles at 13 px would be dust. */
+var R_MIN = 3.2, rMax = 14, rSeen = 30;   /* rSeen: the largest radius actually drawn */
+function setRadiusCap(n) {
+  rMax = 28 - 15 * Math.max(0, Math.min(1, (n - 45) / 260));
+}
+function radiusOf(w) {
+  var t = Math.min(1, Math.sqrt(w / VIS.scaleW));
+  return R_MIN + t * (rMax - R_MIN);
+}
+function widthOf(w) {
+  var t = Math.min(1, Math.sqrt(w / VIS.scaleL));
+  return 0.35 + t * 3.1;
+}
+
+/* -- rebuild everything after any change of state -- */
+function apply(opts) {
+  opts = opts || {};
+  computeVisible(STATE);
+
+  var i, n;
+  setRadiusCap(VIS.nNodes);
+  rSeen = 0;
+  for (i = 0; i < NN; i++) NODES[i].r = 0;
+  for (i = 0; i < VIS.nodes.length; i++) {
+    n = VIS.nodes[i];
+    n.w = wSum[n.i];
+    n.r = n.hop === 0 ? Math.max(20, rMax * 1.15) : radiusOf(n.w);
+    if (n.r > rSeen) rSeen = n.r;
+  }
+
+  if (sim) {
+    var byShare = STATE.metric === "share";
+    /* Order matters: drop the links before handing over a new node set, or the
+       link force re-initialises against stale node indices. */
+    fLink.links([]);
+    sim.nodes(VIS.nodes);
+    fCharge.strength(function (d) { return -6 - d.r * 1.2; });
+    fCollide.radius(function (d) { return d.r + 1.2; });
+    fLink
+      .distance(function (d) {
+        var t = Math.min(1, Math.sqrt((byShare ? d.sh : d.syn) / VIS.scaleL));
+        return (d.source.hop === 0 || d.target.hop === 0 ? 140 : 62) - 32 * t;
+      })
+      .strength(function (d) {
+        var t = Math.min(1, Math.sqrt((byShare ? d.sh : d.syn) / VIS.scaleL));
+        return 0.02 + 0.22 * t;
+      })
+      .links(VIS.links);
+
+    if (STATE.paused) {
+      var settle = opts.settle === undefined ? 70 : opts.settle;
+      for (i = 0; i < settle; i++) sim.tick();
+      rebuildQuadtree();
+    } else if (opts.kick !== false) {
+      sim.alpha(Math.max(sim.alpha(), 0.3)).restart();
+    } else {
+      sim.alpha(Math.max(sim.alpha(), 0.08)).restart();
+    }
+  }
+
+  buildGroups();
+  if (selected && !nodeVis[selected.i]) setSelected(null, true);
+  updateSearch();
+  updateReadout();
+  updateLegend();
+  dirty = true;
+}
+
+/* Group visible links by (colour, quantised width) so a frame costs ~40 paths
+   instead of 3547 stroke calls. */
+function buildGroups() {
+  var m = new Map(), i, l, byShare = STATE.metric === "share";
+  for (i = 0; i < VIS.links.length; i++) {
+    l = VIS.links[i];
+    var lw = Math.max(0.4, Math.round(widthOf(byShare ? l.sh : l.syn) * 2) / 2);
+    var key = l.source.nt + "|" + lw, g = m.get(key);
+    if (!g) { g = {nt: l.source.nt, lw: lw, ls: []}; m.set(key, g); }
+    g.ls.push(l);
+  }
+  groups = Array.from(m.values()).sort(function (a, b) { return a.lw - b.lw; });
+}
+
+function updateReadout() {
+  var mstr = STATE.metric === "share"
+    ? "&ge; " + STATE.sharePct.toFixed(2) + "% of target input"
+    : "&ge; " + STATE.synThr + " synapses on the pair";
+  roEl.innerHTML = "<b>" + VIS.nNodes + "</b> of " + NN + " types shown &middot; " +
+    "<b>" + VIS.nLinks + "</b> of " + NL + " connections<br>" +
+    mstr + ", and &ge; " + STATE.minSyn + " synapses";
+}
+
+function updateLegend() {
+  var p = P(), h = "", k, i, c;
+  for (k = 0; k < NT_KEYS.length; k++) {
+    var key = NT_KEYS[k];
+    c = 0;
+    for (i = 0; i < VIS.nodes.length; i++) if (VIS.nodes[i].nt === key) c++;
+    if (!c && !STATE.nt[key]) continue;
+    h += '<div class="r"><span class="dot" style="background:' + p[key] + '"></span>' +
+         NT_SHORT[key] + ' <span class="n">' + c + "</span></div>";
+  }
+  h += '<div class="r"><span class="dot" style="background:' + p.core +
+       ";box-shadow:0 0 0 1.6px " + p.ring + '"></span>AVLP743m</div>';
+  var fmt = STATE.metric === "share"
+    ? function (v) { return (v * 100).toFixed(v < 0.1 ? 1 : 0) + "%"; }
+    : function (v) { return Math.round(v) + ""; };
+  function bub(w) {
+    var r = Math.max(3, Math.round(radiusOf(w)));
+    return "<u><i style='width:" + (2 * r) + "px;height:" + (2 * r) +
+      "px;background:" + p.mute + "'></i>" + fmt(w) + "</u>";
+  }
+  h += '<div class="sz">' + bub(VIS.scaleW / 16) + bub(VIS.scaleW / 4) + bub(VIS.scaleW) +
+       "<em>summed visible<br>edge weight</em></div>";
+  lgEl.innerHTML = h;
+}
+
+function updateSearch() {
+  matchSet = null;
+  var q = STATE.q.trim().toLowerCase();
+  if (!q) { qOut.textContent = ""; return; }
+  var set = new Set(), tot = 0;
+  for (var i = 0; i < NN; i++) {
+    if (NODES[i].id.toLowerCase().indexOf(q) < 0) continue;
+    tot++;
+    if (nodeVis[i]) set.add(NODES[i]);
+  }
+  qOut.textContent = set.size + " of " + tot + " matching types are on screen";
+  if (set.size) matchSet = set;
+}
+
+/* -- the simulation -- */
+function makeSim() {
+  fCharge = d3.forceManyBody().distanceMax(200);
+  fCollide = d3.forceCollide().iterations(2);
+  fLink = d3.forceLink().id(function (d) { return d.id; });
+
+  /* The band spring deliberately ignores alpha. d3's collide force is not
+     alpha-scaled either, so an alpha-scaled forceX loses to it once alpha
+     settles at 0.02 and the columns creep outwards for ever. This keeps the
+     five bands in place at any alpha, while the jiggle still comes through. */
+  fBand = function () {
+    var ns = fBand.__nodes, i, n, kx;
+    if (!ns) return;
+    for (i = 0; i < ns.length; i++) {
+      n = ns[i];
+      kx = n.hop === 0 ? 0.5 : (n.hop === 1 ? 0.40 : 0.34);
+      n.vx += (bandX(n.band) - n.x) * kx;
+      n.vy += (0 - n.y) * (n.hop === 0 ? 0.5 : (n.hop === 1 ? 0.004 : 0.0012));
+    }
+  };
+  fBand.initialize = function (ns) { fBand.__nodes = ns; };
+
+  sim = d3.forceSimulation()
+    .force("charge", fCharge).force("collide", fCollide).force("link", fLink)
+    .force("band", fBand)
+    .velocityDecay(0.5)
+    .alphaDecay(0.028)
+    .on("tick", function () { rebuildQuadtree(); dirty = true; });
+
+  /* The headline: alpha never falls to zero, so the bubbles keep breathing. */
+  if (!reduceMotion) sim.alphaTarget(0.02);
+}
+
+function rebuildQuadtree() {
+  qtree = d3.quadtree().x(function (d) { return d.x; }).y(function (d) { return d.y; })
+           .addAll(VIS.nodes);
+}
+
+/* Nearest centre is the wrong answer when radii differ: a point well inside a
+   big bubble can sit closer to a small neighbour's centre. Pick the bubble the
+   point is deepest inside instead, over the quadtree cells that can reach it. */
+function nodeAt(wx, wy) {
+  if (!qtree) return null;
+  var tol = 5 / tr.k, reach = rSeen + tol + 2, best = null, bestD = Infinity;
+  qtree.visit(function (node, x0, y0, x1, y1) {
+    if (!node.length) {
+      do {
+        var n = node.data, dx = n.x - wx, dy = n.y - wy;
+        var d = Math.sqrt(dx * dx + dy * dy) - n.r;
+        if (d <= tol && d < bestD) { bestD = d; best = n; }
+      } while ((node = node.next));
+    }
+    return x0 > wx + reach || x1 < wx - reach || y0 > wy + reach || y1 < wy - reach;
+  });
+  return best;
+}
+
+/* -- rendering -- */
+var labelW = new Map();
+function measure(id, font) {
+  var key = id + "|" + font, v = labelW.get(key);
+  if (v === undefined) { ctx.font = font; v = ctx.measureText(id).width; labelW.set(key, v); }
+  return v;
+}
+
+function draw() {
+  var p = P(), i, j, n, l, g, b;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.fillStyle = p.bg;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.save();
+  ctx.translate(tr.x, tr.y);
+  ctx.scale(tr.k, tr.k);
+
+  var half = COL * 0.46;
+  for (b = -2; b <= 2; b++) {
+    if (b === 0 || b === -2 || b === 2) continue;
+    ctx.fillStyle = p.band;
+    ctx.fillRect(bandX(b) - half, -1e5, half * 2, 2e5);
+  }
+
+  var hi = hovered ? neighbourhood(hovered)
+         : (selected && nodeVis[selected.i] ? neighbourhood(selected) : null);
+
+  /* edges, batched */
+  for (j = 0; j < groups.length; j++) {
+    g = groups[j];
+    ctx.beginPath();
+    for (i = 0; i < g.ls.length; i++) {
+      l = g.ls[i];
+      if (hi && hi.links.has(l)) continue;
+      ctx.moveTo(l.source.x, l.source.y);
+      ctx.lineTo(l.target.x, l.target.y);
+    }
+    ctx.strokeStyle = p[g.nt];
+    ctx.lineWidth = g.lw / tr.k;
+    ctx.globalAlpha = hi ? 0.05 : 0.16;
+    ctx.stroke();
+  }
+  if (hi) {
+    var byShare = STATE.metric === "share";
+    ctx.globalAlpha = 0.95;
+    hi.links.forEach(function (l) {
+      ctx.beginPath();
+      ctx.moveTo(l.source.x, l.source.y);
+      ctx.lineTo(l.target.x, l.target.y);
+      ctx.strokeStyle = p[l.source.nt];
+      ctx.lineWidth = Math.max(widthOf(byShare ? l.sh : l.syn), 1.2) / tr.k;
+      ctx.stroke();
+    });
+  }
+  ctx.globalAlpha = 1;
+
+  /* nodes, batched by colour and by lit / dimmed */
+  var byNt = {};
+  for (i = 0; i < VIS.nodes.length; i++) {
+    n = VIS.nodes[i];
+    if (n.hop === 0) continue;
+    (byNt[n.nt] || (byNt[n.nt] = [])).push(n);
+  }
+  Object.keys(byNt).forEach(function (key) {
+    var lit = [], dimd = [];
+    byNt[key].forEach(function (n) { (hi && !hi.nodes.has(n) ? dimd : lit).push(n); });
+    [[dimd, 0.1], [lit, 1]].forEach(function (pair) {
+      if (!pair[0].length) return;
+      ctx.globalAlpha = pair[1];
+      ctx.beginPath();
+      pair[0].forEach(function (n) {
+        ctx.moveTo(n.x + n.r, n.y);
+        ctx.arc(n.x, n.y, n.r, 0, 6.283185);
+      });
+      ctx.fillStyle = p[key];
+      ctx.fill();
+    });
+  });
+  ctx.globalAlpha = 1;
+
+  /* a hollow centre marks a pinned bubble */
+  ctx.beginPath();
+  for (i = 0; i < VIS.nodes.length; i++) {
+    n = VIS.nodes[i];
+    if (n.hop === 0 || n.fx == null) continue;
+    ctx.moveTo(n.x + n.r * 0.42, n.y);
+    ctx.arc(n.x, n.y, n.r * 0.42, 0, 6.283185);
+  }
+  ctx.fillStyle = p.bg;
+  ctx.globalAlpha = 0.85;
+  ctx.fill();
+  ctx.globalAlpha = 1;
+
+  /* search halos */
+  if (matchSet) {
+    ctx.strokeStyle = p.halo;
+    ctx.lineWidth = 2.4 / tr.k;
+    ctx.beginPath();
+    matchSet.forEach(function (n) {
+      var rr = n.r + 3.5 / tr.k;
+      ctx.moveTo(n.x + rr, n.y);
+      ctx.arc(n.x, n.y, rr, 0, 6.283185);
+    });
+    ctx.stroke();
+  }
+
+  /* the core, always on top and always unmistakable */
+  if (nodeVis[CORE]) {
+    var c = NODES[CORE];
+    ctx.beginPath(); ctx.arc(c.x, c.y, c.r, 0, 6.283185);
+    ctx.fillStyle = p.core; ctx.fill();
+    ctx.lineWidth = 3 / tr.k; ctx.strokeStyle = p.ring; ctx.stroke();
+    ctx.beginPath(); ctx.arc(c.x, c.y, c.r + 6 / tr.k, 0, 6.283185);
+    ctx.lineWidth = 1 / tr.k; ctx.globalAlpha = 0.4; ctx.stroke(); ctx.globalAlpha = 1;
+  }
+
+  /* selection ring */
+  if (selected && nodeVis[selected.i]) {
+    ctx.beginPath();
+    ctx.arc(selected.x, selected.y, selected.r + 4.5 / tr.k, 0, 6.283185);
+    ctx.strokeStyle = p.ring; ctx.lineWidth = 2 / tr.k; ctx.stroke();
+  }
+
+  ctx.restore();
+  drawLabels(p, hi);
+  drawBandTitles(p);
+}
+
+function drawBandTitles(p) {
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.font = "600 10px system-ui,sans-serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "top";
+  ctx.fillStyle = p.bandText;
+  for (var b = -2; b <= 2; b++) {
+    var x = tr.applyX(bandX(b));
+    if (x < -70 || x > W + 70) continue;
+    ctx.fillText(BAND_LABEL[b], Math.max(56, Math.min(W - 56, x)), 6);
+  }
+}
+
+/* Labels sit in screen space at a fixed size and are refused when they collide,
+   so the canvas never carries 459 overlapping names. */
+function drawLabels(p, hi) {
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.lineJoin = "round";
+  var occ = new Set(), CELL = 13, drawn = 0, MAX = 200;
+  var showHop2 = tr.k >= 1.45;
+
+  function place(n, font, alpha) {
+    var sx = tr.applyX(n.x), sy = tr.applyY(n.y) - n.r * tr.k - 7;
+    if (sx < -40 || sx > W + 40 || sy < 2 || sy > H - 2) return false;
+    var w = measure(n.id, font) + 4, a, b;
+    var c0 = Math.floor((sx - w / 2) / CELL), c1 = Math.floor((sx + w / 2) / CELL);
+    var r0 = Math.floor((sy - 6) / CELL), r1 = Math.floor((sy + 6) / CELL);
+    for (a = c0; a <= c1; a++) for (b = r0; b <= r1; b++)
+      if (occ.has(a + ":" + b)) return false;
+    for (a = c0; a <= c1; a++) for (b = r0; b <= r1; b++) occ.add(a + ":" + b);
+    ctx.font = font;
+    ctx.globalAlpha = alpha;
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = p.labelHalo;
+    ctx.strokeText(n.id, sx, sy);
+    ctx.fillStyle = p.fg;
+    ctx.fillText(n.id, sx, sy);
+    ctx.globalAlpha = 1;
+    drawn++;
+    return true;
+  }
+
+  if (nodeVis[CORE]) place(NODES[CORE], "700 13px system-ui,sans-serif", 1);
+
+  var h1 = [], h2 = [], i, n;
+  for (i = 0; i < VIS.nodes.length; i++) {
+    n = VIS.nodes[i];
+    if (n.hop === 1) h1.push(n); else if (n.hop === 2) h2.push(n);
+  }
+  h1.sort(function (a, b) { return b.r - a.r; });
+  h2.sort(function (a, b) { return b.r - a.r; });
+
+  for (i = 0; i < h1.length; i++)
+    place(h1[i], "600 11.5px system-ui,sans-serif", hi && !hi.nodes.has(h1[i]) ? 0.28 : 1);
+
+  if (showHop2 || hi || matchSet) {
+    for (i = 0; i < h2.length && drawn < MAX; i++) {
+      n = h2[i];
+      var lit = (hi && hi.nodes.has(n)) || (matchSet && matchSet.has(n));
+      if (hi ? !lit : (!showHop2 && !lit)) continue;
+      place(n, "10.5px system-ui,sans-serif", lit ? 1 : 0.8);
+    }
+  }
+}
+
+function neighbourhood(n) {
+  var nodes = new Set([n]), links = new Set(), k, e;
+  for (k = outOff[n.i]; k < outOff[n.i + 1]; k++) {
+    e = outIdx[k]; if (!linkVis[e]) continue;
+    links.add(LINKS[e]); nodes.add(LINKS[e].target);
+  }
+  for (k = inOff[n.i]; k < inOff[n.i + 1]; k++) {
+    e = inIdx[k]; if (!linkVis[e]) continue;
+    links.add(LINKS[e]); nodes.add(LINKS[e].source);
+  }
+  return {nodes: nodes, links: links};
+}
+
+function frame() {
+  if (dirty) { dirty = false; draw(); }
+  requestAnimationFrame(frame);
+}
+
+/* -- tooltip -- */
+function esc(s) {
+  return String(s).replace(/[&<>"]/g, function (c) {
+    return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c];
+  });
+}
+function fmtW(w) {
+  return STATE.metric === "share" ? (w * 100).toFixed(1) + "%" : Math.round(w) + " syn";
+}
+function showTip(n, cx, cy) {
+  var hood = neighbourhood(n), din = 0, dout = 0, byShare = STATE.metric === "share";
+  hood.links.forEach(function (l) {
+    var w = byShare ? l.sh : l.syn;
+    if (l.target === n) din += w;
+    if (l.source === n) dout += w;
+  });
+  tipEl.innerHTML = "<b>" + esc(n.id) + "</b><dl>" +
+    "<dt>transmitter</dt><dd>" + NT_SHORT[n.nt] + "</dd>" +
+    "<dt>position</dt><dd>" + (n.hop === 0 ? "the core" :
+      "hop " + n.hop + ", " + (n.dir === "up" ? "input side" : "output side")) + "</dd>" +
+    "<dt>bodies</dt><dd>" + n.nb + "</dd>" +
+    "<dt>total input</dt><dd>" + n.post.toLocaleString() + " syn</dd>" +
+    "<dt>total output</dt><dd>" + n.pre.toLocaleString() + " syn</dd>" +
+    "<dt>visible in</dt><dd>" + fmtW(din) + "</dd>" +
+    "<dt>visible out</dt><dd>" + fmtW(dout) + "</dd></dl>";
+  tipEl.style.display = "block";
+  var r = tipEl.getBoundingClientRect();
+  tipEl.style.left = Math.max(4, Math.min(cx + 16, W - r.width - 6)) + "px";
+  tipEl.style.top  = Math.max(4, Math.min(cy + 16, H - r.height - 6)) + "px";
+}
+function hideTip() { tipEl.style.display = "none"; }
+
+/* -- the detail card -- */
+function setSelected(n, silent) {
+  selected = n;
+  STATE.sel = n ? n.id : "";
+  if (!n) {
+    detEl.style.display = "none";
+    if (!silent) pushHash();
+    dirty = true;
+    return;
+  }
+  var byShare = STATE.metric === "share", ins = [], outs = [], k, e, l;
+  for (k = inOff[n.i]; k < inOff[n.i + 1]; k++) {
+    e = inIdx[k]; if (!linkVis[e]) continue; l = LINKS[e];
+    ins.push({o: l.source, w: byShare ? l.sh : l.syn});
+  }
+  for (k = outOff[n.i]; k < outOff[n.i + 1]; k++) {
+    e = outIdx[k]; if (!linkVis[e]) continue; l = LINKS[e];
+    outs.push({o: l.target, w: byShare ? l.sh : l.syn});
+  }
+  ins.sort(function (a, b) { return b.w - a.w; });
+  outs.sort(function (a, b) { return b.w - a.w; });
+  function list(arr) {
+    if (!arr.length) return "<li><span style='opacity:.55'>none visible</span></li>";
+    return arr.slice(0, 7).map(function (x) {
+      return "<li><span>" + esc(x.o.id) + "</span><i>" + fmtW(x.w) + "</i></li>";
+    }).join("") + (arr.length > 7
+      ? "<li><span style='opacity:.55'>and " + (arr.length - 7) + " more</span></li>" : "");
+  }
+  detEl.innerHTML =
+    '<button class="x" id="detx" title="close">&times;</button>' +
+    "<h3>" + esc(n.id) + "</h3>" +
+    '<div class="who">' + NT_SHORT[n.nt] + " &middot; " +
+      (n.hop === 0 ? "the core" : "hop " + n.hop + " " +
+        (n.dir === "up" ? "input" : "output")) +
+      (n.rec ? " &middot; recurrent" : "") + "</div><dl>" +
+    "<dt>superclass</dt><dd>" + esc(n.sc) + "</dd>" +
+    "<dt>bodies</dt><dd>" + n.nb + "</dd>" +
+    "<dt>total input</dt><dd>" + n.post.toLocaleString() + "</dd>" +
+    "<dt>total output</dt><dd>" + n.pre.toLocaleString() + "</dd>" +
+    (n.dim ? "<dt>dimorphism</dt><dd>" + esc(n.dim) + "</dd>" : "") +
+    (n.fru ? "<dt>fru / dsx</dt><dd>" + esc(n.fru) + "</dd>" : "") +
+    "<dt>visible degree</dt><dd>" + (ins.length + outs.length) + "</dd></dl>" +
+    "<h4>strongest visible inputs</h4><ul>" + list(ins) + "</ul>" +
+    "<h4>strongest visible outputs</h4><ul>" + list(outs) + "</ul>" +
+    (n.scene ? '<a class="sc" target="_blank" rel="noopener" href=' +
+      '"https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/' +
+      encodeURIComponent(n.scene) + '">Open the Clio-NG scene &rarr;</a>' : "");
+  detEl.style.display = "block";
+  document.getElementById("detx").onclick = function () { setSelected(null); };
+  if (!silent) pushHash();
+  dirty = true;
+}
+
+/* -- fit -- */
+function fit(anim) {
+  if (!VIS.nodes.length) return;
+  var x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+  VIS.nodes.forEach(function (n) {
+    x0 = Math.min(x0, n.x - n.r); x1 = Math.max(x1, n.x + n.r);
+    y0 = Math.min(y0, n.y - n.r); y1 = Math.max(y1, n.y + n.r);
+  });
+  var pad = 40;
+  var k = Math.min((W - pad * 2) / Math.max(1, x1 - x0),
+                   (H - pad * 2) / Math.max(1, y1 - y0));
+  k = Math.max(0.1, Math.min(3, k));
+  var t = d3.zoomIdentity.translate(W / 2, H / 2).scale(k)
+        .translate(-(x0 + x1) / 2, -(y0 + y1) / 2);
+  var sel = d3.select(cv);
+  if (anim) sel.transition().duration(480).call(zoom.transform, t);
+  else sel.call(zoom.transform, t);
+}
+
+/* -- zoom and drag. Drag is registered first, so a mousedown that lands on a
+   bubble is swallowed by the drag and never reaches the pan handler. -- */
+var zoom = d3.zoom().scaleExtent([0.08, 8])
+  .on("zoom", function (ev) { tr = ev.transform; dirty = true; });
+
+var drag = d3.drag()
+  .container(cv)
+  .subject(function (ev) {
+    var w = tr.invert([ev.x, ev.y]), n = nodeAt(w[0], w[1]);
+    if (!n) return null;
+    var s = tr.apply([n.x, n.y]);
+    return {x: s[0], y: s[1], node: n, moved: 0};
+  })
+  .on("start", function (ev) {
+    dragging = true;
+    hideTip();
+    if (!STATE.paused) sim.alphaTarget(0.3).restart();
+    var n = ev.subject.node, w = tr.invert([ev.x, ev.y]);
+    n.fx = w[0]; n.fy = w[1];
+  })
+  .on("drag", function (ev) {
+    var n = ev.subject.node, w = tr.invert([ev.x, ev.y]);
+    ev.subject.moved += Math.abs(ev.dx) + Math.abs(ev.dy);
+    n.fx = w[0]; n.fy = w[1];
+    if (STATE.paused) { n.x = w[0]; n.y = w[1]; sim.tick(); rebuildQuadtree(); }
+    dirty = true;
+  })
+  .on("end", function (ev) {
+    dragging = false;
+    if (!STATE.paused) sim.alphaTarget(reduceMotion ? 0 : 0.02);
+    var n = ev.subject.node;
+    if (ev.subject.moved < 5) setSelected(selected === n ? null : n);
+    dirty = true;
+  });
+
+/* ---- wiring -------------------------------------------------------------- */
+
+var lastHash = "", hashTimer = null;
+function pushHash() {
+  if (hashTimer) clearTimeout(hashTimer);
+  hashTimer = setTimeout(function () {
+    var h = "#" + stateToHash(STATE);
+    if (location.hash !== h) {
+      lastHash = h;
+      history.replaceState(null, "", location.pathname + location.search + h);
+    }
+  }, 120);
+}
+
+function paintSeg(id, value) {
+  document.querySelectorAll("#" + id + " label").forEach(function (lab) {
+    var inp = lab.querySelector("input");
+    inp.checked = inp.value === value;
+    lab.classList.toggle("on", inp.checked);
+  });
+}
+
+function syncControls() {
+  paintSeg("segDir", STATE.dir);
+  paintSeg("segMetric", STATE.metric);
+  var rThr = document.getElementById("rThr"),
+      vThr = document.getElementById("vThr"),
+      lbThr = document.getElementById("lbThr");
+  if (STATE.metric === "share") {
+    rThr.min = Math.round(SHARE_MIN * 100);
+    rThr.max = Math.round(SHARE_MAX * 100);
+    rThr.step = 5;
+    rThr.value = Math.round(STATE.sharePct * 100);
+    vThr.innerHTML = "&ge; " + STATE.sharePct.toFixed(2) + "% of input";
+    lbThr.textContent = "Min share of input";
+  } else {
+    rThr.min = 0;
+    rThr.max = SYN_GRID.length - 1;
+    rThr.step = 1;
+    rThr.value = synPosFromVal(STATE.synThr);
+    vThr.innerHTML = "&ge; " + STATE.synThr + " synapses";
+    lbThr.textContent = "Min synapses on the pair";
+  }
+  document.getElementById("rMinSyn").value = STATE.minSyn;
+  document.getElementById("vMinSyn").innerHTML = "&ge; " + STATE.minSyn + " syn";
+  NT_KEYS.forEach(function (k) {
+    var el = document.getElementById("nt_" + NT_ABBR[k]);
+    if (el) el.checked = STATE.nt[k];
+  });
+  document.getElementById("cHop2").checked = STATE.hop2;
+  var qi = document.getElementById("q");
+  if (qi.value !== STATE.q) qi.value = STATE.q;
+  var bp = document.getElementById("bPause");
+  bp.setAttribute("aria-pressed", STATE.paused ? "true" : "false");
+  bp.textContent = STATE.paused ? "Resume" : "Pause";
+}
+
+function setPaused(v) {
+  STATE.paused = !!v;
+  if (STATE.paused) { sim.alphaTarget(0); sim.stop(); }
+  else sim.alphaTarget(reduceMotion ? 0 : 0.02)
+          .alpha(Math.max(sim.alpha(), 0.15)).restart();
+  syncControls();
+  pushHash();
+  dirty = true;
+}
+
+function buildNtBox() {
+  var box = document.getElementById("ntBox"), h = "";
+  NT_KEYS.forEach(function (k) {
+    var c = 0, i;
+    for (i = 0; i < NN; i++) if (NODES[i].nt === k) c++;
+    h += '<label title="' + k + '"><input type="checkbox" id="nt_' + NT_ABBR[k] + '">' +
+         '<span class="dot" data-nt="' + k + '"></span>' + NT_SHORT[k] +
+         " <u>" + c + "</u></label>";
+  });
+  box.innerHTML = h;
+  paintDots();
+  NT_KEYS.forEach(function (k) {
+    document.getElementById("nt_" + NT_ABBR[k]).addEventListener("change", function (e) {
+      STATE.nt[k] = e.target.checked;
+      apply(); pushHash();
+    });
+  });
+}
+function paintDots() {
+  var p = P();
+  document.querySelectorAll("#ntBox .dot").forEach(function (el) {
+    el.style.background = p[el.getAttribute("data-nt")];
+  });
+}
+
+function wire() {
+  document.querySelectorAll("#segDir input").forEach(function (el) {
+    el.addEventListener("change", function () {
+      if (!el.checked) return;
+      STATE.dir = el.value;
+      paintSeg("segDir", STATE.dir);
+      apply(); pushHash();
+    });
+  });
+  document.querySelectorAll("#segMetric input").forEach(function (el) {
+    el.addEventListener("change", function () {
+      if (!el.checked) return;
+      STATE.metric = el.value;     /* each metric keeps its own threshold */
+      syncControls(); apply(); pushHash();
+    });
+  });
+  document.getElementById("rThr").addEventListener("input", function (e) {
+    if (STATE.metric === "share") STATE.sharePct = (+e.target.value) / 100;
+    else STATE.synThr = synValFromPos(+e.target.value);
+    STATE = normalise(STATE);
+    syncControls(); apply({kick: false}); pushHash();
+  });
+  document.getElementById("rMinSyn").addEventListener("input", function (e) {
+    STATE.minSyn = +e.target.value;
+    STATE = normalise(STATE);
+    syncControls(); apply({kick: false}); pushHash();
+  });
+  document.getElementById("cHop2").addEventListener("change", function (e) {
+    STATE.hop2 = e.target.checked;
+    apply(); pushHash();
+  });
+  var qTimer = null;
+  document.getElementById("q").addEventListener("input", function (e) {
+    STATE.q = e.target.value;
+    updateSearch();
+    dirty = true;
+    if (qTimer) clearTimeout(qTimer);
+    qTimer = setTimeout(pushHash, 250);
+  });
+  document.getElementById("bPause").addEventListener("click", function () {
+    setPaused(!STATE.paused);
+  });
+  document.getElementById("bFit").addEventListener("click", function () { fit(true); });
+  document.getElementById("bReset").addEventListener("click", function () {
+    STATE = defaultState();
+    NODES.forEach(function (n) {
+      if (n.hop !== 0) { n.fx = null; n.fy = null; }
+    });
+    NODES[CORE].fx = 0; NODES[CORE].fy = 0;
+    setSelected(null, true);
+    syncControls();
+    setPaused(STATE.paused);
+    apply();
+    fit(true);
+    pushHash();
+  });
+  document.getElementById("toggleside").addEventListener("click", function () {
+    var open = document.getElementById("app").classList.toggle("open");
+    this.setAttribute("aria-expanded", open ? "true" : "false");
+    this.innerHTML = open ? "Controls &#9652;" : "Controls &#9662;";
+    setTimeout(resize, 30);
+  });
+
+  d3.select(cv).call(drag).call(zoom).on("dblclick.zoom", null);
+
+  cv.addEventListener("mousemove", function (ev) {
+    if (dragging) return;
+    var r = cv.getBoundingClientRect();
+    var cx = ev.clientX - r.left, cy = ev.clientY - r.top;
+    var w = tr.invert([cx, cy]), n = nodeAt(w[0], w[1]);
+    if (n !== hovered) { hovered = n; dirty = true; }
+    if (n) { showTip(n, cx, cy); cv.style.cursor = "pointer"; }
+    else { hideTip(); cv.style.cursor = "default"; }
+  });
+  cv.addEventListener("mouseleave", function () {
+    hovered = null; hideTip(); cv.style.cursor = "default"; dirty = true;
+  });
+  cv.addEventListener("dblclick", function (ev) {
+    var r = cv.getBoundingClientRect();
+    var w = tr.invert([ev.clientX - r.left, ev.clientY - r.top]);
+    var n = nodeAt(w[0], w[1]);
+    if (!n) return;
+    n.fx = null; n.fy = null;
+    if (!STATE.paused) sim.alpha(Math.max(sim.alpha(), 0.2)).restart();
+    dirty = true;
+  });
+
+  window.addEventListener("hashchange", function () {
+    if (location.hash === lastHash) return;
+    STATE = hashToState(location.hash);
+    syncControls();
+    apply();
+    setPaused(STATE.paused);
+    var n = STATE.sel ? nodeById.get(STATE.sel) : null;
+    setSelected(n && nodeVis[n.i] ? n : null, true);
+  });
+
+  var onScheme = function (e) {
+    dark = e.matches;
+    paintDots(); updateLegend();
+    dirty = true;
+  };
+  if (darkMQ.addEventListener) darkMQ.addEventListener("change", onScheme);
+  else if (darkMQ.addListener) darkMQ.addListener(onScheme);
+
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(stage);
+  else window.addEventListener("resize", resize);
+}
+
+/* ---- 7. self-check ------------------------------------------------------- */
+/* Runs once on load. Asserts the pipeline invariants over the live state and
+   over 60 pseudo-random control states, and that the URL hash round-trips
+   losslessly. The scratch arrays are saved and restored, so the live view is
+   untouched. Result is left on window.CIRCUIT_SELFCHECK. */
+
+function selfCheck() {
+  var fails = [], checks = 0;
+  function assert(ok, msg) { checks++; if (!ok) fails.push(msg); }
+
+  var save = {
+    nv: nodeVis.slice(), lv: linkVis.slice(), ws: wSum.slice(),
+    nodes: VIS.nodes, links: VIS.links, nN: VIS.nNodes, nL: VIS.nLinks,
+    sW: VIS.scaleW, sL: VIS.scaleL
+  };
+
+  var seed = 20260819;
+  function rnd() { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
+
+  function invariants(st, tag) {
+    computeVisible(st);
+    var i, e, l;
+
+    var dangling = 0;
+    for (e = 0; e < NL; e++) if (linkVis[e]) {
+      l = LINKS[e];
+      if (!nodeVis[l.s] || !nodeVis[l.t]) dangling++;
+    }
+    assert(dangling === 0, tag + ": " + dangling + " visible links with a hidden endpoint");
+
+    var deg = new Uint32Array(NN);
+    for (e = 0; e < NL; e++) if (linkVis[e]) { deg[LINKS[e].s]++; deg[LINKS[e].t]++; }
+    var orphans = 0;
+    for (i = 0; i < NN; i++) if (nodeVis[i] && i !== CORE && deg[i] === 0) orphans++;
+    assert(orphans === 0, tag + ": " + orphans + " orphan visible nodes");
+
+    /* an independent reachability sweep, written the other way round from the
+       pipeline, so a shared bug is less likely to hide */
+    var reach = new Uint8Array(NN);
+    reach[CORE] = 1;
+    for (e = 0; e < NL; e++) if (linkVis[e]) {
+      l = LINKS[e];
+      if (l.t === CORE && NODES[l.s].hop === 1) reach[l.s] = 1;
+      if (l.s === CORE && NODES[l.t].hop === 1) reach[l.t] = 1;
+    }
+    for (e = 0; e < NL; e++) if (linkVis[e]) {
+      l = LINKS[e];
+      if (reach[l.t] && NODES[l.t].hop === 1 && NODES[l.s].hop === 2 &&
+          NODES[l.s].dir === "up") reach[l.s] = 1;
+      if (reach[l.s] && NODES[l.s].hop === 1 && NODES[l.t].hop === 2 &&
+          NODES[l.t].dir === "down") reach[l.t] = 1;
+    }
+    var stranded = 0;
+    for (i = 0; i < NN; i++) if (nodeVis[i] && !reach[i]) stranded++;
+    assert(stranded === 0, tag + ": " + stranded + " visible nodes with no visible path to the core");
+
+    var leaked = 0;
+    for (i = 0; i < NN; i++) {
+      if (!nodeVis[i] || i === CORE) continue;
+      var n = NODES[i];
+      if (!st.hop2 && n.hop === 2) leaked++;
+      else if (!st.nt[n.nt]) leaked++;
+      else if (st.dir === "in" && n.hop === 2 && n.dir !== "up") leaked++;
+      else if (st.dir === "out" && n.hop === 2 && n.dir !== "down") leaked++;
+    }
+    assert(leaked === 0, tag + ": " + leaked + " nodes leaked past a filter");
+
+    var weak = 0, byShare = st.metric === "share";
+    for (e = 0; e < NL; e++) if (linkVis[e]) {
+      l = LINKS[e];
+      if (l.syn < st.minSyn) weak++;
+      else if (byShare ? l.sh < st.sharePct / 100 - 1e-12 : l.syn < st.synThr) weak++;
+    }
+    assert(weak === 0, tag + ": " + weak + " links below the active floor");
+
+    var listedN = 0, listedL = 0;
+    for (i = 0; i < NN; i++) if (nodeVis[i]) listedN++;
+    for (e = 0; e < NL; e++) if (linkVis[e]) listedL++;
+    assert(listedN === VIS.nNodes && VIS.nodes.length === listedN &&
+           listedL === VIS.nLinks && VIS.links.length === listedL,
+           tag + ": the returned lists disagree with the visibility masks");
+    return {n: VIS.nNodes, l: VIS.nLinks};
+  }
+
+  var dirs = ["in", "out", "both"], mets = ["share", "syn"];
+  var cases = [defaultState()], t, st;
+  for (t = 0; t < 60; t++) {
+    st = defaultState();
+    st.dir = dirs[Math.floor(rnd() * 3)];
+    st.metric = mets[Math.floor(rnd() * 2)];
+    st.sharePct = SHARE_MIN + rnd() * (SHARE_MAX - SHARE_MIN);
+    st.synThr = Math.round(SYN_MIN + rnd() * (SYN_MAX - SYN_MIN));
+    st.minSyn = Math.round(FLOOR_MIN + rnd() * (FLOOR_MAX - FLOOR_MIN));
+    NT_KEYS.forEach(function (k) { st.nt[k] = rnd() > 0.25; });
+    st.hop2 = rnd() > 0.3;
+    st.paused = rnd() > 0.5;
+    st.q = rnd() > 0.7 ? "mAL &q=x #y" : "";
+    st.sel = rnd() > 0.7 ? NODES[Math.floor(rnd() * NN)].id : "";
+    cases.push(normalise(st));
+  }
+  cases.forEach(function (s0, i) {
+    var n = normalise(s0);
+    assert(JSON.stringify(normalise(n)) === JSON.stringify(n),
+           "normalise is not idempotent at case " + i);
+    var back = hashToState("#" + stateToHash(n));
+    assert(JSON.stringify(n) === JSON.stringify(back),
+           "hash round-trip lost state at case " + i + ": " +
+           stateToHash(n) + "  ->  " + stateToHash(back));
+    invariants(n, "case " + i);
+  });
+
+  /* an empty hash is the default; junk survives without throwing */
+  assert(stateToHash(hashToState("")) === stateToHash(defaultState()),
+         "the empty hash is not the default state");
+  var junk = hashToState("#d=nonsense&m=??&ts=abc&tn=&ms=-9&nt=zz&h2=x&p=&q=%E0%A4%A&s=%%%");
+  assert(junk.dir === "both" && junk.metric === "share" &&
+         junk.sharePct === SHARE_MIN && junk.synThr === SYN_MIN &&
+         junk.minSyn === FLOOR_MIN && junk.hop2 === false &&
+         junk.q === "" && junk.sel === "" &&
+         NT_KEYS.every(function (k) { return junk.nt[k] === false; }),
+         "a junk hash did not fall back cleanly: " + stateToHash(junk));
+
+  /* the synapse slider must be a bijection between positions and values */
+  var bij = true;
+  for (t = 0; t < SYN_GRID.length; t++) if (synPosFromVal(synValFromPos(t)) !== t) bij = false;
+  assert(bij, "the log synapse slider is not a bijection");
+
+  /* the live view: the readout must agree with the pipeline */
+  var live = invariants(STATE, "live");
+  var txt = roEl.textContent;
+  assert(txt.indexOf(String(live.n)) >= 0, "readout node count disagrees with the pipeline");
+  assert(txt.indexOf(String(live.l)) >= 0, "readout link count disagrees with the pipeline");
+
+  /* put the live view back exactly as it was */
+  nodeVis.set(save.nv); linkVis.set(save.lv); wSum.set(save.ws);
+  VIS.nodes = save.nodes; VIS.links = save.links;
+  VIS.nNodes = save.nN; VIS.nLinks = save.nL;
+  VIS.scaleW = save.sW; VIS.scaleL = save.sL;
+
+  var res = {checks: checks, cases: cases.length, failures: fails};
+  window.CIRCUIT_SELFCHECK = res;
+  if (fails.length) {
+    console.error("[circuit] self-check FAILED: " + fails.length + " of " + checks);
+    fails.slice(0, 12).forEach(function (f) { console.error("  " + f); });
+    warnEl.hidden = false;
+    warnEl.textContent = "self-check failed: " + fails[0];
+  } else {
+    console.log("[circuit] self-check passed: " + checks + " assertions over " +
+      cases.length + " control states. No orphan node, no dangling edge, " +
+      "no filter leak, hash round-trip lossless.");
+  }
+  return res;
+}
+
+/* ---- boot ---------------------------------------------------------------- */
+
+fetch("../avlp743m_circuit.json")
+  .then(function (r) {
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.json();
+  })
+  .then(function (d) {
+    NODES = d.nodes; LINKS = d.links;
+    NODES.forEach(function (n, i) {
+      n.i = i; n.r = 5; n.w = 0;
+      if (n.hop === 0) CORE = i;
+      nodeById.set(n.id, n);
+      /* deterministic seed positions: the band column plus a vertical spread */
+      var span = n.hop === 2 ? 430 : 200;
+      n.x = bandX(n.band) + (((i * 37) % 61) - 30) * 1.1;
+      n.y = ((((i * 97) % 199) - 99) / 99) * span;
+    });
+    if (CORE == null) throw new Error("the export has no hop-0 node");
+    LINKS.forEach(function (l, e) {
+      l.e = e; l.source = NODES[l.s]; l.target = NODES[l.t];
+    });
+    buildIndex();
+    NODES[CORE].fx = 0; NODES[CORE].fy = 0;    /* pinned, but still draggable */
+
+    buildNtBox();
+    makeSim();
+    resize();
+    wire();
+    syncControls();
+    apply({settle: 0, kick: false});
+
+    if (STATE.paused) {
+      sim.alphaTarget(0);
+      for (var i = 0; i < 340; i++) sim.tick();
+      sim.stop();
+    } else {
+      sim.alpha(1).alphaTarget(0.02).restart();
+      for (var j = 0; j < 160; j++) sim.tick();   /* a decent opening frame */
+    }
+    rebuildQuadtree();
+    fit(false);
+
+    var sel = STATE.sel ? nodeById.get(STATE.sel) : null;
+    if (sel && nodeVis[sel.i]) setSelected(sel, true);
+
+    pushHash();
+    requestAnimationFrame(frame);
+    try { selfCheck(); } catch (err) { console.error("[circuit] self-check threw", err); }
+  })
+  .catch(function (err) {
+    console.error("[circuit] could not load ../avlp743m_circuit.json", err);
+    roEl.textContent = "";
+    warnEl.hidden = false;
+    warnEl.textContent = "Could not load avlp743m_circuit.json (" + err.message +
+      "). Over file:// the browser refuses the fetch; serve the directory over http instead.";
+    resize();
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = P().bg; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = P().mute;
+    ctx.font = "14px system-ui,sans-serif";
+    ctx.fillText("circuit data did not load", 18, 30);
+  });
+</script>

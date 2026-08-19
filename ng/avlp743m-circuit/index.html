@@ -1,0 +1,1988 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%AA%B0%3C/text%3E%3C/svg%3E">
+<title>AVLP743m - circuit graph</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<script src="../glossary.js" defer></script>
+<style>
+ /* The colours of the sibling pages, moved into custom properties because the
+    canvas has to ask for them in JavaScript and there should be one list, not
+    two. Every value here is either taken from ng/avlp743m/index.html or chosen
+    to sit beside it. The link blue stays a link blue: nothing on this page is
+    filled with it, so a reader never mistakes a control for a hyperlink. */
+ :root{
+   /* This page has sliders and checkboxes, which the other pages of the site do
+      not: without this the browser draws them light on the dark background. */
+   color-scheme:light dark;
+   --bg:#fff; --fg:#1a1a1a; --muted:#555; --line:#d8d8d8; --hair:#ececec;
+   --link:#0b5fa5; --sel:#f7fbff; --panel:#fcfcfc; --field:#fff;
+   /* Neurotransmitter. Orange, violet and green carry 441 of the 459 types and
+      are the most separable set of three that still keeps clear of the link
+      blue this site uses everywhere else. */
+   --nt-ach:#c9661a; --nt-gaba:#7145bd; --nt-glu:#2b8a5b;
+   --nt-da:#b32b57;  --nt-ht:#0e7c92;  --nt-unk:#8b8b8b;
+ }
+ @media (prefers-color-scheme:dark){
+   :root{
+     --bg:#141414; --fg:#e8e8e8; --muted:#aaa; --line:#333; --hair:#2a2a2a;
+     --link:#6fb3ef; --sel:#1b2430; --panel:#181818; --field:#1c1c1c;
+     --nt-ach:#f0a04b; --nt-gaba:#ad91f2; --nt-glu:#5cc48b;
+     --nt-da:#f2739b;  --nt-ht:#4fc3d9;  --nt-unk:#9a9a9a;
+   }
+ }
+ body{font:15px/1.6 system-ui,sans-serif;margin:0;padding:2.5rem 1.25rem;
+      max-width:52rem;margin-inline:auto;color:var(--fg);background:var(--bg)}
+ h1{font-size:1.5rem;margin:0 0 .35rem}
+ p.sub{color:var(--muted);margin:0 0 2rem}
+ a{color:var(--link)}
+ h2{font-size:1.05rem;margin:2.5rem 0 .35rem;font-weight:600}
+ p.note{color:var(--muted);margin:0 0 1rem;font-size:.92rem}
+ @media (prefers-color-scheme:dark){ p.note{color:#c2c8d2} }
+
+ /* The figure is wider than the column of prose. 100% is the width of that
+    column, so the rule pulls the figure out by half the difference and does
+    nothing at all once the viewport is the narrower of the two. --sb is the
+    width of the scrollbar, which 100vw counts and the page cannot use; the
+    script keeps it current and it is 0 where the scrollbar floats. */
+ .fig{width:min(72rem,100vw - 2.5rem - var(--sb,0px));
+      margin-left:calc((100% - min(72rem,100vw - 2.5rem - var(--sb,0px))) / 2);
+      margin-block:1.5rem;
+      display:grid;grid-template-columns:16rem 1fr;gap:.9rem;align-items:start}
+ @media (max-width:760px){ .fig{grid-template-columns:1fr} }
+
+ .panel{border:1px solid var(--line);border-radius:9px;background:var(--panel);
+        font-size:.88rem}
+ .panel>summary{cursor:pointer;padding:.55rem .8rem;font-size:.85rem;
+        font-weight:600;color:var(--muted);text-transform:uppercase;
+        letter-spacing:.03em;user-select:none}
+ .panel>summary:hover{color:var(--link)}
+ .panel[open]>summary{border-bottom:1px solid var(--hair)}
+ .pbody{padding:.7rem .8rem .9rem}
+ .ctl{margin:0 0 .95rem}
+ .ctl:last-child{margin-bottom:0}
+ .ctl>.lbl{font-size:.76rem;text-transform:uppercase;letter-spacing:.03em;
+           color:var(--muted);font-weight:600;margin:0 0 .3rem;
+           display:flex;justify-content:space-between;gap:.5rem}
+ .ctl>.lbl b{font-weight:400;text-transform:none;letter-spacing:0;
+             color:var(--fg);font-variant-numeric:tabular-nums;white-space:nowrap}
+ .ctl>.why{font-size:.75rem;color:var(--muted);margin:.3rem 0 0;line-height:1.45}
+ /* The active segment is the site's own selection tone, lifted off the rail by
+    a rule in the link colour. A pale fill on its own was too quiet to find. */
+ .seg{display:flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+ .seg label{flex:1;text-align:center;padding:.28rem .2rem;cursor:pointer;
+            color:var(--muted);font-size:.83rem;position:relative}
+ .seg label+label{border-left:1px solid var(--line)}
+ .seg label.on{background:var(--sel);color:var(--fg);font-weight:600;
+               box-shadow:inset 0 -2px 0 0 var(--link)}
+ .seg label:focus-within{outline:2px solid var(--link);outline-offset:-2px}
+ .seg input{position:absolute;inset:0;opacity:0;width:100%;height:100%;
+            margin:0;cursor:pointer}
+ input[type=range]{width:100%;accent-color:var(--link);margin:0}
+ input[type=search]{width:100%;box-sizing:border-box;font:inherit;
+   font-size:.85rem;padding:.25rem .4rem;color:var(--fg);background:var(--field);
+   border:1px solid var(--line);border-radius:5px}
+ .chk{display:flex;align-items:center;gap:.4rem;padding:.06rem 0;cursor:pointer}
+ .chk input{accent-color:var(--link);margin:0}
+ .chk i{margin-left:auto;font-style:normal;color:var(--muted);font-size:.8rem;
+        font-variant-numeric:tabular-nums}
+ .sw{display:inline-block;width:.7rem;height:.7rem;border-radius:50%;
+     vertical-align:-1px;flex:none}
+ .count{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.82rem;
+        border-top:1px solid var(--hair);padding-top:.55rem;margin:.2rem 0 0}
+ .count b{color:var(--fg);font-weight:600}
+ .qmsg{font-size:.75rem;color:var(--muted);margin:.25rem 0 0;min-height:1.1em}
+
+ .stage{position:relative;grid-column:2;grid-row:1 / span 2;
+        border:1px solid var(--line);border-radius:9px;overflow:hidden;
+        height:clamp(430px,66vh,700px);background:var(--bg)}
+ @media (max-width:760px){ .stage{grid-column:1;grid-row:auto;height:70vh} }
+ canvas{display:block;width:100%;height:100%;touch-action:none}
+ /* Bottom right, because the top of the frame belongs to the band titles. */
+ .hud{position:absolute;right:.55rem;bottom:.55rem;display:flex;gap:.35rem;z-index:3}
+ .hud button{font:inherit;font-size:.78rem;line-height:1;padding:.34rem .5rem;
+        border:1px solid var(--line);border-radius:6px;background:var(--field);
+        color:var(--muted);cursor:pointer}
+ .hud button:hover{color:var(--link);border-color:var(--link)}
+ .tip{position:absolute;left:0;top:0;pointer-events:none;opacity:0;z-index:4;
+      transition:opacity .1s;max-width:17rem;padding:.4rem .55rem;
+      border:1px solid var(--line);border-radius:6px;background:var(--panel);
+      color:var(--fg);font-size:.8rem;line-height:1.45;
+      box-shadow:0 2px 10px rgba(0,0,0,.14)}
+ .tip b{display:block;font-size:.86rem}
+ .tip span{display:block;color:var(--muted)}
+ .tip i{font-style:normal;color:var(--fg);font-variant-numeric:tabular-nums}
+ .hint{position:absolute;left:.7rem;bottom:.55rem;font-size:.78rem;
+       color:var(--muted);pointer-events:none;transition:opacity .6s}
+
+ .card{border:1px solid var(--line);border-radius:9px;padding:.7rem .8rem;
+       font-size:.85rem;background:var(--panel)}
+ @media (max-width:760px){ .panel{order:1} .stage{order:2} .card{order:3} }
+ .card h3{font-size:.95rem;margin:0 0 .1rem;font-weight:600}
+ .card p{margin:.15rem 0;color:var(--muted)}
+ .card dl{display:grid;grid-template-columns:auto 1fr;gap:.05rem .5rem;
+          margin:.5rem 0 0}
+ .card dt{color:var(--muted);font-size:.8rem}
+ .card dd{margin:0;font-variant-numeric:tabular-nums}
+ .card .sect{margin-top:.6rem;font-size:.76rem;text-transform:uppercase;
+             letter-spacing:.03em;color:var(--muted);font-weight:600}
+ .card .none{color:var(--muted);font-size:.82rem}
+ .lk{display:flex;width:100%;gap:.4rem;align-items:baseline;background:none;
+     border:0;padding:.08rem 0;font:inherit;font-size:.82rem;color:var(--fg);
+     cursor:pointer;text-align:left}
+ .lk:hover{color:var(--link)}
+ .lk em{margin-left:auto;font-style:normal;color:var(--muted);
+        font-variant-numeric:tabular-nums}
+ .card a.scene{display:inline-block;margin-top:.55rem}
+
+ .legend{margin:.4rem 0 1rem;font-size:.85rem;color:var(--muted);
+         display:flex;flex-wrap:wrap;gap:.5rem 1.1rem;align-items:flex-end}
+ .legend .sw{margin-right:.35rem}
+ .legend .n{font-variant-numeric:tabular-nums;opacity:.65;margin-left:.2rem}
+ .legend .ramp{display:inline-flex;align-items:flex-end;gap:.45rem}
+ .legend .ramp u{display:flex;flex-direction:column;align-items:center;
+                 gap:.15rem;text-decoration:none;font-size:.76rem;
+                 font-variant-numeric:tabular-nums}
+ .legend .ramp i{display:block;border-radius:50%;background:currentColor;
+                 opacity:.4;font-style:normal}
+ .hint.failed{color:var(--fg);background:var(--panel);border:1px solid var(--line);
+   border-radius:7px;padding:.6rem .75rem;max-width:min(34rem,calc(100% - 9rem));
+   white-space:normal;line-height:1.45}
+</style>
+
+<h1>AVLP743m circuit graph</h1>
+<p class="sub">Two hops of the type-level connectome around AVLP743m, male CNS
+(male-cns:v1.0). <a href="../avlp743m/">Back to the AVLP743m scenes</a>.</p>
+
+<p>A node is a cell type, not a neuron. The 11 bodies of AVLP743m are one bubble,
+and so are the 13 bodies of DA1_lPN; every connection drawn here is summed over
+all bodies of both types. An edge weight is the share of the target&rsquo;s total
+input that the source supplies, so the same 200 synapses make a heavy edge into a
+small cell and a light one into a large cell. Raw synapse count is the second
+metric, for when you want the other reading.</p>
+
+<p>The type-pair matrix behind this is thresholded at 5 synapses, and the export
+keeps a pair only if it is at least 0.75% of the target&rsquo;s input and at least
+5 synapses. Nothing weaker than that is in the file, so the sliders cannot open
+onto connections this page never received. Two hops means partners, and partners
+of partners in the same direction: left of AVLP743m are its inputs and their
+inputs, right of it are its outputs and their outputs, and the five columns are
+named on the figure.</p>
+
+<div class="fig" data-glossary-skip>
+
+  <details class="panel" id="panel" open>
+    <summary>Controls</summary>
+    <div class="pbody">
+
+      <div class="ctl">
+        <div class="lbl"><span>Direction</span></div>
+        <div class="seg" id="segDir">
+          <label data-v="in"><input type="radio" name="dir" value="in">inputs</label>
+          <label data-v="out"><input type="radio" name="dir" value="out">outputs</label>
+          <label data-v="both"><input type="radio" name="dir" value="both" checked>both</label>
+        </div>
+      </div>
+
+      <div class="ctl">
+        <div class="lbl"><span>Weight</span></div>
+        <div class="seg" id="segMetric">
+          <label data-v="share"><input type="radio" name="metric" value="share" checked>% of input</label>
+          <label data-v="syn"><input type="radio" name="metric" value="syn">synapses</label>
+        </div>
+      </div>
+
+      <div class="ctl">
+        <div class="lbl"><span id="thrLbl">Minimum</span><b id="thrOut">&nbsp;</b></div>
+        <input type="range" id="thr" min="0" max="1000" step="1" value="533"
+               aria-label="minimum connection strength">
+      </div>
+
+      <div class="ctl">
+        <div class="lbl"><span>Synapse floor</span><b id="floorOut">&nbsp;</b></div>
+        <input type="range" id="floor" min="5" max="200" step="1" value="20"
+               aria-label="minimum raw synapse count">
+        <p class="why">Applied on top of the strength cut, so a large share of a
+        very small cell cannot survive on three synapses.</p>
+      </div>
+
+      <div class="ctl">
+        <div class="lbl"><span>Transmitter</span></div>
+        <div id="ntBox"></div>
+      </div>
+
+      <div class="ctl">
+        <label class="chk"><input type="checkbox" id="hop2" checked>second hop</label>
+        <label class="chk"><input type="checkbox" id="pause">pause the drift</label>
+      </div>
+
+      <div class="ctl">
+        <div class="lbl"><span>Find a type</span></div>
+        <input type="search" id="q" placeholder="mAL, AN09, pC1&hellip;"
+               autocomplete="off" spellcheck="false" aria-label="find a type">
+        <p class="qmsg" id="qmsg">&nbsp;</p>
+      </div>
+
+      <p class="count" id="count">&nbsp;</p>
+    </div>
+  </details>
+
+  <div class="card" id="card"></div>
+
+  <div class="stage" id="stage">
+    <canvas id="cv"></canvas>
+    <div class="hud">
+      <button type="button" id="bFit" title="Frame the visible graph">Fit</button>
+      <button type="button" id="bReset" title="Reset every control">Reset</button>
+    </div>
+    <div class="tip" id="tip"></div>
+    <div class="hint" id="hint">loading&hellip;</div>
+  </div>
+
+</div>
+
+<p class="legend" id="legend"></p>
+
+<h2>What the drawing means</h2>
+<p class="note">Bubble area is the summed weight of the wires you can currently
+see, in whichever metric is selected, so it describes this view and not a fixed
+property of the type. Wire colour is the transmitter of the presynaptic type,
+which is the sign of that connection. A type is drawn only while a chain of at
+most two visible wires still joins it to AVLP743m: raise a threshold or switch
+off a transmitter, and everything that hung off what disappeared disappears with
+it. The bound is what keeps the figure honest. Two thirds of the connections in
+the file run between two second-hop types, and letting those count as steps
+would leave types three and four wires out sitting in a drawing captioned two.</p>
+
+<p class="note">A wire that runs straight from the input side to the output side
+is outside the two-hop model. It is drawn faintly whenever both of its ends are
+already on screen, but it never keeps a type there; only same-direction chains
+count towards reaching AVLP743m. Shares add up honestly on the incoming side,
+where every wire is a fraction of the same cell&rsquo;s input, but on the outgoing
+side each wire is a fraction of a different target, so the tooltip and the card
+give the outgoing total in synapses instead.</p>
+
+<p><a href="../avlp743m/">&larr; Back to the AVLP743m scenes</a></p>
+
+<script src="../d3.v7.min.js"></script>
+<script>
+/* avlp743m-circuit - a force graph of the two-hop type neighbourhood.
+   ---------------------------------------------------------------------------
+   The page draws to a canvas and not to SVG because the simulation is never
+   allowed to stop: 459 bubbles that move every frame are 459 DOM writes every
+   frame in SVG, and the browser gives up long before the reader does.
+
+   Four decisions carry most of the file:
+     - the visible set is two direction-masked reachability sweeps out of the
+       core, so no bubble is ever drawn without a chain of wires that connects
+       it back to AVLP743m, and no bubble is ever reached the wrong way round;
+     - the column force and the breath that moves it are deliberately not
+       scaled by alpha, because d3's collide force is not either: an
+       alpha-scaled spring loses to collide as the graph cools and the five
+       columns creep apart for ever;
+     - everything that does not change between frames - colour, wire width, the
+       grouping of wires into batched paths - is computed once per filter
+       change and not once per frame;
+     - the colours are read from the stylesheet, thus light and dark are one
+       list of values and the canvas repaints when the machine changes scheme.
+
+   The URL hash is a total function of the state and back again: every key is
+   always written, and reading starts from the defaults rather than overlaying
+   what happens to be there. That is what makes the back button, a second
+   pasted link and the Reset button all agree with one another.
+
+   With JavaScript off the prose above stays exactly as it is: the figure is the
+   only thing that goes.
+   --------------------------------------------------------------------------- */
+(function () {
+"use strict";
+
+/* ---- 1. constants -------------------------------------------------------- */
+
+var SCENE = "https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/";
+var TAU = Math.PI * 2;
+var IDLE = 0.02;              /* the alpha the simulation is held at, forever  */
+var DRAG_ALPHA = 0.30;        /* while a bubble is in the reader's hand        */
+var GAP = 260;                /* world units between the centres of two bands  */
+var TICK_MS = 16.7;           /* what one tick is worth to the breath clock    */
+
+/* [key, css suffix, short label] - the order is the order of the legend and of
+   the checkbox list, which is the order of how many types carry each. */
+var NT = [
+  ["acetylcholine", "ach", "ACh"], ["gaba", "gaba", "GABA"],
+  ["glutamate", "glu", "Glu"], ["dopamine", "da", "DA"],
+  ["serotonin", "ht", "5-HT"], ["unclear", "unk", "unclear"]
+];
+var NT_KEYS = NT.map(function (p) { return p[0]; });
+var NT_ABBR = {}, ABBR_NT = {}, NT_LABEL = {};
+NT.forEach(function (p) { NT_ABBR[p[0]] = p[1]; ABBR_NT[p[1]] = p[0]; NT_LABEL[p[0]] = p[2]; });
+
+var BAND_LABEL = { "-2": "inputs of inputs", "-1": "direct inputs",
+                   "0": "AVLP743m", "1": "direct outputs", "2": "outputs of outputs" };
+/* On a phone the five columns are fifty pixels apart and the long captions run
+   into one another, which is worse than no caption at all. */
+var BAND_SHORT = { "-2": "in of in", "-1": "inputs",
+                   "0": "AVLP743m", "1": "outputs", "2": "out of out" };
+
+var SHARE_MIN = 0.75, SHARE_MAX = 10;   /* per cent, stored quantised to 0.05   */
+
+/* The share slider runs on a log curve, and the reason is in the data rather
+   than in taste. Between the export floor and 3% the graph falls from 439 types
+   to 58; from 3% to 10% it falls from 58 to 2. On a linear track that puts every
+   reading worth having inside the first quarter of the travel and leaves the
+   top half showing the same seven bubbles. The log curve gives the crowded
+   decade and the empty one the same length of slider. */
+var SHARE_STEPS = 1000;
+function sharePosFromVal(v) {
+  return Math.round(SHARE_STEPS * Math.log(v / SHARE_MIN) / Math.log(SHARE_MAX / SHARE_MIN));
+}
+function shareValFromPos(p) {
+  var v = SHARE_MIN * Math.pow(SHARE_MAX / SHARE_MIN, p / SHARE_STEPS);
+  v = Math.round(v * 20) / 20;                       /* the stored 0.05 grid */
+  return Math.max(SHARE_MIN, Math.min(SHARE_MAX, v));
+}
+var SYN_MIN = 5, SYN_MAX = 500;         /* raw count on the pair, log slider   */
+var FLOOR_MIN = 5, FLOOR_MAX = 200;     /* the hard raw floor, control 4       */
+
+/* The synapse slider is logarithmic, because everything a reader wants to
+   separate sits below sixty and a linear slider crushes that into its first
+   tenth. The positions are pre-expanded into a strictly increasing grid of
+   integers, so position and value are a bijection and the URL cannot drift. */
+var SYN_GRID = (function () {
+  var a = [], last = -1, p, v;
+  for (p = 0; p <= 100; p++) {
+    v = Math.round(SYN_MIN * Math.pow(SYN_MAX / SYN_MIN, p / 100));
+    if (v > last) { a.push(v); last = v; }
+  }
+  return a;
+})();
+function synPosFromVal(v) {
+  var best = 0, bd = Infinity, i, d;
+  for (i = 0; i < SYN_GRID.length; i++) {
+    d = Math.abs(SYN_GRID[i] - v);
+    if (d < bd) { bd = d; best = i; }
+  }
+  return best;
+}
+function synValFromPos(p) {
+  return SYN_GRID[Math.max(0, Math.min(SYN_GRID.length - 1, Math.round(p)))];
+}
+
+var reduceMQ = window.matchMedia("(prefers-reduced-motion: reduce)");
+var darkMQ = window.matchMedia("(prefers-color-scheme: dark)");
+
+/* ---- 2. state ------------------------------------------------------------ */
+/* One plain object is the only source of truth. Each metric keeps its own
+   threshold: switching to synapses and back has to return the reader to the
+   picture they had, not to a default. */
+
+function defaultState() {
+  var nt = {};
+  NT_KEYS.forEach(function (k) { nt[k] = true; });
+  return {
+    dir: "both",          /* in | out | both                                   */
+    metric: "share",      /* share | syn - a mode, not a checkbox              */
+    sharePct: 2,          /* control 3 while metric === "share"                */
+    synThr: 40,           /* control 3 while metric === "syn"                  */
+    minSyn: 20,           /* control 4, a hard raw floor on top of control 3   */
+    nt: nt,
+    hop2: true,
+    q: "",
+    paused: false,
+    sel: ""
+  };
+}
+
+function clampNum(v, lo, hi, dflt) {
+  v = +v;
+  if (!isFinite(v)) return dflt;
+  return Math.max(lo, Math.min(hi, v));
+}
+
+/* normalise() is idempotent, and everything downstream sees normalised state
+   only, so a slider position, a hash and a default can be compared as equals. */
+function normalise(s) {
+  var d = defaultState(), o = {};
+  o.dir = (s.dir === "in" || s.dir === "out") ? s.dir : "both";
+  o.metric = (s.metric === "syn") ? "syn" : "share";
+  o.sharePct = Math.round(clampNum(s.sharePct, SHARE_MIN, SHARE_MAX, d.sharePct) * 20) / 20;
+  o.synThr = synValFromPos(synPosFromVal(clampNum(s.synThr, SYN_MIN, SYN_MAX, d.synThr)));
+  o.minSyn = Math.round(clampNum(s.minSyn, FLOOR_MIN, FLOOR_MAX, d.minSyn));
+  o.nt = {};
+  NT_KEYS.forEach(function (k) { o.nt[k] = (s.nt && k in s.nt) ? !!s.nt[k] : true; });
+  o.hop2 = s.hop2 === undefined ? true : !!s.hop2;
+  o.q = typeof s.q === "string" ? s.q.slice(0, 60) : "";
+  o.paused = !!s.paused;
+  o.sel = typeof s.sel === "string" ? s.sel.slice(0, 60) : "";
+  return o;
+}
+
+/* ---- 3. the URL hash ----------------------------------------------------- */
+/* A filtered view is a link. Every key is always written, so the hash is a
+   complete serialisation and hashToState(stateToHash(x)) is x for normalised x.
+   A conditional hash is the bug that leaves a switched-off transmitter switched
+   off when the reader navigates back to a view where it should be on. */
+
+function stateToHash(s0) {
+  var s = normalise(s0), on = [];
+  NT_KEYS.forEach(function (k) { if (s.nt[k]) on.push(NT_ABBR[k]); });
+  return [
+    "d=" + s.dir,
+    "m=" + s.metric,
+    "ts=" + s.sharePct.toFixed(2),
+    "tn=" + s.synThr,
+    "ms=" + s.minSyn,
+    "nt=" + (on.length ? on.join(",") : "-"),
+    "h2=" + (s.hop2 ? 1 : 0),
+    "p=" + (s.paused ? 1 : 0),
+    "q=" + encodeURIComponent(s.q),
+    "s=" + encodeURIComponent(s.sel)
+  ].join("&");
+}
+
+function hashToState(h) {
+  var s = defaultState(), seenNt = false;
+  h = String(h || "").replace(/^#/, "");
+  if (!h) return normalise(s);
+  h.split("&").forEach(function (kv) {
+    var i = kv.indexOf("="); if (i < 0) return;
+    var k = kv.slice(0, i), v = kv.slice(i + 1);
+    switch (k) {
+      case "d": s.dir = v; break;
+      case "m": s.metric = v; break;
+      case "ts": s.sharePct = parseFloat(v); break;
+      case "tn": s.synThr = parseInt(v, 10); break;
+      case "ms": s.minSyn = parseInt(v, 10); break;
+      case "h2": s.hop2 = v === "1"; break;
+      case "p": s.paused = v === "1"; break;
+      case "q": try { s.q = decodeURIComponent(v); } catch (e) { s.q = ""; } break;
+      case "s": try { s.sel = decodeURIComponent(v); } catch (e) { s.sel = ""; } break;
+      case "nt":
+        seenNt = true;
+        NT_KEYS.forEach(function (n) { s.nt[n] = false; });
+        if (v !== "-") v.split(",").forEach(function (a) {
+          if (ABBR_NT[a]) s.nt[ABBR_NT[a]] = true;
+        });
+        break;
+    }
+  });
+  if (!seenNt) NT_KEYS.forEach(function (n) { s.nt[n] = true; });
+  return normalise(s);
+}
+
+/* A machine that asked for less motion overrules a shared link that says the
+   drift was running. The preference is applied here and not inside normalise,
+   so the hash stays a pure function of itself. */
+function withMotionPreference(s) {
+  if (reduceMQ.matches) s.paused = true;
+  return s;
+}
+
+var S = withMotionPreference(hashToState(location.hash));
+
+/* ---- 4. data and the adjacency index ------------------------------------- */
+/* Two CSR arrays: the incoming and the outgoing links of every type, laid out
+   as one flat index each. The sweeps walk them thousands of times per slider
+   drag, and an array of arrays would allocate 459 arrays to say the same. */
+
+var NODES = null, LINKS = null, CORE = -1, NN = 0, NL = 0;
+var outOff, outIdx, inOff, inIdx, stack;
+var okLink, linkVis, nodeVis, RU, RD, wIn, wOut, wOutSyn, degv, scratchN, scratchL;
+var hiN, hiL, markN;
+var nodeById = new Map();
+
+var VIS = { nodes: [], links: [], nNodes: 0, nLinks: 0, scaleW: 1, scaleL: 1,
+            rSeen: 20, bands: [0, 0, 1, 0, 0] };
+
+function buildIndex() {
+  NN = NODES.length; NL = LINKS.length;
+  var i, cO = new Uint32Array(NN + 1), cI = new Uint32Array(NN + 1);
+  for (i = 0; i < NL; i++) { cO[LINKS[i].s + 1]++; cI[LINKS[i].t + 1]++; }
+  for (i = 0; i < NN; i++) { cO[i + 1] += cO[i]; cI[i + 1] += cI[i]; }
+  outOff = cO; inOff = cI;
+  outIdx = new Uint32Array(NL); inIdx = new Uint32Array(NL);
+  var fO = new Uint32Array(NN), fI = new Uint32Array(NN), s, t;
+  for (i = 0; i < NL; i++) {
+    s = LINKS[i].s; t = LINKS[i].t;
+    outIdx[outOff[s] + fO[s]++] = i;
+    inIdx[inOff[t] + fI[t]++] = i;
+  }
+  okLink = new Uint8Array(NL);
+  linkVis = new Uint8Array(NL);
+  nodeVis = new Uint8Array(NN);
+  RU = new Uint8Array(NN); RD = new Uint8Array(NN);
+  wIn = new Float64Array(NN); wOut = new Float64Array(NN);
+  wOutSyn = new Float64Array(NN); degv = new Uint32Array(NN);
+  scratchN = new Float64Array(NN); scratchL = new Float64Array(NL);
+  hiN = new Uint8Array(NN); hiL = new Uint8Array(NL); markN = new Uint8Array(NN);
+  stack = new Int32Array(NN);
+}
+
+/* ---- 5. the filter pipeline ---------------------------------------------- */
+/* computeVisible(state) is a pure function of (NODES, LINKS, state). It writes
+   the scratch arrays and fills VIS, in O(V+E) and without allocating anything
+   but the two output lists.
+
+   A  link admissibility - the two strength floors, both endpoints past the
+      transmitter and hop-2 switches. The core is exempt from the transmitter
+      filter: its own consensus call is "unclear", and hiding it blanks the page.
+   B  THE CASCADE PRUNE. Two breadth-first sweeps out of the core, masked by
+      direction and BOUNDED AT TWO STEPS. The upstream sweep walks links
+      backwards and may only cross a link whose two ends could both be upstream
+      of the core; the downstream sweep walks forwards under the mirrored rule.
+      Breadth-first is what makes the bound meaningful: it reaches every type at
+      its shortest surviving distance, so a type is admitted on the strength of
+      its own shortest chain and never on a long way round.
+
+      The bound is the whole promise of the page. Two thirds of the links in the
+      export run between two second-hop types, and a depth-blind sweep lets
+      those lateral wires carry reachability, so a type three or four steps out
+      stays on screen inside a frame captioned "two hops". Bounding the walk is
+      what makes the caption true: at the default view it is the difference
+      between 337 types drawn and 199, and 138 of those 337 had no surviving
+      wire to AVLP743m or to any of its direct partners at all.
+   C  a link is drawn when it is admissible and both ends survived B. A link is
+      structural only when it is the step that a sweep actually took, that is
+      when it joins consecutive distances; a lateral wire between two types at
+      the same distance, and a wire straight across the midline, are drawn
+      faintly and carry no reachability.
+   D  node weight = its visible incident edges, summed in the live metric.
+
+   Three invariants follow by construction and are asserted in selfCheck(): no
+   drawn link has a hidden endpoint; every visible non-core type has at least
+   one structural wire, because the wire that reached it in B joins consecutive
+   distances and both of its ends are visible; and no visible type sits further
+   than MAX_STEPS from the core. */
+
+/* out[] holds distance + 1, so that zero keeps its meaning of "not reached" and
+   every existing truth test on RU/RD goes on working unchanged. The core is 1,
+   a direct partner 2, a partner of a partner 3, and nothing beyond that is ever
+   enqueued: a node at distance MAX_STEPS is dequeued but not expanded. */
+var MAX_STEPS = 2;
+
+function sweep(back, useUp, out) {
+  out.fill(0);
+  out[CORE] = 1;
+  var head = 0, tail = 0, x, k, e, l, y, d;
+  stack[tail++] = CORE;
+  while (head < tail) {
+    x = stack[head++];
+    d = out[x];
+    if (d > MAX_STEPS) continue;          /* its neighbours would be step three */
+    if (back) {
+      for (k = inOff[x]; k < inOff[x + 1]; k++) {
+        e = inIdx[k]; if (!okLink[e]) continue;
+        l = LINKS[e]; if (useUp ? !l.upU : !l.dnU) continue;
+        y = l.s; if (!out[y]) { out[y] = d + 1; stack[tail++] = y; }
+      }
+    } else {
+      for (k = outOff[x]; k < outOff[x + 1]; k++) {
+        e = outIdx[k]; if (!okLink[e]) continue;
+        l = LINKS[e]; if (useUp ? !l.upU : !l.dnU) continue;
+        y = l.t; if (!out[y]) { out[y] = d + 1; stack[tail++] = y; }
+      }
+    }
+  }
+}
+
+function computeVisible(st) {
+  var i, e, l, n, s, t;
+  var byShare = st.metric === "share";
+  var thr = byShare ? st.sharePct / 100 : st.synThr;
+  var floorSyn = st.minSyn;
+
+  /* A */
+  for (e = 0; e < NL; e++) {
+    l = LINKS[e]; s = NODES[l.s]; t = NODES[l.t];
+    okLink[e] = ((byShare ? l.sh : l.syn) >= thr && l.syn >= floorSyn &&
+                 (s.hop === 0 || st.nt[s.nt]) && (t.hop === 0 || st.nt[t.nt]) &&
+                 (st.hop2 || (s.hop < 2 && t.hop < 2))) ? 1 : 0;
+    linkVis[e] = 0;
+  }
+
+  /* B */
+  if (st.dir !== "out") sweep(1, 1, RU); else { RU.fill(0); RU[CORE] = 1; }
+  if (st.dir !== "in") sweep(0, 0, RD); else { RD.fill(0); RD[CORE] = 1; }
+
+  for (i = 0; i < NN; i++) {
+    nodeVis[i] = (RU[i] || RD[i]) ? 1 : 0;
+    wIn[i] = 0; wOut[i] = 0; wOutSyn[i] = 0; degv[i] = 0;
+  }
+
+  /* C and D */
+  var vl = [], w;
+  for (e = 0; e < NL; e++) {
+    if (!okLink[e]) continue;
+    l = LINKS[e];
+    if (!nodeVis[l.s] || !nodeVis[l.t]) continue;
+    /* Structural means the wire joins consecutive distances, which is exactly
+       the step a sweep took to admit the far end. A wire between two types the
+       same distance out is real, and is drawn, but it carried nobody. */
+    var same = (l.upU && RU[l.s] && RU[l.t] && RU[l.s] === RU[l.t] + 1) ||
+               (l.dnU && RD[l.s] && RD[l.t] && RD[l.t] === RD[l.s] + 1);
+    linkVis[e] = same ? 1 : 2;
+    w = byShare ? l.sh : l.syn;
+    l.wv = w;
+    wOut[l.s] += w; wIn[l.t] += w;
+    wOutSyn[l.s] += l.syn;
+    degv[l.s]++; degv[l.t]++;
+    vl.push(l);
+  }
+
+  var vn = [], nw = 0;
+  for (i = 0; i < NN; i++) {
+    if (!nodeVis[i]) continue;
+    n = NODES[i];
+    n.wsum = wIn[i] + wOut[i];
+    /* The column a type is drawn in follows the sweep that found it, not the
+       label in the export: a recurrent type shown only as an output must not
+       sit on the input side, and a type admitted by the opposite walk must not
+       be drawn across the frame from the wire that admitted it. */
+    n.bandNow = n.hop === 0 ? 0
+      : (RU[i] && RD[i]) ? (n.band < 0 ? -(RU[i] - 1) : (RD[i] - 1))
+      : RU[i] ? -(RU[i] - 1) : (RD[i] - 1);
+    if (n.hop !== 0) scratchN[nw++] = n.wsum;
+    vn.push(n);
+  }
+
+  VIS.nodes = vn; VIS.links = vl;
+  VIS.nNodes = vn.length; VIS.nLinks = vl.length;
+  /* One 76% edge would flatten every other bubble in the view, so the size and
+     the width scales top out at a high quantile rather than at the maximum. */
+  VIS.scaleW = quantileOf(scratchN, nw, 0.97) || 1;
+  for (i = 0; i < vl.length; i++) scratchL[i] = vl[i].wv;
+  VIS.scaleL = quantileOf(scratchL, vl.length, 0.97) || 1;
+  return VIS;
+}
+
+/* The array is a preallocated scratch buffer, so the sort is in place and the
+   whole pipeline stays allocation-free however fast the slider moves. */
+function quantileOf(buf, len, p) {
+  if (!len) return 0;
+  var a = buf.subarray(0, len);
+  a.sort();
+  return a[Math.min(len - 1, Math.floor(p * (len - 1)))];
+}
+
+/* ---- 6. the page --------------------------------------------------------- */
+
+var cv = document.getElementById("cv");
+var ctx = cv.getContext("2d", { alpha: false });
+var stage = document.getElementById("stage");
+var tip = document.getElementById("tip");
+var hint = document.getElementById("hint");
+var card = document.getElementById("card");
+var qmsg = document.getElementById("qmsg");
+
+var W = 800, H = 500, DPR = 1;
+var tf = d3.zoomIdentity;
+var sim = null, fCharge = null, fCollide = null, fLink = null;
+var quad = null, qtDirty = true, dirty = true, dragging = false;
+var focus = null, selected = null, groups = [];
+var hiOn = false, markCount = 0;
+var clock = 0, breathe = true, ready = false;
+var C = { nt: {} };
+
+function esc(s) {
+  return String(s).replace(/[&<>"]/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+  });
+}
+function num(v) { return Math.round(v).toLocaleString("en-US"); }
+function pct(v) { return (v * 100).toFixed(v < 0.01 ? 2 : 1) + "%"; }
+function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+function bandX(b) { return b * GAP; }
+/* An edge weight in the live metric. Sums of shares are only a percentage on
+   the incoming side, where every wire is a fraction of the same denominator. */
+function fmtW(v) { return S.metric === "share" ? pct(v) : num(v) + " syn"; }
+
+/* ---- the colours of the page --------------------------------------------- */
+/* Read from the root element rather than written out a second time here: the
+   stylesheet is the only place that knows what dark looks like. */
+function rgba(colour, a) {
+  var h = colour.replace("#", "");
+  if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
+  var n = parseInt(h, 16);
+  return "rgba(" + ((n >> 16) & 255) + "," + ((n >> 8) & 255) + "," + (n & 255) + "," + a + ")";
+}
+function theme() {
+  var cs = getComputedStyle(document.documentElement);
+  function v(n) { return cs.getPropertyValue(n).trim(); }
+  C.bg = v("--bg") || "#fff";
+  C.fg = v("--fg") || "#1a1a1a";
+  C.muted = v("--muted") || "#555";
+  C.link = v("--link") || "#0b5fa5";
+  NT.forEach(function (p) { C.nt[p[0]] = v("--nt-" + p[1]) || "#888"; });
+  C.dimNode = rgba(C.muted, 0.20);
+  C.band = rgba(C.muted, 0.055);
+  C.bandText = rgba(C.muted, 0.75);
+  C.pin = rgba(C.muted, 0.7);
+}
+
+/* ---- the hash ------------------------------------------------------------ */
+/* The write is delayed because a slider fires forty times a second and Safari
+   counts calls to replaceState. lastHash tells a write of our own apart from a
+   reader pressing the back button, without a flag that can wedge. */
+var lastHash = "", hashTimer = 0;
+function pushHash() {
+  clearTimeout(hashTimer);
+  hashTimer = setTimeout(function () {
+    var h = "#" + stateToHash(S);
+    if (location.hash === h) return;
+    lastHash = h;
+    /* A page opened from a file:// path may not rewrite its own URL. A view
+       that cannot be shared is still a view worth looking at, so the failure
+       is allowed to pass in silence. */
+    try { history.replaceState(null, "", location.pathname + location.search + h); }
+    catch (err) { /* file:// */ }
+  }, 200);
+}
+
+/* ---- the simulation ------------------------------------------------------ */
+/* The band spring and the breath that moves its target are the only forces not
+   multiplied by alpha. d3's collide force is not alpha-scaled either, so an
+   alpha-scaled spring loses to it as the graph cools; and a breath that is
+   alpha-scaled is a breath that stops, which is the one thing this page is not
+   allowed to do. The target moves rather than the node being kicked, so the
+   amplitude is exactly what is written here and nothing can wander off
+   station. Vertical motion is a kick instead, because the vertical pull is
+   deliberately weak and a moving target there would barely register. */
+var bandNodes = null;
+function bandForce() {
+  var ns = bandNodes, i, n, tx;
+  if (!ns) return;
+  for (i = 0; i < ns.length; i++) {
+    n = ns[i];
+    if (n.fx != null) continue;             /* pinned, or in the reader's hand */
+    tx = n.bx;
+    if (breathe) {
+      tx += n.amp * Math.sin(clock * 0.00047 + n.ph);
+      n.vy += n.yamp * Math.sin(clock * 0.00061 + n.ph * 1.7 + 1.3);
+    }
+    n.vx += (tx - n.x) * n.kx;
+    n.vy += (0 - n.y) * n.ky;
+  }
+}
+bandForce.initialize = function (ns) { bandNodes = ns; };
+
+function makeSim() {
+  fCharge = d3.forceManyBody()
+    .strength(function (d) { return -(14 + 2.4 * d.r); })
+    .distanceMax(340).theta(0.85);
+  fCollide = d3.forceCollide().radius(function (d) { return d.r + 2.2; })
+    .strength(0.8).iterations(2);
+  /* Heavy wires are short. The normalised weight is recomputed on every filter
+     change, so the shape of the graph follows the metric the reader chose. */
+  fLink = d3.forceLink([]).id(function (d) { return d.id; })
+    .distance(function (l) { return 24 + l.source.r + l.target.r + 70 * (1 - l.wn); })
+    .strength(function (l) {
+      return clamp(0.9 / Math.max(1, Math.min(degv[l.source.i], degv[l.target.i])), 0.012, 0.6);
+    })
+    .iterations(1);
+
+  sim = d3.forceSimulation()
+    .force("charge", fCharge).force("link", fLink).force("collide", fCollide)
+    .force("band", bandForce)
+    .velocityDecay(0.42)
+    .alphaDecay(0.024)
+    .alphaMin(0)
+    .alphaTarget(IDLE);
+  sim.stop();                     /* the rAF loop owns the clock from here on */
+}
+
+/* ---- rebuild everything after any change of state ------------------------ */
+function apply(opts) {
+  opts = opts || {};
+  computeVisible(S);
+
+  var i, n, l;
+  /* The biggest bubble shrinks as the view fills up, so forty types and four
+     hundred are both drawn at a sane size. Area carries the value, thus the
+     square root; the floor of 4px keeps a type that lost all but one thin wire
+     from vanishing into a dot. */
+  var rMax = clamp(360 / Math.sqrt(Math.max(1, VIS.nNodes)), 12, 28);
+  var rScale = d3.scaleSqrt().domain([0, VIS.scaleW || 1]).range([4, rMax]).clamp(true);
+  var wScale = d3.scaleSqrt().domain([0, VIS.scaleL || 1]).range([0.4, 3.6]).clamp(true);
+  VIS.rScale = rScale;
+  VIS.rSeen = 0;
+  VIS.bands = [0, 0, 0, 0, 0];
+  for (i = 0; i < VIS.nodes.length; i++) {
+    n = VIS.nodes[i];
+    n.r = n.hop === 0 ? Math.max(22, rMax * 1.6) : clamp(rScale(n.wsum), 4, 30);
+    n.bx = bandX(n.bandNow);
+    /* The ratio of the two stiffnesses is the aspect ratio a column settles
+       into: too weak a vertical pull and 200 second-hop types stack into a
+       tower taller than any screen, which the fit then has to zoom away to
+       nothing. Roughly three to one keeps a column reading as a column and
+       still fills the frame. */
+    n.kx = n.hop === 0 ? 0.5 : n.hop === 1 ? 0.30 : 0.13;
+    n.ky = n.hop === 0 ? 0.5 : n.hop === 1 ? 0.02 : 0.011;
+    n.amp = n.hop === 0 ? 0 : n.hop === 1 ? 4 : 7;
+    n.yamp = n.hop === 0 ? 0 : n.hop === 1 ? 0.035 : 0.05;
+    if (n.r > VIS.rSeen) VIS.rSeen = n.r;
+    VIS.bands[n.bandNow + 2] = 1;
+  }
+  for (i = 0; i < VIS.links.length; i++) {
+    l = VIS.links[i];
+    l.w = wScale(l.wv);
+    l.wn = clamp(l.wv / (VIS.scaleL || 1), 0, 1);
+  }
+
+  if (sim) {
+    /* Order matters. simulation.nodes() re-initialises every force, including
+       the link force, so the stale links go first and every value the force
+       accessors read - r, wn, the visible degree - is final before either. */
+    fLink.links([]);
+    sim.nodes(VIS.nodes);
+    fLink.links(VIS.links);
+    if (S.paused || reduceMQ.matches) settleSoon();
+    else if (opts.kick !== false) sim.alpha(Math.max(sim.alpha(), 0.32));
+    else sim.alpha(Math.max(sim.alpha(), 0.10));
+  }
+
+  buildGroups();
+  if (selected && !nodeVis[selected.i]) setSelected(null, true);
+  else if (selected) showCard(selected);
+  updateSearch();
+  computeFocus();
+  updateReadout();
+  updateLegend();
+  qtDirty = true; dirty = true;
+}
+
+/* The isolated neighbourhood is a pair of masks recomputed when the pointer or
+   the selection moves, and not a pair of fresh Sets built inside every frame:
+   at 3547 wires that allocation was the difference between a smooth hover and
+   a stuttering one. */
+function computeFocus() {
+  hiN.fill(0); hiL.fill(0);
+  var anchor = (focus && nodeVis[focus.i] ? focus : null) ||
+               (selected && nodeVis[selected.i] ? selected : null);
+  hiOn = !!anchor;
+  if (!anchor) return;
+  var k, e;
+  hiN[anchor.i] = 1;
+  for (k = outOff[anchor.i]; k < outOff[anchor.i + 1]; k++) {
+    e = outIdx[k]; if (!linkVis[e]) continue;
+    hiL[e] = 1; hiN[LINKS[e].t] = 1;
+  }
+  for (k = inOff[anchor.i]; k < inOff[anchor.i + 1]; k++) {
+    e = inIdx[k]; if (!linkVis[e]) continue;
+    hiL[e] = 1; hiN[LINKS[e].s] = 1;
+  }
+}
+
+/* A slider fires thirty times a second and a run to equilibrium is a couple of
+   hundred ticks, so settling on every one of them would lock the page. The
+   still picture is computed once, when the slider stops moving. */
+var settleTimer = 0;
+function settleSoon() {
+  clearTimeout(settleTimer);
+  settleTimer = setTimeout(function () {
+    var i = 0;
+    sim.alpha(0.9).alphaTarget(0);
+    while (sim.alpha() > 0.005 && i++ < 120) { clock += TICK_MS; sim.tick(); }
+    sim.alphaTarget(IDLE);
+    qtDirty = true; dirty = true;
+  }, 180);
+}
+
+/* Group visible links by colour, quantised width and which side of the midline
+   they belong to, so a frame costs a few dozen paths instead of 3547 strokes. */
+function buildGroups() {
+  var m = new Map(), i, l, g;
+  for (i = 0; i < VIS.links.length; i++) {
+    l = VIS.links[i];
+    var lw = Math.max(0.4, Math.round(l.w * 2) / 2);
+    var cross = linkVis[l.e] === 2 ? 1 : 0;
+    var key = l.source.nt + "|" + lw + "|" + cross;
+    g = m.get(key);
+    if (!g) { g = { nt: l.source.nt, lw: lw, cross: cross, ls: [] }; m.set(key, g); }
+    g.ls.push(l);
+  }
+  groups = Array.from(m.values()).sort(function (a, b) { return a.lw - b.lw; });
+}
+
+function updateReadout() {
+  var m = S.metric === "share"
+    ? "&ge; " + S.sharePct.toFixed(2) + "% of the target&rsquo;s input"
+    : "&ge; " + S.synThr + " synapses on the pair";
+  document.getElementById("count").innerHTML =
+    "<b>" + num(VIS.nNodes) + "</b> of " + num(NN) + " types, <b>" +
+    num(VIS.nLinks) + "</b> of " + num(NL) + " connections<br>" +
+    m + ", and &ge; " + S.minSyn + " synapses";
+}
+
+/* The legend describes this view, not the file: the counts are the bubbles
+   currently on screen, and the size ramp is the live radius scale, so a reader
+   can read a diameter back into a number. */
+function updateLegend() {
+  var h = "", i, k, c, key;
+  for (k = 0; k < NT.length; k++) {
+    key = NT[k][0];
+    c = 0;
+    for (i = 0; i < VIS.nodes.length; i++)
+      if (VIS.nodes[i].nt === key && VIS.nodes[i].hop !== 0) c++;
+    if (!c && !S.nt[key]) continue;
+    h += '<span><span class="sw" style="background:var(--nt-' + NT[k][1] + ')"></span>' +
+         NT_LABEL[key] + '<span class="n">' + c + "</span></span>";
+  }
+  h += '<span><span class="sw" style="background:transparent;width:.55rem;' +
+       'height:.55rem;border:2px solid var(--link)"></span>AVLP743m, and search hits</span>';
+
+  /* With no wires on screen the scale falls back to 1 and the ramp would print
+     three invented numbers, so it is left off rather than made up. */
+  if (VIS.nLinks === 0) { document.getElementById("legend").innerHTML = h; return; }
+
+  /* The ramp turns a diameter back into a number. The unit is spelled out
+     because a sum of shares is not itself a share: each wire is a fraction of
+     its own target, so the total is percentage points added up and can pass
+     100 without meaning anything is over-subscribed. */
+  var fmt = S.metric === "share"
+    ? function (v) { return (v * 100).toFixed(v < 0.1 ? 1 : 0); }
+    : num;
+  function bub(w) {
+    var r = Math.max(3, Math.round(VIS.rScale ? VIS.rScale(w) : 6));
+    return "<u><i style='width:" + (2 * r) + "px;height:" + (2 * r) + "px'></i>" +
+           fmt(w) + "</u>";
+  }
+  h += '<span class="ramp">' + bub(VIS.scaleW / 16) + bub(VIS.scaleW / 4) +
+       bub(VIS.scaleW) + "&nbsp;summed edge weight, " +
+       (S.metric === "share" ? "in % of input per wire" : "in synapses") + "</span>";
+  document.getElementById("legend").innerHTML = h;
+}
+
+/* The box is matched case-insensitively but stored exactly as it was typed, so
+   restoring a shared link never rewrites the reader's own capitals. */
+function updateSearch() {
+  markN.fill(0);
+  markCount = 0;
+  var q = S.q.trim().toLowerCase();
+  if (!q) { qmsg.innerHTML = "&nbsp;"; return; }
+  var tot = 0, i;
+  for (i = 0; i < NN; i++) {
+    if (NODES[i].id.toLowerCase().indexOf(q) < 0) continue;
+    tot++;
+    if (nodeVis[i]) { markN[i] = 1; markCount++; }
+  }
+  qmsg.textContent = tot === 0 ? "no type of that name"
+    : markCount + " of " + tot + " matching types on screen";
+}
+
+/* ---- geometry ------------------------------------------------------------ */
+function resize() {
+  /* A classic scrollbar is inside 100vw and outside the page, and the figure is
+     the one element wide enough to notice the difference. */
+  document.documentElement.style.setProperty("--sb",
+    (window.innerWidth - document.documentElement.clientWidth) + "px");
+  var r = stage.getBoundingClientRect();
+  W = Math.max(120, Math.round(r.width));
+  H = Math.max(120, Math.round(r.height));
+  DPR = Math.min(window.devicePixelRatio || 1, 2.5);
+  cv.width = Math.round(W * DPR);
+  cv.height = Math.round(H * DPR);
+  cv.style.width = W + "px";
+  cv.style.height = H + "px";
+  dirty = true;
+}
+
+function fit(dur) {
+  if (!VIS.nodes.length) return;
+  var x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity, i, n;
+  for (i = 0; i < VIS.nodes.length; i++) {
+    n = VIS.nodes[i];
+    if (n.x - n.r < x0) x0 = n.x - n.r;
+    if (n.x + n.r > x1) x1 = n.x + n.r;
+    if (n.y - n.r < y0) y0 = n.y - n.r;
+    if (n.y + n.r > y1) y1 = n.y + n.r;
+  }
+  var pad = 46;
+  var k = clamp(Math.min((W - pad * 2) / Math.max(1, x1 - x0),
+                         (H - pad * 2) / Math.max(1, y1 - y0)), 0.1, 1.8);
+  var t = d3.zoomIdentity.translate(W / 2, H / 2).scale(k)
+            .translate(-(x0 + x1) / 2, -(y0 + y1) / 2);
+  var sel = d3.select(cv);
+  if (dur) sel.transition().duration(dur).call(zoom.transform, t);
+  else sel.call(zoom.transform, t);
+}
+
+/* The quadtree is marked stale on every tick but only rebuilt when a pointer
+   asks a question, which is at most once per pointer event rather than sixty
+   times a second. */
+function ensureQuad() {
+  if (!qtDirty && quad) return quad;
+  quad = d3.quadtree().x(function (d) { return d.x; }).y(function (d) { return d.y; })
+           .addAll(VIS.nodes);
+  qtDirty = false;
+  return quad;
+}
+
+/* Nearest centre is the wrong answer when radii differ: a point well inside a
+   big bubble often sits closer to a small neighbour's centre. Pick the bubble
+   the point is deepest inside, over the cells that can reach it - and derive
+   the search radius from the largest bubble actually drawn, so it never shrinks
+   below the thing it is looking for as the reader zooms in. */
+function at(px, py) {
+  if (!VIS.nodes.length) return null;
+  var wx = tf.invertX(px), wy = tf.invertY(py);
+  var tol = 6 / tf.k, reach = VIS.rSeen + tol + 2;
+  var best = null, bestD = Infinity;
+  ensureQuad().visit(function (node, x0, y0, x1, y1) {
+    if (!node.length) {
+      do {
+        var n = node.data, dx = n.x - wx, dy = n.y - wy;
+        var d = Math.sqrt(dx * dx + dy * dy) - n.r;
+        if (d <= tol && d < bestD) { bestD = d; best = n; }
+      } while ((node = node.next));
+    }
+    return x0 > wx + reach || x1 < wx - reach || y0 > wy + reach || y1 < wy - reach;
+  });
+  return best;
+}
+
+/* ---- drawing ------------------------------------------------------------- */
+
+function frame() {
+  requestAnimationFrame(frame);
+  if (!ready) return;
+  if (!S.paused || dragging) {
+    clock += TICK_MS;
+    sim.tick();
+    qtDirty = true; dirty = true;
+  }
+  if (dirty) { dirty = false; draw(); }
+}
+
+/* Reciprocal type pairs would draw exactly on top of one another, so the few
+   hundred wires that have a counterpart running the other way are pushed off
+   the centre line, mirrored by index order. Only those pay for the square root;
+   the other three thousand stay straight lines in a batched path. */
+var OFF = 0;
+function edgeEnds(l, out) {
+  var s = l.source, t = l.target;
+  out[0] = s.x; out[1] = s.y; out[2] = t.x; out[3] = t.y;
+  if (!l.pair) return;
+  var dx = t.x - s.x, dy = t.y - s.y;
+  var len = Math.sqrt(dx * dx + dy * dy) || 1;
+  var ox = -dy / len * OFF * (l.s < l.t ? 1 : -1);
+  var oy = dx / len * OFF * (l.s < l.t ? 1 : -1);
+  out[0] += ox; out[1] += oy; out[2] += ox; out[3] += oy;
+}
+
+var E4 = [0, 0, 0, 0];
+
+function draw() {
+  var k = tf.k, i, j, n, l, g;
+  OFF = 3.2 / k;
+
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  ctx.fillStyle = C.bg;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.save();
+  ctx.translate(tf.x, tf.y);
+  ctx.scale(k, k);
+  ctx.lineCap = "round";
+
+  /* the partner columns, so the signal-flow grammar has a body as well as a
+     caption. Band 0 is left bare, because the core is its own landmark, and a
+     band with nothing in it is not drawn at all: the direction control must not
+     leave an empty column captioned "direct outputs". */
+  var half = GAP * 0.42;
+  ctx.fillStyle = C.band;
+  for (j = -2; j <= 2; j++) {
+    if (j === 0 || !VIS.bands[j + 2]) continue;
+    ctx.fillRect(bandX(j) - half, -1e5, half * 2, 2e5);
+  }
+
+  var vw0 = -tf.x / k - 60, vw1 = (W - tf.x) / k + 60;
+  var vh0 = -tf.y / k - 60, vh1 = (H - tf.y) / k + 60;
+
+  for (j = 0; j < groups.length; j++) {
+    g = groups[j];
+    ctx.beginPath();
+    var any = 0;
+    for (i = 0; i < g.ls.length; i++) {
+      l = g.ls[i];
+      if (hiOn && hiL[l.e]) continue;
+      var sx = l.source.x, sy = l.source.y, tx = l.target.x, ty = l.target.y;
+      if ((sx < vw0 && tx < vw0) || (sx > vw1 && tx > vw1)) continue;
+      if ((sy < vh0 && ty < vh0) || (sy > vh1 && ty > vh1)) continue;
+      edgeEnds(l, E4);
+      ctx.moveTo(E4[0], E4[1]); ctx.lineTo(E4[2], E4[3]);
+      any = 1;
+    }
+    if (!any) continue;
+    ctx.strokeStyle = C.nt[g.nt];
+    ctx.lineWidth = Math.max(g.lw, 0.6 / k);
+    ctx.globalAlpha = hiOn ? 0.06 : (g.cross ? 0.13 : 0.5);
+    ctx.stroke();
+  }
+
+  /* the lit neighbourhood, one wire at a time because there are never many, and
+     an arrowhead on each: the only direction cue the wire itself carries */
+  if (hiOn) {
+    ctx.globalAlpha = 0.95;
+    for (i = 0; i < VIS.links.length; i++) {
+      l = VIS.links[i];
+      if (!hiL[l.e]) continue;
+      edgeEnds(l, E4);
+      ctx.beginPath();
+      ctx.moveTo(E4[0], E4[1]); ctx.lineTo(E4[2], E4[3]);
+      ctx.strokeStyle = C.nt[l.source.nt];
+      ctx.lineWidth = Math.max(l.w, 1.2 / k);
+      ctx.stroke();
+      drawHead(l, k);
+    }
+  }
+  ctx.globalAlpha = 1;
+
+  /* bubbles, one path per transmitter. The hairline in the page colour is what
+     keeps a cluster of touching bubbles countable. */
+  ctx.lineWidth = Math.max(0.9 / k, 0.3);
+  for (j = 0; j < NT.length; j++) {
+    var key = NT[j][0], drawn = 0;
+    ctx.beginPath();
+    for (i = 0; i < VIS.nodes.length; i++) {
+      n = VIS.nodes[i];
+      if (n.nt !== key || n.hop === 0) continue;
+      if (hiOn && !hiN[n.i]) continue;
+      if (n.x < vw0 || n.x > vw1 || n.y < vh0 || n.y > vh1) continue;
+      ctx.moveTo(n.x + n.r, n.y);
+      ctx.arc(n.x, n.y, n.r, 0, TAU);
+      drawn = 1;
+    }
+    if (!drawn) continue;
+    ctx.fillStyle = C.nt[key];
+    ctx.fill();
+    ctx.strokeStyle = C.bg;
+    ctx.stroke();
+  }
+  if (hiOn) {
+    ctx.beginPath();
+    for (i = 0; i < VIS.nodes.length; i++) {
+      n = VIS.nodes[i];
+      if (n.hop === 0 || hiN[n.i]) continue;
+      if (n.x < vw0 || n.x > vw1 || n.y < vh0 || n.y > vh1) continue;
+      ctx.moveTo(n.x + n.r, n.y);
+      ctx.arc(n.x, n.y, n.r, 0, TAU);
+    }
+    ctx.fillStyle = C.dimNode;
+    ctx.fill();
+  }
+
+  /* rings: the pinned bubble, the search hits, the selection */
+  for (i = 0; i < VIS.nodes.length; i++) {
+    n = VIS.nodes[i];
+    if (n.hop === 0) continue;
+    var ring = null, rw = 1.6;
+    if (n === selected) { ring = C.fg; rw = 2.2; }
+    else if (markN[n.i]) { ring = C.link; }
+    else if (n.fx != null) { ring = C.pin; rw = 1.1; }
+    if (!ring) continue;
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.r + 3 / k, 0, TAU);
+    ctx.strokeStyle = ring;
+    ctx.lineWidth = rw / k;
+    ctx.stroke();
+  }
+
+  /* the core, drawn last so it is never buried under a second-hop cloud */
+  if (nodeVis[CORE]) {
+    var c = NODES[CORE];
+    ctx.globalAlpha = (hiOn && !hiN[CORE]) ? 0.4 : 1;
+    ctx.beginPath(); ctx.arc(c.x, c.y, c.r, 0, TAU);
+    ctx.fillStyle = C.nt[c.nt]; ctx.fill();
+    ctx.strokeStyle = C.link; ctx.lineWidth = 3.6 / k; ctx.stroke();
+    ctx.beginPath(); ctx.arc(c.x, c.y, c.r + 6 / k, 0, TAU);
+    ctx.lineWidth = 1 / k; ctx.globalAlpha *= 0.5; ctx.stroke();
+    ctx.globalAlpha = 1;
+  }
+
+  ctx.restore();
+  drawLabels();
+  drawBandTitles();
+}
+
+function drawHead(l, k) {
+  edgeEnds(l, E4);
+  var dx = E4[2] - E4[0], dy = E4[3] - E4[1];
+  var len = Math.sqrt(dx * dx + dy * dy) || 1;
+  var ux = dx / len, uy = dy / len;
+  var back = l.target.r + 1.5 / k;
+  var ax = E4[2] - ux * back, ay = E4[3] - uy * back;
+  var h = Math.max(4.5 / k, l.w * 2.1);
+  ctx.beginPath();
+  ctx.moveTo(ax, ay);
+  ctx.lineTo(ax - ux * h - uy * h * 0.55, ay - uy * h + ux * h * 0.55);
+  ctx.lineTo(ax - ux * h + uy * h * 0.55, ay - uy * h - ux * h * 0.55);
+  ctx.closePath();
+  ctx.fillStyle = C.nt[l.source.nt];
+  ctx.fill();
+}
+
+/* The five bands are named on the figure and not only in the prose, clamped to
+   stay on screen so the caption survives a pan. */
+function drawBandTitles() {
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  var font = "600 10px system-ui,sans-serif";
+  ctx.font = font;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "top";
+  ctx.fillStyle = C.bandText;
+  var set = W < 640 ? BAND_SHORT : BAND_LABEL;
+  var last = -Infinity;
+  for (var b = -2; b <= 2; b++) {
+    if (!VIS.bands || !VIS.bands[b + 2]) continue;
+    var x = tf.applyX(bandX(b));
+    if (x < -70 || x > W + 70) continue;
+    var half = measure(set[b], font) / 2 + 5;
+    x = clamp(x, half + 3, W - half - 3);
+    if (x - half < last) continue;      /* rather no caption than two on top */
+    ctx.fillText(set[b], x, 6);
+    last = x + half;
+  }
+}
+
+/* Labels sit in screen space at a fixed size, so they stay crisp at every zoom
+   and the width of a name can be measured once and remembered. A name that
+   would land on a name already written is dropped, because 459 names on top of
+   each other name nothing. The occupancy grid marks every cell the box covers
+   in both axes, so two names on neighbouring rows cannot touch. */
+var labelW = new Map();
+function measure(id, font) {
+  var key = font + "|" + id, v = labelW.get(key);
+  if (v === undefined) { ctx.font = font; v = ctx.measureText(id).width; labelW.set(key, v); }
+  return v;
+}
+var F_CORE = "700 13px system-ui,sans-serif";
+var F_HOP1 = "600 11.5px system-ui,sans-serif";
+var F_HOP2 = "10.5px system-ui,sans-serif";
+
+function drawLabels() {
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  var occ = new Set(), CELL = 13, drawn = 0, MAX = 220;
+  var showHop2 = tf.k >= 1.45;
+
+  /* Where a name may sit, relative to the bubble, in the order it is tried:
+     above, below, right, left, then further above and further below. One
+     attempt was not enough for the first hop, which the band force stacks into
+     a near-vertical column, so 23 of the 33 direct partners went unnamed at the
+     default fit while the second hop, held back until zoom, had room to spare. */
+  var SPOTS = [[0, -1], [0, 1], [1, 0], [-1, 0], [0, -2], [0, 2]];
+
+  function free(sx, sy, w) {
+    if (sx < -40 || sx > W + 40 || sy < 14 || sy > H - 3) return false;
+    var a, b;
+    var c0 = Math.floor((sx - w / 2) / CELL), c1 = Math.floor((sx + w / 2) / CELL);
+    var r0 = Math.floor((sy - 6) / CELL), r1 = Math.floor((sy + 6) / CELL);
+    for (a = c0; a <= c1; a++) for (b = r0; b <= r1; b++)
+      if (occ.has(a * 8192 + b)) return false;
+    return true;
+  }
+
+  function claim(sx, sy, w) {
+    var a, b;
+    var c0 = Math.floor((sx - w / 2) / CELL), c1 = Math.floor((sx + w / 2) / CELL);
+    var r0 = Math.floor((sy - 6) / CELL), r1 = Math.floor((sy + 6) / CELL);
+    for (a = c0; a <= c1; a++) for (b = r0; b <= r1; b++) occ.add(a * 8192 + b);
+  }
+
+  function place(n, font, alpha, persist) {
+    var w = measure(n.id, font) + 4;
+    var ox = tf.applyX(n.x), oy = tf.applyY(n.y), gap = n.r * tf.k + 8;
+    var tries = persist ? SPOTS.length : 1, sx, sy, i;
+    for (i = 0; i < tries; i++) {
+      sx = ox + SPOTS[i][0] * (w / 2 + gap);
+      sy = oy + SPOTS[i][1] * gap;
+      if (free(sx, sy, w)) break;
+    }
+    if (i === tries) return;
+    claim(sx, sy, w);
+    ctx.font = font;
+    ctx.globalAlpha = alpha;
+    ctx.lineWidth = 3;
+    ctx.lineJoin = "round";      /* set here, not once per frame: it leaked into the edges */
+    ctx.strokeStyle = C.bg;
+    ctx.strokeText(n.id, sx, sy);
+    ctx.fillStyle = C.fg;
+    ctx.fillText(n.id, sx, sy);
+    ctx.globalAlpha = 1;
+    drawn++;
+  }
+
+  if (nodeVis[CORE]) place(NODES[CORE], F_CORE, 1, true);
+
+  var i, n;
+  /* The core and the first hop are always named; the second hop is 424 types,
+     and naming them at rest leaves a grey mat and no names, so they wait for
+     the zoom, for the pointer or for the search box. */
+  for (i = 0; i < VIS.nodes.length; i++) {
+    n = VIS.nodes[i];
+    if (n.hop !== 1) continue;
+    place(n, F_HOP1, hiOn && !hiN[n.i] ? 0.3 : 1, true);
+  }
+  if (showHop2 || hiOn || markCount) {
+    for (i = 0; i < VIS.nodes.length && drawn < MAX; i++) {
+      n = VIS.nodes[i];
+      if (n.hop !== 2) continue;
+      var lit = (hiOn && hiN[n.i]) || markN[n.i] || n === selected;
+      if (hiOn ? !lit : (!showHop2 && !lit)) continue;
+      place(n, F_HOP2, lit ? 1 : 0.8, false);
+    }
+  }
+}
+
+/* ---- the tooltip and the card -------------------------------------------- */
+
+function showTip(n, px, py) {
+  var din = 0, doutSyn = 0, deg = 0, k, e;
+  for (k = inOff[n.i]; k < inOff[n.i + 1]; k++) {
+    e = inIdx[k]; if (!linkVis[e]) continue;
+    din += LINKS[e].wv; deg++;
+  }
+  for (k = outOff[n.i]; k < outOff[n.i + 1]; k++) {
+    e = outIdx[k]; if (!linkVis[e]) continue;
+    doutSyn += LINKS[e].syn; deg++;
+  }
+  var side = n.hop === 0 ? "the core"
+           : "hop " + n.hop + ", " + (n.dir === "up" ? "input side" : "output side");
+  tip.innerHTML =
+    "<b>" + esc(n.id) + "</b>" +
+    "<span>" + esc(NT_LABEL[n.nt]) + " &middot; " + side +
+      (n.rec ? " &middot; recurrent" : "") + "</span>" +
+    "<span>" + n.nb + (n.nb === 1 ? " body" : " bodies") + " &middot; " +
+      num(n.post) + " input, " + num(n.pre) + " output synapses</span>" +
+    "<span>drawn here: <i>" + fmtW(din) + "</i> in, <i>" + num(doutSyn) +
+      "</i> synapses out, over <i>" + deg + "</i> wire" + (deg === 1 ? "" : "s") + "</span>";
+  tip.style.opacity = 1;
+  var b = tip.getBoundingClientRect();
+  var x = px + 14, y = py + 14;
+  if (x + b.width > W - 6) x = px - b.width - 14;
+  if (y + b.height > H - 6) y = py - b.height - 14;
+  tip.style.left = Math.max(4, x) + "px";
+  tip.style.top = Math.max(4, y) + "px";
+}
+function hideTip() { tip.style.opacity = 0; }
+
+var CARD_REST = "<p>Click a bubble for its card. Drag one to move it, " +
+  "double-click to let it go again. Fit reframes the graph; Reset puts every " +
+  "control back.</p>";
+
+function partners(n, out) {
+  var r = [], k, e, l;
+  var off = out ? outOff : inOff, idx = out ? outIdx : inIdx;
+  for (k = off[n.i]; k < off[n.i + 1]; k++) {
+    e = idx[k]; if (!linkVis[e]) continue;
+    l = LINKS[e];
+    r.push({ o: out ? l.target : l.source, w: l.wv });
+  }
+  r.sort(function (a, b) { return b.w - a.w; });
+  return r;
+}
+
+function showCard(n) {
+  if (!n) { card.innerHTML = CARD_REST; return; }
+  var h = "<h3>" + esc(n.id) + "</h3><p>" + esc(NT_LABEL[n.nt]) +
+    (n.hop === 0 ? " &middot; the core"
+     : n.hop === 1 ? " &middot; direct partner" : " &middot; second hop") +
+    (n.rec ? " &middot; recurrent" : "") + "</p><dl>" +
+    "<dt>bodies</dt><dd>" + n.nb + "</dd>" +
+    "<dt>class</dt><dd>" + esc(String(n.sc).replace(/_/g, " ")) + "</dd>";
+  if (n.dim) h += "<dt>dimorphism</dt><dd>" + esc(n.dim) + "</dd>";
+  if (n.fru) h += "<dt>fru / dsx</dt><dd>" + esc(String(n.fru).replace(/_/g, " ")) + "</dd>";
+  h += "<dt>input syn</dt><dd>" + num(n.post) + "</dd>" +
+       "<dt>output syn</dt><dd>" + num(n.pre) + "</dd>" +
+       "<dt>drawn in</dt><dd>" + fmtW(wIn[n.i]) + "</dd>" +
+       "<dt>drawn out</dt><dd>" + num(wOutSyn[n.i]) + " syn</dd></dl>";
+
+  function block(title, list) {
+    var s = '<p class="sect">' + title + "</p>", i;
+    if (!list.length) return s + '<p class="none">none drawn</p>';
+    for (i = 0; i < Math.min(6, list.length); i++) {
+      s += '<button class="lk" type="button" data-go="' + esc(list[i].o.id) + '">' +
+           '<span class="sw" style="background:' + C.nt[list[i].o.nt] + '"></span>' +
+           esc(list[i].o.id) + "<em>" + fmtW(list[i].w) + "</em></button>";
+    }
+    if (list.length > 6) s += '<p class="none">and ' + (list.length - 6) + " more</p>";
+    return s;
+  }
+  h += block("strongest visible inputs", partners(n, false));
+  h += block("strongest visible outputs", partners(n, true));
+  if (n.scene) {
+    h += '<a class="scene" href="' + SCENE + encodeURIComponent(n.scene) +
+         '" target="_blank" rel="noopener">Open the Clio-NG scene &rarr;</a>';
+  }
+  card.innerHTML = h;
+  card.querySelectorAll("button[data-go]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var o = nodeById.get(b.getAttribute("data-go"));
+      if (o && nodeVis[o.i]) setSelected(o);
+    });
+  });
+}
+
+function setSelected(n, silent) {
+  selected = n;
+  S.sel = n ? n.id : "";
+  if (n) { n.fx = n.x; n.fy = n.y; }   /* a click pins, a double-click frees */
+  showCard(n);
+  computeFocus();
+  if (!silent) pushHash();
+  dirty = true;
+}
+
+/* ---- controls ------------------------------------------------------------ */
+
+function paintSeg(id, value) {
+  document.getElementById(id).querySelectorAll("label").forEach(function (lab) {
+    var on = lab.getAttribute("data-v") === value;
+    lab.classList.toggle("on", on);
+    lab.querySelector("input").checked = on;
+  });
+}
+
+function syncControls() {
+  paintSeg("segDir", S.dir);
+  paintSeg("segMetric", S.metric);
+  var thr = document.getElementById("thr");
+  if (S.metric === "share") {
+    thr.min = 0; thr.max = SHARE_STEPS;
+    thr.step = 1; thr.value = sharePosFromVal(S.sharePct);
+    document.getElementById("thrLbl").textContent = "Min share";
+    document.getElementById("thrOut").textContent =
+      "≥ " + S.sharePct.toFixed(2) + "% of input";
+    /* the one control whose units change under it, so the accessible name has
+       to change with them or a screen reader is told nothing about the switch */
+    thr.setAttribute("aria-label", "minimum share of the target's input, per cent");
+  } else {
+    thr.min = 0; thr.max = SYN_GRID.length - 1;
+    thr.step = 1; thr.value = synPosFromVal(S.synThr);
+    document.getElementById("thrLbl").textContent = "Min synapses";
+    document.getElementById("thrOut").textContent = "≥ " + S.synThr + " synapses";
+    thr.setAttribute("aria-label", "minimum connection strength in synapses");
+  }
+  document.getElementById("floor").value = S.minSyn;
+  document.getElementById("floorOut").textContent = "≥ " + S.minSyn + " synapses";
+  NT.forEach(function (p) {
+    var el = document.getElementById("nt_" + p[1]);
+    if (el) el.checked = !!S.nt[p[0]];
+  });
+  document.getElementById("hop2").checked = !!S.hop2;
+  document.getElementById("pause").checked = !!S.paused;
+  var qi = document.getElementById("q");
+  if (qi.value !== S.q) qi.value = S.q;      /* never rewrite what is being typed */
+}
+
+function setPaused(v) {
+  S.paused = !!v;
+  if (!S.paused && !reduceMQ.matches) sim.alpha(Math.max(sim.alpha(), 0.15));
+  document.getElementById("pause").checked = S.paused;
+  dirty = true;
+}
+
+function buildNtBox() {
+  var box = document.getElementById("ntBox"), counts = {}, i;
+  for (i = 0; i < NN; i++) counts[NODES[i].nt] = (counts[NODES[i].nt] || 0) + 1;
+  NT.forEach(function (p) {
+    var lab = document.createElement("label");
+    lab.className = "chk";
+    lab.title = p[0];
+    lab.innerHTML = '<input type="checkbox" id="nt_' + p[1] + '">' +
+      '<span class="sw" style="background:var(--nt-' + p[1] + ')"></span>' + p[0] +
+      "<i>" + (counts[p[0]] || 0) + "</i>";
+    box.appendChild(lab);
+    lab.querySelector("input").addEventListener("change", function () {
+      S.nt[p[0]] = this.checked;
+      apply(); pushHash();
+    });
+  });
+}
+
+/* ---- zoom and drag ------------------------------------------------------- */
+/* d3's default wheel step is unusable on a trackpad, where deltaY arrives in
+   single pixels a hundred times a second. */
+var zoom = d3.zoom().scaleExtent([0.08, 8])
+  .wheelDelta(function (e) {
+    return -e.deltaY * (e.deltaMode === 1 ? 0.042 : e.deltaMode ? 1 : 0.0016);
+  })
+  .on("zoom", function (e) { tf = e.transform; dirty = true; });
+
+function ptr(e) {
+  var t = e;
+  if (e && e.touches && e.touches.length) t = e.touches[0];
+  else if (e && e.changedTouches && e.changedTouches.length) t = e.changedTouches[0];
+  var r = cv.getBoundingClientRect();
+  return [t.clientX - r.left, t.clientY - r.top];
+}
+
+/* The drag filter runs the hit test itself, so a press on empty canvas is left
+   to the zoom behaviour and pans, and a second finger is always a pinch and
+   never a bubble. */
+var drag = d3.drag()
+  .container(cv)
+  .filter(function (e) {
+    if (e.touches && e.touches.length > 1) return false;
+    if (e.button) return false;
+    var p = ptr(e);
+    return !!at(p[0], p[1]);
+  })
+  .subject(function (e) {
+    var p = ptr(e.sourceEvent || e);
+    var n = at(p[0], p[1]);
+    return n ? { node: n, moved: 0 } : null;
+  })
+  .on("start", function (e) {
+    dragging = true;
+    hideTip();
+    var n = e.subject.node;
+    if (!S.paused && !reduceMQ.matches) sim.alphaTarget(DRAG_ALPHA).alpha(
+      Math.max(sim.alpha(), DRAG_ALPHA));
+    n.fx = n.x; n.fy = n.y;
+    cv.style.cursor = "grabbing";
+  })
+  .on("drag", function (e) {
+    var n = e.subject.node, p = ptr(e.sourceEvent);
+    e.subject.moved += Math.abs(e.dx) + Math.abs(e.dy);
+    n.fx = tf.invertX(p[0]); n.fy = tf.invertY(p[1]);
+    if (S.paused) { n.x = n.fx; n.y = n.fy; }
+    qtDirty = true; dirty = true;
+  })
+  .on("end", function (e) {
+    dragging = false;
+    cv.style.cursor = "default";
+    if (!S.paused && !reduceMQ.matches) sim.alphaTarget(IDLE);
+    /* the bubble stays where it was put: a drag that leaves no trace is a drag
+       the reader has to do twice */
+    if (e.subject.moved < 5) setSelected(selected === e.subject.node ? null : e.subject.node);
+    dirty = true;
+  });
+
+function wire() {
+  document.getElementById("segDir").querySelectorAll("input").forEach(function (el) {
+    el.addEventListener("change", function () {
+      if (!el.checked) return;
+      S.dir = el.value; paintSeg("segDir", S.dir); apply(); pushHash();
+    });
+  });
+  document.getElementById("segMetric").querySelectorAll("input").forEach(function (el) {
+    el.addEventListener("change", function () {
+      if (!el.checked) return;
+      S.metric = el.value;                 /* each metric keeps its own threshold */
+      syncControls(); apply(); pushHash();
+    });
+  });
+  document.getElementById("thr").addEventListener("input", function () {
+    if (S.metric === "share") S.sharePct = shareValFromPos(+this.value);
+    else S.synThr = synValFromPos(+this.value);
+    S = normalise(S);
+    syncControls(); apply({ kick: false }); pushHash();
+  });
+  document.getElementById("floor").addEventListener("input", function () {
+    S.minSyn = +this.value;
+    S = normalise(S);
+    syncControls(); apply({ kick: false }); pushHash();
+  });
+  document.getElementById("hop2").addEventListener("change", function () {
+    S.hop2 = this.checked; apply(); pushHash();
+  });
+  document.getElementById("pause").addEventListener("change", function () {
+    setPaused(this.checked); pushHash();
+  });
+  var qTimer = 0;
+  document.getElementById("q").addEventListener("input", function () {
+    /* clipped here and not only in normalise(), or the live filter and the
+       link you copy out disagree for anything past sixty characters */
+    S.q = this.value.slice(0, 60);        /* stored as typed, matched lower-case */
+    updateSearch();
+    dirty = true;
+    clearTimeout(qTimer);
+    qTimer = setTimeout(pushHash, 250);
+  });
+  document.getElementById("bFit").addEventListener("click", function () { fit(520); });
+  document.getElementById("bReset").addEventListener("click", function () {
+    S = withMotionPreference(defaultState());
+    for (var i = 0; i < NN; i++) {
+      if (i === CORE) continue;
+      NODES[i].fx = null; NODES[i].fy = null;
+    }
+    NODES[CORE].fx = 0; NODES[CORE].fy = 0;
+    selected = null;
+    syncControls(); setPaused(S.paused); apply(); showCard(null);
+    fit(520); pushHash();
+  });
+
+  var sel = d3.select(cv);
+  /* drag is attached before zoom: d3 stops a gesture from propagating only once
+     the subject exists, so a press on empty canvas still pans */
+  sel.call(drag).call(zoom).on("dblclick.zoom", null);
+
+  cv.addEventListener("mousemove", function (e) {
+    if (dragging) return;
+    var r = cv.getBoundingClientRect();
+    var px = e.clientX - r.left, py = e.clientY - r.top;
+    var n = at(px, py);
+    if (n !== focus) { focus = n; computeFocus(); dirty = true; }
+    if (n) { showTip(n, px, py); cv.style.cursor = "pointer"; }
+    else { hideTip(); cv.style.cursor = "default"; }
+  });
+  cv.addEventListener("mouseleave", function () {
+    if (focus) { focus = null; computeFocus(); dirty = true; }
+    hideTip();
+  });
+  cv.addEventListener("dblclick", function (e) {
+    var r = cv.getBoundingClientRect();
+    var n = at(e.clientX - r.left, e.clientY - r.top);
+    if (!n) { fit(520); return; }
+    /* the core belongs in band 0; a double-click puts it back rather than
+       letting it drift out of its own column for the rest of the session */
+    if (n.hop === 0) { n.fx = 0; n.fy = 0; }
+    else {
+      n.fx = null; n.fy = null;
+      if (n === selected) setSelected(null);
+    }
+    if (!S.paused && !reduceMQ.matches) sim.alpha(Math.max(sim.alpha(), 0.2));
+    dirty = true;
+  });
+
+  window.addEventListener("hashchange", function () {
+    if (location.hash === lastHash) return;
+    S = withMotionPreference(hashToState(location.hash));
+    syncControls();
+    setPaused(S.paused);
+    apply();
+    var n = S.sel ? nodeById.get(S.sel) : null;
+    setSelected(n && nodeVis[n.i] ? n : null, true);
+    fit(520);
+  });
+
+  /* The scheme can change while the page is open, and a canvas does not repaint
+     itself when a custom property underneath it changes. */
+  var onScheme = function () { theme(); updateLegend(); if (selected) showCard(selected); dirty = true; };
+  if (darkMQ.addEventListener) darkMQ.addEventListener("change", onScheme);
+  else if (darkMQ.addListener) darkMQ.addListener(onScheme);
+
+  /* The motion preference can change while the page is open too. */
+  var onMotion = function () {
+    breathe = !reduceMQ.matches;
+    setPaused(reduceMQ.matches ? true : S.paused);
+    if (reduceMQ.matches) settleSoon();
+  };
+  if (reduceMQ.addEventListener) reduceMQ.addEventListener("change", onMotion);
+  else if (reduceMQ.addListener) reduceMQ.addListener(onMotion);
+
+  /* The observer catches the panel folding away; the window listener catches a
+     scrollbar appearing, which changes --sb and therefore the width of the
+     figure without the stage ever being told. */
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(stage);
+  window.addEventListener("resize", resize);
+}
+
+/* ---- 7. the self-check --------------------------------------------------- */
+/* Not run on load: 61 full passes of the pipeline is a lot to ask of a page
+   whose whole point is a smooth first frame. It runs from the console as
+   CIRCUIT_SELFCHECK(), or on any load whose URL carries ?selfcheck.
+
+   The independent reachability sweep below is deliberately written the other
+   way round from the pipeline: a relaxation over the flat link array repeated
+   until nothing changes, with admissibility and the direction masks recomputed
+   from the raw node fields rather than read off the arrays the pipeline filled.
+   A sweep that mirrored the pipeline's own rule would be blind to exactly the
+   mistake it exists to catch. */
+
+function selfCheck() {
+  var fails = [], checks = 0;
+  function assert(ok, msg) { checks++; if (!ok) fails.push(msg); }
+
+  var save = {
+    ok: okLink.slice(), lv: linkVis.slice(), nv: nodeVis.slice(),
+    ru: RU.slice(), rd: RD.slice(),
+    nodes: VIS.nodes, links: VIS.links, nN: VIS.nNodes, nL: VIS.nLinks,
+    sW: VIS.scaleW, sL: VIS.scaleL
+  };
+
+  var seed = 20260819;
+  function rnd() { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
+
+  function independent(st) {
+    var i, e, l, n, up = new Uint8Array(NN), dn = new Uint8Array(NN);
+    var adm = new Uint8Array(NL), byShare = st.metric === "share";
+    var thr = byShare ? st.sharePct / 100 : st.synThr;
+    for (i = 0; i < NN; i++) {
+      n = NODES[i];
+      up[i] = (n.hop === 0 || n.dir === "up" || n.rec) ? 1 : 0;
+      dn[i] = (n.hop === 0 || n.dir === "down" || n.rec) ? 1 : 0;
+    }
+    for (e = 0; e < NL; e++) {
+      l = LINKS[e];
+      var a = NODES[l.s], b = NODES[l.t];
+      adm[e] = ((byShare ? l.sh : l.syn) >= thr && l.syn >= st.minSyn &&
+                (a.hop === 0 || st.nt[a.nt]) && (b.hop === 0 || st.nt[b.nt]) &&
+                (st.hop2 || (a.hop < 2 && b.hop < 2))) ? 1 : 0;
+    }
+    /* Distances, not flags, and relaxed to a fixed point rather than walked:
+       a shortest path found late must be able to pull a node back inside the
+       bound that an earlier, longer path left it outside of. 255 is unreached.
+       The pipeline's own arrays hold distance + 1; these hold the distance. */
+    var ru = new Uint8Array(NN), rd = new Uint8Array(NN), moved = true;
+    ru.fill(255); rd.fill(255);
+    ru[CORE] = 0; rd[CORE] = 0;
+    while (moved) {
+      moved = false;
+      for (e = 0; e < NL; e++) {
+        if (!adm[e]) continue;
+        l = LINKS[e];
+        if (st.dir !== "out" && up[l.s] && up[l.t] && ru[l.t] + 1 < ru[l.s]) {
+          ru[l.s] = ru[l.t] + 1; moved = true;
+        }
+        if (st.dir !== "in" && dn[l.s] && dn[l.t] && rd[l.s] + 1 < rd[l.t]) {
+          rd[l.t] = rd[l.s] + 1; moved = true;
+        }
+      }
+    }
+    for (i = 0; i < NN; i++) {
+      if (ru[i] > MAX_STEPS) ru[i] = 255;
+      if (rd[i] > MAX_STEPS) rd[i] = 255;
+    }
+    return { adm: adm, ru: ru, rd: rd, up: up, dn: dn };
+  }
+
+  function invariants(st, tag) {
+    computeVisible(st);
+    var i, e, l, n;
+
+    var dangling = 0;
+    for (e = 0; e < NL; e++) if (linkVis[e]) {
+      l = LINKS[e];
+      if (!nodeVis[l.s] || !nodeVis[l.t]) dangling++;
+    }
+    assert(dangling === 0, tag + ": " + dangling + " drawn links with a hidden endpoint");
+
+    var deg = new Uint32Array(NN);
+    for (e = 0; e < NL; e++) if (linkVis[e] === 1) { deg[LINKS[e].s]++; deg[LINKS[e].t]++; }
+    var orphans = 0;
+    for (i = 0; i < NN; i++) if (nodeVis[i] && i !== CORE && deg[i] === 0) orphans++;
+    assert(orphans === 0, tag + ": " + orphans + " visible types with no same-direction wire");
+
+    var ind = independent(st), stranded = 0, extra = 0;
+    for (i = 0; i < NN; i++) {
+      var want = (ind.ru[i] < 255 || ind.rd[i] < 255) ? 1 : 0;
+      if (nodeVis[i] && !want) stranded++;
+      if (!nodeVis[i] && want) extra++;
+    }
+    assert(stranded === 0, tag + ": " + stranded + " visible types the independent sweep cannot reach");
+    assert(extra === 0, tag + ": " + extra + " types the independent sweep reaches and the pipeline dropped");
+
+    /* the promise in the title: nothing drawn is more than two steps out */
+    var far = 0;
+    for (i = 0; i < NN; i++) {
+      if (!nodeVis[i] || i === CORE) continue;
+      var du = RU[i] ? RU[i] - 1 : 99, dd = RD[i] ? RD[i] - 1 : 99;
+      if (Math.min(du, dd) > MAX_STEPS) far++;
+    }
+    assert(far === 0, tag + ": " + far + " types drawn further than " + MAX_STEPS + " steps from the core");
+
+    /* the midline. An upstream-reached type must be one that could be upstream
+       of the core at all, and the same the other way, or the direction control
+       has leaked across AVLP743m. */
+    var crossed = 0;
+    for (i = 0; i < NN; i++) {
+      if (RU[i] && !ind.up[i]) crossed++;
+      if (RD[i] && !ind.dn[i]) crossed++;
+    }
+    assert(crossed === 0, tag + ": " + crossed + " types reached from the wrong side of the core");
+
+    var leaked = 0;
+    for (i = 0; i < NN; i++) {
+      if (!nodeVis[i] || i === CORE) continue;
+      n = NODES[i];
+      if (!st.hop2 && n.hop === 2) leaked++;
+      else if (!st.nt[n.nt]) leaked++;
+      else if (st.dir === "in" && ind.up[i] === 0) leaked++;
+      else if (st.dir === "out" && ind.dn[i] === 0) leaked++;
+    }
+    assert(leaked === 0, tag + ": " + leaked + " types leaked past a filter");
+
+    var weak = 0, byShare = st.metric === "share";
+    for (e = 0; e < NL; e++) if (linkVis[e]) {
+      l = LINKS[e];
+      if (l.syn < st.minSyn) weak++;
+      else if (byShare ? l.sh < st.sharePct / 100 - 1e-12 : l.syn < st.synThr) weak++;
+    }
+    assert(weak === 0, tag + ": " + weak + " drawn links below the active floor");
+
+    var listedN = 0, listedL = 0;
+    for (i = 0; i < NN; i++) if (nodeVis[i]) listedN++;
+    for (e = 0; e < NL; e++) if (linkVis[e]) listedL++;
+    assert(listedN === VIS.nNodes && VIS.nodes.length === listedN &&
+           listedL === VIS.nLinks && VIS.links.length === listedL,
+           tag + ": the returned lists disagree with the visibility masks");
+    return { n: VIS.nNodes, l: VIS.nLinks };
+  }
+
+  var dirs = ["in", "out", "both"], mets = ["share", "syn"];
+  var cases = [defaultState()], t, st;
+  for (t = 0; t < 60; t++) {
+    st = defaultState();
+    st.dir = dirs[Math.floor(rnd() * 3)];
+    st.metric = mets[Math.floor(rnd() * 2)];
+    st.sharePct = SHARE_MIN + rnd() * (SHARE_MAX - SHARE_MIN);
+    st.synThr = Math.round(SYN_MIN + rnd() * (SYN_MAX - SYN_MIN));
+    st.minSyn = Math.round(FLOOR_MIN + rnd() * (FLOOR_MAX - FLOOR_MIN));
+    NT_KEYS.forEach(function (k) { st.nt[k] = rnd() > 0.25; });
+    st.hop2 = rnd() > 0.3;
+    st.paused = rnd() > 0.5;
+    st.q = rnd() > 0.7 ? "mAL &q=x #y" : "";
+    st.sel = rnd() > 0.7 ? NODES[Math.floor(rnd() * NN)].id : "";
+    cases.push(normalise(st));
+  }
+  cases.forEach(function (s0, i) {
+    var n = normalise(s0);
+    assert(JSON.stringify(normalise(n)) === JSON.stringify(n),
+           "normalise is not idempotent at case " + i);
+    var back = hashToState("#" + stateToHash(n));
+    assert(JSON.stringify(n) === JSON.stringify(back),
+           "hash round-trip lost state at case " + i + ": " +
+           stateToHash(n) + "  ->  " + stateToHash(back));
+    invariants(n, "case " + i);
+  });
+
+  assert(stateToHash(hashToState("")) === stateToHash(defaultState()),
+         "the empty hash is not the default state");
+  /* Junk must survive without throwing. A value that does not parse falls back
+     to the default; a value that parses but is out of range is clamped, which
+     is why the floor below lands on FLOOR_MIN and not on its default. */
+  var junk = hashToState("#d=nonsense&m=??&ts=abc&tn=&ms=-9&nt=zz&h2=x&p=&q=%E0%A4%A&s=%%%");
+  assert(junk.dir === "both" && junk.metric === "share" &&
+         junk.sharePct === defaultState().sharePct && junk.synThr === defaultState().synThr &&
+         junk.minSyn === FLOOR_MIN && junk.hop2 === false &&
+         junk.q === "" && junk.sel === "" &&
+         NT_KEYS.every(function (k) { return junk.nt[k] === false; }),
+         "a junk hash did not fall back cleanly: " + stateToHash(junk));
+
+  var bij = true;
+  for (t = 0; t < SYN_GRID.length; t++) if (synPosFromVal(synValFromPos(t)) !== t) bij = false;
+  assert(bij, "the log synapse slider is not a bijection");
+
+  var live = invariants(S, "live");
+  var txt = document.getElementById("count").textContent;
+  assert(txt.indexOf(num(live.n)) >= 0, "the readout disagrees with the pipeline on types");
+  assert(txt.indexOf(num(live.l)) >= 0, "the readout disagrees with the pipeline on connections");
+
+  /* put the live view back exactly as it was */
+  okLink.set(save.ok); linkVis.set(save.lv); nodeVis.set(save.nv);
+  RU.set(save.ru); RD.set(save.rd);
+  VIS.nodes = save.nodes; VIS.links = save.links;
+  VIS.nNodes = save.nN; VIS.nLinks = save.nL;
+  VIS.scaleW = save.sW; VIS.scaleL = save.sL;
+
+  var res = { checks: checks, cases: cases.length, failures: fails };
+  if (fails.length) {
+    console.error("[circuit] self-check FAILED: " + fails.length + " of " + checks);
+    fails.slice(0, 12).forEach(function (f) { console.error("  " + f); });
+  } else {
+    console.log("[circuit] self-check passed: " + checks + " assertions over " +
+      cases.length + " control states.");
+  }
+  return res;
+}
+window.CIRCUIT_SELFCHECK = selfCheck;
+
+/* ---- 8. start ------------------------------------------------------------ */
+
+function build(data) {
+  NODES = data.nodes; LINKS = data.links;
+  var i, n, l, seen = new Set();
+
+  for (i = 0; i < NODES.length; i++) {
+    n = NODES[i];
+    n.i = i; n.r = 6; n.wsum = 0; n.bandNow = n.band;
+    n.bx = bandX(n.band); n.kx = 0.2; n.ky = 0.01; n.amp = 0; n.yamp = 0;
+    /* A type that is both up- and downstream of the core belongs to both
+       sweeps; without that the second-hop inputs whose only first-hop parent is
+       a recurrent type would be cut off from the core and vanish. */
+    n.upU = (n.hop === 0 || n.dir === "up" || n.rec) ? 1 : 0;
+    n.dnU = (n.hop === 0 || n.dir === "down" || n.rec) ? 1 : 0;
+    n.ph = (i * 2.399963) % TAU;      /* golden angle: no two bubbles in step */
+    if (n.hop === 0) CORE = i;
+    nodeById.set(n.id, n);
+    /* Deterministic seed positions, already sorted into columns, so the first
+       ticks tidy rather than untangle and nothing flies across the frame. */
+    n.x = bandX(n.band) + (((i * 37) % 61) - 30) * 1.2;
+    n.y = ((((i * 97) % 199) - 99) / 99) * (n.hop === 2 ? 430 : 200);
+  }
+  if (CORE < 0) throw new Error("the export has no hop-0 node");
+
+  for (i = 0; i < LINKS.length; i++) seen.add(LINKS[i].s + "," + LINKS[i].t);
+  for (i = 0; i < LINKS.length; i++) {
+    l = LINKS[i];
+    l.e = i; l.source = NODES[l.s]; l.target = NODES[l.t];
+    l.upU = NODES[l.s].upU && NODES[l.t].upU;
+    l.dnU = NODES[l.s].dnU && NODES[l.t].dnU;
+    l.w = 1; l.wn = 0; l.wv = 0;
+    l.pair = seen.has(l.t + "," + l.s);
+  }
+
+  buildIndex();
+  NODES[CORE].fx = 0; NODES[CORE].fy = 0;   /* pinned, but a drag still moves it */
+
+  buildNtBox();
+  makeSim();
+  resize();
+  wire();
+  syncControls();
+  showCard(null);
+  breathe = !reduceMQ.matches;
+  apply({ kick: false });
+
+  /* warm up off-screen, so the first painted frame is already a layout */
+  sim.alpha(1);
+  for (i = 0; i < (reduceMQ.matches ? 320 : 200); i++) { clock += TICK_MS; sim.tick(); }
+  sim.alphaTarget(reduceMQ.matches ? 0 : IDLE);
+  qtDirty = true;
+  fit(0);
+
+  var pre = S.sel ? nodeById.get(S.sel) : null;
+  if (pre && nodeVis[pre.i]) setSelected(pre, true);
+
+  ready = true;
+  requestAnimationFrame(frame);
+  pushHash();
+
+  hint.textContent = "drag to pan, scroll or pinch to zoom";
+  setTimeout(function () { hint.style.opacity = 0; }, 4500);
+
+  if (/(^|[?&])selfcheck\b/.test(location.search)) selfCheck();
+}
+
+theme();
+/* The 2d context is opaque, so its bitmap starts life as black. Nothing paints
+   it until the JSON resolves, which on a slow link is a black slab sitting on a
+   white page for a second and a half, and on a failed fetch is a black slab for
+   good. Fill it with the page colour first and the stage is simply empty. */
+(function paintEmptyStage() {
+  resize();
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  ctx.fillStyle = C.bg;
+  ctx.fillRect(0, 0, W, H);
+})();
+if (window.innerWidth < 760) document.getElementById("panel").open = false;
+document.documentElement.style.setProperty("--sb",
+  (window.innerWidth - document.documentElement.clientWidth) + "px");
+
+fetch("../avlp743m_circuit.json", { credentials: "same-origin" })
+  .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  .then(build)
+  .catch(function (err) {
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.fillStyle = C.bg;
+    ctx.fillRect(0, 0, W, H);
+    hint.className = "hint failed";        /* readable colour, wraps, own ground */
+    hint.style.opacity = 1;
+    hint.textContent = "the circuit file did not load (" + err.message +
+      "). Over file:// the browser refuses the fetch; serve the directory over http.";
+  });
+})();
+</script>

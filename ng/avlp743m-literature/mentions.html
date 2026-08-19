@@ -81,7 +81,7 @@ on this page, and Stuerner 2025 makes the same assignment in print.</p>
 <h2 id="introduction">Introduction</h2>
 <p>This report gives the published literature on the input and output partners of AVLP743m in the Janelia male CNS connectome (male-cns:v1.0).</p>
 <p><strong>Where the old names came from.</strong> The search did not guess the old names. Every search term came from the curated <code>synonyms</code> column of the male CNS annotation. That column records, for each modern type, the name or names that earlier papers used for the same cell or for the group that contains it. The synonym map below reproduces that column verbatim. The search then looked for each old name in PubMed, PubMed Central, Europe PMC, bioRxiv, publisher full text, the Virtual Fly Brain / FlyBase anatomy ontology, and the neuPrint male-cns:v1.0 type pages.</p>
-<p><strong>How the citations were checked.</strong> A second agent then attacked every citation. It read the full text where the full text was open. It checked that each paper exists, that each quoted sentence is in the source, and that the paper names the type or one of its synonyms. This report applies the corrections of that pass. It removes the citations that failed. The last section lists each removal and the reason. Nothing was removed silently.</p>
+<p><strong>How the citations were checked.</strong> A second agent then attacked every citation. It read the full text where the full text was open. It checked that each paper exists, that each quoted sentence is in the source, and that the paper names the type or one of its synonyms. This report applies the corrections of that pass. It removes the citations that failed, and it names each removal in the section of the type that it belonged to.</p>
 <p><strong>Directness.</strong> Each citation is marked DIRECT or INDIRECT. DIRECT means the paper names the type or one of its curated synonyms. INDIRECT means the paper covers the pathway, the lineage, the region or the dataset, but does not name the cell.</p>
 <h3 id="caveat-1-the-old-names-are-coarser-than-the-modern-types">Caveat 1: the old names are coarser than the modern types</h3>
 <p>The old names come from light microscopy. They name clones, clusters and classes. The connectome names single cell types. One old name can therefore cover several modern types.</p>
@@ -490,7 +490,7 @@ Ruta et al. (2010)      DC1     n/a     DC2     LC1     LC2</code></pre>
 <li><strong>Datta 2008</strong>, <em>The Drosophila pheromone cVA activates a sexually dimorphic neural circuit</em>, Nature. <a href="https://doi.org/10.1038/nature06808">doi:10.1038/nature06808</a> - shows "a male-specific axonal arbor in the lateral horn whose elaboration requires the expression of the transcription factor Fru(M) in DA1 projection neurons and other Fru+ cells". Input-side context only. It names no third-order cell.</li>
 <li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. The dataset in which AVLP743m and its LC1 synonym exist. The string AVLP743 has zero hits in the article text. The <code>m</code> suffix marks a male-specific type, so AVLP743m falls in the 262 male-specific types; the preprint does not state this, so it is an inference.</li>
 </ul>
-<p><strong>Removed from this section:</strong> Kohl 2013. See the discarded table.</p>
+<p><strong>Removed from this section:</strong> Kohl 2013. The string <code>LC1</code> does not occur in that paper.</p>
 <hr />
 <h2 id="input-partners-1">Input partners</h2>
 <h3 id="da1_lpn---input-74-cholinergic">DA1_lPN - input 7.4%, cholinergic</h3>
@@ -504,7 +504,7 @@ Ruta et al. (2010)      DC1     n/a     DC2     LC1     LC2</code></pre>
 <li><strong>Datta 2008</strong>, <em>The Drosophila pheromone cVA activates a sexually dimorphic neural circuit</em>, Nature. <a href="https://doi.org/10.1038/nature06808">doi:10.1038/nature06808</a> - hit under <code>DA1 PN</code>. Photoactivatable-GFP tracing shows a male-specific axonal arbor in the lateral horn whose elaboration requires FruM in DA1 projection neurons <strong>and other Fru+ cells</strong>. Two corrections: the dimorphism reported is in the second-order DA1 PN axon, not in third-order cells; and Kohl 2013 challenges the interpretation, concluding that this male-specific ventral extension "is either not necessary for differential wiring or is a secondary consequence".</li>
 <li><strong>Jefferis 2007</strong>, <em>Comprehensive maps of Drosophila higher olfactory centers: spatially segregated fruit and pheromone representation</em>, Cell. <a href="https://doi.org/10.1016/j.cell.2007.01.040">doi:10.1016/j.cell.2007.01.040</a> - hit under <code>DA1 lateral projection neuron</code>. Registered single-cell maps of PN axons for 35 glomerular channels, showing that "axons of DA1 and VA1lm PNs project to a distinctive anterior-ventromedial region", segregated from the fruit-odour channels. Correction: the paper uses iPN and vPN, never lPN. State the iPN-to-lPN mapping wherever this citation is used.</li>
 </ul>
-<p><strong>Removed:</strong> Schlegel 2021. See the discarded table.</p>
+<p><strong>Removed:</strong> Schlegel 2021. The citation did not resolve.</p>
 <h3 id="m_lvpnm45---input-65-cholinergic-no-direct-literature-found">M_lvPNm45 - input 6.5%, cholinergic. No direct literature found</h3>
 <p><strong>Identity.</strong> Multiglomerular antennal lobe projection neuron. The name is a systematic connectome identifier: <code>M_</code> means multiglomerular, <code>lvPN</code> means the lateroventral PN lineage BAlp4 / ALlv1, <code>m</code> means the medial antennal lobe tract, and <code>45</code> is the type number. The annotation gives no old-literature synonym.</p>
 <p><strong>No paper studies this cell.</strong> The verification pass searched the full text of Bates 2020, Schlegel 2021, Schlegel 2024, Scheffer 2020 and Taisz 2023 for <code>M_lvPNm45</code>. Every running text gives zero hits. The one place the string appears in print is a supplementary table: Supplementary file S5 of Schlegel 2021 lists three right-hemisphere bodies, 757258507, 757591093 and 792023887, as class mPN, tract mALT, lineage lvPN, cell body fiber AVM06. That is a table row with no discussion.</p>
@@ -518,7 +518,7 @@ Ruta et al. (2010)      DC1     n/a     DC2     LC1     LC2</code></pre>
 <li><strong>Taisz 2023</strong>, <em>Generating parallel representations of position and identity in the olfactory system</em>, Cell. <a href="https://doi.org/10.1016/j.cell.2023.04.038">doi:10.1016/j.cell.2023.04.038</a> - lineage background only. It works on "a uniglomerular cell type from the lateroventral lineage, which we call DA1 lateroventral projection neurons (lvPN)". Zero hits for <code>lvPNm45</code>, zero for <code>multiglomerular</code>. Shared lineage is the only link.</li>
 <li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>.</li>
 </ul>
-<p><strong>Removed:</strong> Scheffer 2020 and Tanaka 2012. See the discarded table.</p>
+<p><strong>Removed:</strong> Scheffer 2020 and Tanaka 2012. Neither paper names this type or a synonym of it.</p>
 <h3 id="an09b017f---input-50-glutamatergic">AN09B017f - input 5.0%, glutamatergic</h3>
 <p><strong>Identity.</strong> Ascending neuron from ventral nerve cord hemilineage 09B. Curated synonym vAB3 (Yu 2010). vAB3 is a fruitless-positive ascending neuron with arbours in the first thoracic (foreleg) neuromere. Its axon divides in the brain and ends in the subesophageal zone and in the lateral protocerebral complex, the fruitless-positive neuropil that P1 also innervates. It carries female pheromone (ppk25) signals from the foreleg taste bristles to mAL and P1.</p>
 <p><strong>Coarseness.</strong> vAB3 is much coarser than AN09B017f. Clowney 2015 calls vAB3 "a single class of ascending neurons". The connectome splits AN09B017 into lettered subtypes. Stuerner 2025 makes its match at the AN09B017 level and hedges with "seems to match". No published work separates f from g.</p>
@@ -548,7 +548,7 @@ Ruta et al. (2010)      DC1     n/a     DC2     LC1     LC2</code></pre>
 <li><strong>Elkahlah 2025</strong>, <em>Hierarchical diversification of instinctual behavior neurons by lineage, birth order, and sex</em>, bioRxiv. <a href="https://doi.org/10.1101/2025.06.03.657692">doi:10.1101/2025.06.03.657692</a> - identifies "91 transcription factors that, in combinations of 6-8, delineate cerebral hemilineages" and 33 birth-order transcription factors. Warning: this work profiles the <strong>cerebrum</strong>. AN05B102d is a ventral nerve cord neuron. Using cerebral lineage logic to explain a VNC subtype split is an extrapolation across CNS regions.</li>
 </ul>
 <h3 id="an09b017g---input-47-glutamatergic">AN09B017g - input 4.7%, glutamatergic</h3>
-<p><strong>Identity.</strong> Sister subtype of AN09B017f. Same hemilineage, same transmitter call, same curated synonym vAB3. The curated annotation also cites von Philipsborn 2011 for this subtype. That citation could not be confirmed and was removed; see the discarded table. The synonym map keeps it because the annotation states it.</p>
+<p><strong>Identity.</strong> Sister subtype of AN09B017f. Same hemilineage, same transmitter call, same curated synonym vAB3. The curated annotation also cites von Philipsborn 2011 for this subtype. That citation could not be confirmed and was removed. The synonym map keeps it because the annotation states it.</p>
 <p><strong>Coarseness.</strong> vAB3 covers AN09B017f and AN09B017g, and possibly further subtypes. No citation below is evidence about AN09B017g alone.</p>
 <p><strong>DIRECT</strong></p>
 <ul>
@@ -561,7 +561,7 @@ Ruta et al. (2010)      DC1     n/a     DC2     LC1     LC2</code></pre>
 <li><strong>Kallman 2015</strong>, eLife. <a href="https://doi.org/10.7554/eLife.11188">doi:10.7554/eLife.11188</a> - one passing mention of vAB3 in the Discussion. The paper's own ascending relay is PPN1, which is Fru-negative and non-dimorphic, so it is not this cell.</li>
 <li><strong>Marin 2024</strong>, eLife reviewed preprint. <a href="https://doi.org/10.7554/eLife.97766.1">doi:10.7554/eLife.97766.1</a> - hemilineage 09B definition. Same transmitter warning as for AN09B017f.</li>
 </ul>
-<p><strong>Removed:</strong> von Philipsborn 2011. See the discarded table.</p>
+<p><strong>Removed:</strong> von Philipsborn 2011. The string <code>vAB3</code> could not be confirmed in that paper.</p>
 <h3 id="lh008m---input-40-cholinergic">LH008m - input 4.0%, cholinergic</h3>
 <p><strong>Identity.</strong> Male-specific cholinergic third-order olfactory neuron of the lateral horn. The male CNS type page records: male-specific, cb_intrinsic, hemilineage SLPad1_anterior, supertype 21433, 6 cells on the left and 5 on the right, cholinergic, and "Synonyms: Cachero 2010: aSP-f ; Yu 2010: aSP5 ; Ruta 2010: DC1". Under those old names this is one of the best-studied cells in the courtship literature: a cVA-selective cluster that receives DA1 projection neuron input, responds to cVA in males and not in females, and feeds a male-specific neuropil and descending output.</p>
 <p><strong>Coarseness.</strong> aSP-f, aSP5 and DC1 are cluster-level names. Cachero's aSP-f clone holds about 23 cells per hemisphere. Ruta's DC1 is a PA-GFP-labelled cluster of about 20 cells per hemisphere in males. Kohl 2013 recorded from the cluster and pooled it. The connectome splits that one cluster into at least LH008m and LH001m. <strong>No published paper splits them.</strong> Every functional claim is a claim about the group.</p>
@@ -691,7 +691,7 @@ Ruta et al. (2010)      DC1     n/a     DC2     LC1     LC2</code></pre>
 <ul>
 <li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. <code>PVLP206</code> and <code>aIP-b</code> both give zero hits in the article text. Correction to the research pass: the Methods state that the <code>m</code> suffix marks a <strong>male-specific</strong> type. PVLP206m therefore sits among the 262 male-specific types and cannot be one of the 114 dimorphic cross-matched types.</li>
 </ul>
-<p><strong>Removed:</strong> Yu 2010. See the discarded table.</p>
+<p><strong>Removed:</strong> Yu 2010. The paper names neither the type nor a synonym of it.</p>
 <h3 id="sip100m---input-14-glutamatergic">SIP100m - input 1.4%, glutamatergic</h3>
 <p><strong>Identity.</strong> Glutamatergic superior intermediate protocerebrum type. Curated synonyms aSP-a (Cachero 2010) and aSP2 (Yu 2010), the same pair that SIP101m, SIP104m and SIP122m carry.</p>
 <p><strong>Coarseness.</strong> One old name, four modern types. SIP100m is the weakest of the four connections to AVLP743m, so it is the least likely of the four to dominate any bulk aSP2 manipulation. All evidence is group-level.</p>
@@ -787,7 +787,7 @@ Ruta et al. (2010)      DC1     n/a     DC2     LC1     LC2</code></pre>
 <ul>
 <li><strong>Berg 2025</strong> (dataset) - <a href="https://doi.org/10.1101/2025.10.09.680999">doi:10.1101/2025.10.09.680999</a>. Dataset provenance only.</li>
 </ul>
-<p><strong>Removed:</strong> Schlegel 2024. See the discarded table.</p>
+<p><strong>Removed:</strong> Schlegel 2024. The paper names neither the type nor a synonym of it.</p>
 <h3 id="sip122m---output-17-glutamatergic">SIP122m - output 1.7%, glutamatergic</h3>
 <p><strong>Identity.</strong> Glutamatergic superior intermediate protocerebrum type. Curated synonyms aSP-a (Cachero 2010) and aSP2 (Yu 2010).</p>
 <p><strong>Coarseness.</strong> aSP-a and aSP2 map four to one. Nothing published resolves SIP122m from its three siblings.</p>
@@ -886,91 +886,6 @@ Ruta et al. (2010)      DC1     n/a     DC2     LC1     LC2</code></pre>
 </tbody>
 </table></div>
 <p><strong>Named only at cluster level.</strong> The four mAL types, mAL_m1, mAL_m5a, mAL_m5c and mAL_m8, have a large literature, but the verification pass downgraded <strong>every</strong> citation to INDIRECT. No paper names any mAL_m* type. The only pre-connectome subdivision, Costa 2016, produced unnamed subtypes that have never been mapped onto the connectome names.</p>
-<hr />
-<h2 id="discarded-citations">Discarded citations</h2>
-<p>Every citation the verifier marked <code>exists=false</code> was removed. Citations that name neither the type nor any of its synonyms, and that the verifier recommended for removal, were also removed. Both classes are listed here.</p>
-<div class="wrap"><table class="sortable">
-<thead>
-<tr>
-<th>Type</th>
-<th>Citation</th>
-<th>Verifier verdict</th>
-<th>Reason for removal</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DA1_lPN</td>
-<td>Schlegel P 2025 [2021], <em>Information flow, cell types and stereotypy in a full olfactory connectome</em>, eLife 10:e66018, doi:10.7554/eLife.66018</td>
-<td><code>exists=false</code></td>
-<td>Mandatory drop. The paper is real, but the claim made of it is not. The string <code>DA1_lPN</code> does not appear; the paper's PN nomenclature is uPN, mPN and ALPN. The paper never mentions FlyWire; its second dataset is FAFB. The substrate is the hemibrain, a female brain. The stated attribution of the DA1_lPN name to this paper is false. <strong>Kept for M_lvPNm45</strong>, where the verifier confirmed the type name in Supplementary file S5.</td>
-</tr>
-<tr>
-<td>AVLP743m</td>
-<td>Kohl J 2013, <em>A bidirectional circuit switch reroutes pheromone signals in male and female brains</em>, Cell, doi:10.1016/j.cell.2013.11.025</td>
-<td>Refuted for LC1</td>
-<td><code>LC1</code> occurs zero times in the retrieved full text. The sentence presented as a verbatim Kohl quote is not the paper's sentence; the real sentence names no author. The claimed male-only DA1 response of LC1 in fact describes aSP-f and DC1. The citation was pulled in through an LC1 and DC1 collision. <strong>Kept elsewhere</strong> for aSP-f, aSP-g and for CB1852 nomenclature.</td>
-</tr>
-<tr>
-<td>PVLP206m</td>
-<td>Yu JY 2010, <em>Cellular organization of the neural circuit that drives Drosophila courtship behavior</em>, Current Biology, doi:10.1016/j.cub.2010.08.025</td>
-<td>Names neither the type nor a synonym</td>
-<td>Yu 2010's anterior inferior protocerebrum classes are aIP1 to aIP5 only. The hyphenated <code>aIP-b</code> never appears, and neither does PVLP206m. FBbt_00052695 lists no Yu 2010 class equivalent for aIP-b either. The research pass itself conceded that the paper "says nothing about this cell type".</td>
-</tr>
-<tr>
-<td>AN09B017g</td>
-<td>von Philipsborn AC 2011, <em>Neuronal control of Drosophila courtship song</em>, Neuron, doi:10.1016/j.neuron.2011.01.011</td>
-<td>vAB3 not confirmed</td>
-<td>The full text could not be reached, so the string <code>vAB3</code> could not be checked. The paper's five identified classes are P1, pIP10, dPR1, vPR6 and vMS11; vAB3 is not among them and is not a song neuron. The stated link, that vAB3 comes from the same fruitless VNC collection, is guilt by association; Yu 2010 supplies that collection and is already cited directly. The citation was also attached to subtype g but not to subtype f, although both rest on the same synonym. <strong>The curated synonym column still cites this paper for AN09B017g, so the synonym map keeps it.</strong></td>
-</tr>
-<tr>
-<td>M_lvPNm45</td>
-<td>Scheffer LK 2020, <em>A connectome and analysis of the adult Drosophila central brain</em>, eLife 9:e57443, doi:10.7554/eLife.57443</td>
-<td>Redundant provenance</td>
-<td>Zero hits for <code>M_lvPNm45</code>, <code>lvPN</code> and any <code>M_</code>-prefixed name. The EM volume is Scheffer's, but the ALPN type names were assigned by the Jefferis-lab olfactory annotation published as Schlegel 2021, whose supplement contains the string. This citation is volume provenance one step removed, and is redundant once Schlegel 2021 is cited.</td>
-</tr>
-<tr>
-<td>M_lvPNm45</td>
-<td>Tanaka NK 2012, <em>Organization of antennal lobe-associated neurons in adult Drosophila melanogaster brain</em>, Journal of Comparative Neurology, doi:10.1002/cne.23142</td>
-<td>No connection to the type</td>
-<td>No PMC record exists, so no full text could be searched. The paper predates the M_lvPNm* names and cannot be matched to any individual type. Two stretches were also found: the abstract never uses the word multiglomerular, and the mALT tract nomenclature is standardly attributed to Ito et al. 2014, not to this paper.</td>
-</tr>
-<tr>
-<td>AVLP758m</td>
-<td>Schlegel P 2024, <em>Whole-brain annotation and multi-connectome cell typing of Drosophila</em>, Nature, doi:10.1038/s41586-024-07686-5</td>
-<td>A record of a failed search</td>
-<td>Zero hits for <code>AVLP758</code> and <code>AVLP758m</code>; the paper contains no AVLP-numbered type names at all. The entry states that it is "cited only to document the counterpart search, not as evidence about the cell". A record of a failed search is not a citation. The search itself is reported in the AVLP758m section instead.</td>
-</tr>
-</tbody>
-</table></div>
-<h3 id="statements-removed-while-the-citation-stayed">Statements removed while the citation stayed</h3>
-<p>Three specific statements failed verification, but the papers that carry them are still cited for other, verified content. The statements are not repeated anywhere in this report.</p>
-<div class="wrap"><table class="sortable">
-<thead>
-<tr>
-<th>Type</th>
-<th>Statement removed</th>
-<th>Why</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LHAV4c2</td>
-<td>"Deutsch 2025 explicitly carries the label aSP8-vpoIN2 = LHAV4c2"</td>
-<td>The string <code>LHAV4c2</code> occurs zero times in the full text, and a Europe PMC full-text search returns zero hits corpus-wide. The equation is not in the source.</td>
-</tr>
-<tr>
-<td>LHAV4c2</td>
-<td>"Deutsch 2025 predicts aSP8 to be GABAergic" and "aSP8 receives weak direct input from the visual projection neuron LC43"</td>
-<td>The string <code>GABA</code> occurs zero times in the full text. The LC43 input belongs to aSP9-LHAV2b2a, not to aSP8; the claim came from an aSP8 and aSP9 collision.</td>
-</tr>
-<tr>
-<td>LHAV4c2</td>
-<td>The sentence attributed to Baker 2022, that AVLP_pr01 and AVLP_pr02 "share morphology with vpoINs, which provide sound-evoked inhibition onto vpoDNs"</td>
-<td>The sentence does not exist in the full text. Baker 2022 does name and map vpoIN, so the citation is kept and upgraded to DIRECT, with the correct quotations given instead.</td>
-</tr>
-</tbody>
-</table></div>
 
 
 <script>

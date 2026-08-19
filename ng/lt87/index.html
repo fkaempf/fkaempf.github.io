@@ -122,8 +122,8 @@ this connection.</p>
 </p>
 
 <h2>Visual field</h2>
-<p class="note">Mollweide projection of the visual field, in the style of Berg et al. 2025. The two eyes are one map: the left eye is mirrored onto the right eye, and a mark holds the mean of the two cells. One mark is one lobula column, that is one ommatidium. A grey mark is a direction that neither eye reads. The cross is the synapse-weighted centre, at azimuth 50 and elevation -8, while the eye itself sits at azimuth 60 and elevation +9. LT87 reads 827 of the 881 directions, so it sees almost the whole eye, and it gives more weight to the frontal field and to the field below the equator. The map agrees with the published Cell Type Explorer page for LT87: 15754 against 15784 input synapses for the right cell, 719 against 719 columns, and a columnar completeness of 0.846 against 0.84. Built by R/19_lt87_eye_map.R; run it with SIDES=1 for one panel per eye.</p>
-<img src="eye_map.png?v=d2478e32" alt="LT87 field of view on the eye map">
+<p class="note">Mollweide projection of the whole world, in the style of Berg et al. 2025. The two eyes are on one map, and each eye keeps its own direction: the left cell fills the left half, the right cell fills the right half, and the two fields meet in front of the animal. One mark is one lobula column, that is one ommatidium. The colour gives the number of input synapses in that column, and a grey mark is a column with no input. An open mark is a column of the male-only rim, whose direction is extrapolated. Each cross is the synapse-weighted centre of one eye. The left cell reads 768 of 867 columns and the right cell reads 733 of 875, so LT87 sees almost the whole world. The bright band sits in front and below the equator. The map agrees with the published Cell Type Explorer page for LT87: 15754 against 15784 input synapses for the right cell, 719 against 719 columns, and a columnar completeness of 0.838 against 0.84. Built by R/19_lt87_eye_map.R. Run it with MAP=fold for one folded field, MAP=sides for one panel per eye, and BG=light for white paper.</p>
+<img src="eye_map.png?v=f63fc200" alt="LT87 field of view on the eye map">
 
 
 <script>

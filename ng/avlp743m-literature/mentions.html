@@ -12,6 +12,7 @@
  a{color:#0b5fa5}
  nav{margin:0 0 2rem;font-size:.9rem;display:flex;flex-wrap:wrap;gap:.35rem 1.1rem}
  nav a.here{color:inherit;text-decoration:none;font-weight:600}
+ p.hint{color:#555;font-size:.85rem;margin:-1.25rem 0 1.75rem}
  h2{font-size:1.15rem;margin:2.75rem 0 .5rem;font-weight:600;
     border-top:1px solid #ececec;padding-top:1.25rem}
  h3{font-size:1rem;margin:2rem 0 .35rem;font-weight:600}
@@ -23,6 +24,9 @@
  th{font-weight:600;color:#555;font-size:.8rem;text-transform:uppercase;
     letter-spacing:.03em;white-space:nowrap}
  td:first-child{white-space:nowrap}
+ table.sortable th{cursor:pointer;user-select:none}
+ table.sortable th:hover{color:#0b5fa5}
+ table.sortable th.sorted::after{content:" 95";font-size:.8em;opacity:.6}
  code{font-size:.9em;background:#f2f2f2;padding:.1rem .25rem;border-radius:3px}
  pre{background:#f7f7f7;padding:.75rem 1rem;border-radius:6px;overflow-x:auto}
  pre code{background:none;padding:0}
@@ -40,7 +44,8 @@
   a{color:#6fb3ef}
   h2{border-top-color:#2a2a2a} h4{color:#aaa}
   th,td{border-bottom-color:#2a2a2a} th,p.sub{color:#aaa}
-  code{background:#242424} pre{background:#1b1b1b}
+  table.sortable th:hover{color:#6fb3ef}
+  code{background:#242424} pre{background:#1b1b1b} p.hint{color:#aaa}
   blockquote{border-left-color:#333;color:#bbb}
   hr{border-top-color:#2a2a2a}
   .box{border-color:#333;border-left-color:#6fb3ef;background:#1b2430}
@@ -51,6 +56,7 @@
 <nav><a href="index.html">Function</a>
 <a class="here">Publications</a>
 <a href="../avlp743m/">Scenes and partner tables</a></nav>
+<p class="hint">Click a column header to sort a table. A rank column puts the strongest evidence first.</p>
 
 <div class="box">
 <p><b>Read this first: AVLP743m is a part of LC1, and no paper names it.</b></p>
@@ -79,7 +85,7 @@ on this page, and Stuerner 2025 makes the same assignment in print.</p>
 <p><strong>Directness.</strong> Each citation is marked DIRECT or INDIRECT. DIRECT means the paper names the type or one of its curated synonyms. INDIRECT means the paper covers the pathway, the lineage, the region or the dataset, but does not name the cell.</p>
 <h3 id="caveat-1-the-old-names-are-coarser-than-the-modern-types">Caveat 1: the old names are coarser than the modern types</h3>
 <p>The old names come from light microscopy. They name clones, clusters and classes. The connectome names single cell types. One old name can therefore cover several modern types.</p>
-<div class="wrap"><table>
+<div class="wrap"><table class="sortable">
 <thead>
 <tr>
 <th>Old name</th>
@@ -125,7 +131,7 @@ on this page, and Stuerner 2025 makes the same assignment in print.</p>
 <hr />
 <h2 id="the-anchor-papers">The anchor papers</h2>
 <p>These papers supply most of the old names. They are given once here. The type sections cite them by author and year only.</p>
-<div class="wrap"><table>
+<div class="wrap"><table class="sortable">
 <thead>
 <tr>
 <th>Paper</th>
@@ -185,7 +191,7 @@ on this page, and Stuerner 2025 makes the same assignment in print.</p>
 <h2 id="synonym-map">Synonym map</h2>
 <p>The synonyms in the fourth column are the curated male-cns:v1.0 annotation, verbatim. The fifth column adds the further aliases that the research pass found. The tables are grouped by direction. Three types are on both sides: LHAV4c2, CB1852 and mAL_m1.</p>
 <h3 id="the-cell-itself">The cell itself</h3>
-<div class="wrap"><table>
+<div class="wrap"><table class="sortable">
 <thead>
 <tr>
 <th>Type</th>
@@ -203,7 +209,7 @@ on this page, and Stuerner 2025 makes the same assignment in print.</p>
 </table></div>
 <h3 id="input-partners">Input partners</h3>
 <p>Share is of the total input of AVLP743m.</p>
-<div class="wrap"><table>
+<div class="wrap"><table class="sortable">
 <thead>
 <tr>
 <th>Type</th>
@@ -323,7 +329,7 @@ on this page, and Stuerner 2025 makes the same assignment in print.</p>
 </table></div>
 <h3 id="output-partners">Output partners</h3>
 <p>Share is of the total output of AVLP743m.</p>
-<div class="wrap"><table>
+<div class="wrap"><table class="sortable">
 <thead>
 <tr>
 <th>Type</th>
@@ -826,7 +832,7 @@ Ruta et al. (2010)      DC1     n/a     DC2     LC1     LC2</code></pre>
 <hr />
 <h2 id="partners-with-no-literature">Partners with no literature</h2>
 <p><strong>No paper names the type, and no old name maps onto it.</strong></p>
-<div class="wrap"><table>
+<div class="wrap"><table class="sortable">
 <thead>
 <tr>
 <th>Type</th>
@@ -857,7 +863,7 @@ Ruta et al. (2010)      DC1     n/a     DC2     LC1     LC2</code></pre>
 </tbody>
 </table></div>
 <p><strong>Named in the literature, but never studied.</strong></p>
-<div class="wrap"><table>
+<div class="wrap"><table class="sortable">
 <thead>
 <tr>
 <th>Type</th>
@@ -883,7 +889,7 @@ Ruta et al. (2010)      DC1     n/a     DC2     LC1     LC2</code></pre>
 <hr />
 <h2 id="discarded-citations">Discarded citations</h2>
 <p>Every citation the verifier marked <code>exists=false</code> was removed. Citations that name neither the type nor any of its synonyms, and that the verifier recommended for removal, were also removed. Both classes are listed here.</p>
-<div class="wrap"><table>
+<div class="wrap"><table class="sortable">
 <thead>
 <tr>
 <th>Type</th>
@@ -939,7 +945,7 @@ Ruta et al. (2010)      DC1     n/a     DC2     LC1     LC2</code></pre>
 </table></div>
 <h3 id="statements-removed-while-the-citation-stayed">Statements removed while the citation stayed</h3>
 <p>Three specific statements failed verification, but the papers that carry them are still cited for other, verified content. The statements are not repeated anywhere in this report.</p>
-<div class="wrap"><table>
+<div class="wrap"><table class="sortable">
 <thead>
 <tr>
 <th>Type</th>
@@ -965,4 +971,41 @@ Ruta et al. (2010)      DC1     n/a     DC2     LC1     LC2</code></pre>
 </tr>
 </tbody>
 </table></div>
+
+
+<script>
+// click-to-sort on every table. A column sorts numerically when every cell
+// starts with a number, once "RANK", per-cent signs and commas are stripped.
+// A cell like "2.5% (also an output, 3.7%)" sorts on its first number, and a
+// cell like "RANK 2" sorts on its rank.
+document.querySelectorAll("table.sortable").forEach(function (tbl) {
+  var dir = {};
+  // a rank column is inverted, so that one click puts RANK 1, the strongest
+  // evidence, at the top, the same way one click puts the largest share on top.
+  function key(cell, invert) {
+    var t = cell.textContent.replace(/^\s*RANK\s*/i, "").replace(/[%,]/g, "").trim();
+    var head = t.split(/[\s(]/)[0];
+    if (head === "" || isNaN(Number(head))) return null;
+    return invert ? -Number(head) : Number(head);
+  }
+  tbl.querySelectorAll("th").forEach(function (th, idx) {
+    th.addEventListener("click", function () {
+      var body = tbl.tBodies[0];
+      var rws = Array.prototype.slice.call(body.rows);
+      dir[idx] = -(dir[idx] || 1);
+      var inv = /rank/i.test(th.textContent);
+      var num = rws.every(function (r) { return r.cells[idx] && key(r.cells[idx], inv) !== null; });
+      rws.sort(function (a, b) {
+        var x = a.cells[idx], y = b.cells[idx];
+        if (!x || !y) return 0;
+        if (num) return (key(x, inv) - key(y, inv)) * dir[idx];
+        return x.textContent.trim().localeCompare(y.textContent.trim()) * dir[idx];
+      });
+      rws.forEach(function (r) { body.appendChild(r); });
+      tbl.querySelectorAll("th").forEach(function (o) { o.classList.remove("sorted"); });
+      th.classList.add("sorted");
+    });
+  });
+});
+</script>
 

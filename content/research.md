@@ -4,7 +4,7 @@ I study how sensory inputs are transformed into persistent internal states that 
 
 Current
 # Internal States in Drosophila
-My PhD investigates how contact chemosensation induces internal states in male *Drosophila melanogaster*. When a male fly touches another fly, pheromone cues trigger either courtship (female) or aggression (male), yet both behaviours share underlying neural circuitry through P1 neurons. I'm dissecting how the brain distinguishes these contexts and selects appropriate behavioural outputs. I combine connectomics (using the [male CNS connectome](https://male-cns.janelia.org/)), behavioural assays with optogenetic manipulation, and two-photon calcium imaging to map the circuit from sensory input to motor output.
+My PhD investigates how contact chemosensation induces internal states in male *Drosophila melanogaster*. When a male fly touches another fly, pheromone cues trigger either courtship (female) or aggression (male), yet both behaviours share underlying neural circuitry through P1 neurons. I'm dissecting how the brain distinguishes these contexts and selects appropriate behavioural outputs. I combine connectomics (using the [male CNS connectome](https://male-cns.janelia.org/)), behavioural assays with optogenetic manipulation, and two-photon calcium imaging to map the circuit from sensory input to motor output. Connectomes are unfinished maps, and it shows: more than half of the output of the cell I work on lands on [7,834 unmerged fragments](https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/AVLP743m_fragments.json) that are not yet neurons.
 
 ---
 

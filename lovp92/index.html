@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Genetic access to the love-spot circuit | Florian Kämpf</title>
+<meta name="description" content="Driver lines for every node of the Drosophila love-spot circuit from Berg et al. 2026, found independently by colour depth matching and shown against the EM neurons they label.">
+<meta name="author" content="Florian Kämpf">
+<link rel="canonical" href="https://floriankaempf.com/lovp92/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Florian Kämpf">
+<meta property="og:url" content="https://floriankaempf.com/lovp92/">
+<meta property="og:title" content="Genetic access to the love-spot circuit">
+<meta property="og:description" content="Driver lines for every node of the love-spot circuit, shown against the EM neurons they label.">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --bg-primary:#0d0d0d; --bg-secondary:#161616; --bg-sunk:#1a1a1a; --bg-stage:#08090a;
+  --text-primary:#e8e8e8; --text-secondary:#a0a0a0; --text-muted:#666;
+  --accent:#5ba3a3; --accent-hover:#6fb8b8; --accent-subtle:rgba(91,163,163,.15);
+  --header-accent:#6b7a5c;
+  --border:#2a2a2a; --border-light:#333;
+  --em:#d95926; --lm:#3987e5;
+  --ok:#3fbf3f; --ok-soft:rgba(63,191,63,.14);
+  --no:#e26a6a; --no-soft:rgba(226,106,106,.13);
+  --font-sans:'IBM Plex Sans',-apple-system,sans-serif;
+  --font-serif:'IBM Plex Serif',Georgia,serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-sans);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+[hidden]{display:none!important}
+.wrap{max-width:1000px;margin:0 auto;padding-inline:22px;padding-block:0 80px}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:.2s ease}
+a:hover{color:var(--accent-hover);border-bottom-color:var(--accent-hover)}
+.back{display:inline-block;font-size:13px;color:var(--text-muted);margin-top:26px}
+.back:hover{color:var(--accent)}
+.eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--header-accent)}
+h1{font-family:var(--font-serif);font-size:clamp(30px,5.2vw,45px);line-height:1.12;
+  font-weight:600;letter-spacing:-.015em;margin:12px 0 0;text-wrap:balance}
+h2{font-family:var(--font-serif);font-size:24px;font-weight:600;letter-spacing:-.01em;
+  text-wrap:balance}
+h3{font-size:15px;font-weight:600}
+p{max-width:68ch;color:var(--text-secondary)}
+code,.mono{font-family:var(--font-mono);font-size:.87em}
+header{border-bottom:1px solid var(--border);padding-block:14px 30px;
+  display:flex;flex-direction:column;gap:16px}
+.lede{font-family:var(--font-serif);font-size:18px;line-height:1.55;color:var(--text-secondary);max-width:64ch}
+.prov{display:flex;flex-wrap:wrap;gap:6px 9px;font-family:var(--font-mono);font-size:11.5px;
+  color:var(--text-muted)}
+.prov span{background:var(--bg-secondary);border:1px solid var(--border);border-radius:3px;padding:3px 8px}
+section{padding-block:40px;border-bottom:1px solid var(--border);
+  display:flex;flex-direction:column;gap:20px}
+section:last-of-type{border-bottom:0}
+.shead{display:flex;flex-direction:column;gap:8px}
+.figbox{background:var(--bg-secondary);border:1px solid var(--border);border-radius:6px;
+  padding:16px 12px;overflow-x:auto}
+svg{display:block;max-width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:9px 22px;align-items:center;font-size:12.5px;
+  color:var(--text-secondary)}
+.legend b{display:inline-flex;align-items:center;gap:7px;font-weight:500}
+.sw{width:11px;height:11px;border-radius:2.5px;display:inline-block}
+.pill{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.07em;
+  text-transform:uppercase;padding:2.5px 7px;border-radius:3px;white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.no{background:var(--no-soft);color:var(--no)}
+.pill.neutral{background:var(--bg-sunk);color:var(--text-muted);border:1px solid var(--border)}
+.ctrls{display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-family:var(--font-mono);font-size:12px;padding:4.5px 10px;border-radius:4px;
+  border:1px solid var(--border-light);background:var(--bg-secondary);color:var(--text-secondary);
+  cursor:pointer;transition:.15s ease}
+.chip:hover{background:var(--bg-sunk);color:var(--text-primary)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#08201f;font-weight:600}
+.chip:focus-visible,.swap button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.viewer{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:22px;align-items:start}
+@media(max-width:780px){.viewer{grid-template-columns:1fr}}
+.stage{position:relative;background:var(--bg-stage);border:1px solid var(--border);
+  border-radius:6px;overflow:hidden;line-height:0}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.stage img.base{position:relative}
+.stage img.top{mix-blend-mode:screen}
+.stage .cap{position:absolute;left:10px;bottom:8px;font-size:10.5px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;color:#cfd2c8;text-shadow:0 1px 5px #000;
+  pointer-events:none}
+.vside{display:flex;flex-direction:column;gap:13px;min-width:0}
+.vhead{display:flex;flex-wrap:wrap;gap:9px;align-items:baseline}
+.vhead .n{font-family:var(--font-mono);font-size:21px;font-weight:600}
+dl.kv{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:13px;align-items:baseline}
+dl.kv dt{font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--text-muted)}
+dl.kv dd{font-family:var(--font-mono);font-size:12.5px;color:var(--text-primary);word-break:break-word}
+.verdict{border-radius:5px;padding:10px 12px;font-size:13.5px;line-height:1.5;
+  border:1px solid var(--border)}
+.verdict.good{background:var(--ok-soft);border-color:rgba(63,191,63,.3)}
+.verdict.no{background:var(--no-soft);border-color:rgba(226,106,106,.3)}
+.verdict b{font-family:var(--font-mono);font-size:12.5px}
+.vrow{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center}
+.swap{display:flex;border:1px solid var(--border-light);border-radius:4px;overflow:hidden}
+.swap button{font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+  padding:5px 11px;border:0;background:var(--bg-secondary);color:var(--text-secondary);
+  cursor:pointer;border-right:1px solid var(--border-light)}
+.swap button:last-child{border-right:0}
+.swap button[aria-pressed="true"]{background:var(--accent);color:#08201f}
+.swap button:disabled{opacity:.4;cursor:not-allowed}
+.slider{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--text-secondary)}
+.slider input[type=range]{width:128px;accent-color:var(--accent)}
+.note{background:var(--bg-secondary);border:1px solid var(--border);
+  border-left:3px solid var(--accent);border-radius:0 5px 5px 0;padding:14px 16px;
+  display:flex;flex-direction:column;gap:7px}
+.note.no{border-left-color:var(--no)}
+.note h3{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text-muted)}
+.note p{font-size:14px}
+.scroller{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--text-muted);text-align:left;padding:0 10px 8px 0;
+  border-bottom:1px solid var(--border-light);white-space:nowrap}
+td{padding:8px 10px 8px 0;border-bottom:1px solid var(--border);vertical-align:top;
+  color:var(--text-secondary)}
+tbody tr:last-child td{border-bottom:0}
+td.name{font-family:var(--font-mono);font-weight:500;white-space:nowrap;color:var(--text-primary)}
+td.num{font-family:var(--font-mono);text-align:right;font-variant-numeric:tabular-nums;
+  padding-right:14px;white-space:nowrap}
+th.num{text-align:right;padding-right:14px}
+.nodebox{cursor:pointer}
+.nodebox:focus{outline:none}
+.nodebox:focus-visible rect{stroke:var(--accent);stroke-width:2.5}
+footer{padding-block:30px 0;font-size:12.5px;color:var(--text-muted);line-height:1.65;max-width:74ch}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="/">&larr; floriankaempf.com</a>
+
+<header>
+  <p class="eyebrow">Berg et al., Cell 189:5504&ndash;5526, 2026 &middot; Figures 4H and 4I</p>
+  <h1>Genetic access to the love-spot circuit</h1>
+  <p class="lede">The male-specific frontal visual pathway that suppresses turning during courtship,
+  redrawn from the connectome, with an independently found driver line for every node shown against
+  the EM neurons it is meant to label.</p>
+  <div class="prov">
+    <span>neuPrint male-cns:v0.9</span><span>NeuronBridge v3_10_0</span>
+    <span id="pv-nodes"></span><span>colour depth matching only</span>
+    <span>no line taken from the paper</span>
+  </div>
+</header>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">Figure 4H</p>
+    <h2>The circuit, in the paper's layout</h2>
+    <p>Columns and membership are the paper's. Edges and synapse counts are mine, queried fresh
+    from the male CNS connectome; only connections of 150 synapses or more are drawn, or the
+    diagram becomes a hairball. Node colour is the result of this whole exercise: whether any
+    single driver line reaches that type. Click a node to see it.</p>
+  </div>
+  <div class="figbox" id="diagram"></div>
+  <div class="legend">
+    <b><span class="sw" style="background:var(--ok)"></span>A line labels this type best</b>
+    <b><span class="sw" style="background:var(--no)"></span>Every line labels something else harder</b>
+    <b><span class="sw" style="background:var(--accent);border-radius:50%"></span>On the Figure 4I subcircuit</b>
+    <b style="color:var(--text-muted)">Edge width is synapse count</b>
+  </div>
+  <div class="note">
+    <h3>Figure 4I, checked independently</h3>
+    <p>The functional subcircuit is <span class="mono">LoVP92 &rarr; VES200m &rarr; DNg13</span>.
+    The paper says LoVP92 drives VES200m bilaterally and VES200m inhibits DNg13 ipsilaterally. Both
+    hold. LoVP92 to VES200m splits across the midline almost evenly (L&rarr;L 196, L&rarr;R 187,
+    R&rarr;L 110, R&rarr;R 194). VES200m to DNg13 is strictly one sided: 167 and 194 within a
+    hemisphere against 1 and 0 across it. LoVP92 also contacts DNg13 directly, but at 54 synapses
+    against 362 through VES200m, the inhibitory route dominates.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">Coregistered light and EM</p>
+    <h2 id="viewerHead">Pick a node</h2>
+    <p>Orange is every cell of the EM type at once. Blue is the light segment that matched. Both
+    live on the same JRC2018_Unisex_20x_HR canvas, so they are aligned with no warping. Full
+    expression shows what else the line labels; there, hue is Z depth, not identity.</p>
+  </div>
+  <div class="ctrls" id="nodeChips" role="group" aria-label="Choose a circuit node"></div>
+  <div class="ctrls" id="lineChips" role="group" aria-label="Choose a line"></div>
+  <div class="viewer">
+    <div>
+      <div class="stage" id="stage">
+        <img id="imgBase" class="base" alt="">
+        <img id="imgTop" class="top" alt="">
+        <span class="cap" id="stageCap"></span>
+      </div>
+      <div class="vrow" style="margin-top:12px">
+        <div class="swap" role="group" aria-label="What to show">
+          <button type="button" id="mOverlay" aria-pressed="true">Overlay</button>
+          <button type="button" id="mFull" aria-pressed="false">Full expression</button>
+        </div>
+        <label class="slider" for="blend">Line opacity
+          <input type="range" id="blend" min="0" max="100" value="100">
+          <span class="mono" id="blendVal" style="width:36px">100%</span>
+        </label>
+        <div class="legend">
+          <b><span class="sw" style="background:var(--em)"></span>EM</b>
+          <b><span class="sw" style="background:var(--lm)"></span>Line</b>
+        </div>
+      </div>
+    </div>
+    <div class="vside" id="vside"></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">Verdict</p>
+    <h2>What the circuit lets you manipulate</h2>
+    <p>A line counts as specific only when its type is the single strongest match across the whole
+    EM volume. Filling every cell of a type is not sufficient: a line can cover a type completely
+    and still label three others as brightly.</p>
+  </div>
+  <div class="scroller"><table id="verdict">
+    <thead><tr><th>Node</th><th>Column</th><th class="num">Cells</th><th>NT</th>
+      <th>Best specific line</th><th class="num">Specific / checked</th><th>Status</th></tr></thead>
+    <tbody></tbody></table></div>
+  <div class="note no">
+    <h3>Where it breaks</h3>
+    <p id="breaks"></p>
+  </div>
+</section>
+
+<footer>
+  <p>Lines were found by colour depth matching every cell of every type against the FlyLight
+  light-microscopy libraries, independently of the paper's own choices. PatchPerPix does not exist
+  for the male CNS dataset, so this is colour depth matching only. Hemidriver halves come from the
+  FlyLight Split-GAL4 collection, which publishes genotypes for curated SS and OL lines but not for
+  Omnibus Broad IS lines. No stock availability is asserted: BDSC blocks programmatic access, so
+  every line and fragment needs checking by hand before ordering. Neurotransmitters are the
+  connectome's predictions, not measurements.</p>
+</footer>
+</div>
+
+<script type="application/json" id="D">{"cols":{"VPN":["LoVP92","LLPC4","LT78","LT86","LT84"],"Central Brain":["PLP060","PVLP214m","PVLP207m","VES200m","VES202m","P1_2a","AOTU008"],"DN":["DNpe002","DNpe037","DNp03","DNp05","pIP1","aSP22","DNge103","DNg13","DNae002","DNa02","DNpe025"]},"fig4i":["LoVP92","VES200m","DNg13"],"nodes":{"LoVP92":{"t":"LoVP92","nt":"ACh","cells":13,"why":"core, only male-specific VPN type","nwin":0,"nchk":22,"best":null,"variants":[{"l":"OL0012B","lm":"LoVP92/OL0012B_lm.png","full":"LoVP92/OL0012B_full.jpg","sr":4,"bb":["LoVP93","LC19","LC14"],"cls":"assembled_split","nb":13,"mr":21.4,"ad":"R67E03","db":"R94D12"},{"l":"OL0038B","lm":"LoVP92/OL0038B_lm.png","full":"LoVP92/OL0038B_full.jpg","sr":5,"bb":["Mi10","TmY5a","Dm12","LC14a-1"],"cls":"assembled_split","nb":13,"mr":30,"ad":"R44A02","db":"R50B11"},{"l":"OL0014B","lm":"LoVP92/OL0014B_lm.png","full":"LoVP92/OL0014B_full.jpg","sr":null,"bb":["LC19","LoVP93","Li20","Li13"],"cls":"assembled_split","nb":13,"mr":35.7,"ad":"R67E03","db":"R09C12"},{"l":"OL0004B","lm":"LoVP92/OL0004B_lm.png","full":"LoVP92/OL0004B_full.jpg","sr":null,"bb":["LoVP93","LC19","LC14"],"cls":"assembled_split","nb":13,"mr":36.2,"ad":"R24A02","db":"R91B01"},{"l":"OL0013C","lm":"LoVP92/OL0013C_lm.png","full":"LoVP92/OL0013C_full.jpg","sr":null,"bb":["Li20","LC19","LC14","KCab-s","KCab-m"],"cls":"assembled_split","nb":13,"mr":37.0,"ad":null,"db":null},{"l":"SS05052","lm":"LoVP92/SS05052_lm.png","full":"LoVP92/SS05052_full.jpg","sr":7,"bb":["AOTU016_a","LC19","LC14","AOTU026","Li12","AOTU016_c"],"cls":"assembled_split","nb":13,"mr":43.5,"ad":null,"db":null}],"em":"LoVP92/LoVP92_em.png","w":900,"h":316},"LLPC4":{"t":"LLPC4","nt":"ACh","cells":6,"why":"Fig 4H VPN column","nwin":0,"nchk":21,"best":null,"variants":[{"l":"SS24421","lm":"LLPC4/SS24421_lm.png","full":"LLPC4/SS24421_full.jpg","sr":null,"bb":["LOLP1","LPi3b","LPi3a","Y3","LPT27"],"cls":"assembled_split","nb":6,"mr":35.9,"ad":null,"db":null},{"l":"IS57238","lm":"LLPC4/IS57238_lm.png","full":"LLPC4/IS57238_full.jpg","sr":null,"bb":["LPi3a","DNg05_a","AN18B020","Li20","Tlp12"],"cls":"assembled_split","nb":6,"mr":38.3,"ad":null,"db":null},{"l":"SS02436","lm":"LLPC4/SS02436_lm.png","full":"LLPC4/SS02436_full.jpg","sr":null,"bb":["PS178","T4c","T5d","LLPC2","Y11"],"cls":"assembled_split","nb":6,"mr":63.4,"ad":"VT029598","db":"VT046081"}],"em":"LLPC4/LLPC4_em.png","w":900,"h":253},"LT78":{"t":"LT78","nt":"Glu","cells":8,"why":"Fig 4H VPN column","nwin":2,"nchk":23,"best":"SS04922","variants":[{"l":"SS04920","lm":"LT78/SS04920_lm.png","full":"LT78/SS04920_full.jpg","sr":2,"bb":["LT77"],"cls":"assembled_split","nb":8,"mr":21.6,"ad":"VT015787","db":"VT046052"},{"l":"SS04921","lm":"LT78/SS04921_lm.png","full":"LT78/SS04921_full.jpg","sr":2,"bb":["LT77"],"cls":"assembled_split","nb":8,"mr":31.4,"ad":null,"db":null},{"l":"SS49415","lm":"LT78/SS49415_lm.png","full":"LT78/SS49415_full.jpg","sr":2,"bb":["VES093_b"],"cls":"assembled_split","nb":8,"mr":38.1,"ad":"VT019074","db":"R47H07"}],"em":"LT78/LT78_em.png","w":900,"h":279},"LT86":{"t":"LT86","nt":"ACh","cells":2,"why":"Fig 4H VPN column","nwin":0,"nchk":20,"best":null,"variants":[{"l":"IS75546","lm":"LT86/IS75546_lm.png","full":"LT86/IS75546_full.jpg","sr":null,"bb":["LT85","LoVP48","LoVP46","Li13","LoVP103"],"cls":"assembled_split","nb":2,"mr":4.5,"ad":null,"db":null},{"l":"VT041688","lm":"LT86/VT041688_lm.png","full":"LT86/VT041688_full.jpg","sr":null,"bb":["LHPV5h2_a","LHPV5h2_c","CB1687","LHPV5h2_b","CB1945"],"cls":"enhancer","nb":2,"mr":10,"ad":null,"db":null},{"l":"IS34113","lm":"LT86/IS34113_lm.png","full":"LT86/IS34113_full.jpg","sr":null,"bb":["LoVP48","LT69","Li36","Li30","Li18a"],"cls":"assembled_split","nb":2,"mr":22,"ad":null,"db":null}],"em":"LT86/LT86_em.png","w":900,"h":311},"LT84":{"t":"LT84","nt":"ACh","cells":2,"why":"Fig 4H VPN column","nwin":0,"nchk":22,"best":null,"variants":[{"l":"SS05052","lm":"LT84/SS05052_lm.png","full":"LT84/SS05052_full.jpg","sr":8,"bb":["AOTU016_a","LC19","LC14","AOTU026","Li12","AOTU016_c","LoVP92"],"cls":"assembled_split","nb":2,"mr":8.2,"ad":null,"db":null},{"l":"IS81576","lm":"LT84/IS81576_lm.png","full":"LT84/IS81576_full.jpg","sr":null,"bb":["SMP316","AOTU011","SMP391","SIP017","SMP359"],"cls":"assembled_split","nb":2,"mr":12.5,"ad":null,"db":null},{"l":"R11E10","lm":"LT84/R11E10_lm.png","full":"LT84/R11E10_full.jpg","sr":null,"bb":["AOTU103m","CB3141","TuTuA","LoVP46","SLP171"],"cls":"enhancer","nb":2,"mr":17.5,"ad":null,"db":null}],"em":"LT84/LT84_em.png","w":900,"h":409},"PLP060":{"t":"PLP060","nt":"GABA","cells":2,"why":"Fig 4H central brain, strongest LoVP92 output","nwin":0,"nchk":25,"best":null,"variants":[{"l":"SS02545","lm":"PLP060/SS02545_lm.png","full":"PLP060/SS02545_full.jpg","sr":null,"bb":["DNa02","DNa06","LAL018","PS019","DNge026"],"cls":"assembled_split","nb":2,"mr":29.1,"ad":"R22C05","db":"VT025718"},{"l":"SS02310","lm":"PLP060/SS02310_lm.png","full":"PLP060/SS02310_full.jpg","sr":7,"bb":["SAD005","PS013","PS023","PS018","DNa02","PS024"],"cls":"assembled_split","nb":2,"mr":58.2,"ad":"VT047755","db":"VT025718"},{"l":"IS81204","lm":"PLP060/IS81204_lm.png","full":"PLP060/IS81204_full.jpg","sr":6,"bb":["LoVC15","PLP195","LT40","PS230","LoVC17"],"cls":"assembled_split","nb":2,"mr":63,"ad":null,"db":null}],"em":"PLP060/PLP060_em.png","w":608,"h":308},"PVLP214m":{"t":"PVLP214m","nt":"ACh","cells":10,"why":"hotspot male-specific, Fig S4C","nwin":3,"nchk":20,"best":"SS02071","variants":[{"l":"VT040001","lm":"PVLP214m/VT040001_lm.png","full":"PVLP214m/VT040001_full.jpg","sr":null,"bb":["PVLP104","WED151","WED024","AVLP706m","WED007"],"cls":"enhancer","nb":10,"mr":69.2,"ad":null,"db":null},{"l":"R39G12","lm":"PVLP214m/R39G12_lm.png","full":"PVLP214m/R39G12_full.jpg","sr":null,"bb":["GNG346","AVLP401","AVLP400","LHAV3b13","LHAV3k5"],"cls":"enhancer","nb":10,"mr":118.1,"ad":null,"db":null},{"l":"R22D04","lm":"PVLP214m/R22D04_lm.png","full":"PVLP214m/R22D04_full.jpg","sr":null,"bb":["PLVP059","AOTU007","PVLP008_a2","AOTU008","AOTU007_b"],"cls":"enhancer","nb":10,"mr":135.7,"ad":null,"db":null}],"em":"PVLP214m/PVLP214m_em.png","w":877,"h":313},"PVLP207m":{"t":"PVLP207m","nt":"ACh","cells":8,"why":"Fig 4H central brain","nwin":2,"nchk":22,"best":"VT001608","variants":[{"l":"VT001608","lm":"PVLP207m/VT001608_lm.png","full":"PVLP207m/VT001608_full.jpg","sr":1,"bb":[],"cls":"enhancer","nb":8,"mr":23.4,"ad":null,"db":null},{"l":"SS03812","lm":"PVLP207m/SS03812_lm.png","full":"PVLP207m/SS03812_full.jpg","sr":2,"bb":["PLP214"],"cls":"assembled_split","nb":8,"mr":66.2,"ad":null,"db":null},{"l":"SS24582","lm":"PVLP207m/SS24582_lm.png","full":"PVLP207m/SS24582_full.jpg","sr":6,"bb":["SMP398","CL151","SMP398_a","CL235","SMP403"],"cls":"assembled_split","nb":8,"mr":81.3,"ad":null,"db":null}],"em":"PVLP207m/PVLP207m_em.png","w":825,"h":268},"VES200m":{"t":"VES200m","nt":"Glu","cells":12,"why":"hotspot male-specific, links LoVP92 to DNg13","nwin":4,"nchk":25,"best":"SS73902","variants":[{"l":"SS73902","lm":"VES200m/SS73902_lm.png","full":"VES200m/SS73902_full.jpg","sr":1,"bb":[],"cls":"assembled_split","nb":12,"mr":21.4,"ad":null,"db":null},{"l":"IS73902","lm":"VES200m/IS73902_lm.png","full":"VES200m/IS73902_full.jpg","sr":1,"bb":[],"cls":"assembled_split","nb":12,"mr":29.8,"ad":null,"db":null},{"l":"IS48898","lm":"VES200m/IS48898_lm.png","full":"VES200m/IS48898_full.jpg","sr":3,"bb":["VES202m","PS003"],"cls":"assembled_split","nb":12,"mr":19.7,"ad":null,"db":null}],"em":"VES200m/VES200m_em.png","w":563,"h":448},"VES202m":{"t":"VES202m","nt":"Glu","cells":7,"why":"hotspot male-specific, Fig S4C","nwin":6,"nchk":25,"best":"SS31697","variants":[{"l":"SS31697","lm":"VES202m/SS31697_lm.png","full":"VES202m/SS31697_full.jpg","sr":1,"bb":[],"cls":"assembled_split","nb":7,"mr":7.2,"ad":"VT063627","db":"VT019074"},{"l":"SS31670","lm":"VES202m/SS31670_lm.png","full":"VES202m/SS31670_full.jpg","sr":1,"bb":[],"cls":"assembled_split","nb":7,"mr":10.5,"ad":"VT063627","db":"VT021842"},{"l":"SS57589","lm":"VES202m/SS57589_lm.png","full":"VES202m/SS57589_full.jpg","sr":16,"bb":["ICL013m_b","AVLP715m","AVLP714m","P1_18b","P1_18a","SIP126m_a","ICL013m_a","SIP140m"],"cls":"assembled_split","nb":7,"mr":28.6,"ad":null,"db":null}],"em":"VES202m/VES202m_em.png","w":558,"h":402},"P1_2a":{"t":"P1_2a","nt":"ACh","cells":4,"why":"Fig 4H central brain, courtship command","nwin":3,"nchk":23,"best":"SS59821","variants":[{"l":"SS59821","lm":"P1_2a/SS59821_lm.png","full":"P1_2a/SS59821_full.jpg","sr":1,"bb":[],"cls":"assembled_split","nb":4,"mr":3.2,"ad":"VT002033","db":null},{"l":"SS59887","lm":"P1_2a/SS59887_lm.png","full":"P1_2a/SS59887_full.jpg","sr":1,"bb":[],"cls":"assembled_split","nb":4,"mr":4,"ad":"R71G01","db":null},{"l":"SS01538","lm":"P1_2a/SS01538_lm.png","full":"P1_2a/SS01538_full.jpg","sr":2,"bb":["AVLP743m"],"cls":"assembled_split","nb":4,"mr":7.2,"ad":null,"db":null}],"em":"P1_2a/P1_2a_em.png","w":871,"h":415},"AOTU008":{"t":"AOTU008","nt":"ACh","cells":25,"why":"Fig 4H central brain, dimorphic LC10a target","nwin":6,"nchk":20,"best":"SS33872","variants":[{"l":"SS33872","lm":"AOTU008/SS33872_lm.png","full":"AOTU008/SS33872_full.jpg","sr":1,"bb":[],"cls":"assembled_split","nb":25,"mr":23.2,"ad":"R94D12","db":"R72H10"},{"l":"SS32549","lm":"AOTU008/SS32549_lm.png","full":"AOTU008/SS32549_full.jpg","sr":1,"bb":[],"cls":"assembled_split","nb":25,"mr":34.8,"ad":null,"db":null},{"l":"R22D04","lm":"AOTU008/R22D04_lm.png","full":"AOTU008/R22D04_full.jpg","sr":6,"bb":["AOTU008_a","AOTU008_b","AOTU007","AOTU007_b","AOTU007_a"],"cls":"enhancer","nb":25,"mr":28.5,"ad":null,"db":null}],"em":"AOTU008/AOTU008_em.png","w":707,"h":301},"DNpe002":{"t":"DNpe002","nt":"ACh","cells":2,"why":"hotspot DN, Fig 4D legend","nwin":0,"nchk":25,"best":null,"variants":[{"l":"VT008485","lm":"DNpe002/VT008485_lm.png","full":"DNpe002/VT008485_full.jpg","sr":null,"bb":["AN01A055","GNG583","DNge037","DNge124","CB0533"],"cls":"enhancer","nb":2,"mr":47.5,"ad":null,"db":null},{"l":"VT017694","lm":"DNpe002/VT017694_lm.png","full":"DNpe002/VT017694_full.jpg","sr":null,"bb":["CB0477","LHPV4a10_a","DNp56","WED104","CB0297"],"cls":"enhancer","nb":2,"mr":99.7,"ad":null,"db":null},{"l":"R46A02","lm":"DNpe002/R46A02_lm.png","full":"DNpe002/R46A02_full.jpg","sr":null,"bb":["CB0297","VES104","VES105","DNge103","CB2396"],"cls":"enhancer","nb":2,"mr":108.9,"ad":null,"db":null}],"em":"DNpe002/DNpe002_em.png","w":535,"h":511},"DNpe037":{"t":"DNpe037","nt":"ACh","cells":2,"why":"Fig 4H descending neuron","nwin":0,"nchk":25,"best":null,"variants":[{"l":"R93E01","lm":"DNpe037/R93E01_lm.png","full":"DNpe037/R93E01_full.jpg","sr":null,"bb":["GNG563","VES089","GNG007","GNG006","GNG166"],"cls":"enhancer","nb":2,"mr":7.2,"ad":null,"db":null},{"l":"R30A10","lm":"DNpe037/R30A10_lm.png","full":"DNpe037/R30A10_full.jpg","sr":null,"bb":["CB1958","PLP029","AN19A018","AN01A049","AN16B112"],"cls":"enhancer","nb":2,"mr":22.5,"ad":null,"db":null},{"l":"R29H12","lm":"DNpe037/R29H12_lm.png","full":"DNpe037/R29H12_full.jpg","sr":null,"bb":["GNG379","aPhM1","GNG258","GNG608","GNG362"],"cls":"enhancer","nb":2,"mr":27.3,"ad":null,"db":null}],"em":"DNpe037/DNpe037_em.png","w":635,"h":506},"DNp03":{"t":"DNp03","nt":"ACh","cells":2,"why":"Fig 4H descending neuron","nwin":16,"nchk":21,"best":"SS01559","variants":[{"l":"SS01559","lm":"DNp03/SS01559_lm.png","full":"DNp03/SS01559_full.jpg","sr":1,"bb":[],"cls":"assembled_split","nb":2,"mr":20.8,"ad":"R29F12","db":"R88C07"},{"l":"SS56230","lm":"DNp03/SS56230_lm.png","full":"DNp03/SS56230_full.jpg","sr":1,"bb":[],"cls":"assembled_split","nb":2,"mr":26.5,"ad":"VT002081","db":"R22D06"},{"l":"SS01081","lm":"DNp03/SS01081_lm.png","full":"DNp03/SS01081_full.jpg","sr":2,"bb":["SLP373"],"cls":"assembled_split","nb":2,"mr":16.8,"ad":"R91C05","db":"R31B08"}],"em":"DNp03/DNp03_em.png","w":626,"h":479},"DNp05":{"t":"DNp05","nt":"ACh","cells":2,"why":"Fig 4H descending neuron","nwin":5,"nchk":20,"best":"R79D11","variants":[{"l":"R79D11","lm":"DNp05/R79D11_lm.png","full":"DNp05/R79D11_full.jpg","sr":1,"bb":[],"cls":"enhancer","nb":2,"mr":9.4,"ad":null,"db":null},{"l":"VT059438","lm":"DNp05/VT059438_lm.png","full":"DNp05/VT059438_full.jpg","sr":1,"bb":[],"cls":"enhancer","nb":2,"mr":9.9,"ad":null,"db":null},{"l":"SS00865","lm":"DNp05/SS00865_lm.png","full":"DNp05/SS00865_full.jpg","sr":1,"bb":[],"cls":"assembled_split","nb":2,"mr":24,"ad":"VT019060","db":"VT003280"}],"em":"DNp05/DNp05_em.png","w":608,"h":413},"pIP1":{"t":"pIP1","nt":"ACh","cells":2,"why":"Fig 4H descending neuron, male-specific","nwin":0,"nchk":23,"best":null,"variants":[{"l":"SS50898","lm":"pIP1/SS50898_lm.png","full":"pIP1/SS50898_full.jpg","sr":4,"bb":["DNge069","DNge081","PVLP209m"],"cls":"assembled_split","nb":2,"mr":6.5,"ad":"VT007170","db":"VT020610"},{"l":"R46A02","lm":"pIP1/R46A02_lm.png","full":"pIP1/R46A02_full.jpg","sr":null,"bb":["AVLP054","GNG287","AVLP229","PVLP083","CL322"],"cls":"enhancer","nb":2,"mr":30.2,"ad":null,"db":null},{"l":"VT007170","lm":"pIP1/VT007170_lm.png","full":"pIP1/VT007170_full.jpg","sr":null,"bb":["AN17A076","DNg57","AN05B009","AN05B036","AN05B005"],"cls":"enhancer","nb":2,"mr":37,"ad":null,"db":null}],"em":"pIP1/pIP1_em.png","w":798,"h":559},"aSP22":{"t":"aSP22","nt":"ACh","cells":2,"why":"Fig 4H descending neuron, male-specific","nwin":0,"nchk":24,"best":null,"variants":[{"l":"SS04946","lm":"aSP22/SS04946_lm.png","full":"aSP22/SS04946_full.jpg","sr":null,"bb":["VES204m","DNa09","CL158","AN19B110","aIPg6"],"cls":"assembled_split","nb":2,"mr":7.4,"ad":null,"db":null},{"l":"R22G01","lm":"aSP22/R22G01_lm.png","full":"aSP22/R22G01_full.jpg","sr":null,"bb":["LAL025","SMP397","PS002","SMP396","SMP055"],"cls":"enhancer","nb":2,"mr":10.1,"ad":null,"db":null},{"l":"VT037519","lm":"aSP22/VT037519_lm.png","full":"aSP22/VT037519_full.jpg","sr":null,"bb":["AN17A076","DNpe005","DNge049","SLP289","GNG646"],"cls":"enhancer","nb":2,"mr":29.4,"ad":null,"db":null}],"em":"aSP22/aSP22_em.png","w":641,"h":566},"DNge103":{"t":"DNge103","nt":"GABA","cells":2,"why":"hotspot DN, Fig S4D","nwin":1,"nchk":22,"best":"R15E06","variants":[{"l":"R68A06","lm":"DNge103/R68A06_lm.png","full":"DNge103/R68A06_full.jpg","sr":4,"bb":["DNa01","DNde003","CB0625"],"cls":"enhancer","nb":2,"mr":10.5,"ad":null,"db":null},{"l":"R22G01","lm":"DNge103/R22G01_lm.png","full":"DNge103/R22G01_full.jpg","sr":6,"bb":["VES083","DNb08","CB0079","DNae001","VES007"],"cls":"enhancer","nb":2,"mr":25,"ad":null,"db":null},{"l":"VT040973","lm":"DNge103/VT040973_lm.png","full":"DNge103/VT040973_full.jpg","sr":7,"bb":["AN12A003","LT54","DNg88","DNa13","CB0625","DNa01"],"cls":"enhancer","nb":2,"mr":29.1,"ad":null,"db":null}],"em":"DNge103/DNge103_em.png","w":470,"h":526},"DNg13":{"t":"DNg13","nt":"ACh","cells":2,"why":"hotspot DN, Fig S4D","nwin":2,"nchk":25,"best":"VT009849","variants":[{"l":"VT009849","lm":"DNg13/VT009849_lm.png","full":"DNg13/VT009849_full.jpg","sr":1,"bb":[],"cls":"enhancer","nb":2,"mr":14.4,"ad":null,"db":null},{"l":"VT002080","lm":"DNg13/VT002080_lm.png","full":"DNg13/VT002080_full.jpg","sr":5,"bb":["Mi13","Mi2","CB2453","GNG590"],"cls":"enhancer","nb":2,"mr":14.1,"ad":null,"db":null},{"l":"R22G01","lm":"DNg13/R22G01_lm.png","full":"DNg13/R22G01_full.jpg","sr":null,"bb":["DNae001","CB0625","DNb08","SLP164","GNG590"],"cls":"enhancer","nb":2,"mr":24.3,"ad":null,"db":null}],"em":"DNg13/DNg13_em.png","w":412,"h":507},"DNae002":{"t":"DNae002","nt":"ACh","cells":2,"why":"Fig 4H descending neuron","nwin":3,"nchk":24,"best":"IS74174","variants":[{"l":"IS74174","lm":"DNae002/IS74174_lm.png","full":"DNae002/IS74174_full.jpg","sr":1,"bb":[],"cls":"assembled_split","nb":2,"mr":15.5,"ad":null,"db":null},{"l":"SS00310","lm":"DNae002/SS00310_lm.png","full":"DNae002/SS00310_full.jpg","sr":3,"bb":["PS018","DNa04"],"cls":"assembled_split","nb":2,"mr":6.6,"ad":null,"db":null},{"l":"SS02310","lm":"DNae002/SS02310_lm.png","full":"DNae002/SS02310_full.jpg","sr":8,"bb":["PS018","PS020","PS029","DNa04","DNa05","PS032","CB0530"],"cls":"assembled_split","nb":2,"mr":11.8,"ad":"VT047755","db":"VT025718"}],"em":"DNae002/DNae002_em.png","w":545,"h":521},"DNa02":{"t":"DNa02","nt":"ACh","cells":2,"why":"Fig 4H descending neuron, visual pursuit","nwin":7,"nchk":20,"best":"SS51314","variants":[{"l":"SS51314","lm":"DNa02/SS51314_lm.png","full":"DNa02/SS51314_full.jpg","sr":1,"bb":[],"cls":"assembled_split","nb":2,"mr":8.7,"ad":null,"db":null},{"l":"R18A08","lm":"DNa02/R18A08_lm.png","full":"DNa02/R18A08_full.jpg","sr":1,"bb":[],"cls":"enhancer","nb":2,"mr":18.9,"ad":null,"db":null},{"l":"SS51315","lm":"DNa02/SS51315_lm.png","full":"DNa02/SS51315_full.jpg","sr":2,"bb":["LAL021"],"cls":"assembled_split","nb":2,"mr":17.1,"ad":null,"db":null}],"em":"DNa02/DNa02_em.png","w":544,"h":506},"DNpe025":{"t":"DNpe025","nt":"ACh","cells":2,"why":"Fig 4H descending neuron","nwin":0,"nchk":24,"best":null,"variants":[{"l":"SS57570","lm":"DNpe025/SS57570_lm.png","full":"DNpe025/SS57570_full.jpg","sr":null,"bb":["AVLP702m","P1_18a","SMP172","P1_18b","VES203m"],"cls":"assembled_split","nb":2,"mr":8.5,"ad":null,"db":null},{"l":"SS38347","lm":"DNpe025/SS38347_lm.png","full":"DNpe025/SS38347_full.jpg","sr":7,"bb":["CB3069","PVLP203m","SCL001m","AVLP709m","AN19B028","CB2295"],"cls":"assembled_split","nb":2,"mr":21,"ad":null,"db":null},{"l":"SS22730","lm":"DNpe025/SS22730_lm.png","full":"DNpe025/SS22730_full.jpg","sr":null,"bb":["DNg101","GNG584","AN05B049_b","ANXXX027","DNa01"],"cls":"assembled_split","nb":2,"mr":33.2,"ad":null,"db":null}],"em":"DNpe025/DNpe025_em.png","w":715,"h":566}},"edges":[["AOTU008","VES200m",1355],["PVLP214m","VES200m",1093],["LT86","VES200m",1066],["PVLP207m","VES200m",862],["AOTU008","VES202m",856],["PVLP214m","pIP1",800],["LoVP92","PLP060",767],["PVLP214m","VES202m",748],["LoVP92","DNpe002",730],["AOTU008","pIP1",690],["LT84","AOTU008",687],["LoVP92","VES200m",687],["LT78","PVLP207m",549],["LLPC4","PVLP207m",521],["PLP060","DNp03",510],["LT84","VES202m",439],["LT84","VES200m",420],["LLPC4","PVLP214m",410],["VES200m","DNg13",362],["PVLP207m","aSP22",360],["AOTU008","DNpe025",344],["PVLP207m","VES202m",327],["PLP060","PVLP214m",324],["PVLP214m","P1_2a",317],["P1_2a","DNpe025",305],["VES200m","DNge103",280],["PLP060","LoVP92",272],["VES202m","DNa02",261],["AOTU008","PVLP207m",261],["PVLP214m","aSP22",228],["PLP060","DNp05",214],["LT84","pIP1",210],["VES200m","AOTU008",207],["PVLP207m","DNpe002",187],["VES202m","DNae002",181],["PVLP214m","LoVP92",177],["LLPC4","pIP1",151]]}</script>
+<script>
+const D = JSON.parse(document.getElementById('D').textContent);
+const NS = 'http://www.w3.org/2000/svg';
+const el = (t, a = {}, kids = []) => {
+  const e = document.createElementNS(NS, t);
+  for (const k in a) e.setAttribute(k, a[k]);
+  for (const c of [].concat(kids)) e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+  return e;
+};
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const FIG4I = new Set(D.fig4i);
+const ORDER = [].concat(D.cols['VPN'], D.cols['Central Brain'], D.cols['DN']);
+const reachable = t => D.nodes[t].nwin > 0;
+
+document.getElementById('pv-nodes').textContent = ORDER.length + ' circuit nodes';
+
+/* ---------- diagram ---------- */
+const COLX = {'VPN': 92, 'Central Brain': 420, 'DN': 770};
+const BOXW = 128, BOXH = 25, ROWGAP = 40;
+const pos = {};
+function layout() {
+  for (const [col, list] of Object.entries(D.cols)) {
+    const n = list.length, maxN = Math.max(...Object.values(D.cols).map(l => l.length));
+    const span = (maxN - 1) * ROWGAP;
+    const step = n > 1 ? span / (n - 1) : 0;
+    list.forEach((t, i) => { pos[t] = {x: COLX[col], y: 60 + (n > 1 ? i * step : span / 2)}; });
+  }
+}
+function drawDiagram() {
+  layout();
+  const maxN = Math.max(...Object.values(D.cols).map(l => l.length));
+  const W = 960, H = 60 + (maxN - 1) * ROWGAP + 60;
+  const svg = el('svg', {viewBox: `0 0 ${W} ${H}`, width: W, role: 'img',
+    'aria-label': 'Circuit diagram of the love-spot pathway, 23 cell types in three columns'});
+
+  for (const [col, x] of Object.entries(COLX)) {
+    svg.appendChild(el('text', {x: x + BOXW / 2, y: 26, 'text-anchor': 'middle',
+      fill: css('--header-accent'), 'font-size': 12, 'font-weight': 600,
+      'letter-spacing': '.1em', 'font-family': 'var(--font-sans)'}, col.toUpperCase()));
+    svg.appendChild(el('line', {x1: x, y1: 34, x2: x + BOXW, y2: 34,
+      stroke: css('--border-light'), 'stroke-width': 1}));
+  }
+
+  const maxW = Math.max(...D.edges.map(e => e[2]));
+  const gEdge = el('g', {});
+  for (const [a, b, w] of D.edges) {
+    if (!pos[a] || !pos[b]) continue;
+    const p1 = pos[a], p2 = pos[b];
+    const x1 = p1.x + BOXW, y1 = p1.y + BOXH / 2;
+    const x2 = p2.x, y2 = p2.y + BOXH / 2;
+    const sw = 0.7 + (w / maxW) * 4.6;
+    const onSpine = FIG4I.has(a) && FIG4I.has(b);
+    const mid = (x1 + x2) / 2;
+    gEdge.appendChild(el('path', {
+      d: `M ${x1} ${y1} C ${mid} ${y1}, ${mid} ${y2}, ${x2} ${y2}`,
+      fill: 'none', stroke: onSpine ? css('--accent') : css('--border-light'),
+      'stroke-width': onSpine ? Math.max(sw, 2.2) : sw,
+      opacity: onSpine ? 0.95 : 0.55}));
+  }
+  svg.appendChild(gEdge);
+
+  for (const t of ORDER) {
+    const p = pos[t], ok = reachable(t), spine = FIG4I.has(t);
+    const g = el('g', {class: 'nodebox', tabindex: '0', role: 'button',
+      'aria-label': `${t}, ${ok ? 'reachable' : 'no specific line'}`});
+    g.appendChild(el('rect', {x: p.x, y: p.y, width: BOXW, height: BOXH, rx: 4,
+      fill: css('--bg-sunk'), stroke: spine ? css('--accent') : css('--border-light'),
+      'stroke-width': spine ? 2 : 1}));
+    g.appendChild(el('rect', {x: p.x, y: p.y, width: 4, height: BOXH,
+      fill: ok ? css('--ok') : css('--no')}));
+    g.appendChild(el('text', {x: p.x + 12, y: p.y + 17, fill: css('--text-primary'),
+      'font-size': 12, 'font-family': 'var(--font-mono)', 'font-weight': 500}, t));
+    const act = () => selectNode(t);
+    g.addEventListener('click', act);
+    g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); act(); }});
+    svg.appendChild(g);
+  }
+  document.getElementById('diagram').replaceChildren(svg);
+}
+
+/* ---------- viewer ---------- */
+let cur = 'LoVP92', curLine = null, mode = 'overlay';
+const stage = document.getElementById('stage');
+const imgBase = document.getElementById('imgBase');
+const imgTop = document.getElementById('imgTop');
+const stageCap = document.getElementById('stageCap');
+const blend = document.getElementById('blend');
+const blendVal = document.getElementById('blendVal');
+const mOverlay = document.getElementById('mOverlay');
+const mFull = document.getElementById('mFull');
+
+const specLine = v => v.sr === 1 ? 'is its strongest EM match'
+  : v.sr == null ? `is not among its strongest hits; ${(v.bb || []).slice(0, 3).join(', ')} win`
+  : `ranks ${v.sr} for it, behind ${(v.bb || []).slice(0, 3).join(', ')}`;
+
+function paint() {
+  const N = D.nodes[cur];
+  const v = N.variants.find(x => x.l === curLine) || N.variants[0];
+  if (!v) return;
+  stage.style.aspectRatio = `${N.w} / ${N.h}`;
+  if (mode === 'full' && v.full) {
+    imgBase.src = 'img/' + v.full;
+    imgBase.alt = `Full expression of ${v.l}, coloured by depth`;
+    imgTop.hidden = true;
+    stageCap.textContent = `${v.l} full expression · hue is Z depth`;
+  } else {
+    imgBase.src = 'img/' + N.em;
+    imgBase.alt = `All ${cur} cells from the male CNS connectome`;
+    imgTop.src = 'img/' + v.lm;
+    imgTop.alt = `Segment of ${v.l} matching ${cur}`;
+    imgTop.hidden = false;
+    imgTop.style.opacity = blend.value / 100;
+    stageCap.textContent = `${cur} EM + ${v.l} matched segment`;
+  }
+  mFull.disabled = !v.full;
+
+  const ok = N.nwin > 0;
+  document.getElementById('viewerHead').textContent = cur;
+  document.getElementById('vside').innerHTML = `
+    <div class="vhead"><span class="n">${cur}</span>
+      <span class="pill ${ok ? 'ok' : 'no'}">${ok ? 'reachable' : 'no specific line'}</span>
+      ${FIG4I.has(cur) ? '<span class="pill neutral">Fig 4I</span>' : ''}</div>
+    <p style="font-size:13.5px">${N.why.charAt(0).toUpperCase() + N.why.slice(1)}.</p>
+    <dl class="kv">
+      <dt>Cells</dt><dd>${N.cells}</dd>
+      <dt>Transmitter</dt><dd>${N.nt}</dd>
+      <dt>Showing</dt><dd>${v.l}${v.cls === 'assembled_split' ? ' (split)' : ' (enhancer)'}</dd>
+      ${v.ad && v.db ? `<dt>AD x DBD</dt><dd>${v.ad} x ${v.db}</dd>` : ''}
+      <dt>Coverage</dt><dd>${v.nb} of ${N.cells} cells, mean rank ${v.mr}</dd>
+    </dl>
+    <div class="verdict ${ok ? 'good' : 'no'}">
+      ${ok ? `<b>${N.best}</b> reaches ${cur} on its own. ${N.nwin} of ${N.nchk} checked lines do.`
+           : `None of the ${N.nchk} checked lines reaches ${cur} on its own.`}
+      <br><span style="color:var(--text-muted)">${cur} ${specLine(v)} for <b>${v.l}</b>.</span>
+    </div>`;
+}
+
+function buildLineChips() {
+  const N = D.nodes[cur];
+  if (!N.variants.some(v => v.l === curLine)) curLine = N.variants[0] ? N.variants[0].l : null;
+  document.getElementById('lineChips').replaceChildren(...N.variants.map(v => {
+    const b = document.createElement('button');
+    b.className = 'chip'; b.type = 'button';
+    b.textContent = v.l + (v.sr === 1 ? '  ✓' : '');
+    b.setAttribute('aria-pressed', String(v.l === curLine));
+    b.addEventListener('click', () => { curLine = v.l; buildLineChips(); paint(); });
+    return b;
+  }));
+}
+function selectNode(t) {
+  if (!D.nodes[t] || !D.nodes[t].variants.length) return;
+  cur = t; curLine = null;
+  [...document.getElementById('nodeChips').children]
+    .forEach(c => c.setAttribute('aria-pressed', String(c.dataset.t === t)));
+  buildLineChips(); paint();
+  document.getElementById('viewerHead').scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+document.getElementById('nodeChips').replaceChildren(...ORDER
+  .filter(t => D.nodes[t].variants.length).map(t => {
+    const b = document.createElement('button');
+    b.className = 'chip'; b.type = 'button'; b.dataset.t = t; b.textContent = t;
+    b.setAttribute('aria-pressed', String(t === cur));
+    b.addEventListener('click', () => selectNode(t));
+    return b;
+  }));
+blend.addEventListener('input', () => {
+  blendVal.textContent = blend.value + '%';
+  if (mode === 'overlay') imgTop.style.opacity = blend.value / 100;
+});
+const setMode = m => { mode = m;
+  mOverlay.setAttribute('aria-pressed', String(m === 'overlay'));
+  mFull.setAttribute('aria-pressed', String(m === 'full')); paint(); };
+mOverlay.addEventListener('click', () => setMode('overlay'));
+mFull.addEventListener('click', () => setMode('full'));
+
+/* ---------- verdict table ---------- */
+const colOf = t => Object.entries(D.cols).find(([, l]) => l.includes(t))[0];
+document.querySelector('#verdict tbody').replaceChildren(...ORDER.map(t => {
+  const N = D.nodes[t], ok = N.nwin > 0;
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td class="name">${t}</td><td>${colOf(t)}</td>
+    <td class="num">${N.cells}</td><td class="mono">${N.nt}</td>
+    <td class="name">${N.best || '<span style="color:var(--text-muted)">none</span>'}</td>
+    <td class="num">${N.nwin} / ${N.nchk}</td>
+    <td><span class="pill ${ok ? 'ok' : 'no'}">${ok ? 'reachable' : 'no line'}</span></td>`;
+  return tr;
+}));
+const dead = ORDER.filter(t => !reachable(t));
+document.getElementById('breaks').innerHTML =
+  `${dead.length} of ${ORDER.length} nodes have no line that reaches them on their own: ` +
+  `<span class="mono">${dead.join(', ')}</span>. LoVP92 is among them, and it is the entry point ` +
+  `of the whole pathway: in all ${D.nodes['LoVP92'].nchk} lines tested it loses to the neighbouring ` +
+  `lobula projection types LoVP93, LC19 and LC14. For those nodes a single driver is not enough ` +
+  `and a split intersection is the only route.`;
+
+drawDiagram();
+buildLineChips();
+paint();
+addEventListener('resize', () => { clearTimeout(window.__rt); window.__rt = setTimeout(drawDiagram, 150); });
+</script>
+</body>
+</html>

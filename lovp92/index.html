@@ -100,6 +100,17 @@ dl.kv dd{font-family:var(--font-mono);font-size:12.5px;color:var(--text-primary)
 .verdict.good{background:var(--ok-soft);border-color:rgba(63,191,63,.3)}
 .verdict.no{background:var(--no-soft);border-color:rgba(226,106,106,.3)}
 .verdict b{font-family:var(--font-mono);font-size:12.5px}
+.links{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--border);padding-top:12px}
+.linkrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.linkrow .who{font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);
+  min-width:74px;flex:none}
+.out{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;
+  letter-spacing:.04em;padding:3.5px 9px;border-radius:4px;border:1px solid var(--border-light);
+  background:var(--bg-sunk);color:var(--text-secondary);white-space:nowrap}
+.out:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-subtle)}
+.out svg{opacity:.55;flex:none}
+.out:hover svg{opacity:1}
+.linknote{font-size:12px;color:var(--text-muted);line-height:1.45}
 .vrow{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center}
 .swap{display:flex;border:1px solid var(--border-light);border-radius:4px;overflow:hidden}
 .swap button{font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
@@ -109,7 +120,9 @@ dl.kv dd{font-family:var(--font-mono);font-size:12.5px;color:var(--text-primary)
 .swap button[aria-pressed="true"]{background:var(--accent);color:#08201f}
 .swap button:disabled{opacity:.4;cursor:not-allowed}
 .slider{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--text-secondary)}
-.slider input[type=range]{width:128px;accent-color:var(--accent)}
+.slider input[type=range]{width:116px;accent-color:var(--accent)}
+.slider .mono{width:38px;text-align:right;font-variant-numeric:tabular-nums;color:var(--text-muted)}
+.slider .sw{flex:none}
 .note{background:var(--bg-secondary);border:1px solid var(--border);
   border-left:3px solid var(--accent);border-radius:0 5px 5px 0;padding:14px 16px;
   display:flex;flex-direction:column;gap:7px}
@@ -202,14 +215,17 @@ footer{padding-block:30px 0;font-size:12.5px;color:var(--text-muted);line-height
           <button type="button" id="mOverlay" aria-pressed="true">Overlay</button>
           <button type="button" id="mFull" aria-pressed="false">Full expression</button>
         </div>
-        <label class="slider" for="blend">Line opacity
-          <input type="range" id="blend" min="0" max="100" value="100">
-          <span class="mono" id="blendVal" style="width:36px">100%</span>
+        <label class="slider" for="emBlend">
+          <span class="sw" style="background:var(--em)"></span>EM
+          <input type="range" id="emBlend" min="0" max="100" value="100">
+          <span class="mono" id="emBlendVal">100%</span>
         </label>
-        <div class="legend">
-          <b><span class="sw" style="background:var(--em)"></span>EM</b>
-          <b><span class="sw" style="background:var(--lm)"></span>Line</b>
-        </div>
+        <label class="slider" for="blend">
+          <span class="sw" style="background:var(--lm)"></span>Line
+          <input type="range" id="blend" min="0" max="100" value="100">
+          <span class="mono" id="blendVal">100%</span>
+        </label>
+        <button type="button" class="chip" id="swapBtn">Swap</button>
       </div>
     </div>
     <div class="vside" id="vside"></div>
@@ -334,8 +350,48 @@ const imgTop = document.getElementById('imgTop');
 const stageCap = document.getElementById('stageCap');
 const blend = document.getElementById('blend');
 const blendVal = document.getElementById('blendVal');
+const emBlend = document.getElementById('emBlend');
+const emBlendVal = document.getElementById('emBlendVal');
 const mOverlay = document.getElementById('mOverlay');
 const mFull = document.getElementById('mFull');
+
+/* ---------- external link-outs ----------
+   URL patterns below were each tested against the live services; the two that
+   looked plausible but silently fail are noted where they would have gone.
+   BDSC answers 403 to scripted requests but 200 in a browser, which is where
+   these links are clicked. */
+const SPLIT_CURATED = /^(SS|OL|MB|LH)\d/i;   // in the FlyLight Split-GAL4 collection
+const SPLIT_BROAD = /^IS\d/i;                // Omnibus Broad, no FlyLight page
+const FRAGMENT = /^(R|VT)\d/i;               // Gen1 enhancer fragment
+
+const ARROW = '<svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true">' +
+  '<path d="M2.5 7.5 L7.5 2.5 M4 2.5 H7.5 V6" stroke="currentColor" stroke-width="1.4" ' +
+  'fill="none" stroke-linecap="round"/></svg>';
+
+function linksFor(name) {
+  const L = encodeURIComponent(name);
+  const out = [];
+  if (SPLIT_CURATED.test(name)) {
+    // FBco is the split-system-combination class; it resolves these to one record.
+    out.push(['FlyBase', `https://flybase.org/search/FBco/${L}`]);
+    out.push(['FlyLight', `https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?line=${L}`]);
+  } else if (FRAGMENT.test(name)) {
+    // FBti is the insertion class: returns the GAL4, AD and DBD insertions.
+    out.push(['FlyBase', `https://flybase.org/search/FBti/${L}`]);
+    out.push(['FlyLight', `https://flweb.janelia.org/cgi-bin/view_flew_imagery.cgi?line=${L}`]);
+  } else if (SPLIT_BROAD.test(name)) {
+    out.push(['FlyBase', `https://flybase.org/search/symbol/${L}`]);
+  } else {
+    out.push(['FlyBase', `https://flybase.org/search/symbol/${L}`]);
+  }
+  out.push(['Bloomington', `https://bdsc.indiana.edu/Home/Search?presearch=${L}`]);
+  return out;
+}
+
+const linkRow = (label, name) => `<div class="linkrow"><span class="who">${name}</span>` +
+  linksFor(name).map(([who, href]) =>
+    `<a class="out" href="${href}" target="_blank" rel="noopener noreferrer">${who}${ARROW}</a>`
+  ).join('') + '</div>';
 
 const specLine = v => v.sr === 1 ? 'is its strongest EM match'
   : v.sr == null ? `is not among its strongest hits; ${(v.bb || []).slice(0, 3).join(', ')} win`
@@ -349,6 +405,7 @@ function paint() {
   if (mode === 'full' && v.full) {
     imgBase.src = 'img/' + v.full;
     imgBase.alt = `Full expression of ${v.l}, coloured by depth`;
+    imgBase.style.opacity = 1;
     imgTop.hidden = true;
     stageCap.textContent = `${v.l} full expression · hue is Z depth`;
   } else {
@@ -358,6 +415,7 @@ function paint() {
     imgTop.alt = `Segment of ${v.l} matching ${cur}`;
     imgTop.hidden = false;
     imgTop.style.opacity = blend.value / 100;
+    imgBase.style.opacity = emBlend.value / 100;
     stageCap.textContent = `${cur} EM + ${v.l} matched segment`;
   }
   mFull.disabled = !v.full;
@@ -380,6 +438,16 @@ function paint() {
       ${ok ? `<b>${N.best}</b> reaches ${cur} on its own. ${N.nwin} of ${N.nchk} checked lines do.`
            : `None of the ${N.nchk} checked lines reaches ${cur} on its own.`}
       <br><span style="color:var(--text-muted)">${cur} ${specLine(v)} for <b>${v.l}</b>.</span>
+    </div>
+    <div class="links">
+      ${linkRow('Line', v.l)}
+      ${v.ad ? linkRow('AD', v.ad) : ''}
+      ${v.db ? linkRow('DBD', v.db) : ''}
+      <p class="linknote">${v.ad && v.db
+        ? 'The two fragments are the hemidriver halves. Their links reach the AD and DBD stocks, which is what you order if you want to rebuild or re-pair the split.'
+        : SPLIT_BROAD.test(v.l)
+          ? 'Omnibus Broad lines have no page in the curated FlyLight collection, so no FlyLight link.'
+          : 'Check availability at Bloomington before ordering; nothing on this page asserts a stock exists.'}</p>
     </div>`;
 }
 
@@ -414,6 +482,18 @@ document.getElementById('nodeChips').replaceChildren(...ORDER
 blend.addEventListener('input', () => {
   blendVal.textContent = blend.value + '%';
   if (mode === 'overlay') imgTop.style.opacity = blend.value / 100;
+});
+emBlend.addEventListener('input', () => {
+  emBlendVal.textContent = emBlend.value + '%';
+  if (mode === 'overlay') imgBase.style.opacity = emBlend.value / 100;
+});
+// Flip which layer is on top. Screen blending is commutative, so the visible
+// change is which one you can fade away to check the other underneath.
+document.getElementById('swapBtn').addEventListener('click', () => {
+  const a = emBlend.value, b = blend.value;
+  emBlend.value = b; blend.value = a;
+  emBlend.dispatchEvent(new Event('input'));
+  blend.dispatchEvent(new Event('input'));
 });
 const setMode = m => { mode = m;
   mOverlay.setAttribute('aria-pressed', String(m === 'overlay'));

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Pheromone hierarchy: convergence neurons</title>
+<style>
+body{font:15px/1.45 -apple-system,Helvetica,Arial,sans-serif;background:#111;color:#ddd;margin:2em auto;max-width:1100px;padding:0 1em}
+h1{font-size:1.4em;color:#fff} a{color:#7fd3ff} table{border-collapse:collapse;width:100%;margin-top:1em}
+th,td{border-bottom:1px solid #333;padding:.4em .6em;text-align:left;vertical-align:top} th{color:#aaa;font-weight:600}
+td.c{color:#21eb9e} td.o{color:#ff7d21} td.s{font-size:.85em;color:#aaa}
+.legend span{display:inline-block;width:.9em;height:.9em;border-radius:50%;margin:0 .3em 0 1em;vertical-align:-1px}
+</style></head><body>
+<h1>Pheromone hierarchy: the convergence neurons of the contact and cVA channels</h1>
+<p>maleCNS v1.0. One Clio-NG scene per cell type: every body of the type (white) and its input synapses.
+<span class="legend"><span style="background:#21eb9e"></span>from cVA relays</span> (ORN_DA1, or a type that takes at least 5 percent of its input from ORN_DA1)
+<span class="legend"><span style="background:#ff7d21"></span>from contact relays</span> (the 20 ppk types, or a type that takes at least 5 percent from them).
+Other inputs are a hidden grey sample. One hidden layer per partner type (the six largest of each channel) sits under the two main layers.</p>
+<p>These twelve neurons carry the entry asymmetry E. Forward = the six that carry most of U(contact into cVA); reverse = the six that carry most of U(cVA into contact); fig A (iii) of analyses/pheromone_hierarchy in pheromone.paper.</p>
+<table><tr><th>type</th><th>direction</th><th>bodies</th><th>cVA syn</th><th>contact syn</th><th>other syn</th><th>top cVA partners</th><th>top contact partners</th></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/pheromone-hierarchy-convergence/AVLP743m.json">AVLP743m</a></td><td>contact into cVA</td><td>11</td><td class="c">1613</td><td class="o">1543</td><td>8642</td><td class="s">DA1_lPN 852, M_lvPNm45 755, M_vPNml55 3</td><td class="s">AN09B017f 573, AN09B017g 539, AN09B017d 160</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/pheromone-hierarchy-convergence/LH008m.json">LH008m</a></td><td>contact into cVA</td><td>11</td><td class="c">2873</td><td class="o">467</td><td>6312</td><td class="s">DA1_lPN 2761, DA1_vPN 90, M_vPNml55 16</td><td class="s">AN09B017g 437, AN09B017f 21, AN09B017e 5</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/pheromone-hierarchy-convergence/LH004m.json">LH004m</a></td><td>contact into cVA</td><td>6</td><td class="c">1016</td><td class="o">680</td><td>7052</td><td class="s">DA1_lPN 555, M_lvPNm45 457, DA1_vPN 2</td><td class="s">AN09B017g 228, AN09B017f 127, AN05B023c 89</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/pheromone-hierarchy-convergence/AVLP013.json">AVLP013</a></td><td>contact into cVA</td><td>6</td><td class="c">180</td><td class="o">209</td><td>2669</td><td class="s">DA1_lPN 166, M_vPNml55 10, M_lvPNm45 4</td><td class="s">AN09B017g 148, AN09B017f 23, AN09B017d 15</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/pheromone-hierarchy-convergence/LH007m.json">LH007m</a></td><td>contact into cVA</td><td>8</td><td class="c">2326</td><td class="o">171</td><td>8125</td><td class="s">DA1_lPN 1703, M_lvPNm45 492, M_vPNml55 86</td><td class="s">AN09B017g 72, AN09B017e 36, AN05B023d 23</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/pheromone-hierarchy-convergence/PVLP208m.json">PVLP208m</a></td><td>contact into cVA</td><td>3</td><td class="c">231</td><td class="o">147</td><td>4351</td><td class="s">DA1_lPN 209, MZ_lv2PN 13, DA1_vPN 8</td><td class="s">AN09B017g 128, AN05B102c 14, AN03A008 2</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/pheromone-hierarchy-convergence/mAL_m3c.json">mAL_m3c</a></td><td>cVA into contact</td><td>10</td><td class="c">344</td><td class="o">2015</td><td>4593</td><td class="s">M_lvPNm45 341, M_lvPNm43 2, v2LN37 1</td><td class="s">AN09B017a 671, AN09B017f 562, AN09B017e 248</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/pheromone-hierarchy-convergence/mAL_m5a.json">mAL_m5a</a></td><td>cVA into contact</td><td>6</td><td class="c">113</td><td class="o">3499</td><td>8234</td><td class="s">AL-AST1 99, v2LN37 12, MZ_lv2PN 2</td><td class="s">AN09B017a 1031, AN09B017g 703, AN09B017d 560</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/pheromone-hierarchy-convergence/SIP101m.json">SIP101m</a></td><td>cVA into contact</td><td>6</td><td class="c">74</td><td class="o">246</td><td>7600</td><td class="s">DA1_lPN 50, M_lvPNm45 22, M_lvPNm43 1</td><td class="s">AN09B017f 134, AN09B017b 48, AN05B023d 14</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/pheromone-hierarchy-convergence/mAL_m5c.json">mAL_m5c</a></td><td>cVA into contact</td><td>6</td><td class="c">94</td><td class="o">2426</td><td>13285</td><td class="s">AL-AST1 77, MZ_lv2PN 10, v2LN37 6</td><td class="s">AN09B017d 844, AN09B017b 459, AN05B102c 336</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/pheromone-hierarchy-convergence/SIP100m.json">SIP100m</a></td><td>cVA into contact</td><td>10</td><td class="c">58</td><td class="o">811</td><td>12394</td><td class="s">DA1_lPN 45, M_lvPNm45 13</td><td class="s">AN09B017f 283, AN09B017g 227, AN09B017b 135</td></tr>
+<tr><td><a href="https://clio-ng.janelia.org/#!https://floriankaempf.com/ng/pheromone-hierarchy-convergence/mAL_m5b.json">mAL_m5b</a></td><td>cVA into contact</td><td>6</td><td class="c">51</td><td class="o">1665</td><td>12115</td><td class="s">AL-AST1 34, MZ_lv2PN 17</td><td class="s">AN09B017d 516, AN09B017g 426, AN05B102c 245</td></tr>
+</table>
+<p class="s">Built by AVLP743m_connectomics/R/circuit/26_carrier_scenes.R on 2026-09-17.</p>
+</body></html>

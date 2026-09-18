@@ -1789,9 +1789,9 @@ evolution, feeding, locomotion, mechanosensation, methods, methods.computation, 
 
 ---
 
-title: Multimodal sensory integration in sexually dimorphicDrosophilaneural circuits
-drosophila, sexual-dimorphism
-authors: Beckett
+10.17863/cam.129954
+courtship, drosophila, sexual-dimorphism, thesis
+journal: PhD thesis, University of Cambridge
 status: read
 
 ---

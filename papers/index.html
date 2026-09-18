@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Papers | Florian Kämpf</title>
+<meta name="description" content="A chronological, searchable reading list, resolved from DOIs and filtered by topic.">
+<meta name="author" content="Florian Kämpf">
+<link rel="canonical" href="https://floriankaempf.com/papers/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Florian Kämpf">
+<meta property="og:url" content="https://floriankaempf.com/papers/">
+<meta property="og:title" content="Papers">
+<meta property="og:description" content="A chronological, searchable reading list. Pick topics, share the link.">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --ink:#0d0d0d;
+  --paper:#e8e8e8;
+  --quiet:#a0a0a0;
+  --faint:#6a6a6a;
+  --rule:#242424;
+  --rule-lit:#3a3a3a;
+  --spine:#6b7a5c;
+  --accent:#5ba3a3;
+  --accent-lit:#6fb8b8;
+  --alarm:#e26a6a;
+  --sans:'IBM Plex Sans',-apple-system,sans-serif;
+  --serif:'IBM Plex Serif',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --gutter:64px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16px;
+  line-height:1.55;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+::selection{background:rgba(107,122,92,.45)}
+
+.page{max-width:860px;margin:0 auto;padding-inline:clamp(18px,4vw,40px);padding-bottom:88px}
+
+.home{display:inline-flex;align-items:center;gap:7px;margin-top:26px;
+  font-size:13px;color:var(--faint);text-decoration:none;transition:color .2s ease}
+.home svg{width:11px;height:11px;flex:none;transition:transform .2s ease}
+.home:hover,.home:focus-visible{color:var(--accent)}
+.home:hover svg{transform:translateX(-2px)}
+
+.masthead{padding-block:24px 20px;display:flex;flex-wrap:wrap;gap:6px 28px;
+  align-items:flex-end;justify-content:space-between}
+h1{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1;
+  font-size:clamp(38px,7vw,58px)}
+.lede{font-family:var(--serif);font-size:15.5px;line-height:1.45;color:var(--quiet);
+  max-width:42ch;padding-bottom:4px}
+
+/* Controls: a search field, a sort, a topic line. No chip tray. */
+.controls{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  padding-block:13px;display:flex;flex-direction:column;gap:11px;
+  position:sticky;top:0;background:var(--ink);z-index:5}
+.row{display:flex;flex-wrap:wrap;gap:11px 26px;align-items:baseline;justify-content:space-between}
+.search{flex:1 1 260px;display:flex;align-items:center;gap:9px;
+  border-bottom:1px solid var(--rule-lit);padding-bottom:5px;transition:border-color .18s ease}
+.search:focus-within{border-bottom-color:var(--accent)}
+.search svg{width:13px;height:13px;color:var(--faint);flex:none}
+.search input{flex:1;min-width:0;background:none;border:0;outline:none;color:var(--paper);
+  font-family:var(--sans);font-size:15px}
+.search input::placeholder{color:var(--faint)}
+.search input::-webkit-search-cancel-button{display:none}
+.wipe{background:none;border:0;color:var(--faint);cursor:pointer;font-size:12.5px;
+  padding:0 2px;transition:color .18s ease}
+.wipe:hover{color:var(--accent-lit)}
+
+.sorts{display:flex;gap:14px;align-items:baseline;flex:none}
+.topics{display:flex;flex-wrap:wrap;gap:5px 18px;align-items:baseline;flex:1 1 320px}
+.topics .label{font-size:12.5px;color:var(--faint);flex:none}
+.acts{display:flex;gap:16px;align-items:baseline;flex:none}
+
+.toggle{font-family:var(--sans);font-size:14.5px;color:var(--quiet);background:none;
+  border:0;border-bottom:2px solid transparent;padding:0 0 2px;cursor:pointer;
+  transition:color .18s ease,border-color .18s ease}
+.toggle:hover{color:var(--paper);border-bottom-color:var(--rule-lit)}
+.toggle[aria-pressed="true"]{color:var(--accent-lit);border-bottom-color:var(--accent)}
+.toggle[disabled]{color:#4a4a4a;cursor:default}
+.toggle[disabled]:hover{border-bottom-color:transparent}
+.toggle .count{font-size:11.5px;color:var(--faint);margin-left:4px;
+  font-variant-numeric:tabular-nums;transition:color .18s ease}
+.toggle[aria-pressed="true"] .count{color:var(--accent)}
+.sorts .toggle{font-size:13px}
+.act{font-family:var(--sans);font-size:12.5px;color:var(--quiet);background:none;border:0;
+  padding:0 0 2px;cursor:pointer;border-bottom:1px solid var(--rule-lit);transition:.18s ease}
+.act:hover{color:var(--accent-lit);border-bottom-color:var(--accent)}
+.toggle:focus-visible,.act:focus-visible,.wipe:focus-visible,.search input:focus-visible{
+  outline:2px solid var(--accent);outline-offset:4px;border-radius:1px}
+
+.tally{font-size:13px;color:var(--faint);padding-block:13px 15px}
+.tally b{color:var(--quiet);font-weight:500}
+mark{background:rgba(91,163,163,.22);color:inherit;border-radius:1px}
+
+/* One continuous spine, years hung off it. */
+.list{list-style:none}
+.entry{display:grid;grid-template-columns:var(--gutter) minmax(0,1fr);column-gap:0}
+.year{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.35;
+  color:var(--spine);text-align:right;padding:1px 16px 0 0;font-variant-numeric:tabular-nums}
+.year[data-repeat]{visibility:hidden}
+.body{border-left:1px solid var(--rule);padding:0 0 16px 18px;min-width:0}
+.entry:last-child .body{padding-bottom:2px}
+.entry:hover .body{border-left-color:var(--rule-lit)}
+
+.title{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.3;
+  letter-spacing:-.005em;max-width:58ch;text-wrap:pretty}
+.title a{color:var(--paper);text-decoration:none;
+  background-image:linear-gradient(var(--accent),var(--accent));
+  background-size:0 1px;background-position:0 100%;background-repeat:no-repeat;
+  transition:background-size .25s ease,color .2s ease}
+.title a:hover,.title a:focus-visible{color:var(--accent-lit);background-size:100% 1px}
+.title a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.cite{font-size:13.5px;color:var(--quiet);margin-top:2px;max-width:68ch}
+.cite .journal{color:var(--faint)}
+.cite .doi{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-left:8px;
+  word-break:break-all}
+.note{font-family:var(--serif);font-size:14px;line-height:1.45;color:var(--quiet);
+  max-width:62ch;margin-top:5px}
+.footrow{margin-top:4px;display:flex;flex-wrap:wrap;gap:2px 16px;align-items:baseline}
+.tagline{display:flex;flex-wrap:wrap;gap:2px 12px;align-items:baseline;flex:1 1 auto;min-width:0}
+.tagline .toggle{font-size:12.5px;border-bottom-width:1px}
+.marks{display:flex;gap:2px 12px;align-items:baseline;margin-left:auto;flex:none}
+.mark{font-family:var(--sans);font-size:12px;color:#5a5a5a;background:none;border:0;padding:0 0 1px;
+  cursor:pointer;border-bottom:1px solid transparent;transition:color .18s ease,border-color .18s ease}
+.mark:hover{color:var(--paper);border-bottom-color:var(--rule-lit)}
+.mark[aria-pressed="true"]{color:var(--spine);border-bottom-color:var(--spine)}
+.mark.queue[aria-pressed="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+.mark.pick[aria-pressed="true"]{color:var(--paper);border-bottom-color:var(--paper)}
+.mark.local[aria-pressed="true"]{border-bottom-style:dotted}
+.mark:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:1px}
+.entry.picked .body{border-left-color:var(--paper)}
+.linkfield{flex:1 1 320px;min-width:0;background:var(--ink);color:var(--paper);
+  font-family:var(--mono);font-size:12px;border:0;border-bottom:1px solid var(--accent);
+  padding:4px 0;outline:none}
+.picks{font-size:13px;color:var(--quiet);flex:none}
+.picks b{color:var(--paper);font-weight:500}
+.pending .title{font-family:var(--mono);font-size:14px;font-weight:400;color:var(--faint)}
+.fail{font-size:13px;color:var(--alarm);margin-top:3px}
+
+.empty{border-left:1px solid var(--rule);padding:2px 0 2px 18px;margin-left:var(--gutter);
+  max-width:46ch}
+.empty p{font-family:var(--serif);font-size:16px;color:var(--quiet)}
+.empty button{margin-top:9px}
+
+footer{margin-top:26px;border-top:1px solid var(--rule);padding-top:18px;
+  font-size:12.5px;color:var(--faint)}
+footer p{max-width:66ch}
+footer a{color:var(--faint);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:var(--rule-lit)}
+footer a:hover{color:var(--accent-lit);text-decoration-color:var(--accent)}
+footer .file{font-family:var(--mono);font-size:11.5px}
+kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--rule-lit);border-radius:2px;
+  padding:1px 4px;color:var(--quiet)}
+
+/* One motion moment: the list arrives once, on load. */
+@keyframes settle{to{opacity:1;transform:none}}
+.list.first-paint .entry{opacity:0;transform:translateY(6px);
+  animation:settle .5s cubic-bezier(.2,.7,.3,1) forwards;
+  animation-delay:calc(var(--i,0) * 45ms)}
+
+@media(max-width:640px){
+  :root{--gutter:0px}
+  .entry{grid-template-columns:1fr}
+  .year{text-align:left;font-size:13px;padding:0 0 3px 15px;border-left:1px solid var(--rule)}
+  .year[data-repeat]{display:none}
+  .body{padding:0 0 15px 15px}
+  .empty{margin-left:0;padding-left:15px}
+  .masthead{align-items:flex-start}
+  .controls{position:static}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .list.first-paint .entry{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<a class="home" href="/">
+  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+    <path d="M7.5 1.5 3 6l4.5 4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>floriankaempf.com</a>
+
+<header class="masthead">
+  <h1>Papers</h1>
+  <p class="lede">Work I keep going back to. Search it, narrow it by topic, and the address bar
+  carries the selection, so one link hands over the whole set.</p>
+</header>
+
+<div class="controls">
+  <div class="row">
+    <label class="search">
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <circle cx="6" cy="6" r="4.2"/><path d="M9.2 9.2 12.5 12.5" stroke-linecap="round"/>
+      </svg>
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Search titles, authors, journals, DOIs" aria-label="Search papers">
+      <button class="wipe" id="wipe" type="button" hidden>clear</button>
+    </label>
+    <div class="sorts" id="sorts" role="group" aria-label="Sort order"></div>
+  </div>
+  <div class="row">
+    <div class="sorts" id="statuses" role="group" aria-label="Reading status"></div>
+  </div>
+  <div class="row">
+    <div class="topics" id="topics"><span class="label">Topics</span></div>
+    <div class="acts">
+      <button class="act" id="reset" type="button" hidden>Reset</button>
+      <button class="act" id="copy" type="button">Copy link</button>
+      <button class="act" id="copyopen" type="button">Copy open-all link</button>
+    </div>
+  </div>
+  <div class="row" id="pickrow" hidden>
+    <span class="picks" id="pickcount"></span>
+    <div class="acts">
+      <button class="act" id="markpicked" type="button">Mark picked read</button>
+      <button class="act" id="clearpicks" type="button">Clear picks</button>
+    </div>
+  </div>
+  <div class="row" id="linkrow" hidden>
+    <input class="linkfield" id="linkfield" type="text" readonly aria-label="Link to copy">
+    <span class="picks" id="linknote"></span>
+  </div>
+  <div class="row" id="markrow" hidden>
+    <span class="picks" id="markcount"></span>
+    <div class="acts">
+      <button class="act" id="exportmarks" type="button">Copy papers.md</button>
+      <button class="act" id="forgetmarks" type="button">Forget my marks</button>
+    </div>
+  </div>
+</div>
+
+<p class="tally" id="tally" aria-live="polite">Reading the list&hellip;</p>
+
+<ul class="list" id="list"></ul>
+
+<div class="empty" id="empty" hidden>
+  <p>Nothing matches all of that.</p>
+  <button class="act" type="button" data-reset>Reset the filters</button>
+</div>
+
+<footer>
+  <p>Titles, authors and journals come from <a href="https://www.crossref.org/">Crossref</a>,
+  fetched in batches and kept in this browser, so the list loads instantly next time.
+  The entries live in <span class="file">content/papers.md</span>: one DOI per block, tags on the
+  second line. Press <kbd>/</kbd> to search.</p>
+</footer>
+
+</div>
+
+<script>
+const CACHE_PREFIX = 'papers:crossref:v2:';
+const CACHE_TTL = 1000 * 60 * 60 * 24 * 30;
+const BATCH = 20;          // DOIs per Crossref request
+const TOPICS_SHOWN = 16;   // topics before the fold
+
+const els = {
+  q: document.getElementById('q'),
+  wipe: document.getElementById('wipe'),
+  sorts: document.getElementById('sorts'),
+  topics: document.getElementById('topics'),
+  list: document.getElementById('list'),
+  empty: document.getElementById('empty'),
+  tally: document.getElementById('tally'),
+  statuses: document.getElementById('statuses'),
+  pickrow: document.getElementById('pickrow'),
+  pickcount: document.getElementById('pickcount'),
+  markpicked: document.getElementById('markpicked'),
+  clearpicks: document.getElementById('clearpicks'),
+  markrow: document.getElementById('markrow'),
+  markcount: document.getElementById('markcount'),
+  linkrow: document.getElementById('linkrow'),
+  linkfield: document.getElementById('linkfield'),
+  linknote: document.getElementById('linknote'),
+  exportmarks: document.getElementById('exportmarks'),
+  forgetmarks: document.getElementById('forgetmarks'),
+  reset: document.getElementById('reset'),
+  copy: document.getElementById('copy'),
+  copyopen: document.getElementById('copyopen'),
+};
+
+const SORTS = [
+  { key: 'new', label: 'Newest' },
+  { key: 'old', label: 'Oldest' },
+  { key: 'az', label: 'A to Z' },
+];
+
+const STATUSES = [
+  { key: 'read', label: 'Read' },
+  { key: 'to-read', label: 'To read' },
+  { key: 'none', label: 'Unmarked' },
+];
+
+const MARKS_KEY = 'papers:marks:v1';
+
+/* A paper is addressed by its DOI, or by its title when it has none. */
+function keyOf(p) {
+  return p.doi || 't:' + ((p.meta && p.meta.title) || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+}
+
+function readMarks() {
+  try { return JSON.parse(localStorage.getItem(MARKS_KEY)) || {}; }
+  catch (e) { return {}; }
+}
+
+function writeMarks() {
+  try { localStorage.setItem(MARKS_KEY, JSON.stringify(marks)); } catch (e) {}
+}
+
+/* What the file says, unless this browser says otherwise. */
+function statusOf(p) {
+  const mine = marks[keyOf(p)];
+  return (mine !== undefined ? mine : p.status) || 'none';
+}
+
+function isLocal(p) { return marks[keyOf(p)] !== undefined; }
+
+function markCount() { return Object.keys(marks).length; }
+
+let papers = [];
+let selected = new Set();
+let statuses = new Set();
+let picked = new Set();
+let only = new Set();    // ?doi= — show exactly these papers
+let marks = {};          // key -> 'read' | 'to-read' | 'none', this browser only
+let query = '';
+let sort = 'new';
+let topicsOpen = false;
+let firstPaint = true;
+
+/* ---------- content/papers.md ----------
+
+   A block is a DOI, then its tags, then an optional note, in that order.
+   Any line of the form `key: value` (doi, link, tags, title, authors,
+   journal, year, note) can be given instead, which is how entries without
+   a DOI — books, chapters, pages Crossref does not know — carry their own
+   metadata. Local values always win over what Crossref returns. */
+
+const META_KEYS = ['doi', 'url', 'link', 'tags', 'title', 'authors', 'journal', 'year', 'note', 'status'];
+
+function cleanDoi(s) {
+  return String(s).trim()
+    .replace(/^(https?:\/\/)?(dx\.)?doi\.org\//i, '')
+    .replace(/^doi:\s*/i, '')
+    .toLowerCase();
+}
+
+function mergeMeta(remote, local) {
+  return {
+    title: local.title || (remote && remote.title) || '',
+    authors: local.authors.length ? local.authors : ((remote && remote.authors) || []),
+    journal: local.journal || (remote && remote.journal) || '',
+    year: local.year || (remote && remote.year) || null,
+  };
+}
+
+function parseBlock(block) {
+  const kv = {}, plain = [];
+  block.split('\n').map(l => l.trim()).filter(Boolean).forEach(line => {
+    const m = line.match(/^([a-zA-Z]+):\s*(.+)$/);
+    if (m && META_KEYS.includes(m[1].toLowerCase())) kv[m[1].toLowerCase()] = m[2].trim();
+    else plain.push(line);
+  });
+
+  const ident = kv.doi || plain.shift() || '';
+  let doi = '', link = kv.link || kv.url || '';
+  if (/^10\./.test(ident)) doi = cleanDoi(ident);
+  else if (/^https?:/i.test(ident)) {
+    if (/doi\.org\//i.test(ident)) doi = cleanDoi(ident);
+    else link = link || ident;
+  }
+
+  let tags = (kv.tags || (ident ? plain.shift() || '' : ''))
+    .split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+
+  /* Reading status used to live among the tags; it is a status now. */
+  let status = (kv.status || '').trim().toLowerCase();
+  if (!status && tags.includes('read')) status = 'read';
+  if (!status && tags.includes('to-read')) status = 'to-read';
+  tags = tags.filter(t => t !== 'read' && t !== 'to-read');
+
+  const local = {
+    title: kv.title || '',
+    authors: kv.authors ? kv.authors.split(',').map(a => a.trim()).filter(Boolean) : [],
+    journal: kv.journal || '',
+    year: kv.year ? parseInt(kv.year, 10) || null : null,
+  };
+  const note = [kv.note].concat(plain).filter(Boolean).join(' ');
+  const hasLocal = local.title || local.authors.length || local.journal || local.year;
+
+  return {
+    doi, link, tags, note, local, status, raw: block.trim(),
+    meta: hasLocal ? mergeMeta(null, local) : null,   // shown at once, filled out later
+    error: null, hay: '',
+  };
+}
+
+function parsePapers(text) {
+  return text.split(/^\s*---\s*$/m)
+    .map(b => b.trim())
+    .filter(Boolean)
+    .map(parseBlock)
+    .filter(p => p.doi || p.link || (p.meta && p.meta.title));
+}
+
+function indexPaper(p) {
+  const m = p.meta || {};
+  p.hay = [p.doi, p.note, p.tags.join(' '), p.status, m.title || '',
+           (m.authors || []).join(' '), m.journal || '', m.year || '']
+    .join(' ').toLowerCase();
+}
+
+/* ---------- Crossref, in batches ---------- */
+
+function cleanText(s) {
+  const div = document.createElement('div');
+  div.innerHTML = s || '';
+  return (div.textContent || '').replace(/\s+/g, ' ').trim();
+}
+
+function pickYear(m) {
+  for (const k of ['issued', 'published-print', 'published-online', 'created']) {
+    const y = m[k] && m[k]['date-parts'] && m[k]['date-parts'][0] && m[k]['date-parts'][0][0];
+    if (y) return y;
+  }
+  return null;
+}
+
+function readCache(doi) {
+  try {
+    const raw = localStorage.getItem(CACHE_PREFIX + doi);
+    if (!raw) return null;
+    const { t, meta } = JSON.parse(raw);
+    return Date.now() - t < CACHE_TTL ? meta : null;
+  } catch (e) { return null; }
+}
+
+function writeCache(doi, meta) {
+  try { localStorage.setItem(CACHE_PREFIX + doi, JSON.stringify({ t: Date.now(), meta })); }
+  catch (e) { /* storage blocked or full */ }
+}
+
+function toMeta(item) {
+  return {
+    title: cleanText((item.title || [])[0]) || item.DOI,
+    authors: (item.author || []).map(a => a.family || a.name || '').filter(Boolean),
+    journal: cleanText((item['short-container-title'] || [])[0]) ||
+             cleanText((item['container-title'] || [])[0]),
+    year: pickYear(item),
+  };
+}
+
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+async function fetchBatch(dois) {
+  const url = 'https://api.crossref.org/works?rows=' + dois.length +
+    '&select=DOI,title,author,short-container-title,container-title,issued' +
+    '&filter=' + dois.map(d => 'doi:' + encodeURIComponent(d)).join(',');
+  const res = await fetch(url);
+  if (!res.ok) throw new Error('Crossref ' + res.status);
+  const out = new Map();
+  ((await res.json()).message.items || []).forEach(item => {
+    out.set(String(item.DOI).toLowerCase(), toMeta(item));
+  });
+  return out;
+}
+
+function accept(p, meta) {
+  writeCache(p.doi, meta);
+  p.meta = mergeMeta(meta, p.local);
+  indexPaper(p);
+}
+
+async function giveUp(p) {
+  try {
+    accept(p, await fetchDataCite(p.doi));
+    return;
+  } catch (e) { /* neither registry has it */ }
+  if (!p.meta) p.error = 'No registry record for this DOI. The link still works.';
+  indexPaper(p);
+}
+
+/* Crossref drops the occasional batch. A failed request is halved and retried
+   rather than written off, down to one DOI at a time. */
+async function resolveChunk(chunk) {
+  try {
+    const found = await fetchBatch(chunk.map(p => p.doi));
+    for (const p of chunk) {
+      const meta = found.get(p.doi);
+      if (meta) accept(p, meta); else await giveUp(p);
+    }
+    return;
+  } catch (e) {
+    if (chunk.length === 1) {
+      await sleep(300);
+      try { accept(chunk[0], await fetchOne(chunk[0].doi)); }
+      catch (e2) { await giveUp(chunk[0]); }
+      return;
+    }
+  }
+  await sleep(400);
+  const mid = Math.ceil(chunk.length / 2);
+  await resolveChunk(chunk.slice(0, mid));
+  await resolveChunk(chunk.slice(mid));
+}
+
+async function resolveAll(pending, onChunk) {
+  for (let i = 0; i < pending.length; i += BATCH) {
+    await resolveChunk(pending.slice(i, i + BATCH));
+    onChunk();
+    await sleep(120);
+  }
+}
+
+/* ---------- rendering ---------- */
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function highlight(s) {
+  const safe = escapeHtml(s || '');
+  if (!query) return safe;
+  const needle = escapeHtml(query).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return safe.replace(new RegExp(needle, 'gi'), m => `<mark>${m}</mark>`);
+}
+
+/* arXiv, Zenodo and friends register their DOIs with DataCite, which Crossref
+   knows nothing about, so a miss there is a question for DataCite. */
+async function fetchDataCite(doi) {
+  const res = await fetch('https://api.datacite.org/dois/' + encodeURIComponent(doi));
+  if (!res.ok) throw new Error('DataCite ' + res.status);
+  const a = ((await res.json()).data || {}).attributes || {};
+  const publisher = a.publisher && typeof a.publisher === 'object' ? a.publisher.name : a.publisher;
+  return {
+    title: cleanText(((a.titles || [])[0] || {}).title) || doi,
+    authors: (a.creators || []).map(c => c.familyName || c.name || '').filter(Boolean),
+    journal: cleanText(publisher || ''),
+    year: a.publicationYear || null,
+  };
+}
+
+/* One DOI at a time, for whatever the batch endpoint would not give up. */
+async function fetchOne(doi) {
+  const res = await fetch('https://api.crossref.org/works/' + encodeURIComponent(doi));
+  if (!res.ok) throw new Error('Crossref ' + res.status);
+  return toMeta((await res.json()).message);
+}
+
+function formatAuthors(a) {
+  if (!a || !a.length) return '';
+  if (a.length === 1) return a[0];
+  if (a.length === 2) return a[0] + ' & ' + a[1];
+  return a[0] + ' et al.';
+}
+
+function href(p) { return p.link || (p.doi ? 'https://doi.org/' + p.doi : ''); }
+
+function toggleHtml(t, count) {
+  return `<button class="toggle" type="button" data-tag="${escapeHtml(t)}"` +
+    (count === 0 && !selected.has(t) ? ' disabled' : '') +
+    ` aria-pressed="${selected.has(t)}">${escapeHtml(t)}` +
+    (count === undefined ? '' : `<span class="count">${count}</span>`) + `</button>`;
+}
+
+function titleHtml(p, m) {
+  const text = m && m.title ? highlight(m.title) : escapeHtml(p.doi || '');
+  const url = href(p);
+  return `<h2 class="title">` +
+    (url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${text}</a>` : text) +
+    `</h2>`;
+}
+
+/* Per paper: mark it read, queue it, or pick it for a link. */
+function rowControls(p) {
+  const st = statusOf(p), key = escapeHtml(keyOf(p)), local = isLocal(p) ? ' local' : '';
+  return `<div class="marks">` +
+    `<button class="mark done${local}" type="button" data-mark="read" data-key="${key}" ` +
+      `aria-pressed="${st === 'read'}">read</button>` +
+    `<button class="mark queue${local}" type="button" data-mark="to-read" data-key="${key}" ` +
+      `aria-pressed="${st === 'to-read'}">to read</button>` +
+    `<button class="mark pick" type="button" data-pick="${key}" ` +
+      `aria-pressed="${picked.has(keyOf(p))}">${picked.has(keyOf(p)) ? 'picked' : 'pick'}</button>` +
+    `</div>`;
+}
+
+function renderEntry(p, showYear, i) {
+  const li = document.createElement('li');
+  li.className = 'entry' + (p.meta ? '' : ' pending') + (picked.has(keyOf(p)) ? ' picked' : '');
+  li.dataset.key = keyOf(p);
+  li.style.setProperty('--i', Math.min(i, 12));
+
+  const m = p.meta;
+  const year = m && m.year ? String(m.year) : '';
+  const authors = m ? formatAuthors(m.authors) : '';
+  const journal = m && m.journal ? m.journal : '';
+
+  li.innerHTML =
+    `<div class="year"${showYear ? '' : ' data-repeat'}>${escapeHtml(year)}</div>` +
+    `<div class="body">` +
+      titleHtml(p, m) +
+      `<p class="cite">${highlight(authors)}${authors && journal ? ', ' : ''}` +
+        (journal ? `<span class="journal">${highlight(journal)}</span>` : '') +
+        (p.doi ? `<span class="doi">${highlight(p.doi)}</span>` : '') + `</p>` +
+      (p.error ? `<p class="fail">${escapeHtml(p.error)}</p>` : '') +
+      `<div class="footrow">` +
+        `<div class="tagline">${p.tags.map(t => toggleHtml(t)).join('')}</div>` +
+        rowControls(p) +
+      `</div>` +
+      (p.note ? `<p class="note">${highlight(p.note)}</p>` : '') +
+    `</div>`;
+  return li;
+}
+
+/* ---------- filtering and order ---------- */
+
+/* A dotted tag is a path: picking `pheromone` also takes `pheromone.contact`. */
+function hasTag(p, t) {
+  return p.tags.some(x => x === t || x.startsWith(t + '.'));
+}
+
+function tagFamily(t) {
+  const parts = t.split('.');
+  return parts.map((_, i) => parts.slice(0, i + 1).join('.'));
+}
+
+function matches(p) {
+  if (only.size && !only.has(keyOf(p))) return false;
+  if (statuses.size && !statuses.has(statusOf(p))) return false;
+  if (selected.size && ![...selected].every(t => hasTag(p, t))) return false;
+  if (query && !p.hay.includes(query)) return false;
+  return true;
+}
+
+function titleOf(p) { return (p.meta && p.meta.title) || p.doi; }
+function yearOf(p) { return (p.meta && p.meta.year) || 0; }
+
+/* Papers Crossref gave no year for sit at the end of either direction,
+   never at the top. */
+function sortKey(p) {
+  const y = yearOf(p);
+  if (y) return y;
+  return sort === 'old' ? Infinity : -Infinity;
+}
+
+function sorted(list) {
+  const arr = list.slice();
+  if (sort === 'az') return arr.sort((a, b) => titleOf(a).localeCompare(titleOf(b)));
+  return arr.sort((a, b) => {
+    const d = sort === 'old' ? sortKey(a) - sortKey(b) : sortKey(b) - sortKey(a);
+    return d || titleOf(a).localeCompare(titleOf(b));
+  });
+}
+
+function plural(n, word) { return n + ' ' + word + (n === 1 ? '' : 's'); }
+
+function joinWords(arr) {
+  if (arr.length === 1) return arr[0];
+  if (arr.length === 2) return arr[0] + ' and ' + arr[1];
+  return arr.slice(0, -1).join(', ') + ' and ' + arr[arr.length - 1];
+}
+
+/* Live counts: a topic's number is how many papers are left once it is
+   added to whatever is already narrowing the list. A picked topic therefore
+   carries the size of the list on screen, and a combination that would
+   empty the list reads 0 and cannot be clicked. */
+function liveTopicCounts() {
+  const c = new Map();
+  papers.forEach(p => p.tags.forEach(t => tagFamily(t).forEach(f => { if (!c.has(f)) c.set(f, 0); })));
+  papers.forEach(p => {
+    if (!matches(p)) return;
+    const own = new Set();
+    p.tags.forEach(t => tagFamily(t).forEach(f => own.add(f)));
+    own.forEach(t => c.set(t, (c.get(t) || 0) + 1));
+  });
+  return [...c.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+}
+
+function renderTopics() {
+  const counts = liveTopicCounts();
+  let head = counts;
+  if (!topicsOpen && counts.length > TOPICS_SHOWN) {
+    head = counts.slice(0, TOPICS_SHOWN);
+    counts.slice(TOPICS_SHOWN).forEach(e => { if (selected.has(e[0])) head.push(e); });
+  }
+  let html = head.map(([t, n]) => toggleHtml(t, n)).join('');
+  if (counts.length > TOPICS_SHOWN) {
+    html += `<button class="act" id="more" type="button">` +
+      (topicsOpen ? 'Fewer topics' : `All ${counts.length} topics`) + `</button>`;
+  }
+  els.topics.replaceChildren(els.topics.firstElementChild);
+  els.topics.insertAdjacentHTML('beforeend', html);
+}
+
+function renderStatuses() {
+  const counts = new Map(STATUSES.map(s => [s.key, 0]));
+  papers.forEach(p => {
+    if (query && !p.hay.includes(query)) return;
+    if (selected.size && ![...selected].every(t => hasTag(p, t))) return;
+    counts.set(statusOf(p), (counts.get(statusOf(p)) || 0) + 1);
+  });
+  els.statuses.innerHTML = STATUSES.map(s =>
+    `<button class="toggle" type="button" data-status="${s.key}"` +
+    (counts.get(s.key) === 0 && !statuses.has(s.key) ? ' disabled' : '') +
+    ` aria-pressed="${statuses.has(s.key)}">${s.label}` +
+    `<span class="count">${counts.get(s.key)}</span></button>`).join('');
+}
+
+function renderSorts() {
+  els.sorts.innerHTML = SORTS.map(s =>
+    `<button class="toggle" type="button" data-sort="${s.key}" ` +
+    `aria-pressed="${sort === s.key}">${s.label}</button>`).join('');
+}
+
+function renderTally(shown) {
+  const bits = [];
+  if (only.size) bits.push('picked by hand');
+  if (statuses.size) {
+    bits.push(joinWords([...statuses].map(k =>
+      ({ read: 'already read', 'to-read': 'queued to read', none: 'unmarked' }[k]))));
+  }
+  if (selected.size) bits.push('tagged ' + joinWords([...selected]));
+  if (query) bits.push(`matching &ldquo;${escapeHtml(query)}&rdquo;`);
+
+  if (bits.length) {
+    els.tally.innerHTML = `<b>${plural(shown.length, 'paper')}</b> ${bits.join(', ')}, ` +
+      `out of ${papers.length}.`;
+    return;
+  }
+  const years = papers.map(p => p.meta && p.meta.year).filter(Boolean).sort();
+  const topics = new Set(papers.flatMap(p => p.tags)).size;
+  const span = years.length
+    ? (years[0] === years[years.length - 1] ? `, ${years[0]}`
+       : `, ${years[0]} to ${years[years.length - 1]}`)
+    : '';
+  els.tally.innerHTML = `<b>${plural(papers.length, 'paper')}</b>${span}, on ` +
+    `${plural(topics, 'topic')}.`;
+}
+
+function render() {
+  const shown = sorted(papers.filter(matches));
+
+  let lastYear = null;
+  const nodes = shown.map((p, i) => {
+    const y = yearOf(p) || null;
+    const showYear = sort === 'az' ? y !== null : (y !== null && y !== lastYear);
+    lastYear = y;
+    return renderEntry(p, showYear, i);
+  });
+
+  els.list.classList.toggle('first-paint', firstPaint);
+  els.list.replaceChildren(...nodes);
+  els.empty.hidden = shown.length > 0;
+  renderChrome(shown);
+}
+
+function renderChrome(shown) {
+  els.reset.hidden = selected.size === 0 && !query && statuses.size === 0 && only.size === 0;
+  els.wipe.hidden = !query;
+
+  renderTally(shown);
+  renderTopics();
+  renderStatuses();
+  renderSorts();
+
+  els.pickrow.hidden = picked.size === 0;
+  els.pickcount.innerHTML = `<b>${plural(picked.size, 'paper')}</b> picked. ` +
+    `Copy link and Copy open-all link take the picks, not the filters.`;
+  els.markrow.hidden = markCount() === 0;
+  els.markcount.innerHTML = `<b>${plural(markCount(), 'mark')}</b> made in this browser. ` +
+    `Copy the file to keep them.`;
+}
+
+/* Repainting one row keeps the keyboard where it was and leaves the other
+   354 entries alone. */
+function paintRow(p) {
+  const key = keyOf(p);
+  const li = els.list.querySelector(`[data-key="${CSS.escape(key)}"]`);
+  if (!li) return false;
+
+  const st = statusOf(p), mine = isLocal(p), taken = picked.has(key);
+  li.classList.toggle('picked', taken);
+  li.querySelectorAll('[data-mark]').forEach(b => {
+    b.setAttribute('aria-pressed', String(st === b.dataset.mark));
+    b.classList.toggle('local', mine);
+  });
+  const pick = li.querySelector('[data-pick]');
+  pick.setAttribute('aria-pressed', String(taken));
+  pick.textContent = taken ? 'picked' : 'pick';
+  return true;
+}
+
+/* A mark or a pick only needs the whole list rebuilt when it changes what
+   the filters would show. */
+function touch(p) {
+  firstPaint = false;
+  writeUrl();
+  const shown = sorted(papers.filter(matches));
+  if (shown.length !== els.list.children.length || !paintRow(p)) return render();
+  renderChrome(shown);
+}
+
+/* ---------- the file, with this browser's marks folded in ----------
+
+   Every block is kept exactly as it was read; only its status line is
+   rewritten. Paste the result over content/papers.md and commit. */
+
+function blockWithStatus(p) {
+  const status = statusOf(p);
+  const lines = p.raw.split('\n').filter(l => !/^status:/i.test(l.trim()));
+  if (status !== 'none') lines.push('status: ' + status);
+  return lines.join('\n');
+}
+
+function exportFile() {
+  return papers.map(blockWithStatus).join('\n\n---\n\n') + '\n';
+}
+
+/* ---------- state lives in the URL ---------- */
+
+function readUrl() {
+  const p = new URLSearchParams(location.search);
+  selected = new Set((p.get('tag') || '').split(',').map(t => t.trim().toLowerCase()).filter(Boolean));
+  statuses = new Set((p.get('status') || '').split(',').map(t => t.trim().toLowerCase())
+    .filter(t => STATUSES.some(s => s.key === t)));
+  only = new Set((p.get('doi') || '').split(',').map(d => cleanDoi(d)).filter(Boolean));
+  query = (p.get('q') || '').trim().toLowerCase();
+  sort = SORTS.some(s => s.key === p.get('sort')) ? p.get('sort') : 'new';
+  els.q.value = query;
+}
+
+function writeUrl() {
+  const url = new URL(location.href);
+  const set = (k, v) => v ? url.searchParams.set(k, v) : url.searchParams.delete(k);
+  set('tag', [...selected].join(','));
+  set('status', [...statuses].join(','));
+  set('doi', [...only].join(','));
+  set('q', query);
+  set('sort', sort === 'new' ? '' : sort);
+  history.replaceState(null, '', url);
+}
+
+function update() { firstPaint = false; writeUrl(); render(); }
+
+function toggleMark(key, want) {
+  const current = marks[key];
+  const p = papers.find(x => keyOf(x) === key);
+  const fileStatus = (p && p.status) || 'none';
+  const shown = current !== undefined ? current : fileStatus;
+  const next = shown === want ? 'none' : want;
+  if (next === fileStatus) delete marks[key]; else marks[key] = next;
+  writeMarks();
+  papers.forEach(indexPaper);
+}
+
+document.addEventListener('click', e => {
+  const mark = e.target.closest('[data-mark][data-key]');
+  if (mark) {
+    toggleMark(mark.dataset.key, mark.dataset.mark);
+    return touch(papers.find(x => keyOf(x) === mark.dataset.key));
+  }
+
+  const pick = e.target.closest('[data-pick]');
+  if (pick) {
+    const k = pick.dataset.pick;
+    picked.has(k) ? picked.delete(k) : picked.add(k);
+    return touch(papers.find(x => keyOf(x) === k));
+  }
+
+  if (e.target.closest('#clearpicks')) { picked.clear(); return update(); }
+
+  if (e.target.closest('#markpicked')) {
+    papers.filter(p => picked.has(keyOf(p))).forEach(p => {
+      const key = keyOf(p);
+      if ((p.status || 'none') === 'read') delete marks[key]; else marks[key] = 'read';
+    });
+    writeMarks();
+    papers.forEach(indexPaper);
+    return update();
+  }
+
+  if (e.target.closest('#forgetmarks')) {
+    marks = {};
+    writeMarks();
+    papers.forEach(indexPaper);
+    return update();
+  }
+
+  const tag = e.target.closest('[data-tag]');
+  if (tag) {
+    const t = tag.dataset.tag;
+    selected.has(t) ? selected.delete(t) : selected.add(t);
+    return update();
+  }
+  const st = e.target.closest('[data-status]');
+  if (st) {
+    const k = st.dataset.status;
+    statuses.has(k) ? statuses.delete(k) : statuses.add(k);
+    return update();
+  }
+  const s = e.target.closest('[data-sort]');
+  if (s) { sort = s.dataset.sort; return update(); }
+  if (e.target.closest('#more')) { topicsOpen = !topicsOpen; return render(); }
+  if (e.target.closest('#reset, [data-reset]')) {
+    selected.clear(); statuses.clear(); only.clear(); query = ''; els.q.value = '';
+    return update();
+  }
+  if (e.target.closest('#wipe')) { query = ''; els.q.value = ''; els.q.focus(); return update(); }
+});
+
+els.linkfield.addEventListener('focus', () => els.linkfield.select());
+
+els.q.addEventListener('input', () => {
+  query = els.q.value.trim().toLowerCase();
+  update();
+});
+
+document.addEventListener('keydown', e => {
+  const typing = document.activeElement === els.q;
+  if (e.key === '/' && !typing) { e.preventDefault(); els.q.focus(); }
+  if (e.key === 'Escape' && typing && query) { query = ''; els.q.value = ''; update(); }
+});
+
+/* The clipboard API refuses in plenty of ordinary situations: an unfocused
+   window, a denied permission, an insecure origin. Try it, fall back to the
+   old execCommand, and either way put the link on the page, selected, so it
+   can always be copied by hand. */
+function legacyCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly', '');
+  ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none';
+  document.body.appendChild(ta);
+  ta.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+  ta.remove();
+  return ok;
+}
+
+async function toClipboard(text) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch (e) { /* fall through */ }
+  return legacyCopy(text);
+}
+
+function showLink(text, copied) {
+  els.linkrow.hidden = false;
+  els.linkfield.value = text;
+  els.linkfield.focus();
+  els.linkfield.select();
+  els.linknote.textContent = copied
+    ? 'Copied. It is also here, selected.'
+    : 'Your browser blocked the clipboard. Press Cmd-C or Ctrl-C now.';
+}
+
+async function copyTo(button, text, done) {
+  const label = button.dataset.label || button.textContent;
+  button.dataset.label = label;
+  const ok = await toClipboard(text);
+  showLink(text, ok);
+  button.textContent = ok ? done : 'Copy it below';
+  setTimeout(() => { button.textContent = label; }, 2500);
+}
+
+/* The file is too big to hand over in a text field, so a blocked clipboard
+   gets a download instead. */
+async function copyFile(button, text) {
+  const label = button.dataset.label || button.textContent;
+  button.dataset.label = label;
+  const ok = await toClipboard(text);
+  if (!ok) {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([text], { type: 'text/markdown' }));
+    a.download = 'papers.md';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+  button.textContent = ok ? `File copied, ${markCount()} folded in` : 'Downloaded papers.md';
+  setTimeout(() => { button.textContent = label; }, 2500);
+}
+
+/* Picked papers travel as their own list, so the link means the same thing
+   later even after the file grows. */
+function pickedInOrder() {
+  return sorted(papers.filter(p => picked.has(keyOf(p))));
+}
+
+function viewLink() {
+  if (!picked.size) return location.href;
+  const url = new URL(location.pathname, location.href);
+  url.searchParams.set('doi', pickedInOrder().map(keyOf).join(','));
+  if (sort !== 'new') url.searchParams.set('sort', sort);
+  return url.href;
+}
+
+els.copy.addEventListener('click', () =>
+  copyTo(els.copy, viewLink(), picked.size ? `Link to ${picked.size}` : 'Link copied'));
+
+/* The open-all link names the papers on screen, so it keeps pointing at the
+   same set even after the list itself grows. */
+els.exportmarks.addEventListener('click', () => copyFile(els.exportmarks, exportFile()));
+
+els.copyopen.addEventListener('click', () => {
+  const shown = picked.size ? pickedInOrder() : sorted(papers.filter(matches));
+  const dois = shown.filter(p => p.doi).map(p => p.doi);
+  const url = new URL('open/', location.href);
+  if (dois.length && dois.length <= 25) url.searchParams.set('doi', dois.join(','));
+  else if (!picked.size && selected.size) url.searchParams.set('tag', [...selected].join(','));
+  else if (dois.length) url.searchParams.set('doi', dois.slice(0, 25).join(','));
+  copyTo(els.copyopen, url.href, `Opens ${Math.min(dois.length, 25)}`);
+});
+
+/* ---------- boot ---------- */
+
+async function main() {
+  marks = readMarks();
+  readUrl();
+
+  let text;
+  try {
+    const res = await fetch('../content/papers.md', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    text = await res.text();
+  } catch (e) {
+    els.tally.innerHTML = 'The list did not load. <span class="file">content/papers.md</span> ' +
+      'could not be read from this server.';
+    return;
+  }
+
+  papers = parsePapers(text);
+  papers.forEach(p => {
+    const cached = p.doi ? readCache(p.doi) : null;
+    if (cached) p.meta = mergeMeta(cached, p.local);
+    indexPaper(p);
+  });
+  render();
+
+  const pending = papers.filter(p => p.doi && !readCache(p.doi));
+  if (!pending.length) { firstPaint = false; return; }
+
+  await resolveAll(pending, () => { render(); firstPaint = false; });
+}
+
+main();
+</script>
+</body>
+</html>

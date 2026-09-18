@@ -115,3 +115,78 @@ My MSc research details.
 ### Publications
 
 Publications load automatically from your Semantic Scholar profile — no editing needed! When a new paper is indexed by Semantic Scholar, it will appear on your website automatically.
+
+---
+
+### `papers.md` — Paper collection (`/papers/`)
+
+Each entry is a block, blocks are separated by `---`. The short form is two lines:
+
+```
+10.1038/nature08678
+pheromone, aggression
+```
+
+1. **DOI** — title, authors, journal and year are fetched from Crossref automatically
+2. **Tags** — comma separated
+3. **Note** (optional) — any further plain line is your own comment, shown under the paper
+
+Any line can instead be written as `key: value`, and these keys are understood:
+
+| Key | Use |
+|---|---|
+| `link:` | open something other than doi.org — a specific figure, table or PDF |
+| `title:`, `authors:`, `journal:`, `year:` | for entries Crossref does not know: books, chapters, web pages. Whatever you write here wins over Crossref |
+| `status:` | your reading status: `read` or `to-read`. Not a tag — it gets its own filter, and you can also set it by clicking on the page |
+| `tags:`, `note:`, `doi:` | the same as the positional lines, when you prefer to be explicit |
+
+Marking one as read:
+
+```
+10.1038/nature08678
+pheromone, aggression
+status: read
+```
+
+A book, with no DOI to look up:
+
+```
+title: The study of instinct
+tags: book, behaviour
+authors: Tinbergen
+year: 1951
+```
+
+**Tags are paths.** A dot makes a sub-topic: `pheromone.contact` is part of `pheromone`,
+so picking `pheromone` shows it too, and picking `pheromone.contact` narrows to it.
+
+On the page: a Read / To read / Unmarked row, topic filters with live counts (a topic that would empty the list reads 0 and
+cannot be picked), a search box over titles, authors, journals, DOIs, notes and tags (press
+`/` to focus it), and a Newest / Oldest / A to Z sort. Entries are grouped by year, so the
+order of blocks in this file does not matter — add new ones anywhere.
+
+**Marking papers read from the page.** Every entry has `read`, `to read` and `pick` under it.
+Clicking `read` or `to read` marks the paper straight away, but only in your own browser — a
+static site has nowhere else to put it. The bar then says how many marks you have made and
+offers **Copy papers.md**, which hands you the whole file with your marks folded in: paste it
+over this file, commit, and the marks become permanent for everyone. **Forget my marks** throws
+your local ones away and leaves whatever the file says. A mark that matches the file is not
+stored, so you can also un-mark something the file calls read.
+
+**Picking papers by hand.** `pick` on an entry adds it to a set that is independent of the
+filters — use it when the papers you want to send someone have nothing in common. With picks
+made, `Copy link` gives `?doi=a,b,c` (that exact list, in this order) and `Copy open-all link`
+gives the same list on the open page. `Mark picked read` marks the whole set at once.
+
+**Sharing.** With nothing picked, `Copy link` copies the current view:
+`?tag=pheromone,olfaction&q=receptor&sort=old&status=read`. `Copy open-all link` points at
+`/papers/open/`, which lists the papers and opens all of them in their own tabs when its button
+is pressed. Nothing opens by itself: browsers only allow that in response to a click. A link to
+a single paper redirects straight to the paper instead, and a bundle is capped at 25 tabs.
+Both buttons also drop the link into a box on the page, selected, for the times a browser
+refuses to give a page the clipboard.
+
+Metadata is fetched from Crossref in batches of 20 DOIs and cached in the reader's browser for
+a month, so a second visit needs no requests at all. DOIs Crossref does not hold — arXiv,
+Zenodo — are looked up at DataCite instead. If neither has it, write the `title:` and friends
+into the block yourself.

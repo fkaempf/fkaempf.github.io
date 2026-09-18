@@ -283,6 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navItems.forEach(item => {
         item.addEventListener('click', () => {
             const sectionId = item.dataset.section;
+            if (!sectionId) return; // plain link (e.g. Papers), let it navigate
             
             // If clicking the same section that's open, close the drawer
             if (currentSection === sectionId && drawer.classList.contains('open')) {

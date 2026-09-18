@@ -368,6 +368,11 @@ body::before {
 .nav-item:nth-child(2) { --nav-index: 1; }
 .nav-item:nth-child(3) { --nav-index: 2; }
 .nav-item:nth-child(4) { --nav-index: 3; }
+.nav-item:nth-child(5) { --nav-index: 4; }
+
+a.nav-item {
+    line-height: normal;
+}
 
 .nav-item:hover {
     animation: none;

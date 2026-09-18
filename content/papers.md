@@ -1,3 +1,12 @@
+title: Multifeature visual processing in larval zebrafish
+tags: methods, methods.imaging, thesis, vision, vision.motion, zebrafish
+authors: Slangewal
+journal: PhD thesis, University of Konstanz
+year: 2026
+link: https://kops.uni-konstanz.de/entities/publication/764b6e33-8330-473a-8059-ef3e9c9617b3
+
+---
+
 10.1007/s12021-026-09773-6
 connectome, development, drosophila
 
@@ -39,6 +48,7 @@ drosophila, learning, olfaction
 ---
 
 10.1111/1748-5967.70118
+methods, methods.computation, other-insect, review, theory
 
 ---
 
@@ -219,6 +229,7 @@ aggression, drosophila, evolution, feeding, learning, preprint, state, theory
 ---
 
 10.1038/s41467-025-68044-1
+anatomy, connectome, methods, methods.computation
 
 ---
 
@@ -317,6 +328,7 @@ olfaction, review, social, state
 ---
 
 10.1007/s10015-025-01112-3
+methods, methods.tracking, review, theory
 
 ---
 
@@ -364,11 +376,8 @@ methods, methods.computation
 
 ---
 
-title: A finished connectome of the male central nervous system of Drosophila
-connectome, drosophila
-authors: Berg, Beckett, Marin, Schlegel, Moitra, Costa, Gkanatia, Rubin, Fragniere, Pleijzier, Silva, Kämpf, Cachero, Whittome, Yin, Kiassat, Stürner, Champion, Card, Jefferis
-journal: In preparation
-year: 2025
+10.1016/j.cell.2026.08.015
+anatomy, connectome, drosophila, methods, methods.em, sexual-dimorphism
 
 ---
 
@@ -1051,6 +1060,7 @@ connectome, development, drosophila, genetics, learning, methods, methods.em, me
 ---
 
 10.1016/j.cell.2017.06.032
+anatomy, drosophila, genetics, methods, methods.computation, methods.tracking
 
 ---
 
@@ -1364,6 +1374,7 @@ genetics, methods, methods.rig, review
 ---
 
 10.1016/j.neuron.2012.02.004
+human, review, state, theory
 
 ---
 
@@ -1465,16 +1476,13 @@ courtship, drosophila, feeding, genetics, olfaction, pheromone, taste
 
 ---
 
-title: Chapter 3 Mapping and Manipulating Neural Circuits in the Fly Brain
-book, drosophila
-authors: Simpson
-journal: Advances in Genetics
-year: 2009
-link: https://www.sciencedirect.com/science/article/pii/S0065266009650033
+10.1016/s0065-2660(09)65003-3
+book, drosophila, methods, methods.genetics
 
 ---
 
 10.1080/01677060802610604
+anatomy, methods, review
 
 ---
 
@@ -1488,11 +1496,8 @@ drosophila, pheromone, social
 
 ---
 
-title: The Elements of Statistical Learning
-book, learning
-authors: Hastie, Tibshirani, Friedman
-year: 2009
-link: http://link.springer.com/10.1007/978-0-387-84858-7
+10.1007/978-0-387-84858-7
+book, methods, methods.computation, theory
 
 ---
 
@@ -1537,6 +1542,7 @@ anatomy, courtship, drosophila, mouse, pheromone, sexual-dimorphism
 ---
 
 10.1242/jcs.033340
+essay
 
 ---
 
@@ -1740,6 +1746,7 @@ aggression, review
 ---
 
 10.1126/science.abg7285
+anatomy, connectome, review, theory
 
 ---
 
@@ -1749,6 +1756,7 @@ drosophila, learning, methods, methods.imaging, olfaction
 ---
 
 10.1101/2024.11.26.622641
+drosophila, locomotion, preprint
 
 ---
 
@@ -1831,9 +1839,8 @@ drosophila, state, vision, vision.object
 
 ---
 
-title: Structural basis of CO2 valence coding in Drosophila
-drosophila
-authors: Hummel, Javorski
+10.7554/elife.110832
+drosophila, olfaction, preprint
 
 ---
 
@@ -1852,12 +1859,13 @@ drosophila, vision
 
 ---
 
-title: Uncovering Sex Differences in the Drosophila Ventral Nerve Cord Through Connectome Alignment
-connectome, drosophila, sexual-dimorphism
-authors: Matsliah, Salmon, Bates, Yang, Saul, Silverman, Gager, Yu, Willie, Burke, Willie, Bland, Sorek, David, Sterling, Consortium, Lee, Seung, Murthy
+10.64898/2026.06.14.732053
+anatomy, connectome, drosophila, preprint, sexual-dimorphism
 
 ---
 
 10.1093/g3journal/jkag037
 courtship, drosophila, vision
+
+
 

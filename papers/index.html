@@ -388,16 +388,20 @@ function parseBlock(block) {
     else plain.push(line);
   });
 
-  const ident = kv.doi || plain.shift() || '';
+  /* The first plain line is the identifier only when it looks like one. In a
+     block that opens with `title:`, that line is the tag list instead. */
   let doi = '', link = kv.link || kv.url || '';
+  const ident = kv.doi || (/^(10\.|https?:)/i.test(plain[0] || '') ? plain.shift() : '');
   if (/^10\./.test(ident)) doi = cleanDoi(ident);
   else if (/^https?:/i.test(ident)) {
     if (/doi\.org\//i.test(ident)) doi = cleanDoi(ident);
     else link = link || ident;
   }
 
-  let tags = (kv.tags || (ident ? plain.shift() || '' : ''))
-    .split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+  const TAG_LINE = /^[a-z0-9][a-z0-9.\- ]*(\s*,\s*[a-z0-9][a-z0-9.\- ]*)*$/;
+  const tagLine = kv.tags !== undefined ? kv.tags
+    : (TAG_LINE.test(plain[0] || '') ? plain.shift() : '');
+  let tags = tagLine.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
 
   /* Reading status used to live among the tags; it is a status now. */
   let status = (kv.status || '').trim().toLowerCase();

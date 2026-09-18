@@ -76,14 +76,6 @@ aggression, drosophila, evolution, state
 
 ---
 
-title: Behavior of Courtship
-book, courtship, hearing, social
-authors: Kumar, Rajoriya, Singh, Kumar, Alam
-journal: Principles of Animal Behavior
-year: 2026
-
----
-
 10.1016/j.cub.2026.01.035
 courtship, evolution
 
@@ -114,7 +106,8 @@ navigation, review, social, theory
 ---
 
 10.1016/j.cub.2026.02.046
-aggression, courtship, drosophila, evolution, methods, methods.optogenetics, pheromone, social
+aggression, courtship, drosophila, evolution, methods, methods.optogenetics, olfaction, pheromone, preprint, social
+status: read
 
 ---
 
@@ -283,7 +276,7 @@ anatomy, c-elegans, connectome, courtship, development, drosophila, evolution, m
 ---
 
 10.1016/j.cub.2026.01.071
-courtship, drosophila, evolution, pheromone
+courtship, drosophila, evolution, pheromone, preprint
 status: read
 
 ---
@@ -396,7 +389,7 @@ connectome, methods, methods.computation
 
 ---
 
-10.7554/elife.98405.2
+10.7554/elife.98405
 anatomy, connectome, development, drosophila, genetics, methods, methods.em, methods.genetics, methods.imaging
 
 ---
@@ -486,7 +479,8 @@ social, theory
 ---
 
 10.1016/j.cell.2025.05.007
-connectome
+connectome, preprint
+status: read
 
 ---
 
@@ -501,7 +495,7 @@ connectome, drosophila
 ---
 
 10.1016/j.cell.2025.01.008
-aggression, courtship, drosophila, hearing
+aggression, courtship, drosophila, hearing, preprint
 
 ---
 
@@ -516,12 +510,6 @@ title: Multi state neurons
 authors: Worden
 journal: arXiv
 year: 2025
-
----
-
-10.1101/2025.10.14.682417
-aggression, courtship, drosophila, evolution, olfaction, pheromone, preprint, social
-status: read
 
 ---
 
@@ -580,11 +568,6 @@ drosophila, mechanosensation, methods, methods.computation, methods.imaging
 
 ---
 
-10.1101/2025.08.15.670615
-courtship, drosophila, evolution, pheromone, preprint
-
----
-
 10.1038/s41583-025-00957-8
 anatomy, connectome, evolution, learning, methods, methods.computation, methods.em, methods.imaging, review
 
@@ -607,11 +590,6 @@ connectome, methods, methods.em, methods.imaging
 
 10.1038/s41583-025-00910-9
 development, learning, methods, methods.computation, review
-
----
-
-10.1101/2024.09.23.612766
-learning, methods, methods.imaging
 
 ---
 
@@ -659,7 +637,7 @@ learning, methods, methods.computation, mouse, sleep
 
 ---
 
-10.7554/elife.93659.1
+10.7554/elife.93659
 anatomy, connectome, drosophila, genetics, locomotion, methods, methods.em, methods.genetics, methods.imaging, navigation, vision
 
 ---
@@ -784,7 +762,7 @@ status: read
 
 ---
 
-10.7554/elife.97766.1
+10.7554/elife.97766
 anatomy, connectome, development, drosophila, navigation
 
 ---
@@ -810,11 +788,6 @@ anatomy, connectome, drosophila, locomotion, methods, methods.ephys, navigation,
 
 ---
 
-10.7554/elife.96084.1
-anatomy, connectome, development, drosophila, locomotion, methods, methods.em, methods.imaging
-
----
-
 10.1038/s41586-024-07686-5
 anatomy, connectome, development, drosophila, learning
 status: read
@@ -836,11 +809,6 @@ anatomy, c-elegans, connectome, state
 
 ---
 
-10.7554/elife.88598.1
-aggression, anatomy, drosophila, methods, methods.optogenetics, sexual-dimorphism, state
-
----
-
 10.1162/netn_a_00283
 anatomy, connectome, development, drosophila, genetics, learning, locomotion, olfaction, sleep, state, theory
 
@@ -848,11 +816,6 @@ anatomy, connectome, development, drosophila, genetics, learning, locomotion, ol
 
 10.1016/j.cell.2023.04.038
 anatomy, courtship, drosophila, olfaction, pheromone, taste, vision, vision.looming
-
----
-
-10.1101/2023.11.03.565582
-aggression, courtship, drosophila, hearing, preprint
 
 ---
 
@@ -1184,13 +1147,6 @@ courtship, drosophila
 
 10.7554/elife.11346
 aggression, courtship, courtship.song, drosophila, methods, methods.optogenetics, social, state
-
----
-
-title: Principles of neural design
-book, learning
-authors: Sterling, Laughlin
-year: 2015
 
 ---
 
@@ -1658,13 +1614,6 @@ courtship, development, drosophila, genetics, review
 
 ---
 
-title: Lords of the Fly: Drosophila Genetics and the Experimental Life
-book, drosophila
-authors: Kohler
-year: 1994
-
----
-
 10.1126/science.8209251
 courtship, drosophila
 
@@ -1677,13 +1626,6 @@ development, drosophila, genetics
 
 10.1086/285384
 courtship, feeding, theory
-
----
-
-title: The Making of a Fly: The Genetics of Animal Design
-book, development, drosophila
-authors: Lawrence
-year: 1992
 
 ---
 
@@ -1704,13 +1646,6 @@ drosophila, methods.rig, theory, vision, vision.motion
 
 10.1007/bf00694232
 drosophila, locomotion, methods.rig, vision
-
----
-
-title: The study of instinct
-book, development, evolution, learning, mouse, primate, state, theory
-authors: Tinbergen
-year: 1951
 
 ---
 
@@ -1765,12 +1700,6 @@ learning, primate, theory, vision
 
 ---
 
-title: Extraction and Investigation of Power Neurons in the Caenorhabditis elegans Connectome
-c-elegans, connectome
-authors: Buratti, Marchetti, Parlapiano, Terracina, Ursino
-
----
-
 10.64898/2026.06.09.731064
 courtship, development, drosophila, hearing, state
 
@@ -1778,12 +1707,6 @@ courtship, development, drosophila, hearing, state
 
 10.64898/2025.12.10.689094
 connectome, drosophila
-
----
-
-10.1101/2025.03.06.641774
-connectome, preprint
-status: read
 
 ---
 
@@ -1866,6 +1789,3 @@ anatomy, connectome, drosophila, preprint, sexual-dimorphism
 
 10.1093/g3journal/jkag037
 courtship, drosophila, vision
-
-
-

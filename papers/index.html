@@ -214,7 +214,6 @@ kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--rule-lit);bord
     <div class="acts">
       <button class="act" id="reset" type="button" hidden>Reset</button>
       <button class="act" id="copy" type="button">Copy link</button>
-      <button class="act" id="copyopen" type="button">Copy open-all link</button>
     </div>
   </div>
   <div class="row" id="pickrow" hidden>
@@ -283,7 +282,6 @@ const els = {
   forgetmarks: document.getElementById('forgetmarks'),
   reset: document.getElementById('reset'),
   copy: document.getElementById('copy'),
-  copyopen: document.getElementById('copyopen'),
 };
 
 const SORTS = [
@@ -773,7 +771,7 @@ function renderChrome(shown) {
 
   els.pickrow.hidden = picked.size === 0;
   els.pickcount.innerHTML = `<b>${plural(picked.size, 'paper')}</b> picked. ` +
-    `Copy link and Copy open-all link take the picks, not the filters.`;
+    `Copy link takes the picks, not the filters.`;
   els.markrow.hidden = markCount() === 0;
   els.markcount.innerHTML = `<b>${plural(markCount(), 'mark')}</b> made in this browser. ` +
     `Copy the file to keep them.`;
@@ -1009,19 +1007,7 @@ function viewLink() {
 els.copy.addEventListener('click', () =>
   copyTo(els.copy, viewLink(), picked.size ? `Link to ${picked.size}` : 'Link copied'));
 
-/* The open-all link names the papers on screen, so it keeps pointing at the
-   same set even after the list itself grows. */
 els.exportmarks.addEventListener('click', () => copyFile(els.exportmarks, exportFile()));
-
-els.copyopen.addEventListener('click', () => {
-  const shown = picked.size ? pickedInOrder() : sorted(papers.filter(matches));
-  const dois = shown.filter(p => p.doi).map(p => p.doi);
-  const url = new URL('open/', location.href);
-  if (dois.length && dois.length <= 25) url.searchParams.set('doi', dois.join(','));
-  else if (!picked.size && selected.size) url.searchParams.set('tag', [...selected].join(','));
-  else if (dois.length) url.searchParams.set('doi', dois.slice(0, 25).join(','));
-  copyTo(els.copyopen, url.href, `Opens ${Math.min(dois.length, 25)}`);
-});
 
 /* ---------- boot ---------- */
 

@@ -175,16 +175,13 @@ stored, so you can also un-mark something the file calls read.
 
 **Picking papers by hand.** `pick` on an entry adds it to a set that is independent of the
 filters — use it when the papers you want to send someone have nothing in common. With picks
-made, `Copy link` gives `?doi=a,b,c` (that exact list, in this order) and `Copy open-all link`
-gives the same list on the open page. `Mark picked read` marks the whole set at once.
+made, `Copy link` gives `?doi=a,b,c` — that exact list, in that order. `Mark picked read` marks
+the whole set at once.
 
 **Sharing.** With nothing picked, `Copy link` copies the current view:
-`?tag=pheromone,olfaction&q=receptor&sort=old&status=read`. `Copy open-all link` points at
-`/papers/open/`, which lists the papers and opens all of them in their own tabs when its button
-is pressed. Nothing opens by itself: browsers only allow that in response to a click. A link to
-a single paper redirects straight to the paper instead, and a bundle is capped at 25 tabs.
-Both buttons also drop the link into a box on the page, selected, for the times a browser
-refuses to give a page the clipboard.
+`?tag=pheromone,olfaction&q=receptor&sort=old&status=read`. Whoever opens it lands on the same
+list, filtered the same way. The button also drops the link into a box on the page, selected,
+for the times a browser refuses to give a page the clipboard.
 
 Metadata is fetched from Crossref in batches of 20 DOIs and cached in the reader's browser for
 a month, so a second visit needs no requests at all. DOIs Crossref does not hold — arXiv,

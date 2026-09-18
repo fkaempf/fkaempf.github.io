@@ -1,9 +1,5 @@
-title: Multifeature visual processing in larval zebrafish
-tags: methods, methods.imaging, thesis, vision, vision.motion, zebrafish
-authors: Slangewal
-journal: PhD thesis, University of Konstanz
-year: 2026
-link: https://kops.uni-konstanz.de/entities/publication/764b6e33-8330-473a-8059-ef3e9c9617b3
+10.1101/2025.08.12.669772
+methods, methods.imaging, preprint, theory, vision, vision.motion, zebrafish
 
 ---
 

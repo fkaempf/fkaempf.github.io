@@ -182,10 +182,12 @@ A link with `?doi=` in it opens as a handover: just those papers, a line saying 
 picked, and a way back into the whole cave. The search, topics and marking controls are not shown,
 because there is nothing to filter.
 
-**Sharing.** With nothing picked, `Copy link` copies the current view:
-`?tag=pheromone,olfaction&q=receptor&sort=old&status=read`. Whoever opens it lands on the same
-list, filtered the same way. The button also drops the link into a box on the page, selected,
-for the times a browser refuses to give a page the clipboard.
+**Sharing.** With papers picked, `Copy link` gives a short address like `?p=b89yuv,tfypr8,kv273d`.
+Each code is a hash of that paper's DOI, so it keeps working as the file grows; the longer
+`?doi=10.1038/nature08678,...` form still works too, for a link you want to be readable.
+With nothing picked, the link carries the current view instead:
+`?tag=pheromone,olfaction&q=receptor&sort=old&status=read`. The button also drops the link into a
+box on the page, selected, for the times a browser refuses to give a page the clipboard.
 
 Metadata is fetched from Crossref in batches of 20 DOIs and cached in the reader's browser for
 a month, so a second visit needs no requests at all. DOIs Crossref does not hold — arXiv,

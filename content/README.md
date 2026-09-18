@@ -178,6 +178,10 @@ filters — use it when the papers you want to send someone have nothing in comm
 made, `Copy link` gives `?doi=a,b,c` — that exact list, in that order. `Mark picked read` marks
 the whole set at once.
 
+A link with `?doi=` in it opens as a handover: just those papers, a line saying how many were
+picked, and a way back into the whole cave. The search, topics and marking controls are not shown,
+because there is nothing to filter.
+
 **Sharing.** With nothing picked, `Copy link` copies the current view:
 `?tag=pheromone,olfaction&q=receptor&sort=old&status=read`. Whoever opens it lands on the same
 list, filtered the same way. The button also drops the link into a box on the page, selected,

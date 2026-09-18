@@ -93,6 +93,17 @@ h1{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1;
 .toggle:focus-visible,.act:focus-visible,.wipe:focus-visible,.search input:focus-visible{
   outline:2px solid var(--accent);outline-offset:4px;border-radius:1px}
 
+/* Someone arriving on a shared set gets the papers and a way back, not the
+   machinery for building another selection. */
+.handoff{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline;
+  border-top:1px solid var(--rule);padding-block:14px}
+.handnote{font-family:var(--serif);font-size:16px;color:var(--quiet);flex:1 1 260px}
+.handnote b{color:var(--paper);font-weight:600}
+.handoff .act{text-decoration:none}
+body.shared .controls,body.shared .tally,body.shared .marks,body.shared .lede{display:none}
+/* the topics are worth reading here, but there is nothing to filter */
+body.shared .tagline .toggle{pointer-events:none;border-bottom-color:transparent;color:var(--faint)}
+
 .tally{font-size:13px;color:var(--faint);padding-block:13px 15px}
 .tally b{color:var(--quiet);font-weight:500}
 mark{background:rgba(91,163,163,.22);color:inherit;border-radius:1px}
@@ -236,6 +247,11 @@ kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--rule-lit);bord
   </div>
 </div>
 
+<div class="handoff" id="handoff" hidden>
+  <p class="handnote" id="handnote"></p>
+  <a class="act" href="./">Back to the whole cave</a>
+</div>
+
 <p class="tally" id="tally" aria-live="polite">Reading the list&hellip;</p>
 
 <ul class="list" id="list"></ul>
@@ -275,6 +291,8 @@ const els = {
   clearpicks: document.getElementById('clearpicks'),
   markrow: document.getElementById('markrow'),
   markcount: document.getElementById('markcount'),
+  handoff: document.getElementById('handoff'),
+  handnote: document.getElementById('handnote'),
   linkrow: document.getElementById('linkrow'),
   linkfield: document.getElementById('linkfield'),
   linknote: document.getElementById('linknote'),
@@ -761,6 +779,14 @@ function render() {
 }
 
 function renderChrome(shown) {
+  const shared = only.size > 0;
+  document.body.classList.toggle('shared', shared);
+  els.handoff.hidden = !shared;
+  if (shared) {
+    els.handnote.innerHTML = `<b>${plural(shown.length, 'paper')}</b> out of ` +
+      `${papers.length}, picked by hand.`;
+  }
+
   els.reset.hidden = selected.size === 0 && !query && statuses.size === 0 && only.size === 0;
   els.wipe.hidden = !query;
 

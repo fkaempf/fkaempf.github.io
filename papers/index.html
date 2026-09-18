@@ -100,7 +100,10 @@ h1{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1;
 .handnote{font-family:var(--serif);font-size:16px;color:var(--quiet);flex:1 1 260px}
 .handnote b{color:var(--paper);font-weight:600}
 .handoff .act{text-decoration:none}
-body.shared .controls,body.shared .tally,body.shared .marks,body.shared .lede{display:none}
+/* A handover shows the papers and the way back. Nothing else. */
+body.shared .controls,body.shared .tally,body.shared .marks,body.shared .masthead,
+body.shared .home,body.shared footer,body.shared .handnote{display:none}
+body.shared .handoff{border-top:0;padding-block:26px 18px}
 /* the topics are worth reading here, but there is nothing to filter */
 body.shared .tagline .toggle{pointer-events:none;border-bottom-color:transparent;color:var(--faint)}
 
@@ -783,8 +786,7 @@ function renderChrome(shown) {
   document.body.classList.toggle('shared', shared);
   els.handoff.hidden = !shared;
   if (shared) {
-    els.handnote.innerHTML = `<b>${plural(shown.length, 'paper')}</b> out of ` +
-      `${papers.length}, picked by hand.`;
+    els.handnote.textContent = `${plural(shown.length, 'paper')} out of ${papers.length}.`;
   }
 
   els.reset.hidden = selected.size === 0 && !query && statuses.size === 0 && only.size === 0;

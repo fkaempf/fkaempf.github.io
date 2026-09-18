@@ -349,7 +349,7 @@ let statuses = new Set();
 let picked = new Set();
 let only = new Set();    // ?doi= — show exactly these papers
 let marks = {};          // key -> 'read' | 'to-read' | 'none', this browser only
-let query = '';
+let query_ = '';
 let sort = 'new';
 let topicsOpen = false;
 let firstPaint = true;
@@ -551,8 +551,8 @@ function escapeHtml(s) {
 
 function highlight(s) {
   const safe = escapeHtml(s || '');
-  if (!query) return safe;
-  const needle = escapeHtml(query).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  if (!query_) return safe;
+  const needle = escapeHtml(query_).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return safe.replace(new RegExp(needle, 'gi'), m => `<mark>${m}</mark>`);
 }
 
@@ -659,7 +659,7 @@ function matches(p) {
   if (only.size && !only.has(keyOf(p))) return false;
   if (statuses.size && !statuses.has(statusOf(p))) return false;
   if (selected.size && ![...selected].every(t => hasTag(p, t))) return false;
-  if (query && !p.hay.includes(query)) return false;
+  if (query_ && !p.hay.includes(query_)) return false;
   return true;
 }
 
@@ -726,7 +726,7 @@ function renderTopics() {
 function renderStatuses() {
   const counts = new Map(STATUSES.map(s => [s.key, 0]));
   papers.forEach(p => {
-    if (query && !p.hay.includes(query)) return;
+    if (query_ && !p.hay.includes(query_)) return;
     if (selected.size && ![...selected].every(t => hasTag(p, t))) return;
     counts.set(statusOf(p), (counts.get(statusOf(p)) || 0) + 1);
   });
@@ -751,7 +751,7 @@ function renderTally(shown) {
       ({ read: 'already read', 'to-read': 'queued to read', none: 'unmarked' }[k]))));
   }
   if (selected.size) bits.push('tagged ' + joinWords([...selected]));
-  if (query) bits.push(`matching &ldquo;${escapeHtml(query)}&rdquo;`);
+  if (query_) bits.push(`matching &ldquo;${escapeHtml(query_)}&rdquo;`);
 
   if (bits.length) {
     els.tally.innerHTML = `<b>${plural(shown.length, 'paper')}</b> ${bits.join(', ')}, ` +
@@ -793,8 +793,8 @@ function renderChrome(shown) {
     els.handnote.textContent = `${plural(shown.length, 'paper')} out of ${papers.length}.`;
   }
 
-  els.reset.hidden = selected.size === 0 && !query && statuses.size === 0 && only.size === 0;
-  els.wipe.hidden = !query;
+  els.reset.hidden = selected.size === 0 && !query_ && statuses.size === 0 && only.size === 0;
+  els.wipe.hidden = !query_;
 
   renderTally(shown);
   renderTopics();
@@ -862,20 +862,33 @@ function readUrl() {
   statuses = new Set((p.get('status') || '').split(',').map(t => t.trim().toLowerCase())
     .filter(t => STATUSES.some(s => s.key === t)));
   only = new Set((p.get('doi') || '').split(',').map(d => cleanDoi(d)).filter(Boolean));
-  query = (p.get('q') || '').trim().toLowerCase();
+  query_ = (p.get('q') || '').trim().toLowerCase();
   sort = SORTS.some(s => s.key === p.get('sort')) ? p.get('sort') : 'new';
-  els.q.value = query;
+  els.q.value = query_;
+}
+
+/* Slashes and commas are legal in a query string, and a DOI is mostly
+   slashes. Leaving them alone keeps a shared link readable and about a
+   third shorter than the percent-encoded version. */
+function query(pairs) {
+  const parts = pairs
+    .filter(([, v]) => v)
+    .map(([k, v]) => k + '=' + encodeURIComponent(v).replace(/%2F/gi, '/').replace(/%2C/gi, ','));
+  return parts.length ? '?' + parts.join('&') : '';
+}
+
+function state() {
+  return [
+    ['doi', [...only].join(',')],
+    ['tag', [...selected].join(',')],
+    ['status', [...statuses].join(',')],
+    ['q', query_],
+    ['sort', sort === 'new' ? '' : sort],
+  ];
 }
 
 function writeUrl() {
-  const url = new URL(location.href);
-  const set = (k, v) => v ? url.searchParams.set(k, v) : url.searchParams.delete(k);
-  set('tag', [...selected].join(','));
-  set('status', [...statuses].join(','));
-  set('doi', [...only].join(','));
-  set('q', query);
-  set('sort', sort === 'new' ? '' : sort);
-  history.replaceState(null, '', url);
+  history.replaceState(null, '', location.pathname + query(state()));
 }
 
 function update() { firstPaint = false; writeUrl(); render(); }
@@ -940,23 +953,23 @@ document.addEventListener('click', e => {
   if (s) { sort = s.dataset.sort; return update(); }
   if (e.target.closest('#more')) { topicsOpen = !topicsOpen; return render(); }
   if (e.target.closest('#reset, [data-reset]')) {
-    selected.clear(); statuses.clear(); only.clear(); query = ''; els.q.value = '';
+    selected.clear(); statuses.clear(); only.clear(); query_ = ''; els.q.value = '';
     return update();
   }
-  if (e.target.closest('#wipe')) { query = ''; els.q.value = ''; els.q.focus(); return update(); }
+  if (e.target.closest('#wipe')) { query_ = ''; els.q.value = ''; els.q.focus(); return update(); }
 });
 
 els.linkfield.addEventListener('focus', () => els.linkfield.select());
 
 els.q.addEventListener('input', () => {
-  query = els.q.value.trim().toLowerCase();
+  query_ = els.q.value.trim().toLowerCase();
   update();
 });
 
 document.addEventListener('keydown', e => {
   const typing = document.activeElement === els.q;
   if (e.key === '/' && !typing) { e.preventDefault(); els.q.focus(); }
-  if (e.key === 'Escape' && typing && query) { query = ''; els.q.value = ''; update(); }
+  if (e.key === 'Escape' && typing && query_) { query_ = ''; els.q.value = ''; update(); }
 });
 
 /* The clipboard API refuses in plenty of ordinary situations: an unfocused
@@ -1030,10 +1043,8 @@ function pickedInOrder() {
 
 function viewLink() {
   if (!picked.size) return location.href;
-  const url = new URL(location.pathname, location.href);
-  url.searchParams.set('doi', pickedInOrder().map(keyOf).join(','));
-  if (sort !== 'new') url.searchParams.set('sort', sort);
-  return url.href;
+  const pairs = [['doi', pickedInOrder().map(keyOf).join(',')], ['sort', sort === 'new' ? '' : sort]];
+  return location.origin + location.pathname + query(pairs);
 }
 
 els.copy.addEventListener('click', () =>

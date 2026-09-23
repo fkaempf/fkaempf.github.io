@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Pheromone paper | Florian K&auml;mpf</title>
+<meta name="description" content="The subprojects of the Drosophila chemosensation paper: the olfactory channels that carry fly odours, the contact chemosensory circuit, and the connectome scenes behind them.">
+<meta name="author" content="Florian K&auml;mpf">
+<link rel="canonical" href="https://floriankaempf.com/pheromone-paper/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Florian K&auml;mpf">
+<meta property="og:url" content="https://floriankaempf.com/pheromone-paper/">
+<meta property="og:title" content="Pheromone paper">
+<meta property="og:description" content="Every subproject of the chemosensation paper, with one line on the question each one answers.">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --bg-primary:#0d0d0d; --bg-secondary:#161616; --bg-sunk:#1a1a1a;
+  --text-primary:#e8e8e8; --text-secondary:#a0a0a0; --text-muted:#666;
+  --accent:#5ba3a3; --accent-hover:#6fb8b8; --accent-subtle:rgba(91,163,163,.15);
+  --header-accent:#6b7a5c;
+  --border:#2a2a2a; --border-light:#333;
+  --font-sans:'IBM Plex Sans',-apple-system,sans-serif;
+  --font-serif:'IBM Plex Serif',Georgia,serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-sans);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding-inline:22px;padding-block:0 80px}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:.2s ease}
+a:hover{color:var(--accent-hover);border-bottom-color:var(--accent-hover)}
+.back{display:inline-block;font-size:13px;color:var(--text-muted);margin-top:26px}
+.back:hover{color:var(--accent)}
+.eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--header-accent)}
+h1{font-family:var(--font-serif);font-size:clamp(30px,5.2vw,45px);line-height:1.12;
+  font-weight:600;letter-spacing:-.015em;margin:12px 0 0;text-wrap:balance}
+h2{font-family:var(--font-serif);font-size:24px;font-weight:600;letter-spacing:-.01em;
+  text-wrap:balance}
+p{max-width:68ch;color:var(--text-secondary)}
+code,.mono{font-family:var(--font-mono);font-size:.87em}
+header{border-bottom:1px solid var(--border);padding-block:14px 30px;
+  display:flex;flex-direction:column;gap:16px}
+.lede{font-family:var(--font-serif);font-size:18px;line-height:1.55;color:var(--text-secondary);max-width:64ch}
+.prov{display:flex;flex-wrap:wrap;gap:6px 9px;font-family:var(--font-mono);font-size:11.5px;
+  color:var(--text-muted)}
+.prov span{background:var(--bg-secondary);border:1px solid var(--border);border-radius:3px;padding:3px 8px}
+section{padding-block:36px;border-bottom:1px solid var(--border);
+  display:flex;flex-direction:column;gap:18px}
+section:last-of-type{border-bottom:0}
+.shead{display:flex;flex-direction:column;gap:8px}
+
+/* One entry per subproject. A new subproject is one <a class="entry"> and nothing else. */
+.entries{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);
+  border-radius:6px;overflow:hidden;background:var(--bg-secondary)}
+a.entry{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:baseline;
+  padding:14px 16px;border-bottom:1px solid var(--border);border-radius:0;color:inherit}
+a.entry:last-child{border-bottom:0}
+a.entry:hover{background:var(--bg-sunk);border-bottom-color:var(--border)}
+a.entry .name{font-weight:600;font-size:15px;color:var(--text-primary)}
+a.entry:hover .name{color:var(--accent)}
+a.entry .what{grid-column:1;font-size:13.5px;color:var(--text-secondary);line-height:1.5}
+a.entry .tag{grid-row:1;grid-column:2;font-family:var(--font-mono);font-size:10.5px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);
+  border:1px solid var(--border);border-radius:3px;padding:2.5px 7px;white-space:nowrap}
+.sub{font-size:13px;color:var(--text-muted)}
+footer{padding-block:30px 0;font-size:12.5px;color:var(--text-muted)}
+footer p{color:var(--text-muted);max-width:76ch}
+@media(max-width:560px){.wrap{padding-inline:16px}a.entry{grid-template-columns:1fr}
+  a.entry .tag{grid-row:auto;grid-column:1;justify-self:start}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="/">&larr; floriankaempf.com</a>
+
+<header>
+  <p class="eyebrow">Drosophila chemosensation &middot; Jefferis laboratory</p>
+  <h1>Pheromone paper</h1>
+  <p class="lede">How a male fly reads the chemical signals of another fly, and where the two sexes
+  part company. Each subproject below answers one question and holds its own methods and its own
+  limits.</p>
+  <div class="prov">
+    <span>maleCNS v1.0</span><span>FlyWire 783</span><span>neuPrint</span><span>neuroglancer</span>
+  </div>
+</header>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">Smell</p>
+    <h2>Odours carried through the air</h2>
+    <p>The olfactory receptor neurons that answer to fly odours, read against every other
+    olfactory channel and against the female brain.</p>
+  </div>
+  <div class="entries">
+    <a class="entry" href="../olfactory/">
+      <span class="name">Fly odour ORN figure</span>
+      <span class="tag">figure</span>
+      <span class="what">Are there more fly-odour receptor neurons in the male than in the female,
+      how much of what they speak to is sexually dimorphic, and do the two sexes spread the output
+      differently? Five channels against the 48 other ORN types.</span>
+    </a>
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">Touch and taste</p>
+    <h2>Signals read at contact</h2>
+    <p>The contact chemosensory neurons of the legs and the wings, the neurons they drive, and the
+    reagents that reach them. Each page holds its own methods and its own limits.</p>
+  </div>
+  <div class="entries">
+    <a class="entry" href="../ng/pheromone-paper/">
+      <span class="name">Contact chemosensation, all pages</span>
+      <span class="tag">hub</span>
+      <span class="what">The index of the analysis pages and the bench pages for the contact
+      chemosensory work, together with the connectome scenes behind them.</span>
+    </a>
+    <a class="entry" href="../ng/sn-an-connections/">
+      <span class="name">Sensory neurons to their partners</span>
+      <span class="tag">analysis</span>
+      <span class="what">The contact chemosensory neurons and the neurons that they drive.</span>
+    </a>
+    <a class="entry" href="../ng/bristle-impact/">
+      <span class="name">Bristle impact</span>
+      <span class="tag">analysis</span>
+      <span class="what">Which bristle types and which neuromeres drive the dimorphic neurons.</span>
+    </a>
+    <a class="entry" href="../ng/bristle-typing/">
+      <span class="name">Bristle typing</span>
+      <span class="tag">analysis</span>
+      <span class="what">Do the dimorphic targets group the bristle types? Three groups, and the
+      receptor assignment is not one of them.</span>
+    </a>
+    <a class="entry" href="../ng/dimorphic-ranking/">
+      <span class="name">Dimorphic ranking</span>
+      <span class="tag">analysis</span>
+      <span class="what">The ascending neurons after contact chemosensation, ranked by their
+      dimorphic output.</span>
+    </a>
+    <a class="entry" href="../ng/an05b023-dimorphic/">
+      <span class="name">AN05B023, dimorphic partners</span>
+      <span class="tag">analysis</span>
+      <span class="what">The dimorphic partners of AN05B023a to d, separated by volume.</span>
+    </a>
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">Bench</p>
+    <h2>What to do at the bench</h2>
+    <p>The question, the measurement and the reagents, and the genotypes that deliver them.</p>
+  </div>
+  <div class="entries">
+    <a class="entry" href="../ng/receptor-typing/">
+      <span class="name">Receptor typing</span>
+      <span class="tag">protocol</span>
+      <span class="what">The question, the measurement and the reagents. Three documents in one
+      page.</span>
+    </a>
+    <a class="entry" href="../ng/first-cross/">
+      <span class="name">Crosses</span>
+      <span class="tag">protocol</span>
+      <span class="what">The genotypes, the stock list, the crosses, the clean-ups and the
+      controls.</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>Florian K&auml;mpf &middot; Jefferis laboratory, MRC Laboratory of Molecular Biology. The
+  connectome pages read the male CNS connectome at neuPrint and the FlyWire proofread reconstruction
+  of the female brain. Each page names the dataset version it used.</p>
+</footer>
+
+</div>
+</body>
+</html>

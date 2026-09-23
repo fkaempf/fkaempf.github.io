@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Fly odour ORN figure | Florian K&auml;mpf</title>
+<meta name="description" content="The five olfactory channels that carry fly odours, compared between the male and the female connectome: cell census, dimorphic targets one synapse downstream, and partner diversity.">
+<meta name="author" content="Florian K&auml;mpf">
+<link rel="canonical" href="https://floriankaempf.com/olfactory/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Florian K&auml;mpf">
+<meta property="og:url" content="https://floriankaempf.com/olfactory/">
+<meta property="og:title" content="Fly odour ORN figure">
+<meta property="og:description" content="Five olfactory channels carry fly odours. In the male they hold more receptor neurons and reach dimorphic targets at the first synapse.">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --bg-primary:#0d0d0d; --bg-secondary:#161616; --bg-sunk:#1a1a1a;
+  --text-primary:#e8e8e8; --text-secondary:#a0a0a0; --text-muted:#666;
+  --accent:#5ba3a3; --accent-hover:#6fb8b8; --accent-subtle:rgba(91,163,163,.15);
+  --header-accent:#6b7a5c;
+  --border:#2a2a2a; --border-light:#333;
+  --font-sans:'IBM Plex Sans',-apple-system,sans-serif;
+  --font-serif:'IBM Plex Serif',Georgia,serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-sans);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+.wrap{max-width:1000px;margin:0 auto;padding-inline:22px;padding-block:0 80px}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:.2s ease}
+a:hover{color:var(--accent-hover);border-bottom-color:var(--accent-hover)}
+.back{display:inline-block;font-size:13px;color:var(--text-muted);margin-top:26px}
+.back:hover{color:var(--accent)}
+.eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--header-accent)}
+h1{font-family:var(--font-serif);font-size:clamp(30px,5.2vw,45px);line-height:1.12;
+  font-weight:600;letter-spacing:-.015em;margin:12px 0 0;text-wrap:balance}
+h2{font-family:var(--font-serif);font-size:24px;font-weight:600;letter-spacing:-.01em;
+  text-wrap:balance}
+h3{font-size:15px;font-weight:600}
+p{max-width:68ch;color:var(--text-secondary)}
+code,.mono{font-family:var(--font-mono);font-size:.87em}
+header{border-bottom:1px solid var(--border);padding-block:14px 30px;
+  display:flex;flex-direction:column;gap:16px}
+.lede{font-family:var(--font-serif);font-size:18px;line-height:1.55;color:var(--text-secondary);max-width:64ch}
+.prov{display:flex;flex-wrap:wrap;gap:6px 9px;font-family:var(--font-mono);font-size:11.5px;
+  color:var(--text-muted)}
+.prov span{background:var(--bg-secondary);border:1px solid var(--border);border-radius:3px;padding:3px 8px}
+section{padding-block:40px;border-bottom:1px solid var(--border);
+  display:flex;flex-direction:column;gap:20px}
+section:last-of-type{border-bottom:0}
+.shead{display:flex;flex-direction:column;gap:8px}
+.figbox{background:var(--bg-secondary);border:1px solid var(--border);border-radius:6px;
+  padding:14px 12px;overflow-x:auto}
+.figbox img{display:block;width:100%;height:auto;border-radius:3px}
+figure{display:flex;flex-direction:column;gap:10px}
+figcaption{font-size:13.5px;line-height:1.55;color:var(--text-secondary);max-width:74ch}
+figcaption b{color:var(--text-primary);font-weight:600}
+.plabel{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--header-accent);
+  letter-spacing:.06em}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+.tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:6px;background:var(--bg-secondary)}
+th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+thead th{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--text-muted);font-weight:600;background:var(--bg-sunk)}
+tbody tr:last-child td{border-bottom:0}
+td.num{text-align:right;font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+td b{color:var(--text-primary)}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.note{background:var(--bg-secondary);border:1px solid var(--border);border-radius:6px;padding:14px 16px}
+.note h3{margin-bottom:6px;color:var(--text-primary)}
+.note p{font-size:13.5px;max-width:none}
+.note strong{color:var(--text-primary)}
+footer{padding-block:30px 0;font-size:12.5px;color:var(--text-muted)}
+footer p{color:var(--text-muted);max-width:76ch}
+@media(max-width:560px){.wrap{padding-inline:16px}section{padding-block:30px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="/">&larr; floriankaempf.com</a>
+
+<header>
+  <p class="eyebrow">Chemosensation &middot; olfactory channels &middot; maleCNS v1.0 &times; FlyWire 783</p>
+  <h1>Fly odour ORN figure</h1>
+  <p class="lede">Five olfactory channels carry fly odours. In the male brain they hold more
+  receptor neurons than any other olfactory channel, and they reach sexually dimorphic targets at
+  the first synapse. What they do with their output, they do in both sexes alike.</p>
+  <div class="prov">
+    <span>maleCNS v1.0</span><span>FlyWire 783</span><span>53 shared ORN types</span>
+    <span>no synapse threshold</span><span>5 channels against 48 nulls</span>
+  </div>
+</header>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">Findings</p>
+    <h2>Three results and two negatives</h2>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Panel</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">A</td>
+          <td>The five fly-odour glomeruli are the <b>five largest ORN populations of the male
+          brain</b>, ranks 1 to 5 of 53. Against a line fitted to the other 48 types they are also
+          the five most male-enriched. DA1 falls 9.3 residual sd below that line.</td></tr>
+        <tr><td class="mono">A3</td>
+          <td>They hold a larger share of the male ORN output than of the female. DA1 takes
+          <b>8.3 % of the male ORN output against 3.8 % of the female</b>. DL3 is the exception:
+          on output share it is an ordinary channel in both sexes.</td></tr>
+        <tr><td class="mono">B</td>
+          <td>One synapse downstream, four of the five carry the <b>largest dimorphic fractions of
+          all 53 types</b>. VA1v sends 9.0 % of its output to dimorphic partners and VA1d 6.6 %,
+          against a best null of 0.6 %. DL3 sends none.</td></tr>
+        <tr><td class="mono">C1</td>
+          <td>A fly-odour ORN contacts <b>no more partner types than an ordinary ORN</b>, and no
+          more in one sex than in the other. The two sexes differ by under one partner type once
+          the count is corrected for how completely each cell is traced.</td></tr>
+        <tr><td class="mono">C2</td>
+          <td>The two sexes spread the output across partners <b>in the same shape</b>. By the area
+          between the male and the female curve, the five sit at or below the median of all 53.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">Method</p>
+    <h2>Two connectomes, 53 shared ORN types</h2>
+    <p>The male is maleCNS v1.0 and the female is FlyWire 783. The olfactory receptor neurons are
+    the cells that each dataset classes as olfactory. The same 53 ORN types occur on both sides and
+    no type is present on one side only. Neither side carries a synapse threshold.</p>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Side</th><th>Dataset</th><th class="num">ORN cells</th><th class="num">Types</th><th class="num">Out-edges</th><th class="num">Out-syn / cell</th></tr></thead>
+      <tbody>
+        <tr><td><b>Male</b></td><td>maleCNS v1.0</td><td class="num">2 635</td><td class="num">53</td><td class="num">234 487</td><td class="num">517</td></tr>
+        <tr><td><b>Female</b></td><td>FlyWire 783</td><td class="num">2 276</td><td class="num">53</td><td class="num">98 022</td><td class="num">157</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="notes">
+    <div class="note">
+      <h3>The five channels</h3>
+      <p><strong>DA1</strong>, <strong>VA1v</strong>, <strong>VA1d</strong>, <strong>DL3</strong>
+      and <strong>VL2a</strong>. DA1 and DL3 carry cVA, VA1v and VA1d methyl laurate, VL2a
+      phenylacetic acid.</p>
+    </div>
+    <div class="note">
+      <h3>The null set</h3>
+      <p>The <strong>48 ORN types that are not fly-odour types</strong>. Not a shuffle and not a
+      random draw. Every fit on this page is fitted on those 48, and every ranking is a ranking
+      against them.</p>
+    </div>
+    <div class="note">
+      <h3>Why the counts are corrected</h3>
+      <p>A male ORN carries <strong>517</strong> output synapses and a female ORN
+      <strong>157</strong>. That is a property of the two reconstructions, not of the fly. Panels
+      that count synapses use shares, and panels that count partners are rarefied.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">Panel A</p>
+    <h2>The male devotes more neurons to fly odours</h2>
+  </div>
+
+  <figure>
+    <p class="plabel">A1 &middot; cells per fly-odour glomerulus</p>
+    <div class="figbox"><img src="img/A1_cells_fly.png" alt="Paired bars of ORN cell counts for the five fly-odour glomeruli, male against female." loading="lazy"></div>
+    <figcaption>The male holds more cells in all five. The two datasets hold 2 635 and 2 276 ORN
+    cells in total, a ratio of 1.16, so a channel must beat 1.16 to carry a male bias of its own.
+    All five do, and <b>DA1 reaches 1.62</b>.</figcaption>
+  </figure>
+
+  <figure>
+    <p class="plabel">A1&prime; &middot; the same census for all 53 ORN types</p>
+    <div class="figbox"><img src="img/A1b_cells_all.png" alt="Paired male and female cell counts for all 53 ORN types, sorted by male count, with the average line over the female bars." loading="lazy"></div>
+    <figcaption><b>The five fly-odour glomeruli are the five largest ORN populations of the male
+    brain</b>, so their columns stand together at the left. Sixth place is VM5d with 84 cells
+    against VL2a&rsquo;s 98. The grey line is 0.908 &times; the male count, the average
+    male-to-female relationship fitted on the 48 null types. A female bar short of the grey dot
+    marks a channel with fewer female cells than an ordinary ORN type would hold.</figcaption>
+  </figure>
+
+  <figure>
+    <p class="plabel">A2 &middot; all 53 types against the average line</p>
+    <div class="figbox"><img src="img/A2_scatter_cells.png" alt="Female against male ORN cell count for all 53 types, with the fitted line, its two sd band and the five fly-odour types labelled." loading="lazy"></div>
+    <figcaption>Each point is one ORN type. The line is fitted through the origin on the 48 null
+    types alone: female = 0.908 &times; male, residual sd 6.38 cells. <b>All five fly-odour types
+    fall below it</b>, and DA1 falls 9.3 sd below, outside anything the null set reaches.</figcaption>
+  </figure>
+
+  <figure>
+    <p class="plabel">A2&prime; &middot; distance from the line, ranked</p>
+    <div class="figbox"><img src="img/A2b_residual_z.png" alt="Residual z for each of the 53 ORN types, ranked, with the five fly-odour types marked." loading="lazy"></div>
+    <figcaption>The same fit read as one number for each type. <b>The five fly-odour types are the
+    five most negative of all 53.</b> The most negative null type is VL2p at &minus;2.0, against
+    DA1 at &minus;9.3.</figcaption>
+  </figure>
+
+  <figure>
+    <p class="plabel">A3 &middot; share of all ORN output synapses</p>
+    <div class="figbox"><img src="img/A3_share_fly.png" alt="Share of all ORN output synapses for the five fly-odour glomeruli, male against female." loading="lazy"></div>
+    <figcaption>Output synapses of one glomerulus over all ORN output synapses of that dataset. The
+    share is what makes the two reconstructions comparable. <b>DA1 holds 8.3 % of the male ORN
+    output against 3.8 % of the female</b>, a wider gap than its cell count alone gives.</figcaption>
+  </figure>
+
+  <figure>
+    <p class="plabel">A3&prime; &middot; the same share for all 53 types</p>
+    <div class="figbox"><img src="img/A3b_share_all.png" alt="Share of all ORN output synapses for every ORN type, sorted by male share, with its own average line." loading="lazy"></div>
+    <figcaption>Sorted by male share: DA1 8.32 %, DP1m 5.32 %, VA1v 4.14 %, DM1 3.72 %, VL2a
+    3.46 %. The line is female share = 1.167 &times; male share, fitted on the 48 nulls. Its slope
+    stands above 1 because the five take so much of the male output that the other 48 must take
+    proportionally more of the female, which makes the line a harder test and not an easier one.
+    Residuals: DA1 &minus;8.85, VA1v &minus;5.09, VA1d &minus;2.57, VL2a &minus;2.52.
+    <b>DL3 reaches only &minus;0.56</b> and holds an ordinary share in both sexes, so the DA1
+    result is not a general cVA result.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">Panel B</p>
+    <h2>The dimorphic split starts at the first synapse</h2>
+    <p>For each ORN type, take its direct postsynaptic partners and ask what share of the output
+    reaches a type the male connectome marks dimorphic or male-specific. One hop.</p>
+  </div>
+
+  <figure>
+    <p class="plabel">B &middot; output synapses onto dimorphic partners</p>
+    <div class="figbox"><img src="img/B_dimorphic_synapse.png" alt="Ranked share of ORN output synapses that reach a dimorphic partner type." loading="lazy"></div>
+    <figcaption><b>32 of the 48 null types send nothing at all</b> to a dimorphic partner, and the
+    largest of them is DC3 at 0.57 %. VA1v at 8.97 % and VA1d at 6.62 % stand more than ten times
+    above it. DA1 and VL2a clear every null type by a narrower margin. <b>DL3 is zero</b> across
+    all 60 of its partner types. Finding 9 % of the VA1v output already on dimorphic targets puts
+    the split at the first synapse and not deep in the brain.</figcaption>
+  </figure>
+
+  <figure>
+    <p class="plabel">B&prime; &middot; the two scores</p>
+    <div class="figbox"><img src="img/Bb_two_scores.png" alt="Type-weighted and synapse-weighted dimorphic fraction for every ORN type." loading="lazy"></div>
+    <figcaption>A channel can speak to many dimorphic types with few synapses, or to one dimorphic
+    type with many. The two scores separate those cases and rank the five the same way. The
+    synapse-weighted score separates them further, so it carries panel B.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">Panel C</p>
+    <h2>What the two sexes do with the output is the same</h2>
+    <p>The number of partner types a cell reaches is a species-richness count, and richness rises
+    with sample size. A male ORN carries 3.3 times the output synapses of a female ORN, so it
+    reaches more partner types for arithmetic reasons alone. Rarefaction removes that: for each
+    cell, the expected number of distinct partner types in a random sample of a fixed number of its
+    output synapses. The form is exact and needs no simulation,
+    <span class="mono">E = &sum; (1 &minus; C(S&minus;w, N) / C(S, N))</span> over the partner types
+    of that cell.</p>
+  </div>
+
+  <figure>
+    <p class="plabel">C1 &middot; distinct partner types for one ORN, raw</p>
+    <div class="figbox"><img src="img/C1_partners_raw.png" alt="Cumulative distribution of the raw number of distinct partner types for one ORN." loading="lazy"></div>
+    <figcaption>Medians: fly-odour 30 male against 16 female, null set 35 male against 22 female.
+    <b>The null set separates as widely as the five do</b>, which marks the gap as a property of
+    the two reconstructions and not of the channels.</figcaption>
+  </figure>
+
+  <figure>
+    <p class="plabel">C1&prime; &middot; the same count, rarefied to 50 output synapses</p>
+    <div class="figbox"><img src="img/C1r_partners_rarefied.png" alt="Cumulative distribution of the rarefied partner richness for one ORN." loading="lazy"></div>
+    <figcaption>Rarefied to N = 50, which keeps every male cell and 86 % of the female cells. The
+    medians close from 30 against 16 to <b>15.4 against 14.7</b>, and the null set closes to 16.4
+    against 14.8. Per glomerulus the Kolmogorov-Smirnov tests still reject, DA1 at p = 2.5e-11, but
+    the difference they reject is under one partner type and the null set carries it too.
+    <b>Partner richness holds no difference specific to the fly-odour channels.</b></figcaption>
+  </figure>
+
+  <figure>
+    <p class="plabel">C2 &middot; rank abundance, one plot per glomerulus</p>
+    <div class="figbox"><img src="img/C2_rank_abundance_fly.png" alt="Rank abundance curves of the ORN output for each fly-odour glomerulus, male against female." loading="lazy"></div>
+    <figcaption>Partner types sorted by output synapses; the curve is the cumulative share of the
+    output. A curve that rises fast means few partners take it all. DL3 is the most concentrated of
+    the five: its strongest partner takes 45 % of the male output and 56 % of the female. VL2a is
+    the most spread, at 19 % and 25 %.</figcaption>
+  </figure>
+
+  <figure>
+    <p class="plabel">C2&prime; &middot; every type, ordered by the male-female gap</p>
+    <div class="figbox"><img src="img/C2b_rank_abundance_all.png" alt="One rank abundance plot for each of the 53 ORN types, ordered by the area between the male and female curves." loading="lazy"></div>
+    <figcaption>One plot for each ORN type, ordered by the <b>area between the male and the female
+    curve</b>, the mean gap over ranks 1 to 20, shaded. It asks where the two sexes spread the
+    output differently. <b>Not in the fly-odour channels.</b> They come 23rd, 24th, 27th, 30th and
+    50th of 53, at or below the median gap of 0.046. The widest gaps belong to ordinary types:
+    VA7m 0.117, DA2 0.096, VM1 0.094. Every type but one holds the female curve above the male;
+    VL1 alone runs the other way, at &minus;0.016.</figcaption>
+  </figure>
+</section>
+
+<footer>
+  <p>Male edges from maleCNS v1.0 at neuPrint, fetched without a synapse threshold. Female edges
+  from the FlyWire 783 proofread synapse table. The ORN type names agree across the two datasets;
+  the female side takes its names from the FlyWire annotation and falls back to the hemibrain
+  match. Every panel and every number on this page is written by
+  <span class="mono">analyses/olfactory_story/</span> in the chemosensation analysis repository,
+  which checks each of them against a fixed expected value at every run.</p>
+  <p style="margin-top:14px"><a href="../pheromone-paper/">&larr; Pheromone paper</a></p>
+</footer>
+
+</div>
+</body>
+</html>

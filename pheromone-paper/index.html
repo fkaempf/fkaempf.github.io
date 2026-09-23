@@ -11,174 +11,421 @@
 <meta property="og:site_name" content="Florian K&auml;mpf">
 <meta property="og:url" content="https://floriankaempf.com/pheromone-paper/">
 <meta property="og:title" content="Pheromone paper">
-<meta property="og:description" content="Every subproject of the chemosensation paper, with one line on the question each one answers.">
+<meta property="og:description" content="Every subproject of the chemosensation paper.">
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600;700&display=swap">
 <style>
 :root{
-  --bg-primary:#0d0d0d; --bg-secondary:#161616; --bg-sunk:#1a1a1a;
-  --text-primary:#e8e8e8; --text-secondary:#a0a0a0; --text-muted:#666;
-  --accent:#5ba3a3; --accent-hover:#6fb8b8; --accent-subtle:rgba(91,163,163,.15);
-  --header-accent:#6b7a5c;
-  --border:#2a2a2a; --border-light:#333;
-  --font-sans:'IBM Plex Sans',-apple-system,sans-serif;
-  --font-serif:'IBM Plex Serif',Georgia,serif;
-  --font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  /* The two colours are the brief's: CRT plasma green over a signal blue. Everything else is
+     derived from them, so the page has no palette of its own to argue with the background. */
+  --crt-green:#82b814;
+  --crt-blue:#4686f0;
+  --ink:#f2f6e9;              /* near-white with a green cast, to sit inside the plasma */
+  --ink-dim:rgba(242,246,233,.62);
+  --font:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
 html{-webkit-text-size-adjust:100%}
-body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-sans);
-  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1000px;margin:0 auto;padding-inline:22px;padding-block:0 80px}
-a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:.2s ease}
-a:hover{color:var(--accent-hover);border-bottom-color:var(--accent-hover)}
-.back{display:inline-block;font-size:13px;color:var(--text-muted);margin-top:26px}
-.back:hover{color:var(--accent)}
-.eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--header-accent)}
-h1{font-family:var(--font-serif);font-size:clamp(30px,5.2vw,45px);line-height:1.12;
-  font-weight:600;letter-spacing:-.015em;margin:12px 0 0;text-wrap:balance}
-h2{font-family:var(--font-serif);font-size:24px;font-weight:600;letter-spacing:-.01em;
-  text-wrap:balance}
-p{max-width:68ch;color:var(--text-secondary)}
-code,.mono{font-family:var(--font-mono);font-size:.87em}
-header{border-bottom:1px solid var(--border);padding-block:14px 30px;
-  display:flex;flex-direction:column;gap:16px}
-.lede{font-family:var(--font-serif);font-size:18px;line-height:1.55;color:var(--text-secondary);max-width:64ch}
-.prov{display:flex;flex-wrap:wrap;gap:6px 9px;font-family:var(--font-mono);font-size:11.5px;
-  color:var(--text-muted)}
-.prov span{background:var(--bg-secondary);border:1px solid var(--border);border-radius:3px;padding:3px 8px}
-section{padding-block:36px;border-bottom:1px solid var(--border);
-  display:flex;flex-direction:column;gap:18px}
-section:last-of-type{border-bottom:0}
-.shead{display:flex;flex-direction:column;gap:8px}
+body{
+  background:var(--crt-blue);
+  color:var(--ink);
+  font-family:var(--font);
+  overflow:hidden;            /* the field fills the viewport; the panels float on it */
+  -webkit-font-smoothing:antialiased;
+}
 
-/* One entry per subproject. A new subproject is one <a class="entry"> and nothing else. */
-.entries{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);
-  border-radius:6px;overflow:hidden;background:var(--bg-secondary)}
-a.entry{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:baseline;
-  padding:14px 16px;border-bottom:1px solid var(--border);border-radius:0;color:inherit}
-a.entry:last-child{border-bottom:0}
-a.entry:hover{background:var(--bg-sunk);border-bottom-color:var(--border)}
-a.entry .name{font-weight:600;font-size:15px;color:var(--text-primary)}
-a.entry:hover .name{color:var(--accent)}
-a.entry .what{grid-column:1;font-size:13.5px;color:var(--text-secondary);line-height:1.5}
-a.entry .tag{grid-row:1;grid-column:2;font-family:var(--font-mono);font-size:10.5px;
-  letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);
-  border:1px solid var(--border);border-radius:3px;padding:2.5px 7px;white-space:nowrap}
-.sub{font-size:13px;color:var(--text-muted)}
-footer{padding-block:30px 0;font-size:12.5px;color:var(--text-muted)}
-footer p{color:var(--text-muted);max-width:76ch}
-@media(max-width:560px){.wrap{padding-inline:16px}a.entry{grid-template-columns:1fr}
-  a.entry .tag{grid-row:auto;grid-column:1;justify-self:start}}
+/* ---------- the field ---------- */
+#field{position:fixed;inset:0;z-index:0}
+#field canvas{display:block;width:100%;height:100%}
+/* If WebGL will not start, the page still has a lit ground to refract. */
+#field.no-gl{background:
+  radial-gradient(120% 90% at 20% 15%, rgba(130,184,20,.55), transparent 60%),
+  radial-gradient(100% 80% at 80% 80%, rgba(130,184,20,.35), transparent 62%),
+  var(--crt-blue);}
+
+/* ---------- chrome ---------- */
+.chrome{position:fixed;z-index:3;font-size:13px;letter-spacing:-.01em}
+.chrome a{color:var(--ink-dim);text-decoration:none;border-bottom:1px solid transparent}
+.chrome a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.brand{top:clamp(18px,4vh,34px);left:clamp(18px,4vw,42px);
+  display:flex;flex-direction:column;gap:2px;pointer-events:none}
+h1{font-size:clamp(15px,1.5vw,18px);font-weight:700;letter-spacing:-.02em;
+  color:var(--ink);text-shadow:0 1px 14px rgba(0,0,0,.45)}
+.home{top:clamp(18px,4vh,34px);right:clamp(18px,4vw,42px);pointer-events:auto;
+  text-shadow:0 1px 14px rgba(0,0,0,.45)}
+
+/* ---------- the scatter ---------- */
+#scatter{position:fixed;inset:0;z-index:2}
+a.panel{
+  position:absolute;
+  left:var(--x);top:var(--y);
+  width:var(--w);height:var(--h);
+  transform:translate(-50%,-50%) rotate(var(--rot));
+  text-decoration:none;color:var(--ink);
+  border-radius:var(--r);
+  display:grid;place-items:center;
+  isolation:isolate;
+  animation:drift var(--dur) ease-in-out var(--delay) infinite alternate;
+  transition:filter .22s ease;
+  will-change:transform;
+}
+a.panel .label{
+  font-weight:700;font-size:var(--fs);line-height:1.12;letter-spacing:-.025em;
+  text-align:center;padding:0 14px;text-wrap:balance;
+  text-shadow:0 1px 2px rgba(3,18,42,.85), 0 2px 16px rgba(3,18,42,.6);
+  position:relative;z-index:2;
+}
+/* Hover and focus lift the panel off the field. The glass itself brightens; nothing slides. */
+a.panel:hover,a.panel:focus-visible{filter:brightness(1.14) saturate(1.1)}
+a.panel:focus-visible{outline:2px solid var(--crt-green);outline-offset:6px}
+
+@keyframes drift{
+  from{transform:translate(-50%,-50%) rotate(var(--rot)) translateY(calc(var(--amp) * -1))}
+  to  {transform:translate(-50%,-50%) rotate(var(--rot)) translateY(var(--amp))}
+}
+
+/* ---------- glass, ported from the GlassSurface component ---------- */
+.glass{position:relative;overflow:hidden}
+.glass>svg.gfilter{position:absolute;inset:0;width:100%;height:100%;
+  pointer-events:none;opacity:0;z-index:-1}
+/* Chrome: the real thing. backdrop-filter takes the SVG displacement filter by url(). */
+.glass.svg-ok{
+  background:hsl(0 0% 100% / .04);
+  backdrop-filter:var(--gf) saturate(1.35);
+  box-shadow:
+    0 0 2px 1px rgba(255,255,255,.34) inset,
+    0 0 12px 5px rgba(255,255,255,.14) inset,
+    0 6px 22px rgba(4,12,34,.30),
+    0 14px 48px rgba(4,12,34,.22);
+}
+/* Safari and Firefox do not support backdrop-filter:url(). They get blur and saturation. */
+.glass.svg-no{
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(13px) saturate(1.7) brightness(1.08);
+  -webkit-backdrop-filter:blur(13px) saturate(1.7) brightness(1.08);
+  border:1px solid rgba(255,255,255,.26);
+  box-shadow:0 6px 26px rgba(4,12,34,.3), inset 0 1px 0 0 rgba(255,255,255,.34);
+}
+@supports not (backdrop-filter:blur(2px)){
+  .glass.svg-no{background:rgba(255,255,255,.22)}
+}
+
+/* ---------- narrow screens: the scatter becomes a column ---------- */
+@media (max-width:720px){
+  body{overflow-y:auto}
+  #scatter{position:relative;inset:auto;display:flex;flex-direction:column;
+    align-items:center;gap:14px;padding:96px 16px 56px;min-height:100%}
+  a.panel{position:relative;left:auto;top:auto;width:min(300px,100%);height:74px;
+    transform:rotate(var(--rot));animation:none}
+  a.panel:nth-child(odd){align-self:flex-start}
+  a.panel:nth-child(even){align-self:flex-end}
+  a.panel .label{font-size:19px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  a.panel{animation:none}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-<a class="back" href="/">&larr; floriankaempf.com</a>
 
-<header>
-  <p class="eyebrow">Drosophila chemosensation &middot; Jefferis laboratory</p>
-  <h1>Pheromone paper</h1>
-  <p class="lede">How a male fly reads the chemical signals of another fly, and where the two sexes
-  part company. Each subproject below answers one question and holds its own methods and its own
-  limits.</p>
-  <div class="prov">
-    <span>maleCNS v1.0</span><span>FlyWire 783</span><span>neuPrint</span><span>neuroglancer</span>
-  </div>
-</header>
+<div id="field" aria-hidden="true"></div>
 
-<section>
-  <div class="shead">
-    <p class="eyebrow">Smell</p>
-    <h2>Odours carried through the air</h2>
-    <p>The olfactory receptor neurons that answer to fly odours, read against every other
-    olfactory channel and against the female brain.</p>
-  </div>
-  <div class="entries">
-    <a class="entry" href="olfactory/">
-      <span class="name">Fly odour ORN figure</span>
-      <span class="tag">figure</span>
-      <span class="what">Are there more fly-odour receptor neurons in the male than in the female,
-      how much of what they speak to is sexually dimorphic, and do the two sexes spread the output
-      differently? Five channels against the 48 other ORN types.</span>
-    </a>
-  </div>
-</section>
+<div class="chrome brand"><h1>Pheromone paper</h1></div>
+<div class="chrome home"><a href="/">floriankaempf.com</a></div>
 
-<section>
-  <div class="shead">
-    <p class="eyebrow">Touch and taste</p>
-    <h2>Signals read at contact</h2>
-    <p>The contact chemosensory neurons of the legs and the wings, the neurons they drive, and the
-    reagents that reach them. Each page holds its own methods and its own limits.</p>
-  </div>
-  <div class="entries">
-    <a class="entry" href="../ng/pheromone-paper/">
-      <span class="name">Contact chemosensation, all pages</span>
-      <span class="tag">hub</span>
-      <span class="what">The index of the analysis pages and the bench pages for the contact
-      chemosensory work, together with the connectome scenes behind them.</span>
-    </a>
-    <a class="entry" href="../ng/sn-an-connections/">
-      <span class="name">Sensory neurons to their partners</span>
-      <span class="tag">analysis</span>
-      <span class="what">The contact chemosensory neurons and the neurons that they drive.</span>
-    </a>
-    <a class="entry" href="../ng/bristle-impact/">
-      <span class="name">Bristle impact</span>
-      <span class="tag">analysis</span>
-      <span class="what">Which bristle types and which neuromeres drive the dimorphic neurons.</span>
-    </a>
-    <a class="entry" href="../ng/bristle-typing/">
-      <span class="name">Bristle typing</span>
-      <span class="tag">analysis</span>
-      <span class="what">Do the dimorphic targets group the bristle types? Three groups, and the
-      receptor assignment is not one of them.</span>
-    </a>
-    <a class="entry" href="../ng/dimorphic-ranking/">
-      <span class="name">Dimorphic ranking</span>
-      <span class="tag">analysis</span>
-      <span class="what">The ascending neurons after contact chemosensation, ranked by their
-      dimorphic output.</span>
-    </a>
-    <a class="entry" href="../ng/an05b023-dimorphic/">
-      <span class="name">AN05B023, dimorphic partners</span>
-      <span class="tag">analysis</span>
-      <span class="what">The dimorphic partners of AN05B023a to d, separated by volume.</span>
-    </a>
-  </div>
-</section>
+<nav id="scatter" aria-label="Subprojects">
+  <!-- Size is not decoration: the two result hubs are the largest, the five analyses sit in the
+       middle, and the two bench protocols are the smallest. -->
+  <a class="panel glass" href="olfactory/"
+     style="--x:24%;--y:30%;--w:250px;--h:104px;--r:26px;--fs:25px;--rot:-5.5deg;--amp:9px;--dur:11s;--delay:0s">
+     <span class="label">Fly odours</span></a>
 
-<section>
-  <div class="shead">
-    <p class="eyebrow">Bench</p>
-    <h2>What to do at the bench</h2>
-    <p>The question, the measurement and the reagents, and the genotypes that deliver them.</p>
-  </div>
-  <div class="entries">
-    <a class="entry" href="../ng/receptor-typing/">
-      <span class="name">Receptor typing</span>
-      <span class="tag">protocol</span>
-      <span class="what">The question, the measurement and the reagents. Three documents in one
-      page.</span>
-    </a>
-    <a class="entry" href="../ng/first-cross/">
-      <span class="name">Crosses</span>
-      <span class="tag">protocol</span>
-      <span class="what">The genotypes, the stock list, the crosses, the clean-ups and the
-      controls.</span>
-    </a>
-  </div>
-</section>
+  <a class="panel glass" href="../ng/pheromone-paper/"
+     style="--x:72%;--y:24%;--w:286px;--h:108px;--r:26px;--fs:23px;--rot:4deg;--amp:8px;--dur:13s;--delay:-3s">
+     <span class="label">Contact chemosensation</span></a>
 
-<footer>
-  <p>Florian K&auml;mpf &middot; Jefferis laboratory, MRC Laboratory of Molecular Biology. The
-  connectome pages read the male CNS connectome at neuPrint and the FlyWire proofread reconstruction
-  of the female brain. Each page names the dataset version it used.</p>
-</footer>
+  <a class="panel glass" href="../ng/sn-an-connections/"
+     style="--x:15%;--y:62%;--w:206px;--h:86px;--r:22px;--fs:20px;--rot:6.5deg;--amp:7px;--dur:9.5s;--delay:-1.5s">
+     <span class="label">Sensory partners</span></a>
 
-</div>
+  <a class="panel glass" href="../ng/bristle-impact/"
+     style="--x:43%;--y:52%;--w:196px;--h:86px;--r:22px;--fs:20px;--rot:-3deg;--amp:10px;--dur:12.5s;--delay:-6s">
+     <span class="label">Bristle impact</span></a>
+
+  <a class="panel glass" href="../ng/bristle-typing/"
+     style="--x:66%;--y:56%;--w:196px;--h:86px;--r:22px;--fs:20px;--rot:7deg;--amp:6px;--dur:10.5s;--delay:-4s">
+     <span class="label">Bristle typing</span></a>
+
+  <a class="panel glass" href="../ng/dimorphic-ranking/"
+     style="--x:87%;--y:44%;--w:200px;--h:86px;--r:22px;--fs:20px;--rot:-6deg;--amp:9px;--dur:14s;--delay:-8s">
+     <span class="label">Dimorphic ranking</span></a>
+
+  <a class="panel glass" href="../ng/an05b023-dimorphic/"
+     style="--x:33%;--y:80%;--w:196px;--h:86px;--r:22px;--fs:20px;--rot:2.5deg;--amp:8px;--dur:11.5s;--delay:-2s">
+     <span class="label">AN05B023</span></a>
+
+  <a class="panel glass" href="../ng/receptor-typing/"
+     style="--x:60%;--y:84%;--w:178px;--h:76px;--r:20px;--fs:18px;--rot:-4.5deg;--amp:7px;--dur:10s;--delay:-5s">
+     <span class="label">Receptor typing</span></a>
+
+  <a class="panel glass" href="../ng/first-cross/"
+     style="--x:84%;--y:74%;--w:170px;--h:76px;--r:20px;--fs:18px;--rot:5deg;--amp:9px;--dur:12s;--delay:-7s">
+     <span class="label">Crosses</span></a>
+</nav>
+
+<script>
+/* ===========================================================================================
+   CRT plasma field. The fragment shader is the CRT Warp shader from reactbits.dev, unchanged.
+   The React component drives it with three.js; this is the same shader on raw WebGL, so the
+   page ships no library. Two things three.js did for free are done by hand here: the colour
+   uniforms go in linear space, and the fragment is encoded back to sRGB on the way out.
+   =========================================================================================== */
+(function () {
+  var host = document.getElementById('field');
+  var OPTS = {
+    color: '#82b814', backgroundColor: '#4686f0',
+    speed: 0.5, curvature: 0.25, scanlineStrength: 0.25, scanlineFrequency: 200,
+    waveAmplitude: 0.3, waveFrequency: 2.5, bloom: 1.5, bloomRadius: 1,
+    noise: 0.1, vignette: 0, brightness: 1.25, pixelation: 1, rgbShift: 0.015,
+    mouseReact: true, mouseStrength: 0.5, fps: 30
+  };
+
+  var canvas = document.createElement('canvas');
+  var gl = canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power' })
+        || canvas.getContext('experimental-webgl');
+  if (!gl) { host.className = 'no-gl'; return; }
+  host.appendChild(canvas);
+
+  var VERT =
+    'attribute vec2 aPos;varying vec2 vUv;' +
+    'void main(){vUv=aPos*0.5+0.5;gl_Position=vec4(aPos,0.0,1.0);}';
+
+  var FRAG = [
+'precision highp float;',
+'varying vec2 vUv;',
+'uniform vec2 uResolution;uniform float uTime;uniform vec3 uColor;uniform vec3 uBackgroundColor;',
+'uniform float uCurvature;uniform float uScanlineStrength;uniform float uScanlineFrequency;',
+'uniform float uWaveAmplitude;uniform float uWaveFrequency;uniform float uBloom;uniform float uBloomRadius;',
+'uniform float uNoise;uniform float uVignette;uniform float uBrightness;uniform float uPixelation;',
+'uniform float uRgbShift;uniform vec2 uPointer;uniform float uMouseStrength;uniform float uMouseReact;',
+'float hash21(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}',
+'vec2 crtCurve(vec2 uv,float radius){',
+'  vec2 p=(uv-0.5)*2.0;float safeRadius=max(radius,1.415);',
+'  float cornerScale=safeRadius/sqrt(max(safeRadius*safeRadius-2.0,0.001));',
+'  p=safeRadius*p/sqrt(max(safeRadius*safeRadius-dot(p,p),0.001));p/=cornerScale;return p*0.5+0.5;}',
+'float referencePlasma(vec2 uv,float t){',
+'  float frequencyScale=max(uWaveFrequency/2.2,0.001);uv=(uv-0.5)*frequencyScale+0.5;',
+'  float scanline=0.5-0.5*cos(uv.y*3.14159265*uScanlineFrequency);',
+'  scanline=mix(1.0,scanline,uScanlineStrength);',
+'  uv*=vec2(80.0,24.0);uv=ceil(uv);uv/=vec2(80.0,24.0);',
+'  float amplitude=uWaveAmplitude/0.28;float field=0.0;',
+'  field+=0.7*sin(0.5*uv.x+t/5.0);',
+'  field+=3.0*sin(1.6*uv.y+t/5.0);',
+'  field+=sin(10.0*(uv.y*sin(t/2.0)+uv.x*cos(t/5.0))+t/2.0);',
+'  float cx=uv.x+0.5*sin(t/2.0);float cy=uv.y+0.5*cos(t/4.0);',
+'  field+=0.4*sin(sqrt(100.0*cx*cx+100.0*cy*cy+1.0)+t);',
+'  field+=0.9*sin(sqrt(75.0*cx*cx+25.0*cy*cy+1.0)+t);',
+'  field-=1.4*sin(sqrt(256.0*cx*cx+25.0*cy*cy+1.0)+t);',
+'  field+=0.3*sin(0.5*uv.y+uv.x+sin(t));',
+'  return scanline*floor(3.0*(0.5+0.499*sin(field*amplitude)))/3.0;}',
+'vec3 linearToSRGB(vec3 c){',
+'  return mix(c*12.92,1.055*pow(max(c,vec3(0.0)),vec3(1.0/2.4))-0.055,step(vec3(0.0031308),c));}',
+'void main(){',
+'  vec2 uv=vUv;',
+'  if(uPixelation>1.001){vec2 cells=max(uResolution/uPixelation,vec2(1.0));uv=(floor(uv*cells)+0.5)/cells;}',
+'  float curveRadius=1.1+0.42/max(uCurvature,0.001);',
+'  if(uMouseReact>0.5){curveRadius*=exp(-uPointer.y*uMouseStrength*0.4);}',
+'  vec2 curvedUv=crtCurve(uv,curveRadius);',
+'  if(uMouseReact>0.5){curvedUv.x-=uPointer.x*uMouseStrength*0.035;}',
+'  float signal=referencePlasma(curvedUv,uTime);',
+'  float radius=0.01*uBloomRadius;float glow=signal*0.2;',
+'  glow+=referencePlasma(curvedUv+vec2(radius,0.0),uTime)*0.12;',
+'  glow+=referencePlasma(curvedUv-vec2(radius,0.0),uTime)*0.12;',
+'  glow+=referencePlasma(curvedUv+vec2(0.0,radius),uTime)*0.12;',
+'  glow+=referencePlasma(curvedUv-vec2(0.0,radius),uTime)*0.12;',
+'  glow+=referencePlasma(curvedUv+vec2(radius),uTime)*0.08;',
+'  glow+=referencePlasma(curvedUv-vec2(radius),uTime)*0.08;',
+'  glow+=referencePlasma(curvedUv+vec2(radius,-radius),uTime)*0.08;',
+'  glow+=referencePlasma(curvedUv+vec2(-radius,radius),uTime)*0.08;',
+'  float redSignal=referencePlasma(curvedUv+vec2(uRgbShift,0.0),uTime);',
+'  float blueSignal=referencePlasma(curvedUv-vec2(uRgbShift,0.0),uTime);',
+'  vec3 channelSignal=vec3(redSignal,signal,blueSignal);',
+'  vec3 waveColor=uColor*(0.3+signal*0.7+glow*uBloom*0.65);',
+'  waveColor+=(channelSignal-signal)*0.42;',
+'  float edge=clamp(1.0-dot(vUv-0.5,vUv-0.5)*2.0,0.0,1.0);',
+'  float edgeFade=mix(1.0,smoothstep(0.0,1.0,edge),uVignette);',
+'  float waveMask=clamp(signal*0.82+glow*0.52,0.0,1.0)*edgeFade;',
+'  float grain=hash21(gl_FragCoord.xy+vec2(fract(uTime)*173.0));',
+'  waveColor=max(waveColor*uBrightness,vec3(0.0));',
+'  vec3 color=mix(uBackgroundColor,waveColor,waveMask);',
+'  color+=(grain-0.5)*uNoise;',
+'  gl_FragColor=vec4(linearToSRGB(max(color,vec3(0.0))),1.0);}'
+  ].join('\n');
+
+  function compile(type, src) {
+    var s = gl.createShader(type);
+    gl.shaderSource(s, src); gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { console.warn(gl.getShaderInfoLog(s)); return null; }
+    return s;
+  }
+  var vs = compile(gl.VERTEX_SHADER, VERT), fs = compile(gl.FRAGMENT_SHADER, FRAG);
+  if (!vs || !fs) { host.className = 'no-gl'; canvas.remove(); return; }
+
+  var prog = gl.createProgram();
+  gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { host.className = 'no-gl'; canvas.remove(); return; }
+  gl.useProgram(prog);
+
+  var buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+  var aPos = gl.getAttribLocation(prog, 'aPos');
+  gl.enableVertexAttribArray(aPos);
+  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+  var U = {};
+  ['uResolution','uTime','uColor','uBackgroundColor','uCurvature','uScanlineStrength',
+   'uScanlineFrequency','uWaveAmplitude','uWaveFrequency','uBloom','uBloomRadius','uNoise',
+   'uVignette','uBrightness','uPixelation','uRgbShift','uPointer','uMouseStrength','uMouseReact']
+    .forEach(function (n) { U[n] = gl.getUniformLocation(prog, n); });
+
+  // three.js converts an sRGB hex to the linear working space before the shader sees it.
+  function toLinear(hex) {
+    var n = parseInt(hex.slice(1), 16);
+    return [16, 8, 0].map(function (sh) {
+      var c = ((n >> sh) & 255) / 255;
+      return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+    });
+  }
+  var col = toLinear(OPTS.color), bg = toLinear(OPTS.backgroundColor);
+  gl.uniform3f(U.uColor, col[0], col[1], col[2]);
+  gl.uniform3f(U.uBackgroundColor, bg[0], bg[1], bg[2]);
+  gl.uniform1f(U.uCurvature, OPTS.curvature);
+  gl.uniform1f(U.uScanlineStrength, OPTS.scanlineStrength);
+  gl.uniform1f(U.uScanlineFrequency, OPTS.scanlineFrequency);
+  gl.uniform1f(U.uWaveAmplitude, OPTS.waveAmplitude);
+  gl.uniform1f(U.uWaveFrequency, OPTS.waveFrequency);
+  gl.uniform1f(U.uBloom, OPTS.bloom);
+  gl.uniform1f(U.uBloomRadius, OPTS.bloomRadius);
+  gl.uniform1f(U.uNoise, OPTS.noise);
+  gl.uniform1f(U.uVignette, OPTS.vignette);
+  gl.uniform1f(U.uBrightness, OPTS.brightness);
+  gl.uniform1f(U.uPixelation, OPTS.pixelation);
+  gl.uniform1f(U.uRgbShift, OPTS.rgbShift);
+  gl.uniform1f(U.uMouseStrength, OPTS.mouseStrength);
+  gl.uniform1f(U.uMouseReact, OPTS.mouseReact ? 1 : 0);
+
+  function resize() {
+    var w = Math.max(host.clientWidth, 1), h = Math.max(host.clientHeight, 1);
+    canvas.width = w; canvas.height = h;          // dpr 1, as the component ships it
+    gl.viewport(0, 0, w, h);
+    gl.uniform2f(U.uResolution, w, h);
+  }
+  new ResizeObserver(resize).observe(host);
+  resize();
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var px = 0, py = 0, tx = 0, ty = 0, t = 0, last = 0, prev = 0;
+  var interval = 1000 / OPTS.fps;
+
+  addEventListener('pointermove', function (e) {
+    tx = (e.clientX / Math.max(innerWidth, 1)) * 2 - 1;
+    ty = -((e.clientY / Math.max(innerHeight, 1)) * 2 - 1);
+  }, { passive: true });
+
+  function frame(now) {
+    requestAnimationFrame(frame);
+    if (document.hidden) { prev = now; return; }
+    if (now - last < interval) return;
+    last = now - ((now - last) % interval);
+    var dt = Math.min((now - prev) / 1000, 0.1); prev = now;
+    if (!reduce.matches) t += dt * OPTS.speed;
+    px += (tx - px) * 0.08; py += (ty - py) * 0.08;
+    gl.uniform1f(U.uTime, t);
+    gl.uniform2f(U.uPointer, px, py);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+  }
+  requestAnimationFrame(function (n) { prev = n; frame(n); });
+})();
+
+/* ===========================================================================================
+   Glass panels, ported from the GlassSurface component on reactbits.dev. The displacement map
+   is an SVG drawn to the panel's own size, so the refraction follows each panel's edges.
+   backdrop-filter:url() is Chrome only; Safari and Firefox take the blur fallback.
+   =========================================================================================== */
+(function () {
+  var G = { borderWidth: 0.07, brightness: 50, opacity: 0.93, blur: 11, displace: 0.7,
+            distortionScale: -140, redOffset: 0, greenOffset: 10, blueOffset: 20,
+            xChannel: 'R', yChannel: 'G', mixBlendMode: 'difference' };
+
+  function supportsSVGFilter() {
+    var ua = navigator.userAgent;
+    if ((/Safari/.test(ua) && !/Chrome/.test(ua)) || /Firefox/.test(ua)) return false;
+    var d = document.createElement('div');
+    d.style.backdropFilter = 'url(#x)';
+    return d.style.backdropFilter !== '';
+  }
+  var ok = supportsSVGFilter();
+
+  document.querySelectorAll('.glass').forEach(function (el, i) {
+    el.classList.add(ok ? 'svg-ok' : 'svg-no');
+    if (!ok) return;
+
+    var id = 'gf' + i, rg = 'rg' + i, bg = 'bg' + i;
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('class', 'gfilter');
+    svg.innerHTML =
+      '<defs><filter id="' + id + '" color-interpolation-filters="sRGB" x="0%" y="0%" width="100%" height="100%">' +
+      '<feImage x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="map"/>' +
+      '<feDisplacementMap in="SourceGraphic" in2="map" result="dR"/>' +
+      '<feColorMatrix in="dR" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="r"/>' +
+      '<feDisplacementMap in="SourceGraphic" in2="map" result="dG"/>' +
+      '<feColorMatrix in="dG" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="g"/>' +
+      '<feDisplacementMap in="SourceGraphic" in2="map" result="dB"/>' +
+      '<feColorMatrix in="dB" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="b"/>' +
+      '<feBlend in="r" in2="g" mode="screen" result="rg"/>' +
+      '<feBlend in="rg" in2="b" mode="screen" result="out"/>' +
+      '<feGaussianBlur in="out" stdDeviation="' + G.displace + '"/>' +
+      '</filter></defs>';
+    el.insertBefore(svg, el.firstChild);
+    el.style.setProperty('--gf', 'url(#' + id + ')');
+
+    var maps = svg.querySelectorAll('feDisplacementMap');
+    [G.redOffset, G.greenOffset, G.blueOffset].forEach(function (off, k) {
+      maps[k].setAttribute('scale', String(G.distortionScale + off));
+      maps[k].setAttribute('xChannelSelector', G.xChannel);
+      maps[k].setAttribute('yChannelSelector', G.yChannel);
+    });
+
+    var feImage = svg.querySelector('feImage');
+    function build() {
+      var rect = el.getBoundingClientRect();
+      var w = Math.round(rect.width) || 200, h = Math.round(rect.height) || 80;
+      var r = parseFloat(getComputedStyle(el).borderRadius) || 20;
+      var edge = Math.min(w, h) * (G.borderWidth * 0.5);
+      var s =
+        '<svg viewBox="0 0 ' + w + ' ' + h + '" xmlns="' + ns + '"><defs>' +
+        '<linearGradient id="' + rg + '" x1="100%" y1="0%" x2="0%" y2="0%">' +
+        '<stop offset="0%" stop-color="#0000"/><stop offset="100%" stop-color="red"/></linearGradient>' +
+        '<linearGradient id="' + bg + '" x1="0%" y1="0%" x2="0%" y2="100%">' +
+        '<stop offset="0%" stop-color="#0000"/><stop offset="100%" stop-color="blue"/></linearGradient>' +
+        '</defs>' +
+        '<rect width="' + w + '" height="' + h + '" fill="black"/>' +
+        '<rect width="' + w + '" height="' + h + '" rx="' + r + '" fill="url(#' + rg + ')"/>' +
+        '<rect width="' + w + '" height="' + h + '" rx="' + r + '" fill="url(#' + bg + ')" style="mix-blend-mode:' + G.mixBlendMode + '"/>' +
+        '<rect x="' + edge + '" y="' + edge + '" width="' + (w - edge * 2) + '" height="' + (h - edge * 2) +
+        '" rx="' + r + '" fill="hsl(0 0% ' + G.brightness + '% / ' + G.opacity + ')" style="filter:blur(' + G.blur + 'px)"/>' +
+        '</svg>';
+      feImage.setAttribute('href', 'data:image/svg+xml,' + encodeURIComponent(s));
+    }
+    build();
+    new ResizeObserver(function () { setTimeout(build, 0); }).observe(el);
+  });
+})();
+</script>
 </body>
 </html>
